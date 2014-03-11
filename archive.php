@@ -9,6 +9,7 @@
 
 if ( have_posts() ) : ?>
 
+	<!-- Page header -->
 	<header class="page-header">
 		<h1 class="page-title">
 			<?php
@@ -70,7 +71,8 @@ if ( have_posts() ) : ?>
 				printf( '<div class="taxonomy-description">%s</div>', $term_description );
 			endif;
 		?>
-	</header><!-- .page-header -->
+	</header>
+
 
 	<?php /* Start the Loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>

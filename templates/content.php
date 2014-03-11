@@ -1,36 +1,44 @@
 <?php
 /**
+ * The template for displaying posts in a loop
+ *
  * @package Cherry Framework
  */
 ?>
 
+<!-- Posts loop view -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<!-- Entry header -->
 	<header class="entry-header">
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php cherry_posted_on(); ?>
-		</div><!-- .entry-meta -->
+			<div class="entry-meta">
+				<?php cherry_posted_on(); ?>
+			</div>
 		<?php endif; ?>
-	</header><!-- .entry-header -->
 
+	</header>
+	
+	<!-- Entry content -->
 	<?php if ( is_search() ) : // Only display Excerpts for Search ?>
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
+		<div class="entry-summary">
+			<?php the_excerpt(); ?>
+		</div>
 	<?php else : ?>
-	<div class="entry-content">
-		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'cherry' ) ); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'cherry' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
+		<div class="entry-content">
+			<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'cherry' ) ); ?>
+			<?php
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'cherry' ),
+					'after'  => '</div>',
+				) );
+			?>
+		</div>
 	<?php endif; ?>
 
+	<!-- Entry footer -->
 	<footer class="entry-meta">
 		<?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
 			<?php

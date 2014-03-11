@@ -3,15 +3,16 @@
 <div id="content" class="site-content">
 	<div class="container">
 		<div class="row">
-
+			
+			<!-- Primary column -->
 			<div id="primary" class="content-area col-sm-8">
 				<main id="main" class="site-main" role="main">
 					<?php include cherry_template_path(); ?>
-				</main><!-- #main -->
-			</div><!-- #primary -->
+				</main>
+			</div>
 
 		</div>
 	</div>
-</div><!-- #content -->
+</div>
 
 <?php get_footer( cherry_template_base() ); ?>

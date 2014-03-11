@@ -5,21 +5,25 @@
  * @package Cherry Framework
  */
 ?>
+
 	<div id="secondary" class="widget-area col-sm-4" role="complementary">
 		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
 
+			<!-- Search widget -->
 			<aside id="search" class="widget widget_search">
 				<?php get_search_form(); ?>
 			</aside>
 
-			<aside id="archives" class="widget">
+			<!-- Archives widget -->
+			<aside id="archives" class="widget widget_archives">
 				<h1 class="widget-title"><?php _e( 'Archives', 'cherry' ); ?></h1>
 				<ul>
 					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
 				</ul>
 			</aside>
 
-			<aside id="meta" class="widget">
+			<!-- Meta widget -->
+			<aside id="meta" class="widget widget_meta">
 				<h1 class="widget-title"><?php _e( 'Meta', 'cherry' ); ?></h1>
 				<ul>
 					<?php wp_register(); ?>
@@ -29,4 +33,4 @@
 			</aside>
 
 		<?php endif; // end sidebar widget area ?>
-	</div><!-- #secondary -->
+	</div>

@@ -31,8 +31,8 @@ function cherry_register_sidebar( $args ) {
 		'description'   => '',
 		'before_widget' => '<aside id="%s" class="widget %s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h3 class="widget-title">',
-		'after_title'   => '</h3>'
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>'
 	);
 
 	// Allow developers to filter the default sidebar arguments.

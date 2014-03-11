@@ -1,18 +1,24 @@
 <?php
 /**
+ * The template for displaying single post
+ * 
  * @package Cherry Framework
  */
 ?>
 
+<!-- Post entry view -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+	<!-- Entry header -->
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
 
 		<div class="entry-meta">
 			<?php cherry_posted_on(); ?>
-		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
+		</div>
+	</header>
 
+	<!-- Entry content -->
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php
@@ -21,8 +27,9 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
+	<!-- Entry footer -->
 	<footer class="entry-meta">
 		<?php
 			/* translators: used between list items, there is a space after the comma */
@@ -58,5 +65,5 @@
 		?>
 
 		<?php edit_post_link( __( 'Edit', 'cherry' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
-</article><!-- #post-## -->
+	</footer>
+</article>
