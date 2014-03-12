@@ -41,8 +41,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /*--------------------------------------------------------------
 0.0 - Import CSS
 --------------------------------------------------------------*/
-@import "assets/css/bootstrap.css";
-
+@import "assets/css/cherry-css-framework.css";
+@import "assets/css/style-test.css";
 
 /*--------------------------------------------------------------
 1.0 - Reset
