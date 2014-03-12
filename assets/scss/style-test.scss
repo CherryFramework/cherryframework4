@@ -1,0 +1,35 @@
+.site-header{
+	margin-bottom: 30px;
+}
+#content{
+	margin-bottom: 30px;
+}
+.container{
+	background: #5bc0de;
+}
+#primary{
+	#main{
+
+			margin-bottom: 50px;
+				h2{
+					margin-bottom: 20px;
+				}
+				.innerWrap{
+					width: 100%;
+					background: #333;
+					margin-bottom: 10px;
+					color: #fff;
+					text-align: center;
+					line-height: 50px;
+				}
+				.innerWrapSub{
+					width: 100%;
+					background: #555;
+					color: #fff;
+					text-align: center;
+					line-height: 50px;
+					margin-top: 20px;
+				}
+		
+	}
+}
