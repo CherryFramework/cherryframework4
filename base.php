@@ -11,7 +11,9 @@
 				</main>
 			</div>
 
-			<?php get_sidebar( cherry_template_base() ); ?>
+			<?php if ( cherry_display_sidebar() ) {
+				include cherry_sidebar_path();
+			} ?>
 
 		</div>
 	</div>

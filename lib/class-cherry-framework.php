@@ -50,7 +50,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Language functions and translations setup.
 			// add_action( 'after_setup_theme', array( $this, 'lang' ), 4 );
 
-			/* Handle theme supported features. */
+			// Handle theme supported features.
 			add_action( 'after_setup_theme', array( $this, 'theme_support' ), 12 );
 
 			// Load the framework functions.
@@ -139,9 +139,14 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			remove_action( 'wp_head', 'wp_generator' );
 			add_action( 'wp_head', 'wp_generator', 1 );
 
-			// Make text widgets and term descriptions shortcode aware.
+			// Make text widgets, excerpt and term descriptions shortcode aware.
 			add_filter( 'widget_text', 'do_shortcode' );
+			add_filter( 'the_excerpt', 'do_shortcode' );
 			add_filter( 'term_description', 'do_shortcode' );
+
+			// Prevents autop in text widgets, excerpt
+			add_filter('widget_text', 'shortcode_unautop');
+			add_filter('the_excerpt', 'shortcode_unautop');
 		}
 
 		/**
@@ -211,8 +216,11 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function functions() {
 
-			// Load Cherry_Wrapping class
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-wrapping.php' );
+			// Load Cherry_Wrapping class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-wrapping.php' );
+
+			// Load Cherry_Sidebar class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
 
 			// Load the custom template tags.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-tags.php' );
