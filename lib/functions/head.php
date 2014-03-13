@@ -35,7 +35,7 @@ function cherry_meta_charset() {
  * @return void
  */
 function cherry_doctitle() {
-	printf( "<title>%s</title>\n", wp_title( ':', false ) );
+	printf( "<title> %s </title>\n", wp_title( ' : ', false ) );
 }
 
 /**
