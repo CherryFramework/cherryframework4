@@ -22,11 +22,12 @@ function cherry_template_base() {
 }
 
 /**
- * [cherry_sidebar_path description]
+ * Function return new instance of Cherry_Wrapping class for sidebar
+ * with the fallback templates/sidebar.php as the first item.
  *
  * @since  4.0.0
  *
- * @return object New instance of Cherry_Wrapping class for sidebar with the fallback templates/sidebar.php as the first item.
+ * @return object
  */
 function cherry_sidebar_path() {
 	return new Cherry_Wrapping( 'templates/sidebar.php' );
