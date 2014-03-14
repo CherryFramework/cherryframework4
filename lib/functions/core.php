@@ -14,7 +14,7 @@
 
 /**
  * Allows theme developers to set a definite prefix for their theme. If this isn't set, the framework
- * will assume the prefix is the value of `get_template()`. This should be called early, such as in
+ * will assume the prefix is the value of 'get_template()'. This should be called early, such as in
  * the theme setup function.
  *
  * @since  4.0.0

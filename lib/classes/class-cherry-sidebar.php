@@ -82,7 +82,12 @@ class Cherry_Sidebar {
 		if ( is_array( $conditional_tag ) ) {
 			return $conditional_tag[0]( $conditional_tag[1] );
 		} else {
-			return $conditional_tag();
+			// Ensure that funcitons exist
+			if ( function_exists( $conditional_tag ) ) {
+				return $conditional_tag();
+			} else {
+				return false;
+			}
 		}
 	}
 
