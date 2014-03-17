@@ -10,7 +10,7 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-/* Adds common theme items to <head>. */
+// Adds common theme items to <head>.
 add_action( 'wp_head', 'cherry_meta_charset',  0 );
 add_action( 'wp_head', 'cherry_doctitle',      0 );
 add_action( 'wp_head', 'cherry_meta_viewport', 1 );
@@ -20,19 +20,15 @@ add_action( 'wp_head', 'cherry_link_pingback', 3 );
  * Adds the meta charset to the header.
  *
  * @since  4.0.0
- * @access public
- * @return void
  */
 function cherry_meta_charset() {
-	echo '<meta charset="' . get_bloginfo( 'charset' ) . '" />' . "\n";
+	echo "<meta charset=\"" . get_bloginfo( 'charset' ) . "\" />\n";
 }
 
 /**
  * Adds the title to the header.
  *
  * @since  4.0.0
- * @access public
- * @return void
  */
 function cherry_doctitle() {
 	printf( "<title> %s </title>\n", wp_title( ' : ', false ) );
@@ -42,20 +38,17 @@ function cherry_doctitle() {
  * Adds the meta viewport to the header.
  *
  * @since  4.0.0
- * @access public
  */
 function cherry_meta_viewport() {
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
+	echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n";
 }
 
 /**
  * Adds the pingback link to the header.
  *
  * @since  4.0.0
- * @access public
- * @return void
  */
 function cherry_link_pingback() {
 	if ( 'open' === get_option( 'default_ping_status' ) )
-		echo '<link rel="pingback" href="' . get_bloginfo( 'pingback_url' ) . '" />' . "\n";
+		echo "<link rel=\"pingback\" href=\"" . get_bloginfo( 'pingback_url' ) . "\" />\n";
 }

@@ -222,11 +222,17 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load Cherry_Sidebar class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
 
+			// Load the general template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-general.php' );
+
 			// Load the custom template tags.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-tags.php' );
 
 			// Load the custom functions that act independently of the theme templates.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'extras.php' );
+
+			// Load the structure functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'structure.php' );
 		}
 
 		/**
