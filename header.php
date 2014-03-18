@@ -7,18 +7,19 @@
  * @package Cherry Framework
  */
 ?>
-
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
 <head>
-	<?php wp_head(); ?>
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 	<?php do_action( 'cherry_body_start' ); ?>
 	<div id="site_wrapper" class="hfeed site">
 
-		<?php do_action( 'cherry_header_before' ); ?>
-		<?php do_action( 'cherry_header' ); ?>
-		<?php do_action( 'cherry_header_after' ); ?>
+		<?php
+			do_action( 'cherry_header_before' );
+			do_action( 'cherry_header' );
+			do_action( 'cherry_header_after' );
+		?>

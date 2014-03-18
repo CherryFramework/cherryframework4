@@ -30,7 +30,12 @@ function cherry_site_link() {
  * @return string
  */
 function cherry_get_site_link() {
-	return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url() ), get_bloginfo( 'name' ) );
+	if ( $title = get_bloginfo( 'name' ) ) {
+		$url = apply_filters( 'cherry_change_logo_url', esc_url( home_url('/') ) );
+		return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', $url, $title );
+	} else {
+		return false;
+	}
 }
 
 /**
@@ -52,7 +57,7 @@ function cherry_wp_link() {
  * @return string
  */
 function cherry_get_wp_link() {
-	return sprintf( '<a class="wp-link" href="http://wordpress.org">%s</a>', 'WordPress' );
+	return sprintf( '<a class="wp-link" href="http://wordpress.org/">%s</a>', 'WordPress' );
 }
 
 /**
@@ -101,10 +106,10 @@ function cherry_site_title() {
  * @return string
  */
 function cherry_get_site_title() {
-
-	if ( $title = get_bloginfo( 'name' ) ) {
-		$title = sprintf( '<h1 class="%s"><a href="%s" rel="home">%s</a></h1>', 'site-title', home_url(), $title );
+	if ( !cherry_get_site_link() ) {
+		return false;
 	}
+	$title = sprintf( '<h1 class="%s">%s</h1>', 'site-title', cherry_get_site_link() );
 
 	return apply_filters( 'cherry_site_title', $title );
 }
@@ -127,7 +132,6 @@ function cherry_site_description() {
  * @return string
  */
 function cherry_get_site_description() {
-
 	if ( $desc = get_bloginfo( 'description' ) ) {
 		$desc = sprintf( '<h2 class="%s">%s</h2>', 'site-description', $desc );
 	}
