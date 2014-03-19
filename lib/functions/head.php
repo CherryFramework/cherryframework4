@@ -19,13 +19,13 @@ add_action( 'wp_head', 'cherry_link_pingback', 3 );
 // Filters the WordPress title.
 add_filter( 'wp_title', 'cherry_wp_title', 10, 2 );
 
-// Removes unnecessary code that WordPress puts to <head>.
-// http://wpengineer.com/1438/wordpress-header/
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
-remove_action( 'wp_head', 'wlwmanifest_link' );
+// Removes unnecessary code that WordPress puts to <head> (http://wpengineer.com/1438/wordpress-header/)
 remove_action( 'wp_head', 'rsd_link' );
-remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'wp_head', 'wp_generator' );
+remove_action( 'wp_head', 'wlwmanifest_link' );
 remove_action( 'wp_head', 'feed_links_extra', 3 );
+remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
 // Removes injected CSS from recent comments widget
 add_filter( 'wp_head', 'cherry_remove_recent_comments_style', 1 );
@@ -40,7 +40,7 @@ add_filter( 'script_loader_src', 'cherry_remove_wp_ver_css_js', 9999 );
  * @since  4.0.0
  */
 function cherry_meta_charset() {
-	echo "<meta charset=\"" . get_bloginfo( 'charset' ) . "\" />\n";
+	echo "<meta charset='" . get_bloginfo( 'charset' ) . "' />\n";
 }
 
 /**
@@ -58,7 +58,7 @@ function cherry_doctitle() {
  * @since  4.0.0
  */
 function cherry_meta_viewport() {
-	echo "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n";
+	echo "<meta name='viewport' content='width=device-width, initial-scale=1' />\n";
 }
 
 /**
@@ -68,7 +68,7 @@ function cherry_meta_viewport() {
  */
 function cherry_link_pingback() {
 	if ( 'open' === get_option( 'default_ping_status' ) ) {
-		echo "<link rel=\"pingback\" href=\"" . get_bloginfo( 'pingback_url' ) . "\" />\n";
+		echo "<link rel='pingback' href='" . get_bloginfo( 'pingback_url' ) . "' />\n";
 	}
 }
 

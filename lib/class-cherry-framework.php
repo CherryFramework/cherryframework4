@@ -29,8 +29,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * It controls the load order of the required files for running the framework.
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function __construct() {
 			global $cherry;
@@ -69,8 +67,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * reference other areas of the parent or child theme.
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function constants() {
 
@@ -104,8 +100,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * framework because they have required functions for use.
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function core() {
 
@@ -135,18 +129,14 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function default_filters() {
 
-			// Move the WordPress generator to a better priority.
-			remove_action( 'wp_head', 'wp_generator' );
-			add_action( 'wp_head', 'wp_generator', 1 );
-
 			// Make text widgets, excerpt and term descriptions shortcode aware.
 			add_filter( 'widget_text', 'do_shortcode' );
 			add_filter( 'the_excerpt', 'do_shortcode' );
 			add_filter( 'term_description', 'do_shortcode' );
 
 			// Prevents autop in text widgets, excerpt
-			add_filter('widget_text', 'shortcode_unautop');
-			add_filter('the_excerpt', 'shortcode_unautop');
+			add_filter( 'widget_text', 'shortcode_unautop' );
+			add_filter( 'the_excerpt', 'shortcode_unautop' );
 		}
 
 		/**
@@ -157,8 +147,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * to be prefixed with the template or stylesheet path (example: 'templatename-en_US.mo').
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function lang() {
 			global $cherry;
@@ -178,8 +166,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * Adds theme supported features.
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function theme_support() {
 
