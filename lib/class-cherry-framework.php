@@ -58,7 +58,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_action( 'after_setup_theme', array( $this, 'extensions' ), 14 );
 
 			// Load admin files.
-			// add_action( 'wp_loaded', array( $this, 'admin' ) );
+			add_action( 'wp_loaded', array( $this, 'admin' ) );
 		}
 
 		/**
@@ -207,6 +207,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load Cherry_Sidebar class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
+
+			// Load Cherry_Interface_Bilder class
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-interface-builder.php' );
 
 			// Load the general template functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-general.php' );
