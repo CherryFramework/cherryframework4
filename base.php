@@ -5,13 +5,15 @@
 		<div class="row">
 
 			<!-- Primary column -->
-			<div id="primary" class="content-area col-sm-8">
+			<div id="primary" class="content-area <?php cherry_content_class(); ?>">
 				<main id="main" class="site-main" role="main">
 					<?php include cherry_template_path(); ?>
 				</main>
 			</div>
 
-			<?php get_sidebar( cherry_template_base() ); ?>
+			<?php if ( cherry_display_sidebar() ) {
+				include cherry_sidebar_path();
+			} ?>
 
 		</div>
 	</div>

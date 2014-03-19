@@ -5,9 +5,9 @@
  * @package Cherry Framework
  */
 ?>
-
-	<div id="secondary" class="widget-area col-sm-4" role="complementary">
-		<?php if ( ! dynamic_sidebar( 'sidebar-1' ) ) : ?>
+	<!-- Secondary column -->
+	<div id="secondary" class="widget-area <?php cherry_sidebar_class(); ?>" role="complementary">
+		<?php if ( ! dynamic_sidebar( 'main-sidebar' ) ) : ?>
 
 			<!-- Search widget -->
 			<aside id="search" class="widget widget_search">

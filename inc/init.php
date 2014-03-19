@@ -57,3 +57,68 @@ function cherry_footer_sidebar_class( $defaults ) {
 	}
 	return $defaults;
 }
+
+/**
+ * Define which templates/pages exclude the sidebar.
+ *
+ * @since 4.0.0
+ *
+ * @return boolean Display or not the sidebar?
+ */
+function cherry_display_sidebar() {
+	$sidebar = new Cherry_Sidebar(
+		/**
+		 * Conditional tag checks (http://codex.wordpress.org/Conditional_Tags).
+		 * Any of these conditional tags that return true won't show the sidebar.
+		 *
+		 * If you only wanted to exclude page from displaying the sidebar, you'll need to pass
+		 * an additional argument through the array, namely the page id, the slug, or the title.
+		 * To do this you need to pass the conditional and argument together as an array.
+		 * The following would exclude a page with id of 36, page with slug 'page-slug' and page with title 'Page Title':
+		 *
+		 *      array(
+		 *      	array('is_page', array(36, 'page-slug', 'Page Title'))
+		 *      ),
+		 */
+		array(
+			'is_404',
+			'is_front_page',
+		),
+		/**
+		 * Page template checks (via is_page_template()).
+		 * Any of these page templates that return true won't show the sidebar.
+		 */
+		array(
+			'page-fullwidth.php',
+		)
+	);
+
+	return apply_filters( 'cherry_display_sidebar', $sidebar->display );
+}
+
+/**
+ * Output classes for Primary column.
+ *
+ * @since 4.0.0
+ *
+ * @return string Classes name
+ */
+function cherry_content_class() {
+	if ( cherry_display_sidebar() ) {
+		$class = 'col-sm-8';
+	} else {
+		$class = 'col-sm-12';
+	}
+	echo apply_filters( 'cherry_content_class', $class );
+}
+
+/**
+ * Output classes for Secondary column.
+ *
+ * @since 4.0.0
+ *
+ * @return string Classes name
+ */
+function cherry_sidebar_class() {
+	echo apply_filters( 'cherry_sidebar_class', 'col-sm-4' );
+}

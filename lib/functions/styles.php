@@ -23,7 +23,7 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 5 );
  * the wp_register_style() function. It does not load any stylesheets on the site. If a theme wants to
  * register its own custom styles, it should do so on the 'wp_enqueue_scripts' hook.
  *
- * @since 4.0.0
+ * @since  4.0.0
  * @access private
  * @return void
  */
@@ -58,7 +58,7 @@ function cherry_register_styles() {
 /**
  * Tells WordPress to load the styles needed for the framework using the wp_enqueue_style() function.
  *
- * @since 4.0.0
+ * @since  4.0.0
  * @access private
  * @return void
  */
@@ -80,7 +80,7 @@ function cherry_enqueue_styles() {
 /**
  * Returns an array of the core framework's available styles for use in themes.
  *
- * @since 4.0.0
+ * @since  4.0.0
  * @access private
  * @return array $styles All the available framework styles.
  */
@@ -88,17 +88,16 @@ function cherry_get_styles() {
 
 	// Default styles available.
 	$styles = array(
-		'drop-downs' => array( 'version' => '1.7.4' ),
+		'drop-downs' => array( 'version' => CHERRY_VERSION ),
 	);
 
 	// If a child theme is active, add the parent theme's style.
 	if ( is_child_theme() ) {
-		$parent = wp_get_theme( get_template() );
 
 		// Get the parent theme stylesheet.
-		$src = trailingslashit( PARENT_URI ) . "style.css";
+		$src = trailingslashit( PARENT_URI ) . 'style.css';
 
-		$styles['parent'] = array( 'src' => $src, 'version' => $parent->get( 'Version' ) );
+		$styles['parent'] = array( 'src' => $src, 'version' => CHERRY_VERSION );
 	}
 
 	// Add the active theme style.
