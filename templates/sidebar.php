@@ -6,7 +6,7 @@
  */
 ?>
 	<!-- Secondary column -->
-	<div id="secondary" class="widget-area col-sm-4" role="complementary">
+	<div id="secondary" class="widget-area <?php cherry_sidebar_class(); ?>" role="complementary">
 		<?php if ( ! dynamic_sidebar( 'main-sidebar' ) ) : ?>
 
 			<!-- Search widget -->

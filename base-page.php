@@ -5,7 +5,7 @@
 		<div class="row">
 
 			<!-- Primary column -->
-			<div id="primary" class="content-area col-sm-8">
+			<div id="primary" class="content-area <?php cherry_content_class(); ?>">
 				<main id="main" class="site-main" role="main">
 					<h2><strong>col-lg </strong></h2>
 						<div class="row">

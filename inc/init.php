@@ -61,6 +61,8 @@ function cherry_footer_sidebar_class( $defaults ) {
 /**
  * Define which templates/pages exclude the sidebar.
  *
+ * @since 4.0.0
+ *
  * @return boolean Display or not the sidebar?
  */
 function cherry_display_sidebar() {
@@ -92,4 +94,31 @@ function cherry_display_sidebar() {
 	);
 
 	return apply_filters( 'cherry_display_sidebar', $sidebar->display );
+}
+
+/**
+ * Output classes for Primary column.
+ *
+ * @since 4.0.0
+ *
+ * @return string Classes name
+ */
+function cherry_content_class() {
+	if ( cherry_display_sidebar() ) {
+		$class = 'col-sm-8';
+	} else {
+		$class = 'col-sm-12';
+	}
+	echo apply_filters( 'cherry_content_class', $class );
+}
+
+/**
+ * Output classes for Secondary column.
+ *
+ * @since 4.0.0
+ *
+ * @return string Classes name
+ */
+function cherry_sidebar_class() {
+	echo apply_filters( 'cherry_sidebar_class', 'col-sm-4' );
 }
