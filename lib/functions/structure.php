@@ -18,8 +18,8 @@ add_action( 'cherry_footer', 'cherry_footer_info', 1 );
 function cherry_header_wrap() {
 	$output = "";
 	if ( !did_action( 'cherry_header') ) {
-		$output .= "<header id=\"header\" class=\"site-header\" role=\"banner\">\n";
-			$output .= "<div class=\"container\">\n";
+		$output .= "<header id='header' class='site-header' role='banner'>\n";
+			$output .= "<div class='container'>\n";
 	} else {
 			$output .= "</div>\n";
 		$output .= "</header>\n";
@@ -35,7 +35,7 @@ function cherry_header_wrap() {
  */
 function cherry_header_logo() {
 	$output = "<!-- Branding -->\n";
-	$output .= "<div class=\"site-branding\">\n";
+	$output .= "<div class='site-branding'>\n";
 		$output .= cherry_get_site_title();
 		$output .= cherry_get_site_description();
 	$output .= "</div>\n";
@@ -69,8 +69,8 @@ function cherry_header_nav() {
  */
 function cherry_footer_wrap() {
 	if ( !did_action( 'cherry_footer') ) {
-		$output = "<footer id=\"footer\" class=\"site-footer\" role=\"contentinfo\">\n";
-			$output .= "<div class=\"container\">\n";
+		$output = "<footer id='footer' class='site-footer' role='contentinfo'>\n";
+			$output .= "<div class='container'>\n";
 	} else {
 			$output = "</div>\n";
 		$output .= "</footer>\n";
@@ -85,7 +85,7 @@ function cherry_footer_wrap() {
  * @since  4.0.0
  */
 function cherry_footer_info() {
-	$output = "<div class=\"site-info\">";
+	$output = "<div class='site-info'>";
 	$output .= sprintf(
 					__( 'Copyright &copy; %1$s %2$s. Powered by %3$s and %4$s.', 'cherry' ),
 					date_i18n( 'Y' ), cherry_get_site_link(), cherry_get_wp_link(), cherry_get_theme_link()
