@@ -17,16 +17,20 @@ class Cherry_Interface_Bilder {
 	$options = array(
 					'name_prefix' => 'cherry',
 					'class' => array(
+						'submit' => 'button button-primary',
+						'reset' => 'button button-primary',
 						'text' => 'widefat',
 						'textarea' => 'large-text code',
 						'select' => 'widefat',
 						'checkbox' => '',
 						'multicheckbox' => '',
-						'reset' => 'button button-primary',
-						'submit' => 'button button-primary',
+						'radio' => '',
+						'editor' => '',
 						'info' => 'info',
 						'image' => 'button button-primary',
 						'colorpicker' => '',
+						'background' => '',
+						'typography' => '',
 						'stepper' => 'widefat',
 						'label' => 'cherry-label',
 						'section' => ''
@@ -462,7 +466,7 @@ class Cherry_Interface_Bilder {
 			*/
 			case 'typography':
 				//size
-				$item .= '<div class="field">';
+				$item = '<div class="field">';
 				$item .= sprintf($this -> options['html_wrappers']['label_start'], $item_id . '[size]' ) . __( 'Font Size', 'cherry' ) . $this -> options['html_wrappers']['label_end'] ;
 				$item .= '<input id="' . $item_id . '[size]" name="' . $name . '[size]" class="cherry-stepper font-size" type="text" value="' . esc_html(  $value['size'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
 				$item .= '<span class="cherry-stepper-controls"><a class="step-up" title="'.__( 'Step Up', 'cherry' ).'" href="#">+</a><a class="step-down" title="'.__( 'Step Down', 'cherry' ).'" href="#">-</a></span>';
