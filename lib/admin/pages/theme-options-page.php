@@ -96,7 +96,7 @@
 					'value'			=> 'get value',
 					'label'			=> 'get value'
 				);
-
+/**/
 
 		echo '<form id="cherry_options">'.$inteface -> multi_output_items($options).'</form>';
 	}
