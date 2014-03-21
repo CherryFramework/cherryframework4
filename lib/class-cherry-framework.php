@@ -70,28 +70,28 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function constants() {
 
-			// Sets the framework version number.
+			/** Sets the framework version number. */
 			define( 'CHERRY_VERSION', '4.0.0' );
 
-			// Sets the path to the parent theme directory.
+			/** Sets the path to the parent theme directory. */
 			define( 'PARENT_DIR', get_template_directory() );
 
-			// Sets the path to the parent theme directory URI.
+			/** Sets the path to the parent theme directory URI. */
 			define( 'PARENT_URI', get_template_directory_uri() );
 
-			// Sets the path to the child theme directory.
+			/** Sets the path to the child theme directory. */
 			define( 'CHILD_DIR', get_stylesheet_directory() );
 
-			// Sets the path to the child theme directory URI.
+			/** Sets the path to the child theme directory URI. */
 			define( 'CHILD_URI', get_stylesheet_directory_uri() );
 
-			// Sets the path to the core framework directory.
+			/** Sets the path to the core framework directory. */
 			define( 'CHERRY_DIR', trailingslashit( PARENT_DIR ) . basename( dirname( __FILE__ ) ) );
 
-			// Sets the path to the core framework directory URI.
+			/** Sets the path to the core framework directory URI. */
 			define( 'CHERRY_URI', trailingslashit( PARENT_URI ) . basename( dirname( __FILE__ ) ) );
 
-			// Sets the path to the core framework functions directory.
+			/** Sets the path to the core framework functions directory. */
 			define( 'CHERRY_FUNCTIONS', trailingslashit( CHERRY_DIR ) . 'functions' );
 		}
 

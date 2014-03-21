@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for the building elements in the admin interface.
+ * Class for the formation of elements in the admin interface.
  *
  * @package    Cherry_Framework
  * @subpackage Class
