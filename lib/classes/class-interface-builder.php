@@ -1,6 +1,6 @@
 <?php
 /**
- * Class for the building elements in the admin interface.
+ * Class for the building interface elements in admin panel.
  *
  * @package    Cherry_Framework
  * @subpackage Class
@@ -49,6 +49,12 @@ class Cherry_Interface_Bilder {
 					)
 				);
 
+	/**
+	* Cherry Interface builder constructor
+	* 
+	* @since 4.0.0
+	*/
+
 	function __construct($args = array()) {
 		$this -> options = $this -> processed_input_data($this->options , $args);
 		$this -> google_font_url = PARENT_DIR . "/assets/font-list/google-fonts.json";
@@ -56,6 +62,12 @@ class Cherry_Interface_Bilder {
 		add_action( 'admin_footer', array($this, 'include_style'));
 	}
 
+	/**
+	*  Process all form items. 
+	*
+	* @return Array. Input fields arguments and values
+	* @since 4.0.0
+	*/
 	private function processed_input_data ($default = array(), $argument = array()){
 		foreach ($default as $key => $value) {
 			if(array_key_exists($key, $argument)){
@@ -65,6 +77,13 @@ class Cherry_Interface_Bilder {
 		return $default;
 	}
 
+	/**
+	* Add form item. Returns form item with selected arguments. 
+	* 
+	* @param Array. Input argument name => argument value
+	* @since 4.0.0
+	* @return string
+	*/
 	public function add_form_item ($args = array()){
 		$default = array(
 						'class'					=> '',
@@ -532,8 +551,9 @@ class Cherry_Interface_Bilder {
 
 		return $this -> wrap_item($output, $id, $this->options['class'][$wrapper_class].' section cherry-' . $type, $title, $decsription, $wrap, $decsription_positon);
 	}
+
 	/**
-	* Function wrap form item in label
+	* Add label to form items
 	*
 	* @since 4.0.0
 	* @return string
@@ -622,8 +642,9 @@ class Cherry_Interface_Bilder {
 	}
 
 	/**
-	* Multi outputs the generated items
+	* Outputs generated items
 	*
+	* @param Array. Input argument name => argument value
 	* @since 4.0.0
 	* @return string
 	*/
@@ -636,6 +657,12 @@ class Cherry_Interface_Bilder {
 		return $output;
 	}
 
+	/** 
+	* Get list of available Google fonts.
+	* 
+	* @return Array. 
+	* @since 4.0.0
+	*/
 	private function get_google_font(){
 		if(empty($this -> google_font)){
 			$json = file_get_contents( $this -> google_font_url );
@@ -647,17 +674,40 @@ class Cherry_Interface_Bilder {
 		return $font_array;
 	}
 
+	/** 
+	* Include media library files. Enables media library modal window.
+	* 
+	* @since 4.0.0
+	*/
 	public function include_media_script_style(){
 		wp_enqueue_media();
 		wp_print_media_templates();
 	}
+
+	/** 
+	* Include color picker JS and CSS files.
+	* 
+	* @since 4.0.0
+	*/
 	public function include_colorpicker_script_style(){
 		wp_enqueue_style( 'wp-color-picker' );
 		wp_enqueue_script( 'wp-color-picker');
 	}
+
+	/** 
+	* Include interface builder JS files
+	* 
+	* @since 4.0.0
+	*/
 	public function include_scripts(){
 		wp_enqueue_script( 'interface-bilder' );
 	}
+
+	/** 
+	* Include interface builder CSS files
+	* 
+	* @since 4.0.0
+	*/
 	public function include_style(){
 		wp_enqueue_style( 'interface-bilder' );
 	}
