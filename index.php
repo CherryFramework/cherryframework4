@@ -11,25 +11,32 @@
  * @package Cherry Framework
  */
 
-if ( have_posts() ) : ?>
+if ( have_posts() ) :
 
-	<?php /* Start the Loop */ ?>
-	<?php while ( have_posts() ) : the_post(); ?>
+	while ( have_posts() ) : the_post();
 
-		<?php
-			/* Include the Post-Format-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-			 */
-			get_template_part( 'templates/content', get_post_format() );
-		?>
+		// Loads the content/*.php template.
+		cherry_get_content_template();
 
-	<?php endwhile; ?>
+		// If viewing a single post/page/CPT.
+		if ( is_singular() ) :
 
-	<?php cherry_paging_nav(); ?>
+			// If comments are open or we have at least one comment, load up the comment template
+			if ( comments_open() || '0' != get_comments_number() ) :
 
-<?php else : ?>
+				// Loads the comments.php template.
+				comments_template( '/templates/comments.php', true );
+			endif;
 
-	<?php get_template_part( 'templates/content', 'none' ); ?>
+		endif;
 
-<?php endif; ?>
+	endwhile;
+
+	// Display navigation to next/previous set of posts when applicable.
+	cherry_paging_nav();
+
+else :
+	// If no posts were found.
+	get_template_part( 'content/none' );
+
+endif; ?>

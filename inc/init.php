@@ -34,7 +34,7 @@ function cherry_register_sidebars() {
 
 	cherry_register_sidebar(
 		array(
-			'id'          => 'main-sidebar',
+			'id'          => 'sidebar-main',
 			'name'        => __( 'Main Sidebar', 'cherry' ),
 			'description' => __( 'The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.', 'cherry' )
 		)
@@ -42,9 +42,9 @@ function cherry_register_sidebars() {
 
 	cherry_register_sidebar(
 		array(
-			'id'          => 'footer-sidebar',
+			'id'          => 'sidebar-footer',
 			'name'        => __( 'Footer Sidebar', 'cherry' ),
-			'description' => __( 'A sidebar located in the footer of the site. Optimized for one, two, or three widgets (and multiples thereof).', 'cherry' )
+			'description' => __( 'A sidebar located in the footer of the site.', 'cherry' )
 		)
 	);
 }
@@ -52,7 +52,7 @@ function cherry_register_sidebars() {
 // Added class for default footer sidebar arguments.
 add_filter( 'cherry_sidebar_defaults', 'cherry_footer_sidebar_class' );
 function cherry_footer_sidebar_class( $defaults ) {
-	if ( 'footer-sidebar' === $defaults['id'] ) {
+	if ( 'sidebar-footer' === $defaults['id'] ) {
 		$defaults['before_widget'] = preg_replace( '/class="/', "class=\"span3 ", $defaults['before_widget'], 1 );
 	}
 	return $defaults;
@@ -89,7 +89,7 @@ function cherry_display_sidebar() {
 		 * Any of these page templates that return true won't show the sidebar.
 		 */
 		array(
-			'page-fullwidth.php',
+			'templates/template-fullwidth.php',
 		)
 	);
 
@@ -119,6 +119,11 @@ function cherry_content_class() {
  *
  * @return string Classes name
  */
-function cherry_sidebar_class() {
-	echo apply_filters( 'cherry_sidebar_class', 'col-sm-4' );
+add_filter( 'cherry_attr_sidebar', 'cherry_sidebar_main_class', 10, 2 );
+function cherry_sidebar_main_class( $attr, $context ) {
+	if ( 'secondary' === $context ) {
+		$attr['class'] .= ' ' . apply_filters( 'cherry_sidebar_main_class', 'col-sm-4' );
+	}
+
+	return $attr;
 }

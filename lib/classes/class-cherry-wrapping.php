@@ -23,14 +23,14 @@ function cherry_template_base() {
 
 /**
  * Function return new instance of Cherry_Wrapping class for sidebar
- * with the fallback templates/sidebar.php as the first item.
+ * with the fallback templates/sidebar-*.php as the first item.
  *
  * @since  4.0.0
  *
  * @return object
  */
-function cherry_sidebar_path() {
-	return new Cherry_Wrapping( 'templates/sidebar.php' );
+function cherry_sidebar_path( $sidebar_template = 'templates/sidebar-main.php' ) {
+	return new Cherry_Wrapping( $sidebar_template );
 }
 
 class Cherry_Wrapping {
@@ -81,7 +81,6 @@ class Cherry_Wrapping {
 	 */
 	public function __toString() {
 		$this->templates = apply_filters( 'cherry_wrap_' . $this->slug, $this->templates );
-
 		return locate_template( $this->templates );
 	}
 

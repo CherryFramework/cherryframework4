@@ -12,7 +12,7 @@
 require_once( trailingslashit( get_template_directory() ) . 'lib/class-cherry-framework.php' );
 new Cherry_Framework();
 
-// Sets up theme defaults and registers support for various WordPress features..
+// Sets up theme defaults and registers support for various WordPress features.
 add_action( 'after_setup_theme', 'cherry_theme_setup' );
 function cherry_theme_setup() {
 
@@ -27,4 +27,19 @@ function cherry_theme_setup() {
 
 	// Handle content width for embeds and images.
 	cherry_set_content_width( 780 );
+
+	// $movies = new Super_Custom_Post_Type( 'movie', 'Movie', 'Movies' );
+	// $last_news = new Super_Custom_Post_Type( 'last-new', 'Last News', 'Last News' );
+
+	// add_post_type_support( 'movie', 'post-formats' );
+	// add_post_type_support( 'last-new', 'post-formats' );
+
+	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
+	function cherry_wrap_base_cpts( $templates ) {
+		$cpt = get_post_type(); // Get the current post type
+		if ( $cpt && ( 'page' !== $cpt ) ) {
+			array_unshift( $templates, 'base-single-' . $cpt . '.php' ); // Shift the template to the front of the array
+		}
+		return $templates; // Return modified array with base-$cpt.php at the front of the queue
+	}
 }

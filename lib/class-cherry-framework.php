@@ -4,7 +4,7 @@
  *
  * MAYBE_CHERRY_FRAMEWORK_DESCRIPTION_TYPE_HERE
  *
- * @package   Cherry Framework
+ * @package   Cherry_Framework
  * @version   4.0.0
  * @author    Cherry Team <support@cherryframework.com>
  * @copyright Copyright (c) 2012 - 2014, Cherry Team
@@ -208,8 +208,14 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load Cherry_Sidebar class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
 
-			// Load Cherry_Interface_Bilder class
+			// Load Cherry_Interface_Bilder class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-interface-builder.php' );
+
+			// Load the HTML attributes functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'attr.php' );
+
+			// Load the template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template.php' );
 
 			// Load the general template functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-general.php' );

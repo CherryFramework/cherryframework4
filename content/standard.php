@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying single post
- * 
+ *
  * @package Cherry Framework
  */
 ?>

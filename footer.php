@@ -7,6 +7,10 @@
  * @package Cherry Framework
  */
 		do_action( 'cherry_footer_before' );
+
+		if ( cherry_display_sidebar() ) {
+			include cherry_sidebar_path( 'templates/sidebar-footer.php' );
+		}
 		do_action( 'cherry_footer' );
 		do_action( 'cherry_footer_after' ); ?>
 
