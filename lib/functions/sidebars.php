@@ -18,7 +18,6 @@
  * This function can handle the rest at that point.
  *
  * @since  4.0.0
- * @access public
  * @param  array   $args
  * @return string  Sidebar ID.
  */
@@ -29,7 +28,7 @@ function cherry_register_sidebar( $args ) {
 		'id'            => '',
 		'name'          => '',
 		'description'   => '',
-		'before_widget' => '<aside id="%s" class="widget %s">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h1 class="widget-title">',
 		'after_title'   => '</h1>'

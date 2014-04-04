@@ -49,13 +49,24 @@ function cherry_register_sidebars() {
 	);
 }
 
-// Added class for default footer sidebar arguments.
-add_filter( 'cherry_sidebar_defaults', 'cherry_footer_sidebar_class' );
-function cherry_footer_sidebar_class( $defaults ) {
-	if ( 'sidebar-footer' === $defaults['id'] ) {
-		$defaults['before_widget'] = preg_replace( '/class="/', "class=\"span3 ", $defaults['before_widget'], 1 );
+// Added class for Footer Sidebar widgets.
+add_filter( 'cherry_sidebar_args', 'cherry_footer_sidebar_class' );
+function cherry_footer_sidebar_class( $args ) {
+	if ( 'sidebar-footer' === $args['id'] ) {
+		$args['before_widget'] = preg_replace( '/class="/', "class=\"col-sm-3 ", $args['before_widget'], 1 );
 	}
-	return $defaults;
+
+	return $args;
+}
+
+// Added wrap for Footer Sidebar widgets
+add_action( 'cherry_sidebar_footer_start', 'cherry_sidebar_footer_wrap_open' );
+add_action( 'cherry_sidebar_footer_end', 'cherry_sidebar_footer_wrap_close' );
+function cherry_sidebar_footer_wrap_open() {
+	echo "<div class='row'>\n";
+}
+function cherry_sidebar_footer_wrap_close() {
+	echo "</div>\n";
 }
 
 /**
