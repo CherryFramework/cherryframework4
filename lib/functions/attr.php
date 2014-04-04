@@ -38,16 +38,18 @@ function cherry_attr( $slug, $context = '', $attributes = array() ) {
  */
 function cherry_get_attr( $slug, $context = '', $attributes = array() ) {
 
-	$out    = '';
+	$output = '';
 	$attr   = apply_filters( "cherry_attr_{$slug}", $attributes, $context );
 
-	if ( empty( $attr ) )
+	if ( empty( $attr ) ) {
 		$attr['class'] = $slug;
+	}
 
-	foreach ( $attr as $name => $value )
-		$out .= !empty( $value ) ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
+	foreach ( $attr as $name => $value ) {
+		$output .= !empty( $value ) ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
+	}
 
-	return trim( $out );
+	return trim( $output );
 }
 
 /* === Structural === */
@@ -62,8 +64,9 @@ function cherry_get_attr( $slug, $context = '', $attributes = array() ) {
  */
 function cherry_attr_sidebar( $attr, $context ) {
 
-	if ( !empty( $context ) )
+	if ( !empty( $context ) ) {
 		$attr['id'] = "$context";
+	}
 
 	$attr['class'] = 'widget-area';
 	$attr['role']  = 'complementary';

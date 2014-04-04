@@ -10,19 +10,19 @@
 
 	<div <?php cherry_attr( 'sidebar', 'secondary' ); ?>>
 
-		<?php do_action( 'cherry_sidebar_main_start' ); ?>
+		<?php do_action( 'cherry_sidebar_main_start' );
 
-			<?php if ( is_active_sidebar( 'sidebar-main' ) ) : ?>
+			if ( is_active_sidebar( 'sidebar-main' ) ) :
 
-				<?php dynamic_sidebar( 'sidebar-main' ); ?>
+				dynamic_sidebar( 'sidebar-main' );
 
-			<?php else : ?>
+			else :
 
-				<?php do_action( 'cherry_sidebar_main_empty' ); ?>
+				do_action( 'cherry_sidebar_main_empty' );
 
-		<?php endif; ?>
+			endif;
 
-		<?php do_action( 'cherry_sidebar_main_end' ); ?>
+		do_action( 'cherry_sidebar_main_end' ); ?>
 
 	</div>
 

@@ -11,7 +11,7 @@
 				</main>
 			</div>
 
-			<?php if ( cherry_display_sidebar() ) {
+			<?php if ( cherry_display_sidebar( 'sidebar-main' ) ) {
 				include cherry_sidebar_path();
 			} ?>
 

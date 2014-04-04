@@ -8,7 +8,7 @@
  */
 		do_action( 'cherry_footer_before' );
 
-		if ( cherry_display_sidebar() ) {
+		if ( cherry_display_sidebar( 'sidebar-footer' ) ) {
 			include cherry_sidebar_path( 'templates/sidebar-footer.php' );
 		}
 		do_action( 'cherry_footer' );
