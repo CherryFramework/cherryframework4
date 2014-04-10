@@ -1,10 +1,4 @@
-<?php
-/**
- * The template for displaying posts in a loop
- *
- * @package Cherry Framework
- */
-?>
+<?php //var_dump('content.php'); ?>
 
 <!-- Posts loop view -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

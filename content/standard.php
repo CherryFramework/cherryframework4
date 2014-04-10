@@ -1,11 +1,3 @@
-<?php
-/**
- * The template for displaying single post
- *
- * @package Cherry Framework
- */
-?>
-
 <!-- Post entry view -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 

@@ -130,13 +130,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		function default_filters() {
 
 			// Make text widgets, excerpt and term descriptions shortcode aware.
-			add_filter( 'widget_text', 'do_shortcode' );
-			add_filter( 'the_excerpt', 'do_shortcode' );
+			add_filter( 'widget_text',      'do_shortcode' );
+			add_filter( 'the_excerpt',      'do_shortcode' );
 			add_filter( 'term_description', 'do_shortcode' );
-
-			// Prevents autop in text widgets, excerpt
-			add_filter( 'widget_text', 'shortcode_unautop' );
-			add_filter( 'the_excerpt', 'shortcode_unautop' );
 		}
 
 		/**
@@ -172,13 +168,13 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Add default posts and comments RSS feed links to head.
 			add_theme_support( 'automatic-feed-links' );
 
-			// Enable support for Post Thumbnails on posts and pages.
-			add_theme_support( 'post-thumbnails' );
+			// Enable support for Post Thumbnails on posts.
+			add_theme_support( 'post-thumbnails', array( 'post' ) );
 
 			// Enable support for Post Formats.
 			add_theme_support( 'post-formats', array( 'aside', 'audio', 'image', 'gallery', 'link', 'quote', 'video' ) );
 
-			// Adds core WordPress HTML5 support.
+			// Enable core WordPress HTML5 support.
 			add_theme_support( 'html5', array(
 				'comment-list',
 				'search-form',
@@ -186,12 +182,15 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 				'gallery',
 			) );
 
-			// Add theme support for Infinite Scroll.
+			// Enable support for Infinite Scroll.
 			// see: http://jetpack.me/support/infinite-scroll/
 			add_theme_support( 'infinite-scroll', array(
 				'container' => 'main',
 				'footer'    => 'page',
 			) );
+
+			// Enable support for excerpt on page.
+			add_post_type_support( 'page', array( 'excerpt' ) );
 		}
 
 		/**

@@ -1,4 +1,4 @@
-<?php
+<?php //var_dump('index.php');
 /**
  * The main template file.
  *
@@ -21,7 +21,7 @@ if ( have_posts() ) :
 		// If viewing a single post/page/CPT.
 		if ( is_singular() ) :
 
-			// If comments are open or we have at least one comment, load up the comment template
+			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || '0' != get_comments_number() ) :
 
 				// Loads the comments.php template.
