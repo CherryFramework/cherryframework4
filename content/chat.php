@@ -14,6 +14,15 @@
 			<?php endif; ?>
 		</header>
 
+		<?php if ( has_excerpt() ) : // If the post has an excerpt. ?>
+
+			<!-- Entry summary -->
+			<div class="entry-summary">
+				<?php the_excerpt(); ?>
+			</div>
+
+		<?php endif; ?>
+
 		<!-- Entry content -->
 		<div class="entry-content">
 			<?php the_content(); ?>

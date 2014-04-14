@@ -172,7 +172,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_theme_support( 'post-thumbnails', array( 'post' ) );
 
 			// Enable support for Post Formats.
-			add_theme_support( 'post-formats', array( 'aside', 'audio', 'image', 'gallery', 'link', 'quote', 'video' ) );
+			add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
 
 			// Enable core WordPress HTML5 support.
 			add_theme_support( 'html5', array(

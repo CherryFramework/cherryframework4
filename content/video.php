@@ -76,10 +76,21 @@
 			<?php endif; ?>
 		</header>
 
-		<!-- Entry summary -->
-		<div class="entry-summary">
-			<?php the_excerpt(); ?>
-		</div>
+		<?php if ( has_excerpt() ) : // If the post has an excerpt. ?>
+
+			<!-- Entry summary -->
+			<div class="entry-summary">
+				<?php the_excerpt(); ?>
+			</div>
+
+		<?php else : ?>
+
+			<!-- Entry content -->
+			<div class="entry-content">
+				<?php the_content(); ?>
+			</div><!-- .entry-content -->
+
+		<?php endif; ?>
 
 	<?php endif; ?>
 

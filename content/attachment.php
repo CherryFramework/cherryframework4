@@ -1,7 +1,7 @@
-<!-- Page entry view -->
+<!-- Post entry view -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( is_page() ) : // If viewing a single page. ?>
+	<?php if ( is_attachment() ) : // If viewing a single attachment. ?>
 
 		<!-- Entry header -->
 		<header class="entry-header">
@@ -20,9 +20,11 @@
 		</div>
 
 		<!-- Entry footer -->
-		<?php edit_post_link( __( 'Edit', 'cherry' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
+		<footer class="entry-meta">
+			<?php edit_post_link( __( 'Edit', 'cherry' ), '<span class="edit-link">', '</span>' ); ?>
+		</footer>
 
-	<?php else : // If not viewing a single page. ?>
+	<?php else : // If not viewing a single post. ?>
 
 		<!-- Entry header -->
 		<header class="entry-header">

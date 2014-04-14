@@ -129,3 +129,37 @@ function cherry_category_transient_flusher() {
 }
 add_action( 'edit_category', 'cherry_category_transient_flusher' );
 add_action( 'save_post',     'cherry_category_transient_flusher' );
+
+
+/* === Links === */
+
+/**
+ * Gets the first URL from the content, even if it's not wrapped in an <a> tag.
+ *
+ * @since  4.0.0
+ * @param  string $content
+ * @return string
+ */
+function cherry_get_content_url( $content ) {
+
+	/* Catch links that are not wrapped in an '<a>' tag. */
+	preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', make_clickable( $content ), $matches );
+
+	return !empty( $matches[1] ) ? esc_url_raw( $matches[1] ) : '';
+}
+
+/**
+ * Filters 'get_the_post_format_url' to make for a more robust and back-compatible function. If WP did
+ * not find a URL, check the post content for one. If nothing is found, return the post permalink.
+ *
+ * @since  4.0.0
+ * @param  object $post
+ * @return string
+ */
+function cherry_get_the_post_format_url( $post = null ) {
+	$post        = is_null( $post ) ? get_post() : $post;
+	$content_url = cherry_get_content_url( $post->post_content );
+	$url         = !empty( $content_url ) ? $content_url : get_permalink( $post->ID );
+
+	return $url;
+}
