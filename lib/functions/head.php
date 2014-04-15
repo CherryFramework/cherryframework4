@@ -31,7 +31,7 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 add_filter( 'wp_head', 'cherry_remove_recent_comments_style', 1 );
 
 // Removes WordPress version from stylesheets and scripts.
-add_filter( 'style_loader_src', 'cherry_remove_wp_ver_css_js', 9999 );
+add_filter( 'style_loader_src',  'cherry_remove_wp_ver_css_js', 9999 );
 add_filter( 'script_loader_src', 'cherry_remove_wp_ver_css_js', 9999 );
 
 /**

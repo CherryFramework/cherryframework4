@@ -1,24 +1,24 @@
 <?php
 // Header structure.
 add_action( 'cherry_header_before', 'cherry_header_wrap', 999 );
-add_action( 'cherry_header_after', 'cherry_header_wrap', 0 );
-add_action( 'cherry_header', 'cherry_header_logo', 1 );
-add_action( 'cherry_header', 'cherry_header_nav', 9 );
+add_action( 'cherry_header_after',  'cherry_header_wrap', 0 );
+add_action( 'cherry_header',        'cherry_header_logo', 1 );
+add_action( 'cherry_header',        'cherry_header_nav',  9 );
 
 // Footer structure.
 add_action( 'cherry_footer_before', 'cherry_footer_wrap', 999 );
-add_action( 'cherry_footer_after', 'cherry_footer_wrap', 0 );
-add_action( 'cherry_footer', 'cherry_footer_info', 1 );
+add_action( 'cherry_footer_after',  'cherry_footer_wrap', 0 );
+add_action( 'cherry_footer',        'cherry_footer_info', 1 );
 
 /**
  * Output Header Wrap.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_header_wrap() {
 	$output = "";
 	if ( !did_action( 'cherry_header') ) {
-		$output .= "<header id='header' class='site-header' role='banner'>\n";
+		$output .= "<header " . cherry_get_attr( 'header' ) . ">\n";
 			$output .= "<div class='container'>\n";
 	} else {
 			$output .= "</div>\n";
@@ -31,7 +31,7 @@ function cherry_header_wrap() {
 /**
  * Output Header Logo.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_header_logo() {
 	$output = "<!-- Branding -->\n";
@@ -46,7 +46,7 @@ function cherry_header_logo() {
 /**
  * Output Header Menu.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_header_nav() {
 	if ( has_nav_menu( 'header' ) ) {
@@ -55,8 +55,9 @@ function cherry_header_nav() {
 		// http://codex.wordpress.org/Function_Reference/wp_nav_menu
 		$args = array(
 					'theme_location' => 'header',
+					'container'      => '',
 					'menu_class'     => 'sf-menu',
-					'items_wrap'     => '<nav id="navigation" class="main-navigation" role="navigation"><ul id="%s" class="%s">%s</ul></nav>',
+					'items_wrap'     => '<nav ' . cherry_get_attr( 'menu', 'navigation' ) . '><ul id="%s" class="%s">%s</ul></nav>',
 				);
 		wp_nav_menu( apply_filters( 'cherry_header_nav_args', $args ) );
 	}
@@ -65,11 +66,11 @@ function cherry_header_nav() {
 /**
  * Output Footer Wrap.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_footer_wrap() {
 	if ( !did_action( 'cherry_footer') ) {
-		$output = "<footer id='footer' class='site-footer' role='contentinfo'>\n";
+		$output = "<footer " . cherry_get_attr( 'footer' ) . ">\n";
 			$output .= "<div class='container'>\n";
 	} else {
 			$output = "</div>\n";
@@ -82,7 +83,7 @@ function cherry_footer_wrap() {
 /**
  * Output Footer Info.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_footer_info() {
 	$output = "<div class='site-info'>";

@@ -6,7 +6,7 @@
 
 			<!-- Primary column -->
 			<div id="primary" class="content-area <?php cherry_content_class(); ?>">
-				<main id="main" class="site-main" role="main">
+				<main <?php cherry_attr( 'content' ); ?>>
 					<?php include cherry_template_path(); ?>
 				</main>
 			</div>
