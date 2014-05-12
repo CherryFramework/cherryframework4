@@ -1,5 +1,5 @@
 <?php get_header( cherry_template_base() ); ?>
-
+<?php require_once( PARENT_DIR .'/lib/classes/class-scss-compiler.php' ); ?>
 <div id="content" class="site-content">
 	<div class="container">
 		<div class="row">
