@@ -203,6 +203,24 @@ class Cherry_Interface_Bilder {
 			break;
 			/*
 			arg:
+				type: switcher
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				default_value: ''
+				class: ''
+				item_inline_style: ''
+			*/
+			case 'switcher':
+				$output .= '<div class="cherry-switcher-wrap">';
+				$output .= '<label class="sw-enable"><span>On</span></label>';
+				$output .= '<label class="sw-disable"><span>Off</span></label>';
+				$output .= '<input type="hidden" ' . $item_inline_style . ' class="cherry-input ' . $class . '" name="' . $name . '" ' . checked( $default_value, $value, false ) . ' value="' . esc_html( $value ) . '" >';
+				$output .= '</div>';
+			break;
+			/*
+			arg:
 				type: multicheckbox
 				title: ''
 				label: ''
