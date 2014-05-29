@@ -6,19 +6,19 @@
  *
  * @package Cherry Framework
  */
+add_action( 'cherry_endwhile_after', 'cherry_paging_nav' );
 
 if ( ! function_exists( 'cherry_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
- *
- * @return void
  */
 function cherry_paging_nav() {
+
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
-	}
-	?>
+	} ?>
+
 	<nav class="navigation paging-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'cherry' ); ?></h1>
 		<div class="nav-links">
@@ -37,13 +37,18 @@ function cherry_paging_nav() {
 }
 endif;
 
+add_action( 'cherry_post_after', 'cherry_post_nav' );
+
 if ( ! function_exists( 'cherry_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
- *
- * @return void
  */
 function cherry_post_nav() {
+
+	if ( ! is_singular( get_post_type() ) ) {
+		return;
+	}
+
 	// Don't print empty markup if there's nowhere to navigate.
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
@@ -97,21 +102,27 @@ endif;
 
 /**
  * Returns true if a blog has more than 1 category.
+ *
+ * @return bool
  */
 function cherry_categorized_blog() {
-	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
+	if ( false === ( $all_the_cool_cats = get_transient( 'cherry_categories' ) ) ) {
 		// Create an array of all the categories that are attached to posts.
 		$all_the_cool_cats = get_categories( array(
+			'fields'     => 'ids',
 			'hide_empty' => 1,
+
+			// We only need to know if there is more than one category.
+			'number'     => 2,
 		) );
 
 		// Count the number of categories that are attached to the posts.
 		$all_the_cool_cats = count( $all_the_cool_cats );
 
-		set_transient( 'all_the_cool_cats', $all_the_cool_cats );
+		set_transient( 'cherry_categories', $all_the_cool_cats );
 	}
 
-	if ( '1' != $all_the_cool_cats ) {
+	if ( $all_the_cool_cats > 1 ) {
 		// This blog has more than 1 category so cherry_categorized_blog should return true.
 		return true;
 	} else {
@@ -125,41 +136,7 @@ function cherry_categorized_blog() {
  */
 function cherry_category_transient_flusher() {
 	// Like, beat it. Dig?
-	delete_transient( 'all_the_cool_cats' );
+	delete_transient( 'cherry_categories' );
 }
 add_action( 'edit_category', 'cherry_category_transient_flusher' );
 add_action( 'save_post',     'cherry_category_transient_flusher' );
-
-
-/* === Links === */
-
-/**
- * Gets the first URL from the content, even if it's not wrapped in an <a> tag.
- *
- * @since  4.0.0
- * @param  string $content
- * @return string
- */
-function cherry_get_content_url( $content ) {
-
-	/* Catch links that are not wrapped in an '<a>' tag. */
-	preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', make_clickable( $content ), $matches );
-
-	return !empty( $matches[1] ) ? esc_url_raw( $matches[1] ) : '';
-}
-
-/**
- * Filters 'get_the_post_format_url' to make for a more robust and back-compatible function. If WP did
- * not find a URL, check the post content for one. If nothing is found, return the post permalink.
- *
- * @since  4.0.0
- * @param  object $post
- * @return string
- */
-function cherry_get_the_post_format_url( $post = null ) {
-	$post        = is_null( $post ) ? get_post() : $post;
-	$content_url = cherry_get_content_url( $post->post_content );
-	$url         = !empty( $content_url ) ? $content_url : get_permalink( $post->ID );
-
-	return $url;
-}

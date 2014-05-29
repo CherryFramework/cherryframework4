@@ -1,41 +1,15 @@
 <!-- Post entry view -->
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article <?php cherry_attr( 'post' ); ?>>
 
-	<?php if ( is_attachment() ) : // If viewing a single attachment. ?>
+<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post.
 
-		<!-- Entry header -->
-		<header class="entry-header">
-			<h1 class="entry-title"><?php single_post_title(); ?></h1>
-		</header>
+		do_action( 'cherry_post_single', 'attachment' );
 
-		<!-- Entry content -->
-		<div class="entry-content">
-			<?php the_content(); ?>
-			<?php
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'cherry' ),
-					'after'  => '</div>',
-				) );
-			?>
-		</div>
+	else : // If not viewing a single post.
 
-		<!-- Entry footer -->
-		<footer class="entry-meta">
-			<?php edit_post_link( __( 'Edit', 'cherry' ), '<span class="edit-link">', '</span>' ); ?>
-		</footer>
+		do_action( 'cherry_post_loop', 'attachment' );
 
-	<?php else : // If not viewing a single post. ?>
-
-		<!-- Entry header -->
-		<header class="entry-header">
-			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
-		</header>
-
-		<!-- Entry summary -->
-		<div class="entry-summary">
-			<?php the_excerpt(); ?>
-		</div>
-
-	<?php endif; ?>
+	endif;
+?>
 
 </article>

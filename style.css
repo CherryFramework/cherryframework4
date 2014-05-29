@@ -3,7 +3,7 @@ Theme Name: Cherry Framework
 Theme URI: http://www.cherryframework.com/
 Author: Cherry Team
 Author URI: http://www.cherryframework.com/
-Description: A theme for Wordpress 3.8.x
+Description: A theme for Wordpress 3.9.x
 Version: 4.0.0
 License: GNU General Public License
 License URI: license.txt
@@ -36,6 +36,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	10.3 - Comments
 11.0 - Infinite scroll
 12.0 - Media
+	12.1 - Captions
+	12.2 - Galleries
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
@@ -55,28 +57,28 @@ small, strike, strong, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-	border: 0;
-	font-family: inherit;
-	font-size: 100%;
-	font-style: inherit;
-	font-weight: inherit;
 	margin: 0;
-	outline: 0;
 	padding: 0;
+	outline: 0;
+	border: 0;
 	vertical-align: baseline;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
 }
 html {
-	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
 	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
 	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
 	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
 *,
 *:before,
-*:after { /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-	-webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
+*:after {
 	-moz-box-sizing:    border-box; /* Still needed for Firefox 28; see http://caniuse.com/#search=box-sizing */
-	box-sizing:         border-box;
+	box-sizing:         border-box; /* apply a natural box layout model to all elements; see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+	-webkit-box-sizing: border-box; /* Not needed for modern webkit but still used by Blackberry Browser 7.0; see http://caniuse.com/#search=box-sizing */
 }
 body {
 	background: #fff;
@@ -96,13 +98,13 @@ section {
 ol, ul {
 	list-style: none;
 }
-table { /* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-spacing: 0; /* tables still need 'cellspacing="0"' in the markup */
 	border-collapse: separate;
-	border-spacing: 0;
 }
 caption, th, td {
-	font-weight: normal;
 	text-align: left;
+	font-weight: normal;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
@@ -164,15 +166,15 @@ address {
 	margin: 0 0 1.5em;
 }
 pre {
+	overflow: auto;
+	margin-bottom: 1.6em;
+	padding: 1.6em;
+	max-width: 100%;
 	background: #eee;
-	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 15px;
 	font-size: 1.5rem;
+	font-family: "Courier 10 Pitch", Courier, monospace;
 	line-height: 1.6;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
 }
 code, kbd, tt, var {
 	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
@@ -187,11 +189,11 @@ mark, ins {
 }
 sup,
 sub {
-	font-size: 75%;
-	height: 0;
-	line-height: 0;
 	position: relative;
+	height: 0;
 	vertical-align: baseline;
+	font-size: 75%;
+	line-height: 0;
 }
 sup {
 	bottom: 1ex;
@@ -210,10 +212,10 @@ big {
 3.0 Elements
 --------------------------------------------------------------*/
 hr {
-	background-color: #ccc;
-	border: 0;
-	height: 1px;
 	margin-bottom: 1.5em;
+	height: 1px;
+	border: 0;
+	background-color: #ccc;
 }
 ul, ol {
 	margin: 0 0 1.5em 3em;
@@ -253,28 +255,27 @@ button,
 input,
 select,
 textarea {
-	font-size: 100%; /* Corrects font size not being inherited in all browsers */
 	margin: 0; /* Addresses margins set differently in IE6/7, F3/4, S5, Chrome */
 	vertical-align: baseline; /* Improves appearance and consistency in all browsers */
-	*vertical-align: middle; /* Improves appearance and consistency in IE6/IE7 */
+	font-size: 100%; /* Corrects font size not being inherited in all browsers */
 }
 button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
+	padding: .6em 1em .4em;
 	border: 1px solid #ccc;
 	border-color: #ccc #ccc #bbb #ccc;
 	border-radius: 3px;
 	background: #e6e6e6;
 	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
 	color: rgba(0, 0, 0, .8);
-	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
-	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
+	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
 	font-size: 12px;
 	font-size: 1.2rem;
 	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
+	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
 }
 button:hover,
 input[type="button"]:hover,
@@ -299,18 +300,18 @@ input[type="radio"] {
 	padding: 0; /* Addresses excess padding in IE8/9 */
 }
 input[type="search"] {
-	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
 	-webkit-box-sizing: content-box; /* Addresses box sizing set to border-box in S5, Chrome (include -moz to future-proof) */
 	-moz-box-sizing:    content-box;
 	box-sizing:         content-box;
+	-webkit-appearance: textfield; /* Addresses appearance set to searchfield in S5, Chrome */
 }
 input[type="search"]::-webkit-search-decoration { /* Corrects inner padding displayed oddly in S5, Chrome on OSX */
 	-webkit-appearance: none;
 }
 button::-moz-focus-inner,
-input::-moz-focus-inner { /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
+input::-moz-focus-inner {
+	padding: 0; /* Corrects inner padding and border displayed oddly in FF3/4 www.sitepen.com/blog/2008/05/14/the-devils-in-the-details-fixing-dojos-toolbar-buttons/ */
 	border: 0;
-	padding: 0;
 }
 input[type="text"],
 input[type="email"],
@@ -318,9 +319,9 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-	color: #666;
 	border: 1px solid #ccc;
 	border-radius: 3px;
+	color: #666;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -340,8 +341,8 @@ input[type="search"] {
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
 	padding-left: 3px;
-	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
+	vertical-align: top; /* Improves readability and alignment in all browsers */
 }
 
 /*--------------------------------------------------------------
@@ -366,15 +367,15 @@ a:active {
 5.2 Menus
 --------------------------------------------------------------*/
 .main-navigation {
-	clear: both;
 	display: block;
 	float: left;
+	clear: both;
 	width: 100%;
 }
 .main-navigation ul {
-	list-style: none;
 	margin: 0;
 	padding-left: 0;
+	list-style: none;
 }
 /*.main-navigation li {
 	float: left;
@@ -415,8 +416,8 @@ a:active {
 }
 /* Small menu */
 .menu-toggle {
-	cursor: pointer;
 	display: none;
+	cursor: pointer;
 }
 @media screen and (max-width: 600px) {
 	.menu-toggle,
@@ -431,8 +432,8 @@ a:active {
 .site-main .comment-navigation,
 .site-main .paging-navigation,
 .site-main .post-navigation {
-	margin: 0 0 1.5em;
 	overflow: hidden;
+	margin: 0 0 1.5em;
 }
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
@@ -444,8 +445,8 @@ a:active {
 .paging-navigation .nav-next,
 .post-navigation .nav-next {
 	float: right;
-	text-align: right;
 	width: 50%;
+	text-align: right;
 }
 
 /*--------------------------------------------------------------
@@ -453,29 +454,29 @@ a:active {
 --------------------------------------------------------------*/
 /* Text meant only for screen readers */
 .screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
 }
 
 .screen-reader-text:hover,
 .screen-reader-text:active,
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
-	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-weight: bold;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
 	top: 5px;
-	width: auto;
+	left: 5px;
 	z-index: 100000; /* Above WP toolbar */
+	display: block;
+	clip: auto !important;
+	padding: 15px 23px 14px;
+	width: auto;
+	height: auto;
+	border-radius: 3px;
+	background-color: #f1f1f1;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	color: #21759b;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: normal;
 }
 
 /*--------------------------------------------------------------
@@ -492,8 +493,8 @@ a:active {
 	margin-left: 1.5em;
 }
 .aligncenter {
-	clear: both;
 	display: block;
+	clear: both;
 	margin: 0 auto;
 }
 
@@ -512,8 +513,8 @@ a:active {
 .site-content:after,
 .site-footer:before,
 .site-footer:after {
-	content: '';
 	display: table;
+	content: '';
 }
 
 .clear:after,
@@ -574,6 +575,9 @@ a:active {
 	clear: both;
 	margin: 0 0 1.5em;
 }
+.entry-title {
+	clear: none;
+}
 
 /*--------------------------------------------------------------
 10.2 Asides
@@ -611,44 +615,10 @@ a:active {
 .page-content img.wp-smiley,
 .entry-content img.wp-smiley,
 .comment-content img.wp-smiley {
-	border: none;
-	margin-bottom: 0;
 	margin-top: 0;
+	margin-bottom: 0;
 	padding: 0;
-}
-.wp-caption {
-	border: 1px solid #ccc;
-	margin-bottom: 1.5em;
-	max-width: 100%;
-}
-.wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin: 1.2% auto 0;
-	max-width: 98%;
-}
-.wp-caption-text {
-	text-align: center;
-}
-.wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
-}
-.site-main .gallery {
-	margin-bottom: 1.5em;
-}
-.gallery-caption {
-}
-.site-main .gallery a img {
 	border: none;
-	height: auto;
-	max-width: 90%;
-}
-.site-main .gallery dd,
-.site-main .gallery figcaption {
-	margin: 0;
-}
-.site-main .gallery-columns-4 .gallery-item {
-}
-.site-main .gallery-columns-4 .gallery-item img {
 }
 /* Make sure embeds and iframes fit their containers */
 embed,
@@ -656,3 +626,59 @@ iframe,
 object {
 	max-width: 100%;
 }
+
+/*--------------------------------------------------------------
+12.1 Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin: 0 auto;
+}
+.wp-caption-text {
+	text-align: center;
+}
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+/*--------------------------------------------------------------
+12.2 Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+.gallery-item {
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+	text-align: center;
+}
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+.gallery-caption { }

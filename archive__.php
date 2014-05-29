@@ -4,7 +4,6 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Cherry Framework
  */
 
 if ( have_posts() ) : ?>

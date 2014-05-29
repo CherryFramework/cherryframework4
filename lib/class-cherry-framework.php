@@ -12,6 +12,8 @@
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+do_action( 'cherry_pre' );
+
 if ( !class_exists( 'Cherry_Framework' ) ) {
 	/**
 	 * The Cherry_Framework class launches the framework.
@@ -49,13 +51,13 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// add_action( 'after_setup_theme', array( $this, 'lang' ), 4 );
 
 			// Handle theme supported features.
-			add_action( 'after_setup_theme', array( $this, 'theme_support' ), 12 );
+			add_action( 'after_setup_theme', array( $this, 'theme_support' ), 5 );
 
-			// Load the framework functions.
-			add_action( 'after_setup_theme', array( $this, 'functions' ), 13 );
+			// Load the framework includes.
+			add_action( 'after_setup_theme', array( $this, 'includes' ), 12 );
 
 			// Load the framework extensions.
-			add_action( 'after_setup_theme', array( $this, 'extensions' ), 14 );
+			add_action( 'after_setup_theme', array( $this, 'extensions' ), 13 );
 
 			// Load admin files.
 			add_action( 'wp_loaded', array( $this, 'admin' ) );
@@ -129,10 +131,16 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function default_filters() {
 
-			// Make text widgets, excerpt and term descriptions shortcode aware.
-			add_filter( 'widget_text',      'do_shortcode' );
-			add_filter( 'the_excerpt',      'do_shortcode' );
-			add_filter( 'term_description', 'do_shortcode' );
+			// Enable shortcodes.
+			add_filter( 'widget_text',        'do_shortcode' );
+			add_filter( 'the_excerpt',        'do_shortcode' );
+			add_filter( 'term_description',   'do_shortcode' );
+			add_filter( 'comment_text',       'do_shortcode' );
+
+			add_filter( 'cherry_the_post_meta',       'do_shortcode', 20 );
+			add_filter( 'cherry_the_post_footer',     'do_shortcode', 20 );
+			add_filter( 'cherry_get_the_post_meta',   'do_shortcode', 20 );
+			add_filter( 'cherry_get_the_post_footer', 'do_shortcode', 20 );
 		}
 
 		/**
@@ -168,19 +176,12 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Add default posts and comments RSS feed links to head.
 			add_theme_support( 'automatic-feed-links' );
 
-			// Enable support for Post Thumbnails on posts.
-			add_theme_support( 'post-thumbnails', array( 'post' ) );
+			// Enable support for Post Thumbnails.
+			// add_theme_support( 'post-thumbnails' );
+			add_theme_support( 'post-thumbnails', array( 'post' ) ); // Posts only
 
-			// Enable support for Post Formats.
-			add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
-
-			// Enable core WordPress HTML5 support.
-			add_theme_support( 'html5', array(
-				'comment-list',
-				'search-form',
-				'comment-form',
-				'gallery',
-			) );
+			// Enable HTML5 markup structure.
+			add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
 			// Enable support for Infinite Scroll.
 			// see: http://jetpack.me/support/infinite-scroll/
@@ -189,17 +190,16 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 				'footer'    => 'page',
 			) );
 
-			// Enable support for excerpt on page.
+			// Enable support for excerpts to the 'page' post type.
 			add_post_type_support( 'page', array( 'excerpt' ) );
 		}
 
 		/**
-		 * Loads the framework functions. Many of these functions are needed to properly run the
-		 * framework. Some components are only loaded if the theme supports them.
+		 * Loads the framework files supported by themes and template-related functions/classes.
 		 *
 		 * @since 4.0.0
 		 */
-		function functions() {
+		function includes() {
 
 			// Load Cherry_Wrapping class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-wrapping.php' );
@@ -222,11 +222,20 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the custom template tags.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-tags.php' );
 
+			// Load the post template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-post.php' );
+
 			// Load the custom functions that act independently of the theme templates.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'extras.php' );
 
 			// Load the structure functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'structure.php' );
+
+			// Load the shortcodes if supported.
+			require_if_theme_supports( 'cherry-shortcodes', trailingslashit( CHERRY_FUNCTIONS ) . 'shortcodes.php' );
+
+			// Load the post format functionality if post formats are supported.
+			require_if_theme_supports( 'post-formats', trailingslashit( CHERRY_FUNCTIONS ) . 'post-formats.php' );
 		}
 
 		/**

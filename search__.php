@@ -2,7 +2,6 @@
 /**
  * The template for displaying Search Results pages.
  *
- * @package Cherry Framework
  */
 
 if ( have_posts() ) : ?>

@@ -19,7 +19,12 @@
  * @return void
  */
 function cherry_site_link() {
-	echo cherry_get_site_link();
+	/**
+	 * Filter the displayed the link to the site.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_site_link', cherry_get_site_link() );
 }
 
 /**
@@ -30,12 +35,13 @@ function cherry_site_link() {
  * @return string
  */
 function cherry_get_site_link() {
+
 	if ( $title = get_bloginfo( 'name' ) ) {
-		$url = apply_filters( 'cherry_change_logo_url', esc_url( home_url('/') ) );
-		return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', $url, $title );
-	} else {
-		return false;
+
+		return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url() ), $title );
+
 	}
+
 }
 
 /**
@@ -46,7 +52,12 @@ function cherry_get_site_link() {
  * @return void
  */
 function cherry_wp_link() {
-	echo cherry_get_wp_link();
+	/**
+	 * Filter the displayed the link to the WordPress.org.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_wp_link', cherry_get_wp_link() );
 }
 
 /**
@@ -68,7 +79,12 @@ function cherry_get_wp_link() {
  * @return void
  */
 function cherry_theme_link() {
-	echo cherry_get_theme_link();
+	/**
+	 * Filter the displayed the link to the parent theme URI.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_theme_link', cherry_get_theme_link() );
 }
 
 /**
@@ -95,7 +111,12 @@ function cherry_get_theme_link() {
  * @return void
  */
 function cherry_site_title() {
-	echo cherry_get_site_title();
+	/**
+	 * Filter the displayed the site title.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_site_title', cherry_get_site_title() );
 }
 
 /**
@@ -106,12 +127,12 @@ function cherry_site_title() {
  * @return string
  */
 function cherry_get_site_title() {
-	if ( !cherry_get_site_link() ) {
-		return false;
-	}
-	$title = sprintf( '<h1 class="%s">%s</h1>', 'site-title', cherry_get_site_link() );
 
-	return apply_filters( 'cherry_site_title', $title );
+	if ( $title = get_bloginfo( 'name' ) ) {
+		$title = sprintf( '<h1 class="%s">%s</h1>', 'site-title', cherry_get_site_link() );
+	}
+
+	return apply_filters( 'cherry_get_site_title', $title );
 }
 
 /**
@@ -121,7 +142,12 @@ function cherry_get_site_title() {
  * @return void
  */
 function cherry_site_description() {
-	echo cherry_get_site_description();
+	/**
+	 * Filter the displayed the site description.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_site_description', cherry_get_site_description() );
 }
 
 /**
@@ -132,9 +158,10 @@ function cherry_site_description() {
  * @return string
  */
 function cherry_get_site_description() {
+
 	if ( $desc = get_bloginfo( 'description' ) ) {
 		$desc = sprintf( '<h2 class="%s">%s</h2>', 'site-description', $desc );
 	}
 
-	return apply_filters( 'cherry_site_description', $desc );
+	return apply_filters( 'cherry_get_site_description', $desc );
 }

@@ -11,11 +11,13 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+add_filter( 'cherry_attr_body',    'cherry_attr_body',    9 );
 add_filter( 'cherry_attr_header',  'cherry_attr_header',  9 );
 add_filter( 'cherry_attr_footer',  'cherry_attr_footer',  9 );
 add_filter( 'cherry_attr_content', 'cherry_attr_content', 9 );
 add_filter( 'cherry_attr_sidebar', 'cherry_attr_sidebar', 9, 2 );
 add_filter( 'cherry_attr_menu',    'cherry_attr_menu',    9, 2 );
+add_filter( 'cherry_attr_post',    'cherry_attr_post',    9);
 
 /**
  * Outputs an HTML element's attributes.
@@ -45,17 +47,33 @@ function cherry_get_attr( $slug, $context = '', $attributes = array() ) {
 	$attr   = apply_filters( "cherry_attr_{$slug}", $attributes, $context );
 
 	if ( empty( $attr ) ) {
+
 		$attr['class'] = $slug;
+
 	}
 
 	foreach ( $attr as $name => $value ) {
+
 		$output .= !empty( $value ) ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
+
 	}
 
 	return trim( $output );
 }
 
-/* === Structural === */
+/**
+ * <body> element attributes.
+ *
+ * @since  4.0.0
+ * @param  array $attr
+ * @return array
+ */
+function cherry_attr_body( $attr ) {
+	$attr['class'] = join( ' ', get_body_class() );
+	$attr['dir']   = is_rtl() ? 'rtl' : 'ltr';
+
+	return $attr;
+}
 
 /**
  * Page <header> element attributes.
@@ -113,7 +131,9 @@ function cherry_attr_content( $attr ) {
 function cherry_attr_sidebar( $attr, $context ) {
 
 	if ( !empty( $context ) ) {
+
 		$attr['id'] = "$context";
+
 	}
 
 	$attr['class'] = 'widget-area';
@@ -132,11 +152,40 @@ function cherry_attr_sidebar( $attr, $context ) {
  */
 function cherry_attr_menu( $attr, $context ) {
 
-	if ( !empty( $context ) )
+	if ( !empty( $context ) ) {
+
 		$attr['id'] = "{$context}";
 
-	$attr['class']     = 'main-navigation';
-	$attr['role']      = 'navigation';
+	}
+
+	$attr['class'] = 'main-navigation';
+	$attr['role']  = 'navigation';
+
+	return $attr;
+}
+
+/**
+ * Post <article> element attributes.
+ *
+ * @since  4.0.0
+ * @param  array $attr
+ * @return array
+ */
+function cherry_attr_post( $attr ) {
+
+	$post = get_post();
+
+	// Make sure we have a real post first.
+	if ( !empty( $post ) ) {
+
+		$attr['id']    = 'post-' . get_the_ID();
+		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
+
+	} else {
+
+		$attr['id']    = 'post-0';
+		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
+	}
 
 	return $attr;
 }

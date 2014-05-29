@@ -29,7 +29,9 @@ function cherry_template_base() {
  *
  * @return object
  */
-function cherry_sidebar_path( $sidebar_template = 'templates/sidebar-main.php' ) {
+function cherry_sidebar_path( $id ) {
+	$sidebar_template = "templates/{$id}.php";
+
 	return new Cherry_Wrapping( $sidebar_template );
 }
 

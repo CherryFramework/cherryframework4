@@ -19,20 +19,38 @@ function cherry_theme_setup() {
 	// Load files.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/init.php' );
 
+	// Enable support for Post Formats.
+	add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
+
 	// Load scripts.
 	add_theme_support( 'cherry-scripts', array( 'comment-reply', 'drop-downs' ) );
 
 	// Load styles.
 	add_theme_support( 'cherry-styles', array( 'drop-downs', 'parent', 'style' ) );
 
+	// Load shortcodes.
+	add_theme_support( 'cherry-shortcodes' );
+
 	// Handle content width for embeds and images.
 	cherry_set_content_width( 780 );
 
-	// $movies = new Super_Custom_Post_Type( 'movie', 'Movie', 'Movies' );
-	// $last_news = new Super_Custom_Post_Type( 'last-new', 'Last News', 'Last News' );
+	if ( class_exists( 'Super_Custom_Post_Type' ) ) {
+		$movies = new Super_Custom_Post_Type( 'movie', 'Movie', 'Movies' );
 
-	// add_post_type_support( 'movie', 'post-formats' );
-	// add_post_type_support( 'last-new', 'post-formats' );
+		# Test Icon. Should be a square grid.
+		$movies->set_icon( 'th-large' );
+
+		# Taxonomy test, should be like tags
+		$tax_tags = new Super_Custom_Taxonomy( 'tax-tag' );
+
+		# Taxonomy test, should be like categories
+		$tax_cats = new Super_Custom_Taxonomy( 'tax-cat', 'Tax Cat', 'Tax Cats', 'category' );
+
+		# Connect both of the above taxonomies with the post type
+		connect_types_and_taxes( $movies, array( $tax_tags, $tax_cats ) );
+
+		// add_post_type_support( 'movie', 'post-formats' );
+	}
 
 	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
 	function cherry_wrap_base_cpts( $templates ) {

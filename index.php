@@ -1,4 +1,4 @@
-<?php //var_dump('index.php');
+<?php
 /**
  * The main template file.
  *
@@ -8,35 +8,26 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Cherry Framework
  */
 
 if ( have_posts() ) :
 
 	while ( have_posts() ) : the_post();
 
-		// Loads the content/*.php template.
-		cherry_get_content_template();
+		do_action( 'cherry_post_before' );
 
-		// If viewing a single post/page/CPT.
-		if ( is_singular() ) :
+		do_action( 'cherry_post' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || '0' != get_comments_number() ) :
+		do_action( 'cherry_post_after' );
 
-				// Loads the comments.php template.
-				comments_template( '/templates/comments.php', true );
-			endif;
-
-		endif;
+		do_action( 'cherry_get_comments' );
 
 	endwhile;
 
-	// Display navigation to next/previous set of posts when applicable.
-	cherry_paging_nav();
+	do_action( 'cherry_endwhile_after' );
 
 else :
-	// If no posts were found.
-	get_template_part( 'content/none' );
+
+	do_action( 'cherry_loop_else' );
 
 endif; ?>

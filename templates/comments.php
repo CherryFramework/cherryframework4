@@ -16,7 +16,8 @@
 if ( post_password_required() ) {
 	return;
 }
-?>
+
+do_action( 'cherry_comments_before' ); ?>
 
 <div id="comments" class="comments-area">
 
@@ -67,3 +68,5 @@ if ( post_password_required() ) {
 	<?php comment_form(); ?>
 
 </div><!-- #comments -->
+
+<?php do_action( 'cherry_comments_after' ); ?>

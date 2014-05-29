@@ -5,13 +5,25 @@
  */
 
 // Register custom image sizes.
-add_action( 'init', 'cherry_register_image_sizes' );
+if ( current_theme_supports( 'post-thumbnails' ) ) {
+	add_action( 'init', 'cherry_register_image_sizes' );
+}
 
 // Register custom menus.
 add_action( 'init', 'cherry_register_menus' );
 
 // Register sidebars.
 add_action( 'widgets_init', 'cherry_register_sidebars' );
+
+// Added class for Footer Sidebar widgets.
+add_filter( 'cherry_sidebar_args', 'cherry_footer_sidebar_class' );
+
+// Added wrap for Footer Sidebar widgets.
+add_action( 'cherry_sidebar_footer_start', 'cherry_sidebar_footer_wrap_open' );
+add_action( 'cherry_sidebar_footer_end', 'cherry_sidebar_footer_wrap_close' );
+
+// Output classes for Secondary column.
+add_filter( 'cherry_attr_sidebar', 'cherry_sidebar_main_class', 10, 2 );
 
 // Registers custom image sizes for the theme.
 function cherry_register_image_sizes() {
@@ -50,7 +62,6 @@ function cherry_register_sidebars() {
 }
 
 // Added class for Footer Sidebar widgets.
-add_filter( 'cherry_sidebar_args', 'cherry_footer_sidebar_class' );
 function cherry_footer_sidebar_class( $args ) {
 	if ( 'sidebar-footer' === $args['id'] ) {
 		$args['before_widget'] = preg_replace( '/class="/', "class=\"col-sm-3 ", $args['before_widget'], 1 );
@@ -60,8 +71,6 @@ function cherry_footer_sidebar_class( $args ) {
 }
 
 // Added wrap for Footer Sidebar widgets
-add_action( 'cherry_sidebar_footer_start', 'cherry_sidebar_footer_wrap_open' );
-add_action( 'cherry_sidebar_footer_end', 'cherry_sidebar_footer_wrap_close' );
 function cherry_sidebar_footer_wrap_open() {
 	echo "<div class='row'>\n";
 }
@@ -77,6 +86,12 @@ function cherry_sidebar_footer_wrap_close() {
  * @return boolean Display or not the sidebar?
  */
 function cherry_display_sidebar( $id ) {
+	global $wp_registered_sidebars;
+
+	if ( array_key_exists( $id, $wp_registered_sidebars ) !== TRUE ) {
+		__return_false();
+	}
+
 	$sidebars = array(
 		'sidebar-main' => new Cherry_Sidebar(
 			/**
@@ -127,7 +142,7 @@ function cherry_content_class() {
 	} else {
 		$class = 'col-sm-12';
 	}
-	echo apply_filters( 'cherry_content_class', $class );
+	return apply_filters( 'cherry_content_class', $class );
 }
 
 /**
@@ -137,7 +152,6 @@ function cherry_content_class() {
  *
  * @return string Classes name
  */
-add_filter( 'cherry_attr_sidebar', 'cherry_sidebar_main_class', 10, 2 );
 function cherry_sidebar_main_class( $attr, $context ) {
 	if ( 'secondary' === $context ) {
 		$attr['class'] .= ' ' . apply_filters( 'cherry_sidebar_main_class', 'col-sm-4' );
