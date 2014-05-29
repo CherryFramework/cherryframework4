@@ -18,9 +18,9 @@
 		$cherry_menu = 'cherry-framework';
 		//add main menu item
 			//interface builder demo page
-		add_menu_page( __( 'Interface builder demo page', 'cherry' ), __( 'Interface builder demo page', 'cherry' ), 'edit_theme_options', 'interface-builder-demo-page', 'interface_builder_demo', 'dashicons-visibility', 60 );
+		add_menu_page( __( 'Interface builder demo page', 'cherry' ), __( 'Interface builder demo page', 'cherry' ), 'edit_theme_options', 'interface-builder-demo-page', 'interface_builder_demo', 'dashicons-visibility', 61 );
 			//Cherry interface
-		add_menu_page( __( 'Cherry options page', 'cherry' ), __( 'Cherry options', 'cherry' ), 'edit_theme_options', $cherry_menu, 'cherry_options', 'dashicons-admin-settings', 61 );
+		add_menu_page( __( 'Cherry options page', 'cherry' ), __( 'Cherry options', 'cherry' ), 'edit_theme_options', $cherry_menu, 'cherry_options', 'dashicons-admin-settings', 62 );
 	}
 	add_action( 'admin_menu', 'cherry_add_admin_menu');
 
