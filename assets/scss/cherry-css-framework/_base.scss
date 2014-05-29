@@ -1,6 +1,7 @@
 //
-// Base
+// Scaffolding
 // --------------------------------------------------
+
 
 // Reset the box-sizing
 //
@@ -15,7 +16,9 @@
   @include box-sizing(border-box);
 }
 
+
 // Body reset
+
 html {
   font-size: 62.5%;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -39,7 +42,9 @@ textarea {
   line-height: inherit;
 }
 
+
 // Links
+
 a {
   color: $link-color;
   text-decoration: none;
@@ -65,8 +70,20 @@ figure {
   margin: 0;
 }
 
+
 // Images
 
 img {
   vertical-align: middle;
+  @include img-responsive();
+}
+
+
+// Horizontal rules
+
+hr {
+  margin-top:    $line-height-computed;
+  margin-bottom: $line-height-computed;
+  border: 0;
+  border-top: 1px solid $hr-border;
 }
