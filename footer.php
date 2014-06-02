@@ -13,8 +13,8 @@
 
 	</div>
 
-<?php wp_footer(); ?>
-
 <?php do_action( 'cherry_body_end' ); ?>
+
+<?php wp_footer(); ?>
 </body>
 </html>
