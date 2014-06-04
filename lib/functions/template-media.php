@@ -19,8 +19,8 @@
  * @param  int   $post_id Attachment ID.
  * @return bool
  */
-function cherry_attachment_is_audio( $post_id = 0 ) {
-	$post_id   = empty( $post_id ) ? get_the_ID() : $post_id;
+function cherry_attachment_is_audio( $post_id = null ) {
+	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
 	$mime_type = get_post_mime_type( $post_id );
 
 	list( $type, $subtype ) = false !== strpos( $mime_type, '/' ) ? explode( '/', $mime_type ) : array( $mime_type, '' );
@@ -36,8 +36,8 @@ function cherry_attachment_is_audio( $post_id = 0 ) {
  * @param  int   $post_id Attachment ID.
  * @return bool
  */
-function cherry_attachment_is_video( $post_id = 0 ) {
-	$post_id   = empty( $post_id ) ? get_the_ID() : $post_id;
+function cherry_attachment_is_video( $post_id = null ) {
+	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
 	$mime_type = get_post_mime_type( $post_id );
 
 	list( $type, $subtype ) = false !== strpos( $mime_type, '/' ) ? explode( '/', $mime_type ) : array( $mime_type, '' );
