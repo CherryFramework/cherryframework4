@@ -22,6 +22,9 @@ add_action( 'cherry_post_loop', 'cherry_post_structure_loop' );
 // Single post structure.
 add_action( 'cherry_post_single', 'cherry_post_structure_single' );
 
+// Aattachment metadata.
+add_action( 'cherry_post_after', 'cherry_get_attachment_metadata' );
+
 add_filter( 'cherry_post_structure_loop',   'cherry_post_loop_structure_setup',   9, 3 );
 add_filter( 'cherry_post_structure_single', 'cherry_post_single_structure_setup', 9, 3 );
 
@@ -237,7 +240,7 @@ function cherry_post_loop_structure_setup( $structure_elements, $template_name, 
 	switch ( $template_name ) {
 
 		case 'attachment':
-			$structure_elements = array( 'header', 'content', 'footer' );
+			$structure_elements = array( 'thumbnail', 'header', 'content' );
 			break;
 
 		case 'aside':
@@ -257,7 +260,7 @@ function cherry_post_loop_structure_setup( $structure_elements, $template_name, 
 			break;
 
 		case 'page':
-			$structure_elements = array( 'thumbnail', 'header', 'excerpt' );
+			$structure_elements = array( 'header', 'excerpt' );
 			break;
 
 		case 'quote':
@@ -294,7 +297,7 @@ function cherry_post_single_structure_setup( $structure_elements, $template_name
 	switch ( $template_name ) {
 
 		case 'attachment':
-			$structure_elements = array( 'header', 'content', 'footer' );
+			$structure_elements = array( 'header', 'meta', 'content' );
 			break;
 
 		case 'chat':
@@ -326,4 +329,76 @@ function cherry_post_single_structure_setup( $structure_elements, $template_name
 	}
 
 	return $structure_elements;
+}
+
+/**
+ * Display or retrieve the attachment meta.
+ *
+ * @since 4.0.0
+ *
+ * @param  int           $post_id Attachment ID.
+ * @param  bool          $echo    Display the attachment meta?
+ * @return void | array
+ */
+function cherry_get_attachment_metadata( $post_id = 0, $echo = true ) {
+
+	$post_id = ( $post_id ) ? $post_id : get_the_ID();
+
+	if ( wp_attachment_is_image( $post_id ) ) {
+
+		$type = 'image';
+
+	} elseif ( cherry_attachment_is_audio( $post_id ) ) {
+
+		$type = 'audio';
+
+	} elseif ( cherry_attachment_is_video( $post_id ) ) {
+
+		$type = 'video';
+
+	}
+
+	// Get the attachment metadata.
+	$metadata = wp_get_attachment_metadata( $post_id );
+
+	if ( !$metadata ) {
+		return;
+	}
+
+	if ( is_array( $metadata ) ) :
+
+		if ( function_exists("cherry_{$type}_meta") ) :
+
+			$items = call_user_func( "cherry_{$type}_meta", $post_id, $metadata );
+
+			if ( true !== $echo ) {
+				return $items;
+			}
+
+		endif;
+
+	endif;
+
+	if ( isset( $items ) && !empty( $items ) ) {
+
+		$display = '';
+
+		foreach ( $items as $item ) {
+
+			$display .= sprintf( '<li><span class="prep">%1$s</span> <span class="data">%2$s</span></li>', $item[1], $item[0] );
+
+		}
+
+		$display = '<ul class="media-meta">' . $display . '</ul>';
+
+	}
+
+	if ( isset( $display ) ) {
+
+		$title = sprintf( __( '%s Info', 'cherry' ), $type );
+
+		printf( '<div class="attachment-meta"><div class="media-info"><h3 class="media-title">%1$s</h3>%2$s</div></div>', $title, $display );
+
+	}
+
 }

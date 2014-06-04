@@ -9,6 +9,9 @@ if ( current_theme_supports( 'post-thumbnails' ) ) {
 	add_action( 'init', 'cherry_register_image_sizes' );
 }
 
+// Setup of certain features for a 'page' post type.
+add_action( 'init', 'cherry_page_support' );
+
 // Register custom menus.
 add_action( 'init', 'cherry_register_menus' );
 
@@ -33,6 +36,16 @@ function cherry_register_image_sizes() {
 
 	// Adds the 'slider-post-thumbnail' image size.
 	add_image_size( 'slider-post-thumbnail', 1025, 500, true );
+}
+
+// Setup of certain features for a 'page' post type.
+function cherry_page_support() {
+
+	// Enable support for excerpts.
+	add_post_type_support( 'page', 'excerpt' );
+
+	// Disable support for thumbnails.
+	remove_post_type_support( 'page', 'thumbnail' );
 }
 
 // Registers nav menu locations.

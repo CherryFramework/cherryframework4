@@ -114,6 +114,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the <head> functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'head.php' );
 
+			// Load media-related functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'media.php' );
+
 			// Load the sidebar functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'sidebars.php' );
 
@@ -177,8 +180,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_theme_support( 'automatic-feed-links' );
 
 			// Enable support for Post Thumbnails.
-			// add_theme_support( 'post-thumbnails' );
-			add_theme_support( 'post-thumbnails', array( 'post' ) ); // Posts only
+			add_theme_support( 'post-thumbnails' );
 
 			// Enable HTML5 markup structure.
 			add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
@@ -190,8 +192,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 				'footer'    => 'page',
 			) );
 
-			// Enable support for excerpts to the 'page' post type.
-			add_post_type_support( 'page', array( 'excerpt' ) );
 		}
 
 		/**
@@ -218,6 +218,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load the general template functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-general.php' );
+
+			// Load the media template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-media.php' );
 
 			// Load the custom template tags.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-tags.php' );

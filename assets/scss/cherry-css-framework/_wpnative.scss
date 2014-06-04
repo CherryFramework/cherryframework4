@@ -107,6 +107,8 @@
 --------------------------------------------------------------*/
 .clear:before,
 .clear:after,
+.clearfix:before,
+.clearfix:after,
 .entry-content:before,
 .entry-content:after,
 .comment-content:before,
@@ -117,11 +119,12 @@
 .site-content:after,
 .site-footer:before,
 .site-footer:after {
-	content: '';
 	display: table;
+	content: '';
 }
 
 .clear:after,
+.clearfix:after,
 .entry-content:after,
 .comment-content:after,
 .site-header:after,
@@ -172,6 +175,11 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+/* Mediaelements */
+.hentry .mejs-container {
+	margin-bottom: 18px;
 }
 
 /*--------------------------------------------------------------
@@ -225,6 +233,9 @@
 	margin: 1.2% auto 0;
 	max-width: 98%;
 }
+.wp-caption.aligncenter div[class*="wp-video"] {
+	margin: 0 auto;
+}
 .wp-caption-text {
 	text-align: center;
 }
@@ -248,6 +259,11 @@
 .site-main .gallery-columns-4 .gallery-item {
 }
 .site-main .gallery-columns-4 .gallery-item img {
+}
+.wp-video {
+	.attachment & {
+		margin: 0 auto;
+	}
 }
 /* Make sure embeds and iframes fit their containers */
 embed,

@@ -4302,7 +4302,6 @@ class scss_server {
 	 * @return string
 	 */
 	protected function compile($in, $out) {
-		var_dump(1);
 		$start = microtime(true);
 		$css = $this->scss->compile(file_get_contents($in), $in);
 		$elapsed = round((microtime(true) - $start), 4);
