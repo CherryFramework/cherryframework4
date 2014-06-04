@@ -8,7 +8,7 @@
  */
 add_action( 'cherry_endwhile_after', 'cherry_paging_nav' );
 
-if ( ! function_exists( 'cherry_paging_nav' ) ) :
+if ( !function_exists( 'cherry_paging_nav' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  */
@@ -39,13 +39,13 @@ endif;
 
 add_action( 'cherry_post_after', 'cherry_post_nav' );
 
-if ( ! function_exists( 'cherry_post_nav' ) ) :
+if ( !function_exists( 'cherry_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
  */
 function cherry_post_nav() {
 
-	if ( ! is_singular( get_post_type() ) ) {
+	if ( !is_singular( get_post_type() ) || is_attachment() ) {
 		return;
 	}
 
@@ -53,10 +53,9 @@ function cherry_post_nav() {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
 
-	if ( ! $next && ! $previous ) {
+	if ( !$next && !$previous ) {
 		return;
-	}
-	?>
+	} ?>
 	<nav class="navigation post-navigation" role="navigation">
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'cherry' ); ?></h1>
 		<div class="nav-links">
@@ -70,7 +69,7 @@ function cherry_post_nav() {
 }
 endif;
 
-if ( ! function_exists( 'cherry_posted_on' ) ) :
+if ( !function_exists( 'cherry_posted_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
@@ -140,3 +139,20 @@ function cherry_category_transient_flusher() {
 }
 add_action( 'edit_category', 'cherry_category_transient_flusher' );
 add_action( 'save_post',     'cherry_category_transient_flusher' );
+
+/**
+ * Retrieves an attachment ID based on an attachment file URL.
+ *
+ * @since  4.0.0
+ * @param  string  $url
+ * @return int
+ */
+function cherry_get_attachment_id_from_url( $url ) {
+	global $wpdb;
+
+	$prefix = $wpdb->prefix;
+
+	$posts = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $url ) );
+
+	return array_shift( $posts );
+}

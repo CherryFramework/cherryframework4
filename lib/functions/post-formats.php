@@ -26,17 +26,17 @@ add_action( 'wp_loaded', 'cherry_structured_post_formats', 1 );
 function cherry_structured_post_formats() {
 	// Add infinity symbol to aside posts.
 	if ( current_theme_supports( 'post-formats', 'aside' ) ) {
-		add_filter( 'the_content', 'cherry_aside_infinity', 9 ); // run before wpautop
+		add_filter( 'the_content', 'cherry_aside_infinity', 9 );
 	}
 
 	// Filter the excerpt of audio posts.
 	if ( current_theme_supports( 'post-formats', 'audio' ) ) {
-		add_filter( 'the_excerpt', 'cherry_post_audio_excerpt', 9 ); // run before wpautop
+		add_filter( 'the_excerpt', 'cherry_post_audio_excerpt', 9 );
 	}
 
 	// Filter the excerpt of chat posts.
 	if ( current_theme_supports( 'post-formats', 'chat' ) ) {
-		add_filter( 'the_excerpt', 'cherry_post_chat_excerpt', 9 ); // run before wpautop
+		add_filter( 'the_excerpt', 'cherry_post_chat_excerpt', 9 );
 	}
 
 	// Filter the entry-header of link posts.
@@ -71,11 +71,14 @@ function cherry_structured_post_formats() {
 
 	// Filter the excerpt of video posts.
 	if ( current_theme_supports( 'post-formats', 'video' ) ) {
-		add_filter( 'the_excerpt', 'cherry_post_video_excerpt', 9 ); // run before wpautop
+		add_filter( 'the_excerpt', 'cherry_post_video_excerpt', 9 );
 	}
 
 	// Filter the entry-footer of page.
 	add_filter( 'cherry_get_the_post_footer', 'cherry_page_footer', 9 );
+
+	// Filter the attachment markup to be prepended to the post content.
+	add_filter( 'prepend_attachment', 'cherry_attachment_content', 9 );
 }
 
 /**
@@ -352,4 +355,52 @@ function cherry_page_footer( $post_info ) {
 	endif;
 
 	return $post_info;
+}
+
+/**
+ * This function filters the attachment markup to be prepended to the post content.
+ *
+ * @since 4.0.0
+ *
+ * @param string $p The attachment HTML output.
+ */
+function cherry_attachment_content( $p ) {
+
+	if ( is_attachment() ) :
+
+		$attr    = array( 'align' => 'aligncenter', 'width' => '', 'caption' => '' );
+		$post_id = get_the_ID();
+
+		if ( wp_attachment_is_image( $post_id ) ) {
+
+			$src = wp_get_attachment_image_src( get_the_ID(), 'full' );
+
+			if ( is_array( $src ) && !empty( $src ) ) :
+
+				$attr['width'] = esc_attr( $src[1] );
+				$content       = wp_get_attachment_image( get_the_ID(), 'full', false, array( 'class' => 'aligncenter' ) );
+
+			endif;
+
+		} elseif ( cherry_attachment_is_audio( $post_id  ) || cherry_attachment_is_video( $post_id  ) ) {
+
+			$attr['width'] = cherry_get_content_width();
+			$content       = $p;
+
+		} else {
+			return $p;
+		}
+
+		if ( !has_excerpt() ) {
+			return $content;
+		}
+
+		$attr['caption'] = get_the_excerpt();
+		$output          = img_caption_shortcode( $attr, $content );
+
+		return $output;
+
+	endif;
+
+	return $p;
 }

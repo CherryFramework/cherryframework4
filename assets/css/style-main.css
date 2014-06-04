@@ -1660,11 +1660,11 @@ textarea.input-lg, select[multiple].input-lg {
 4.0 Clearings
 --------------------------------------------------------------*/
 }
-.clear:before, .clear:after, .entry-content:before, .entry-content:after, .comment-content:before, .comment-content:after, .site-header:before, .site-header:after, .site-content:before, .site-content:after, .site-footer:before, .site-footer:after {
-  content: '';
+.clear:before, .clear:after, .clearfix:before, .clearfix:after, .entry-content:before, .entry-content:after, .comment-content:before, .comment-content:after, .site-header:before, .site-header:after, .site-content:before, .site-content:after, .site-footer:before, .site-footer:after {
   display: table;
+  content: '';
 }
-.clear:after, .entry-content:after, .comment-content:after, .site-header:after, .site-content:after, .site-footer:after {
+.clear:after, .clearfix:after, .entry-content:after, .comment-content:after, .site-header:after, .site-content:after, .site-footer:after {
   clear: both;
   /*--------------------------------------------------------------
 5.0 Widgets
@@ -1699,6 +1699,10 @@ textarea.input-lg, select[multiple].input-lg {
 .page-links {
   clear: both;
   margin: 0 0 1.5em;
+  /* Mediaelements */
+}
+.hentry .mejs-container {
+  margin-bottom: 18px;
   /*--------------------------------------------------------------
 6.2 Asides
 --------------------------------------------------------------*/
@@ -1744,6 +1748,9 @@ textarea.input-lg, select[multiple].input-lg {
   margin: 1.2% auto 0;
   max-width: 98%;
 }
+.wp-caption.aligncenter div[class*="wp-video"] {
+  margin: 0 auto;
+}
 .wp-caption-text {
   text-align: center;
 }
@@ -1761,8 +1768,11 @@ textarea.input-lg, select[multiple].input-lg {
 .site-main .gallery dd, .site-main .gallery figcaption {
   margin: 0;
 }
-.site-main .gallery-columns-4 .gallery-item img {
+.wp-video {
   /* Make sure embeds and iframes fit their containers */
+}
+.attachment .wp-video {
+  margin: 0 auto;
 }
 embed, iframe, object {
   max-width: 100%;

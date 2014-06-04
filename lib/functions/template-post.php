@@ -13,6 +13,56 @@
  */
 
 /**
+ * Check if post has an image attached.
+ *
+ * @since 4.0.0
+ *
+ * @param  int  $post_id Optional. Post ID.
+ * @return bool          Whether post has an image attached.
+ */
+function cherry_has_post_thumbnail( $post_id = null ) {
+	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
+	$post_type = get_post_type( $post_id );
+
+	if ( !current_theme_supports( 'post-thumbnails' ) ) {
+		return false;
+	}
+
+	$thumbnail_support = post_type_supports( $post_type, 'thumbnail' );
+
+	if ( 'attachment' === $post_type ) {
+
+		$mime_type = get_post_mime_type();
+
+		if ( !$thumbnail_support && $mime_type ) {
+
+			if ( 0 === strpos( $mime_type, 'audio/' ) ) {
+
+				$thumbnail_support = post_type_supports( 'attachment:audio', 'thumbnail' ) || current_theme_supports( 'post-thumbnails', 'attachment:audio' );
+
+			} elseif ( 0 === strpos( $mime_type, 'video/' ) ) {
+
+				$thumbnail_support = post_type_supports( 'attachment:video', 'thumbnail' ) || current_theme_supports( 'post-thumbnails', 'attachment:video' );
+
+			}
+
+		}
+
+	}
+
+	if ( $thumbnail_support && has_post_thumbnail( $post_id ) ) {
+
+		return true;
+
+	} else {
+
+		return false;
+
+	}
+
+}
+
+/**
  * Display the post thumbnail.
  *
  * @since 4.0.0
@@ -30,24 +80,23 @@ function cherry_the_post_thumbnail() {
  * Retrieve the post thumbnail.
  *
  * @since 4.0.0
+ *
+ * @param  int    $post_id        The post ID.
+ * @return string $post_thumbnail The post thumbnail HTML
  */
-function cherry_get_the_post_thumbnail() {
-	$post_type = get_post_type();
+function cherry_get_the_post_thumbnail( $post_id = null ) {
+	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
+	$post_type = get_post_type( $post_id );
 
-	if ( !current_theme_supports( 'post-thumbnails', $post_type ) ) {
+	if ( !cherry_has_post_thumbnail( $post_id ) ) {
 		return;
 	}
 
-	if ( !has_post_thumbnail() ) {
-		return;
-	}
-
-	$post_id  = get_the_ID();
 	$defaults = array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
-		'size'            => is_singular( $post_type ) ? 'large' : 'post-thumbnail',
-		'class'           => is_singular( $post_type ) ? 'alignnone' : 'alignleft',
+		'size'            => is_singular( $post_type ) ? 'full' : 'post-thumbnail',
+		'class'           => is_singular( $post_type ) ? 'aligncenter' : 'alignleft',
 		'before'          => '',
 		'after'           => '',
 		'wrap'            => is_singular( $post_type ) ? '<%1$s class="%2$s">%3$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" title="%4$s">%5$s</a></%1$s>',
