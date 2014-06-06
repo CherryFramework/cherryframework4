@@ -227,19 +227,24 @@ function cherry_entry_comments_link_shortcode( $attr ) {
 		'entry-comments-link'
 	);
 
-	if ( !comments_open() || !post_type_supports( get_post_type(), 'comments' ) ) {
+	if ( !post_type_supports( get_post_type(), 'comments' ) ) {
 		return;
 	}
 
-	ob_start();
-	comments_number( $attr['zero'], $attr['one'], $attr['more'] );
-	$comments = ob_get_clean();
+	// If comments are open or we have at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) :
 
-	$comments = sprintf( '<a href="%s">%s</a>', get_comments_link(), $comments );
+		ob_start();
+		comments_number( $attr['zero'], $attr['one'], $attr['more'] );
+		$comments = ob_get_clean();
 
-	$output = '<span class="comments-link">' . $attr['before'] . $comments . $attr['after'] . '</span>';
+		$comments = sprintf( '<a href="%s">%s</a>', get_comments_link(), $comments );
 
-	return apply_filters( 'cherry_entry_comments_link_shortcode', $output, $attr );
+		$output = '<span class="comments-link">' . $attr['before'] . $comments . $attr['after'] . '</span>';
+
+		return apply_filters( 'cherry_entry_comments_link_shortcode', $output, $attr );
+
+	endif;
 }
 
 /**

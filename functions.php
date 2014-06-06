@@ -49,7 +49,7 @@ function cherry_theme_setup() {
 		# Connect both of the above taxonomies with the post type
 		connect_types_and_taxes( $movies, array( $tax_tags, $tax_cats ) );
 
-		// add_post_type_support( 'movie', 'post-formats' );
+		add_post_type_support( 'movie', 'comments' );
 	}
 
 	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );

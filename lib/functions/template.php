@@ -176,11 +176,15 @@ function cherry_get_sidebar_template( $id ) {
  */
 function cherry_get_comments_template() {
 
+	if ( !post_type_supports( get_post_type(), 'comments' ) ) {
+		return;
+	}
+
 	// If viewing a single post/page/CPT.
 	if ( is_singular() ) :
 
 		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || '0' != get_comments_number() ) :
+		if ( comments_open() || get_comments_number() ) :
 
 			// Loads the comments.php template.
 			comments_template( '/templates/comments.php', true );

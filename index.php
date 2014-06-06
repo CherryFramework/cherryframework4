@@ -20,8 +20,6 @@ if ( have_posts() ) :
 
 		do_action( 'cherry_post_after' );
 
-		do_action( 'cherry_get_comments' );
-
 	endwhile;
 
 	do_action( 'cherry_endwhile_after' );

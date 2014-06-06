@@ -216,6 +216,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the template functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template.php' );
 
+			// Load the comments functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-comments.php' );
+
 			// Load the general template functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-general.php' );
 

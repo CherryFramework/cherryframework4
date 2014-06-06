@@ -2,10 +2,6 @@
 /**
  * The template for displaying Comments.
  *
- * The area of the page that contains both current comments
- * and the comment form.
- *
- * @package Cherry Framework
  */
 
 /*
@@ -21,51 +17,30 @@ do_action( 'cherry_comments_before' ); ?>
 
 <div id="comments" class="comments-area">
 
-	<?php // You can start editing here -- including this comment! ?>
+	<?php if ( have_comments() ) : // Check if there are any comments.
 
-	<?php if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-				printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'cherry' ),
-					number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
-			?>
-		</h2>
+		$title_comments = sprintf( _n( 'Comment', 'Comments (%s)', get_comments_number(), 'cherry' ),
+					number_format_i18n( get_comments_number() ) );
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-above" class="comment-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'cherry' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'cherry' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'cherry' ) ); ?></div>
-		</nav><!-- #comment-nav-above -->
-		<?php endif; // check for comment navigation ?>
+		echo apply_filters( 'cherry_title_comments', sprintf( '<h2 class="comments-title">%s</h2>', $title_comments ) );
 
-		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				) );
-			?>
-		</ol><!-- .comment-list -->
+		do_action( 'cherry_comments_nav', 'above' );
 
-		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
-		<nav id="comment-nav-below" class="comment-navigation" role="navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Comment navigation', 'cherry' ); ?></h1>
-			<div class="nav-previous"><?php previous_comments_link( __( '&larr; Older Comments', 'cherry' ) ); ?></div>
-			<div class="nav-next"><?php next_comments_link( __( 'Newer Comments &rarr;', 'cherry' ) ); ?></div>
-		</nav><!-- #comment-nav-below -->
-		<?php endif; // check for comment navigation ?>
+		do_action( 'cherry_comments_list' );
 
-	<?php endif; // have_comments() ?>
+		do_action( 'cherry_comments_nav', 'below' );
 
-	<?php
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() && '0' != get_comments_number() && post_type_supports( get_post_type(), 'comments' ) ) :
-	?>
-		<p class="no-comments"><?php _e( 'Comments are closed.', 'cherry' ); ?></p>
+	endif; ?>
+
+	<?php if ( !comments_open() && get_comments_number() ) : // If comments are closed and there are comments, let's leave a little note, shall we? ?>
+
+		<p class="no-comments">
+			<?php echo apply_filters( 'cherry_comments_closed_text', __( 'Comments are closed.', 'cherry' ) ); ?>
+		</p>
+
 	<?php endif; ?>
 
-	<?php comment_form(); ?>
+	<?php comment_form(); // Loads the comment form. ?>
 
 </div><!-- #comments -->
 
