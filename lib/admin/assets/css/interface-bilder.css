@@ -23,6 +23,8 @@
   /*End cherry typography options style*/
   /*Cherry info block style*/
   /*End cherry info block style*/
+  /*Cherry multiple select style*/
+  /*End multiple select style*/
 }
 .cherry-section .cherry-title {
   margin: 0 0 5px 0;
@@ -149,6 +151,7 @@
   }
 }
 .cherry-section .cherry-switcher-wrap {
+  overflow: hidden;
   margin-top: 10px;
 }
 .cherry-section .cherry-switcher-wrap .sw-enable {
@@ -157,6 +160,8 @@
   border: 1px solid #ccc;
   border-right: none;
   border-radius: 3px 0 0 3px;
+  display: block;
+  float: left;
 }
 .cherry-section .cherry-switcher-wrap .sw-enable span {
   font-weight: bold;
@@ -176,6 +181,8 @@
   border: 1px solid #ccc;
   border-left: none;
   border-radius: 0 3px 3px 0;
+  display: block;
+  float: left;
 }
 .cherry-section .cherry-switcher-wrap .sw-disable span {
   font-weight: bold;

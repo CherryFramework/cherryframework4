@@ -1,0 +1,87 @@
+.options-framework-wrapper {
+  margin: 20px 20px 0 0;
+  background: #f4f4f4;
+  border: 1px solid #D8D8D8;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cherry-option-submit-wrapper {
+  border: 1px solid #D8D8D8;
+  overflow: hidden;
+  padding: 10px 20px;
+  background: #FCFCFC;
+  margin: 20px 20px 0 0;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.cherry-option-submit-wrapper #wrap-cherry-save-options {
+  float: right;
+  margin: 0;
+}
+.cherry-option-submit-wrapper #wrap-cherry-restore-options {
+  float: left;
+  margin: 0;
+}
+
+#cherry_options .cherry-tab-menu {
+  width: 200px;
+  float: left;
+  margin: 0;
+  list-style: none;
+}
+#cherry_options .cherry-tab-menu li {
+  margin: 0;
+}
+#cherry_options .cherry-tab-menu li a {
+  color: #555555;
+  background: #f4f4f4;
+  padding: 12px 5px 12px 10px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #ebebeb;
+  font-weight: bold;
+  font-size: 14px;
+}
+#cherry_options .cherry-tab-menu li a i {
+  font-size: 18px;
+}
+#cherry_options .cherry-tab-menu li a span {
+  padding-left: 10px;
+}
+#cherry_options .cherry-tab-menu li a:hover {
+  color: #ffffff;
+  background: #2EA2CC;
+}
+#cherry_options .cherry-tab-menu li.active a {
+  color: #000000;
+  background: #fcfcfc !important;
+  border-bottom: 1px solid #D8D8D8;
+  box-shadow: 1px 0 0 #fcfcfc;
+}
+#cherry_options .cherry-tab-menu li.active a i {
+  color: #2EA2CC;
+}
+#cherry_options .cherry-tab-menu li:first-child a {
+  border-top: none;
+}
+#cherry_options .cherry-tab-menu li.subitem a {
+  padding: 4px 5px 4px 30px;
+  font-size: 12px;
+  background: #eaeaea;
+  border-bottom: none;
+}
+#cherry_options .cherry-tab-menu li.subitem a i {
+  font-size: 14px;
+}
+#cherry_options .cherry-tab-menu li.subitem a:hover {
+  background: #3ba5cc;
+}
+#cherry_options .cherry-option-group-list {
+  margin-left: 200px;
+  background: #fcfcfc;
+  border-left: 1px solid #D8D8D8;
+  min-height: 800px;
+}
+#cherry_options .cherry-option-group-list .options_group {
+  padding: 10px 20px;
+  display: none;
+}

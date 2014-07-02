@@ -25,6 +25,8 @@
 			text-transform: uppercase;
 		};
 	}
+	
+
 	/*Cherry column style*/
 	.cherry-col-1, .cherry-col-2{
 		float: left;
@@ -73,6 +75,7 @@
 			display: inline-block;
 		}
 	}
+
 	/*End html ellements stule*/
 	/*Text input, textarea, select size*/
 	.width-small{
@@ -126,10 +129,8 @@
 	}
 	/*End cherry stepper style*/
 	/*Cherry switcher style*/
-	.options-framework-wrapper{
-		
-	}
 	.cherry-switcher-wrap{
+		overflow: hidden;
 		margin-top: 10px;
 			.sw-enable{
 				padding: 5px 10px;
@@ -137,6 +138,8 @@
 				border: 1px solid #ccc;
 				border-right: none; 
 				border-radius: 3px 0 0 3px;
+				display: block;
+				float: left;
 					span{
 						font-weight: bold;
 					}
@@ -156,6 +159,8 @@
 				border: 1px solid #ccc;
 				border-left: none; 
 				border-radius: 0 3px 3px 0;
+				display: block;
+				float: left;
 					span{
 						font-weight: bold;
 					}
@@ -344,4 +349,9 @@
 		}
 	}
 	/*End cherry info block style*/
+
+	/*Cherry multiple select style*/
+
+
+	/*End multiple select style*/
 }
