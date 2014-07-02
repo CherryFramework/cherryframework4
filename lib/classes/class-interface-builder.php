@@ -186,6 +186,51 @@ class Cherry_Interface_Bilder {
 			break;
 			/*
 			arg:
+				type: multiselect
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				default_value: ''
+				class: width-small, width-medium, width-full
+				item_inline_style: ''
+				options:
+					key => value
+			*/
+			case 'filterselect':
+				$output .= '<select ' . $item_inline_style . ' class="' . $class . ' cherry-filter-select" id="' . $id . '" name="' . $name . '">';
+				if($options && !empty($options) && is_array($options)){
+					foreach ($options as $option => $option_value) {
+						$output .= '<option value="' . $option . '" ' . selected( $value, $option, false ) . '>'. esc_html( $option_value ) .'</option>';
+					}
+				}
+				$output .= '</select>';
+			break;
+			/*
+			arg:
+				type: multiselect
+				title: ''
+				label: ''
+				decsription: ''
+				placeholder: ''
+				value: ''
+				default_value: ''
+				class: width-small, width-medium, width-full
+				item_inline_style: ''
+				options:
+					key => value
+			*/
+			case 'multiselect':
+				$output .= '<select ' . $item_inline_style . ' class="' . $class . ' cherry-multi-select" id="' . $id . '" name="' . $name . '" multiple="multiple" placeholder="'.$placeholder.'">';
+				if($options && !empty($options) && is_array($options)){
+					foreach ($options as $option => $option_value) {
+						$output .= '<option value="' . $option . '" ' . selected( $value, $option, false ) . '>'. esc_html( $option_value ) .'</option>';
+					}
+				}
+				$output .= '</select>';
+			break;
+			/*
+			arg:
 				type: checkbox
 				title: ''
 				label: ''
