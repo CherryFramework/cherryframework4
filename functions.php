@@ -22,14 +22,17 @@ function cherry_theme_setup() {
 	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
 
-	// Load scripts.
+	// Loads scripts.
 	add_theme_support( 'cherry-scripts', array( 'comment-reply', 'drop-downs' ) );
 
-	// Load styles.
+	// Loads styles.
 	add_theme_support( 'cherry-styles', array( 'drop-downs', 'parent', 'style' ) );
 
-	// Load shortcodes.
+	// Loads shortcodes.
 	add_theme_support( 'cherry-shortcodes' );
+
+	// Enable support SCSS compiler.
+	add_theme_support( 'cherry-scss-compiler' );
 
 	// Handle content width for embeds and images.
 	cherry_set_content_width( 780 );

@@ -254,7 +254,7 @@
 							'value'			=> 'false',
 							'default_value'	=> 'default_value'
 				);
-				
+
 ////////// Footer options /////////////////////////////////////////////////////
 		$footer_options = array();
 
@@ -360,7 +360,7 @@
 								'value'			=> '',
 								'default_value'	=> ''
 					);
-					
+
 ////////// Typography options /////////////////////////////////////////////////
 		$typography_options = array();
 
