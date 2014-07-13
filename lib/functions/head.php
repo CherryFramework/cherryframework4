@@ -19,7 +19,11 @@ add_action( 'wp_head', 'cherry_link_pingback', 3 );
 // Filters the WordPress title.
 add_filter( 'wp_title', 'cherry_wp_title', 10, 2 );
 
-// Removes unnecessary code that WordPress puts to <head> (http://wpengineer.com/1438/wordpress-header/).
+/**
+ * Removes unnecessary code that WordPress puts to <head>.
+ *
+ * @link http://wpengineer.com/1438/wordpress-header/
+ */
 remove_action( 'wp_head', 'rsd_link' );
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'wlwmanifest_link' );
@@ -40,7 +44,7 @@ add_filter( 'script_loader_src', 'cherry_remove_wp_ver_css_js', 9999 );
  * @since  4.0.0
  */
 function cherry_meta_charset() {
-	echo "<meta charset='" . get_bloginfo( 'charset' ) . "' />\n";
+	printf( '<meta charset="%s" />' . "\n", get_bloginfo( 'charset' ) );
 }
 
 /**
@@ -68,7 +72,7 @@ function cherry_meta_viewport() {
  */
 function cherry_link_pingback() {
 	if ( 'open' === get_option( 'default_ping_status' ) ) {
-		echo "<link rel='pingback' href='" . get_bloginfo( 'pingback_url' ) . "' />\n";
+		printf( '<link rel="pingback" href="%s" />' . "\n", get_bloginfo( 'pingback_url' ) );
 	}
 }
 
