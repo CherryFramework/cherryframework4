@@ -25,11 +25,9 @@ add_filter( 'cherry_attr_post',    'cherry_attr_post',    9);
  * @since  4.0.0
  * @param  string $slug       The slug/ID of the element (e.g., 'sidebar').
  * @param  string $context    A specific context (e.g., 'primary').
- * @param  array  $attributes Custom attributes to pass in.
- * @return void
  */
-function cherry_attr( $slug, $context = '', $attributes = array() ) {
-	echo cherry_get_attr( $slug, $context, $attributes );
+function cherry_attr( $slug, $context = '' ) {
+	echo cherry_get_attr( $slug, $context );
 }
 
 /**
@@ -39,12 +37,11 @@ function cherry_attr( $slug, $context = '', $attributes = array() ) {
  * @since  4.0.0
  * @param  string $slug       The slug/ID of the element (e.g., 'sidebar').
  * @param  string $context    A specific context (e.g., 'primary').
- * @param  array  $attributes Custom attributes to pass in.
  * @return string
  */
-function cherry_get_attr( $slug, $context = '', $attributes = array() ) {
+function cherry_get_attr( $slug, $context = '' ) {
 	$output = '';
-	$attr   = apply_filters( "cherry_attr_{$slug}", $attributes, $context );
+	$attr   = apply_filters( "cherry_attr_{$slug}", array(), $context );
 
 	if ( empty( $attr ) ) {
 
@@ -69,7 +66,7 @@ function cherry_get_attr( $slug, $context = '', $attributes = array() ) {
  * @return array
  */
 function cherry_attr_body( $attr ) {
-	$attr['class'] = join( ' ', get_body_class() );
+	$attr['class'] = implode( ' ', get_body_class() );
 	$attr['dir']   = is_rtl() ? 'rtl' : 'ltr';
 
 	return $attr;
