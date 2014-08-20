@@ -251,6 +251,12 @@ function cherry_get_the_post_meta() {
  * @since 4.0.0
  */
 function cherry_the_post_content() {
+	global $post;
+
+	if ( !$post->post_content ) {
+		return;
+	}
+
 	echo '<div class="entry-content">';
 		the_content();
 		wp_link_pages( array(

@@ -13,7 +13,7 @@
 
 add_action( 'cherry_get_header',         'cherry_get_header_template' );
 add_action( 'cherry_get_footer',         'cherry_get_footer_template' );
-add_action( 'cherry_content',            'cherry_get_page_template' );
+// add_action( 'cherry_content',            'cherry_get_page_template' );
 
 add_action( 'cherry_post',               'cherry_get_content_template' );
 add_action( 'cherry_page',               'cherry_get_content_template' );

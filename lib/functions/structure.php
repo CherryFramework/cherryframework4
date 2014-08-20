@@ -12,7 +12,7 @@ add_action( 'cherry_footer',        'cherry_footer_sidebar',   9 );
 add_action( 'cherry_footer',        'cherry_footer_info',     15 );
 
 // Content structure.
-add_action( 'cherry_get_content',    'cherry_content_register_hook' );
+// add_action( 'cherry_get_content',    'cherry_content_register_hook' );
 add_action( 'cherry_content_before', 'cherry_content_wrap',     999 );
 add_action( 'cherry_content_after',  'cherry_content_wrap',       0 );
 
