@@ -191,7 +191,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_theme_support( 'post-thumbnails' );
 
 			// Enable HTML5 markup structure.
-			add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+			add_theme_support( 'html5', array(
+				'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
+			) );
 
 			/**
 			 * Enable support for Infinite Scroll.

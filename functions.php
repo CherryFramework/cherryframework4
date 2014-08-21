@@ -20,13 +20,19 @@ function cherry_theme_setup() {
 	require_once( trailingslashit( get_template_directory() ) . 'inc/init.php' );
 
 	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array( 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
+	add_theme_support( 'post-formats', array(
+		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video',
+	) );
 
 	// Loads scripts.
-	add_theme_support( 'cherry-scripts', array( 'comment-reply', 'drop-downs' ) );
+	add_theme_support( 'cherry-scripts', array(
+		'comment-reply', 'drop-downs',
+	) );
 
 	// Loads styles.
-	add_theme_support( 'cherry-styles', array( 'drop-downs', 'parent', 'style' ) );
+	add_theme_support( 'cherry-styles', array(
+		'drop-downs', 'parent', 'style',
+	) );
 
 	// Loads shortcodes.
 	add_theme_support( 'cherry-shortcodes' );
