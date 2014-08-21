@@ -32,28 +32,10 @@ function cherry_theme_setup() {
 	add_theme_support( 'cherry-shortcodes' );
 
 	// Enable support SCSS compiler.
-	add_theme_support( 'cherry-scss-compiler' );
+	// add_theme_support( 'cherry-scss-compiler' );
 
 	// Handle content width for embeds and images.
 	cherry_set_content_width( 780 );
-
-	if ( class_exists( 'Super_Custom_Post_Type' ) ) {
-		$movies = new Super_Custom_Post_Type( 'movie', 'Movie', 'Movies' );
-
-		# Test Icon. Should be a square grid.
-		$movies->set_icon( 'th-large' );
-
-		# Taxonomy test, should be like tags
-		$tax_tags = new Super_Custom_Taxonomy( 'tax-tag' );
-
-		# Taxonomy test, should be like categories
-		$tax_cats = new Super_Custom_Taxonomy( 'tax-cat', 'Tax Cat', 'Tax Cats', 'category' );
-
-		# Connect both of the above taxonomies with the post type
-		connect_types_and_taxes( $movies, array( $tax_tags, $tax_cats ) );
-
-		add_post_type_support( 'movie', 'comments' );
-	}
 
 	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
 	function cherry_wrap_base_cpts( $templates ) {

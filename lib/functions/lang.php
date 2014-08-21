@@ -18,15 +18,12 @@
  * theme's textdomain should match your theme's folder name.
  *
  * @since  4.0.0
- * @access private
- * @uses   get_template() Defines the theme textdomain based on the template directory.
- * @global object $cherry The global Cherry_Framework object.
  * @return string $cherry->textdomain The textdomain of the theme.
  */
 function cherry_get_parent_textdomain() {
 	global $cherry;
 
-	/* If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain. */
+	// If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain.
 	if ( empty( $cherry->parent_textdomain ) ) {
 
 		$theme = wp_get_theme( get_template() );
@@ -36,7 +33,7 @@ function cherry_get_parent_textdomain() {
 		$cherry->parent_textdomain = sanitize_key( apply_filters( 'cherry_parent_textdomain', $textdomain ) );
 	}
 
-	/* Return the expected textdomain of the parent theme. */
+	// Return the expected textdomain of the parent theme.
 	return $cherry->parent_textdomain;
 }
 
@@ -48,19 +45,16 @@ function cherry_get_parent_textdomain() {
  * theme's textdomain should match your theme's folder name.
  *
  * @since  4.0.0
- * @access private
- * @uses   get_stylesheet() Defines the child theme textdomain based on the stylesheet directory.
- * @global object $cherry The global Cherry_Framework object.
  * @return string $cherry->child_theme_textdomain The textdomain of the child theme.
  */
 function cherry_get_child_textdomain() {
 	global $cherry;
 
-	/* If a child theme isn't active, return an empty string. */
+	// If a child theme isn't active, return an empty string.
 	if ( !is_child_theme() )
 		return '';
 
-	/* If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain. */
+	// If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain.
 	if ( empty( $cherry->child_textdomain ) ) {
 
 		$theme = wp_get_theme();
@@ -70,6 +64,6 @@ function cherry_get_child_textdomain() {
 		$cherry->child_textdomain = sanitize_key( apply_filters( 'cherry_child_textdomain', $textdomain ) );
 	}
 
-	/* Return the expected textdomain of the child theme. */
+	// Return the expected textdomain of the child theme.
 	return $cherry->child_textdomain;
 }

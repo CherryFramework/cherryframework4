@@ -2,7 +2,7 @@
 /**
  * Cherry Framework - The most delicious WordPress framework.
  *
- * MAYBE_CHERRY_FRAMEWORK_DESCRIPTION_TYPE_HERE
+ * CHERRY_FRAMEWORK_DESCRIPTION_TYPE_HERE
  *
  * @package   Cherry_Framework
  * @version   4.0.0
@@ -11,8 +11,6 @@
  * @link      http://www.cherryframework.com/
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
-
-do_action( 'cherry_pre' );
 
 if ( !class_exists( 'Cherry_Framework' ) ) {
 	/**
@@ -65,12 +63,16 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 		/**
 		 * Defines the constant paths for use within the core framework, parent theme, and child theme.
-		 * Constants prefixed with 'CHERRY_' are for use only within the core framework and don't
-		 * reference other areas of the parent or child theme.
 		 *
 		 * @since  4.0.0
 		 */
 		function constants() {
+			/**
+			 * Fires before definitions the constant.
+			 *
+			 * @since  4.0.0
+			 */
+			do_action( 'cherry_constants_before' );
 
 			/** Sets the framework version number. */
 			define( 'CHERRY_VERSION', '4.0.0' );
@@ -104,6 +106,12 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * @since  4.0.0
 		 */
 		function core() {
+			/**
+			 * Fires before loads the core framework functions.
+			 *
+			 * @since  4.0.0
+			 */
+			do_action( 'cherry_core_before' );
 
 			// Load the core framework functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'core.php' );
@@ -135,10 +143,10 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		function default_filters() {
 
 			// Enable shortcodes.
-			add_filter( 'widget_text',        'do_shortcode' );
-			add_filter( 'the_excerpt',        'do_shortcode' );
-			add_filter( 'term_description',   'do_shortcode' );
-			add_filter( 'comment_text',       'do_shortcode' );
+			add_filter( 'widget_text',      'do_shortcode' );
+			add_filter( 'the_excerpt',      'do_shortcode' );
+			add_filter( 'term_description', 'do_shortcode' );
+			add_filter( 'comment_text',     'do_shortcode' );
 
 			add_filter( 'cherry_the_post_meta',       'do_shortcode', 20 );
 			add_filter( 'cherry_the_post_footer',     'do_shortcode', 20 );
@@ -185,8 +193,11 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Enable HTML5 markup structure.
 			add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
 
-			// Enable support for Infinite Scroll.
-			// see: http://jetpack.me/support/infinite-scroll/
+			/**
+			 * Enable support for Infinite Scroll.
+			 *
+			 * @link http://jetpack.me/support/infinite-scroll/
+			 */
 			add_theme_support( 'infinite-scroll', array(
 				'container' => 'main',
 				'footer'    => 'page',
