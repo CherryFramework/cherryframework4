@@ -5,25 +5,25 @@
  * @package Cherry Framework
  */
 ?>
-	<!-- Secondary column -->
-	<?php do_action( 'cherry_sidebar_main_before' ); ?>
+<!-- Secondary column -->
+<?php do_action( 'cherry_sidebar_main_before' ); ?>
 
-	<div <?php cherry_attr( 'sidebar', 'secondary' ); ?>>
+<div <?php cherry_attr( 'sidebar', 'secondary' ); ?>>
 
-		<?php do_action( 'cherry_sidebar_main_start' );
+	<?php do_action( 'cherry_sidebar_main_start' );
 
-			if ( is_active_sidebar( 'sidebar-main' ) ) :
+		if ( is_active_sidebar( 'sidebar-main' ) ) :
 
-				dynamic_sidebar( 'sidebar-main' );
+			dynamic_sidebar( 'sidebar-main' );
 
-			else :
+		else :
 
-				do_action( 'cherry_sidebar_main_empty' );
+			do_action( 'cherry_sidebar_main_empty' );
 
-			endif;
+		endif;
 
-		do_action( 'cherry_sidebar_main_end' ); ?>
+	do_action( 'cherry_sidebar_main_end' ); ?>
 
-	</div>
+</div>
 
-	<?php do_action( 'cherry_sidebar_main_after' ); ?>
+<?php do_action( 'cherry_sidebar_main_after' ); ?>

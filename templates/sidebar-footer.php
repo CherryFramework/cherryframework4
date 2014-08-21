@@ -5,25 +5,25 @@
  * @package Cherry Framework
  */
 ?>
-	<!-- Subsidiary widget area -->
-	<?php do_action( 'cherry_sidebar_footer_before' ); ?>
+<!-- Subsidiary widget area -->
+<?php do_action( 'cherry_sidebar_footer_before' ); ?>
 
-	<div <?php cherry_attr( 'sidebar', 'subsidiary' ); ?>>
+<div <?php cherry_attr( 'sidebar', 'subsidiary' ); ?>>
 
-		<?php do_action( 'cherry_sidebar_footer_start' );
+	<?php do_action( 'cherry_sidebar_footer_start' );
 
-			if ( is_active_sidebar( 'sidebar-footer' ) ) :
+		if ( is_active_sidebar( 'sidebar-footer' ) ) :
 
-				dynamic_sidebar( 'sidebar-footer' );
+			dynamic_sidebar( 'sidebar-footer' );
 
-			else :
+		else :
 
-				do_action( 'cherry_sidebar_footer_empty' );
+			do_action( 'cherry_sidebar_footer_empty' );
 
-			endif;
+		endif;
 
-		do_action( 'cherry_sidebar_footer_end' ); ?>
+	do_action( 'cherry_sidebar_footer_end' ); ?>
 
-	</div>
+</div>
 
-	<?php do_action( 'cherry_sidebar_footer_after' ); ?>
+<?php do_action( 'cherry_sidebar_footer_after' ); ?>

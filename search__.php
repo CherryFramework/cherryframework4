@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying Search Results pages.
+ * The template for displaying search results pages.
  *
  */
 
@@ -13,7 +13,11 @@ if ( have_posts() ) : ?>
 	<?php /* Start the Loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<?php get_template_part( 'content/content', 'search' ); ?>
+		<?php
+		/**
+		 * Run the loop for the search to output the results.
+		 */
+		get_template_part( 'content/content', 'search' ); ?>
 
 	<?php endwhile; ?>
 

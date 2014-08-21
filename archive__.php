@@ -2,13 +2,12 @@
 /**
  * The template for displaying Archive pages.
  *
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * @link http://codex.wordpress.org/Template_Hierarchy
  *
  */
 
 if ( have_posts() ) : ?>
 
-	<!-- Page header -->
 	<header class="page-header">
 		<h1 class="page-title">
 			<?php
@@ -34,10 +33,10 @@ if ( have_posts() ) : ?>
 					_e( 'Asides', 'cherry' );
 
 				elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-					_e( 'Galleries', 'cherry');
+					_e( 'Galleries', 'cherry' );
 
 				elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-					_e( 'Images', 'cherry');
+					_e( 'Images', 'cherry' );
 
 				elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
 					_e( 'Videos', 'cherry' );
@@ -70,8 +69,7 @@ if ( have_posts() ) : ?>
 				printf( '<div class="taxonomy-description">%s</div>', $term_description );
 			endif;
 		?>
-	</header>
-
+	</header><!-- .page-header -->
 
 	<?php /* Start the Loop */ ?>
 	<?php while ( have_posts() ) : the_post(); ?>
