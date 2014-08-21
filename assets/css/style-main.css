@@ -1,6 +1,6 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 /*--------------------------------------------------------------
-1.1 Menus
+1.0 Menus
 --------------------------------------------------------------*/
 html {
   font-family: sans-serif;
@@ -1575,20 +1575,22 @@ textarea.input-lg, select[multiple].input-lg {
   display: block;
   float: left;
   width: 100%;
+  /* Small menu */
 }
 .main-navigation ul {
   list-style: none;
   margin: 0;
   padding-left: 0;
 }
+.main-navigation li {
+  float: left;
+  position: relative;
+}
 .main-navigation a {
+  display: block;
   text-decoration: none;
 }
-.main-navigation .current_page_item a, .main-navigation .current-menu-item a {
-  /* Small menu */
-}
 .menu-toggle {
-  cursor: pointer;
   display: none;
 }
 @media screen and (max-width: 600px) {
@@ -1619,6 +1621,12 @@ textarea.input-lg, select[multiple].input-lg {
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  /*--------------------------------------------------------------
+3.0 Alignments
+--------------------------------------------------------------*/
 }
 .screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus {
   background-color: #f1f1f1;
@@ -1638,9 +1646,6 @@ textarea.input-lg, select[multiple].input-lg {
   width: auto;
   /* Above WP toolbar */
   z-index: 100000;
-  /*--------------------------------------------------------------
-3.0 Alignments
---------------------------------------------------------------*/
 }
 .alignleft {
   display: inline;
@@ -1653,9 +1658,9 @@ textarea.input-lg, select[multiple].input-lg {
   margin-left: 1.5em;
 }
 .aligncenter {
-  clear: both;
   display: block;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
   /*--------------------------------------------------------------
 4.0 Clearings
 --------------------------------------------------------------*/
@@ -1671,23 +1676,29 @@ textarea.input-lg, select[multiple].input-lg {
 --------------------------------------------------------------*/
 }
 .widget {
-  margin: 0 0 1.5em;
   /* Make sure select elements fit in widgets */
+  margin: 0 0 1.5em;
+  /* Search widget */
 }
 .widget select {
   max-width: 100%;
-  /* Search widget */
 }
 .widget_search .search-submit {
   display: none;
   /*--------------------------------------------------------------
+6.0 Content
+--------------------------------------------------------------*/
+  /*--------------------------------------------------------------
 6.1 Posts and pages
 --------------------------------------------------------------*/
+}
+.sticky {
+  display: block;
 }
 .hentry {
   margin: 0 0 1.5em;
 }
-.byline, .updated {
+.byline, .updated:not(.published) {
   display: none;
 }
 .single .byline, .group-blog .byline {
@@ -1717,6 +1728,7 @@ textarea.input-lg, select[multiple].input-lg {
   word-wrap: break-word;
 }
 .bypostauthor {
+  display: block;
   /*--------------------------------------------------------------
 7.0 Infinite scroll
 --------------------------------------------------------------*/
@@ -1737,45 +1749,67 @@ textarea.input-lg, select[multiple].input-lg {
   margin-bottom: 0;
   margin-top: 0;
   padding: 0;
+  /* Make sure embeds and iframes fit their containers */
+}
+embed, iframe, object {
+  max-width: 100%;
+  /*--------------------------------------------------------------
+8.1 Captions
+--------------------------------------------------------------*/
 }
 .wp-caption {
-  border: 1px solid #ccc;
   margin-bottom: 1.5em;
   max-width: 100%;
 }
 .wp-caption img[class*="wp-image-"] {
   display: block;
-  margin: 1.2% auto 0;
-  max-width: 98%;
-}
-.wp-caption.aligncenter div[class*="wp-video"] {
-  margin: 0 auto;
-}
-.wp-caption-text {
-  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 .wp-caption .wp-caption-text {
   margin: 0.8075em 0;
 }
-.site-main .gallery {
+.wp-caption-text {
+  text-align: center;
+  /*--------------------------------------------------------------
+8.2 Galleries
+--------------------------------------------------------------*/
+}
+.gallery {
   margin-bottom: 1.5em;
 }
-.site-main .gallery a img {
-  border: none;
-  height: auto;
-  max-width: 90%;
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
 }
-.site-main .gallery dd, .site-main .gallery figcaption {
-  margin: 0;
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
 }
-.wp-video {
-  /* Make sure embeds and iframes fit their containers */
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
 }
-.attachment .wp-video {
-  margin: 0 auto;
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
 }
-embed, iframe, object {
-  max-width: 100%;
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+.gallery-caption {
+  display: block;
 }
 body {
   background: #f1f1f2;
