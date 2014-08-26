@@ -24,8 +24,6 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_scripts', 5 );
  * its own custom scripts, it should do so on the 'wp_enqueue_scripts' hook.
  *
  * @since  4.0.0
- * @access private
- * @return void
  */
 function cherry_register_scripts() {
 
@@ -42,8 +40,6 @@ function cherry_register_scripts() {
  * Tells WordPress to load the scripts needed for the framework using the wp_enqueue_script() function.
  *
  * @since 4.0.0
- * @access private
- * @return void
  */
 function cherry_enqueue_scripts() {
 

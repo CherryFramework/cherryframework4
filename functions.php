@@ -38,7 +38,7 @@ function cherry_theme_setup() {
 	add_theme_support( 'cherry-shortcodes' );
 
 	// Enable support SCSS compiler.
-	// add_theme_support( 'cherry-scss-compiler' );
+	add_theme_support( 'cherry-scss-compiler' );
 
 	// Handle content width for embeds and images.
 	cherry_set_content_width( 780 );

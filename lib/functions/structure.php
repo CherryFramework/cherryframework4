@@ -3,13 +3,14 @@
 add_action( 'cherry_header_before', 'cherry_header_wrap', 999 );
 add_action( 'cherry_header_after',  'cherry_header_wrap',   0 );
 add_action( 'cherry_header',        'cherry_header_logo',   1 );
-add_action( 'cherry_header',        'cherry_header_nav',    9 );
+add_action( 'cherry_header',        'cherry_header_menu',   9 );
 
 // Footer structure.
 add_action( 'cherry_footer_before', 'cherry_footer_wrap',    999 );
 add_action( 'cherry_footer_after',  'cherry_footer_wrap',      0 );
 add_action( 'cherry_footer',        'cherry_footer_sidebar',   9 );
-add_action( 'cherry_footer',        'cherry_footer_info',     15 );
+add_action( 'cherry_footer',        'cherry_footer_menu',     15 );
+add_action( 'cherry_footer',        'cherry_footer_info',     25 );
 
 // Content structure.
 // add_action( 'cherry_get_content',    'cherry_content_register_hook' );
@@ -62,26 +63,12 @@ function cherry_header_logo() {
 }
 
 /**
- * Prints HTML with Header Menu.
+ * Prints HTML with Primary Menu.
  *
  * @since 4.0.0
  */
-function cherry_header_nav() {
-
-	if ( has_nav_menu( 'header' ) ) {
-
-		echo '<!-- Navigation -->';
-
-		// http://codex.wordpress.org/Function_Reference/wp_nav_menu
-		$args = array(
-					'theme_location' => 'header',
-					'container'      => '',
-					'menu_class'     => 'sf-menu',
-					'items_wrap'     => '<nav ' . cherry_get_attr( 'menu', 'navigation' ) . '><ul id="%1$s" class="%2$s">%3$s</ul></nav>',
-				);
-		wp_nav_menu( apply_filters( 'cherry_header_nav_args', $args ) );
-
-	}
+function cherry_header_menu() {
+	cherry_get_menu_template( 'primary' );
 }
 
 /**
@@ -108,6 +95,15 @@ function cherry_footer_wrap() {
  */
 function cherry_footer_sidebar() {
 	do_action( 'cherry_get_footer_sidebar', 'sidebar-footer' );
+}
+
+/**
+ * Prints HTML with Secondary Menu.
+ *
+ * @since 4.0.0
+ */
+function cherry_footer_menu() {
+	cherry_get_menu_template( 'secondary' );
 }
 
 /**

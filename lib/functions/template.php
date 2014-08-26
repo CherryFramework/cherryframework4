@@ -30,27 +30,23 @@ add_action( 'cherry_loop_else',          'cherry_noposts' );
  *
  * @since  4.0.0
  * @param  string $name
- * @return void
  */
 function cherry_get_header_template( $name = null ) {
 
-	if ( '' !== $name ) :
+	do_action( 'get_header', $name ); // Core WordPress hook
 
-		get_header( $name );
+	$templates = array();
 
-	else :
+	if ( '' === $name ) {
+		$name = cherry_template_base();
+	}
 
-		if ( function_exists( 'cherry_template_base' ) ) {
+	$templates[] = "header-{$name}.php";
+	$templates[] = "header/{$name}.php";
+	$templates[] = 'header.php';
+	$templates[] = 'header/header.php';
 
-			get_header( cherry_template_base() );
-
-		} else {
-
-			get_header();
-
-		}
-
-	endif;
+	locate_template( $templates, true );
 }
 
 /**
@@ -58,27 +54,23 @@ function cherry_get_header_template( $name = null ) {
  *
  * @since  4.0.0
  * @param  string $name
- * @return void
  */
 function cherry_get_footer_template( $name = null ) {
 
-	if ( '' !== $name ) :
+	do_action( 'get_footer', $name ); // Core WordPress hook
 
-		get_footer( $name );
+	$templates = array();
 
-	else :
+	if ( '' !== $name ) {
+		$name = cherry_template_base();
+	}
 
-		if ( function_exists( 'cherry_template_base' ) ) {
+	$templates[] = "footer-{$name}.php";
+	$templates[] = "footer/{$name}.php";
+	$templates[] = 'footer.php';
+	$templates[] = 'footer/footer.php';
 
-			get_footer( cherry_template_base() );
-
-		} else {
-
-			get_footer();
-
-		}
-
-	endif;
+	locate_template( $templates, true );
 }
 
 /**
@@ -133,40 +125,39 @@ function cherry_get_content_template() {
 }
 
 /**
- * Loads template for sidebar by $id.
+ * Loads template for sidebar by $name.
  *
  * @since  4.0.0
- * @param  string $id Sidebar id
- * @return string     The template filename
+ * @param  string $name
  */
-function cherry_get_sidebar_template( $id ) {
+function cherry_get_sidebar_template( $name = null ) {
+	if ( false === cherry_display_sidebar( $name ) )
+		return;
 
-	if ( function_exists( 'cherry_display_sidebar' ) && cherry_display_sidebar( $id ) ) {
+	do_action( 'get_sidebar', $name ); // Core WordPress hook
 
-		if ( function_exists( 'cherry_sidebar_path' ) ) :
+	include cherry_sidebar_path( $name );
+}
 
-			include cherry_sidebar_path( $id );
+/**
+ * Loads template for menu.
+ *
+ * @since  4.0.0
+ * @param  string  $name
+ */
+function cherry_get_menu_template( $name = '' ) {
 
-		endif;
+	$templates = array();
 
-	} elseif ( !function_exists( 'cherry_display_sidebar' ) ) {
-
-		$templates = array();
-
-		if ( '' !== $id ) {
-
-			$templates[] = "{$id}.php";
-			$templates[] = "templates/{$id}.php";
-
-		} else {
-
-			$templates[] = 'sidebar-main.php';
-			$templates[] = 'templates/sidebar-main.php';
-
-		}
-
-		locate_template( $templates, true, false );
+	if ( '' !== $name ) {
+		$templates[] = "menu-{$name}.php";
+		$templates[] = "menu/{$name}.php";
 	}
+
+	$templates[] = 'menu.php';
+	$templates[] = 'menu/menu.php';
+
+	locate_template( $templates, true );
 }
 
 /**

@@ -16,8 +16,6 @@
  * Class for determines whether or not to display the sidebar.
  *
  * @since  4.0.0
- *
- * @access public
  * @return boolean true Will display the sidebar, false - will not
  */
 class Cherry_Sidebar {
@@ -25,7 +23,6 @@ class Cherry_Sidebar {
 	 * Stores the conditional tags.
 	 *
 	 * @since 4.0.0
-	 *
 	 * @var   array
 	 */
 	private $conditionals;
@@ -34,7 +31,6 @@ class Cherry_Sidebar {
 	 * Stores the templates filename with ext.
 	 *
 	 * @since 4.0.0
-	 *
 	 * @var   array
 	 */
 	private $templates;
@@ -43,7 +39,6 @@ class Cherry_Sidebar {
 	 * Display or not the sidebar?
 	 *
 	 * @since 4.0.0
-	 *
 	 * @var   boolean
 	 */
 	public $display = true;
@@ -52,7 +47,6 @@ class Cherry_Sidebar {
 	 * Initialize new Cherry_Sidebar's instance.
 	 *
 	 * @since 4.0.0
-	 *
 	 * @param array $conditionals List of conditional tags (http://codex.wordpress.org/Conditional_Tags)
 	 * @param array $templates    List of page templates. These will be checked via is_page_template()
 	 */
@@ -69,10 +63,9 @@ class Cherry_Sidebar {
 	}
 
 	/**
-	 * This function to execute conditional tag(s)
+	 * This function to execute conditional tag(s).
 	 *
 	 * @since  4.0.0
-	 *
 	 * @param  string|array $conditional_tag
 	 * @return boolean
 	 */
@@ -81,21 +74,20 @@ class Cherry_Sidebar {
 		// Used the concept of variable functions (http://www.php.net/manual/en/functions.variable-functions.php)
 		if ( is_array( $conditional_tag ) ) {
 			return $conditional_tag[0]( $conditional_tag[1] );
-		} else {
-			// Ensure that funcitons exist
-			if ( function_exists( $conditional_tag ) ) {
-				return $conditional_tag();
-			} else {
-				return false;
-			}
 		}
+
+		// Ensure that funcitons exist.
+		if ( function_exists( $conditional_tag ) ) {
+			return $conditional_tag();
+		}
+
+		return false;
 	}
 
 	/**
 	 * This function allows to determine if you are in any page template.
 	 *
 	 * @since  4.0.0
-	 *
 	 * @param  string $page_template Full template filename with ext
 	 * @return boolean
 	 */

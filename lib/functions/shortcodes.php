@@ -20,7 +20,6 @@ add_action( 'init', 'cherry_add_shortcodes' );
  *
  * @since  4.0.0
  * @link   http://codex.wordpress.org/Shortcode_API
- * @return void
  */
 function cherry_add_shortcodes() {
 

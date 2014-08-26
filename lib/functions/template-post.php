@@ -51,13 +51,9 @@ function cherry_has_post_thumbnail( $post_id = null ) {
 	}
 
 	if ( $thumbnail_support && has_post_thumbnail( $post_id ) ) {
-
 		return true;
-
 	} else {
-
 		return false;
-
 	}
 
 }
@@ -172,7 +168,6 @@ function cherry_get_the_post_header() {
 	 * Filter the arguments used to display a post header.
 	 *
 	 * @since 4.0.0
-	 *
 	 * @param array $args Array of arguments.
 	 */
 	$args = apply_filters( 'cherry_get_the_post_header_args', $defaults );

@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 1.0 Menus
 --------------------------------------------------------------*/
-.main-navigation {
+.menu {
 	clear: both;
 	display: block;
 	float: left;
@@ -13,8 +13,10 @@
 		padding-left: 0;
 	}
 	li {
-		float: left;
 		position: relative;
+		#menu-secondary& {
+			float: left;
+		}
 
 		&:hover > a {
 		}
@@ -36,11 +38,11 @@
 
 @media screen and (max-width: 600px) {
 	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
+	.menu.toggled .nav-menu {
 		display: block;
 	}
 
-	.main-navigation ul {
+	.menu ul {
 		display: none;
 	}
 }

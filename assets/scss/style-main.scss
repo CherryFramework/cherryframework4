@@ -54,10 +54,11 @@ body{
 .site-footer{
 	margin-bottom: 30px;
 		.container{
-			padding: 20px 0;
+			padding-top: 20px;
+			padding-bottom: 20px;
 			border-left: 4px solid #7AD03A;
 				.site-info{
-					padding: 0 20px;
+					// padding: 0 20px;
 				}
 		}
 }

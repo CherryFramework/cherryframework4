@@ -1,9 +1,8 @@
 <?php
 /**
- * Function return the full path to the main template file
+ * Function return the full path to the main template file.
  *
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_template_path() {
@@ -11,10 +10,9 @@ function cherry_template_path() {
 }
 
 /**
- * Function return the base name of the template file
+ * Function return the base name of the template file.
  *
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_template_base() {
@@ -26,7 +24,6 @@ function cherry_template_base() {
  * with the fallback templates/sidebar-*.php as the first item.
  *
  * @since  4.0.0
- *
  * @return object
  */
 function cherry_sidebar_path( $id ) {
@@ -38,10 +35,9 @@ function cherry_sidebar_path( $id ) {
 class Cherry_Wrapping {
 
 	/**
-	 * Stores the full path to the main template file
+	 * Stores the full path to the main template file.
 	 *
 	 * @since 4.0.0
-	 *
 	 * @var   string
 	 */
 	static $main_template;
@@ -50,7 +46,6 @@ class Cherry_Wrapping {
 	 * Stores the base name of the template file; e.g. 'page' for 'page.php' etc.
 	 *
 	 * @since 4.0.0
-	 *
 	 * @var   string
 	 */
 	static $base;
@@ -60,15 +55,16 @@ class Cherry_Wrapping {
 	 * and create a new $templates array with the fallback template base.php as the first item.
 	 *
 	 * @since 4.0.0
-	 *
 	 * @param string $template default base's file name
 	 */
 	public function __construct( $template = 'base.php' ) {
 		$this->slug      = basename( $template, '.php' );
 		$this->templates = array( $template );
 
-		// Check to see if the $base exists (i.e. confirming we're not starting on index.php)
-		// and shift a more specific template to the front of the $templates array
+		/**
+		 * Check to see if the $base exists (i.e. confirming we're not starting on index.php)
+		 * and shift a more specific template to the front of the $templates array.
+		 */
 		if ( self::$base ) {
 			$str = substr( $template, 0, -4 );
 			array_unshift( $this->templates, sprintf( $str . '-%s.php', self::$base ) );
@@ -88,10 +84,9 @@ class Cherry_Wrapping {
 
 	/**
 	 * Function that saves the $main_template path
-	 * and $base as static variables in Cherry_Wrapping class
+	 * and $base as static variables in Cherry_Wrapping class.
 	 *
 	 * @since 4.0.0
-	 *
 	 * @param string $main The path of the template to include
 	 */
 	static function wrap( $main ) {

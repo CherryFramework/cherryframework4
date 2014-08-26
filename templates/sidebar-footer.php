@@ -5,7 +5,7 @@
  * @package Cherry Framework
  */
 ?>
-<!-- Subsidiary widget area -->
+<!-- Footer widget area -->
 <?php do_action( 'cherry_sidebar_footer_before' ); ?>
 
 <div <?php cherry_attr( 'sidebar', 'subsidiary' ); ?>>

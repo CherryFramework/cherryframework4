@@ -34,13 +34,23 @@ function cherry_register_sidebar( $args ) {
 		'after_title'   => '</h1>'
 	);
 
-	// Allow developers to filter the default sidebar arguments.
+	/**
+	 * Filteras the default sidebar arguments
+	 *
+	 * @since 4.0.0
+	 * @param array $defaults
+	 */
 	$defaults = apply_filters( 'cherry_sidebar_defaults', $defaults );
 
 	// Parse the arguments.
 	$args = wp_parse_args( $args, $defaults );
 
-	// Allow developers to filter the sidebar arguments.
+	/**
+	 * Filters the sidebar arguments.
+	 *
+	 * @since 4.0.0
+	 * @param array $args
+	 */
 	$args = apply_filters( 'cherry_sidebar_args', $args );
 
 	// Register the sidebar.

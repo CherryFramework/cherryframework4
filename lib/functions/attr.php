@@ -22,9 +22,9 @@ add_filter( 'cherry_attr_post',    'cherry_attr_post',    9);
 /**
  * Outputs an HTML element's attributes.
  *
- * @since  4.0.0
- * @param  string $slug       The slug/ID of the element (e.g., 'sidebar').
- * @param  string $context    A specific context (e.g., 'primary').
+ * @since 4.0.0
+ * @param string $slug    The slug/ID of the element (e.g., 'sidebar').
+ * @param string $context A specific context (e.g., 'primary').
  */
 function cherry_attr( $slug, $context = '' ) {
 	echo cherry_get_attr( $slug, $context );
@@ -35,8 +35,8 @@ function cherry_attr( $slug, $context = '' ) {
  * want without having to edit every template file in the theme.
  *
  * @since  4.0.0
- * @param  string $slug       The slug/ID of the element (e.g., 'sidebar').
- * @param  string $context    A specific context (e.g., 'primary').
+ * @param  string $slug    The slug/ID of the element (e.g., 'sidebar').
+ * @param  string $context A specific context (e.g., 'primary').
  * @return string
  */
 function cherry_get_attr( $slug, $context = '' ) {
@@ -150,12 +150,10 @@ function cherry_attr_sidebar( $attr, $context ) {
 function cherry_attr_menu( $attr, $context ) {
 
 	if ( !empty( $context ) ) {
-
-		$attr['id'] = "{$context}";
-
+		$attr['id'] = "menu-{$context}";
 	}
 
-	$attr['class'] = 'main-navigation';
+	$attr['class'] = 'menu';
 	$attr['role']  = 'navigation';
 
 	return $attr;

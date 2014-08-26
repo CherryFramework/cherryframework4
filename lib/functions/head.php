@@ -14,6 +14,7 @@
 add_action( 'wp_head', 'cherry_meta_charset',  0 );
 add_action( 'wp_head', 'cherry_doctitle',      0 );
 add_action( 'wp_head', 'cherry_meta_viewport', 1 );
+add_action( 'wp_head', 'wp_generator',         1 ); // Move the WordPress generator to a better priority.
 add_action( 'wp_head', 'cherry_link_pingback', 3 );
 
 // Filters the WordPress title.
@@ -62,7 +63,7 @@ function cherry_doctitle() {
  * @since  4.0.0
  */
 function cherry_meta_viewport() {
-	echo "<meta name='viewport' content='width=device-width, initial-scale=1' />\n";
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
 }
 
 /**
@@ -110,7 +111,7 @@ function cherry_wp_title( $title, $sep ) {
 }
 
 /**
- * Remove inline CSS used by Recent Comments widget
+ * Remove inline CSS used by Recent Comments widget.
  *
  * @since  4.0.0
  */
@@ -123,10 +124,9 @@ function cherry_remove_recent_comments_style() {
 }
 
 /**
- * Remove WordPress version
+ * Remove WordPress version.
  *
  * @since  4.0.0
- *
  * @param  string $src URL to the file
  * @return string      URL to the file
  */

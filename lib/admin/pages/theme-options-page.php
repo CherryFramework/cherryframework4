@@ -1,7 +1,7 @@
 <?php
 	//Cherry options page
 	function cherry_options() {
-		$optioninteface = new Cherry_Interface_Bilder(array('pattern' => 'grid'));
+		$optioninteface = new Cherry_Interface_Builder(array('pattern' => 'grid'));
 
 ////////// General options ////////////////////////////////////////////////////
 		$general_options = array();

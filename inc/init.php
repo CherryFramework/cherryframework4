@@ -50,8 +50,8 @@ function cherry_page_support() {
 
 // Registers nav menu locations.
 function cherry_register_menus() {
-	register_nav_menu( 'header', __( 'Header Menu', 'cherry' ) );
-	register_nav_menu( 'footer', __( 'Footer Menu', 'cherry' ) );
+	register_nav_menu( 'primary',   __( 'Primary Menu', 'cherry' ) );
+	register_nav_menu( 'secondary', __( 'Secondary Menu', 'cherry' ) );
 }
 
 // Registers sidebars.
@@ -95,7 +95,6 @@ function cherry_sidebar_footer_wrap_close() {
  * Define which templates/pages exclude the sidebar.
  *
  * @since 4.0.0
- *
  * @return boolean Display or not the sidebar?
  */
 function cherry_display_sidebar( $id ) {
@@ -105,7 +104,7 @@ function cherry_display_sidebar( $id ) {
 		__return_false();
 	}
 
-	$sidebars = array(
+	$sidebars = apply_filters( 'cherry_display_sidebar_args', array(
 		'sidebar-main' => new Cherry_Sidebar(
 			/**
 			 * Conditional tag checks (http://codex.wordpress.org/Conditional_Tags).
@@ -137,7 +136,7 @@ function cherry_display_sidebar( $id ) {
 				'is_404',
 			)
 		),
-	);
+	) );
 
 	return apply_filters( 'cherry_display_sidebar', $sidebars[ $id ]->display, $id );
 }

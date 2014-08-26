@@ -24,8 +24,6 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 5 );
  * register its own custom styles, it should do so on the 'wp_enqueue_scripts' hook.
  *
  * @since  4.0.0
- * @access private
- * @return void
  */
 function cherry_register_styles() {
 
@@ -59,8 +57,6 @@ function cherry_register_styles() {
  * Tells WordPress to load the styles needed for the framework using the wp_enqueue_style() function.
  *
  * @since  4.0.0
- * @access private
- * @return void
  */
 function cherry_enqueue_styles() {
 
@@ -81,7 +77,6 @@ function cherry_enqueue_styles() {
  * Returns an array of the core framework's available styles for use in themes.
  *
  * @since  4.0.0
- * @access private
  * @return array $styles All the available framework styles.
  */
 function cherry_get_styles() {
@@ -97,12 +92,23 @@ function cherry_get_styles() {
 		// Get the parent theme stylesheet.
 		$src = trailingslashit( PARENT_URI ) . 'style.css';
 
-		$styles['parent'] = array( 'src' => $src, 'version' => CHERRY_VERSION );
+		$styles['parent'] = array(
+			'src'     => $src,
+			'version' => CHERRY_VERSION,
+		);
 	}
 
 	// Add the active theme style.
-	$styles['style'] = array( 'src' => get_stylesheet_uri(), 'version' => wp_get_theme()->get( 'Version' ) );
+	$styles['style'] = array(
+		'src'     => get_stylesheet_uri(),
+		'version' => wp_get_theme()->get( 'Version' ),
+	);
 
-	// Return the array of styles.
-	return apply_filters( 'cherry_styles', $styles );
+	/**
+	 * Filters the array of styles.
+	 *
+	 * @since 4.0.0
+	 * @param array $styles
+	 */
+	return apply_filters( 'cherry_get_styles', $styles );
 }

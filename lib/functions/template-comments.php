@@ -28,6 +28,12 @@ function cherry_comments_default_list() {
 		'short_ping'  => true,
 	);
 
+	/**
+	 * Filters the defaults list arguments of comments.
+	 *
+	 * @since 4.0.0
+	 * @param array $defaults
+	 */
 	$args = apply_filters( 'cherry_comment_list_args', $defaults );
 
 	// Set argument 'echo' to the function 'wp_list_comments' for return result.
