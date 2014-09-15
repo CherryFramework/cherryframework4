@@ -8,28 +8,24 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Cherry Framework
  */
 
-if ( have_posts() ) : ?>
+if ( have_posts() ) :
 
-	<?php /* Start the Loop */ ?>
-	<?php while ( have_posts() ) : the_post(); ?>
+	while ( have_posts() ) : the_post();
 
-		<?php
-			/* Include the Post-Format-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-			 */
-			get_template_part( 'templates/content', get_post_format() );
-		?>
+		do_action( 'cherry_post_before' );
 
-	<?php endwhile; ?>
+		do_action( 'cherry_post' );
 
-	<?php cherry_paging_nav(); ?>
+		do_action( 'cherry_post_after' );
 
-<?php else : ?>
+	endwhile;
 
-	<?php get_template_part( 'templates/content', 'none' ); ?>
+	do_action( 'cherry_endwhile_after' );
 
-<?php endif; ?>
+else :
+
+	do_action( 'cherry_loop_else' );
+
+endif; ?>

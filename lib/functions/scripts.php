@@ -23,9 +23,7 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_scripts', 5 );
  * the wp_register_script() function.  It does not load any script files on the site.  If a theme wants to register
  * its own custom scripts, it should do so on the 'wp_enqueue_scripts' hook.
  *
- * @since 4.0.0
- * @access private
- * @return void
+ * @since  4.0.0
  */
 function cherry_register_scripts() {
 
@@ -34,7 +32,7 @@ function cherry_register_scripts() {
 
 	// Register the 'drop-downs' script if the current theme supports 'drop-downs'.
 	if ( isset( $supports[0] ) && in_array( 'drop-downs', $supports[0] ) ) {
-		wp_register_script( 'drop-downs', esc_url( trailingslashit( CHERRY_URI ) . 'js/superfish.js' ), array( 'jquery' ), '1.7.4', true );
+		wp_register_script( 'drop-downs', esc_url( trailingslashit( CHERRY_URI ) . 'js/superfish.js' ), array( 'jquery' ), CHERRY_VERSION, true );
 	}
 }
 
@@ -42,8 +40,6 @@ function cherry_register_scripts() {
  * Tells WordPress to load the scripts needed for the framework using the wp_enqueue_script() function.
  *
  * @since 4.0.0
- * @access private
- * @return void
  */
 function cherry_enqueue_scripts() {
 

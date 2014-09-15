@@ -2,9 +2,9 @@
 /**
  * Cherry Framework - The most delicious WordPress framework.
  *
- * MAYBE_CHERRY_FRAMEWORK_DESCRIPTION_TYPE_HERE
+ * CHERRY_FRAMEWORK_DESCRIPTION_TYPE_HERE
  *
- * @package   Cherry Framework
+ * @package   Cherry_Framework
  * @version   4.0.0
  * @author    Cherry Team <support@cherryframework.com>
  * @copyright Copyright (c) 2012 - 2014, Cherry Team
@@ -29,8 +29,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * It controls the load order of the required files for running the framework.
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function __construct() {
 			global $cherry;
@@ -50,52 +48,54 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Language functions and translations setup.
 			// add_action( 'after_setup_theme', array( $this, 'lang' ), 4 );
 
-			/* Handle theme supported features. */
-			add_action( 'after_setup_theme', array( $this, 'theme_support' ), 12 );
+			// Handle theme supported features.
+			add_action( 'after_setup_theme', array( $this, 'theme_support' ), 5 );
 
-			// Load the framework functions.
-			add_action( 'after_setup_theme', array( $this, 'functions' ), 13 );
+			// Load the framework includes.
+			add_action( 'after_setup_theme', array( $this, 'includes' ), 12 );
 
 			// Load the framework extensions.
-			add_action( 'after_setup_theme', array( $this, 'extensions' ), 14 );
+			add_action( 'after_setup_theme', array( $this, 'extensions' ), 13 );
 
 			// Load admin files.
-			// add_action( 'wp_loaded', array( $this, 'admin' ) );
+			add_action( 'wp_loaded', array( $this, 'admin' ) );
 		}
 
 		/**
 		 * Defines the constant paths for use within the core framework, parent theme, and child theme.
-		 * Constants prefixed with 'CHERRY_' are for use only within the core framework and don't
-		 * reference other areas of the parent or child theme.
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function constants() {
+			/**
+			 * Fires before definitions the constant.
+			 *
+			 * @since  4.0.0
+			 */
+			do_action( 'cherry_constants_before' );
 
-			// Sets the framework version number.
+			/** Sets the framework version number. */
 			define( 'CHERRY_VERSION', '4.0.0' );
 
-			// Sets the path to the parent theme directory.
+			/** Sets the path to the parent theme directory. */
 			define( 'PARENT_DIR', get_template_directory() );
 
-			// Sets the path to the parent theme directory URI.
+			/** Sets the path to the parent theme directory URI. */
 			define( 'PARENT_URI', get_template_directory_uri() );
 
-			// Sets the path to the child theme directory.
+			/** Sets the path to the child theme directory. */
 			define( 'CHILD_DIR', get_stylesheet_directory() );
 
-			// Sets the path to the child theme directory URI.
+			/** Sets the path to the child theme directory URI. */
 			define( 'CHILD_URI', get_stylesheet_directory_uri() );
 
-			// Sets the path to the core framework directory.
+			/** Sets the path to the core framework directory. */
 			define( 'CHERRY_DIR', trailingslashit( PARENT_DIR ) . basename( dirname( __FILE__ ) ) );
 
-			// Sets the path to the core framework directory URI.
+			/** Sets the path to the core framework directory URI. */
 			define( 'CHERRY_URI', trailingslashit( PARENT_URI ) . basename( dirname( __FILE__ ) ) );
 
-			// Sets the path to the core framework functions directory.
+			/** Sets the path to the core framework functions directory. */
 			define( 'CHERRY_FUNCTIONS', trailingslashit( CHERRY_DIR ) . 'functions' );
 		}
 
@@ -104,10 +104,14 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * framework because they have required functions for use.
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function core() {
+			/**
+			 * Fires before loads the core framework functions.
+			 *
+			 * @since  4.0.0
+			 */
+			do_action( 'cherry_core_before' );
 
 			// Load the core framework functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'core.php' );
@@ -117,6 +121,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load the <head> functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'head.php' );
+
+			// Load media-related functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'media.php' );
 
 			// Load the sidebar functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'sidebars.php' );
@@ -135,13 +142,16 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function default_filters() {
 
-			// Move the WordPress generator to a better priority.
-			remove_action( 'wp_head', 'wp_generator' );
-			add_action( 'wp_head', 'wp_generator', 1 );
-
-			// Make text widgets and term descriptions shortcode aware.
-			add_filter( 'widget_text', 'do_shortcode' );
+			// Enable shortcodes.
+			add_filter( 'widget_text',      'do_shortcode' );
+			add_filter( 'the_excerpt',      'do_shortcode' );
 			add_filter( 'term_description', 'do_shortcode' );
+			add_filter( 'comment_text',     'do_shortcode' );
+
+			add_filter( 'cherry_the_post_meta',       'do_shortcode', 20 );
+			add_filter( 'cherry_the_post_footer',     'do_shortcode', 20 );
+			add_filter( 'cherry_get_the_post_meta',   'do_shortcode', 20 );
+			add_filter( 'cherry_get_the_post_footer', 'do_shortcode', 20 );
 		}
 
 		/**
@@ -152,8 +162,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * to be prefixed with the template or stylesheet path (example: 'templatename-en_US.mo').
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function lang() {
 			global $cherry;
@@ -173,52 +181,86 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * Adds theme supported features.
 		 *
 		 * @since  4.0.0
-		 * @access public
-		 * @return void
 		 */
 		function theme_support() {
 
 			// Add default posts and comments RSS feed links to head.
 			add_theme_support( 'automatic-feed-links' );
 
-			// Enable support for Post Thumbnails on posts and pages.
+			// Enable support for Post Thumbnails.
 			add_theme_support( 'post-thumbnails' );
 
-			// Enable support for Post Formats.
-			add_theme_support( 'post-formats', array( 'aside', 'audio', 'image', 'gallery', 'link', 'quote', 'video' ) );
-
-			// Adds core WordPress HTML5 support.
+			// Enable HTML5 markup structure.
 			add_theme_support( 'html5', array(
-				'comment-list',
-				'search-form',
-				'comment-form',
-				'gallery',
+				'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
 			) );
 
-			// Add theme support for Infinite Scroll.
-			// see: http://jetpack.me/support/infinite-scroll/
+			/**
+			 * Enable support for Infinite Scroll.
+			 *
+			 * @link http://jetpack.me/support/infinite-scroll/
+			 */
 			add_theme_support( 'infinite-scroll', array(
 				'container' => 'main',
 				'footer'    => 'page',
 			) );
+
 		}
 
 		/**
-		 * Loads the framework functions. Many of these functions are needed to properly run the
-		 * framework. Some components are only loaded if the theme supports them.
+		 * Loads the framework files supported by themes and template-related functions/classes.
 		 *
 		 * @since 4.0.0
 		 */
-		function functions() {
+		function includes() {
 
-			// Load Cherry_Wrapping class
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-wrapping.php' );
+			// Load Cherry_Wrapping class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-wrapping.php' );
+
+			// Load Cherry_Sidebar class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
+
+			// Load Cherry_Interface_Bilder class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-interface-builder.php' );
+
+			// Load Cherry_Options_Framework class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework.php' );
+
+			// Load Cherry_Options_Framework_Admin class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework-admin.php' );
+
+			// Load the HTML attributes functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'attr.php' );
+
+			// Load the template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template.php' );
+
+			// Load the comments functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-comments.php' );
+
+			// Load the general template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-general.php' );
+
+			// Load the media template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-media.php' );
 
 			// Load the custom template tags.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-tags.php' );
 
+			// Load the post template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-post.php' );
+
 			// Load the custom functions that act independently of the theme templates.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'extras.php' );
+
+			// Load the structure functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'structure.php' );
+
+			// Load the shortcodes if supported.
+			require_if_theme_supports( 'cherry-shortcodes', trailingslashit( CHERRY_FUNCTIONS ) . 'shortcodes.php' );
+
+			// Load the post format functionality if post formats are supported.
+			require_if_theme_supports( 'post-formats', trailingslashit( CHERRY_FUNCTIONS ) . 'post-formats.php' );
 		}
 
 		/**
@@ -231,8 +273,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function extensions() {
 
-			// Load the Some Extension if supported.
-			require_if_theme_supports( 'cherry-some-extension', trailingslashit( CHERRY_DIR ) . 'extensions/some-extension.php' );
+			// Load the SCSS compiler library if supported.
+			require_if_theme_supports( 'cherry-scss-compiler', trailingslashit( CHERRY_DIR ) . 'extensions/class-scss-compiler.php' );
 		}
 
 		/**

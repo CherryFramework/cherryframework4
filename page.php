@@ -7,18 +7,20 @@
  * and that other 'pages' on your WordPress site will use a
  * different template.
  *
- * @package Cherry Framework
  */
 
-while ( have_posts() ) : the_post(); ?>
+if ( have_posts() ) :
 
-	<?php get_template_part( 'templates/content', 'page' ); ?>
+	while ( have_posts() ) : the_post();
 
-	<?php
-		// If comments are open or we have at least one comment, load up the comment template
-		if ( comments_open() || '0' != get_comments_number() ) :
-			comments_template('/templates/comments.php');
-		endif;
-	?>
+		do_action( 'cherry_page_before' );
 
-<?php endwhile; // end of the loop. ?>
+		do_action( 'cherry_page' );
+
+		do_action( 'cherry_page_after' );
+
+		do_action( 'cherry_get_comments' );
+
+	endwhile;
+
+endif; ?>

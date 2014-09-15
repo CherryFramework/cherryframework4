@@ -1,5 +1,4 @@
 // Core variables and mixins
-@import "variables";
 @import "mixins";
 
 // Reset
@@ -7,8 +6,8 @@
 
 // Core CSS
 @import "base";
+@import "type";
 @import "grid";
-
-// Utility classes
-@import "utilities";
-@import "responsive-utilities";
+@import "tables";
+@import "forms";
+@import "wpnative";

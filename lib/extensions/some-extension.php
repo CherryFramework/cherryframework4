@@ -1,5 +1,0 @@
-<?php
-/**
- * Some Extension
- */
-?>

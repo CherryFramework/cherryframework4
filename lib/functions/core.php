@@ -14,14 +14,12 @@
 
 /**
  * Allows theme developers to set a definite prefix for their theme. If this isn't set, the framework
- * will assume the prefix is the value of `get_template()`. This should be called early, such as in
+ * will assume the prefix is the value of 'get_template()'. This should be called early, such as in
  * the theme setup function.
  *
  * @since  4.0.0
- * @access public
  * @global object $cherry The global Cherry_Framework object.
  * @param  string $prefix
- * @return void
  */
 function cherry_set_prefix( $prefix ) {
 	global $cherry;
@@ -36,7 +34,6 @@ function cherry_set_prefix( $prefix ) {
  * each theme's hooks (assuming other themes used the same system).
  *
  * @since  4.0.0
- * @access public
  * @global object $cherry         The global Cherry_Framework object.
  * @return string $cherry->prefix The prefix of the theme.
  */
@@ -56,7 +53,6 @@ function cherry_get_prefix() {
  * simply overwrites whatever the content width is.
  *
  * @since  4.0.0
- * @access public
  * @global int    $content_width The width for the theme's content area.
  * @param  int    $width         Numeric value of the width to set.
  */
@@ -70,7 +66,6 @@ function cherry_set_content_width( $width = '' ) {
  * Function for getting the theme's content width.
  *
  * @since  4.0.0
- * @access public
  * @global int    $content_width The width for the theme's content area.
  * @return int    $content_width
  */

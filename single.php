@@ -1,21 +1,17 @@
 <?php
 /**
- * The Template for displaying all single posts.
+ * The template for displaying all single posts.
  *
- * @package Cherry Framework
  */
 
-while ( have_posts() ) : the_post(); ?>
+while ( have_posts() ) : the_post();
 
-	<?php get_template_part( 'templates/content', 'single' ); ?>
+	do_action( 'cherry_post_before' );
 
-	<?php cherry_post_nav(); ?>
+	do_action( 'cherry_post' );
 
-	<?php
-		// If comments are open or we have at least one comment, load up the comment template
-		if ( comments_open() || '0' != get_comments_number() ) :
-			comments_template('/templates/comments.php');
-		endif;
-	?>
+	do_action( 'cherry_post_after' );
 
-<?php endwhile; // end of the loop. ?>
+	do_action( 'cherry_get_comments' );
+
+endwhile; ?>
