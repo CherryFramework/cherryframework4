@@ -7,14 +7,10 @@ function cherry_register_admin_style(){
 	wp_register_style( 'cherry-select2', esc_url( trailingslashit( CHERRY_URI ) . 'admin/assets/css/cherry-select2.css' ), false, '1.0');
 	wp_register_style( 'interface-bilder', esc_url( trailingslashit( CHERRY_URI ) . 'admin/assets/css/interface-bilder.css' ), false, '1.0');
 	wp_register_style( 'cherry-admin-interface', esc_url( trailingslashit( CHERRY_URI ) . 'admin/assets/css/cherry-admin-interface.css' ), false, '1.0');
-	//register awesome font
-	//wp_register_style( 'font-awesome', esc_url( trailingslashit( CHERRY_URI ) . 'css/font-awesome.min.css' ), true, '1.0');
-	wp_register_style( 'font-awesome', esc_url( '//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css' ), true, '1.0');
 }
 
 function cherry_enqueue_admin_style(){
 	wp_enqueue_style( 'cherry-select2' );
 	wp_enqueue_style( 'cherry-admin-interface' );
-	//enqueue awesome font
-	wp_enqueue_style( 'font-awesome' );
+
 }

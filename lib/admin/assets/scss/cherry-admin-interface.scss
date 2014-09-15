@@ -36,12 +36,18 @@
 						display: block;
 						border-bottom: 1px solid #ebebeb;
 						font-weight: bold;
-						font-size: 14px;
+						font-size: 16px;
+						line-height: 24px;
 							i{
-								font-size: 18px;
+								width: 24px;
+								height: 24px;
+								font-size: 24px;
+								float: left;
 							}
 							span{
 								padding-left: 10px;
+								display: block;
+								overflow: hidden;
 							}
 								&:hover{
 									color: #ffffff;
@@ -71,7 +77,10 @@
 							background: #eaeaea;
 							border-bottom: none;
 								i{
-									font-size: 14px;
+									width: 24px;
+									height: 24px;
+									font-size: 24px;
+									float: left;
 								}
 								&:hover{
 									background: #3ba5cc;

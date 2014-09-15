@@ -9,7 +9,7 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
-class Cherry_Interface_Builder {
+class Cherry_Interface_Bilder {
 	private
 	$google_font_url,
 	$google_font = array(),
@@ -39,7 +39,7 @@ class Cherry_Interface_Builder {
 
 	/**
 	* Cherry Interface builder constructor
-	*
+	* 
 	* @since 4.0.0
 	*/
 
@@ -51,7 +51,7 @@ class Cherry_Interface_Builder {
 	}
 
 	/**
-	*  Process all form items.
+	*  Process all form items. 
 	*
 	* @return Array. Input fields arguments and values
 	* @since 4.0.0
@@ -70,8 +70,8 @@ class Cherry_Interface_Builder {
 	}
 
 	/**
-	* Add form item. Returns form item with selected arguments.
-	*
+	* Add form item. Returns form item with selected arguments. 
+	* 
 	* @param Array. Input argument name => argument value
 	* @since 4.0.0
 	* @return string
@@ -743,10 +743,10 @@ class Cherry_Interface_Builder {
 		return $output;
 	}
 
-	/**
+	/** 
 	* Get list of available Google fonts.
-	*
-	* @return Array.
+	* 
+	* @return Array. 
 	* @since 4.0.0
 	*/
 	private function get_google_font(){
@@ -760,18 +760,18 @@ class Cherry_Interface_Builder {
 		return $font_array;
 	}
 
-	/**
+	/** 
 	* Include media library files. Enables media library modal window.
-	*
+	* 
 	* @since 4.0.0
 	*/
 	public function include_media_script_style(){
 		wp_enqueue_media();
 	}
 
-	/**
+	/** 
 	* Include color picker JS and CSS files.
-	*
+	* 
 	* @since 4.0.0
 	*/
 	public function include_colorpicker_script_style(){
@@ -779,17 +779,17 @@ class Cherry_Interface_Builder {
 		wp_enqueue_script( 'wp-color-picker');
 	}
 
-	/**
+	/** 
 	* Include interface builder JS files
-	*
+	* 
 	* @since 4.0.0
 	*/
 	public function include_scripts(){
 		wp_enqueue_script( 'interface-bilder' );
 	}
-	/**
+	/** 
 	* Include interface builder CSS files
-	*
+	* 
 	* @since 4.0.0
 	*/
 	public function include_style(){

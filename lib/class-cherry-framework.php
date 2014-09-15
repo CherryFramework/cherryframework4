@@ -220,8 +220,14 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load Cherry_Sidebar class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
 
-			// Load Cherry_Interface_Builder class.
+			// Load Cherry_Interface_Bilder class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-interface-builder.php' );
+
+			// Load Cherry_Options_Framework class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework.php' );
+
+			// Load Cherry_Options_Framework_Admin class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework-admin.php' );
 
 			// Load the HTML attributes functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'attr.php' );

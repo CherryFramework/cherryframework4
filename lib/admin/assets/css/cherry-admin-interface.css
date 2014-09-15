@@ -10,9 +10,10 @@
   overflow: hidden;
   padding: 10px 20px;
   background: #FCFCFC;
-  margin: 20px 20px 0 0;
+  margin: 0;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
+
 .cherry-option-submit-wrapper #wrap-cherry-save-options {
   float: right;
   margin: 0;
@@ -39,13 +40,19 @@
   display: block;
   border-bottom: 1px solid #ebebeb;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 24px;
 }
 #cherry_options .cherry-tab-menu li a i {
-  font-size: 18px;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  float: left;
 }
 #cherry_options .cherry-tab-menu li a span {
   padding-left: 10px;
+  display: block;
+  overflow: hidden;
 }
 #cherry_options .cherry-tab-menu li a:hover {
   color: #ffffff;
@@ -70,7 +77,10 @@
   border-bottom: none;
 }
 #cherry_options .cherry-tab-menu li.subitem a i {
-  font-size: 14px;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  float: left;
 }
 #cherry_options .cherry-tab-menu li.subitem a:hover {
   background: #3ba5cc;
@@ -84,4 +94,58 @@
 #cherry_options .cherry-option-group-list .options_group {
   padding: 10px 20px;
   display: none;
+}
+.fixedControlHolder{
+  position: fixed;
+  top: 100px;
+  right: 0;
+  display: block;
+  z-index: 999;
+}
+.fixedControlHolder span{
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: relative;
+  margin: 5px;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -0-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+.fixedControlHolder span:before{
+  color: #fff;
+  line-height: 30px;
+  font-size: 30px;
+  -webkit-transition: all 0.5s ease;
+     -moz-transition: all 0.5s ease;
+       -0-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+.fixedControlHolder .saveButton{
+  background: #2EA2CC;
+  border: 5px solid #2EA2CC
+}
+.fixedControlHolder .saveButton:hover{
+  background: #fff;
+}
+.fixedControlHolder .saveButton:hover:before{
+  color: #2EA2CC;
+}
+.fixedControlHolder .restoreButton{
+  background: #555;
+  border: 5px solid #555
+}
+.fixedControlHolder .restoreButton:hover{
+  background: #fff;
+}
+.fixedControlHolder .restoreButton:hover:before{
+  color: #555;
+}
+#setting-error-seve-options{
+  margin: 0;
+}
+#setting-error-restore-options{
+  margin: 0;
 }
