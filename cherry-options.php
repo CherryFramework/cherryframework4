@@ -1,6 +1,6 @@
 <?php
 
-function cherry_options_sets() {
+function cherry_defaults_settings() {
 	$optSectionsArray = array();
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
@@ -8,7 +8,7 @@ function cherry_options_sets() {
 				'type'			=> 'info',
 				'title'			=> '',
 				'decsription'	=> 'decsription info',
-				'value'			=> 'Demo options'
+				'value'			=> '<h2>Demo options</h2>'
 	);
 	$demo_options['text_demo'] = array(
 				'type'			=> 'text',
@@ -40,7 +40,7 @@ function cherry_options_sets() {
 					'select_3'	=> 'select 3'
 				)
 	);
-	$demo_options['filterselect_demo'] = array(
+	/*$demo_options['filterselect_demo'] = array(
 				'type'			=> 'filterselect',
 				'title'			=> 'title filterselect',
 				'label'			=> 'label filterselect',
@@ -253,12 +253,13 @@ function cherry_options_sets() {
 	$demo_options['submit_demo'] = array(
 				'type'			=> 'submit',
 				'value'			=> 'get value'
-	);
+	);*/
 
 	$optSectionsArray['demo-options-section'] = array(
 			'name' => 'All interface elements',
 			'icon' => 'dashicons dashicons-carrot',
 			'parent' => '',
+			'priority' => 10,
 			'options-list' => $demo_options
 	);
 ////////// General options ////////////////////////////////////////////////////
@@ -289,7 +290,7 @@ function cherry_options_sets() {
 				)
 			)
 	);
-	$general_options['responsive-layout'] = array(
+	/*$general_options['responsive-layout'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Responsive layout',
 			'label'			=> 'Responsive layout',
@@ -345,11 +346,12 @@ function cherry_options_sets() {
 			'decsription'	=> 'Want to add any custom CSS code? Put in here, and the rest is taken care of. This overrides any other stylesheets. eg: a.button{color:green}',
 			'value'			=> '',
 			'default_value'	=> ''
-	);
+	);*/
 	$optSectionsArray['general-options-section'] = array(
 			'name' => 'General',
 			'icon' => 'dashicons dashicons-admin-generic',
 			'parent' => '',
+			'priority' => 20,
 			'options-list' => $general_options
 	);
 
@@ -425,7 +427,7 @@ function cherry_options_sets() {
 				)
 			)
 	);
-	$header_options['header-style'] = array(
+	/*$header_options['header-style'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Header styling',
 			'label'			=> 'Header styling section',
@@ -462,14 +464,15 @@ function cherry_options_sets() {
 			'decsription'	=> 'Enable/Disable header social list.',
 			'value'			=> 'false',
 			'default_value'	=> 'default_value'
-	);
+	);*/
 
 	$optSectionsArray['header-options-section'] = array(
 			'name' => 'Header',
 			'icon' => 'dashicons dashicons-admin-appearance',
 			'parent' => '',
+			'priority' => 30,
 			'options-list' => $header_options
 	);
 	
-	return $optSectionsArray;		
+	return apply_filters( 'cherry_defaults_settings', $optSectionsArray );		
 }

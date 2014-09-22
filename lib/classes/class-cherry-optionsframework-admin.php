@@ -40,10 +40,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			$this->option_inteface_builder = new Cherry_Interface_Bilder(array('pattern' => 'grid'));
 
 			// Gets options to load
-	    	$cherry_options = $cherry_options_framework->get_settings();
+	    	//$cherry_options = $cherry_options_framework->get_settings();
 
 	    	// Checks if options are available
-	    	if ( $cherry_options ) {
+	    	//if ( $cherry_options ) {
 
 				// Add the options page and menu item.
 				add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );
@@ -57,9 +57,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				// Displays notice after options restored
 				add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
 
-			} else {
+			//} else {
 				// Display a notice if options aren't present in the theme
-			}
+			//}
 
 		}
 
@@ -70,8 +70,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 	     */
 	    function settings_init() {
 	    	// Load Options Framework Settings
-        	$optionsframework_settings = get_option( 'cherry-options' );
-			register_setting( 'cherry-options-group', $cherry_options_settings['id'],  array ( $this, 'validate_options' ) );
+        	//$cherry_options_settings = get_option( 'cherry-options' );
+			//register_setting( 'cherry-options-group', $cherry_options_settings['id'],  array ( $this, 'validate_options' ) );
 	    }
 
 	    /**
@@ -106,11 +106,29 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 *
 		 * @uses $_POST['reset'] to restore default options
 		 */
-		function validate_options( $input ) {
-			var_dump("validating options");
-
+		function validate_options( $option_value ) {
+			/*if(isset($_POST['cherry']['save-options'])){
+				do_action('cherry-options-updated');
+			}
+			if(isset($_POST['cherry']['restore-options'])){
+				do_action('cherry-options-restored');
+			}
+			
+			return $option_value;*/
 		}
 		
+		/**
+	     * Priority sorting
+	     *
+	     * @since 4.0.0
+	     */
+		private function priority_sorting($base_array) {
+			usort($base_array, function($a, $b){
+			    return ($a['priority'] - $b['priority']);
+			});
+			return $base_array;
+		}
+
 		/**
 	     *
 	     * @since 4.0.0
@@ -120,54 +138,64 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			//save options
 			if(isset($_POST['cherry']['save-options'])){
-				$cherry_options_framework->create_updated_options_array($_POST['cherry']);
-
+				$cherry_options_framework->create_updated_options_array($_POST['cherry']);	
 				do_action('cherry-options-updated');
 			}
-
 			//restore options
 			if(isset($_POST['cherry']['restore-options'])){
 				$cherry_options_framework->restore_default_settings_array();
-
 				do_action('cherry-options-restored');
 			}
 
 			$cherry_options = $cherry_options_framework->get_settings();
-			
-			$dom_part_output = '';
-			$dom_part_output .= '<div class="fixedControlHolder"><span class="saveButton dashicons dashicons-yes"></span><span class="restoreButton dashicons dashicons-no-alt"></span></div>';
-			$dom_part_output .= '<div class="options-framework-wrapper">';
-			settings_errors( 'cherry-options-group' );
-			$dom_part_output .= '<form id="cherry_options" action="" method="post">';
-				settings_fields( 'cherry-options-group' );
-						$dom_part_output .= '<ul class="cherry-tab-menu">';
-							foreach ($cherry_options as $section_key => $section_value) {
-								($section_value["parent"] != '')? $subClass = 'subitem' : $subClass = '';
-								$dom_part_output .= '<li class="'.$section_value["parent"].' '.$subClass.' tabitem-'.$section_key.'"><a href="javascript:void(0)"><i class="'.$section_value["icon"].'"></i><span>'.$section_value["name"].'</span></a></li>';
-							}
-						$dom_part_output .= '</ul>';
-						$dom_part_output .= '<div class="cherry-option-group-list">';
-							foreach ($cherry_options as $section_key => $section_value) {
-								$dom_part_output .= '<div class="options_group">'.$this->option_inteface_builder->multi_output_items($section_value['options-list']).'</div>';
-							}
-						$dom_part_output .= '</div><div class="clear"></div>';
-				
 
-				$submitSection = array();
-				$submitSection['save-options'] = array(
-							'type'			=> 'submit',
-							'value'			=> 'Save Options'
-				);
-				$submitSection['restore-options'] = array(
-							'type'			=> 'submit',
-							'value'			=> 'Restore Options'
-				);
+			$cherry_options = $this->priority_sorting($cherry_options);
 
-				$dom_part_output .= '<div class="cherry-option-submit-wrapper">'.$this->option_inteface_builder->multi_output_items($submitSection).'</div>';
-			$dom_part_output .= '</form>';
-			$dom_part_output .= '</div>';
-			
-			echo $dom_part_output;
+			?>
+			<div class="fixedControlHolder"><span class="saveButton dashicons dashicons-yes"></span><span class="restoreButton dashicons dashicons-no-alt"></span></div>
+				<div class="options-page-wrapper">
+					<div class="current_theme">
+						<span><?php echo "Theme ".get_option( 'current_theme' ); ?></span>
+					</div>
+					<?php settings_errors( 'cherry-options-group' ); ?>
+						<form id="cherry_options" action="" method="post">
+							<?php settings_fields( 'cherry-options-group' ); ?>
+							<div class="cherry-sections-wrapper">
+								<ul class="cherry-tab-menu">
+									<?php
+									foreach ($cherry_options as $section_key => $section_value) {
+										($section_value["parent"] != '')? $subClass = 'subitem' : $subClass = '';
+										$priority_value = $section_value['priority'];
+										?>
+										<li class="tabitem-<?php echo $section_key; echo $subClass; echo $section_value["parent"];?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
+									<?php } ?>
+								</ul>
+								<div class="cherry-option-group-list">
+									<?php
+									foreach ($cherry_options as $section_key => $section_value) { ?>
+										<div class="options_group"><?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?></div>
+									<?php } ?>
+								</div>
+							</div>
+							<div class="clear"></div>
+							<div class="cherry-submit-wrapper">
+								<?php
+									$submitSection = array();
+									$submitSection['save-options'] = array(
+												'type'			=> 'submit',
+												'value'			=> 'Save Options'
+									);
+									$submitSection['restore-options'] = array(
+												'type'			=> 'submit',
+												'value'			=> 'Restore Options'
+									);
+								?>
+								<?php echo $this->option_inteface_builder->multi_output_items($submitSection); ?>
+							</div>
+						</form>
+				</div>
+			<?php
+
 		}	
 	}
 }

@@ -493,7 +493,7 @@ class Cherry_Interface_Bilder {
 				$output .= '<div '.$img_style.' class="cherry-element-wrap cherry-upload-preview" >';
 				$output .= $this -> add_label($id . '[repeat]',  __( 'Background Settings', 'cherry' ), $this->options['class']['label'].' cherry-block');
 				foreach ($background_options as $options_key => $options_value) {
-					$output .= '<select class="cherry-bgs widefat'.$this->options['class']['select'].'" id="' . $id . '['.$options_key.']" name="' . $name . '['.$options_key.']">';
+					$output .= '<select class="cherry-bgs widefat'.$this->options['class']['section'].'" id="' . $id . '['.$options_key.']" name="' . $name . '['.$options_key.']">';
 					foreach ($options_value as $option => $option_value) {
 						$output .= '<option value="'.$option.'" ' . selected( $value[$options_key], $option, false ) . '>' . esc_html( $option_value ). '</option>';
 					}
