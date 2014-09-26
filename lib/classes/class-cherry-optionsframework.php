@@ -17,12 +17,13 @@ if ( !defined( 'WPINC' ) ) {
 if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	class Cherry_Options_Framework {
 
+		public $current_section_name = '';
+
 		/**
 		* Cherry_Options_Framework constructor
 		* 
 		* @since 1.0.0
 		*/
-
 		function __construct() {
 			add_action( 'admin_init', array( $this, 'create_themename_option' ) );
 		}
@@ -52,7 +53,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			update_option($settings['id'], $options_array);
 		}
 
-
 		/**
 		 * 
 		 * Load options from DB
@@ -65,7 +65,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 
 			return $result_options;
 		}
-
 
 		/**
 		 * 
@@ -106,25 +105,50 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 1.0.0
 		 */
 		public function create_updated_options_array( $post_array ) {
-
 			$options = $this->create_options_array();
-			
 			if(isset($options)){				
 				foreach ( $options as $section_key => $value ) {
 					$section_name = $section_key;
 					$option_list = $value['options-list'];
-						foreach ($post_array as $key => $value) {
-							$options[$section_name]['options-list'][$key] = $post_array[$key];
+						foreach ($option_list as $key => $value) {
+							if(isset($post_array[$key])){
+								$options[$section_name]['options-list'][$key] = $post_array[$key];
+							}
 						}
 				}
-
 				$this->save_options($options);
+			}
+		}
+		
+		/**
+		 * 
+		 * Restore section and save options
+		 *
+		 * @since 1.0.0
+		 */
+		public function restore_section_settings_array($activeSection) {
+			$activeSectionName = $activeSection;
+			
+			$loaded_settings = $this->load_options();
+			$default_settings = $this->create_options_array();
+
+			if(isset($loaded_settings)){
+				foreach ( $loaded_settings as $section_key => $value ) {
+					$section_name = $section_key;
+					$option_list = $value['options-list'];
+					if($section_name == $activeSectionName){
+						foreach ($option_list as $key => $value) {
+							$loaded_settings[$section_name]['options-list'][$key] = $default_settings[$section_name]['options-list'][$key];
+						}
+					}
+				}
+				$this->save_options($loaded_settings);
 			}
 		}
 
 		/**
 		 * 
-		 * Create and save updated options
+		 * Restore and save options
 		 *
 		 * @since 1.0.0
 		 */
@@ -134,7 +158,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 					$this->save_options($options);
 				}
 		}
-
 
 		/**
 		 * Get default set of options
@@ -180,17 +203,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 
 			$result_settings = $default_settings;
 			return $result_settings;
-		}
-		
-		/**
-		 * 
-		 * Add new set to settings
-		 *
-		 * @since 1.0.0
-		 */
-		public function add_new_settings( $new_settings ) {
-			
-			//var_dump($this->new_settings_stack);
 		}	
 
 		/**

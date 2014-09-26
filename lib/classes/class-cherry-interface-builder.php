@@ -18,7 +18,7 @@ class Cherry_Interface_Bilder {
 					'name_prefix' => 'cherry',
 					'pattern' => 'inline',
 					'class' => array(
-						'submit' => 'button button-primary',
+						'submit' => 'button',
 						'text' => 'widefat',
 						'label' => '',
 						'section' => ''

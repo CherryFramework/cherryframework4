@@ -7,10 +7,9 @@
 
 	
 	//$cherry_options_framework->add_new_settings(new_cherry_set());
-	
 	//var_dump(Cherry_Options_Framework::get_option_value('text_demo'));
 	
-	//add_filter('cherry_defaults_settings', 'new_cherry_set');
+	add_filter('cherry_defaults_settings', 'new_cherry_set');
 
 	function new_cherry_set($result_array) {
 		$optSectionsArray = array();
@@ -47,7 +46,7 @@
 				'name' => 'Navigation',
 				'icon' => 'dashicons dashicons-menu',
 				'parent' => '',
-				'priority' => 40,
+				'priority' => 50,
 				'options-list' => $navigation_options
 		);
 

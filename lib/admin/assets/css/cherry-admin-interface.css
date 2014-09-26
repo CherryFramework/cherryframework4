@@ -1,5 +1,5 @@
 .options-page-wrapper {
-  margin: 20px 50px 0 0;
+  margin: 20px 20px 0 0;
   position: relative;
 }
 .options-page-wrapper .settings-error{
@@ -39,11 +39,15 @@
 
 .cherry-submit-wrapper #wrap-cherry-save-options {
   float: right;
-  margin: 0;
+  margin: 0 5px;
 }
 .cherry-submit-wrapper #wrap-cherry-restore-options {
-  float: left;
-  margin: 0;
+  float: right;
+  margin: 0 5px;
+}
+.cherry-submit-wrapper #wrap-cherry-restore-section {
+  float: right;
+  margin: 0 5px;
 }
 
 #cherry_options .cherry-tab-menu {
@@ -58,7 +62,7 @@
 #cherry_options .cherry-tab-menu li a {
   color: #555555;
   background: #f4f4f4;
-  padding: 12px 5px 12px 10px;
+  padding: 10px 5px 10px 10px;
   text-decoration: none;
   display: block;
   border-bottom: 1px solid #ebebeb;
@@ -121,50 +125,62 @@
 .fixedControlHolder{
   position: fixed;
   top: 100px;
-  right: 0;
+  right: 5px;
+  padding: 10px 15px 10px 15px;
   display: block;
+  background: #fcfcfc;
+  border: 1px solid #D8D8D8;
   z-index: 999;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
-.fixedControlHolder span{
-  width: 30px;
-  height: 30px;
+.fixedControlHolder.opened .marker:before{
+  content: "\f139";
+}
+.fixedControlHolder .innerWrapper{
+  position: relative;
+}
+.fixedControlHolder .marker{
+  position: absolute;
+  top: 39px;
+  left: -18px;
+  width: 16px;
+  height: 50px;
+  font-size: 17px;
+  line-height: 50px;
+  color: #2EA2CC;
+  cursor: pointer;
+  background: #fcfcfc;
+  border: 1px solid #D8D8D8;
+  border-right: 1px solid #fff;
+  border-radius: 3px 0 0 3px;
+  -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+      -0-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+}
+.fixedControlHolder .marker:before{
+  width: 20px;
+  height: 50px;
+  content: "\f141";
+}
+.fixedControlHolder .marker:hover{
+  color: #7ad03a;
+}
+.fixedControlHolder .innerWrapper .button{
   display: block;
   position: relative;
-  margin: 5px;
   cursor: pointer;
+  margin: 5px 0;
+  text-align: center;
+  width: 120px;
   -webkit-transition: all 0.5s ease;
      -moz-transition: all 0.5s ease;
        -0-transition: all 0.5s ease;
           transition: all 0.5s ease;
 }
-.fixedControlHolder span:before{
-  color: #fff;
-  line-height: 30px;
-  font-size: 30px;
+.fixedControlHolder .innerWrapper .button:before{
   -webkit-transition: all 0.5s ease;
      -moz-transition: all 0.5s ease;
        -0-transition: all 0.5s ease;
           transition: all 0.5s ease;
-}
-.fixedControlHolder .saveButton{
-  background: #2EA2CC;
-  border: 5px solid #2EA2CC;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-}
-.fixedControlHolder .saveButton:hover{
-  background: none;
-}
-.fixedControlHolder .saveButton:hover:before{
-  color: #2EA2CC;
-}
-.fixedControlHolder .restoreButton{
-  background: #555;
-  border: 5px solid #555;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-}
-.fixedControlHolder .restoreButton:hover{
-  background: none;
-}
-.fixedControlHolder .restoreButton:hover:before{
-  color: #555;
 }

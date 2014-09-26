@@ -40,7 +40,7 @@ function cherry_defaults_settings() {
 					'select_3'	=> 'select 3'
 				)
 	);
-	/*$demo_options['filterselect_demo'] = array(
+	$demo_options['filterselect_demo'] = array(
 				'type'			=> 'filterselect',
 				'title'			=> 'title filterselect',
 				'label'			=> 'label filterselect',
@@ -253,7 +253,7 @@ function cherry_defaults_settings() {
 	$demo_options['submit_demo'] = array(
 				'type'			=> 'submit',
 				'value'			=> 'get value'
-	);*/
+	);
 
 	$optSectionsArray['demo-options-section'] = array(
 			'name' => 'All interface elements',
