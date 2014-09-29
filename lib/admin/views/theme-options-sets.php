@@ -162,27 +162,27 @@
 							'options'		=> array(
 								'header_type_layout_radio_1' => array(
 									'label' => 'Top static',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-top-static.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
 								),
 								'header_type_layout_radio_2' => array(
 									'label' => 'Left static',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-left-static.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
 								),
 								'header_type_layout_radio_3' => array(
 									'label' => 'Right static',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-right-static.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
 								),
 								'header_type_layout_radio_4' => array(
 									'label' => 'Top toogle',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-top-toggle.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
 								),
 								'header_type_layout_radio_5' => array(
 									'label' => 'Left toogle',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-left-toggle.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
 								),
 								'header_type_layout_radio_6' => array(
 									'label' => 'Right toogle',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-right-toggle.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
 								)
 							)
 				);
@@ -198,19 +198,19 @@
 							'options'		=> array(
 								'header_widgetarea_layout_radio_1' => array(
 									'label' => 'None',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-none.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-none.png'
 								),
 								'header_widgetarea_layout_radio_2' => array(
 									'label' => 'Single area',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-1.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-1.png'
 								),
 								'header_widgetarea_layout_radio_3' => array(
 									'label' => 'Double area',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-2.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-2.png'
 								),
 								'header_widgetarea_layout_radio_4' => array(
 									'label' => 'Quad area',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-4.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-4.png'
 								)
 							)
 				);
@@ -273,19 +273,19 @@
 							'options'		=> array(
 								'footer_widgetarea_layout_radio_1' => array(
 									'label' => 'None',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-none.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-none.png'
 								),
 								'footer_widgetarea_layout_radio_2' => array(
 									'label' => 'Single area',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-1.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-1.png'
 								),
 								'footer_widgetarea_layout_radio_3' => array(
 									'label' => 'Double area',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-2.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-2.png'
 								),
 								'footer_widgetarea_layout_radio_4' => array(
 									'label' => 'Quad area',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-4.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-4.png'
 								)
 							)
 					);
@@ -656,27 +656,27 @@
 							'options'		=> array(
 								'blog_layout_radio_image_1' => array(
 									'label' => 'Container',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-container.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-container.png'
 								),
 								'blog_layout_radio_image_2' => array(
 									'label' => 'Full widht',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-fullwidth.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-fullwidth.png'
 								),
 								'blog_layout_radio_image_3' => array(
 									'label' => 'Left sidebar',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-left-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-left-sidebar.png'
 								),
 								'blog_layout_radio_image_4' => array(
 									'label' => 'Right sidebar',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-right-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-right-sidebar.png'
 								),
 								'blog_layout_radio_image_5' => array(
 									'label' => 'Both sidebars',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-both-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-both-sidebar.png'
 								),
 								'blog_layout_radio_image_6' => array(
 									'label' => 'Two same-side sidebars',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-sameside-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
 								)
 							)
 					);
@@ -692,31 +692,31 @@
 							'options'		=> array(
 								'blog_type_radio_image_1' => array(
 									'label' => '2 col.Grid',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-grid2.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-grid2.png'
 								),
 								'blog_type_radio_image_2' => array(
 									'label' => '3 col.Grid',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-grid3.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-grid3.png'
 								),
 								'blog_type_radio_image_3' => array(
 									'label' => '4 col.Grid',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-grid4.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-grid4.png'
 								),
 								'blog_type_radio_image_4' => array(
 									'label' => 'List',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-list.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-list.png'
 								),
 								'blog_type_radio_image_5' => array(
 									'label' => 'Checker list',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-checkerlist.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-checkerlist.png'
 								),
 								'blog_type_radio_image_6' => array(
 									'label' => 'Masonry',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-masonry.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-masonry.png'
 								),
 								'blog_type_radio_image_7' => array(
 									'label' => 'Justified',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-justified.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-justified.png'
 								)
 							)
 					);
@@ -877,27 +877,27 @@
 							'options'		=> array(
 								'blog_single_radio_image_1' => array(
 									'label' => 'Container',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-container.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-container.png'
 								),
 								'blog_single_radio_image_2' => array(
 									'label' => 'Full widht',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-fullwidth.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-fullwidth.png'
 								),
 								'blog_single_radio_image_3' => array(
 									'label' => 'Left sidebar',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-left-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-left-sidebar.png'
 								),
 								'blog_single_radio_image_4' => array(
 									'label' => 'Right sidebar',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-right-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-right-sidebar.png'
 								),
 								'blog_single_radio_image_5' => array(
 									'label' => 'Both sidebars',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-both-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-both-sidebar.png'
 								),
 								'blog_single_radio_image_6' => array(
 									'label' => 'Two same-side sidebars',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-sameside-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
 								)
 							)
 					);
@@ -943,27 +943,27 @@
 							'options'		=> array(
 								'portfolio_layout_radio_image_1' => array(
 									'label' => 'Container',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-container.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-container.png'
 								),
 								'portfolio_layout_radio_image_2' => array(
 									'label' => 'Full widht',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-fullwidth.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-fullwidth.png'
 								),
 								'portfolio_layout_radio_image_3' => array(
 									'label' => 'Left sidebar',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-left-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-left-sidebar.png'
 								),
 								'portfolio_layout_radio_image_4' => array(
 									'label' => 'Right sidebar',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-right-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-right-sidebar.png'
 								),
 								'portfolio_layout_radio_image_5' => array(
 									'label' => 'Both sidebars',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-both-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-both-sidebar.png'
 								),
 								'portfolio_layout_radio_image_6' => array(
 									'label' => 'Two same-side sidebars',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-layout-sameside-sidebar.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
 								)
 							)
 					);
@@ -979,31 +979,31 @@
 							'options'		=> array(
 								'portfolio_type_radio_image_1' => array(
 									'label' => '2 col.Grid',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-grid2.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-grid2.png'
 								),
 								'portfolio_type_radio_image_2' => array(
 									'label' => '3 col.Grid',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-grid3.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-grid3.png'
 								),
 								'portfolio_type_radio_image_3' => array(
 									'label' => '4 col.Grid',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-grid4.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-grid4.png'
 								),
 								'portfolio_type_radio_image_4' => array(
 									'label' => 'List',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-list.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-list.png'
 								),
 								'portfolio_type_radio_image_5' => array(
 									'label' => 'Checker list',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-checkerlist.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-checkerlist.png'
 								),
 								'portfolio_type_radio_image_6' => array(
 									'label' => 'Masonry',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-masonry.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-masonry.png'
 								),
 								'portfolio_type_radio_image_7' => array(
 									'label' => 'Justified',
-									'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-type-justified.png'
+									'img_src' => PARENT_URI.'/lib/admin/assets/images/type-justified.png'
 								)
 							)
 					);

@@ -45,7 +45,7 @@ class Cherry_Interface_Bilder {
 
 	function __construct($args = array()) {
 		$this -> options = $this -> processed_input_data($this->options , $args);
-		$this -> google_font_url = PARENT_DIR . "/lib/admin/assets/font-list/google-fonts.json";
+		$this -> google_font_url = PARENT_DIR . "/lib/admin/assets/fonts/google-fonts.json";
 
 		add_action( 'admin_footer', array($this, 'include_style'));
 	}
@@ -785,7 +785,7 @@ class Cherry_Interface_Bilder {
 	* @since 4.0.0
 	*/
 	public function include_scripts(){
-		wp_enqueue_script( 'interface-bilder' );
+		wp_enqueue_script( 'interface-builder' );
 	}
 	/** 
 	* Include interface builder CSS files
@@ -793,7 +793,7 @@ class Cherry_Interface_Bilder {
 	* @since 4.0.0
 	*/
 	public function include_style(){
-		wp_enqueue_style( 'interface-bilder' );
+		wp_enqueue_style( 'interface-builder' );
 	}
 }
 ?>

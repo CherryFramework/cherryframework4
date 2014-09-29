@@ -97,6 +97,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			/** Sets the path to the core framework functions directory. */
 			define( 'CHERRY_FUNCTIONS', trailingslashit( CHERRY_DIR ) . 'functions' );
+
+			/** Sets the path to the core framework admin directory. */
+			define( 'CHERRY_ADMIN', trailingslashit( CHERRY_DIR ) . 'admin' );
 		}
 
 		/**
@@ -288,7 +291,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			if ( is_admin() ) {
 
 				// Load the main admin file.
-				require_once( trailingslashit( CHERRY_DIR ) . 'admin/admin.php' );
+				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );
 			}
 		}
 
