@@ -38,13 +38,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			global $cherry_options_framework;
 			
 			$this->option_inteface_builder = new Cherry_Interface_Bilder(array('pattern' => 'grid'));
-
-			// Gets options to load
-	    	//$cherry_options = $cherry_options_framework->get_settings();
-
-	    	// Checks if options are available
-	    	//if ( $cherry_options ) {
-
+	
 				// Add the options page and menu item.
 				add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );
 
@@ -60,11 +54,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				// Displays notice after options restored
 				add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
 
-			//} else {
-				// Display a notice if options aren't present in the theme
-			//}
-
+				add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
 		}
+
 
 		/**
 	     * Registers the settings
@@ -91,16 +83,26 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 		function restore_section_notice() {
 			$tmp_active_section = apply_filters( 'cherry_set_active_section', '');
-			var_dump($tmp_active_section);
-			add_settings_error( 'cherry-options-group', 'restore-section', __( 'Section' . $tmp_active_section .' restored', 'cherry-options' ), 'updated slide_up' );
+			add_settings_error( 'cherry-options-group', 'restore-section', __( 'Section ' . $tmp_active_section .' restored', 'cherry-options' ), 'updated slide_up' );
 		}
 
 		/**
 		 * Display message when options have been restored
 		 */
-
 		function restore_options_notice() {
-			add_settings_error( 'cherry-options-group', 'restore-options', __( 'Options restored', 'cherry-options' ), 'updated slide_up' );
+			add_settings_error( 'cherry-options-group', 'restore-options', __( 'All options restored', 'cherry-options' ), 'updated slide_up' );
+		}
+
+		/**
+	     * Registers the settings
+	     *
+	     * @since 4.0.0
+	     */
+		function new_section_name($result) {
+			global $cherry_options_framework;
+			$currentSectionName = $cherry_options_framework->get_section_name_by_id($_POST['active_section']);
+			$result = '<i>' . $currentSectionName . '</i>';
+			return $result;
 		}
 
 
@@ -143,6 +145,19 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
+	     * Child priority sorting
+	     *
+	     * @since 4.0.0
+	     */
+		private function child_priority_sorting($base_array) {
+			var_dump($base_array);
+			foreach ($base_array as $sectionName => $sectionSettings) {
+				
+			}
+			return $base_array;
+		}
+
+		/**
 	     *
 	     * @since 4.0.0
 	     */
@@ -157,11 +172,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			}
 			//restore section
 			if(isset($_POST['cherry']['restore-section'])){
-				add_filter('cherry_set_active_section', 'new_section_name');
-				function new_section_name($result) {
-					$result = $_POST['active_section'];
-					return $result;
-				}
 				$cherry_options_framework->restore_section_settings_array($_POST['active_section']);
 				do_action('cherry-section-restored');
 			}
@@ -174,8 +184,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			$cherry_options = $cherry_options_framework->get_settings();
 
 			$cherry_options = $this->priority_sorting($cherry_options);
+			$cherry_options = $this->child_priority_sorting($cherry_options);
 			
-
 			?>
 			<div class="fixedControlHolder">
 				<span class="marker dashicons"></span>
@@ -187,19 +197,19 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			</div>
 				<div class="options-page-wrapper">
 					<div class="current_theme">
-						<span><?php echo "Theme ".get_option( 'current_theme' ); ?></span>
+						<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
 					</div>
 					<?php settings_errors( 'cherry-options-group' ); ?>
 						<form id="cherry_options" action="" method="post">
 							<?php settings_fields( 'cherry-options-group' ); ?>
-							<input class="active_section_field" type="hidden" name="active_section" value="asd">
+							<input class="active_section_field" type="hidden" name="active_section" value="">
 							<div class="cherry-sections-wrapper">
 								<ul class="cherry-tab-menu">
 									<?php
 									foreach ($cherry_options as $section_key => $section_value) {
 										($section_value["parent"] != '')? $subClass = 'subitem' : $subClass = '';
 										$priority_value = $section_value['priority']; ?>
-										<li class="tabitem-<?php echo $section_index; echo $subClass; echo $section_value["parent"];?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
+										<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $section_value["parent"]; ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
 									 
 									<?php $section_index++; } ?>
 								</ul>

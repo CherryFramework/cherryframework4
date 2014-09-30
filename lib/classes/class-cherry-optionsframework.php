@@ -76,6 +76,17 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			(get_option($cherry_options_settings['id']) == false)? $is_options=false : $is_options = true;
 			return $is_options;
 		}
+
+		/**
+		 * 
+		 *
+		 * @since 1.0.0
+		 */
+		public function get_section_name_by_id($section_id) {
+			$default_settings = $this->load_settings();
+			$result = $default_settings[$section_id]['name'];
+			return $result;
+		}
 		
 		/**
 		 * 
@@ -136,7 +147,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				foreach ( $loaded_settings as $section_key => $value ) {
 					$section_name = $section_key;
 					$option_list = $value['options-list'];
-					if($section_name == $activeSectionName){
+					if( $section_name == $activeSectionName ){
 						foreach ($option_list as $key => $value) {
 							$loaded_settings[$section_name]['options-list'][$key] = $default_settings[$section_name]['options-list'][$key];
 						}

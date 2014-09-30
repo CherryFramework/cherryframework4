@@ -473,6 +473,69 @@ function cherry_defaults_settings() {
 			'priority' => 30,
 			'options-list' => $header_options
 	);
+
+////////// Logo options ///////////////////////////////////////////////////////
+	$logo_options = array();
+
+	$logo_options['logo-options'] = array(
+				'type'			=> 'info',
+				'title'			=> '',
+				'decsription'	=> 'decsription info',
+				'value'			=> '<h2>Logo options</h2>'
+	);
+	$logo_options['logo-kind'] = array(
+				'type'			=> 'radio',
+				'title'			=> 'Logo type',
+				'label'			=> 'What kind of logo?',
+				'decsription'	=> 'Select whether you want your main logo to be an image or text. If you select "image" you can put in the image url in the next option, and if you select "text" your Site Title will be shown instead.',
+				'value'			=> 'radio_1',
+				'default_value'	=> 'radio_1',
+				'class'			=> '',
+				'display_input'	=> true,
+				'options'		=> array(
+					'radio_1' => array(
+						'label' => 'Image logo',
+						'img_src' => ''
+					),
+					'radio_2' => array(
+						'label' => 'Text logo',
+						'img_src' => ''
+					)
+				)
+	);
+	$logo_options['logo-image-path'] = array(
+				'type'				=> 'image',
+				'title'				=> 'Logo Image Path',
+				'label'				=> 'Click Upload or Enter the direct path to your logo image.',
+				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
+				'value'				=> '',
+				'default_value'		=> 'http://192.168.9.83/wodrpress-git/wp-cherry4-master/wordpress/wp-content/themes/cherryframework4/favicon.ico',
+				'display_image'		=> true,
+				'multi_upload'		=> true,
+				'return_data_type'	=> 'url'
+	);
+	$logo_options['logo-typography'] = array(
+				'type'			=> 'typography',
+				'title'			=> 'Logo Typography',
+				'label'			=> 'Logo Typography style',
+				'decsription'	=> 'Choose your prefered font for menu.',
+				'value'			=> array(
+					'size'			=> '14',
+					'lineheight'	=> '14',
+					'color'			=> '#aa00aa',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic'
+				)
+	);
+
+	$optSectionsArray['logo-options'] = array(
+			'name' => 'Logo',
+			'icon' => 'dashicons dashicons-arrow-right',
+			'parent' => 'header-options-section',
+			'priority' => 41,
+			'options-list' => $logo_options
+	);
 	
 	return apply_filters( 'cherry_defaults_settings', $optSectionsArray );		
 }

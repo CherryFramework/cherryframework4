@@ -1666,10 +1666,24 @@ textarea.input-lg, select[multiple].input-lg {
   /*--------------------------------------------------------------
 4.0 Clearings
 --------------------------------------------------------------*/
-}
-.clear:before, .clear:after, .clearfix:before, .clearfix:after, .entry-content:before, .entry-content:after, .comment-content:before, .comment-content:after, .site-header:before, .site-header:after, .site-content:before, .site-content:after, .site-footer:before, .site-footer:after {
-  display: table;
-  content: '';
+  /*
+.clear:before,
+.clear:after,
+.clearfix:before,
+.clearfix:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	display: table;
+	content: '';
+}*/
 }
 .clear:after, .clearfix:after, .entry-content:after, .comment-content:after, .site-header:after, .site-content:after, .site-footer:after {
   clear: both;
