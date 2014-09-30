@@ -375,27 +375,27 @@ function cherry_defaults_settings() {
 			'options'		=> array(
 				'header_type_layout_radio_1' => array(
 					'label' => 'Top static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-top-static.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
 				),
 				'header_type_layout_radio_2' => array(
 					'label' => 'Left static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-left-static.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
 				),
 				'header_type_layout_radio_3' => array(
 					'label' => 'Right static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-right-static.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
 				),
 				'header_type_layout_radio_4' => array(
 					'label' => 'Top toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-top-toggle.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
 				),
 				'header_type_layout_radio_5' => array(
 					'label' => 'Left toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-left-toggle.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
 				),
 				'header_type_layout_radio_6' => array(
 					'label' => 'Right toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-header-right-toggle.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
 				)
 			)
 	);
@@ -411,19 +411,19 @@ function cherry_defaults_settings() {
 			'options'		=> array(
 				'header_widgetarea_layout_radio_1' => array(
 					'label' => 'None',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-none.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-none.png'
 				),
 				'header_widgetarea_layout_radio_2' => array(
 					'label' => 'Single area',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-1.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-1.png'
 				),
 				'header_widgetarea_layout_radio_3' => array(
 					'label' => 'Double area',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-2.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-2.png'
 				),
 				'header_widgetarea_layout_radio_4' => array(
 					'label' => 'Quad area',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/cherry-widgets-layouts-4.png'
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-4.png'
 				)
 			)
 	);
