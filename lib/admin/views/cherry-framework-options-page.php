@@ -7,7 +7,7 @@
 
 	
 	//$cherry_options_framework->add_new_settings(new_cherry_set());
-	//var_dump(Cherry_Options_Framework::get_option_value('dropdown'));
+	//var_dump(Cherry_Options_Framework::get_option_value('typography_demo'));
 	
 	add_filter('cherry_defaults_settings', 'new_cherry_set');
 
@@ -21,7 +21,7 @@
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Navigation options</h2>'
 		);
-		$navigation_options['stickup-menu'] = array(
+		/*$navigation_options['stickup-menu'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'StickUp menu',
 				'label'			=> 'Using stickUp menu',
@@ -42,12 +42,12 @@
 					'character'		=> 'latin-ext',
 					'style'			=> 'italic'
 				)
-		);
+		);*/
 		$optSectionsArray['navigation-options-section'] = array(
 				'name' => 'Navigation',
 				'icon' => 'dashicons dashicons-menu',
 				'parent' => '',
-				'priority' => 50,
+				'priority' => 40,
 				'options-list' => $navigation_options
 		);
 
@@ -59,7 +59,7 @@
 					'decsription'	=> 'decsription info',
 					'value'			=> '<h2>Sub menu options</h2>'
 		);
-		$dropdown_options['dropdown'] = array(
+		/*$dropdown_options['dropdown'] = array(
 					'type'			=> 'switcher',
 					'title'			=> 'Dropdown',
 					'label'			=> 'Dropdown menu',
@@ -104,13 +104,13 @@
 					'decsription'	=> 'Miliseconds delay on mouseout.',
 					'value'			=> '1000',
 					'default_value'	=> 'default_value'
-		);
+		);*/
 
 		$optSectionsArray['dropdown-options'] = array(
 				'name' => 'Dropdown',
 				'icon' => 'dashicons dashicons-arrow-right',
 				'parent' => 'navigation-options-section',
-				'priority' => 51,
+				'priority' => 1,
 				'options-list' => $dropdown_options
 		);
 

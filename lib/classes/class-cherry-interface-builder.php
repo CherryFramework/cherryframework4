@@ -221,10 +221,19 @@ class Cherry_Interface_Bilder {
 					key => value
 			*/
 			case 'multiselect':
-				$output .= '<select ' . $item_inline_style . ' class="' . $class . ' cherry-multi-select" id="' . $id . '" name="' . $name . '" multiple="multiple" placeholder="'.$placeholder.'">';
+				$output .= '<select ' . $item_inline_style . ' class="' . $class . ' cherry-multi-select" id="' . $id . '" name="' . $name . '[]" multiple="multiple" placeholder="'.$placeholder.'">';
 				if($options && !empty($options) && is_array($options)){
 					foreach ($options as $option => $option_value) {
-						$output .= '<option value="' . $option . '" ' . selected( $value, $option, false ) . '>'. esc_html( $option_value ) .'</option>';
+						$tmp = '';
+						foreach ($value as $k => $val) {
+							$tmp = selected( $val, $option, false );
+							if($tmp == " selected='selected'"){
+								break;
+							}
+						}
+						
+						$output .= '<option value="' . $option . '" ' . $tmp . '>'. esc_html( $option_value ) .'</option>';
+						//$output .= '<option value="' . $option . '" ' . selected( $value, $option, false ) . '>'. esc_html( $option_value ) .'</option>';
 					}
 				}
 				$output .= '</select>';

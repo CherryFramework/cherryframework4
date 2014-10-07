@@ -2,16 +2,16 @@
   margin: 20px 20px 0 0;
   position: relative;
 }
-.options-page-wrapper .settings-error{
+.options-page-wrapper .settings-error {
   margin: 0 0 10px 0;
   top: 0;
   left: 0;
 }
-.options-page-wrapper .settings-error p{
+.options-page-wrapper .settings-error p {
   margin: 0;
   padding: 10px 0;
 }
-.options-page-wrapper .current_theme{
+.options-page-wrapper .current_theme {
   background: #FFF;
   border-left: 4px solid #2EA2CC;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -19,15 +19,17 @@
   padding: 20px;
   margin-bottom: 10px;
 }
-.options-page-wrapper .current_theme span{
+.options-page-wrapper .current_theme span {
   font-size: 30px;
   line-height: 35px;
 }
-.cherry-sections-wrapper{
+
+.cherry-sections-wrapper {
   background: #f4f4f4;
   border: 1px solid #D8D8D8;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
+
 .cherry-submit-wrapper {
   border: 1px solid #D8D8D8;
   overflow: hidden;
@@ -36,7 +38,6 @@
   margin: 10px 0 0 0;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
-
 .cherry-submit-wrapper #wrap-cherry-save-options {
   float: right;
   margin: 0 5px;
@@ -94,9 +95,6 @@
 #cherry_options .cherry-tab-menu li.active a i {
   color: #2EA2CC;
 }
-#cherry_options .cherry-tab-menu li:first-child a {
-  border-top: none;
-}
 #cherry_options .cherry-tab-menu li.subitem a {
   padding: 4px 5px 4px 30px;
   font-size: 12px;
@@ -112,6 +110,9 @@
 #cherry_options .cherry-tab-menu li.subitem a:hover {
   background: #3ba5cc;
 }
+#cherry_options .cherry-tab-menu li:first-child a {
+  border-top: none;
+}
 #cherry_options .cherry-option-group-list {
   margin-left: 200px;
   background: #fcfcfc;
@@ -122,7 +123,8 @@
   padding: 10px 20px;
   display: none;
 }
-.fixedControlHolder{
+
+.fixedControlHolder {
   position: fixed;
   top: 100px;
   right: 5px;
@@ -133,13 +135,21 @@
   z-index: 999;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
-.fixedControlHolder.opened .marker:before{
+.fixedControlHolder.opened .marker:before {
   content: "\f139";
 }
-.fixedControlHolder .innerWrapper{
+.fixedControlHolder .innerWrapper {
   position: relative;
 }
-.fixedControlHolder .marker{
+.fixedControlHolder .innerWrapper .button {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  margin: 5px 0;
+  text-align: center;
+  width: 120px;
+}
+.fixedControlHolder .marker {
   position: absolute;
   top: 39px;
   left: -18px;
@@ -153,34 +163,12 @@
   border: 1px solid #D8D8D8;
   border-right: 1px solid #fff;
   border-radius: 3px 0 0 3px;
-  -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-      -0-transition: all 0.5s ease;
-        transition: all 0.5s ease;
 }
-.fixedControlHolder .marker:before{
+.fixedControlHolder .marker:before {
   width: 20px;
   height: 50px;
   content: "\f141";
 }
-.fixedControlHolder .marker:hover{
+.fixedControlHolder .marker:hover {
   color: #7ad03a;
-}
-.fixedControlHolder .innerWrapper .button{
-  display: block;
-  position: relative;
-  cursor: pointer;
-  margin: 5px 0;
-  text-align: center;
-  width: 120px;
-  -webkit-transition: all 0.5s ease;
-     -moz-transition: all 0.5s ease;
-       -0-transition: all 0.5s ease;
-          transition: all 0.5s ease;
-}
-.fixedControlHolder .innerWrapper .button:before{
-  -webkit-transition: all 0.5s ease;
-     -moz-transition: all 0.5s ease;
-       -0-transition: all 0.5s ease;
-          transition: all 0.5s ease;
 }

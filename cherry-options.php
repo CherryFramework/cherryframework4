@@ -59,7 +59,7 @@ function cherry_defaults_settings() {
 					'select_8'	=> 'select 8'
 				)
 	);
-	$demo_options['multiselect_demo'] = array(
+	/*$demo_options['multiselect_demo'] = array(
 				'type'			=> 'multiselect',
 				'title'			=> 'title multiselect',
 				'label'			=> 'label multiselect',
@@ -78,14 +78,34 @@ function cherry_defaults_settings() {
 					'select_7'	=> 'select 2',
 					'select_8'	=> 'select 8'
 				)
+	);*/
+	$demo_options['multiselect_demo'] = array(
+				'type'			=> 'multiselect',
+				'title'			=> 'title multiselect',
+				'label'			=> 'label multiselect',
+				'decsription'	=> 'decsription multiselect',
+				'placeholder'	=> 'Select value',
+				'value'			=> array('select_1','select_8'),
+				'default_value'	=> array('select_1','select_8'),
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select_1'	=> 'Item 1',
+					'select_2'	=> 'Item 2',
+					'select_3'	=> 'Item 3',
+					'select_4'	=> 'Item 4',
+					'select_5'	=> 'Item 5',
+					'select_6'	=> 'Item 6',
+					'select_7'	=> 'Item 7',
+					'select_8'	=> 'Item 8'
+				)
 	);
 	$demo_options['checkbox_demo'] = array(
 				'type'			=> 'checkbox',
 				'title'			=> 'title checkbox',
 				'label'			=> 'label checkbox',
 				'decsription'	=> 'decsription checkbox',
-				'value'			=> 'value',
-				'default_value'	=> 'default_value'
+				'value'			=> 'true',
+				'default_value'	=> 'true'
 	);
 	$demo_options['switcher_demo'] = array(
 				'type'			=> 'switcher',
@@ -93,7 +113,7 @@ function cherry_defaults_settings() {
 				'label'			=> 'label switcher',
 				'decsription'	=> 'decsription switcher',
 				'value'			=> 'true',
-				'default_value'	=> 'default_value'
+				'default_value'	=> 'true'
 	);
 	$demo_options['multicheckbox_demo'] = array(
 				'type'			=> 'multicheckbox',
@@ -102,13 +122,13 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription multicheckbox',
 				'class'			=> '',
 				'value'			=> array(
-					'checkbox_1'	=> false,
-					'checkbox_2'	=> true,
+					'checkbox_1'	=> true,
+					'checkbox_2'	=> false,
 					'checkbox_3'	=> true
 				),
 				'default_value'	=> array(
 					'checkbox_1'	=> false,
-					'checkbox_2'	=> false,
+					'checkbox_2'	=> true,
 					'checkbox_3'	=> true
 				),
 				'options'		=> array(
@@ -176,17 +196,6 @@ function cherry_defaults_settings() {
 				'multi_upload'		=> true,
 				'return_data_type'	=> 'url'
 	);
-	$demo_options['image_2_demo'] = array(
-				'type'				=> 'image',
-				'title'				=> 'title image',
-				'label'				=> 'label image',
-				'decsription'		=> 'decsription image',
-				'value'				=> '',
-				'default_value'		=> 'http://192.168.9.76/wordpress_git/01_new_wordpress/wp-content/uploads/2014/03/logo.png',
-				'display_image'		=> true,
-				'multi_upload'		=> true,
-				'return_data_type'	=> 'url'
-	);
 	$demo_options['colorpicker_demo'] = array(
 				'type'			=> 'colorpicker',
 				'title'			=> 'title colorpicker',
@@ -220,9 +229,9 @@ function cherry_defaults_settings() {
 				'title'			=> 'title background',
 				'label'			=> 'label background',
 				'decsription'	=> 'decsription background',
-				'return_data_type'	=> 'id',
+				'return_data_type'	=> 'url',
 				'value'			=> array(
-						'image'	=> '5',
+						'image'	=> '',
 						'color'	=> '#ff0000',
 						'repeat'	=> 'repeat',
 						'position'	=> 'left',
@@ -270,7 +279,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>General options</h2>'
 	);
-	$general_options['layout-style'] = array(
+	/*$general_options['layout-style'] = array(
 			'type'			=> 'radio',
 			'title'			=> 'Layout Style',
 			'label'			=> 'Layout Style',
@@ -290,7 +299,7 @@ function cherry_defaults_settings() {
 				)
 			)
 	);
-	/*$general_options['responsive-layout'] = array(
+	$general_options['responsive-layout'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Responsive layout',
 			'label'			=> 'Responsive layout',
@@ -363,7 +372,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Header options</h2>'
 	);
-	$header_options['header-type-layout'] = array(
+	/*$header_options['header-type-layout'] = array(
 			'type'			=> 'radio',
 			'title'			=> __('Header type layout', 'cherry'),
 			'label'			=> __('Header type layout', 'cherry'),
@@ -427,7 +436,7 @@ function cherry_defaults_settings() {
 				)
 			)
 	);
-	/*$header_options['header-style'] = array(
+	$header_options['header-style'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Header styling',
 			'label'			=> 'Header styling section',
@@ -483,7 +492,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Logo options</h2>'
 	);
-	$logo_options['logo-kind'] = array(
+	/*$logo_options['logo-kind'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'Logo type',
 				'label'			=> 'What kind of logo?',
@@ -527,13 +536,13 @@ function cherry_defaults_settings() {
 					'character'		=> 'latin-ext',
 					'style'			=> 'italic'
 				)
-	);
+	);*/
 
 	$optSectionsArray['logo-options'] = array(
 			'name' => 'Logo',
 			'icon' => 'dashicons dashicons-arrow-right',
 			'parent' => 'header-options-section',
-			'priority' => 41,
+			'priority' => 2,
 			'options-list' => $logo_options
 	);
 	
