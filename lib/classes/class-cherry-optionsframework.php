@@ -87,6 +87,23 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			$result = $default_settings[$section_id]['name'];
 			return $result;
 		}
+
+		/**
+		 * 
+		 *
+		 * @since 1.0.0
+		 */
+		public function get_type_by_option_id($option_id) {
+			$default_settings = $this->load_settings();
+			foreach ($default_settings as $sectionName => $sectionSettings) {
+				foreach ($sectionSettings['options-list'] as $optionId => $optionSettings) {
+					if($option_id == $optionId){
+						$result = $optionSettings['type'];
+					}
+				}
+			}
+			return $result;
+		}
 		
 		/**
 		 * 
@@ -122,11 +139,37 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 					$section_name = $section_key;
 					$option_list = $value['options-list'];
 						foreach ($option_list as $key => $value) {
-							if(isset($post_array[$key])){
-								$options[$section_name]['options-list'][$key] = $post_array[$key];
+							$type = $this->get_type_by_option_id($key);
+							switch ($type) {
+								case 'info':
+									# code...
+									break;
+								case 'checkbox':
+									if(isset($post_array[$key])){
+										$options[$section_name]['options-list'][$key] = 'true';
+									}else{
+										$options[$section_name]['options-list'][$key] = 'false';
+									}
+									break;
+								case 'multicheckbox':
+									foreach ($value as $k => $val) {
+										if (isset($post_array[$k])) {
+											$value[$k] = true;
+										}else{
+											$value[$k] = false;
+										}
+									}
+									$options[$section_name]['options-list'][$key] = $value;
+									break;
+								default:
+									if (isset($post_array[$key])) {
+										$options[$section_name]['options-list'][$key] = $post_array[$key];
+									}
+									break;
 							}
 						}
 				}
+
 				$this->save_options($options);
 			}
 		}

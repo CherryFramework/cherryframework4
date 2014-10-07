@@ -55,6 +55,21 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
 
 				add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
+
+				//************* Sanitize Utility Filters  ************************************//
+				// Utility sanitize text
+				add_filter( 'utility_sanitize_text', array( $this, 'utility_sanitize_text' ) );
+				// Utility sanitize textarea
+				add_filter( 'utility_sanitize_textarea', array( $this, 'utility_sanitize_textarea' ) );
+				// Utility sanitize checkbox
+				add_filter( 'utility_sanitize_checkbox', array( $this, 'utility_sanitize_checkbox' ) );
+				// Utility sanitize editor 
+				add_filter( 'utility_sanitize_editor', array( $this, 'utility_sanitize_editor' ) );	
+				// Utility sanitize editor 
+				add_filter( 'utility_sanitize_image', array( $this, 'utility_sanitize_image' ) );
+				// Utility sanitize color picker 
+				add_filter( 'utility_sanitize_colorpicker', array( $this, 'utility_sanitize_colorpicker' ) );
+
 		}
 
 
@@ -65,8 +80,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 	     */
 	    function settings_init() {
 	    	// Load Options Framework Settings
-        	//$cherry_options_settings = get_option( 'cherry-options' );
-			//register_setting( 'cherry-options-group', $cherry_options_settings['id'],  array ( $this, 'validate_options' ) );
+        	$cherry_options_settings = get_option( 'cherry-options' );
+			register_setting( 'cherry-options-group', $cherry_options_settings['id'],  array ( $this, 'validate_options' ) );
 	    }
 
 	    /**
@@ -119,17 +134,32 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 * Validate Options.
 		 *
 		 *
-		 * @uses $_POST['reset'] to restore default options
+		 * @since 4.0.0
 		 */
 		function validate_options( $option_value ) {
-			/*if(isset($_POST['cherry']['save-options'])){
-				do_action('cherry-options-updated');
-			}
-			if(isset($_POST['cherry']['restore-options'])){
-				do_action('cherry-options-restored');
-			}
+			global $cherry_options_framework;	
+			//var_dump($option_value);
 			
-			return $option_value;*/
+			foreach ($option_value as $sectionName => $sectionOptionsList) {
+				foreach ($sectionOptionsList['options-list'] as $optionId => $optionValue) {
+					$optionType = $cherry_options_framework->get_type_by_option_id($optionId);	
+					// For a value to be submitted to database it must pass through a sanitization filter
+  					/*var_dump($optionType);
+					var_dump($optionValue);
+					var_dump('///////////////////////////////////////////////');*/
+
+					if ( has_filter( 'utility_sanitize_' . $optionType ) ) {
+						var_dump($optionValue);
+						$validated_value = apply_filters( 'utility_sanitize_' . $optionType, $optionValue );
+						var_dump($optionType . '  '. $validated_value);
+					}else{
+						//var_dump($optionType . '  '. $optionValue);
+					}
+					
+				}
+			}
+
+			return $option_value;
 		}
 		
 		/**
@@ -150,9 +180,14 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 	     * @since 4.0.0
 	     */
 		private function child_priority_sorting($base_array) {
-			var_dump($base_array);
 			foreach ($base_array as $sectionName => $sectionSettings) {
-				
+				$section = $sectionName;
+				$parent = $sectionSettings['parent'];
+				if($parent !== ''){
+					$tmpPriority = $base_array[$parent]['priority']+1;
+					$base_array[$section]['priority'] = $tmpPriority;
+					
+				}
 			}
 			return $base_array;
 		}
@@ -183,9 +218,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			$cherry_options = $cherry_options_framework->get_settings();
 
-			$cherry_options = $this->priority_sorting($cherry_options);
 			$cherry_options = $this->child_priority_sorting($cherry_options);
-			
+
+			$cherry_options = $this->priority_sorting($cherry_options);
+
 			?>
 			<div class="fixedControlHolder">
 				<span class="marker dashicons"></span>
@@ -244,8 +280,82 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				</div>
 			<?php
 
-		}	
-	}
-}
+		}
+
+
+		/**
+		 * Is a given string a color formatted in hexidecimal notation?
+		 *
+		 * @param    string    Color in hexidecimal notation. "#" may or may not be prepended to the string.
+		 * @return   bool
+		 *
+		 */
+		private function validate_hex( $hex ) {
+			$hex = trim( $hex );
+			/* Strip recognized prefixes. */
+			if ( 0 === strpos( $hex, '#' ) ) {
+				$hex = substr( $hex, 1 );
+			}
+			elseif ( 0 === strpos( $hex, '%23' ) ) {
+				$hex = substr( $hex, 3 );
+			}
+			/* Regex match. */
+			if ( 0 === preg_match( '/^[0-9a-fA-F]{6}$/', $hex ) ) {
+				return false;
+			}
+			else {
+				return true;
+			}
+		}
+
+		/************************ Sanitize functions *****************************************/
+		/* Text type */
+		function utility_sanitize_text( $input) {
+			global $allowedtags;
+				$output = wp_kses( $input, $allowedtags);
+			return $output;
+		}
+		/* Textarea type */
+		function utility_sanitize_textarea( $input) {
+			global $allowedposttags;
+				$output = wp_kses( $input, $allowedposttags);
+			return $output;
+		}
+		/* Checkbox type*/
+		function utility_sanitize_checkbox( $input ) {
+			$output = $input;
+			return $output;
+		}
+		/* Editor type */
+		function utility_sanitize_editor( $input ) {
+			if ( current_user_can( 'unfiltered_html' ) ) {
+				$output = wpautop($input);
+			}
+			else {
+				global $allowedtags;
+				$output = wpautop(wp_kses( $input, $allowedtags));
+			}
+			return $output;
+		}
+		/* Image type */
+		function utility_sanitize_image( $input ) {
+			$output = '';
+			$filetype = wp_check_filetype( $input );
+			if ( $filetype["ext"] ) {
+				$output = esc_url( $input );
+			}
+			return $output;
+		}
+		/* Color Picker */
+		function utility_sanitize_colorpicker( $input, $default = '' ) {
+			if ($this->validate_hex( $input ) ) {
+				return $input;
+			}
+			return $default;
+		}
+
+		
+	}//end  Cherry_Options_Framework_Admin class
+}//endif class exist
 
 ?>
