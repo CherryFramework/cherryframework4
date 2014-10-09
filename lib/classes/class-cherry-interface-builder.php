@@ -78,25 +78,26 @@ class Cherry_Interface_Bilder {
 	*/
 	public function add_form_item ($args = array()){
 		$default = array(
-						'class'					=> '',
-						'inline_style'			=> '',
-						'type'					=> '',
-						'value'					=> '',
-						'max_value'				=> '100',
-						'min_value'				=> '0',
-						'value_step'			=> '1',
-						'default_value'			=> '',
-						'options'				=> '',
-						'upload_button_text'	=> __( 'Choose Image', 'cherry' ),
-						'remove_button_text'	=> __( 'Remove Image', 'cherry' ),
-						'return_data_type'		=> 'url',
-						'multi_upload'			=> true,
-						'display_image'			=> true,
-						'display_input'			=> true,
-						'label'					=> '',
-						'title'					=> '',
-						'decsription'			=> ''
-					);
+			'class'					=> '',
+			'inline_style'			=> '',
+			'type'					=> '',
+			'value'					=> '',
+			'max_value'				=> '100',
+			'min_value'				=> '0',
+			'value_step'			=> '1',
+			'default_value'			=> '',
+			'options'				=> '',
+			'upload_button_text'	=> __( 'Choose Image', 'cherry' ),
+			'remove_button_text'	=> __( 'Remove Image', 'cherry' ),
+			'return_data_type'		=> 'url',
+			'multi_upload'			=> true,
+			'display_image'			=> true,
+			'display_input'			=> true,
+			'label'					=> '',
+			'title'					=> '',
+			'decsription'			=> '',
+			'hint'	         		=> ''
+		);
 		extract(array_merge($default, $args));
 
 		$value = $value == '' || $value == false &&  $value != 0 ? $default_value : $value ;
@@ -146,7 +147,8 @@ class Cherry_Interface_Bilder {
 				item_inline_style: ''
 			*/
 			case 'text':
-				$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . '" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '" >';
+				$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . '" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '" data-image-hint="http://192.168.9.83/wodrpress-git/wp-cherry4-master/wordpress/wp-content/uploads/2014/10/teamunit1.jpg">';
+				//$output .= '<div class="infohint dashicons dashicons-info" title="' . $hint .'"></div>';
 			break;
 			/*
 			arg:
@@ -642,7 +644,7 @@ class Cherry_Interface_Bilder {
 			break;
 		}
 
-		return $this -> wrap_item($output, $id, 'cherry-section cherry-' . $type. ' ' .$this->options['class']['section'], $title, $label, $decsription);
+		return $this -> wrap_item($output, $id, 'cherry-section cherry-' . $type. ' ' .$this->options['class']['section'], $title, $label, $decsription, $hint);
 	}
 
 	/**
@@ -651,7 +653,7 @@ class Cherry_Interface_Bilder {
 	* @since 4.0.0
 	* @return string
 	*/
-	private function wrap_item($item, $id, $class, $title, $label, $decsription){
+	private function wrap_item($item, $id, $class, $title, $label, $decsription, $hint){
 		$decsription = $decsription ? $this -> add_description($decsription) : '' ;
 		$class = 'cherry-section-'.$this->options['pattern'].' '.$class;
 
@@ -660,7 +662,11 @@ class Cherry_Interface_Bilder {
 		if($this->options['pattern'] == 'inline'){
 			$output .= $this -> add_label($id, $label) . $item . $decsription;
 		}else{
-			$output .= '<div class="cherry-col-1">' . $this -> add_label($id, $label). $decsription . '</div><div class="cherry-col-2">' . $item . '</div>';
+			$output .= '<div class="cherry-col-1">' . $this -> add_label($id, $label). $decsription . '</div>';
+			if($hint != ''){
+				$output .= $this -> add_hint($hint);
+			}
+			$output .= '<div class="cherry-col-2">' . $item . '</div>';
 		}
 		$output .= '</div>';
 
@@ -700,6 +706,30 @@ class Cherry_Interface_Bilder {
 	*/
 	private function add_title($title){
 		return sprintf($this->options['html_wrappers']['before_title'], 'class="cherry-title"') . $title . $this->options['html_wrappers']['after_title'];
+	}
+
+	/**
+	* Add hint to form items
+	*
+	* @since 4.0.0
+	* @return string
+	*/
+	private function add_hint($hint){
+		$type_hint = $hint['type'];
+		switch ($type_hint) {
+			case 'image':
+				$hint_content = '<div class="hint-image dashicons dashicons-format-image"  data-hint-image="' . $hint['content'] .'"></div>';
+				break;
+			case 'video':
+				$embed_code = wp_oembed_get($hint['content'], array('width' => 300));
+				$hint_content = '<div class="hint-video dashicons dashicons-video-alt3"  data-hint-video="">'. $embed_code .'</div>';
+				break;
+			default:
+				$hint_content = '<div class="hint-text dashicons dashicons-info" title="' . $hint['content'] .'"></div>';
+				break;
+		}
+		
+		return $hint_content;
 	}
 
 	/**
