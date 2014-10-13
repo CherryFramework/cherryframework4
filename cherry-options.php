@@ -15,6 +15,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title text',
 				'label'			=> 'label text',
 				'decsription'	=> 'decsription text',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> 'value',
 				'default_value'	=> 'default_value'
 	);
@@ -23,6 +27,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title textarea',
 				'label'			=> 'label textarea',
 				'decsription'	=> 'decsription textarea',
+				'hint'      	=>  array(
+					'type'		=> 'image',
+					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+				),
 				'value'			=> 'value',
 				'default_value'	=> 'default_value'
 	);
@@ -31,6 +39,11 @@ function cherry_defaults_settings() {
 				'title'			=> 'title select',
 				'label'			=> 'label select',
 				'decsription'	=> 'decsription select',
+				'hint'      	=>  array(
+					'type'		=> 'video',
+					//'content'	=> '<iframe src="//player.vimeo.com/video/37582150" width="300" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+					'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
+				),
 				'value'			=> 'select_1',
 				'default_value'	=> 'select_1',
 				'class'			=> 'width-full',
@@ -45,6 +58,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title filterselect',
 				'label'			=> 'label filterselect',
 				'decsription'	=> 'decsription filterselect',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> 'select_1',
 				'default_value'	=> 'select_1',
 				'class'			=> 'width-full',
@@ -84,6 +101,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title multiselect',
 				'label'			=> 'label multiselect',
 				'decsription'	=> 'decsription multiselect',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'placeholder'	=> 'Select value',
 				'value'			=> array('select_1','select_8'),
 				'default_value'	=> array('select_1','select_8'),
@@ -104,6 +125,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title checkbox',
 				'label'			=> 'label checkbox',
 				'decsription'	=> 'decsription checkbox',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> 'true',
 				'default_value'	=> 'true'
 	);
@@ -112,6 +137,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title switcher',
 				'label'			=> 'label switcher',
 				'decsription'	=> 'decsription switcher',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> 'true',
 				'default_value'	=> 'true'
 	);
@@ -120,6 +149,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title multicheckbox',
 				'label'			=> 'label multicheckbox',
 				'decsription'	=> 'decsription multicheckbox',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'class'			=> '',
 				'value'			=> array(
 					'checkbox_1'	=> true,
@@ -142,6 +175,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title radio',
 				'label'			=> 'label radio',
 				'decsription'	=> 'decsription radio',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> 'radio_2',
 				'default_value'	=> 'radio_1',
 				'class'			=> '',
@@ -166,6 +203,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title radio',
 				'label'			=> 'label radio',
 				'decsription'	=> 'decsription radio',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> 'radio_image_1',
 				'default_value'	=> 'radio_image_1',
 				'class'			=> '',
@@ -190,8 +231,12 @@ function cherry_defaults_settings() {
 				'title'				=> 'title image',
 				'label'				=> 'label image',
 				'decsription'		=> 'decsription image',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'				=> '',
-				'default_value'		=> 'http://192.168.9.76/wordpress_git/01_new_wordpress/wp-content/uploads/2014/03/logo.png',
+				'default_value'		=> '',
 				'display_image'		=> true,
 				'multi_upload'		=> true,
 				'return_data_type'	=> 'url'
@@ -201,6 +246,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title colorpicker',
 				'label'			=> 'label colorpicker',
 				'decsription'	=> 'decsription colorpicker',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> '#ff0000',
 				'default_value'	=> '#ff0000'
 	);
@@ -209,6 +258,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title stepper',
 				'label'			=> 'label stepper',
 				'decsription'	=> 'decsription stepper',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> '0',
 				'default_value'	=> '0',
 				'value_step'	=> '1',
@@ -220,6 +273,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title editor',
 				'label'			=> 'label editor',
 				'decsription'	=> 'decsription editor',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> 'Lorem ipsum',
 				'default_value'	=> 'editor'
 	);
@@ -229,6 +286,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title background',
 				'label'			=> 'label background',
 				'decsription'	=> 'decsription background',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'return_data_type'	=> 'url',
 				'value'			=> array(
 						'image'	=> '',
@@ -250,6 +311,10 @@ function cherry_defaults_settings() {
 				'title'			=> 'title typography',
 				'label'			=> 'label typography',
 				'decsription'	=> 'decsription typography',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
 				'value'			=> array(
 					'size'			=> '10',
 					'lineheight'	=> '10',

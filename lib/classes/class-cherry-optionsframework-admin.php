@@ -149,9 +149,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 					var_dump('///////////////////////////////////////////////');*/
 
 					if ( has_filter( 'utility_sanitize_' . $optionType ) ) {
-						var_dump($optionValue);
+						//var_dump($optionValue);
 						$validated_value = apply_filters( 'utility_sanitize_' . $optionType, $optionValue );
-						var_dump($optionType . '  '. $validated_value);
+						//var_dump($optionType . '  '. $validated_value);
 					}else{
 						//var_dump($optionType . '  '. $optionValue);
 					}

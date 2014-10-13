@@ -23,8 +23,6 @@
   /*End cherry typography options style*/
   /*Cherry info block style*/
   /*End cherry info block style*/
-  /*Cherry multiple select style*/
-  /*End multiple select style*/
 }
 .cherry-section .cherry-title {
   margin: 0 0 5px 0;
@@ -55,7 +53,6 @@
 }
 .cherry-section .cherry-col-1 {
   width: 20%;
-  margin-right: 5%;
 }
 @media screen and (max-width: 782px) {
   .cherry-section .cherry-col-1 {
@@ -294,7 +291,7 @@
   width: 107px;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 2px;
 }
 .cherry-section .cherry-uicw .cherry-upload-image {
   margin: 0;
@@ -354,4 +351,42 @@
 }
 .cherry-section.cherry-info .cherry-description {
   display: none;
+}
+.cherry-section .hint-text {
+  width: 5%;
+  float: left;
+  color: #2EA2CC;
+  margin: 3px 0;
+}
+.cherry-section .hint-text:hover {
+  color: #7ad03a;
+}
+.cherry-section .hint-image {
+  width: 5%;
+  float: left;
+  color: #2EA2CC;
+  margin: 3px 0;
+}
+.cherry-section .hint-image:hover {
+  color: #7ad03a;
+}
+.cherry-section .hint-video {
+  width: 5%;
+  float: left;
+  color: #2EA2CC;
+  margin: 3px 0;
+}
+.cherry-section .hint-video iframe {
+  display: none;
+}
+.cherry-section .hint-video:hover {
+  color: #7ad03a;
+}
+
+body .custom-tooltip-styling {
+  border-width: 1px;
+  border-color: #D8D8D8;
+  border-radius: 0;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  background: #fff;
 }
