@@ -5,9 +5,13 @@
 @import "normalize";
 
 // Core CSS
-@import "base";
-@import "type";
+//@import "base";
+@import "close";
+@import "components";
+@import "form";
 @import "grid";
-@import "tables";
-@import "forms";
+@import "responsive-embed";
+@import "responsive-utilities";
+@import "scaffolding";
+@import "typography";
 @import "wpnative";
