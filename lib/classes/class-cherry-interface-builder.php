@@ -277,6 +277,59 @@ class Cherry_Interface_Bilder {
 			break;
 			/*
 			arg:
+				type: slider
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				default_value: ''
+				class: ''
+				item_inline_style: ''
+			*/
+			case 'slider':
+				$output .= '<div class="cherry-slider-wrap">';
+					$output .= '<div class="cherry-slider-input">';
+						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input' . $class . '" name="' . $name . '" value="' . esc_html( $value ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
+						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
+					$output .= '</div>';
+					$output .= '<div class="cherry-slider-holder">';
+						$output .= '<div class="cherry-slider-unit" data-left-limit="' . $min_value . '" data-right-limit="' . $max_value . '" data-value="' . $value . '"></div>';
+					$output .= '</div>';
+					$output .= '<div class="clear"></div>';
+				$output .= '</div>';
+			break;
+			/*
+			arg:
+				type: rangeslider
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				default_value: ''
+				class: ''
+				item_inline_style: ''
+			*/
+			case 'rangeslider':
+				$left_limit = $id.'-left';
+				$right_limit = $id.'-right';
+				$output .= '<div class="cherry-rangeslider-wrap">';
+					$output .= '<input type="hidden" class="cherry-input range-hidden-input' . $class . '" name="' . $name . '" value="" >';
+					$output .= '<div class="cherry-rangeslider-left-input">';
+						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-left' . $class . '" name="' . $name . '[left_value]" value="' . esc_html( $value['left_value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
+						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
+					$output .= '</div>';
+					$output .= '<div class="cherry-range-slider-holder">';
+						$output .= '<div class="cherry-range-slider-unit" data-left-limit="' . $min_value . '" data-right-limit="' . $max_value . '" data-left-value="' . $value['left_value'] . '" data-right-value="' . $value['right_value'] . '"></div>';
+					$output .= '</div>';
+					$output .= '<div class="cherry-rangeslider-right-input">';
+						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-right' . $class . '" name="' . $name . '[right_value]" value="' . esc_html( $value['right_value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
+						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
+					$output .= '</div>';
+					$output .= '<div class="clear"></div>';
+				$output .= '</div>';
+			break;
+			/*
+			arg:
 				type: multicheckbox
 				title: ''
 				label: ''
@@ -419,7 +472,7 @@ class Cherry_Interface_Bilder {
 			case 'stepper':
 				$output .= '<div>';
 				$output .= '<input id="' . $id . '" name="' . $name . '" ' . $item_inline_style . ' class="cherry-stepper-input '.$class.'" type="text" value="' . esc_html( $value ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="' . esc_html( $value_step ) . '">';
-				$output .= '<span class="cherry-stepper-controls"><a class="step-up" title="'.__( 'Step Up', 'cherry' ).'" href="#">+</a><a class="step-down" title="'.__( 'Step Down', 'cherry' ).'" href="#">-</a></span>';
+				$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 				$output .= '</div>';
 
 				add_action( 'admin_footer', array($this, 'include_scripts'));
@@ -558,16 +611,15 @@ class Cherry_Interface_Bilder {
 				$output .= '<div class="field-font-size">';
 				$output .= $this -> add_label($id . '[size]',  __( 'Font Size', 'cherry' ), $this->options['class']['label'].' cherry-block');
 				$output .= '<input id="' . $id . '[size]" name="' . $name . '[size]" class="cherry-stepper-input font-size" type="text" value="' . esc_html(  $value['size'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
-				$output .= '<span class="cherry-stepper-controls"><a class="step-up" title="'.__( 'Step Up', 'cherry' ).'" href="#">+</a><a class="step-down" title="'.__( 'Step Down', 'cherry' ).'" href="#">-</a></span>';
+				$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 				$output .= ' px </div>';
 
 				//lineheight
 				$output .= '<div class="field-font-lineheight">';
 				$output .= $this -> add_label($id . '[lineheight]',  __( 'Lineheight', 'cherry' ), $this->options['class']['label'].' cherry-block');
 				$output .= '<input id="' . $id . '[lineheight]" name="' . $name . '[lineheight]" class="cherry-stepper-input font-lineheight" type="text" value="' . esc_html( $value['lineheight'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
-				$output .= '<span class="cherry-stepper-controls"><a class="step-up" title="'.__( 'Step Up', 'cherry' ).'" href="#">+</a><a class="step-down" title="'.__( 'Step Down', 'cherry' ).'" href="#">-</a></span>';
+				$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 				$output .= ' px </div>';
-
 
 				//Font Family
 				$font_array = $this -> get_google_font();
@@ -721,7 +773,7 @@ class Cherry_Interface_Bilder {
 				$hint_content = '<div class="hint-image dashicons dashicons-format-image"  data-hint-image="' . $hint['content'] .'"></div>';
 				break;
 			case 'video':
-				$embed_code = wp_oembed_get($hint['content'], array('width' => 300));
+				$embed_code = wp_oembed_get($hint['content'], array('width' => 400));
 				$hint_content = '<div class="hint-video dashicons dashicons-video-alt3"  data-hint-video="">'. $embed_code .'</div>';
 				break;
 			default:

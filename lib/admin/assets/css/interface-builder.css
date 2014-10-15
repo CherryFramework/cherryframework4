@@ -11,6 +11,8 @@
   /*End cherry stepper style*/
   /*Cherry switcher style*/
   /*End cherry switcher style*/
+  /*Cherry switcher style*/
+  /*Cherry switcher style*/
   /*Cherry color picker style*/
   /*End cherry color picker style*/
   /*Cherry radio buttons style*/
@@ -108,7 +110,7 @@
   width: 100%;
 }
 .cherry-section .cherry-stepper-input {
-  max-width: 44px;
+  max-width: 50px;
 }
 .cherry-section .cherry-stepper-controls {
   display: inline-block;
@@ -126,23 +128,27 @@
 .cherry-section .cherry-stepper-controls .step-down {
   border-radius: 0 0 3px 0;
 }
-.cherry-section .cherry-stepper-controls a {
+.cherry-section .cherry-stepper-controls em {
   text-decoration: none;
   margin: 0 0 0 -1px;
   color: #444444;
   border: 1px solid #cccccc;
   cursor: pointer;
   position: relative;
-  user-select: none;
   height: 12px;
   width: 20px;
   display: block;
   text-align: center;
   line-height: 12px;
   font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 @media screen and (max-width: 782px) {
-  .cherry-section .cherry-stepper-controls a {
+  .cherry-section .cherry-stepper-controls em {
     line-height: 16px;
     height: 16px;
   }
@@ -192,6 +198,77 @@
 }
 .cherry-section .cherry-switcher-wrap .sw-disable.selected span {
   color: #fff;
+}
+.cherry-section .cherry-rangeslider-wrap {
+  padding: 6px 0;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-rangeslider-left-input {
+  width: 15%;
+  float: left;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-range-slider-holder {
+  width: 70%;
+  float: left;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-range-slider-holder .cherry-range-slider-unit {
+  margin: 5px 15px;
+  font-size: 1.5em;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-range-slider-holder .cherry-range-slider-unit .ui-slider-range {
+  background: #2EA2CC;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-range-slider-holder .cherry-range-slider-unit a:hover {
+  border: 1px solid #4BACCF;
+  background: #f4f4f4;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-range-slider-holder .cherry-range-slider-unit a.ui-state-focus {
+  border: 1px solid #4BACCF;
+  color: #f4f4f4;
+  background: #f4f4f4;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-range-slider-holder .cherry-range-slider-unit a.ui-state-hover {
+  border: 1px solid #4BACCF;
+  color: #f4f4f4;
+  background: #f4f4f4;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-rangeslider-right-input {
+  width: 15%;
+  float: left;
+}
+.cherry-section .cherry-rangeslider-wrap .cherry-input {
+  margin: 0;
+  width: 100%;
+}
+.cherry-section .cherry-slider-wrap {
+  padding: 6px 0;
+}
+.cherry-section .cherry-slider-wrap .cherry-slider-input {
+  width: 15%;
+  float: left;
+}
+.cherry-section .cherry-slider-wrap .cherry-slider-holder {
+  width: 85%;
+  float: left;
+}
+.cherry-section .cherry-slider-wrap .cherry-slider-holder .cherry-slider-unit {
+  margin: 5px 15px;
+  font-size: 1.5em;
+}
+.cherry-section .cherry-slider-wrap .cherry-slider-holder .cherry-slider-unit .ui-slider-range {
+  background: #2EA2CC;
+}
+.cherry-section .cherry-slider-wrap .cherry-slider-holder .cherry-slider-unit a:hover {
+  border: 1px solid #4BACCF;
+  background: #f4f4f4;
+}
+.cherry-section .cherry-slider-wrap .cherry-slider-holder .cherry-slider-unit a.ui-state-focus {
+  border: 1px solid #4BACCF;
+  color: #f4f4f4;
+  background: #f4f4f4;
+}
+.cherry-section .cherry-slider-wrap .cherry-input {
+  margin: 0;
+  width: 100%;
 }
 .cherry-section .wp-picker-container {
   margin: 0 0 5px 0;
@@ -355,32 +432,32 @@
 .cherry-section .hint-text {
   width: 5%;
   float: left;
-  color: #2EA2CC;
+  color: #555555;
   margin: 3px 0;
 }
 .cherry-section .hint-text:hover {
-  color: #7ad03a;
+  color: #2EA2CC;
 }
 .cherry-section .hint-image {
   width: 5%;
   float: left;
-  color: #2EA2CC;
+  color: #555555;
   margin: 3px 0;
 }
 .cherry-section .hint-image:hover {
-  color: #7ad03a;
+  color: #2EA2CC;
 }
 .cherry-section .hint-video {
   width: 5%;
   float: left;
-  color: #2EA2CC;
+  color: #555555;
   margin: 3px 0;
 }
 .cherry-section .hint-video iframe {
   display: none;
 }
 .cherry-section .hint-video:hover {
-  color: #7ad03a;
+  color: #2EA2CC;
 }
 
 body .custom-tooltip-styling {
@@ -389,4 +466,5 @@ body .custom-tooltip-styling {
   border-radius: 0;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   background: #fff;
+  max-width: 400px;
 }

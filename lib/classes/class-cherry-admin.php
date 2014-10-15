@@ -40,7 +40,6 @@ class Cherry_Admin {
 		if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
 			wp_enqueue_style( 'select2' );
 			wp_enqueue_style( 'jquery-ui' );
-			//wp_enqueue_style( 'wp-jquery-ui-dialog' );
 			wp_enqueue_style( 'interface-builder' );
 			wp_enqueue_style( 'admin-interface' );
 		}
@@ -67,6 +66,7 @@ class Cherry_Admin {
 			// jQ select2.js plugin for custom select
 			wp_enqueue_script( 'select2' );
 			wp_enqueue_script( 'jquery-ui-tooltip' );
+			wp_enqueue_script( 'jquery-ui-slider' );
 			wp_enqueue_script( 'admin-interface' );
 			
 		}

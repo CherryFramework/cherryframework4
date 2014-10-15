@@ -120,7 +120,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			return $result;
 		}
 
-
 		/**
 	     *
 	     * @since 4.0.0
@@ -199,7 +198,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function cherry_options_page_build() {
 			global $cherry_options_framework;
 			$section_index = 0;
-
 			//save options
 			if(isset($_POST['cherry']['save-options'])){
 				$cherry_options_framework->create_updated_options_array($_POST['cherry']);	

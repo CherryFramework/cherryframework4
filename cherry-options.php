@@ -41,7 +41,6 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription select',
 				'hint'      	=>  array(
 					'type'		=> 'video',
-					//'content'	=> '<iframe src="//player.vimeo.com/video/37582150" width="300" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
 					'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
 				),
 				'value'			=> 'select_1',
@@ -59,8 +58,8 @@ function cherry_defaults_settings() {
 				'label'			=> 'label filterselect',
 				'decsription'	=> 'decsription filterselect',
 				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+					'type'		=> 'video',
+					'content'	=> 'https://player.vimeo.com/video/97337577'
 				),
 				'value'			=> 'select_1',
 				'default_value'	=> 'select_1',
@@ -76,26 +75,6 @@ function cherry_defaults_settings() {
 					'select_8'	=> 'select 8'
 				)
 	);
-	/*$demo_options['multiselect_demo'] = array(
-				'type'			=> 'multiselect',
-				'title'			=> 'title multiselect',
-				'label'			=> 'label multiselect',
-				'decsription'	=> 'decsription multiselect',
-				'placeholder'	=> 'Select value',
-				'value'			=> 'select_1',
-				'default_value'	=> 'select_1',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select_1'	=> 'select 1',
-					'select_2'	=> 'select 2',
-					'select_3'	=> 'select 3',
-					'select_4'	=> 'select 4',
-					'select_5'	=> 'select 5',
-					'select_6'	=> 'select 6',
-					'select_7'	=> 'select 2',
-					'select_8'	=> 'select 8'
-				)
-	);*/
 	$demo_options['multiselect_demo'] = array(
 				'type'			=> 'multiselect',
 				'title'			=> 'title multiselect',
@@ -143,6 +122,40 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> 'true',
 				'default_value'	=> 'true'
+	);
+	$demo_options['slider-demo'] = array(
+				'type'			=> 'slider',
+				'title'			=> 'title Slider',
+				'label'			=> 'label Slider',
+				'decsription'	=> 'decsription Slider',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'max_value'		=> 100,
+				'min_value'		=> 0,
+				'value'			=> 50,
+				'default_value' => 50
+	);
+	$demo_options['rangeslider-demo'] = array(
+				'type'			=> 'rangeslider',
+				'title'			=> 'title Range Slider',
+				'label'			=> 'label Range Slider',
+				'decsription'	=> 'decsription Range Slider',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'max_value'		=> 100,
+				'min_value'		=> 0,
+				'value'			=> array(
+					'left_value'	=> 20,
+					'right_value'	=> 50,
+				),
+				'default_value' => array(
+					'left_value'	=> 0,
+					'right_value'	=> 100,
+				)
 	);
 	$demo_options['multicheckbox_demo'] = array(
 				'type'			=> 'multicheckbox',
@@ -344,7 +357,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>General options</h2>'
 	);
-	/*$general_options['layout-style'] = array(
+	$general_options['layout-style'] = array(
 			'type'			=> 'radio',
 			'title'			=> 'Layout Style',
 			'label'			=> 'Layout Style',
@@ -420,7 +433,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'Want to add any custom CSS code? Put in here, and the rest is taken care of. This overrides any other stylesheets. eg: a.button{color:green}',
 			'value'			=> '',
 			'default_value'	=> ''
-	);*/
+	);
 	$optSectionsArray['general-options-section'] = array(
 			'name' => 'General',
 			'icon' => 'dashicons dashicons-admin-generic',
@@ -437,7 +450,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Header options</h2>'
 	);
-	/*$header_options['header-type-layout'] = array(
+	$header_options['header-type-layout'] = array(
 			'type'			=> 'radio',
 			'title'			=> __('Header type layout', 'cherry'),
 			'label'			=> __('Header type layout', 'cherry'),
@@ -538,7 +551,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'Enable/Disable header social list.',
 			'value'			=> 'false',
 			'default_value'	=> 'default_value'
-	);*/
+	);
 
 	$optSectionsArray['header-options-section'] = array(
 			'name' => 'Header',
@@ -557,7 +570,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Logo options</h2>'
 	);
-	/*$logo_options['logo-kind'] = array(
+	$logo_options['logo-kind'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'Logo type',
 				'label'			=> 'What kind of logo?',
@@ -601,7 +614,7 @@ function cherry_defaults_settings() {
 					'character'		=> 'latin-ext',
 					'style'			=> 'italic'
 				)
-	);*/
+	);
 
 	$optSectionsArray['logo-options'] = array(
 			'name' => 'Logo',

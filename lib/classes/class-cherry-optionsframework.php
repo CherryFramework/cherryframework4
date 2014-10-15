@@ -133,6 +133,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 1.0.0
 		 */
 		public function create_updated_options_array( $post_array ) {
+			
 			$options = $this->create_options_array();
 			if(isset($options)){				
 				foreach ( $options as $section_key => $value ) {

@@ -21,7 +21,7 @@
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Navigation options</h2>'
 		);
-		/*$navigation_options['stickup-menu'] = array(
+		$navigation_options['stickup-menu'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'StickUp menu',
 				'label'			=> 'Using stickUp menu',
@@ -42,7 +42,7 @@
 					'character'		=> 'latin-ext',
 					'style'			=> 'italic'
 				)
-		);*/
+		);
 		$optSectionsArray['navigation-options-section'] = array(
 				'name' => 'Navigation',
 				'icon' => 'dashicons dashicons-menu',
@@ -59,7 +59,7 @@
 					'decsription'	=> 'decsription info',
 					'value'			=> '<h2>Sub menu options</h2>'
 		);
-		/*$dropdown_options['dropdown'] = array(
+		$dropdown_options['dropdown'] = array(
 					'type'			=> 'switcher',
 					'title'			=> 'Dropdown',
 					'label'			=> 'Dropdown menu',
@@ -104,7 +104,7 @@
 					'decsription'	=> 'Miliseconds delay on mouseout.',
 					'value'			=> '1000',
 					'default_value'	=> 'default_value'
-		);*/
+		);
 
 		$optSectionsArray['dropdown-options'] = array(
 				'name' => 'Dropdown',
