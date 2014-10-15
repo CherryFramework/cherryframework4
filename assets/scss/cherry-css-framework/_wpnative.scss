@@ -1,36 +1,3 @@
-/*--------------------------------------------------------------
-1.0 Menus
---------------------------------------------------------------*/
-.menu {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-
-	ul {
-		list-style: none;
-		margin: 0;
-		padding-left: 0;
-	}
-	li {
-		position: relative;
-		#menu-secondary& {
-			float: left;
-		}
-
-		&:hover > a {
-		}
-	}
-	a {
-		display: block;
-		text-decoration: none;
-	}
-
-	.current_page_item a,
-	.current-menu-item a {
-	}
-}
-
 /* Small menu */
 .menu-toggle {
 	display: none;
@@ -123,7 +90,7 @@
 
 /*--------------------------------------------------------------
 4.0 Clearings
---------------------------------------------------------------*//*
+--------------------------------------------------------------*/
 .clear:before,
 .clear:after,
 .clearfix:before,
@@ -140,7 +107,7 @@
 .site-footer:after {
 	display: table;
 	content: '';
-}*/
+}
 
 .clear:after,
 .clearfix:after,
