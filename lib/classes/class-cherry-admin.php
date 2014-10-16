@@ -67,6 +67,8 @@ class Cherry_Admin {
 			wp_enqueue_script( 'select2' );
 			wp_enqueue_script( 'jquery-ui-tooltip' );
 			wp_enqueue_script( 'jquery-ui-slider' );
+			wp_enqueue_script( 'jquery-ui-accordion' );
+			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'admin-interface' );
 			
 		}

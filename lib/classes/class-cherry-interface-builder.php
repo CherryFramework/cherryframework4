@@ -330,6 +330,41 @@ class Cherry_Interface_Bilder {
 			break;
 			/*
 			arg:
+				type: accordion
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				default_value: ''
+				class: ''
+				item_inline_style: ''
+			*/
+			case 'accordion':
+				$output .= '<div class="cherry-accordion-wrap">';
+					$output .= '<div id="' . $id . '" class="accordion-unit">';
+						$output .= '<div class="group">';
+							$output .= '<h3>Section 1</h3>';
+							$output .= '<div>';
+								$output .= '<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>';
+							$output .= '</div>';
+						$output .= '</div>';
+						$output .= '<div class="group">';
+							$output .= '<h3>Section 2</h3>';
+							$output .= '<div>';
+								$output .= '<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>';
+							$output .= '</div>';
+						$output .= '</div>';
+						$output .= '<div class="group">';
+							$output .= '<h3>Section 3</h3>';
+							$output .= '<div>';
+								$output .= '<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>';
+							$output .= '</div>';
+						$output .= '</div>';
+					$output .= '</div>';
+				$output .= '</div>';
+			break;
+			/*
+			arg:
 				type: multicheckbox
 				title: ''
 				label: ''

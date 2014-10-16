@@ -4,6 +4,18 @@ function cherry_defaults_settings() {
 	$optSectionsArray = array();
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
+	$demo_options['accordion-demo'] = array(
+				'type'			=> 'accordion',
+				'title'			=> 'title accordion',
+				'label'			=> 'label accordion',
+				'decsription'	=> 'decsription accordion',
+				'hint'      	=>  array(
+					'type'		=> 'image',
+					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+				),
+				'value'			=> 'value',
+				'default_value'	=> 'default_value'
+	);
 	$demo_options['title_demo'] = array(
 				'type'			=> 'info',
 				'title'			=> '',
@@ -357,7 +369,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>General options</h2>'
 	);
-	$general_options['layout-style'] = array(
+	/*$general_options['layout-style'] = array(
 			'type'			=> 'radio',
 			'title'			=> 'Layout Style',
 			'label'			=> 'Layout Style',
@@ -433,7 +445,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'Want to add any custom CSS code? Put in here, and the rest is taken care of. This overrides any other stylesheets. eg: a.button{color:green}',
 			'value'			=> '',
 			'default_value'	=> ''
-	);
+	);*/
 	$optSectionsArray['general-options-section'] = array(
 			'name' => 'General',
 			'icon' => 'dashicons dashicons-admin-generic',
@@ -450,7 +462,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Header options</h2>'
 	);
-	$header_options['header-type-layout'] = array(
+	/*$header_options['header-type-layout'] = array(
 			'type'			=> 'radio',
 			'title'			=> __('Header type layout', 'cherry'),
 			'label'			=> __('Header type layout', 'cherry'),
@@ -521,7 +533,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'Change the Header style',
 			'return_data_type'	=> 'id',
 			'value'			=> array(
-					'image'	=> 'http://192.168.9.83/wodrpress-git/wp-cherry4-master/wordpress/wp-content/uploads/2014/05/site5.jpg',
+					'image'	=> '',
 					'color'	=> '#a4cc3f',
 					'repeat'	=> 'repeat',
 					'position'	=> 'left',
@@ -551,8 +563,7 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'Enable/Disable header social list.',
 			'value'			=> 'false',
 			'default_value'	=> 'default_value'
-	);
-
+	);*/
 	$optSectionsArray['header-options-section'] = array(
 			'name' => 'Header',
 			'icon' => 'dashicons dashicons-admin-appearance',
@@ -570,7 +581,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Logo options</h2>'
 	);
-	$logo_options['logo-kind'] = array(
+	/*$logo_options['logo-kind'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'Logo type',
 				'label'			=> 'What kind of logo?',
@@ -596,7 +607,7 @@ function cherry_defaults_settings() {
 				'label'				=> 'Click Upload or Enter the direct path to your logo image.',
 				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
 				'value'				=> '',
-				'default_value'		=> 'http://192.168.9.83/wodrpress-git/wp-cherry4-master/wordpress/wp-content/themes/cherryframework4/favicon.ico',
+				'default_value'		=> '',
 				'display_image'		=> true,
 				'multi_upload'		=> true,
 				'return_data_type'	=> 'url'
@@ -614,8 +625,7 @@ function cherry_defaults_settings() {
 					'character'		=> 'latin-ext',
 					'style'			=> 'italic'
 				)
-	);
-
+	);*/
 	$optSectionsArray['logo-options'] = array(
 			'name' => 'Logo',
 			'icon' => 'dashicons dashicons-arrow-right',

@@ -430,34 +430,51 @@
   display: none;
 }
 .cherry-section .hint-text {
-  width: 5%;
   float: left;
   color: #555555;
-  margin: 3px 0;
+  margin: 3px 20px 3px 0;
 }
 .cherry-section .hint-text:hover {
   color: #2EA2CC;
 }
 .cherry-section .hint-image {
-  width: 5%;
   float: left;
   color: #555555;
-  margin: 3px 0;
+  margin: 3px 20px 3px 0;
 }
 .cherry-section .hint-image:hover {
   color: #2EA2CC;
 }
 .cherry-section .hint-video {
-  width: 5%;
   float: left;
   color: #555555;
-  margin: 3px 0;
+  margin: 3px 20px 3px 0;
 }
 .cherry-section .hint-video iframe {
   display: none;
 }
 .cherry-section .hint-video:hover {
   color: #2EA2CC;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group {
+  border: 1px solid #dfdfdf;
+  border-radius: 5px;
+  background: #f9f9f9;
+  padding: 3px;
+  margin-bottom: 5px;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header {
+  margin: 0;
+  padding: 1em .5em 1em 2em;
+  color: #444;
+  background-image: none;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header.ui-state-active {
+  border: 1px solid #cccccc;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header.ui-state-hover {
+  background: none;
+  border: 1px solid #cccccc;
 }
 
 body .custom-tooltip-styling {
