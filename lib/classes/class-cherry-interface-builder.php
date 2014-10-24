@@ -342,25 +342,45 @@ class Cherry_Interface_Bilder {
 			case 'accordion':
 				$output .= '<div class="cherry-accordion-wrap">';
 					$output .= '<div id="' . $id . '" class="accordion-unit">';
+					$settings = $value;
+					foreach ($options as $static => $staticSettings) {
+						
+					}
+
+					foreach ($value as $handle => $handleArray) {
+						$tmpOptions = $options;
+						//$output .= $this -> add_accordion_group($id, $name, $handle, $handleArray, $tmpOptions);
 						$output .= '<div class="group">';
-							$output .= '<h3>Section 1</h3>';
+							$output .= '<h3><span class="label">' . $handleArray['itemname'] . '<span></h3>';
 							$output .= '<div>';
-								$output .= '<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>';
+								$output .= '<div class="field-static">';
+									$output .= $this -> add_label($id . '-static',  __( 'Static item', 'cherry' ), $this->options['class']['label'].' cherry-block');
+									$output .= '<select ' . $item_inline_style . ' class="select-static width-full" id="' . $id . '-static" name="' . $name . '[' . $handle . ']">';
+										foreach ($options as $static => $staticSettings) {
+											$output .= '<option value="' . $static . '" ' . selected( $staticSettings['itemname'], $handleArray['itemname'], false ) . '>'. esc_html( $staticSettings['itemname'] ) .'</option>';
+										}
+									$output .= '</select>';
+								$output .= '</div>';
+								$output .= '<div class="field-col">';
+									$output .= $this -> add_label($id . '-col',  __( 'Grid position(col)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+									$output .= '<select ' . $item_inline_style . ' class="width-full" id="' . $id . '" name="' . $name . '[' . $handle . '][col]">';
+										for ($i=0; $i < 12; $i++) { 
+											$inc = $i+1;
+											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col'], $inc, false ) . '>'. esc_html( $inc ) .'</option>';
+										}
+									$output .= '</select>';
+								$output .= '</div>';
+								$output .= '<div class="field-class">';
+									$output .= $this -> add_label($id . '-class',  __( 'Custom class', 'cherry' ), $this->options['class']['label'].' cherry-block');
+									$output .= '<input id="' . $id . '-class" class="width-full" name="' . $name . '[' . $handle . '][class]" value="' . esc_html( $handleArray['class'] ) . '" type="text" />';
+								$output .= '</div>';
+								$output .= '<input type="hidden" class="itemname"  name="' . $name . '[' . $handle . '][itemname]" value="' . $handleArray['itemname'] . '">';
+								$output .= '<input type="hidden" name="' . $name . '[' . $handle . '][priority]" value="' . $handleArray['priority'] . '" >';			
 							$output .= '</div>';
 						$output .= '</div>';
-						$output .= '<div class="group">';
-							$output .= '<h3>Section 2</h3>';
-							$output .= '<div>';
-								$output .= '<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>';
-							$output .= '</div>';
-						$output .= '</div>';
-						$output .= '<div class="group">';
-							$output .= '<h3>Section 3</h3>';
-							$output .= '<div>';
-								$output .= '<p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>';
-							$output .= '</div>';
-						$output .= '</div>';
+					}
 					$output .= '</div>';
+					$output .= '<a href="javascript:void(0);" class="button-primary button addNewBtn">'. __( 'Add new static', 'cherry' ) .'</a>';
 				$output .= '</div>';
 			break;
 			/*
@@ -485,7 +505,6 @@ class Cherry_Interface_Bilder {
 			*/
 			case 'colorpicker':
 				$output .= '<input id="' . $id . '" name="' . $name . '" value="' . esc_html( $value ) . '" ' . $item_inline_style . ' class="cherry-color-picker '. $class . '" type="text" />';
-
 				add_action( 'admin_footer', array($this, 'include_colorpicker_script_style'));
 				add_action( 'admin_footer', array($this, 'include_colorpicker_script_style'));
 				add_action( 'admin_footer', array($this, 'include_scripts'));
@@ -772,6 +791,44 @@ class Cherry_Interface_Bilder {
 		$output = $label ? sprintf($this -> options['html_wrappers']['label_start'], 'for="' . $id . '"', 'class="cherry-label ' .$class . '"' ) : '' ;
 		$output .= $label ;
 		$output .= $label ? $this -> options['html_wrappers']['label_end'] : '' ;
+		return $output;
+	}
+
+	/**
+	* Add label to form items
+	*
+	* @since 4.0.0
+	* @return string
+	*/
+	private function add_accordion_group($id, $name, $static_id, $static_setting, $options){
+		$output = '<div class="group">';
+			$output .= '<h3><span class="label">' . $static_setting['itemname'] . '<span></h3>';
+			$output .= '<div>';
+				$output .= '<div class="field-static">';
+					$output .= $this -> add_label($id . '-static',  __( 'Static item', 'cherry' ), $this->options['class']['label'].' cherry-block');
+					$output .= '<select ' . $item_inline_style . ' class="select-static width-full" id="' . $id . '-static" name="' . $name . '[' . $static_id . ']">';
+						foreach ($options as $static => $staticSettings) {
+							$output .= '<option value="' . $static . '" ' . selected( $staticSettings['itemname'], $static_setting['itemname'], false ) . '>'. esc_html( $staticSettings['itemname'] ) .'</option>';
+						}
+					$output .= '</select>';
+				$output .= '</div>';
+				$output .= '<div class="field-col">';
+					$output .= $this -> add_label($id . '-col',  __( 'Grid position(col)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+					$output .= '<select ' . $item_inline_style . ' class="width-full" id="' . $id . '" name="' . $name . '[' . $static_id . '][col]">';
+						for ($i=0; $i < 12; $i++) { 
+							$inc = $i+1;
+							$output .= '<option value="' . $inc . '" ' . selected( $static_setting['col'], $inc, false ) . '>'. esc_html( $inc ) .'</option>';
+						}
+					$output .= '</select>';
+				$output .= '</div>';
+				$output .= '<div class="field-class">';
+					$output .= $this -> add_label($id . '-class',  __( 'Custom class', 'cherry' ), $this->options['class']['label'].' cherry-block');
+					$output .= '<input id="' . $id . '-class" class="width-full" name="' . $name . '[' . $static_id . '][class]" value="' . esc_html( $handleArray['class'] ) . '" type="text" />';
+				$output .= '</div>';
+				$output .= '<input type="hidden" class="itemname"  name="' . $name . '[' . $static_id . '][itemname]" value="' . $static_setting['itemname'] . '">';
+				$output .= '<input type="hidden" name="' . $name . '[' . $static_id . '][priority]" value="' . $static_setting['priority'] . '" >';			
+			$output .= '</div>';
+		$output .= '</div>';
 		return $output;
 	}
 
