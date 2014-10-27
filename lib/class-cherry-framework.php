@@ -232,6 +232,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load Cherry_Options_Framework_Admin class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework-admin.php' );
 
+			// Load Cherry_Header class.
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-header.php' );
+
 			// Load the HTML attributes functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'attr.php' );
 
