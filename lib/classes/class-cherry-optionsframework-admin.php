@@ -200,6 +200,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			$section_index = 0;
 			//save options
 			if(isset($_POST['cherry']['save-options'])){
+				//var_dump($_POST['cherry']);
 				$cherry_options_framework->create_updated_options_array($_POST['cherry']);	
 				do_action('cherry-options-updated');
 			}

@@ -4,6 +4,13 @@ function cherry_defaults_settings() {
 	$optSectionsArray = array();
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
+	
+	$demo_options['title_demo'] = array(
+				'type'			=> 'info',
+				'title'			=> '',
+				'decsription'	=> 'decsription info',
+				'value'			=> '<h2>Demo options</h2>'
+	);
 	$demo_options['accordion-demo'] = array(
 				'type'			=> 'accordion',
 				'title'			=> 'title accordion',
@@ -13,14 +20,49 @@ function cherry_defaults_settings() {
 					'type'		=> 'image',
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
-				'value'			=> 'value',
-				'default_value'	=> 'default_value'
-	);
-	$demo_options['title_demo'] = array(
-				'type'			=> 'info',
-				'title'			=> '',
-				'decsription'	=> 'decsription info',
-				'value'			=> '<h2>Demo options</h2>'
+				'value'			=> array(
+					'cherry_header_logo' => array(
+						'col'	   => 3,
+						'class'	   => 'custom_logo',
+						'itemname' => 'Logo',
+						'priority' => 0
+					),
+					'cherry_header_menu' => array(
+						'col'	   => 6,
+						'class'	   => 'custom_menu',
+						'itemname' => 'Menu',
+						'priority' => 1
+					),
+					'cherry_header_search' => array(
+						'col'	   => 3,
+						'class'	   => 'custom_search',
+						'itemname' => 'Search',
+						'priority' => 2
+					)
+				),
+				'default_value'	=> 'default_value',
+				'options' => array(
+					'cherry_header_logo' => array(
+						'itemname' => 'Logo',
+						'priority' => 1
+					),
+					'cherry_header_menu'   => array(
+						'itemname' => 'Menu',
+						'priority' => 5
+					),
+					'cherry_header_search' => array(
+						'itemname' => 'Search',
+						'priority' => 10
+					),
+					'cherry_header_info' => array(
+						'itemname' => 'Info Block',
+						'priority' => 15
+					),
+					'cherry_header_login' => array(
+						'itemname' => 'Login form',
+						'priority' => 20
+					)
+				)
 	);
 	$demo_options['text_demo'] = array(
 				'type'			=> 'text',

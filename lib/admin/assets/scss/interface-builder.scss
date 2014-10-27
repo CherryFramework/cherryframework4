@@ -422,7 +422,7 @@
 			box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
 			box-sizing: border-box;
 			padding:1px 10px;
-			margin-bottom: 2px;
+			margin: 0 2px 2px 0;
 		}
 		.cherry-description{
 			display: none;
@@ -459,17 +459,24 @@
 
 	.cherry-accordion-wrap{
 		.accordion-unit{
+			margin-bottom: 20px;
 			.group{
 				border: 1px solid #dfdfdf;
-				border-radius: 5px;
 				background: #f9f9f9;
 				padding: 3px;
 				margin-bottom: 5px;
 					.ui-accordion-header{
+						font-size: 16px;
 						margin: 0;
-						padding: 1em .5em 1em 2em;
+						padding: .6em .5em .6em 2em;
 						color: #444;
 						background-image: none;
+						background: #fff;
+						border-radius: 0;
+						font-weight: normal;
+							.ui-accordion-header-icon{
+								background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
+							}
 							&.ui-state-active{
 								border: 1px solid #cccccc;
 							}
@@ -478,8 +485,44 @@
 								border: 1px solid #cccccc;
 							}
 					}
+					.ui-accordion-content{
+						background: none;
+						border-radius: 0;
+						padding: 1em 2.1em;
+							.field-static{
+								width: 32%;
+								margin-right: 1%;
+								float: left;
+							}
+							.field-col{
+								width: 32%;
+								margin-right: 1%;
+								float: left;
+							}
+							.field-class{
+								width: 34%;
+								float: left;
+									input{
+										margin: 0;
+										height: 28px;
+									}
+							}
+							select{
+								margin: 0;
+							}
+					}
+			}
+			.ui-state-highlight {
+				height: 3.3em;
+				line-height: 1.2em;
+				margin-bottom: 5px;
+				background: rgba(46, 162, 204, 0.3);
+				border-color: #2EA2CC;  
 			}
 		}
+	}
+	.addNewBtn{
+		float: right; 
 	}
 }
 

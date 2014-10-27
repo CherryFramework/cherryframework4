@@ -170,7 +170,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 							}
 						}
 				}
-
 				$this->save_options($options);
 			}
 		}
