@@ -21,7 +21,7 @@ function cherry_theme_setup() {
 
 	// Enable support a Header statics.
 	add_theme_support( 'cherry-header-statics', array(
-		'logo', 'main-menu', 'search-form',
+		'logo', 'menu', 'searchform',
 	) );
 
 	// Enable support for Post Formats.
