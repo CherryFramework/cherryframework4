@@ -2,8 +2,6 @@
 // Header structure.
 add_action( 'cherry_header_before', 'cherry_header_wrap', 999 );
 add_action( 'cherry_header_after',  'cherry_header_wrap',   0 );
-add_action( 'cherry_header',        'cherry_header_logo',   1 );
-add_action( 'cherry_header',        'cherry_header_menu',   9 );
 
 // Footer structure.
 add_action( 'cherry_footer_before', 'cherry_footer_wrap',    999 );
@@ -38,37 +36,14 @@ function cherry_header_wrap() {
 
 	if ( !did_action( 'cherry_header' ) ) {
 
-		printf( '<header %s><div class="container">', cherry_get_attr( 'header' ) );
+		printf( '<header %s>', cherry_get_attr( 'header' ) );
 
 	} else {
 
-		echo '</div></header>';
+		echo '</header>';
 
 	}
 
-}
-
-/**
- * Prints HTML with Header Logo.
- *
- * @since 4.0.0
- */
-function cherry_header_logo() {
-
-	if ( cherry_get_site_title() || cherry_get_site_description() ) {
-		echo '<!-- Branding -->';
-		printf( '<div class="site-branding">%1$s %2$s</div>', cherry_get_site_title(), cherry_get_site_description() );
-	}
-
-}
-
-/**
- * Prints HTML with Primary Menu.
- *
- * @since 4.0.0
- */
-function cherry_header_menu() {
-	cherry_get_menu_template( 'primary' );
 }
 
 /**

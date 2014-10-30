@@ -19,6 +19,11 @@ function cherry_theme_setup() {
 	// Load files.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/init.php' );
 
+	// Enable support a Header statics.
+	add_theme_support( 'cherry-header-statics', array(
+		'logo', 'menu', 'searchform',
+	) );
+
 	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array(
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video',

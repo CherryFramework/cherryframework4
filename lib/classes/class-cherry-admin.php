@@ -3,7 +3,7 @@
 class Cherry_Admin {
 
 	/**
-	 * Initialize the plugin by loading admin scripts & styles and adding a
+	 * Initialize the loading admin scripts & styles and adding a
 	 * settings page and menu.
 	 *
 	 * @since 4.0.0
@@ -70,7 +70,7 @@ class Cherry_Admin {
 			wp_enqueue_script( 'jquery-ui-accordion' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
 			wp_enqueue_script( 'admin-interface' );
-			
+
 		}
 	}
 }
