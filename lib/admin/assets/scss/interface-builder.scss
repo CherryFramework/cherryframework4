@@ -477,6 +477,59 @@
 							.ui-accordion-header-icon{
 								background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
 							}
+							.delete-group{
+								float: right;
+								color: #2EA2CC;
+								cursor: pointer;
+								width: 60px;
+								height: 20px;
+								position: relative;
+								text-align: right;
+								overflow: hidden;
+									.confirmBtn{
+										position: absolute;
+										width: 20px;
+										height: 20px;
+										top: -20px;
+										left: 0px;
+										display: inline-block;
+										color: #7ad03a;
+										transition: all 0.2s ease;
+									}
+									.cancleBtn{
+										position: absolute;
+										width: 20px;
+										height: 20px;
+										top: -20px;
+										left: 20px;
+										display: inline-block;
+										color: #f4130c;
+										transition: all 0.2s ease;
+										transition-delay: 0.1s;
+									}
+									&:before{
+										width: 20px;
+										height: 20px;
+										top: 0;
+										transition: all 0.3s ease;
+									}
+									&:hover{
+										&:before{
+											color: #555555;
+										}
+									}
+									&.confirmState{
+										.confirmBtn{
+											top: 0;
+											transition: all 0.2s ease;
+										}
+										.cancleBtn{
+											top: 0;
+											transition: all 0.2s ease;
+											transition-delay: 0.1s;
+										}
+									}
+							}
 							&.ui-state-active{
 								border: 1px solid #cccccc;
 							}
@@ -489,18 +542,33 @@
 						background: none;
 						border-radius: 0;
 						padding: 1em 2.1em;
-							.field-static{
-								width: 32%;
+						overflow: hidden;
+							.field-col-lg{
+								width: 24%;
 								margin-right: 1%;
+								margin-bottom: 10px;
 								float: left;
 							}
-							.field-col{
-								width: 32%;
+							.field-col-md{
+								width: 24%;
 								margin-right: 1%;
+								margin-bottom: 10px;
+								float: left;
+							}
+							.field-col-sm{
+								width: 24%;
+								margin-right: 1%;
+								margin-bottom: 10px;
+								float: left;
+							}
+							.field-col-xs{
+								width: 24%;
+								margin-right: 1%;
+								margin-bottom: 10px;
 								float: left;
 							}
 							.field-class{
-								width: 34%;
+								width: 99%;
 								float: left;
 									input{
 										margin: 0;
@@ -520,10 +588,31 @@
 				border-color: #2EA2CC;  
 			}
 		}
+		.cherry-accordion-control{
+			.cherry-label{
+				text-align: right;
+				border-bottom: 1px solid #cccccc;
+				margin-bottom: 10px;
+				padding-bottom: 5px;
+			}
+			.field-static{
+				width: 50%;
+				margin-right: 1%;
+				float: right;
+					.static-selector{
+						option{
+							&.hidden{
+								display: none;
+							}
+						}
+					}
+			}
+			.addNewBtn{
+				float: right; 
+			}
+		}
 	}
-	.addNewBtn{
-		float: right; 
-	}
+	
 }
 
 body{

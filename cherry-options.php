@@ -12,7 +12,7 @@ function cherry_defaults_settings() {
 				'value'			=> '<h2>Demo options</h2>'
 	);
 	$demo_options['accordion-demo'] = array(
-				'type'			=> 'accordion',
+				'type'			=> 'static_editor',
 				'title'			=> 'title accordion',
 				'label'			=> 'label accordion',
 				'decsription'	=> 'decsription accordion',
@@ -22,22 +22,31 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> array(
 					'cherry_header_logo' => array(
-						'col'	   => 3,
-						'class'	   => 'custom_logo',
+						'col-lg'   => 3,
+						'col-md'   => 3,
+						'col-sm'   => 3,
+						'col-xs'   => 3,
+						'class'	   => 'custom_class',
 						'itemname' => 'Logo',
-						'priority' => 0
-					),
-					'cherry_header_menu' => array(
-						'col'	   => 6,
-						'class'	   => 'custom_menu',
-						'itemname' => 'Menu',
 						'priority' => 1
 					),
+					'cherry_header_menu' => array(
+						'col-lg'   => 3,
+						'col-md'   => 3,
+						'col-sm'   => 3,
+						'col-xs'   => 3,
+						'class'	   => 'custom_class',
+						'itemname' => 'Menu',
+						'priority' => 5
+					),
 					'cherry_header_search' => array(
-						'col'	   => 3,
-						'class'	   => 'custom_search',
+						'col-lg'   => 3,
+						'col-md'   => 3,
+						'col-sm'   => 3,
+						'col-xs'   => 3,
+						'class'	   => 'custom_class',
 						'itemname' => 'Search',
-						'priority' => 2
+						'priority' => 10
 					)
 				),
 				'default_value'	=> 'default_value',
@@ -61,6 +70,10 @@ function cherry_defaults_settings() {
 					'cherry_header_login' => array(
 						'itemname' => 'Login form',
 						'priority' => 20
+					),
+					'cherry_header_banner' => array(
+						'itemname' => 'Banner',
+						'priority' => 25
 					)
 				)
 	);

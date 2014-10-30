@@ -478,6 +478,55 @@
 .cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header .ui-accordion-header-icon {
   background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
 }
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header .delete-group {
+  float: right;
+  color: #2EA2CC;
+  cursor: pointer;
+  width: 60px;
+  height: 20px;
+  position: relative;
+  text-align: right;
+  overflow: hidden;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header .delete-group .confirmBtn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -20px;
+  left: 0px;
+  display: inline-block;
+  color: #7ad03a;
+  transition: all 0.2s ease;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header .delete-group .cancleBtn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -20px;
+  left: 20px;
+  display: inline-block;
+  color: #f4130c;
+  transition: all 0.2s ease;
+  transition-delay: 0.1s;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header .delete-group:before {
+  width: 20px;
+  height: 20px;
+  top: 0;
+  transition: all 0.3s ease;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header .delete-group:hover:before {
+  color: #555555;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header .delete-group.confirmState .confirmBtn {
+  top: 0;
+  transition: all 0.2s ease;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header .delete-group.confirmState .cancleBtn {
+  top: 0;
+  transition: all 0.2s ease;
+  transition-delay: 0.1s;
+}
 .cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-header.ui-state-active {
   border: 1px solid #cccccc;
 }
@@ -489,19 +538,34 @@
   background: none;
   border-radius: 0;
   padding: 1em 2.1em;
+  overflow: hidden;
 }
-.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-content .field-static {
-  width: 32%;
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-content .field-col-lg {
+  width: 24%;
   margin-right: 1%;
+  margin-bottom: 10px;
   float: left;
 }
-.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-content .field-col {
-  width: 32%;
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-content .field-col-md {
+  width: 24%;
   margin-right: 1%;
+  margin-bottom: 10px;
+  float: left;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-content .field-col-sm {
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  float: left;
+}
+.cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-content .field-col-xs {
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: 10px;
   float: left;
 }
 .cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-content .field-class {
-  width: 34%;
+  width: 99%;
   float: left;
 }
 .cherry-section .cherry-accordion-wrap .accordion-unit .group .ui-accordion-content .field-class input {
@@ -518,7 +582,21 @@
   background: rgba(46, 162, 204, 0.3);
   border-color: #2EA2CC;
 }
-.cherry-section .addNewBtn {
+.cherry-section .cherry-accordion-wrap .cherry-accordion-control .cherry-label {
+  text-align: right;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+.cherry-section .cherry-accordion-wrap .cherry-accordion-control .field-static {
+  width: 50%;
+  margin-right: 1%;
+  float: right;
+}
+.cherry-section .cherry-accordion-wrap .cherry-accordion-control .field-static .static-selector option.hidden {
+  display: none;
+}
+.cherry-section .cherry-accordion-wrap .cherry-accordion-control .addNewBtn {
   float: right;
 }
 
