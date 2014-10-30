@@ -19,8 +19,12 @@
 
 	<div id="site_wrapper" class="hfeed site">
 
+
+
 		<?php do_action( 'cherry_header_before' ); ?>
 
 		<?php do_action( 'cherry_header' ); ?>
+
+		<?php // get_template_part( 'templates/wrapper-header' ); ?>
 
 		<?php do_action( 'cherry_header_after' ); ?>

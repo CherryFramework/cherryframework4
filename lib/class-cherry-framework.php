@@ -128,6 +128,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load media-related functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'media.php' );
 
+			// Load the static functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'statics.php' );
+
 			// Load the sidebar functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'sidebars.php' );
 
@@ -136,6 +139,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );
+
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-static.php' );
 		}
 
 		/**

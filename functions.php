@@ -19,9 +19,91 @@ function cherry_theme_setup() {
 	// Load files.
 	require_once( trailingslashit( get_template_directory() ) . 'inc/init.php' );
 
+	// Registered a static areas.
+	cherry_register_static_area( array(
+		'id'            => 'top',
+		'before'        => '<div class="container"><div class="row">',
+		'after'         => '</div></div>',
+		'before_static' => '<div class="static %s">',
+		'after_static'  => '</div>',
+		'priority'      => 5,
+	) );
+	cherry_register_static_area( array(
+		'id'            => 'middle',
+		'before'        => '',
+		'after'         => '',
+		'before_static' => '<div class="static %s">',
+		'after_static'  => '</div>',
+		'priority'      => 2,
+	) );
+	cherry_register_static_area( array(
+		'id'            => 'bottom',
+		'before'        => '',
+		'after'         => '',
+		'before_static' => '<div class="static %s">',
+		'after_static'  => '</div>',
+		'priority'      => 1,
+	) );
+
+	// Registered a static elements.
+	cherry_register_static( array(
+		'id'       => 'logo',
+		'name'     => 'Logo',
+		'callback' => '',
+		'options'  => array(
+			'column'   => 5,
+			'class'    => 'custom_logo',
+			'priority' => 1,
+			'area'     => 'top',
+		)
+	) );
+	cherry_register_static( array(
+		'id'       => 'mainmenu',
+		'name'     => 'Main Menu',
+		'callback' => '',
+		'options'  => array(
+			'column'   => 7,
+			'class'    => 'custom_mainmenu',
+			'priority' => 2,
+			'area'     => 'top',
+		)
+	) );
+
+	// Registered a static elements.
+	// cherry_register_statics( array(
+	// 	'logo' => array(
+	// 		'name'     => __( 'Logo', 'cherry' ),
+	// 		'col'      => 6,
+	// 		'class'    => 'custom_logo',
+	// 		'priority' => 1,
+	// 		// 'output_callback'     => 'foo',
+	// 		'area'     => 'top',
+	// 	),
+	// 	'mainmenu' => array(
+	// 		'name'     => __( 'Main Menu', 'cherry' ),
+	// 		'col'      => 6,
+	// 		'class'    => 'custom_mainmenu',
+	// 		'priority' => 2,
+	// 		// 'output_callback'     => '',
+	// 		'area'     => 'bottom',
+	// 	),
+	// 	'banner' => array(
+	// 		'output_callback' => 'foo'
+	// 	),
+	// ) );
+	// cherry_register_static( array(
+	// 	'id'       => 'mainmenu',
+	// 	'name'     => __( 'Main Menu', 'cherry' ),
+	// 	'col'      => 6,
+	// 	'class'    => 'custom_mainmenu',
+	// 	'priority' => 2,
+	// 	'func'     => '',
+	// 	'area'     => 'top',
+	// ) );
+
 	// Enable support a Header statics.
 	add_theme_support( 'cherry-header-statics', array(
-		'logo', 'menu', 'searchform',
+		'logo' => array(), 'menu' => array(), 'searchform' => array(),
 	) );
 
 	// Enable support for Post Formats.

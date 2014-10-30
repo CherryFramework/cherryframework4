@@ -53,44 +53,46 @@ class Cherry_Header {
 		uasort( $statics, array( $this, 'compare') );
 		update_option( 'cherry_header_statics', $statics );
 
-		foreach ( (array) $statics as $id => $data ) :
+		// foreach ( (array) $statics as $id => $data ) :
 
-			if ( isset( $data['function'] ) && is_callable( $data['function'] ) ) {
-				$func = $data['function'];
-			} elseif ( is_callable( array( $this, $id ) ) ) {
-				$func = array( $this, $id );
-			} else {
-				continue;
-			}
+		// 	if ( isset( $data['function'] ) && is_callable( $data['function'] ) ) {
+		// 		$func = $data['function'];
+		// 	} elseif ( is_callable( array( $this, $id ) ) ) {
+		// 		$func = array( $this, $id );
+		// 	} else {
+		// 		continue;
+		// 	}
 
-			self::$columns_count += $data['col'];
+		// 	self::$columns_count += $data['col'];
 
-			// Open (first) row.
-			if ( self::$row_closed ) {
-				$this->row_open( ++self::$row_class );
-				self::$row_closed = false;
-			}
+		// 	// Open (first) row.
+		// 	if ( self::$row_closed ) {
+		// 		$this->row_open( ++self::$row_class );
+		// 		self::$row_closed = false;
+		// 	}
 
-			if ( self::$columns_count > self::$columns ) {
-				$this->row_close( self::$row_class );
-				$this->row_open( ++self::$row_class );
-				self::$columns_count = 0;
-			}
+		// 	if ( self::$columns_count > self::$columns ) {
+		// 		$this->row_close( self::$row_class );
+		// 		$this->row_open( ++self::$row_class );
+		// 		self::$columns_count = 0;
+		// 	}
 
-				// Open column.
-				$this->col_open( $data['col'] );
-					;
+		// 		// Open column.
+		// 		$this->col_open( $data['col'] );
+		// 			;
 
-					// Call a static function.
-					call_user_func( $func );
+		// 			// Call a static function.
+		// 			call_user_func( $func );
 
-				// Close column.
-				$this->col_close();
+		// 		// Close column.
+		// 		$this->col_close();
 
-		endforeach;
+		// endforeach;
 
-		// Close row.
-		$this->row_close( self::$row_class );
+		// // Close row.
+		// $this->row_close( self::$row_class );
+
+		
 	}
 
 	public function row_open( $class) {
@@ -170,30 +172,35 @@ class Cherry_Header {
 				'col'      => 6,
 				'class'    => 'custom_logo',
 				'priority' => 1,
+				'area' => 1,
 			),
 			'menu' => array(
 				'name'     => __( 'Main Menu', 'cherry' ),
 				'col'      => 6,
 				'class'    => 'custom_main_menu',
 				'priority' => 2,
+				'area' => 1,
 			),
 			'searchform' => array(
 				'name'     => __( 'Search Form', 'cherry' ),
 				'col'      => 8,
 				'class'    => 'custom_search_form',
 				'priority' => 3,
+				'area' => 1,
 			),
 			'loginout' => array(
 				'name'     => __( 'Login/Logout Menu', 'cherry' ),
 				'col'      => 4,
 				'class'    => 'custom_loginout_menu',
 				'priority' => 11,
+				'area' => 1,
 			),
 			'custom_menu' => array(
 				'name'     => __( 'Custom Menu', 'cherry' ),
 				'col'      => 5,
 				'class'    => 'custom_menu',
 				'priority' => 15,
+				'area' => 1,
 			),
 		) );
 
