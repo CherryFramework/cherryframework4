@@ -9,7 +9,7 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
-class Cherry_Interface_Bilder {
+class Cherry_Interface_Builder {
 
 	private $google_font_url = null;
 	private $google_font     = array();

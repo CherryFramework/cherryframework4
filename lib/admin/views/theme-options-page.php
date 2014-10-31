@@ -5,8 +5,8 @@
 		private $option_inteface_builder;
 
 		function __construct(){
-			
-			$this->option_inteface_builder = new Cherry_Interface_Bilder(array('pattern' => 'grid'));
+
+			$this->option_inteface_builder = new Cherry_Interface_Builder(array('pattern' => 'grid'));
 
 			require_once "theme-options-sets.php";
 ///////////////////options section data array //////////////////////////////////
@@ -110,7 +110,7 @@
 						'option-list' => $demo_options
 				)
 			);
-			
+
 			$dom_part_output = '';
 			$dom_part_output .= '<form id="cherry_options">';
 				$dom_part_output .= '<div class="options-framework-wrapper">';
