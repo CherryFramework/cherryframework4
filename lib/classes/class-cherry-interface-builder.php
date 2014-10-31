@@ -10,62 +10,76 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 class Cherry_Interface_Bilder {
-	private
-	$google_font_url,
-	$google_font = array(),
-	//default class options
-	$options = array(
-					'name_prefix' => 'cherry',
-					'pattern' => 'inline',
-					'class' => array(
-						'submit' => 'button',
-						'text' => 'widefat',
-						'label' => '',
-						'section' => ''
-					),
-					'html_wrappers' => array(
-						'label_start'			=> '<label %1s %2s>',
-						'label_end'				=> '</label>',
-						'before_title'			=> '<h4 %1s>',
-						'after_title'			=> '</h4>',
-						'before_decsription'	=> '<small %1s>',
-						'after_decsription'		=> '</small>'
-						),
-					'widget' => array(
-						'id_base'				=> '',
-						'number'				=> ''
-					)
-				);
+
+	private $google_font_url = null;
+	private $google_font     = array();
 
 	/**
-	* Cherry Interface builder constructor
-	*
-	* @since 4.0.0
-	*/
+	 * Default class options.
+	 *
+	 * @since 4.0.0
+	 * @var   array
+	 */
+	private $options = array(
+		'name_prefix'   => 'cherry',
+		'pattern'       => 'inline',
+		'class'         => array(
+								'submit'  => 'button',
+								'text'    => 'widefat',
+								'label'   => '',
+								'section' => '',
+							),
+		'html_wrappers' => array(
+								'label_start'        => '<label %1s %2s>',
+								'label_end'          => '</label>',
+								'before_title'       => '<h4 %1s>',
+								'after_title'        => '</h4>',
+								'before_decsription' => '<small %1s>',
+								'after_decsription'  => '</small>',
+							),
+		'widget'        => array(
+								'id_base' => '',
+								'number'  => '',
+							),
+	);
 
-	function __construct($args = array()) {
-		$this -> options = $this -> processed_input_data($this->options , $args);
-		$this -> google_font_url = PARENT_DIR . "/lib/admin/assets/fonts/google-fonts.json";
+	/**
+	 * Cherry Interface builder constructor.
+	 *
+	 * @since 4.0.0
+	 * @param array $args
+	 */
+	public function __construct( $args = array() ) {
+		$this->options         = $this->processed_input_data( $this->options, $args );
+		$this->google_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/google-fonts.json';
 
-		add_action( 'admin_footer', array($this, 'include_style'));
+		add_action( 'admin_footer', array( $this, 'enqueue_style' ) );
 	}
 
 	/**
-	*  Process all form items.
-	*
-	* @return Array. Input fields arguments and values
-	* @since 4.0.0
-	*/
-	private function processed_input_data ($default = array(), $argument = array()){
-		foreach ($default as $key => $value) {
-			if(array_key_exists($key, $argument)){
-				if(is_array($value)){
-					$default[$key] = array_merge($value , $argument[$key]);
-				}else{
-					$default[$key] = $argument[$key];
+	 * Process all form items.
+	 *
+	 * @since  4.0.0
+	 * @param  array  $default
+	 * @param  array  $argument
+	 * @return array
+	 */
+	private function processed_input_data( $default = array(), $argument = array() ) {
+
+		foreach ( $default as $key => $value ) :
+
+			if ( array_key_exists( $key, $argument ) ) {
+
+				if ( is_array( $value ) ) {
+					$default[ $key ] = array_merge( $value, $argument[ $key ] );
+				} else {
+					$default[ $key ] = $argument[ $key ];
 				}
+
 			}
-		}
+
+		endforeach;
+
 		return $default;
 	}
 
@@ -75,7 +89,7 @@ class Cherry_Interface_Bilder {
 	 * @since 4.0.0
 	 * @param array $args Input argument name => argument value
 	 */
-	public function add_form_item ( $args = array() ) {
+	public function add_form_item( $args = array() ) {
 		$default = array(
 			'class'              => '',
 			'inline_style'       => '',
@@ -704,7 +718,7 @@ class Cherry_Interface_Bilder {
 				$output .= ' px </div>';
 
 				//Font Family
-				$font_array = $this -> get_google_font();
+				$font_array = $this->get_google_font();
 				$character_array = array();
 				$style_array = array();
 
@@ -919,20 +933,49 @@ class Cherry_Interface_Bilder {
 	}
 
 	/**
-	* Get list of available Google fonts.
-	*
-	* @return Array.
-	* @since 4.0.0
-	*/
-	private function get_google_font(){
-		if(empty($this -> google_font)){
-			$json = file_get_contents( $this -> google_font_url );
-			$content = json_decode ( $json, true );
-			$font_array = $content['items'];
-		}else{
-			$font_array = $this -> google_font;
+	 * Retrieve a list of available Google web fonts.
+	 *
+	 * @since  4.0.0
+	 * @return array
+	 */
+	private function get_google_font() {
+
+		if ( empty( $this->google_font ) ) {
+
+			// Get cache.
+			$fonts = get_transient( 'cherry_google_fonts' );
+
+			if ( false === $fonts ) {
+
+				if ( !function_exists( 'WP_Filesystem' ) ) {
+					include_once( ABSPATH . '/wp-admin/includes/file.php' );
+				}
+
+				WP_Filesystem();
+				global $wp_filesystem;
+
+				if ( !$wp_filesystem->exists( $this->google_font_url ) ) { // Check for existence.
+					return false;
+				}
+
+				// Read the file.
+				$json = $wp_filesystem->get_contents( $this->google_font_url );
+
+				if ( !$json ) {
+					return new WP_Error( 'reading_error', 'Error when reading file' ); // Return error object.
+				}
+
+				$content = json_decode( $json, true );
+				$fonts   = $content['items'];
+
+				// Set cache.
+				set_transient( 'cherry_google_fonts', $fonts, WEEK_IN_SECONDS );
+			}
+
+			$this->google_font = $fonts;
 		}
-		return $font_array;
+
+		return $this->google_font;
 	}
 
 	/**
@@ -962,13 +1005,13 @@ class Cherry_Interface_Bilder {
 	public function include_scripts(){
 		wp_enqueue_script( 'interface-builder' );
 	}
+
 	/**
 	* Include interface builder CSS files
 	*
 	* @since 4.0.0
 	*/
-	public function include_style(){
+	public function enqueue_style(){
 		wp_enqueue_style( 'interface-builder' );
 	}
 }
-?>
