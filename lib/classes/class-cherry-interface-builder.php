@@ -39,7 +39,7 @@ class Cherry_Interface_Bilder {
 
 	/**
 	* Cherry Interface builder constructor
-	* 
+	*
 	* @since 4.0.0
 	*/
 
@@ -51,7 +51,7 @@ class Cherry_Interface_Bilder {
 	}
 
 	/**
-	*  Process all form items. 
+	*  Process all form items.
 	*
 	* @return Array. Input fields arguments and values
 	* @since 4.0.0
@@ -70,43 +70,42 @@ class Cherry_Interface_Bilder {
 	}
 
 	/**
-	* Add form item. Returns form item with selected arguments. 
-	* 
-	* @param Array. Input argument name => argument value
-	* @since 4.0.0
-	* @return string
-	*/
-	public function add_form_item ($args = array()){
+	 * Add form item. Returns form item with selected arguments.
+	 *
+	 * @since 4.0.0
+	 * @param array $args Input argument name => argument value
+	 */
+	public function add_form_item ( $args = array() ) {
 		$default = array(
-			'class'					=> '',
-			'inline_style'			=> '',
-			'type'					=> '',
-			'value'					=> '',
-			'max_value'				=> '100',
-			'min_value'				=> '0',
-			'value_step'			=> '1',
-			'default_value'			=> '',
-			'options'				=> '',
-			'upload_button_text'	=> __( 'Choose Image', 'cherry' ),
-			'remove_button_text'	=> __( 'Remove Image', 'cherry' ),
-			'return_data_type'		=> 'url',
-			'multi_upload'			=> true,
-			'display_image'			=> true,
-			'display_input'			=> true,
-			'label'					=> '',
-			'title'					=> '',
-			'decsription'			=> '',
-			'hint'	         		=> ''
+			'class'              => '',
+			'inline_style'       => '',
+			'type'               => '',
+			'value'              => '',
+			'max_value'          => '100',
+			'min_value'          => '0',
+			'value_step'         => '1',
+			'default_value'      => '',
+			'options'            => '',
+			'upload_button_text' => __( 'Choose Image', 'cherry' ),
+			'remove_button_text' => __( 'Remove Image', 'cherry' ),
+			'return_data_type'   => 'url',
+			'multi_upload'       => true,
+			'display_image'      => true,
+			'display_input'      => true,
+			'label'              => '',
+			'title'              => '',
+			'decsription'        => '',
+			'hint'               => '',
 		);
-		extract(array_merge($default, $args));
+		extract( array_merge( $default, $args ) );
 
-		$value = $value == '' || $value == false &&  $value != 0 ? $default_value : $value ;
-		$name = $this -> generate_field_name($id);
-		$id = $this -> generate_field_id($id);
-		$item_inline_style = $inline_style ? 'style="' . $inline_style . '"' : '' ;
-		$output = '';
+		$value             = $value == '' || $value == false && $value != 0 ? $default_value : $value;
+		$name              = $this->generate_field_name( $id );
+		$id                = $this->generate_field_id( $id );
+		$item_inline_style = $inline_style ? 'style="' . $inline_style . '"' : '';
+		$output            = '';
 
-		switch ($type) {
+		switch ( $type ) {
 			/*
 			arg:
 				type: submit
@@ -118,9 +117,14 @@ class Cherry_Interface_Bilder {
 				class: button button-primary
 				item_inline_style: ''
 			*/
+
 			case 'submit':
-				$output .= '<input ' . $item_inline_style . ' class="' . $class . ' '.$this->options['class']['submit'].'" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '" >';
-			break;
+				// $output .= '<input ' . $item_inline_style . ' class="' . $class . ' '.$this->options['class']['submit'].'" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '" >';
+				$type .= ' ' . $class;
+				$item_inline_style .= ' id=' . $id;
+				$output .= get_submit_button( $value, $type, $name, false, $item_inline_style );
+				break;
+
 			/*
 			arg:
 				type: reset
@@ -233,7 +237,7 @@ class Cherry_Interface_Bilder {
 								break;
 							}
 						}
-						
+
 						$output .= '<option value="' . $option . '" ' . $tmp . '>'. esc_html( $option_value ) .'</option>';
 						//$output .= '<option value="' . $option . '" ' . selected( $value, $option, false ) . '>'. esc_html( $option_value ) .'</option>';
 					}
@@ -349,7 +353,7 @@ class Cherry_Interface_Bilder {
 								$output .= '<div class="field-col-lg">';
 									$output .= $this -> add_label($id . '-col-lg',  __( 'Column class(.col-lg-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
 									$output .= '<select ' . $item_inline_style . ' class="width-full key-col-lg" name="' . $name . '[' . $handle . '][col-lg]">';
-										for ($i=0; $i < 12; $i++) { 
+										for ($i=0; $i < 12; $i++) {
 											$inc = $i+1;
 											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col-lg'], $inc, false ) . '>'. esc_html( 'col-lg-'.$inc ) .'</option>';
 										}
@@ -358,7 +362,7 @@ class Cherry_Interface_Bilder {
 								$output .= '<div class="field-col-md">';
 									$output .= $this -> add_label($id . '-col-md',  __( 'Column class(.col-md-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
 									$output .= '<select ' . $item_inline_style . ' class="width-full key-col-md" name="' . $name . '[' . $handle . '][col-md]">';
-										for ($i=0; $i < 12; $i++) { 
+										for ($i=0; $i < 12; $i++) {
 											$inc = $i+1;
 											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col-md'], $inc, false ) . '>'. esc_html( 'col-md-'.$inc ) .'</option>';
 										}
@@ -367,7 +371,7 @@ class Cherry_Interface_Bilder {
 								$output .= '<div class="field-col-sm">';
 									$output .= $this -> add_label($id . '-col-sm',  __( 'Column class(.col-sm-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
 									$output .= '<select ' . $item_inline_style . ' class="width-full key-col-sm" name="' . $name . '[' . $handle . '][col-sm]">';
-										for ($i=0; $i < 12; $i++) { 
+										for ($i=0; $i < 12; $i++) {
 											$inc = $i+1;
 											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col-sm'], $inc, false ) . '>'. esc_html( 'col-sm-'.$inc ) .'</option>';
 										}
@@ -376,7 +380,7 @@ class Cherry_Interface_Bilder {
 								$output .= '<div class="field-col-xs">';
 									$output .= $this -> add_label($id . '-col-xs',  __( 'Column class(.col-xs-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
 									$output .= '<select ' . $item_inline_style . ' class="width-full key-col-xs" name="' . $name . '[' . $handle . '][col-xs]">';
-										for ($i=0; $i < 12; $i++) { 
+										for ($i=0; $i < 12; $i++) {
 											$inc = $i+1;
 											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col-xs'], $inc, false ) . '>'. esc_html( 'col-xs-'.$inc ) .'</option>';
 										}
@@ -387,7 +391,7 @@ class Cherry_Interface_Bilder {
 									$output .= '<input class="width-full key-custom-class" name="' . $name . '[' . $handle . '][class]" value="' . esc_html( $handleArray['class'] ) . '" type="text" />';
 								$output .= '</div>';
 								$output .= '<input type="hidden" class="key-item-name" name="' . $name . '[' . $handle . '][itemname]" value="' . $handleArray['itemname'] . '">';
-								$output .= '<input type="hidden" class="key-priority" name="' . $name . '[' . $handle . '][priority]" value="' . $handleArray['priority'] . '">';			
+								$output .= '<input type="hidden" class="key-priority" name="' . $name . '[' . $handle . '][priority]" value="' . $handleArray['priority'] . '">';
 							$output .= '</div>';
 						$output .= '</div>';
 					}
@@ -404,7 +408,7 @@ class Cherry_Interface_Bilder {
 						$output .= '</div>';
 					$output .= '<div class="clear"></div>';
 					$output .= '</div>';
-					
+
 				$output .= '</div>';
 			break;
 			/*
@@ -774,7 +778,7 @@ class Cherry_Interface_Bilder {
 			break;
 		}
 
-		return $this -> wrap_item($output, $id, 'cherry-section cherry-' . $type. ' ' .$this->options['class']['section'], $title, $label, $decsription, $hint);
+		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type. ' ' .$this->options['class']['section'], $title, $label, $decsription, $hint );
 	}
 
 	/**
@@ -858,7 +862,7 @@ class Cherry_Interface_Bilder {
 				$hint_content = '<div class="hint-text dashicons dashicons-info" title="' . $hint['content'] .'"></div>';
 				break;
 		}
-		
+
 		return $hint_content;
 	}
 
@@ -897,25 +901,27 @@ class Cherry_Interface_Bilder {
 	}
 
 	/**
-	* Outputs generated items
-	*
-	* @param Array. Input argument name => argument value
-	* @since 4.0.0
-	* @return string
-	*/
-	public function multi_output_items($items){
+	 * Outputs generated items.
+	 *
+	 * @since  4.0.0
+	 * @param  array $items Input argument name => argument value
+	 * @return string
+	 */
+	public function multi_output_items( $items ) {
 		$output = '';
-		foreach ($items as $item => $args) {
+
+		foreach ( $items as $item => $args ) {
 			$args['id'] = $item;
-			$output .= $this -> add_form_item($args);
+			$output .= $this->add_form_item( $args );
 		}
+
 		return $output;
 	}
 
-	/** 
+	/**
 	* Get list of available Google fonts.
-	* 
-	* @return Array. 
+	*
+	* @return Array.
 	* @since 4.0.0
 	*/
 	private function get_google_font(){
@@ -929,18 +935,18 @@ class Cherry_Interface_Bilder {
 		return $font_array;
 	}
 
-	/** 
+	/**
 	* Include media library files. Enables media library modal window.
-	* 
+	*
 	* @since 4.0.0
 	*/
 	public function include_media_script_style(){
 		wp_enqueue_media();
 	}
 
-	/** 
+	/**
 	* Include color picker JS and CSS files.
-	* 
+	*
 	* @since 4.0.0
 	*/
 	public function include_colorpicker_script_style(){
@@ -948,17 +954,17 @@ class Cherry_Interface_Bilder {
 		wp_enqueue_script( 'wp-color-picker');
 	}
 
-	/** 
+	/**
 	* Include interface builder JS files
-	* 
+	*
 	* @since 4.0.0
 	*/
 	public function include_scripts(){
 		wp_enqueue_script( 'interface-builder' );
 	}
-	/** 
+	/**
 	* Include interface builder CSS files
-	* 
+	*
 	* @since 4.0.0
 	*/
 	public function include_style(){
