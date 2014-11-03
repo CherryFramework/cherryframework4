@@ -403,7 +403,11 @@ function cherry_defaults_settings() {
 			'priority' => 10,
 			'options-list' => $demo_options
 	);
+
+
 ////////// General options ////////////////////////////////////////////////////
+
+	
 	$general_options = array();
 	$general_options['general-options'] = array(
 			'type'			=> 'info',
@@ -411,7 +415,48 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>General options</h2>'
 	);
-	/*$general_options['layout-style'] = array(
+
+	$general_options['general_logo'] = array(
+				'type'				=> 'image',
+				'title'				=> 'Logo',
+				'label'				=> 'Choose four images',
+				'decsription'		=> 'Retina ready logo set',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Logo for Apple iPhone<br>
+									Logo for Apple iPhone Retina<br>
+									Logo for Apple iPad<br>
+									Logo for Apple iPad Retina<br>'
+				),
+				'value'				=> '',
+				'default_value'		=> '',
+				'display_image'		=> true,
+				'multi_upload'		=> true,
+				'return_data_type'	=> 'url'
+	);
+
+	$general_options['general_favicon'] = array(
+				'type'				=> 'image',
+				'title'				=> 'Favicon',
+				'label'				=> 'Choose four images',
+				'decsription'		=> 'Retina ready favicon set',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Icon for Apple iPhone (57px * 57px) <br>
+									Icon for Apple iPhone Retina (114px * 114px)<br>
+									Icon for Apple iPad (72px * 72px)<br>
+									Icon for Apple iPad Retina (144px * 144px )<br>'
+				),
+				'value'				=> '',
+				'default_value'		=> '',
+				'display_image'		=> true,
+				'multi_upload'		=> true,
+				'return_data_type'	=> 'url'
+	);
+
+
+/*
+	$general_options['layout-style'] = array(
 			'type'			=> 'radio',
 			'title'			=> 'Layout Style',
 			'label'			=> 'Layout Style',
@@ -431,6 +476,62 @@ function cherry_defaults_settings() {
 				)
 			)
 	);
+*/
+
+
+	$general_options['general_page_comments'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'page comments',
+				'label'			=> 'Enable / Disable',
+				'decsription'	=> 'Display comments on regular page',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Disable or enable comments by default on new pages and custom post types. You can change the default for new posts or pages, as well as enable/disable comments on posts or pages you’ve already published.'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+	$general_options['general_featured_images'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'featured images',
+				'label'			=> 'Enable / Disable',
+				'decsription'	=> 'Display featured images on page',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Disable or enable displaying of featured images'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+
+	$general_options['general_general_user_css'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'User CSS',
+				'label'			=> 'ON / OFF',
+				'decsription'	=> 'Include user css file',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Disable or enable user css file'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+
+	$general_options['general_google_analytics'] = array(
+				'type'			=> 'textarea',
+				'title'			=> 'Google Analytic',
+				/*'label'			=> 'Enter the code',*/
+				'decsription'	=> 'Google Analytic code goes here',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'This code will be added into the footer template of your theme.'
+				),
+				'value'			=> 'value',
+				'default_value'	=> 'default_value'
+	);
+
+
+	/*
 	$general_options['responsive-layout'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Responsive layout',
@@ -488,6 +589,8 @@ function cherry_defaults_settings() {
 			'value'			=> '',
 			'default_value'	=> ''
 	);*/
+
+
 	$optSectionsArray['general-options-section'] = array(
 			'name' => 'General',
 			'icon' => 'dashicons dashicons-admin-generic',
@@ -496,7 +599,10 @@ function cherry_defaults_settings() {
 			'options-list' => $general_options
 	);
 
+
 ////////// Header options /////////////////////////////////////////////////////
+
+
 	$header_options = array();
 	$header_options['header-options'] = array(
 			'type'			=> 'info',
@@ -504,7 +610,8 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Header options</h2>'
 	);
-	/*$header_options['header-type-layout'] = array(
+
+	$header_options['header-type-layout'] = array(
 			'type'			=> 'radio',
 			'title'			=> __('Header type layout', 'cherry'),
 			'label'			=> __('Header type layout', 'cherry'),
@@ -540,6 +647,7 @@ function cherry_defaults_settings() {
 				)
 			)
 	);
+/*
 	$header_options['header-widgetarea-layout'] = array(
 			'type'			=> 'radio',
 			'title'			=> __('Widget area layout', 'cherry'),
@@ -568,11 +676,14 @@ function cherry_defaults_settings() {
 				)
 			)
 	);
-	$header_options['header-style'] = array(
+*/
+
+/*
+	$header_options['header-background'] = array(
 			'type'			=> 'background',
-			'title'			=> 'Header styling',
+			'title'			=> 'Header background',
 			'label'			=> 'Header styling section',
-			'decsription'	=> 'Change the Header style',
+			'decsription'	=> 'Change the Header background',
 			'return_data_type'	=> 'id',
 			'value'			=> array(
 					'image'	=> '',
@@ -582,6 +693,17 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
+*/
+
+	$header_options['header-background-full-scale'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header full scale background',
+			'label'			=> 'Enable / Disable',
+			'decsription'	=> 'Enable/Disable header full scale background',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+
 	$header_options['header-parallax-effect'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Parallax effect',
@@ -590,6 +712,17 @@ function cherry_defaults_settings() {
 			'value'			=> 'false',
 			'default_value'	=> 'default_value'
 	);
+
+	$header_options['header-sticky'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header sticky',
+			'label'			=> 'Enable/Disable',
+			'decsription'	=> 'Enable/Disable header sticky',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+
+	/*
 	$header_options['search-form'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Search',
@@ -608,13 +741,97 @@ function cherry_defaults_settings() {
 	);*/
 	$optSectionsArray['header-options-section'] = array(
 			'name' => 'Header',
-			'icon' => 'dashicons dashicons-admin-appearance',
+			/*'icon' => 'dashicons dashicons-admin-appearance',*/
+			'icon' => 'dashicons',
 			'parent' => '',
 			'priority' => 30,
 			'options-list' => $header_options
 	);
 
+
+
+////////// Footer options /////////////////////////////////////////////////////
+
+
+	$footer_options = array();
+	$footer_options['footer-options'] = array(
+			'type'			=> 'info',
+			'title'			=> '',
+			'decsription'	=> 'decsription info',
+			'value'			=> '<h2>Header options</h2>'
+	);
+	$footer_options['footer-background'] = array(
+			'type'			=> 'background',
+			'title'			=> 'Header background',
+			'label'			=> 'Header styling section',
+			'decsription'	=> 'Change the Header background',
+			'return_data_type'	=> 'id',
+			'value'			=> array(
+					'image'	=> '',
+					'color'	=> '#a4cc3f',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+	);
+
+	$footer_options['footer-background-full-scale'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header full scale background',
+			'label'			=> 'Enable / Disable',
+			'decsription'	=> 'Enable/Disable header full scale background',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+
+	$footer_options['footer-parallax-effect'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Parallax effect',
+			'label'			=> 'Parallax effect',
+			'decsription'	=> 'Enable/Disable header parallax effect',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+
+	$footer_options['footer-sticky'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header sticky',
+			'label'			=> 'Enable/Disable',
+			'decsription'	=> 'Enable/Disable header sticky',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+
+	/*
+	$header_options['search-form'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Search',
+			'label'			=> 'Display search form in the header?',
+			'decsription'	=> 'Enable/Disable search form.',
+			'value'			=> 'true',
+			'default_value'	=> 'default_value'
+	);
+	$header_options['header-social-list'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header social list',
+			'label'			=> 'Display header social list?',
+			'decsription'	=> 'Enable/Disable header social list.',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);*/
+	$optSectionsArray['footer-options-section'] = array(
+			'name' => 'Footer',
+			/*'icon' => 'dashicons dashicons-admin-appearance',*/
+			'parent' => '',
+			'priority' => 30,
+			'options-list' => $footer_options
+	);
+
+
+
 ////////// Logo options ///////////////////////////////////////////////////////
+
+
 	$logo_options = array();
 
 	$logo_options['logo-options'] = array(
@@ -675,6 +892,221 @@ function cherry_defaults_settings() {
 			'priority' => 2,
 			'options-list' => $logo_options
 	);
+
+
+////////// Navigation options ///////////////////////////////////////////////////
+
+		
+		$navigation_options = array();
+		$navigation_options['navigation-options'] = array(
+				'type'			=> 'info',
+				'title'			=> '',
+				'decsription'	=> 'decsription info',
+				'value'			=> '<h2>Navigation options</h2>'
+		);
+		/*$navigation_options['stickup-menu'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'StickUp menu',
+				'label'			=> 'Using stickUp menu',
+				'decsription'	=> 'Do you want to use stickUp menu?',
+				'value'			=> 'true',
+				'default_value'	=> 'default_value'
+		);
+		$navigation_options['menu-typography'] = array(
+				'type'			=> 'typography',
+				'title'			=> 'Menu Typography',
+				'label'			=> 'Menu Typography style',
+				'decsription'	=> 'Choose your prefered font for menu.',
+				'value'			=> array(
+					'size'			=> '14',
+					'lineheight'	=> '14',
+					'color'			=> '#aa00aa',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic'
+				)
+		);*/
+		$optSectionsArray['navigation-options-section'] = array(
+				'name' => 'Navigation',
+				'icon' => 'dashicons dashicons-menu',
+				'parent' => '',
+				'priority' => 40,
+				'options-list' => $navigation_options
+		);
+
+
+////////// Styling options /////////////////////////////////////////////////////
+//dashicons-art
+
+
+
+	$styling_options = array();
+	$styling_options['general-options'] = array(
+			'type'			=> 'info',
+			'title'			=> '',
+			'decsription'	=> 'decsription info',
+			'value'			=> '<h2>Styling Options</h2>'
+	);
+
+	//background image
+	$styling_options['styling-main-content-background'] = array(
+				'type'			=> 'background',
+				'title'			=> 'title background',
+				'label'			=> 'set default background',
+				/*'decsription'	=> 'decsription background',*/
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Background for main container'
+				),
+				'return_data_type'	=> 'url',
+				'value'			=> array(
+						'image'	=> '',
+						'color'	=> '#ff0000',
+						'repeat'	=> 'repeat',
+						'position'	=> 'left',
+						'attachment'=> 'fixed'
+					)
+	);
+
+	$styling_options['styling-main-background-full-scale'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Full scale background',
+				'label'			=> 'Enable / Disable',
+				/*'decsription'	=> '',*/
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Enable this option to have scale according to the browzer size. Background image display at 100% in width and height'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+
+	$styling_options['styling-main-arallax-background'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Parallax background',
+				'label'			=> 'Enable / Disable',
+				'decsription'	=> 'Parallax background on main container',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'For using parallax effect on background press ON.'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+
+	$styling_options['styling-main-background-pattern'] = array(
+				'type'			=> 'radio',
+				'title'			=> 'background pattern',
+				'label'			=> 'select one of them',
+				'decsription'	=> 'Background pattern for main container',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Background pattern for main container'
+				),
+				'value'			=> 'radio_image_1',
+				'default_value'	=> 'radio_image_1',
+				'class'			=> '',
+				'display_input'	=> false,
+				'options'		=> array(
+					'radio_image_1' => array(
+						'label' => 'radio image 1',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio_image_2' => array(
+						'label' => 'radio image 2',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio_image_3' => array(
+						'label' => 'radio image 3',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio_image_4' => array(
+						'label' => 'radio image 4',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio_image_5' => array(
+						'label' => 'radio image 5',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio_image_6' => array(
+						'label' => 'radio image 6',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+				)
+	);
+
+	$styling_options['styling-color-scheme'] = array(
+				'type'			=> 'radio',
+				'title'			=> 'color scheme',
+				'label'			=> 'select one of them',
+				'decsription'	=> 'decsription radio',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> 'radio_image_1',
+				'default_value'	=> 'radio_image_1',
+				'class'			=> '',
+				'display_input'	=> false,
+				'options'		=> array(
+					'radio_image_1' => array(
+						'label' => 'radio image 1',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio_image_2' => array(
+						'label' => 'radio image 2',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio_image_3' => array(
+						'label' => 'radio image 3',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+				)
+	);
+
+	$styling_options['styling-primary-field-background'] = array(
+			'type'			=> 'background',
+			'title'			=> 'Primary input field background',
+			'label'			=> 'Select background color',
+			'decsription'	=> 'Primary input field background',
+			'return_data_type'	=> 'id',
+			'value'			=> array(
+					'image'	=> '',
+					'color'	=> '#a4cc3f',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+	);
+
+	$styling_options['styling-primary-invalid-field-background'] = array(
+			'type'			=> 'background',
+			'title'			=> 'Primary invalid field background',
+			'label'			=> 'Select invalid background color',
+			'decsription'	=> 'Primary input invalid field background ',
+			'return_data_type'	=> 'id',
+			'value'			=> array(
+					'image'	=> '',
+					'color'	=> '#FF7766',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+	);
+
+
+
+
+
+	$optSectionsArray['styling-options-section'] = array(
+			'name' => 'Styling',
+			'icon' => 'dashicons dashicons-art',
+			'parent' => '',
+			'priority' => 30,
+			'options-list' => $styling_options
+	);
+
+
 	
 	return apply_filters( 'cherry_defaults_settings', $optSectionsArray );		
 }
