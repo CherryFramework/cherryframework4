@@ -128,6 +128,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load media-related functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'media.php' );
 
+			// Load the static functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'statics.php' );
+
 			// Load the sidebar functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'sidebars.php' );
 
@@ -136,6 +139,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );
+
+			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-static.php' );
 		}
 
 		/**
@@ -223,7 +228,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load Cherry_Sidebar class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
 
-			// Load Cherry_Interface_Bilder class.
+			// Load Cherry_Interface_Builder class.
 			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-interface-builder.php' );
 
 			// Load Cherry_Options_Framework class.

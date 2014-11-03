@@ -1,4 +1,11 @@
 <?php
+global $cherry_registered_static_areas;
+
+foreach ( $cherry_registered_static_areas as $id => $data ) {
+	add_action( 'cherry_header', 'cherry_static_area', $data['priority'], $id );
+}
+
+
 // Header structure.
 add_action( 'cherry_header_before', 'cherry_header_wrap', 999 );
 add_action( 'cherry_header_after',  'cherry_header_wrap',   0 );
@@ -21,7 +28,7 @@ add_action( 'cherry_post_loop', 'cherry_post_structure_loop' );
 // Single post structure.
 add_action( 'cherry_post_single', 'cherry_post_structure_single' );
 
-// Aattachment metadata.
+// Attachment metadata.
 add_action( 'cherry_post_after', 'cherry_get_attachment_metadata' );
 
 add_filter( 'cherry_post_structure_loop',   'cherry_post_loop_structure_setup',   9, 3 );
