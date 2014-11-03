@@ -77,6 +77,72 @@ function cherry_defaults_settings() {
 					)
 				)
 	);
+	$demo_options['static-area-editor-demo'] = array(
+				'type'			=> 'static_area_editor',
+				'title'			=> 'title static-area-editor',
+				'label'			=> 'label static-area-editor',
+				'decsription'	=> 'decsription static-area-editor',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> array(
+					'static_area_1' => array(
+						'name'     => 'Static area',
+						'col-lg'   => 3,
+						'col-md'   => 3,
+						'col-sm'   => 3,
+						'col-xs'   => 3,
+						'class'	   => 'custom_class',
+						'static_list' => array(
+							'cherry_header_logo' => 'Logo',
+							'cherry_header_menu' => 'Menu'
+						)
+					),
+					'static_area_2' => array(
+						'name'     => 'Static area',
+						'col-lg'   => 3,
+						'col-md'   => 3,
+						'col-sm'   => 3,
+						'col-xs'   => 3,
+						'class'	   => 'custom_class',
+						'static_list' => array(
+							'cherry_header_search' => 'Search',
+							'cherry_header_info'   => 'Info',
+							'cherry_header_login'   => 'Login',
+							'cherry_header_banner'   => 'Banner'
+						)
+					)
+				),
+				'default_value'	=> 'default_value',
+				'options' => array(
+					'cherry_header_logo' => array(
+						'itemname' => 'Logo',
+						'priority' => 1
+					),
+					'cherry_header_menu'   => array(
+						'itemname' => 'Menu',
+						'priority' => 5
+					),
+					'cherry_header_search' => array(
+						'itemname' => 'Search',
+						'priority' => 10
+					),
+					'cherry_header_info' => array(
+						'itemname' => 'Info Block',
+						'priority' => 15
+					),
+					'cherry_header_login' => array(
+						'itemname' => 'Login form',
+						'priority' => 20
+					),
+					'cherry_header_banner' => array(
+						'itemname' => 'Banner',
+						'priority' => 25
+					)
+				)
+	);
+
 	$demo_options['text_demo'] = array(
 				'type'			=> 'text',
 				'title'			=> 'title text',
@@ -376,7 +442,10 @@ function cherry_defaults_settings() {
 						'color'	=> '#ff0000',
 						'repeat'	=> 'repeat',
 						'position'	=> 'left',
-						'attachment'=> 'fixed'
+						'attachment'=> 'fixed',
+						'clip'   => 'padding-box',
+						'size'   => 'auto auto',
+						'origin' => 'padding-box'
 					)
 	);
 	

@@ -11,8 +11,8 @@
   /*End cherry stepper style*/
   /*Cherry switcher style*/
   /*End cherry switcher style*/
-  /*Cherry switcher style*/
-  /*Cherry switcher style*/
+  /*Cherry rangeslider style*/
+  /*Cherry rangeslider style*/
   /*Cherry color picker style*/
   /*End cherry color picker style*/
   /*Cherry radio buttons style*/
@@ -25,6 +25,12 @@
   /*End cherry typography options style*/
   /*Cherry info block style*/
   /*End cherry info block style*/
+  /*Cherry tooltip style*/
+  /*End Cherry tooltip style*/
+  /*Cherry accordion style*/
+  /*End Cherry accordion style*/
+  /*Cherry static-area style*/
+  /*End Cherry static-area style*/
 }
 .cherry-section .cherry-title {
   margin: 0 0 5px 0;
@@ -85,6 +91,12 @@
   .cherry-section .cherry-fegr {
     margin-bottom: 10px;
   }
+}
+.cherry-section .cherry-group {
+  border: 1px solid #cccccc;
+  background: #fff;
+  padding: 10px 15px;
+  margin-bottom: 15px;
 }
 .cherry-section input[type=text], .cherry-section select {
   margin: 0 0 5px 0;
@@ -352,7 +364,7 @@
   border: 1px solid #B4B4B4;
   background: #fff;
 }
-.cherry-section .cherry-upload-preview .cherry-label + .cherry-bgs {
+.cherry-section .cherry-upload-preview .cherry-label + .cherry-bgsetting {
   margin-left: 0%;
 }
 .cherry-section .cherry-uiw {
@@ -393,10 +405,17 @@
   right: -10px;
   cursor: pointer;
 }
-.cherry-section .cherry-bgs {
-  display: inline-block;
-  max-width: 32%;
-  margin-left: 2%;
+.cherry-section .cherry-bgsetting {
+  float: left;
+  width: 32%;
+  margin-right: 1%;
+}
+.cherry-section .cherry-bgsetting:nth-child(3n+1) {
+  width: 34%;
+  margin-right: 0;
+}
+.cherry-section .cherry-bgsetting select {
+  margin-bottom: 10px;
 }
 .cherry-section.cherry-background .cherry-upload-preview {
   margin-left: 0;
@@ -598,6 +617,16 @@
 }
 .cherry-section .cherry-accordion-wrap .cherry-accordion-control .addNewBtn {
   float: right;
+}
+.cherry-section .cherry-static-area-builder .static-area-unit {
+  width: 25%;
+  float: left;
+  border: 1px solid #cccccc;
+  background: #fff;
+  padding: 10px;
+}
+.cherry-section .cherry-static-area-builder .static-area-unit .connectedSortable {
+  margin: 0;
 }
 
 body .custom-tooltip-styling {
