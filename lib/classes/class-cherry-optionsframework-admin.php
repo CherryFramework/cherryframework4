@@ -261,8 +261,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 									$submitSection = array();
 									$submitSection['save-options'] = array(
 										'type'  => 'submit',
-											'class' => 'primary',
-											'value' => __( 'Save Options', 'cherry' ),
+										'class' => 'primary',
+										'value' => __( 'Save Options', 'cherry' ),
 									);
 									$submitSection['restore-section'] = array(
 										'type'  => 'submit',

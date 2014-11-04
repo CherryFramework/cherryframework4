@@ -28,6 +28,7 @@ function cherry_defaults_settings() {
 						'col-xs'   => 3,
 						'class'	   => 'custom_class',
 						'itemname' => 'Logo',
+						'area' => 'static_area_1',
 						'priority' => 1
 					),
 					'cherry_header_menu' => array(
@@ -37,7 +38,7 @@ function cherry_defaults_settings() {
 						'col-xs'   => 3,
 						'class'	   => 'custom_class',
 						'itemname' => 'Menu',
-						'priority' => 5
+						'priority' => 2
 					),
 					'cherry_header_search' => array(
 						'col-lg'   => 3,
@@ -46,7 +47,7 @@ function cherry_defaults_settings() {
 						'col-xs'   => 3,
 						'class'	   => 'custom_class',
 						'itemname' => 'Search',
-						'priority' => 10
+						'priority' => 3
 					)
 				),
 				'default_value'	=> 'default_value',
@@ -57,23 +58,23 @@ function cherry_defaults_settings() {
 					),
 					'cherry_header_menu'   => array(
 						'itemname' => 'Menu',
-						'priority' => 5
+						'priority' => 2
 					),
 					'cherry_header_search' => array(
 						'itemname' => 'Search',
-						'priority' => 10
+						'priority' => 3
 					),
 					'cherry_header_info' => array(
 						'itemname' => 'Info Block',
-						'priority' => 15
+						'priority' => 4
 					),
 					'cherry_header_login' => array(
 						'itemname' => 'Login form',
-						'priority' => 20
+						'priority' => 5
 					),
 					'cherry_header_banner' => array(
 						'itemname' => 'Banner',
-						'priority' => 25
+						'priority' => 6
 					)
 				)
 	);
@@ -88,24 +89,24 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> array(
 					'static_area_1' => array(
-						'name'     => 'Static area',
-						'col-lg'   => 3,
-						'col-md'   => 3,
-						'col-sm'   => 3,
-						'col-xs'   => 3,
-						'class'	   => 'custom_class',
+						'static-name' => 'Static area 1',
+						'col-lg'      => 3,
+						'col-md'      => 3,
+						'col-sm'      => 3,
+						'col-xs'      => 3,
+						'class'	      => 'custom_class',
 						'static_list' => array(
 							'cherry_header_logo' => 'Logo',
 							'cherry_header_menu' => 'Menu'
 						)
 					),
 					'static_area_2' => array(
-						'name'     => 'Static area',
-						'col-lg'   => 3,
-						'col-md'   => 3,
-						'col-sm'   => 3,
-						'col-xs'   => 3,
-						'class'	   => 'custom_class',
+						'static-name' => 'Static area 2',
+						'col-lg'      => 3,
+						'col-md'      => 3,
+						'col-sm'      => 3,
+						'col-xs'      => 3,
+						'class'	      => 'custom_class',
 						'static_list' => array(
 							'cherry_header_search' => 'Search',
 							'cherry_header_info'   => 'Info',

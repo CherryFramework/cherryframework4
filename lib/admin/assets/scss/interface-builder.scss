@@ -630,15 +630,42 @@
 		/*Cherry static-area style*/
 		.cherry-static-area-builder{
 			.static-area-unit{
-				width: 25%;
+				width: 100%;
 				float: left;
-				border: 1px solid #cccccc;
+				border: 1px solid #dfdfdf;
 				background: #fff;
-				padding: 10px;
-					.connectedSortable{
-						margin: 0;
-							li{
-
+				padding: 5px;
+				margin-bottom: 15px;
+				box-sizing: border-box;
+					.wrap-settings{
+						border: 1px solid #ccc;
+						padding: 10px;
+						margin-bottom: 10px;
+							h3.label{
+								margin: 0 0 15px 0;
+							}
+					}
+					.wrap-static-list{
+						border: 1px solid #ccc;
+						padding: 10px;
+							.connectedSortable{
+								min-height: 10px;
+								margin: 0;
+									li{
+										background: #eaeaea;
+										padding: 5px 10px;
+											span{
+												color: #555555;
+											}
+											&.ui-state-highlight{
+												height: 18px;
+												background: rgba(46, 162, 204, 0.3);
+												border-color: #2EA2CC;  
+											}
+											&:last-child{
+												margin-bottom: 0;
+											}
+									}
 							}
 					}
 			}
