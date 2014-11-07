@@ -440,11 +440,16 @@ class Cherry_Interface_Builder {
 				$output .= '<div id="' . $id . '" class="cherry-static-area-builder" data-name="' . $name . '">';
 					foreach ($value as $static_area => $static_area_settings) {
 						$output .= '<div class="static-area-unit">';
-							$output .= '<ul id="'. $id .'-'. $static_area. '" class="connectedSortable">';
-								foreach ($static_area_settings['static_list'] as $static => $value) {
-									$output .= '<li class="ui-state-default"><span>'. $value .'</span></li>';
-								}
-							$output .= '</ul>';
+							$output .= '<div class="wrap-settings">';
+								$output .= '<h3 class="label"><span>' . $static_area_settings['static-name'] . '</span></h3>';
+							$output .= '</div>';
+							$output .= '<div class="wrap-static-list">';
+								$output .= '<ul id="'. $id .'-'. $static_area. '" class="connectedSortable">';
+									foreach ($static_area_settings['static_list'] as $static => $value) {
+										$output .= '<li class="ui-state-default"><span>'. $value .'</span></li>';
+									}
+								$output .= '</ul>';
+							$output .= '</div>';
 						$output .= '</div>';
 					}
 					$output .= '<div class="clear"></div>';
