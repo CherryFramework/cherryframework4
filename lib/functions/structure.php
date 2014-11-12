@@ -1,14 +1,9 @@
 <?php
-global $cherry_registered_static_areas;
-
-foreach ( $cherry_registered_static_areas as $id => $data ) {
-	add_action( 'cherry_header', 'cherry_static_area', $data['priority'], $id );
-}
-
 
 // Header structure.
 add_action( 'cherry_header_before', 'cherry_header_wrap', 999 );
 add_action( 'cherry_header_after',  'cherry_header_wrap',   0 );
+add_action( 'cherry_header', 'cherry_header_load_template' );
 
 // Footer structure.
 add_action( 'cherry_footer_before', 'cherry_footer_wrap',    999 );
@@ -68,6 +63,10 @@ function cherry_footer_wrap() {
 
 		echo '</div></footer>';
 	}
+}
+
+function cherry_header_load_template() {
+	get_template_part( 'templates/wrapper-header' );
 }
 
 /**

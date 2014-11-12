@@ -150,39 +150,6 @@ function cherry_theme_setup() {
 		)
 	);
 
-	
-
-	// Registered a static elements.
-	// cherry_register_statics( array(
-	// 	'logo' => array(
-	// 		'name'     => __( 'Logo', 'cherry' ),
-	// 		'col'      => 6,
-	// 		'class'    => 'custom_logo',
-	// 		'priority' => 1,
-	// 		// 'output_callback'     => 'foo',
-	// 		'area'     => 'top',
-	// 	),
-	// 	'mainmenu' => array(
-	// 		'name'     => __( 'Main Menu', 'cherry' ),
-	// 		'col'      => 6,
-	// 		'class'    => 'custom_mainmenu',
-	// 		'priority' => 2,
-	// 		// 'output_callback'     => '',
-	// 		'area'     => 'bottom',
-	// 	),
-	// 	'banner' => array(
-	// 		'output_callback' => 'foo'
-	// 	),
-	// ) );
-	// cherry_register_static( array(
-	// 	'id'       => 'mainmenu',
-	// 	'name'     => __( 'Main Menu', 'cherry' ),
-	// 	'col'      => 6,
-	// 	'class'    => 'custom_mainmenu',
-	// 	'priority' => 2,
-	// 	'func'     => '',
-	// 	'area'     => 'top',
-	// ) );
 
 	// Enable support a Header statics.
 	add_theme_support( 'cherry-header-statics', array(

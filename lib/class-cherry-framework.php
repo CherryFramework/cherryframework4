@@ -31,10 +31,17 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * @since  4.0.0
 		 */
 		function __construct() {
-			global $cherry;
+			// Global variables.
+			global $cherry, $cherry_registered_static_areas, $cherry_registered_statics;
 
 			// Set up an empty class for the global $cherry object.
 			$cherry = new stdClass;
+
+			// Set up a stores the static areas.
+			$cherry_registered_static_areas = array();
+
+			// Set up a stores the registered static elements.
+			$cherry_registered_statics = array();
 
 			// Define framework, parent theme, and child theme constants.
 			add_action( 'after_setup_theme', array( $this, 'constants' ), 1 );
@@ -98,6 +105,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			/** Sets the path to the core framework functions directory. */
 			define( 'CHERRY_FUNCTIONS', trailingslashit( CHERRY_DIR ) . 'functions' );
 
+			/** Sets the path to the core framework classes directory. */
+			define( 'CHERRY_CLASSES', trailingslashit( CHERRY_DIR ) . 'classes' );
+
 			/** Sets the path to the core framework admin directory. */
 			define( 'CHERRY_ADMIN', trailingslashit( CHERRY_DIR ) . 'admin' );
 		}
@@ -128,9 +138,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load media-related functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'media.php' );
 
-			// Load the static functions.
-			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'statics.php' );
-
 			// Load the sidebar functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'sidebars.php' );
 
@@ -140,7 +147,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );
 
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-static.php' );
+			// Load the Cherry_Static class.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-statics.php' );
 		}
 
 		/**
@@ -223,22 +231,19 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		function includes() {
 
 			// Load Cherry_Wrapping class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-wrapping.php' );
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-wrapping.php' );
 
 			// Load Cherry_Sidebar class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-sidebar.php' );
 
 			// Load Cherry_Interface_Builder class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-interface-builder.php' );
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-interface-builder.php' );
 
 			// Load Cherry_Options_Framework class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework.php' );
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework.php' );
 
 			// Load Cherry_Options_Framework_Admin class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework-admin.php' );
-
-			// Load Cherry_Header class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-header.php' );
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
 
 			// Load the HTML attributes functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'attr.php' );
