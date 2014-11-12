@@ -357,66 +357,81 @@ class Cherry_Interface_Builder {
 				class: ''
 				item_inline_style: ''
 			*/
-			case 'static_editor':
-				$output .= '<div id="' . $id . '" class="cherry-accordion-wrap" data-name="' . $name . '">';
-					$output .= '<div class="accordion-unit">';
-					foreach ($value as $handle => $handleArray) {
-						$output .= '<div class="group" data-static-id="' . $handle . '">';
-							$output .= '<h3><span class="label">' . $handleArray['itemname'] . '</span><div class="delete-group dashicons dashicons-trash"><span class="confirmBtn dashicons dashicons-yes"></span><span class="cancleBtn dashicons dashicons-no-alt"></span></div></h3>';
-							$output .= '<div>';
-								$output .= '<div class="field-col-lg">';
-									$output .= $this -> add_label($id . '-col-lg',  __( 'Column class(.col-lg-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
-									$output .= '<select ' . $item_inline_style . ' class="width-full key-col-lg" name="' . $name . '[' . $handle . '][col-lg]">';
-										for ($i=0; $i < 12; $i++) {
-											$inc = $i+1;
-											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col-lg'], $inc, false ) . '>'. esc_html( 'col-lg-'.$inc ) .'</option>';
-										}
-									$output .= '</select>';
-								$output .= '</div>';
-								$output .= '<div class="field-col-md">';
-									$output .= $this -> add_label($id . '-col-md',  __( 'Column class(.col-md-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
-									$output .= '<select ' . $item_inline_style . ' class="width-full key-col-md" name="' . $name . '[' . $handle . '][col-md]">';
-										for ($i=0; $i < 12; $i++) {
-											$inc = $i+1;
-											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col-md'], $inc, false ) . '>'. esc_html( 'col-md-'.$inc ) .'</option>';
-										}
-									$output .= '</select>';
-								$output .= '</div>';
-								$output .= '<div class="field-col-sm">';
-									$output .= $this -> add_label($id . '-col-sm',  __( 'Column class(.col-sm-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
-									$output .= '<select ' . $item_inline_style . ' class="width-full key-col-sm" name="' . $name . '[' . $handle . '][col-sm]">';
-										for ($i=0; $i < 12; $i++) {
-											$inc = $i+1;
-											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col-sm'], $inc, false ) . '>'. esc_html( 'col-sm-'.$inc ) .'</option>';
-										}
-									$output .= '</select>';
-								$output .= '</div>';
-								$output .= '<div class="field-col-xs">';
-									$output .= $this -> add_label($id . '-col-xs',  __( 'Column class(.col-xs-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
-									$output .= '<select ' . $item_inline_style . ' class="width-full key-col-xs" name="' . $name . '[' . $handle . '][col-xs]">';
-										for ($i=0; $i < 12; $i++) {
-											$inc = $i+1;
-											$output .= '<option value="' . $inc . '" ' . selected( $handleArray['col-xs'], $inc, false ) . '>'. esc_html( 'col-xs-'.$inc ) .'</option>';
-										}
-									$output .= '</select>';
-								$output .= '</div>';
-								$output .= '<div class="field-class">';
-									$output .= $this -> add_label($id . '-class',  __( 'Custom class', 'cherry' ), $this->options['class']['label'].' cherry-block');
-									$output .= '<input class="width-full key-custom-class" name="' . $name . '[' . $handle . '][class]" value="' . esc_html( $handleArray['class'] ) . '" type="text" />';
-								$output .= '</div>';
-								$output .= '<input type="hidden" class="key-item-name" name="' . $name . '[' . $handle . '][itemname]" value="' . $handleArray['itemname'] . '">';
-								$output .= '<input type="hidden" class="key-priority" name="' . $name . '[' . $handle . '][priority]" value="' . $handleArray['priority'] . '">';
-							$output .= '</div>';
-						$output .= '</div>';
-					}
-					$output .= '</div>';
+			case 'static_area_editor':
+				global $cherry_registered_static_areas;
+				$available_areas = $cherry_registered_static_areas;
+				
+				$output .= '<div id="' . $id . '" class="cherry-static-area-editor-wrap" data-name="' . $name . '">';
+					foreach ($available_areas as $area => $area_settings) {
+						$output .= '<div class="area-unit" data-area="' . $area . '">';
+							$output .= '<h3 class="area-name">' . $area_settings['name'] . '</h3>';
+							$output .= '<div class="accordion-unit">';
+								foreach ($value as $handle => $handleArray) {
+									if($area == $handleArray['options']['area']){
+										$output .= '<div class="group" data-static-id="' . $handle . '">';
+										$output .= '<h3><span class="label">' . $handleArray['name'] . '</span><div class="delete-group dashicons dashicons-trash"><span class="confirm-btn dashicons dashicons-yes"></span><span class="cancle-btn dashicons dashicons-no-alt"></span></div></h3>';
+										$output .= '<div>';
+											$output .= '<div class="field-col-xs">';
+												$output .= $this -> add_label($id . '-col-xs',  __( 'Column class(.col-xs-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= '<select ' . $item_inline_style . ' class="width-full key-col-xs" name="' . $name . '[' . $handle . '][options][col-xs]">';
+													$output .= '<option value="none" ' . selected( $handleArray['options']['col-xs'], 'none', false ) . '>'. esc_html( 'none' ) .'</option>';
+													for ($i=0; $i < 12; $i++) {
+														$inc = $i+1;
+														$output .= '<option value="col-xs-' . $inc . '" ' . selected( $handleArray['options']['col-xs'], 'col-xs-'.$inc, false ) . '>'. esc_html( 'col-xs-'.$inc ) .'</option>';
+													}
+												$output .= '</select>';
+											$output .= '</div>';
+											$output .= '<div class="field-col-sm">';
+												$output .= $this -> add_label($id . '-col-sm',  __( 'Column class(.col-sm-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= '<select ' . $item_inline_style . ' class="width-full key-col-sm" name="' . $name . '[' . $handle . '][options][col-sm]">';
+													$output .= '<option value="none" ' . selected( $handleArray['options']['col-sm'], 'none', false ) . '>'. esc_html( 'none' ) .'</option>';
+													for ($i=0; $i < 12; $i++) {
+														$inc = $i+1;
+														$output .= '<option value="col-sm-' . $inc . '" ' . selected( $handleArray['options']['col-sm'], 'col-sm-'.$inc, false ) . '>'. esc_html( 'col-sm-'.$inc ) .'</option>';
+													}
+												$output .= '</select>';
+											$output .= '</div>';
+											$output .= '<div class="field-col-md">';
+												$output .= $this -> add_label($id . '-col-md',  __( 'Column class(.col-md-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= '<select ' . $item_inline_style . ' class="width-full key-col-md" name="' . $name . '[' . $handle . '][options][col-md]">';
+													$output .= '<option value="none" ' . selected( $handleArray['options']['col-md'], 'none', false ) . '>'. esc_html( 'none' ) .'</option>';
+													for ($i=0; $i < 12; $i++) {
+														$inc = $i+1;
+														$output .= '<option value="col-md-' . $inc . '" ' . selected( $handleArray['options']['col-md'], 'col-md-'.$inc, false ) . '>'. esc_html( 'col-md-'.$inc ) .'</option>';
+													}
+												$output .= '</select>';
+											$output .= '</div>';
+											$output .= '<div class="field-col-lg">';
+												$output .= $this -> add_label($id . '-col-lg',  __( 'Column class(.col-lg-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= '<select ' . $item_inline_style . ' class="width-full key-col-lg" name="' . $name . '[' . $handle . '][options][col-lg]">';
+													$output .= '<option value="none" ' . selected( $handleArray['options']['col-lg'], 'none', false ) . '>'. esc_html( 'none' ) .'</option>';
+													for ($i=0; $i < 12; $i++) {
+														$inc = $i+1;
+														$output .= '<option value="col-lg-' . $inc . '" ' . selected( $handleArray['options']['col-lg'], 'col-lg-'.$inc, false ) . '>'. esc_html( 'col-lg-'.$inc ) .'</option>';
+													}
+												$output .= '</select>';
+											$output .= '</div>';
+											$output .= '<div class="field-class">';
+												$output .= $this -> add_label($id . '-class',  __( 'Custom class', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= '<input class="width-full key-custom-class" name="' . $name . '[' . $handle . '][options][class]" value="' . esc_html( $handleArray['options']['class'] ) . '" type="text" />';
+											$output .= '</div>';
+											$output .= '<input type="hidden" class="key-item-name" name="' . $name . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
+											$output .= '<input type="hidden" class="key-area" name="' . $name . '[' . $handle . '][options][area]" value="' . $handleArray['options']['area'] . '">';
+											$output .= '<input type="hidden" class="key-priority" name="' . $name . '[' . $handle . '][options][priority]" value="' . $handleArray['options']['priority'] . '">';
+										$output .= '</div>';
+									$output .= '</div>';
+									}
+								}
+							$output .= '</div>';//end accordion-unit
+						$output .= '</div>';//end area-unit
+					}// end foreach $available_areas
 					$output .= '<div class="cherry-accordion-control">';
 						$output .= $this -> add_label($id.'-static',  __( 'Create new static', 'cherry' ), $this->options['class']['label'].' cherry-block');
-						$output .= '<a href="javascript:void(0);" class="button-primary button addNewBtn">'. __( 'Add new static', 'cherry' ) .'</a>';
+						$output .= '<a href="javascript:void(0);" class="button-primary button add-new-btn">'. __( 'Add new static', 'cherry' ) .'</a>';
 						$output .= '<div class="field-static">';
 							$output .= '<select ' . $item_inline_style . ' class="static-selector width-full">';
 								foreach ($options as $static => $staticSettings) {
-									$output .= '<option data-priority="'. $staticSettings['priority'] .'" value="' . $static . '" ' . selected( $staticSettings['itemname'], $handleArray['itemname'], false ) . '>'. esc_html( $staticSettings['itemname'] ) .'</option>';
+									$output .= '<option data-priority="'. $staticSettings['options']['priority'] .'" value="' . $static . '" ' . selected( $staticSettings['name'], $handleArray['name'], false ) . '>'. esc_html( $staticSettings['name'] ) .'</option>';
 								}
 							$output .= '</select>';
 						$output .= '</div>';
@@ -425,36 +440,7 @@ class Cherry_Interface_Builder {
 
 				$output .= '</div>';
 			break;
-			/*
-			arg:
-				type: accordion
-				title: ''
-				label: ''
-				decsription: ''
-				value: ''
-				default_value: ''
-				class: ''
-				item_inline_style: ''
-			*/
-			case 'static_area_editor':
-				$output .= '<div id="' . $id . '" class="cherry-static-area-builder" data-name="' . $name . '">';
-					foreach ($value as $static_area => $static_area_settings) {
-						$output .= '<div class="static-area-unit">';
-							$output .= '<div class="wrap-settings">';
-								$output .= '<h3 class="label"><span>' . $static_area_settings['static-name'] . '</span></h3>';
-							$output .= '</div>';
-							$output .= '<div class="wrap-static-list">';
-								$output .= '<ul id="'. $id .'-'. $static_area. '" class="connectedSortable">';
-									foreach ($static_area_settings['static_list'] as $static => $value) {
-										$output .= '<li class="ui-state-default"><span>'. $value .'</span></li>';
-									}
-								$output .= '</ul>';
-							$output .= '</div>';
-						$output .= '</div>';
-					}
-					$output .= '<div class="clear"></div>';
-				$output .= '</div>';
-			break;	
+			
 			/*
 			arg:
 				type: multicheckbox
@@ -753,88 +739,114 @@ class Cherry_Interface_Builder {
 				default_value: ''
 			*/
 			case 'typography':
+				$text_align = array(
+					'notdefined' => __( 'Not defined', 'cherry' ),
+					'inherit'    => __( 'Inherit', 'cherry' ),
+					'left'       => __( 'Left', 'cherry' ),
+					'right'      => __( 'Right', 'cherry' ),
+					'center'     => __( 'Center', 'cherry' ),
+					'justify'    => __( 'Justify', 'cherry' )
+				);
+
 				$output .= '<div>';
-				//size
-				$output .= '<div class="field-font-size">';
-				$output .= $this -> add_label($id . '[size]',  __( 'Font Size', 'cherry' ), $this->options['class']['label'].' cherry-block');
-				$output .= '<input id="' . $id . '[size]" name="' . $name . '[size]" class="cherry-stepper-input font-size" type="text" value="' . esc_html(  $value['size'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
-				$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
-				$output .= ' px </div>';
+				$output .= '<div class="cherry-type-wrap">';
+					//size
+					$output .= '<div class="field-font-size">';
+					$output .= $this -> add_label($id . '[size]',  __( 'Font Size', 'cherry' ), $this->options['class']['label'].' cherry-block');
+					$output .= '<input id="' . $id . '[size]" name="' . $name . '[size]" class="cherry-stepper-input font-size" type="text" value="' . esc_html(  $value['size'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
+					$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
+					$output .= ' px </div>';
 
-				//lineheight
-				$output .= '<div class="field-font-lineheight">';
-				$output .= $this -> add_label($id . '[lineheight]',  __( 'Lineheight', 'cherry' ), $this->options['class']['label'].' cherry-block');
-				$output .= '<input id="' . $id . '[lineheight]" name="' . $name . '[lineheight]" class="cherry-stepper-input font-lineheight" type="text" value="' . esc_html( $value['lineheight'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
-				$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
-				$output .= ' px </div>';
+					//lineheight
+					$output .= '<div class="field-font-lineheight">';
+					$output .= $this -> add_label($id . '[lineheight]',  __( 'Lineheight', 'cherry' ), $this->options['class']['label'].' cherry-block');
+					$output .= '<input id="' . $id . '[lineheight]" name="' . $name . '[lineheight]" class="cherry-stepper-input font-lineheight" type="text" value="' . esc_html( $value['lineheight'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
+					$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
+					$output .= ' px </div>';
 
-				//Font Family
-				$font_array = $this->get_google_font();
-				$character_array = array();
-				$style_array = array();
+					//Font Family
+					$font_array = $this->get_google_font();
+					$character_array = array();
+					$style_array = array();
+						$output .= '<div class="field-font-family">';
+						$output .= $this -> add_label($id . '[family]',  __( 'Font Family', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<select class="cherry-font-family" id="' . $id . '[family]" name="' . $name . '[family]">';
+							if($font_array && !empty($font_array) && is_array($font_array)){
+								foreach ($font_array as $font_key => $font_value) {
+									$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
+									$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
+									$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
 
-				$output .= '<div class="field-font-family">';
-				$output .= $this -> add_label($id . '[family]',  __( 'Font Family', 'cherry' ), $this->options['class']['label'].' cherry-block');
-				$output .= '<select class="cherry-font-family" id="' . $id . '[family]" name="' . $name . '[family]">';
-				if($font_array && !empty($font_array) && is_array($font_array)){
-					foreach ($font_array as $font_key => $font_value) {
-						$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
-						$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
-						$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
+									foreach ($font_value['subsets'] as $character_key => $character_value) {
+										if(!array_key_exists ($character_value, $character_array)){
+											$value_text = str_replace('-ext', ' Extended', $character_value);
+											$value_text = ucwords($value_text);
+											$character_array[$character_value] = $value_text;
+										}
+									}
 
-						foreach ($font_value['subsets'] as $character_key => $character_value) {
-							if(!array_key_exists ($character_value, $character_array)){
-								$value_text = str_replace('-ext', ' Extended', $character_value);
-								$value_text = ucwords($value_text);
-								$character_array[$character_value] = $value_text;
+									foreach ($font_value['variants'] as $style_key => $style_value) {
+										if(!array_key_exists ($style_value, $style_array)){
+											$text_piece_1 = preg_replace ('/[0-9]/s', '', $style_value);
+											$text_piece_2 = preg_replace ('/[A-Za-z]/s', ' ', $style_value);
+											$value_text = ucwords($text_piece_2 . ' ' . $text_piece_1);
+											$style_array[$style_value] = $value_text;
+										}
+									}
+
+									$output .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" data-style="' . $style . '" data-character="' . $character . '" ' . selected( $value['family'], $font_value['family'], false ) . '>'. esc_html( $font_value['family'] ) .'</option>';
+								}
 							}
-						}
-
-						foreach ($font_value['variants'] as $style_key => $style_value) {
-							if(!array_key_exists ($style_value, $style_array)){
-								$text_piece_1 = preg_replace ('/[0-9]/s', '', $style_value);
-								$text_piece_2 = preg_replace ('/[A-Za-z]/s', ' ', $style_value);
-								$value_text = ucwords($text_piece_2 . ' ' . $text_piece_1);
-								$style_array[$style_value] = $value_text;
+							$output .= '</select>';
+						$output .= '</div>';
+						//Font style
+						$output .= '<div class="field-font-style">';
+						$output .= $this -> add_label($id . '[style]',  __( 'Font Style', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<select class="cherry-font-style" id="' . $id . '[style]" name="' . $name . '[style]">';
+							if($style_array && !empty($style_array) && is_array($style_array)){
+								foreach ($style_array as $style_key => $style_value) {
+									$output .= '<option value="' . $style_key . '" ' . selected( $value['style'], $style_key, false ) . '>'. esc_html( $style_value ) .'</option>';
+								}
 							}
-						}
+							$output .= '</select>';
+						$output .= '</div>';
+						//Font character
+						$output .= '<div class="field-font-character">';
+						$output .= $this -> add_label($id . '[character]',  __( 'Character Sets', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<select class="cherry-font-character" id="' . $id . '[character]" name="' . $name . '[character]">';
+							if($character_array && !empty($character_array) && is_array($character_array)){
+								foreach ($character_array as $character_key => $character_value) {
+									$output .= '<option value="' . $character_key . '" ' . selected( $value['character'], $character_key, false ) . '>'. esc_html( $character_value ) .'</option>';
+								}
+							}
+							$output .= '</select>';
+						$output .= '</div>';
+					$output .= '</div>';
 
-						$output .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" data-style="' . $style . '" data-character="' . $character . '" ' . selected( $value['family'], $font_value['family'], false ) . '>'. esc_html( $font_value['family'] ) .'</option>';
-					}
-				}
-				$output .= '</select>';
+				$output .= '<div class="cherry-type-wrap">';
+					$output .= '<div class="field-font-color">';
+						$output .= $this -> add_label($id . '[align]',  __( 'Text align', 'cherry' ), $this->options['class']['label'].' cherry-block');
+						$output .= '<select class="cherry-text-align" id="' . $id . '[align]" name="' . $name . '[align]">';
+							foreach ($text_align as $align_key => $align_value) {
+								$output .= '<option value="' . $align_key . '" ' . selected( $value['align'], $align_key, false ) . '>'. esc_html( $align_value ) .'</option>';
+							}
+					$output .= '</select>';
+					$output .= '</div>';
+					//letterspacing
+					$output .= '<div class="field-font-letter-spacing">';
+						$output .= $this -> add_label($id . '[letter-spacing]',  __( 'Letter-spacing', 'cherry' ), $this->options['class']['label'].' cherry-block');
+						$output .= '<input id="' . $id . '[letterspacing]" name="' . $name . '[letterspacing]" class="cherry-stepper-input font-letterspacing" type="text" value="' . esc_html( $value['letterspacing'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="0" data-value-step="1">';
+						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span> px';
+					$output .= '</div>';	
+					//color
+					$output .= '<div class="field-font-color">';
+						$output .= $this -> add_label($id . '[color]',  __( 'Font color', 'cherry' ), $this->options['class']['label'].' cherry-block');
+						$output .= '<input id="' . $id . '[color]" name="' . $name . '[color]" value="' . esc_html( $value['color'] ) . '" class="cherry-color-picker" type="text" />';
+					$output .= '</div>';
 				$output .= '</div>';
 
-				//Font style
-				$output .= '<div class="field-font-style">';
-				$output .= $this -> add_label($id . '[style]',  __( 'Font Style', 'cherry' ), $this->options['class']['label'].' cherry-block');
-				$output .= '<select class="cherry-font-style" id="' . $id . '[style]" name="' . $name . '[style]">';
-				if($style_array && !empty($style_array) && is_array($style_array)){
-					foreach ($style_array as $style_key => $style_value) {
-						$output .= '<option value="' . $style_key . '" ' . selected( $value['style'], $style_key, false ) . '>'. esc_html( $style_value ) .'</option>';
-					}
-				}
-				$output .= '</select>';
-				$output .= '</div>';
-
-				//Font character
-				$output .= '<div class="field-font-character">';
-				$output .= $this -> add_label($id . '[character]',  __( 'Character Sets', 'cherry' ), $this->options['class']['label'].' cherry-block');
-				$output .= '<select class="cherry-font-character" id="' . $id . '[character]" name="' . $name . '[character]">';
-				if($character_array && !empty($character_array) && is_array($character_array)){
-					foreach ($character_array as $character_key => $character_value) {
-						$output .= '<option value="' . $character_key . '" ' . selected( $value['character'], $character_key, false ) . '>'. esc_html( $character_value ) .'</option>';
-					}
-				}
-				$output .= '</select>';
-				$output .= '</div>';
-
-				//color
-				$output .= '<div class="field-font-color">';
-				$output .= $this -> add_label($id . '[color]',  __( 'Font color', 'cherry' ), $this->options['class']['label'].' cherry-block');
-				$output .= '<input id="' . $id . '[color]" name="' . $name . '[color]" value="' . esc_html( $value['color'] ) . '" class="cherry-color-picker" type="text" />';
-				$output .= '</div>';
-
+				
+				
 				$output .= '<input name="' . $name . '[category]" value="" class="cherry-font-category" type="hidden" />';
 				$output .= '</div>';
 
@@ -924,7 +936,7 @@ class Cherry_Interface_Builder {
 				$hint_content = '<div class="hint-video dashicons dashicons-video-alt3"  data-hint-video="">'. $embed_code .'</div>';
 				break;
 			default:
-				$hint_content = '<div class="hint-text dashicons dashicons-info" title="' . $hint['content'] .'"></div>';
+				$hint_content = '<div class="hint-text dashicons dashicons-editor-help" title="' . $hint['content'] .'"></div>';
 				break;
 		}
 

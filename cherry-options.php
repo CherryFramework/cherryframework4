@@ -1,6 +1,13 @@
 <?php
 
 function cherry_defaults_settings() {
+	global $cherry_registered_statics, $cherry_registered_static_areas;
+	$all_statics = $cherry_registered_statics;
+
+	//var_dump($all_statics);
+	//var_dump('-------------------------------------------------------');
+	//var_dump($cherry_registered_static_areas);
+
 	$optSectionsArray = array();
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
@@ -11,138 +18,75 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Demo options</h2>'
 	);
-	$demo_options['accordion-demo'] = array(
-				'type'			=> 'static_editor',
-				'title'			=> 'title accordion',
-				'label'			=> 'label accordion',
-				'decsription'	=> 'decsription accordion',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> array(
-					'cherry_header_logo' => array(
-						'col-lg'   => 3,
-						'col-md'   => 3,
-						'col-sm'   => 3,
-						'col-xs'   => 3,
-						'class'	   => 'custom_class',
-						'itemname' => 'Logo',
-						'area' => 'static_area_1',
-						'priority' => 1
-					),
-					'cherry_header_menu' => array(
-						'col-lg'   => 3,
-						'col-md'   => 3,
-						'col-sm'   => 3,
-						'col-xs'   => 3,
-						'class'	   => 'custom_class',
-						'itemname' => 'Menu',
-						'priority' => 2
-					),
-					'cherry_header_search' => array(
-						'col-lg'   => 3,
-						'col-md'   => 3,
-						'col-sm'   => 3,
-						'col-xs'   => 3,
-						'class'	   => 'custom_class',
-						'itemname' => 'Search',
-						'priority' => 3
-					)
-				),
-				'default_value'	=> 'default_value',
-				'options' => array(
-					'cherry_header_logo' => array(
-						'itemname' => 'Logo',
-						'priority' => 1
-					),
-					'cherry_header_menu'   => array(
-						'itemname' => 'Menu',
-						'priority' => 2
-					),
-					'cherry_header_search' => array(
-						'itemname' => 'Search',
-						'priority' => 3
-					),
-					'cherry_header_info' => array(
-						'itemname' => 'Info Block',
-						'priority' => 4
-					),
-					'cherry_header_login' => array(
-						'itemname' => 'Login form',
-						'priority' => 5
-					),
-					'cherry_header_banner' => array(
-						'itemname' => 'Banner',
-						'priority' => 6
-					)
-				)
-	);
-	$demo_options['static-area-editor-demo'] = array(
+	$demo_options['static-area-editor'] = array(
 				'type'			=> 'static_area_editor',
 				'title'			=> 'title static-area-editor',
 				'label'			=> 'label static-area-editor',
 				'decsription'	=> 'decsription static-area-editor',
 				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+					'type'		=> 'image',
+					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+				),
+				'value'			=> $all_statics,
+				'default_value'	=> 'default_value',
+				'options' => $all_statics
+	);
+	/*$demo_options['static-area-editor'] = array(
+				'type'			=> 'static_area_editor',
+				'title'			=> 'title static-area-editor',
+				'label'			=> 'label static-area-editor',
+				'decsription'	=> 'decsription static-area-editor',
+				'hint'      	=>  array(
+					'type'		=> 'image',
+					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> array(
-					'static_area_1' => array(
-						'static-name' => 'Static area 1',
-						'col-lg'      => 3,
-						'col-md'      => 3,
-						'col-sm'      => 3,
-						'col-xs'      => 3,
-						'class'	      => 'custom_class',
-						'static_list' => array(
-							'cherry_header_logo' => 'Logo',
-							'cherry_header_menu' => 'Menu'
-						)
+					'logo' => array(
+						'id'       => 'logo',
+						'name'     => 'Static Logo',
+						'callback' => array('Cherry_Static', 'logo'),
+						'options'  => array(
+							'col-lg'   => 'none',
+							'col-md'   => 'col-md-3',
+							'col-sm'   => 'col-sm-3',
+							'col-xs'   => 'none',
+							'class'	   => 'custom_class',
+							'priority' => 1,
+							'area'     => 'cherry-static-area-top' 
+						),
 					),
-					'static_area_2' => array(
-						'static-name' => 'Static area 2',
-						'col-lg'      => 3,
-						'col-md'      => 3,
-						'col-sm'      => 3,
-						'col-xs'      => 3,
-						'class'	      => 'custom_class',
-						'static_list' => array(
-							'cherry_header_search' => 'Search',
-							'cherry_header_info'   => 'Info',
-							'cherry_header_login'   => 'Login',
-							'cherry_header_banner'   => 'Banner'
-						)
+					'mainmenu' => array(
+						'id'       => 'mainmenu',
+						'name'     => 'Static Main Menu',
+						'callback' => array('Cherry_Static', 'mainmenu'),
+						'options'  => array(
+							'col-lg'   => 'none',
+							'col-md'   => 'col-md-3',
+							'col-sm'   => 'none',
+							'col-xs'   => 'none',
+							'class'	   => 'custom_class',
+							'priority' => 2,
+							'area'     => 'cherry-static-area-top' 
+						),
+					),
+					'searchform' => array(
+						'id'       => 'searchform',
+						'name'     => 'Search form',
+						'callback' => array('Cherry_Static', 'searchform'),
+						'options'  => array(
+							'col-lg'   => 'none',
+							'col-md'   => 'col-md-3',
+							'col-sm'   => 'none',
+							'col-xs'   => 'none',
+							'class'	   => 'custom_class',
+							'priority' => 3,
+							'area'     => 'cherry-static-area-middle' 
+						),
 					)
 				),
 				'default_value'	=> 'default_value',
-				'options' => array(
-					'cherry_header_logo' => array(
-						'itemname' => 'Logo',
-						'priority' => 1
-					),
-					'cherry_header_menu'   => array(
-						'itemname' => 'Menu',
-						'priority' => 5
-					),
-					'cherry_header_search' => array(
-						'itemname' => 'Search',
-						'priority' => 10
-					),
-					'cherry_header_info' => array(
-						'itemname' => 'Info Block',
-						'priority' => 15
-					),
-					'cherry_header_login' => array(
-						'itemname' => 'Login form',
-						'priority' => 20
-					),
-					'cherry_header_banner' => array(
-						'itemname' => 'Banner',
-						'priority' => 25
-					)
-				)
-	);
+				'options' => $all_statics
+	);*/
 
 	$demo_options['text_demo'] = array(
 				'type'			=> 'text',
@@ -468,10 +412,12 @@ function cherry_defaults_settings() {
 				'value'			=> array(
 					'size'			=> '10',
 					'lineheight'	=> '10',
+					'letterspacing'	=> '0',
 					'color'			=> 'blue',
 					'family'		=> 'Abril Fatface',
 					'character'		=> 'latin-ext',
-					'style'			=> 'italic'
+					'style'			=> 'italic',
+					'align'			=> 'left'
 				)
 	);
 	$demo_options['submit_demo'] = array(

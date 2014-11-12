@@ -72,8 +72,8 @@ function cherry_register_static( $args = array() ) {
 	$i = count( $cherry_registered_statics ) + 1;
 
 	$defaults = apply_filters( 'cherry_register_static_default_args', array(
-		'name'     => sprintf( __( 'Static %d', 'cherry' ), $i ),
 		'id'       => "static-$i",
+		'name'     => sprintf( __( 'Static %d', 'cherry' ), $i ),
 		'callback' => '',
 	) );
 
@@ -89,9 +89,8 @@ function cherry_register_static( $args = array() ) {
 	}
 
 	$static['callback'] = $callback;
-
+	
 	if ( !isset( $cherry_registered_statics[ $id ] ) ) {
-
 		/**
 		 * Fires once for each registered static.
 		 *
@@ -101,11 +100,11 @@ function cherry_register_static( $args = array() ) {
 		do_action( 'cherry_register_static', $static );
 		$cherry_registered_statics[ $id ] = $static;
 	}
+	
 }
 
 function cherry_static_area( $index = 1 ) {
 	global $cherry_registered_static_areas, $cherry_registered_statics, $wp_filter, $wp_actions, $wp_current_filter, $merged_filters;
-	// var_dump(func_num_args());
 
 	if ( is_int( $index ) ) {
 		$index = "static-area-$index";

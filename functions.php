@@ -21,53 +21,136 @@ function cherry_theme_setup() {
 
 	// Registered a static areas.
 	cherry_register_static_area( array(
-		'id'            => 'top',
+		'id'            => 'cherry-static-area-top',
+		'name'			=> 'Top static area',
 		'before'        => '<div class="container"><div class="row">',
 		'after'         => '</div></div>',
 		'before_static' => '<div class="static %s">',
-		'after_static'  => '</div>',
-		'priority'      => 5,
+		'after_static'  => '</div>'
 	) );
 	cherry_register_static_area( array(
-		'id'            => 'middle',
+		'id'            => 'cherry-static-area-middle',
+		'name'			=> 'Middle static area',
 		'before'        => '',
 		'after'         => '',
 		'before_static' => '<div class="static %s">',
-		'after_static'  => '</div>',
-		'priority'      => 2,
+		'after_static'  => '</div>'
 	) );
 	cherry_register_static_area( array(
-		'id'            => 'bottom',
+		'id'            => 'cherry-static-area-bottom',
+		'name'			=> 'Bottom static area',
 		'before'        => '',
 		'after'         => '',
 		'before_static' => '<div class="static %s">',
-		'after_static'  => '</div>',
-		'priority'      => 1,
+		'after_static'  => '</div>'
 	) );
-
+	cherry_register_static_area( array(
+		'id'            => 'cherry-static-area-other',
+		'name'			=> 'Other static area',
+		'before'        => '',
+		'after'         => '',
+		'before_static' => '<div class="static %s">',
+		'after_static'  => '</div>'
+	) );
 	// Registered a static elements.
-	cherry_register_static( array(
-		'id'       => 'logo',
-		'name'     => 'Logo',
-		'callback' => '',
-		'options'  => array(
-			'column'   => 5,
-			'class'    => 'custom_logo',
-			'priority' => 1,
-			'area'     => 'top',
+	cherry_register_static(
+		array(
+			'id'       => 'logo',
+			'name'     => 'Logo',
+			'callback' => '',
+			'options'  => array(
+				'col-xs'   => 'col-xs-3',
+				'col-sm'   => 'col-sm-3',
+				'col-md'   => 'col-md-3',
+				'col-lg'   => 'col-lg-3',
+				'class'    => 'custom_class',
+				'priority' => 1,
+				'area'     => 'cherry-static-area-top'
+			)
 		)
-	) );
-	cherry_register_static( array(
-		'id'       => 'mainmenu',
-		'name'     => 'Main Menu',
-		'callback' => '',
-		'options'  => array(
-			'column'   => 7,
-			'class'    => 'custom_mainmenu',
-			'priority' => 2,
-			'area'     => 'top',
+	);
+	cherry_register_static(
+		array(
+			'id'       => 'mainmenu',
+			'name'     => 'Menu',
+			'callback' => '',
+			'options'  => array(
+				'col-xs'   => 'col-xs-3',
+				'col-sm'   => 'col-sm-3',
+				'col-md'   => 'col-md-3',
+				'col-lg'   => 'col-lg-3',
+				'class'    => 'custom_class',
+				'priority' => 2,
+				'area'     => 'cherry-static-area-top'
+			)
 		)
-	) );
+	);
+	cherry_register_static(
+		array(
+			'id'       => 'searchform',
+			'name'     => 'Search form',
+			'callback' => '',
+			'options'  => array(
+				'col-xs'   => 'col-xs-3',
+				'col-sm'   => 'col-sm-3',
+				'col-md'   => 'col-md-3',
+				'col-lg'   => 'col-lg-3',
+				'class'    => 'custom_class',
+				'priority' => 3,
+				'area'     => 'cherry-static-area-middle'
+			)
+		)
+	);
+	cherry_register_static(
+		array(
+			'id'       => 'login',
+			'name'     => 'Login',
+			'callback' => 'loginout_callback',
+			'options'  => array(
+				'col-xs'   => 'col-xs-3',
+				'col-sm'   => 'col-sm-3',
+				'col-md'   => 'col-md-3',
+				'col-lg'   => 'col-lg-3',
+				'class'    => 'custom_class',
+				'priority' => 4,
+				'area'     => 'cherry-static-area-middle'
+			)
+		)
+	);
+	cherry_register_static(
+		array(
+			'id'       => 'banner',
+			'name'     => 'Banner',
+			'callback' => 'banner_callback',
+			'options'  => array(
+				'col-xs'   => 'col-xs-3',
+				'col-sm'   => 'col-sm-3',
+				'col-md'   => 'col-md-3',
+				'col-lg'   => 'col-lg-3',
+				'class'    => 'custom_class',
+				'priority' => 5,
+				'area'     => 'cherry-static-area-bottom'
+			)
+		)
+	);
+	cherry_register_static(
+		array(
+			'id'       => 'social',
+			'name'     => 'Social',
+			'callback' => 'social_callback',
+			'options'  => array(
+				'col-xs'   => 'col-xs-3',
+				'col-sm'   => 'col-sm-3',
+				'col-md'   => 'col-md-3',
+				'col-lg'   => 'none',
+				'class'    => 'custom_class',
+				'priority' => 6,
+				'area'     => 'cherry-static-area-other'
+			)
+		)
+	);
+
+	
 
 	// Registered a static elements.
 	// cherry_register_statics( array(
@@ -138,4 +221,15 @@ function cherry_theme_setup() {
 		}
 		return $templates; // Return modified array with base-$cpt.php at the front of the queue
 	}
+}
+
+function banner_callback() {
+	echo '<img src="http://dummyimage.com/800x600/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">';
+}
+function loginout_callback() {
+	wp_loginout();
+}
+
+function social_callback() {
+	
 }

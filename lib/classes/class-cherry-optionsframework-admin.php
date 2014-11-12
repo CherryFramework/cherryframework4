@@ -222,22 +222,22 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			$cherry_options = $this->priority_sorting($cherry_options);
 
 			?>
-			<div class="fixedControlHolder">
+			<div class="fixed-control-holder">
 				<span class="marker dashicons"></span>
-				<div class="innerWrapper">
-					<div class="button button-primary saveButton"><?php echo __( 'Save Options', 'cherry' ) ?></div>
-					<div class="button restoreSectionButton"><?php echo __( 'Restore Section', 'cherry' ) ?></div>
-					<div class="button restoreButton"><?php echo __( 'Restore Options', 'cherry' ) ?></div>
+				<div class="inner-wrapper">
+					<div class="button button-primary save-button"><?php echo __( 'Save Options', 'cherry' ) ?></div>
+					<div class="button restore-section-button"><?php echo __( 'Restore Section', 'cherry' ) ?></div>
+					<div class="button restore-button"><?php echo __( 'Restore Options', 'cherry' ) ?></div>
 				</div>
 			</div>
 				<div class="options-page-wrapper">
-					<div class="current_theme">
+					<div class="current-theme">
 						<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
 					</div>
 					<?php settings_errors( 'cherry-options-group' ); ?>
-						<form id="cherry_options" action="" method="post">
+						<form id="cherry-options" action="" method="post">
 							<?php settings_fields( 'cherry-options-group' ); ?>
-							<input class="active_section_field" type="hidden" name="active_section" value="">
+							<input class="active-section-field" type="hidden" name="active_section" value="">
 							<div class="cherry-sections-wrapper">
 								<ul class="cherry-tab-menu">
 									<?php
@@ -251,7 +251,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 								<div class="cherry-option-group-list">
 									<?php
 									foreach ($cherry_options as $section_key => $section_value) { ?>
-										<div class="options_group"><?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?></div>
+										<div class="options-group"><?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?></div>
 									<?php } ?>
 								</div>
 							</div>

@@ -5,9 +5,9 @@
 			margin: 0 0 5px 0;
 			padding: 0 0 5px 0;
 			border-bottom: 1px solid rgb(204, 204, 204);
-			&:first-letter{
-				text-transform: uppercase;
-			};
+				&:first-letter{
+					text-transform: uppercase;
+				};
 		}
 		.cherry-label{
 			margin: 0 0 5px 0;
@@ -25,7 +25,6 @@
 				text-transform: uppercase;
 			};
 		}
-	
 
 		/*Cherry column style*/
 		.cherry-col-1, .cherry-col-2{
@@ -48,6 +47,9 @@
 			position: relative;
 			overflow: hidden;
 			margin-bottom: 10px;
+				.cherry-stepper-input{
+					max-width: 100px;
+				}
 		}
 		.cherry-ebm{
 			margin-bottom: 10px;
@@ -65,6 +67,12 @@
 			background: #fff;
 			padding: 10px 15px;
 			margin-bottom: 15px; 
+		}
+		.cherry-type-wrap{
+			border: 1px solid #cccccc;
+			background: #fff;
+			padding: 5px 10px 0px 10px;
+			margin-bottom: 5px; 
 		}
 		/*End Cherry column style*/
 		/*html ellements stule*/
@@ -411,7 +419,10 @@
 			div[class^="field-font"]{
 				display: inline-block;
 				overflow: hidden;
-				margin-right: 5px;
+				margin-right: 10px;
+					&:last-child{
+						margin-right: 0;
+					}
 			}
 			.field-font-family, .field-font-character{
 				select{
@@ -471,137 +482,151 @@
 		}
 		/*End Cherry tooltip style*/
 		/*Cherry accordion style*/
-		.cherry-accordion-wrap{
-			.accordion-unit{
+		.cherry-static-area-editor-wrap{
+			.area-unit{
+				border: 1px solid #dfdfdf;
+				background: #fff;
 				margin-bottom: 20px;
-				.group{
-					border: 1px solid #dfdfdf;
-					background: #f9f9f9;
-					padding: 3px;
-					margin-bottom: 5px;
-						.ui-accordion-header{
-							font-size: 16px;
-							margin: 0;
-							padding: .6em .5em .6em 2em;
-							color: #444;
-							background-image: none;
-							background: #fff;
-							border-radius: 0;
-							font-weight: normal;
-								.ui-accordion-header-icon{
-									background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
-								}
-								.delete-group{
-									float: right;
-									color: #2EA2CC;
-									cursor: pointer;
-									width: 60px;
-									height: 20px;
-									position: relative;
-									text-align: right;
-									overflow: hidden;
-										.confirmBtn{
-											position: absolute;
-											width: 20px;
-											height: 20px;
-											top: -20px;
-											left: 0px;
-											display: inline-block;
-											color: #7ad03a;
-											transition: all 0.2s ease;
-										}
-										.cancleBtn{
-											position: absolute;
-											width: 20px;
-											height: 20px;
-											top: -20px;
-											left: 20px;
-											display: inline-block;
-											color: #f4130c;
-											transition: all 0.2s ease;
-											transition-delay: 0.1s;
-										}
-										&:before{
-											width: 20px;
-											height: 20px;
-											top: 0;
-											transition: all 0.3s ease;
-										}
-										&:hover{
-											&:before{
-												color: #555555;
+				padding: 5px;
+				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+					.area-name{
+						margin: 5px 0 20px 0;
+						text-align: center;
+					}
+					.accordion-unit{
+						border: 1px solid #dfdfdf;
+						padding: 5px;
+						background: #f4f4f4;
+							.group{
+								background: #f9f9f9;
+								margin-bottom: 5px;
+									&:last-child{
+										margin-bottom: 0;
+									}
+									.ui-accordion-header{
+										font-size: 16px;
+										margin: 0;
+										padding: 10px 10px 10px 30px;
+										color: #444;
+										background-image: none;
+										background: #fff;
+										border-radius: 0;
+										font-weight: normal;
+											.ui-accordion-header-icon{
+												background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
 											}
-										}
-										&.confirmState{
-											.confirmBtn{
-												top: 0;
-												transition: all 0.2s ease;
+											.delete-group{
+												float: right;
+												color: #2EA2CC;
+												cursor: pointer;
+												width: 60px;
+												height: 20px;
+												position: relative;
+												text-align: right;
+												overflow: hidden;
+													.confirm-btn{
+														position: absolute;
+														width: 20px;
+														height: 20px;
+														top: -20px;
+														left: 0px;
+														display: inline-block;
+														color: #7ad03a;
+														transition: all 0.2s ease;
+													}
+													.cancle-btn{
+														position: absolute;
+														width: 20px;
+														height: 20px;
+														top: -20px;
+														left: 20px;
+														display: inline-block;
+														color: #f4130c;
+														transition: all 0.2s ease;
+														transition-delay: 0.1s;
+													}
+													&:before{
+														width: 20px;
+														height: 20px;
+														top: 0;
+														transition: all 0.3s ease;
+													}
+													&:hover{
+														&:before{
+															color: #555555;
+														}
+													}
+													&.confirm-state{
+														.confirm-btn{
+															top: 0;
+															transition: all 0.2s ease;
+														}
+														.cancle-btn{
+															top: 0;
+															transition: all 0.2s ease;
+															transition-delay: 0.1s;
+														}
+													}
 											}
-											.cancleBtn{
-												top: 0;
-												transition: all 0.2s ease;
-												transition-delay: 0.1s;
+											&.ui-state-active{
+												border: 1px solid #cccccc;
 											}
-										}
-								}
-								&.ui-state-active{
-									border: 1px solid #cccccc;
-								}
-								&.ui-state-hover{
-									background: none;
-									border: 1px solid #cccccc;
-								}
-						}
-						.ui-accordion-content{
-							background: none;
-							border-radius: 0;
-							padding: 1em 2.1em;
-							overflow: hidden;
-								.field-col-lg{
-									width: 24%;
-									margin-right: 1%;
-									margin-bottom: 10px;
-									float: left;
-								}
-								.field-col-md{
-									width: 24%;
-									margin-right: 1%;
-									margin-bottom: 10px;
-									float: left;
-								}
-								.field-col-sm{
-									width: 24%;
-									margin-right: 1%;
-									margin-bottom: 10px;
-									float: left;
-								}
-								.field-col-xs{
-									width: 24%;
-									margin-right: 1%;
-									margin-bottom: 10px;
-									float: left;
-								}
-								.field-class{
-									width: 99%;
-									float: left;
-										input{
-											margin: 0;
-											height: 28px;
-										}
-								}
-								select{
-									margin: 0;
-								}
-						}
-				}
-				.ui-state-highlight {
-					height: 3.3em;
-					line-height: 1.2em;
-					margin-bottom: 5px;
-					background: rgba(46, 162, 204, 0.3);
-					border-color: #2EA2CC;  
-				}
+											&.ui-state-hover{
+												background: none;
+												border: 1px solid #cccccc;
+											}
+									}
+									.ui-accordion-content{
+										background: none;
+										border-radius: 0;
+										padding: 1em 2.1em;
+										overflow: hidden;
+											.field-col-lg{
+												width: 24%;
+												margin-right: 1%;
+												margin-bottom: 10px;
+												float: left;
+											}
+											.field-col-md{
+												width: 24%;
+												margin-right: 1%;
+												margin-bottom: 10px;
+												float: left;
+											}
+											.field-col-sm{
+												width: 24%;
+												margin-right: 1%;
+												margin-bottom: 10px;
+												float: left;
+											}
+											.field-col-xs{
+												width: 24%;
+												margin-right: 1%;
+												margin-bottom: 10px;
+												float: left;
+											}
+											.field-class{
+												width: 99%;
+												float: left;
+													input{
+														margin: 0;
+														height: 28px;
+													}
+											}
+											select{
+												margin: 0;
+											}
+									}
+							}
+							.ui-state-highlight {
+								height: 40px;
+								margin-bottom: 5px;
+								background: rgba(46, 162, 204, 0.3);
+								border-color: #2EA2CC;  
+							}
+					}
 			}
+			
 			.cherry-accordion-control{
 				.cherry-label{
 					text-align: right;
@@ -621,56 +646,12 @@
 							}
 						}
 				}
-				.addNewBtn{
+				.add-new-btn{
 					float: right; 
 				}
 			}
 		}
 		/*End Cherry accordion style*/
-		/*Cherry static-area style*/
-		.cherry-static-area-builder{
-			.static-area-unit{
-				width: 100%;
-				float: left;
-				border: 1px solid #dfdfdf;
-				background: #fff;
-				padding: 5px;
-				margin-bottom: 15px;
-				box-sizing: border-box;
-					.wrap-settings{
-						border: 1px solid #ccc;
-						padding: 10px;
-						margin-bottom: 10px;
-							h3.label{
-								margin: 0 0 15px 0;
-							}
-					}
-					.wrap-static-list{
-						border: 1px solid #ccc;
-						padding: 10px;
-							.connectedSortable{
-								min-height: 10px;
-								margin: 0;
-									li{
-										background: #eaeaea;
-										padding: 5px 10px;
-											span{
-												color: #555555;
-											}
-											&.ui-state-highlight{
-												height: 18px;
-												background: rgba(46, 162, 204, 0.3);
-												border-color: #2EA2CC;  
-											}
-											&:last-child{
-												margin-bottom: 0;
-											}
-									}
-							}
-					}
-			}
-		}
-		/*End Cherry static-area style*/
 }
 
 body{

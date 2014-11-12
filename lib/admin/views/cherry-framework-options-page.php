@@ -7,9 +7,8 @@
 
 	
 	//$cherry_options_framework->add_new_settings(new_cherry_set());
-	//var_dump(Cherry_Options_Framework::get_option_value('accordion-demo'));
-
-
+	//var_dump(Cherry_Options_Framework::get_option_value('static-area-editor'));
+	
 	add_filter('cherry_defaults_settings', 'new_cherry_set');
 
 	function new_cherry_set($result_array) {

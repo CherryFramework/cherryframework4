@@ -10,7 +10,7 @@
                padding: 10px 0;
             }
       }
-      .current_theme{
+      .current-theme{
          background: #FFF;
          border-left: 4px solid #2EA2CC;
          box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -48,7 +48,7 @@
          margin: 0 5px;
       }
 }
-#cherry_options{
+#cherry-options{
    .cherry-tab-menu {
       width: 200px;
       float: left;
@@ -120,14 +120,14 @@
       background: #fcfcfc;
       border-left: 1px solid #D8D8D8;
       min-height: 800px;
-         .options_group {
+         .options-group {
             padding: 10px 20px;
             display: none;
          }
    }
 }
 
-.fixedControlHolder{
+.fixed-control-holder{
    position: fixed;
    top: 100px;
    right: 5px;
@@ -142,7 +142,7 @@
             content: "\f139";
          }
       }
-      .innerWrapper{
+      .inner-wrapper{
          position: relative;
             .button{
                display: block;
