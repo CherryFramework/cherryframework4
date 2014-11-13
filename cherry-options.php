@@ -890,6 +890,27 @@ function cherry_defaults_settings() {
 	);
 
 
+////////// Styling options /////////////////////////////////////////////////////
+//dashicons-art
+
+
+
+	$grid_options = array();
+	$grid_options['grid-options'] = array(
+			'type'			=> 'info',
+			'title'			=> '',
+			'decsription'	=> 'decsription info',
+			'value'			=> '<h2>Grid Options</h2>'
+	);
+
+	$optSectionsArray['grid-options-section'] = array(
+			'name' => 'Grid',
+			'icon' => 'dashicons dashicons-admin-appearance',
+			'parent' => '',
+			'priority' => 30,
+			'options-list' => $footer_options
+	);
+
 
 ////////// Logo options ///////////////////////////////////////////////////////
 
