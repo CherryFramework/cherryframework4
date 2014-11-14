@@ -134,7 +134,7 @@ function cherry_get_sidebar_template( $name = null ) {
 	if ( false === cherry_display_sidebar( $name ) )
 		return;
 
-	do_action( 'get_sidebar', $name ); // Core WordPress hook
+	do_action( 'get_sidebar', $name ); // Core WordPress hook.
 
 	include cherry_sidebar_path( $name );
 }

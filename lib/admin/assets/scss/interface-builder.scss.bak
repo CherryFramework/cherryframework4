@@ -663,4 +663,17 @@ body{
 		background: #fff;
 		max-width: 400px;
 	}
+<<<<<<< HEAD
 }
+ 
+
+
+#wrap-cherry-styling-color-scheme .cherry-fegr.cherry-radio-img{
+	max-width: 215px;	
+}
+
+
+
+=======
+}
+>>>>>>> e4618c062eaaf09c62e5c09aa3e97deb4a16b4f6

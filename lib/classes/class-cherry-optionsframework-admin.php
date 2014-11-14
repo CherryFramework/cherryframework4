@@ -26,7 +26,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 		/**
 		* Cherry_Options_Framework_Admin constructor
-		* 
+		*
 		* @since 4.0.0
 		*/
 
@@ -36,9 +36,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 		private function init(){
 			global $cherry_options_framework;
-			
-			$this->option_inteface_builder = new Cherry_Interface_Bilder(array('pattern' => 'grid'));
-	
+
+			$this->option_inteface_builder = new Cherry_Interface_Builder(array('pattern' => 'grid'));
+
 				// Add the options page and menu item.
 				add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );
 
@@ -63,11 +63,11 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				add_filter( 'utility_sanitize_textarea', array( $this, 'utility_sanitize_textarea' ) );
 				// Utility sanitize checkbox
 				add_filter( 'utility_sanitize_checkbox', array( $this, 'utility_sanitize_checkbox' ) );
-				// Utility sanitize editor 
-				add_filter( 'utility_sanitize_editor', array( $this, 'utility_sanitize_editor' ) );	
-				// Utility sanitize editor 
+				// Utility sanitize editor
+				add_filter( 'utility_sanitize_editor', array( $this, 'utility_sanitize_editor' ) );
+				// Utility sanitize editor
 				add_filter( 'utility_sanitize_image', array( $this, 'utility_sanitize_image' ) );
-				// Utility sanitize color picker 
+				// Utility sanitize color picker
 				add_filter( 'utility_sanitize_colorpicker', array( $this, 'utility_sanitize_colorpicker' ) );
 
 		}
@@ -136,12 +136,12 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 * @since 4.0.0
 		 */
 		function validate_options( $option_value ) {
-			global $cherry_options_framework;	
+			global $cherry_options_framework;
 			//var_dump($option_value);
-			
+
 			foreach ($option_value as $sectionName => $sectionOptionsList) {
 				foreach ($sectionOptionsList['options-list'] as $optionId => $optionValue) {
-					$optionType = $cherry_options_framework->get_type_by_option_id($optionId);	
+					$optionType = $cherry_options_framework->get_type_by_option_id($optionId);
 					// For a value to be submitted to database it must pass through a sanitization filter
   					/*var_dump($optionType);
 					var_dump($optionValue);
@@ -154,13 +154,13 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 					}else{
 						//var_dump($optionType . '  '. $optionValue);
 					}
-					
+
 				}
 			}
 
 			return $option_value;
 		}
-		
+
 		/**
 	     * Priority sorting
 	     *
@@ -185,7 +185,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				if($parent !== ''){
 					$tmpPriority = $base_array[$parent]['priority']+1;
 					$base_array[$section]['priority'] = $tmpPriority;
-					
+
 				}
 			}
 			return $base_array;
@@ -201,7 +201,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			//save options
 			if(isset($_POST['cherry']['save-options'])){
 				//var_dump($_POST['cherry']);
-				$cherry_options_framework->create_updated_options_array($_POST['cherry']);	
+				$cherry_options_framework->create_updated_options_array($_POST['cherry']);
 				do_action('cherry-options-updated');
 			}
 			//restore section
@@ -222,22 +222,22 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			$cherry_options = $this->priority_sorting($cherry_options);
 
 			?>
-			<div class="fixedControlHolder">
+			<div class="fixed-control-holder">
 				<span class="marker dashicons"></span>
-				<div class="innerWrapper">
-					<div class="button button-primary saveButton"><?php echo __( 'Save Options', 'cherry' ) ?></div>
-					<div class="button restoreSectionButton"><?php echo __( 'Restore Section', 'cherry' ) ?></div>
-					<div class="button restoreButton"><?php echo __( 'Restore Options', 'cherry' ) ?></div>
+				<div class="inner-wrapper">
+					<div class="button button-primary save-button"><?php echo __( 'Save Options', 'cherry' ) ?></div>
+					<div class="button restore-section-button"><?php echo __( 'Restore Section', 'cherry' ) ?></div>
+					<div class="button restore-button"><?php echo __( 'Restore Options', 'cherry' ) ?></div>
 				</div>
 			</div>
 				<div class="options-page-wrapper">
-					<div class="current_theme">
+					<div class="current-theme">
 						<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
 					</div>
 					<?php settings_errors( 'cherry-options-group' ); ?>
-						<form id="cherry_options" action="" method="post">
+						<form id="cherry-options" action="" method="post">
 							<?php settings_fields( 'cherry-options-group' ); ?>
-							<input class="active_section_field" type="hidden" name="active_section" value="">
+							<input class="active-section-field" type="hidden" name="active_section" value="">
 							<div class="cherry-sections-wrapper">
 								<ul class="cherry-tab-menu">
 									<?php
@@ -245,13 +245,13 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 										($section_value["parent"] != '')? $subClass = 'subitem' : $subClass = '';
 										$priority_value = $section_value['priority']; ?>
 										<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $section_value["parent"]; ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
-									 
+
 									<?php $section_index++; } ?>
 								</ul>
 								<div class="cherry-option-group-list">
 									<?php
 									foreach ($cherry_options as $section_key => $section_value) { ?>
-										<div class="options_group"><?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?></div>
+										<div class="options-group"><?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?></div>
 									<?php } ?>
 								</div>
 							</div>
@@ -260,20 +260,20 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 								<?php
 									$submitSection = array();
 									$submitSection['save-options'] = array(
-												'type'			=> 'submit',
-												'class'			=> 'button-primary',
-												'value'			=> 'Save Options'
+										'type'  => 'submit',
+										'class' => 'primary',
+										'value' => __( 'Save Options', 'cherry' ),
 									);
 									$submitSection['restore-section'] = array(
-												'type'			=> 'submit',
-												'value'			=> 'Restore Section'
+										'type'  => 'submit',
+										'value' => __( 'Restore Section', 'cherry' ),
 									);
 									$submitSection['restore-options'] = array(
-												'type'			=> 'submit',
-												'value'			=> 'Restore Options'
+										'type'  => 'submit',
+										'value' => __( 'Restore Options', 'cherry' ),
 									);
 								?>
-								<?php echo $this->option_inteface_builder->multi_output_items($submitSection); ?>
+								<?php echo $this->option_inteface_builder->multi_output_items( $submitSection ); ?>
 							</div>
 						</form>
 				</div>
@@ -353,7 +353,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			return $default;
 		}
 
-		
+
 	}//end  Cherry_Options_Framework_Admin class
 }//endif class exist
 

@@ -70,18 +70,14 @@ class Cherry_Sidebar {
 	 * @return boolean
 	 */
 	private function check_conditional_tag( $conditional_tag ) {
+		$conditional_arg = is_array( $conditional_tag ) ? $conditional_tag[1] : false;
+		$conditional_tag = $conditional_arg ? $conditional_tag[0] : $conditional_tag;
 
-		// Used the concept of variable functions (http://www.php.net/manual/en/functions.variable-functions.php)
-		if ( is_array( $conditional_tag ) ) {
-			return $conditional_tag[0]( $conditional_tag[1] );
+		if ( !function_exists( $conditional_tag ) ) {
+			return false;
 		}
 
-		// Ensure that funcitons exist.
-		if ( function_exists( $conditional_tag ) ) {
-			return $conditional_tag();
-		}
-
-		return false;
+		return $conditional_arg ? call_user_func( $conditional_tag, $conditional_arg ) : call_user_func( $conditional_tag );
 	}
 
 	/**

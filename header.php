@@ -23,4 +23,6 @@
 
 		<?php do_action( 'cherry_header' ); ?>
 
+		<?php // get_template_part( 'templates/wrapper-header' ); ?>
+
 		<?php do_action( 'cherry_header_after' ); ?>
