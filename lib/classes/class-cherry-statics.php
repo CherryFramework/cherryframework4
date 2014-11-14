@@ -300,6 +300,22 @@ class Cherry_Statics {
 			printf( $row_open, $row_class );
 		}
 
+		$cherry_options = get_option( get_stylesheet(), false );
+
+		if ( false !== $cherry_options ) {
+
+			foreach ( $cherry_registered_statics as $id => $data ) :
+
+				if ( isset( $cherry_options['demo-options-section']['options-list']['static-area-editor'] ) && !empty( $cherry_options['demo-options-section']['options-list']['static-area-editor'] ) ) {
+
+					$args = $cherry_options['demo-options-section']['options-list']['static-area-editor'];
+					$cherry_registered_statics[ $id ]['options'] = $args[ $id ]['options'];
+				}
+
+			endforeach;
+
+		}
+
 		// Sort an array with a user-defined comparison function and maintain index association.
 		uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
 
@@ -312,8 +328,7 @@ class Cherry_Statics {
 			if ( $index === $data['options']['area'] ) {
 
 				$options = $data['options'];
-
-				$cols = array(
+				$cols    = array(
 					'col-lg' => '',
 					'col-md' => '',
 					'col-sm' => '',
@@ -414,7 +429,7 @@ class Cherry_Statics {
 	 */
 	public static function compare( $a, $b ) {
 
-		if ( $a['options']['priority'] == $b['options']['priority'] ) {
+		if ( intval( $a['options']['priority'] ) == intval( $b['options']['priority'] ) ) {
 			return 0;
 		}
 
