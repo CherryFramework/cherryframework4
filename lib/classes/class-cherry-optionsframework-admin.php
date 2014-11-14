@@ -201,19 +201,23 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			//save options
 			if(isset($_POST['cherry']['save-options'])){
 				//var_dump($_POST['cherry']);
-				$cherry_options_framework->create_updated_options_array($_POST['cherry']);
+				$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
 				do_action('cherry-options-updated');
 			}
 			//restore section
 			if(isset($_POST['cherry']['restore-section'])){
-				$cherry_options_framework->restore_section_settings_array($_POST['active_section']);
+				$cherry_options_framework -> restore_section_settings_array($_POST['active_section']);
 				do_action('cherry-section-restored');
 			}
 			//restore options
 			if(isset($_POST['cherry']['restore-options'])){
-				$cherry_options_framework->restore_default_settings_array();
+				$cherry_options_framework -> restore_default_settings_array();
 				do_action('cherry-options-restored');
 			}
+			//restore options
+			/*if(isset($_POST['cherry']['export-options'])){
+				$cherry_options_framework -> json_export_options($_POST['cherry']);
+			}*/
 
 			$cherry_options = $cherry_options_framework->get_settings();
 
@@ -235,7 +239,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 						<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
 					</div>
 					<?php settings_errors( 'cherry-options-group' ); ?>
-						<form id="cherry-options" action="" method="post">
+						<form id="cherry-options" method="post">
 							<?php settings_fields( 'cherry-options-group' ); ?>
 							<input class="active-section-field" type="hidden" name="active_section" value="">
 							<div class="cherry-sections-wrapper">
@@ -272,6 +276,11 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 										'type'  => 'submit',
 										'value' => __( 'Restore Options', 'cherry' ),
 									);
+									/*$submitSection['export-options'] = array(
+										'type'  => 'submit',
+										'class' => 'primary export-btn',
+										'value' => __( 'Export Options', 'cherry' ),
+									);*/
 								?>
 								<?php echo $this->option_inteface_builder->multi_output_items( $submitSection ); ?>
 							</div>
