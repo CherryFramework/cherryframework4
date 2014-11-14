@@ -67,6 +67,14 @@ function cherry_register_sidebars() {
 
 	cherry_register_sidebar(
 		array(
+			'id'          => 'sidebar-header',
+			'name'        => __( 'Header Sidebar', 'cherry' ),
+			'description' => __( 'A sidebar located in the header of the site.', 'cherry' )
+		)
+	);
+
+	cherry_register_sidebar(
+		array(
 			'id'          => 'sidebar-footer',
 			'name'        => __( 'Footer Sidebar', 'cherry' ),
 			'description' => __( 'A sidebar located in the footer of the site.', 'cherry' )

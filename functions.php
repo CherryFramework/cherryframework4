@@ -137,6 +137,14 @@ function cherry_theme_setup() {
 			'area'     => 'header-bottom',
 		)
 	) );
+	cherry_register_static( array(
+		'name'    => __( 'Sidebar', 'cherry4' ),
+		'id'      => 'header_sidebar',
+		'options' => array(
+			'priority' => 3,
+			'area'     => 'header-bottom',
+		)
+	) );
 
 	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array(

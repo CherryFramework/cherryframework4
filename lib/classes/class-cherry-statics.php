@@ -309,7 +309,10 @@ class Cherry_Statics {
 				if ( isset( $cherry_options['demo-options-section']['options-list']['static-area-editor'] ) && !empty( $cherry_options['demo-options-section']['options-list']['static-area-editor'] ) ) {
 
 					$args = $cherry_options['demo-options-section']['options-list']['static-area-editor'];
-					$cherry_registered_statics[ $id ]['options'] = $args[ $id ]['options'];
+
+					if ( isset( $args[ $id ] ) ) {
+						$cherry_registered_statics[ $id ]['options'] = $args[ $id ]['options'];
+					}
 				}
 
 			endforeach;
@@ -328,12 +331,12 @@ class Cherry_Statics {
 			if ( $index === $data['options']['area'] ) {
 
 				$options = $data['options'];
-				$cols    = array(
+				$cols    = apply_filters( 'cherry_static_options_cols', array(
 					'col-lg' => '',
 					'col-md' => '',
 					'col-sm' => '',
 					'col-xs' => '',
-				);
+				), $id );
 
 				foreach ( (array) $cols as $key => $col ) {
 
@@ -341,7 +344,7 @@ class Cherry_Statics {
 						continue;
 					}
 
-					if ( $options[ $key ] == null ) {
+					if ( $options[ $key ] == 'none' ) {
 						continue;
 					}
 
@@ -499,6 +502,17 @@ class Cherry_Statics {
 	 */
 	public static function loginout( $options ) {
 		wp_loginout();
+	}
+
+	/**
+	 * Callback-function for a 'header_sidebar' static.
+	 *
+	 * @since 4.0.0
+	 */
+	public static function header_sidebar( $options ) {
+		if ( is_active_sidebar( 'sidebar-header' ) ) :
+			dynamic_sidebar( 'sidebar-header' );
+		endif;
 	}
 
 }
