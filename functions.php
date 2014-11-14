@@ -55,7 +55,7 @@ function cherry_theme_setup() {
 	// Registered a static elements.
 	cherry_register_static(
 		array(
-			'id'       => 'logo',
+			'id'       => 'header_logo',
 			'name'     => 'Logo',
 			'callback' => '',
 			'options'  => array(
@@ -71,7 +71,7 @@ function cherry_theme_setup() {
 	);
 	cherry_register_static(
 		array(
-			'id'       => 'mainmenu',
+			'id'       => 'header_menu',
 			'name'     => 'Menu',
 			'callback' => '',
 			'options'  => array(
@@ -103,7 +103,7 @@ function cherry_theme_setup() {
 	);
 	cherry_register_static(
 		array(
-			'id'       => 'login',
+			'id'       => 'loginout',
 			'name'     => 'Login',
 			'callback' => 'loginout_callback',
 			'options'  => array(
@@ -192,9 +192,6 @@ function cherry_theme_setup() {
 
 function banner_callback() {
 	echo '<img src="http://dummyimage.com/800x600/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">';
-}
-function loginout_callback() {
-	wp_loginout();
 }
 
 function social_callback() {
