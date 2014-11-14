@@ -217,6 +217,17 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
+		 * 
+		 * Export options
+		 *
+		 * @since 1.0.0
+		 */
+		public function json_export_options( $post_array ) {
+
+		}
+
+
+		/**
 		 * Get default set of options
 		 *
 		 * @since 1.0.0

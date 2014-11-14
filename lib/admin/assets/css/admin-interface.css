@@ -50,6 +50,10 @@
   float: right;
   margin: 0 5px;
 }
+.cherry-submit-wrapper #wrap-cherry-export-options {
+  float: left;
+  margin: 0 5px;
+}
 
 #cherry-options .cherry-tab-menu {
   width: 200px;
