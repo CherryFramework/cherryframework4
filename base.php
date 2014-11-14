@@ -1,7 +1,10 @@
 <?php do_action( 'cherry_get_header' ); ?>
 
+<?php //$container_class = ( is_home() ) ? 'container' : 'container-fluid'; ?>
+<?php $container_class = 'container'; ?>
+
 <div id="content" class="site-content">
-	<div class="container">
+	<div class="<?php echo $container_class; ?>">
 		<div class="row">
 
 			<?php
