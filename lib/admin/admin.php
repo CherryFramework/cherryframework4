@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme administration functions used with other components of the framework admin. 
+ * Theme administration functions used with other components of the framework admin.
  * This file is for setting up any basic features and holding additional admin helper functions.
  *
  * @package    Cherry_Framework
@@ -10,7 +10,7 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
-	require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-admin.php' );
+	require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-admin.php' );
 
 	// Include theme options page.
 	require_once( 'views/cherry-framework-options-page.php' );
