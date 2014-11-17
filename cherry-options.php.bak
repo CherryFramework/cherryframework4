@@ -12,7 +12,7 @@ function cherry_defaults_settings() {
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
 	
-	$demo_options['title_demo'] = array(
+	$demo_options['title-demo'] = array(
 				'type'			=> 'info',
 				'title'			=> '',
 				'decsription'	=> 'decsription info',
@@ -41,6 +41,52 @@ function cherry_defaults_settings() {
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> array(
+<<<<<<< HEAD
+					'cherry-header-logo' => array(
+						'col'	   => 3,
+						'class'	   => 'custom-logo',
+						'itemname' => 'Logo',
+						'priority' => 0
+					),
+					'cherry-header-menu' => array(
+						'col'	   => 6,
+						'class'	   => 'custom-menu',
+						'itemname' => 'Menu',
+						'priority' => 1
+					),
+					'cherry-header-search' => array(
+						'col'	   => 3,
+						'class'	   => 'custom-search',
+						'itemname' => 'Search',
+						'priority' => 2
+					)
+				),
+				'default-value'	=> 'default-value',
+				'options' => array(
+					'cherry-header-logo' => array(
+						'itemname' => 'Logo',
+						'priority' => 1
+					),
+					'cherry-header-menu'   => array(
+						'itemname' => 'Menu',
+						'priority' => 5
+					),
+					'cherry-header-search' => array(
+						'itemname' => 'Search',
+						'priority' => 10
+					),
+					'cherry-header-info' => array(
+						'itemname' => 'Info Block',
+						'priority' => 15
+					),
+					'cherry-header-login' => array(
+						'itemname' => 'Login form',
+						'priority' => 20
+					)
+				)
+	);
+	$demo_options['text-demo'] = array(
+=======
 					'logo' => array(
 						'id'       => 'logo',
 						'name'     => 'Static Logo',
@@ -88,7 +134,8 @@ function cherry_defaults_settings() {
 				'options' => $all_statics
 	);*/
 
-	$demo_options['text-demo'] = array(
+	$demo_options['text_demo'] = array(
+/*>>>>>>> e4618c062eaaf09c62e5c09aa3e97deb4a16b4f6*/
 				'type'			=> 'text',
 				'title'			=> 'title text',
 				'label'			=> 'label text',
@@ -389,7 +436,10 @@ function cherry_defaults_settings() {
 						'color'	=> '#ff0000',
 						'repeat'	=> 'repeat',
 						'position'	=> 'left',
-						'attachment'=> 'fixed'
+						'attachment'=> 'fixed',
+						'clip'   => 'padding-box',
+						'size'   => 'auto auto',
+						'origin' => 'padding-box'
 					)
 	);
 	
@@ -411,10 +461,12 @@ function cherry_defaults_settings() {
 				'value'			=> array(
 					'size'			=> '10',
 					'lineheight'	=> '10',
+					'letterspacing'	=> '0',
 					'color'			=> 'blue',
 					'family'		=> 'Abril Fatface',
 					'character'		=> 'latin-ext',
-					'style'			=> 'italic'
+					'style'			=> 'italic',
+					'align'			=> 'left'
 				)
 	);
 	$demo_options['submit-demo'] = array(

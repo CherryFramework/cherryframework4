@@ -650,3 +650,7 @@ body .custom-tooltip-styling {
   background: #fff;
   max-width: 400px;
 }
+
+#wrap-cherry-styling-color-scheme .cherry-fegr.cherry-radio-img {
+  max-width: 215px;
+}
