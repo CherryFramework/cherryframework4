@@ -312,15 +312,11 @@ class Cherry_Statics {
 			printf( $row_open, $row_class );
 		}
 
+		$args = cherry_get_option('static-area-editor');
 		foreach ( $cherry_registered_statics as $id => $data ) :
-
-			$args = cherry_get_option('static-area-editor');
-
 			if ( $args ) {
-
 				$cherry_registered_statics[ $id ]['options'] = wp_parse_args( $args[ $id ]['options'], $cherry_registered_statics[ $id ]['options'] );
 			}
-
 		endforeach;
 
 		foreach ( $cherry_registered_statics as $id => $data ) :

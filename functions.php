@@ -49,6 +49,15 @@ function cherry_theme_setup() {
 		'name'           => __( 'Header Bottom', 'cherry' ),
 		'container_wrap' => false,
 	) );
+	cherry_register_static_area( array(
+		'id'             => 'footer-top',
+		'name'           => __( 'Footer Top', 'cherry' ),
+	) );
+	cherry_register_static_area( array(
+		'id'             => 'footer-bottom',
+		'name'           => __( 'Footer Bottom', 'cherry' ),
+	) );
+
 	// Registered a static elements.
 	cherry_register_static( array(
 		'id'      => 'header_logo',
@@ -134,6 +143,28 @@ function cherry_theme_setup() {
 		'options'  => array(
 			'priority' => 2,
 			'area'     => 'header-bottom',
+		)
+	) );
+	cherry_register_static( array(
+		'name'    => __( 'Sidebar', 'cherry4' ),
+		'id'      => 'header_sidebar',
+		'options' => array(
+			'priority' => 3,
+			'area'     => 'header-bottom',
+		)
+	) );
+
+	cherry_register_static( array(
+		'id'      => 'footer_menu',
+		'name'    => __( 'Footer Menu', 'cherry4' ),
+		'options' => array(
+			'col-lg'   => 'col-lg-8',
+			'col-md'   => 'col-md-8',
+			'col-sm'   => 'col-sm-12',
+			'col-xs'   => 'col-xs-12',
+			'class'    => 'custom-footer-menu',
+			'priority' => 1,
+			'area'     => 'footer-top',
 		)
 	) );
 
