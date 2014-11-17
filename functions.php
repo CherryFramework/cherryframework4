@@ -69,7 +69,7 @@ function cherry_theme_setup() {
 			'col-lg'   => 'col-lg-4',
 			'class'    => 'custom-logo',
 			'area'     => 'header-top',
-			'priority' => 10,
+			'priority' => 1,
 		)
 	) );
 	cherry_register_static( array(
@@ -204,9 +204,6 @@ function cherry_theme_setup() {
 
 function banner_callback() {
 	echo '<img src="http://dummyimage.com/800x600/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">';
-}
-function loginout_callback() {
-	wp_loginout();
 }
 function info_callback() {
 	echo "Static 6";
