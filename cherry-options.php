@@ -4,6 +4,7 @@ function cherry_defaults_settings() {
 	global $cherry_registered_statics, $cherry_registered_static_areas;
 	$all_statics = $cherry_registered_statics;
 
+
 	//var_dump($all_statics);
 	//var_dump('-------------------------------------------------------');
 	//var_dump($cherry_registered_static_areas);
@@ -11,7 +12,7 @@ function cherry_defaults_settings() {
 	$optSectionsArray = array();
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
-	
+
 	$demo_options['title_demo'] = array(
 				'type'			=> 'info',
 				'title'			=> '',
@@ -52,7 +53,7 @@ function cherry_defaults_settings() {
 							'col-xs'   => 'none',
 							'class'	   => 'custom_class',
 							'priority' => 1,
-							'area'     => 'cherry-static-area-top' 
+							'area'     => 'cherry-static-area-top'
 						),
 					),
 					'mainmenu' => array(
@@ -66,7 +67,7 @@ function cherry_defaults_settings() {
 							'col-xs'   => 'none',
 							'class'	   => 'custom_class',
 							'priority' => 2,
-							'area'     => 'cherry-static-area-top' 
+							'area'     => 'cherry-static-area-top'
 						),
 					),
 					'searchform' => array(
@@ -80,7 +81,7 @@ function cherry_defaults_settings() {
 							'col-xs'   => 'none',
 							'class'	   => 'custom_class',
 							'priority' => 3,
-							'area'     => 'cherry-static-area-middle' 
+							'area'     => 'cherry-static-area-middle'
 						),
 					)
 				),
@@ -373,7 +374,7 @@ function cherry_defaults_settings() {
 				'value'			=> 'Lorem ipsum',
 				'default-value'	=> 'editor'
 	);
-	
+
 	$demo_options['background-demo'] = array(
 				'type'			=> 'background',
 				'title'			=> 'title background',
@@ -392,7 +393,7 @@ function cherry_defaults_settings() {
 						'attachment'=> 'fixed'
 					)
 	);
-	
+
 	$demo_options['info-demo'] = array(
 				'type'			=> 'info',
 				'title'			=> 'title info',
@@ -433,7 +434,7 @@ function cherry_defaults_settings() {
 
 ////////// General options ////////////////////////////////////////////////////
 
-	
+
 	$general_options = array();
 	$general_options['general-options'] = array(
 			'type'			=> 'info',
@@ -823,7 +824,7 @@ function cherry_defaults_settings() {
 	);*/
 	$optSectionsArray['header-options-section'] = array(
 			'name' => 'Header',
-			/*'icon' => 'dashicons dashicons-admin-appearance',*/
+			'icon' => 'dashicons dashicons-admin-appearance',
 			'icon' => 'dashicons',
 			'parent' => '',
 			'priority' => 30,
@@ -907,7 +908,7 @@ function cherry_defaults_settings() {
 	);*/
 	$optSectionsArray['footer-options-section'] = array(
 			'name' => 'Footer',
-			/*'icon' => 'dashicons dashicons-admin-appearance',*/
+			'icon' => 'dashicons dashicons-admin-appearance',
 			'parent' => '',
 			'priority' => 30,
 			'options-list' => $footer_options
@@ -932,7 +933,7 @@ function cherry_defaults_settings() {
 			'icon' => 'dashicons dashicons-admin-appearance',
 			'parent' => '',
 			'priority' => 30,
-			'options-list' => $footer_options
+			'options-list' => $grid_options
 	);
 
 
@@ -1003,7 +1004,7 @@ function cherry_defaults_settings() {
 
 ////////// Navigation options ///////////////////////////////////////////////////
 
-		
+
 		$navigation_options = array();
 		$navigation_options['navigation-options'] = array(
 				'type'			=> 'info',
@@ -1049,7 +1050,7 @@ function cherry_defaults_settings() {
 				'title'			=> '',
 				'description'	=>'description',
 				'value'			=>'<h2>Breadcrumbs options'
-				
+
 				);
 
 		$breadcrumbs_options['breadcrumbs'] = array(
@@ -1059,7 +1060,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'Enable or disable breadcrumb navigation',
 				'value'			=> 'true',
 				'default-value'	=> 'default-value'
-				
+
 				);
 
 		$breadcrumbs_options['breadcrumbs-display'] = array(
@@ -1229,7 +1230,7 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> 'You are here',
 				'default-value'	=> 'You are here'
-				
+
 				);
 
 		$breadcrumbs_options['breadcrumbs-hierarchical-attachments'] = array(
@@ -1243,7 +1244,7 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> 'false',
 				'default-value'	=> 'default-value'
-				
+
 				);
 
 		$breadcrumbs_options['breadcrumbs-post-hierarchy'] = array(
@@ -1347,7 +1348,7 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> 'Pages:',
 				'default-value'	=> 'Pages:'
-				
+
 		);
 
 		$pagination_option['pagination-previous-page'] = array(
@@ -1360,7 +1361,7 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> '&laquo;',
 				'default-value'	=> '&laquo;'
-				
+
 		);
 
 		$pagination_option['pagination-next-page'] = array(
@@ -1373,7 +1374,7 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> '&raquo;',
 				'default-value'	=> '&raquo;'
-				
+
 		);
 
 		$pagination_option['pagination-page-range'] = array(
@@ -1509,7 +1510,7 @@ function cherry_defaults_settings() {
 				'class'			=> '',
 				'display-input'	=> false,
 				'options'		=> array(
-					'radio-image_1' => array(
+					'radio-image-1' => array(
 						'label' => 'radio image 1',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
@@ -1608,6 +1609,6 @@ function cherry_defaults_settings() {
 	);
 
 
-	
-	return apply_filters( 'cherry_defaults_settings', $optSectionsArray );		
+
+	return apply_filters( 'cherry_defaults_settings', $optSectionsArray );
 }

@@ -413,6 +413,7 @@ class Cherry_Interface_Builder {
 											$output .= '</div>';
 											$output .= '<div class="field-class">';
 												$output .= $this -> add_label($id . '-class',  __( 'Custom class', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												//var_dump($handleArray['options']);
 												$output .= '<input class="width-full key-custom-class" name="' . $name . '[' . $handle . '][options][class]" value="' . esc_html( $handleArray['options']['class'] ) . '" type="text" />';
 											$output .= '</div>';
 											$output .= '<input type="hidden" class="key-item-name" name="' . $name . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';

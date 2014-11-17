@@ -84,8 +84,8 @@ class Cherry_Statics {
 		 * @param int   Counter.
 		 */
 		$defaults = apply_filters( 'cherry_register_static_area_default_args', array(
-			'name'           => sprintf( __( 'Static Area %d', 'cherry' ), $i ),
 			'id'             => "static-area-$i",
+			'name'           => sprintf( __( 'Static Area %d', 'cherry' ), $i ),
 			'before'         => '',
 			'after'          => '',
 			'before_static'  => '<div class="static clearfix">',
@@ -147,15 +147,24 @@ class Cherry_Statics {
 		 * @param int   Counter.
 		 */
 		$defaults = apply_filters( 'cherry_register_static_default_args', array(
-			'name' => sprintf( __( 'Static %d', 'cherry' ), $i ),
-			'id'   => "static-$i",
+			'id'      => "static-$i",
+			'name'    => sprintf( __( 'Static %d', 'cherry' ), $i ),
+			'options' => array(
+				'col-xs'   => '',
+				'col-sm'   => '',
+				'col-md'   => '',
+				'col-lg'   => '',
+				'class'    => '',
+			)
 		), $args, $i );
 
-		$static = wp_parse_args( $args, $defaults );
-		$id     = strtolower( $static['id'] );
+		$options           = wp_parse_args( $args['options'], $defaults['options'] );
+		$static            = wp_parse_args( $args, $defaults );
+		$static['options'] = $options;
+		$id                = strtolower( $static['id'] );
 
 		if ( !isset( $static['options']['priority'] )) {
-			$static['options'] = array_merge( $static['options'], array( 'priority' => $i ) );
+			$static['options'] = wp_parse_args( $static['options'], array( 'priority' => $i ) );
 		}
 
 		if ( isset( $static['callback'] ) && is_callable( $static['callback'] ) ) {
@@ -178,6 +187,9 @@ class Cherry_Statics {
 			 */
 			do_action( 'cherry_register_static', $static );
 			$cherry_registered_statics[ $id ] = $static;
+
+			// Sort an array with a user-defined comparison function and maintain index association.
+			uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
 		}
 	}
 
@@ -300,24 +312,16 @@ class Cherry_Statics {
 			printf( $row_open, $row_class );
 		}
 
-		$cherry_options = get_option( get_stylesheet(), false );
+		foreach ( $cherry_registered_statics as $id => $data ) :
 
-		if ( false !== $cherry_options ) {
+			$args = cherry_get_option('static-area-editor');
 
-			foreach ( $cherry_registered_statics as $id => $data ) :
+			if ( $args ) {
 
-				if ( isset( $cherry_options['demo-options-section']['options-list']['static-area-editor'] ) && !empty( $cherry_options['demo-options-section']['options-list']['static-area-editor'] ) ) {
+				$cherry_registered_statics[ $id ]['options'] = wp_parse_args( $args[ $id ]['options'], $cherry_registered_statics[ $id ]['options'] );
+			}
 
-					$args = $cherry_options['demo-options-section']['options-list']['static-area-editor'];
-					$cherry_registered_statics[ $id ]['options'] = $args[ $id ]['options'];
-				}
-
-			endforeach;
-
-		}
-
-		// Sort an array with a user-defined comparison function and maintain index association.
-		uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
+		endforeach;
 
 		foreach ( $cherry_registered_statics as $id => $data ) :
 
@@ -328,12 +332,12 @@ class Cherry_Statics {
 			if ( $index === $data['options']['area'] ) {
 
 				$options = $data['options'];
-				$cols    = array(
+				$cols    = apply_filters( 'cherry_static_options_cols', array(
 					'col-lg' => '',
 					'col-md' => '',
 					'col-sm' => '',
 					'col-xs' => '',
-				);
+				), $id );
 
 				foreach ( (array) $cols as $key => $col ) {
 
@@ -341,7 +345,7 @@ class Cherry_Statics {
 						continue;
 					}
 
-					if ( $options[ $key ] == null ) {
+					if ( $options[ $key ] == 'none' ) {
 						continue;
 					}
 
@@ -499,6 +503,17 @@ class Cherry_Statics {
 	 */
 	public static function loginout( $options ) {
 		wp_loginout();
+	}
+
+	/**
+	 * Callback-function for a 'header_sidebar' static.
+	 *
+	 * @since 4.0.0
+	 */
+	public static function header_sidebar( $options ) {
+		if ( is_active_sidebar( 'sidebar-header' ) ) :
+			dynamic_sidebar( 'sidebar-header' );
+		endif;
 	}
 
 }

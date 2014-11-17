@@ -49,7 +49,6 @@ function cherry_theme_setup() {
 		'name'           => __( 'Header Bottom', 'cherry' ),
 		'container_wrap' => false,
 	) );
-
 	// Registered a static elements.
 	cherry_register_static( array(
 		'id'      => 'header_logo',
