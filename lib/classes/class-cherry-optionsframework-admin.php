@@ -203,9 +203,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				//var_dump($_POST['cherry']);
 				$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
 				do_action('cherry-options-updated');
-				$location = add_query_arg( array( 'saved' => 'true' ), menu_page_url( 'cherry-options', 0 ) );
-				wp_redirect( $location );
-				exit;
+				//$location = add_query_arg( array( 'saved' => 'true' ), menu_page_url( 'cherry-options', 0 ) );
+				//wp_redirect( $location );
+				//exit;
 			}
 			//restore section
 			if(isset($_POST['cherry']['restore-section'])){
