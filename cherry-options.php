@@ -923,10 +923,37 @@ function cherry_defaults_settings() {
 	$grid_options = array();
 	$grid_options['grid-options'] = array(
 			'type'			=> 'info',
-			'title'			=> '',
+			'title'			=> 'Grid options',
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Grid Options</h2>'
 	);
+
+
+	$grid_options['grid-type'] = array(
+				'type'			=> 'radio',
+				'title'			=> 'background pattern',
+				'label'			=> 'select one of them',
+				'decsription'	=> 'Background pattern for main container',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Background pattern for main container'
+				),
+				'value'			=> 'radio-image-1',
+				'default-value'	=> 'radio-image-1',
+				'class'			=> '',
+				'display-input'	=> false,
+				'options'		=> array(
+					'radio-image-1' => array(
+						'label' => 'radio image 1',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio-image-2' => array(
+						'label' => 'radio image 2',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+				)
+	);
+
 
 	$optSectionsArray['grid-options-section'] = array(
 			'name' => 'Grid',
