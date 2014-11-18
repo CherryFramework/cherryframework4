@@ -792,7 +792,9 @@ function cherry_defaults_settings() {
 					'color'			=> '#aa00aa',
 					'family'		=> 'Abril Fatface',
 					'character'		=> 'latin-ext',
-					'style'			=> 'italic'
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
 				)
 	);
 	$optSectionsArray['logo-options'] = array(
