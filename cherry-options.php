@@ -4,15 +4,9 @@ function cherry_defaults_settings() {
 	global $cherry_registered_statics, $cherry_registered_static_areas;
 	$all_statics = $cherry_registered_statics;
 
-
 	//var_dump($all_statics);
-	//var_dump('-------------------------------------------------------');
-	//var_dump($cherry_registered_static_areas);
-
-	$optSectionsArray = array();
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
-
 	$demo_options['title_demo'] = array(
 				'type'			=> 'info',
 				'title'			=> '',
@@ -32,63 +26,6 @@ function cherry_defaults_settings() {
 				'default_value'	=> 'default_value',
 				'options' => $all_statics
 	);
-	/*$demo_options['static-area-editor'] = array(
-				'type'			=> 'static_area_editor',
-				'title'			=> 'title static-area-editor',
-				'label'			=> 'label static-area-editor',
-				'decsription'	=> 'decsription static-area-editor',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> array(
-					'logo' => array(
-						'id'       => 'logo',
-						'name'     => 'Static Logo',
-						'callback' => array('Cherry_Static', 'logo'),
-						'options'  => array(
-							'col-lg'   => 'none',
-							'col-md'   => 'col-md-3',
-							'col-sm'   => 'col-sm-3',
-							'col-xs'   => 'none',
-							'class'	   => 'custom_class',
-							'priority' => 1,
-							'area'     => 'cherry-static-area-top'
-						),
-					),
-					'mainmenu' => array(
-						'id'       => 'mainmenu',
-						'name'     => 'Static Main Menu',
-						'callback' => array('Cherry_Static', 'mainmenu'),
-						'options'  => array(
-							'col-lg'   => 'none',
-							'col-md'   => 'col-md-3',
-							'col-sm'   => 'none',
-							'col-xs'   => 'none',
-							'class'	   => 'custom_class',
-							'priority' => 2,
-							'area'     => 'cherry-static-area-top'
-						),
-					),
-					'searchform' => array(
-						'id'       => 'searchform',
-						'name'     => 'Search form',
-						'callback' => array('Cherry_Static', 'searchform'),
-						'options'  => array(
-							'col-lg'   => 'none',
-							'col-md'   => 'col-md-3',
-							'col-sm'   => 'none',
-							'col-xs'   => 'none',
-							'class'	   => 'custom_class',
-							'priority' => 3,
-							'area'     => 'cherry-static-area-middle'
-						),
-					)
-				),
-				'default_value'	=> 'default_value',
-				'options' => $all_statics
-	);*/
-
 	$demo_options['text-demo'] = array(
 				'type'			=> 'text',
 				'title'			=> 'title text',
@@ -99,7 +36,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'value',
-				'default-value'	=> 'default-value'
+				'default_value'	=> 'default_value'
 	);
 	$demo_options['textarea-demo'] = array(
 				'type'			=> 'textarea',
@@ -111,7 +48,7 @@ function cherry_defaults_settings() {
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> 'value',
-				'default-value'	=> 'default-value'
+				'default_value'	=> 'default_value'
 	);
 	$demo_options['select-demo'] = array(
 				'type'			=> 'select',
@@ -123,7 +60,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
 				),
 				'value'			=> 'select-1',
-				'default-value'	=> 'select-1',
+				'default_value'	=> 'select-1',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'select 1',
@@ -141,7 +78,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'https://player.vimeo.com/video/97337577'
 				),
 				'value'			=> 'select_1',
-				'default-value'	=> 'select_1',
+				'default_value'	=> 'select_1',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'select 1',
@@ -165,7 +102,7 @@ function cherry_defaults_settings() {
 				),
 				'placeholder'	=> 'Select value',
 				'value'			=> array('select-1','select-8'),
-				'default-value'	=> array('select-1','select-8'),
+				'default_value'	=> array('select-1','select-8'),
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'Item 1',
@@ -188,7 +125,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'true',
-				'default-value'	=> 'true'
+				'default_value'	=> 'true'
 	);
 	$demo_options['switcher-demo'] = array(
 				'type'			=> 'switcher',
@@ -200,7 +137,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'true',
-				'default-value'	=> 'true'
+				'default_value'	=> 'true'
 	);
 	$demo_options['slider-demo'] = array(
 				'type'			=> 'slider',
@@ -214,7 +151,7 @@ function cherry_defaults_settings() {
 				'max_value'		=> 100,
 				'min_value'		=> 0,
 				'value'			=> 50,
-				'default-value' => 50
+				'default_value' => 50
 	);
 	$demo_options['rangeslider-demo'] = array(
 				'type'			=> 'rangeslider',
@@ -231,7 +168,7 @@ function cherry_defaults_settings() {
 					'left-value'	=> 20,
 					'right-value'	=> 50,
 				),
-				'default-value' => array(
+				'default_value' => array(
 					'left-value'	=> 0,
 					'right-value'	=> 100,
 				)
@@ -251,7 +188,7 @@ function cherry_defaults_settings() {
 					'checkbox-2'	=> false,
 					'checkbox-3'	=> true
 				),
-				'default-value'	=> array(
+				'default_value'	=> array(
 					'checkbox-1'	=> false,
 					'checkbox-2'	=> true,
 					'checkbox-3'	=> true
@@ -262,7 +199,6 @@ function cherry_defaults_settings() {
 					'checkbox-3'	=> 'checkbox 3'
 				)
 	);
-
 	$demo_options['radio-demo'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'title radio',
@@ -273,7 +209,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'radio-2',
-				'default-value'	=> 'radio-1',
+				'default_value'	=> 'radio-1',
 				'class'			=> '',
 				'display-input'	=> true,
 				'options'		=> array(
@@ -291,7 +227,6 @@ function cherry_defaults_settings() {
 					),
 				)
 	);
-
 	$demo_options['radio-image-demo'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'title radio',
@@ -302,19 +237,19 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'radio-image-1',
-				'default-value'	=> 'radio-image-1',
+				'default_value'	=> 'radio-image-1',
 				'class'			=> '',
 				'display_input'	=> false,
 				'options'		=> array(
-					'radio_image-1' => array(
+					'radio-image-1' => array(
 						'label' => 'radio image 1',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio_image-2' => array(
+					'radio-image-2' => array(
 						'label' => 'radio image 2',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio_image-3' => array(
+					'radio-image-3' => array(
 						'label' => 'radio image 3',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
@@ -330,7 +265,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'				=> '',
-				'default-value'		=> '',
+				'default_value'		=> '',
 				'display-image'		=> true,
 				'multi-upload'		=> true,
 				'return-data_type'	=> 'url'
@@ -345,7 +280,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> '#ff0000',
-				'default-value'	=> '#ff0000'
+				'default_value'	=> '#ff0000'
 	);
 	$demo_options['stepper-demo'] = array(
 				'type'			=> 'stepper',
@@ -357,7 +292,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> '0',
-				'default-value'	=> '0',
+				'default_value'	=> '0',
 				'value-step'	=> '1',
 				'max-value'		=> '50',
 				'min-value'		=> '-50'
@@ -372,28 +307,27 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'Lorem ipsum',
-				'default-value'	=> 'editor'
+				'default_value'	=> 'editor'
 	);
-
 	$demo_options['background-demo'] = array(
-				'type'			=> 'background',
-				'title'			=> 'title background',
-				'label'			=> 'label background',
-				'decsription'	=> 'decsription background',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				'type'				=> 'background',
+				'title'				=> 'title background',
+				'label'				=> 'label background',
+				'decsription'		=> 'decsription background',
+				'hint'      		=>  array(
+					'type'			=> 'text',
+					'content'		=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
-				'return-data_type'	=> 'url',
-				'value'			=> array(
-						'image'	=> '',
-						'color'	=> '#ff0000',
-						'repeat'	=> 'repeat',
-						'position'	=> 'left',
-						'attachment'=> 'fixed'
-					)
+				'return_data_type'	=> 'url',
+				'value'				=> array(
+					'image'			=> '',
+					'color'			=> '#ff0000',
+					'repeat'		=> 'repeat',
+					'position'		=> 'left',
+					'attachment'	=> 'fixed',
+					'origin'		=> 'padding-box'
+				)
 	);
-
 	$demo_options['info-demo'] = array(
 				'type'			=> 'info',
 				'title'			=> 'title info',
@@ -405,7 +339,7 @@ function cherry_defaults_settings() {
 				'title'			=> 'title typography',
 				'label'			=> 'label typography',
 				'decsription'	=> 'decsription typography',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
@@ -415,26 +349,18 @@ function cherry_defaults_settings() {
 					'color'			=> 'blue',
 					'family'		=> 'Abril Fatface',
 					'character'		=> 'latin-ext',
-					'style'			=> 'italic'
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
 				)
 	);
 	$demo_options['submit-demo'] = array(
 				'type'			=> 'submit',
 				'value'			=> 'get value'
 	);
-
-	$optSectionsArray['demo-options-section'] = array(
-			'name' => 'All interface elements',
-			'icon' => 'dashicons dashicons-carrot',
-			'parent' => '',
-			'priority' => 10,
-			'options-list' => $demo_options
-	);
-
-
-////////// General options ////////////////////////////////////////////////////
-
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////// General options //////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$general_options = array();
 	$general_options['general-options'] = array(
 			'type'			=> 'info',
@@ -442,37 +368,29 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>General options</h2>'
 	);
-
 	$general_options['general-logo'] = array(
-				'type'				=> 'image',
-				'title'				=> 'Logo',
-				'label'				=> 'Choose four images',
-				'decsription'		=> 'Retina ready logo set',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Logo for Apple iPhone<br>
-									Logo for Apple iPhone Retina<br>
-									Logo for Apple iPad<br>
-									Logo for Apple iPad Retina<br>'
-				),
-				'value'				=> '',
-				'default-value'		=> '',
-				'display_image'		=> true,
-				'multi_upload'		=> true,
-				'return_data_type'	=> 'url'
+			'type'				=> 'image',
+			'title'				=> 'Logo',
+			'label'				=> 'Choose four images',
+			'decsription'		=> 'Retina ready logo set',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Logo for Apple iPhone<br>
+								Logo for Apple iPhone Retina<br>
+								Logo for Apple iPad<br>
+								Logo for Apple iPad Retina<br>'
+			),
+			'value'				=> '',
+			'default_value'		=> '',
+			'display_image'		=> true,
+			'multi_upload'		=> true,
+			'return_data_type'	=> 'url'
 	);
-
 	$general_options['general-logo-type'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'what kind of logo?',
-				/*'label'			=> 'label radio',
-				'decsription'	=> 'decsription radio',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),*/
 				'value'			=> 'text-logo',
-				'default-value'	=> 'image-logo',
+				'default_value'	=> 'image-logo',
 				'class'			=> '',
 				'display-input'	=> true,
 				'options'		=> array(
@@ -490,7 +408,6 @@ function cherry_defaults_settings() {
 					),
 				)
 	);
-
 	$general_options['general-favicon'] = array(
 				'type'				=> 'image',
 				'title'				=> 'Favicon',
@@ -504,37 +421,11 @@ function cherry_defaults_settings() {
 									Icon for Apple iPad Retina (144px * 144px )<br>'
 				),
 				'value'				=> '',
-				'default-value'		=> '',
+				'default_value'		=> '',
 				'display_image'		=> true,
 				'multi_upload'		=> true,
 				'return_data_type'	=> 'url'
 	);
-
-
-/*
-	$general_options['layout-style'] = array(
-			'type'			=> 'radio',
-			'title'			=> 'Layout Style',
-			'label'			=> 'Layout Style',
-			'decsription'	=> 'Select layout for Your site',
-			'value'			=> 'radio_1',
-			'default-value'	=> 'radio_1',
-			'class'			=> '',
-			'display_input'	=> true,
-			'options'		=> array(
-				'radio_1' => array(
-					'label' => 'Full width',
-					'img_src' => ''
-				),
-				'radio_2' => array(
-					'label' => 'Container',
-					'img_src' => ''
-				)
-			)
-	);
-*/
-
-
 	$general_options['general-page-comments'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'page comments',
@@ -545,7 +436,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Disable or enable comments by default on new pages and custom post types. You can change the default for new posts or pages, as well as enable/disable comments on posts or pages you’ve already published.'
 				),
 				'value'			=> 'true',
-				'default-value'	=> 'true'
+				'default_value'	=> 'true'
 	);
 	$general_options['general-featured-images'] = array(
 				'type'			=> 'switcher',
@@ -557,9 +448,8 @@ function cherry_defaults_settings() {
 					'content'	=> 'Disable or enable displaying of featured images'
 				),
 				'value'			=> 'true',
-				'default-value'	=> 'true'
+				'default_value'	=> 'true'
 	);
-
 	$general_options['general-user-css'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'User CSS',
@@ -570,95 +460,22 @@ function cherry_defaults_settings() {
 					'content'	=> 'Disable or enable user css file'
 				),
 				'value'			=> 'true',
-				'default-value'	=> 'true'
+				'default_value'	=> 'true'
 	);
-
 	$general_options['general-google-analytics'] = array(
 				'type'			=> 'textarea',
 				'title'			=> 'Google Analytic',
-				/*'label'			=> 'Enter the code',*/
 				'decsription'	=> 'Google Analytic code goes here',
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'This code will be added into the footer template of your theme.'
 				),
 				'value'			=> 'value',
-				'default-value'	=> 'default-value'
+				'default_value'	=> 'default_value'
 	);
-
-
-	/*
-	$general_options['responsive-layout'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Responsive layout',
-			'label'			=> 'Responsive layout',
-			'decsription'	=> 'Enable/Disable responsive layout.',
-			'value'			=> 'true',
-			'default-value'	=> 'default-value'
-	);
-	$general_options['base-parallax-effect'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Parallax effect',
-			'label'			=> 'Parallax effect',
-			'decsription'	=> 'Enable/Disable parallax effect',
-			'value'			=> 'true',
-			'default-value'	=> 'default-value'
-	);
-	$general_options['background-style'] = array(
-			'type'			=> 'background',
-			'title'			=> 'Background styling',
-			'label'			=> __('Background styling section', 'cherry'),
-			'decsription'	=> __('Change the background style', 'cherry'),
-			'return_data_type'	=> 'id',
-			'value'			=> array(
-					'image'	=> 'http://192.168.9.83/wodrpress-git/wp-cherry4-master/wordpress/wp-content/uploads/2014/05/site5.jpg',
-					'color'	=> '#a4cc3f',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-	);
-	$general_options['favicon'] = array(
-			'type'				=> 'image',
-			'title'				=> 'Favicon',
-			'label'				=> __('Click Upload or Enter the direct path to your favicon.', 'cherry'),
-			'decsription'		=> __('For example //your_website_url_here/wp-content/themes/themeXXXX/favicon.ico', 'cherry'),
-			'value'				=> '',
-			'default-value'		=> 'http://192.168.9.83/wodrpress-git/wp-cherry4-master/wordpress/wp-content/themes/cherryframework4/favicon.ico',
-			'display_image'		=> true,
-			'multi_upload'		=> true,
-			'return_data_type'	=> 'url'
-	);
-	$general_options['breadcrumbs'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Breadcrumbs',
-			'label'			=> 'Display breadcrumbs?',
-			'decsription'	=> 'Enable/Disable drop down fade-in animation.',
-			'value'			=> 'false',
-			'default-value'	=> 'default-value'
-	);
-	$general_options['general-custom-css'] = array(
-			'type'			=> 'textarea',
-			'title'			=> 'Custom CSS',
-			'label'			=> 'Custom CSS',
-			'decsription'	=> 'Want to add any custom CSS code? Put in here, and the rest is taken care of. This overrides any other stylesheets. eg: a.button{color:green}',
-			'value'			=> '',
-			'default-value'	=> ''
-	);*/
-
-
-	$optSectionsArray['general-options-section'] = array(
-			'name' => 'General',
-			'icon' => 'dashicons dashicons-admin-generic',
-			'parent' => '',
-			'priority' => 20,
-			'options-list' => $general_options
-	);
-
-
-////////// Header options /////////////////////////////////////////////////////
-
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Header options //////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$header_options = array();
 	$header_options['header-options'] = array(
 			'type'			=> 'info',
@@ -666,14 +483,13 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Header options</h2>'
 	);
-
 	$header_options['header-type-layout'] = array(
 			'type'			=> 'radio',
 			'title'			=> __('Header type layout', 'cherry'),
 			'label'			=> __('Header type layout', 'cherry'),
 			'decsription'	=> __('Choose header type layout.', 'cherry'),
 			'value'			=> 'header-type-layout-radio-1',
-			'default-value'	=> 'header-type-layout-radio-1',
+			'default_value'	=> 'header-type-layout-radio-1',
 			'class'			=> '',
 			'display_input'	=> false,
 			'options'		=> array(
@@ -703,38 +519,6 @@ function cherry_defaults_settings() {
 				)
 			)
 	);
-/*
-	$header_options['header-widgetarea-layout'] = array(
-			'type'			=> 'radio',
-			'title'			=> __('Widget area layout', 'cherry'),
-			'label'			=> __('Widget area layout', 'cherry'),
-			'decsription'	=> __('Choose widget area layout.', 'cherry'),
-			'value'			=> 'header-widgetarea-layout-radio-1',
-			'default-value'	=> 'header-widgetarea-layout-radio-1',
-			'class'			=> '',
-			'display_input'	=> false,
-			'options'		=> array(
-				'header-widgetarea-layout-radio-1' => array(
-					'label' => 'None',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-none.png'
-				),
-				'header-widgetarea-layout-radio-2' => array(
-					'label' => 'Single area',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-1.png'
-				),
-				'header-widgetarea-layout-radio-3' => array(
-					'label' => 'Double area',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-2.png'
-				),
-				'header-widgetarea-layout-radio-4' => array(
-					'label' => 'Quad area',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/widgets-layouts-4.png'
-				)
-			)
-	);
-*/
-
-
 	$header_options['header-background'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Header background',
@@ -749,93 +533,55 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
-
-
 	$header_options['header-background-full-scale'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Header full scale background',
 			'label'			=> 'Enable / Disable',
 			'decsription'	=> 'Enable/Disable header full scale background',
 			'value'			=> 'false',
-			'default-value'	=> 'default-value'
+			'default_value'	=> 'default_value'
 	);
-
-
 	$header_options['header-parallax-effect'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Parallax effect',
 			'label'			=> 'Parallax effect',
 			'decsription'	=> 'Enable/Disable header parallax effect',
 			'value'			=> 'true',
-			'default-value'	=> 'default-value'
+			'default_value'	=> 'default_value'
 	);
-
 	$header_options['header-sticky'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Header sticky',
 			'label'			=> 'Enable/Disable',
 			'decsription'	=> 'Enable/Disable header sticky',
 			'value'			=> 'false',
-			'default-value'	=> 'default-value'
+			'default_value'	=> 'default_value'
 	);
-
 	$header_options['header-sticky-tablets'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Header sticky on tablets',
 			'label'			=> 'Enable/Disable',
-
-			'hint'      	=>  array(
+			'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'For enable a fixed header when scrolling on tablets select enable or unselect to disable'
 				),
 			'value'			=> 'true',
-			'default-value'	=> 'default-value'
+			'default_value'	=> 'default_value'
 	);
-
 	$header_options['header-sticky-mobiles'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Header sticky on mobiles',
 			'label'			=> 'Enable/Disable',
-
 			'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'For enable a fixed header when scrolling on mobiles select enable or unselect to disable'
 				),
 			'value'			=> 'false',
-			'default-value'	=> 'default-value'
+			'default_value'	=> 'default_value'
 	);
-
-	/*
-	$header_options['search-form'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Search',
-			'label'			=> 'Display search form in the header?',
-			'decsription'	=> 'Enable/Disable search form.',
-			'value'			=> 'true',
-			'default-value'	=> 'default-value'
-	);
-	$header_options['header-social-list'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Header social list',
-			'label'			=> 'Display header social list?',
-			'decsription'	=> 'Enable/Disable header social list.',
-			'value'			=> 'false',
-			'default-value'	=> 'default-value'
-	);*/
-	$optSectionsArray['header-options-section'] = array(
-			'name' => 'Header',
-			'icon' => 'dashicons dashicons-admin-appearance',
-			'icon' => 'dashicons',
-			'parent' => '',
-			'priority' => 30,
-			'options-list' => $header_options
-	);
-
-
-
-////////// Footer options /////////////////////////////////////////////////////
-
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// Footer options /////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$footer_options = array();
 	$footer_options['footer-options'] = array(
 			'type'			=> 'info',
@@ -857,104 +603,83 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
-
 	$footer_options['footer-background-full-scale'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Footer full scale background',
 			'label'			=> 'Enable / Disable',
-			//'decsription'	=> 'Enable/Disable footer full scale background',
 			'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Enable this option to have footer area scale according to the browzer size. Background image display at 100% in width and height'
 				),
 			'value'			=> 'false',
-			'default-value'	=> 'default-value'
+			'default_value'	=> 'default_value'
 	);
-
 	$footer_options['footer-parallax-effect'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Parallax effect',
 			'label'			=> 'Parallax effect',
 			'decsription'	=> 'Enable/Disable footer parallax effect',
 			'value'			=> 'false',
-			'default-value'	=> 'default-value'
+			'default_value'	=> 'default_value'
 	);
-
 	$footer_options['footer-sticky'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Footer sticky',
 			'label'			=> 'Enable/Disable',
 			'decsription'	=> 'Enable/Disable footer sticky',
 			'value'			=> 'false',
-			'default-value'	=> 'default-value'
+			'default_value'	=> 'default_value'
 	);
-
-	/*
-	$header_options['search-form'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Search',
-			'label'			=> 'Display search form in the header?',
-			'decsription'	=> 'Enable/Disable search form.',
-			'value'			=> 'true',
-			'default-value'	=> 'default-value'
-	);
-	$header_options['header-social-list'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Header social list',
-			'label'			=> 'Display header social list?',
-			'decsription'	=> 'Enable/Disable header social list.',
-			'value'			=> 'false',
-			'default-value'	=> 'default-value'
-	);*/
-	$optSectionsArray['footer-options-section'] = array(
-			'name' => 'Footer',
-			'icon' => 'dashicons dashicons-admin-appearance',
-			'parent' => '',
-			'priority' => 30,
-			'options-list' => $footer_options
-	);
-
-
-////////// Styling options /////////////////////////////////////////////////////
-//dashicons-art
-
-
-
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// Grid options /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 	$grid_options = array();
 	$grid_options['grid-options'] = array(
 			'type'			=> 'info',
-			'title'			=> '',
+			'title'			=> 'Grid options',
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Grid Options</h2>'
 	);
-
-	$optSectionsArray['grid-options-section'] = array(
-			'name' => 'Grid',
-			'icon' => 'dashicons dashicons-admin-appearance',
-			'parent' => '',
-			'priority' => 30,
-			'options-list' => $grid_options
+	$grid_options['grid-type'] = array(
+				'type'			=> 'radio',
+				'title'			=> 'background pattern',
+				'label'			=> 'select one of them',
+				'decsription'	=> 'Background pattern for main container',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Background pattern for main container'
+				),
+				'value'			=> 'grid-type-radio-1',
+				'default_value'	=> 'grid-type-radio-1',
+				'class'			=> '',
+				'display_input'	=> false,
+				'options'		=> array(
+					'grid-type-radio-1' => array(
+						'label' => 'radio image 1',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'grid-type-radio-2' => array(
+						'label' => 'radio image 2',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+				)
 	);
-
-
 ////////// Logo options ///////////////////////////////////////////////////////
 
-
 	$logo_options = array();
-
 	$logo_options['logo-options'] = array(
 				'type'			=> 'info',
 				'title'			=> '',
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Logo options</h2>'
 	);
-	/*$logo_options['logo-kind'] = array(
+	$logo_options['logo-kind'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'Logo type',
 				'label'			=> 'What kind of logo?',
 				'decsription'	=> 'Select whether you want your main logo to be an image or text. If you select "image" you can put in the image url in the next option, and if you select "text" your Site Title will be shown instead.',
 				'value'			=> 'radio-1',
-				'default-value'	=> 'radio-1',
+				'default_value'	=> 'radio-1',
 				'class'			=> '',
 				'display_input'	=> true,
 				'options'		=> array(
@@ -974,7 +699,7 @@ function cherry_defaults_settings() {
 				'label'				=> 'Click Upload or Enter the direct path to your logo image.',
 				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
 				'value'				=> '',
-				'default-value'		=> '',
+				'default_value'		=> '',
 				'display-image'		=> true,
 				'multi-upload'		=> true,
 				'return-data_type'	=> 'url'
@@ -990,21 +715,12 @@ function cherry_defaults_settings() {
 					'color'			=> '#aa00aa',
 					'family'		=> 'Abril Fatface',
 					'character'		=> 'latin-ext',
-					'style'			=> 'italic'
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
 				)
-	);*/
-	$optSectionsArray['logo-options'] = array(
-			'name' => 'Logo',
-			'icon' => 'dashicons dashicons-arrow-right',
-			'parent' => 'header-options-section',
-			'priority' => 2,
-			'options-list' => $logo_options
 	);
-
-
 ////////// Navigation options ///////////////////////////////////////////////////
-
-
 		$navigation_options = array();
 		$navigation_options['navigation-options'] = array(
 				'type'			=> 'info',
@@ -1012,13 +728,13 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Navigation options</h2>'
 		);
-		/*$navigation_options['stickup-menu'] = array(
+		$navigation_options['stickup-menu'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'StickUp menu',
 				'label'			=> 'Using stickUp menu',
 				'decsription'	=> 'Do you want to use stickUp menu?',
 				'value'			=> 'true',
-				'default-value'	=> 'default-value'
+				'default_value'	=> 'default_value'
 		);
 		$navigation_options['menu-typography'] = array(
 				'type'			=> 'typography',
@@ -1031,43 +747,34 @@ function cherry_defaults_settings() {
 					'color'			=> '#aa00aa',
 					'family'		=> 'Abril Fatface',
 					'character'		=> 'latin-ext',
-					'style'			=> 'italic'
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
 				)
-		);*/
-		$optSectionsArray['navigation-options-section'] = array(
-				'name' => 'Navigation',
-				'icon' => 'dashicons dashicons-menu',
-				'parent' => '',
-				'priority' => 40,
-				'options-list' => $navigation_options
 		);
-
-////////// Breadcrumbs options /////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////// Breadcrumbs options ////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		$breadcrumbs_options = array();
 		$breadcrumbs_options['breadcrumbs-options'] = array(
 				'type'			=> 'info',
 				'title'			=> '',
 				'description'	=>'description',
 				'value'			=>'<h2>Breadcrumbs options'
-
-				);
-
+		);
 		$breadcrumbs_options['breadcrumbs'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'Breadcrumbs',
 				'label'			=> 'Enable / Disable',
 				'decsription'	=> 'Enable or disable breadcrumb navigation',
 				'value'			=> 'true',
-				'default-value'	=> 'default-value'
-
-				);
-
+				'default_value'	=> 'default_value'
+		);
 		$breadcrumbs_options['breadcrumbs-display'] = array(
 				'type'			=> 'multicheckbox',
 				'title'			=> 'Breadcrumb display',
 				'label'			=> 'Enable / Disable',
-				/*'decsription'	=> 'decsription multicheckbox',*/
+				'decsription'	=> 'decsription multicheckbox',
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Enable or disable displaying on mobile devices'
@@ -1077,7 +784,7 @@ function cherry_defaults_settings() {
 					'checkbox-1'	=> true,
 					'checkbox-2'	=> true,
 				),
-				'default-value'	=> array(
+				'default_value'	=> array(
 					'checkbox-1'	=> true,
 					'checkbox-2'	=> true,
 				),
@@ -1085,57 +792,51 @@ function cherry_defaults_settings() {
 					'checkbox-1'	=> 'tablet',
 					'checkbox-2'	=> 'mobile',
 				)
-				);
-
+		);
 		$breadcrumbs_options['breadcrumbs-bg-color'] = array(
 				'type'			=> 'background',
 				'title'			=> 'title background',
 				'label'			=> 'set default background',
-				/*'decsription'	=> 'decsription background',*/
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Background for main breadcrumb container'
 				),
-				'return-data-type'	=> 'url',
+				'return_data_type'	=> 'url',
 				'value'			=> array(
-						'image'	=> '',
-						'color'	=> '#ffCCCC',
-						'repeat'	=> 'repeat',
-						'position'	=> 'left',
-						'attachment'=> 'fixed'
-					)
-				);
-
+					'image'	=> '',
+					'color'	=> '#ffCCCC',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+		);
 		$breadcrumbs_options['breadcrumbs-bg-hover-color'] = array(
 				'type'			=> 'background',
 				'title'			=> 'title background',
 				'label'			=> 'set default background',
-				/*'decsription'	=> 'decsription background',*/
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Background hover for main breadcrumb container'
 				),
-				'return-data-type'	=> 'url',
+				'return_data_type'	=> 'url',
 				'value'			=> array(
-						'image'	=> '',
-						'color'	=> '#ffCCCC',
-						'repeat'	=> 'repeat',
-						'position'	=> 'left',
-						'attachment'=> 'fixed'
-					)
-				);
-
+					'image'		=> '',
+					'color'		=> '#ffCCCC',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+		);
 		$breadcrumbs_options['breadcrumbs-separator'] = array(
 				'type'			=> 'filterselect',
 				'title'			=> 'Item separator',
 				'label'			=> 'select separator type',
-				//'decsription'	=> 'decsription filterselect',
 				'hint'      	=>  array(
 					'type'		=> 'image',
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> 'arrow-outline',
-				'default-value'	=> 'arrow-outline',
+				'default_value'	=> 'arrow-outline',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'box-outline',
@@ -1143,8 +844,7 @@ function cherry_defaults_settings() {
 					'select-3'	=> 'divider-outline',
 					'select-4'	=> 'divider-arrow-outline'
 				)
-				);
-
+		);
 		$breadcrumbs_options['breadcrumbs-separator-icon'] = array(
 				'type'			=> 'filterselect',
 				'title'			=> 'Item icon separator',
@@ -1155,7 +855,7 @@ function cherry_defaults_settings() {
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> 'icon-right-dir',
-				'default-value'	=> 'icon-right-dir',
+				'default_value'	=> 'icon-right-dir',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'icon-right-open',
@@ -1164,8 +864,7 @@ function cherry_defaults_settings() {
 					'select-4'	=> 'icon-right-bold',
 					'select-5'	=> 'icon-right-thin'
 				)
-				);
-
+		);
 		$breadcrumbs_options['breadcrumbs-style'] = array(
 				'type'			=> 'select',
 				'title'			=> 'Breadcrumb style',
@@ -1175,51 +874,41 @@ function cherry_defaults_settings() {
 					'content'	=> 'For a stylized display breadcrumbs select one of the types'
 				),
 				'value'			=> 'simple',
-				'default-value'	=> 'simple',
+				'default_value'	=> 'simple',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'simple',
 					'select-2'	=> 'tabbed',
 				)
-				);
-
-
+		);
 		$breadcrumbs_options['breadcrumbs-link-color'] = array(
 				'type'			=> 'colorpicker',
 				'title'			=> 'color for breadcrumbs link',
 				'label'			=> 'select color',
 				'value'			=> '#ff5566',
-				'default-value'	=> '#ff5566'
-
-				);
-
+				'default_value'	=> '#ff5566'
+		);
 		$breadcrumbs_options['breadcrumbs-link-hover-color'] = array(
 				'type'			=> 'colorpicker',
 				'title'			=> 'hover color for breadcrumbs link',
 				'label'			=> 'select color',
 				'value'			=> '#ff5566',
-				'default-value'	=> '#ff5566'
-
-				);
-
+				'default_value'	=> '#ff5566'
+		);
 		$breadcrumbs_options['breadcrumbs-active-link-color'] = array(
 				'type'			=> 'colorpicker',
 				'title'			=> 'color for active breadcrumbs link',
 				'label'			=> 'select color',
 				'value'			=> '#ff5566',
-				'default-value'	=> '#ff5566'
-
-				);
-
+				'default_value'	=> '#ff5566'
+		);
 		$breadcrumbs_options['breadcrumbs-home-link-color'] = array(
 				'type'			=> 'colorpicker',
 				'title'			=> 'color for breadcrumbs home link',
 				'label'			=> 'select color',
 				'value'			=> '#454545',
-				'default-value'	=> '#454545'
-
-				);
-
+				'default_value'	=> '#454545'
+		);
 		$breadcrumbs_options['breadcrumbs-prefix-path'] = array(
 				'type'			=> 'text',
 				'title'			=> 'breadcrumbs prefix path',
@@ -1229,24 +918,20 @@ function cherry_defaults_settings() {
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> 'You are here',
-				'default-value'	=> 'You are here'
-
-				);
-
+				'default_value'	=> 'You are here'
+		);
 		$breadcrumbs_options['breadcrumbs-hierarchical-attachments'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'breadcrumb hierarchical attachments',
 				'label'			=> 'Enable / Disable',
-				/*'decsription'	=> 'Title before breadcrumb navigation',*/
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Show the taxonomy leading to a post in the breadcrumb trail.'
 				),
 				'value'			=> 'false',
-				'default-value'	=> 'default-value'
+				'default_value'	=> 'default_value'
 
-				);
-
+		);
 		$breadcrumbs_options['breadcrumbs-post-hierarchy'] = array(
 				'type'			=> 'select',
 				'title'			=> 'Breadcrumbs post hierarchy',
@@ -1256,7 +941,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'The hierarchy which the breadcrumb trail will show. Note that the "Post Parent" option may require an additional plugin to behave as expected since this is a non-hierarchical post type.'
 				),
 				'value'			=> 'Categories',
-				'default-value'	=> 'Categories',
+				'default_value'	=> 'Categories',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'Categories',
@@ -1264,37 +949,23 @@ function cherry_defaults_settings() {
 					'select-3'	=> 'Tags',
 					'select-4'	=> 'Post Parent',
 				)
-				);
-
+		);
 		$breadcrumbs_options['breadcrumbs-title-length'] = array(
 				'type'			=> 'stepper',
 				'title'			=> 'breadcrumb title length',
 				'label'			=> 'max title length',
-				/*'decsription'	=> 'decsription stepper',*/
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Limit the length of the breadcrumb title'
 				),
 				'value'			=> '0',
-				'default-value'	=> '0',
+				'default_value'	=> '0',
 				'value-step'	=> '1',
 				'max-value'		=> '150',
 				'min-value'		=> '1'
-				);
+		);
 
-
-
-
-		$optSectionsArray['breadcrumbs-options-section'] = array(
-				'name'			=>'Breadcrumbs',
-				'icon' 			=> 'dashicons dashicons-arrow-right',
-				'parent'		=> 'navigation-options-section',
-				'priority'		=> 40,
-				'options-list'	=> $breadcrumbs_options
-			);
-
-////////// Page navigation options /////////////////////////////////////////////
-
+//////////////////////////////// Page navigation options /////////////////////////////////////////////
 		$pagination_option = array();
 		$pagination_option['pagination-options'] = array(
 				'type'			=> 'info',
@@ -1302,15 +973,13 @@ function cherry_defaults_settings() {
 				'description'	=>	'description info',
 				'value' 		=>	'<h2>Pagination options</h2>'
 		);
-
 		$pagination_option['pagination-display'] = array(
 				'type'			=>  'switcher',
 				'title' 		=>  'pagination',
 				'label'			=>	'Enable / Disable',
 				'value'			=>	'true',
-				'default-value'	=>	'true'
+				'default_value'	=>	'true'
 		);
-
 		$pagination_option['pagination-type'] = array(
 				'type'			=> 'select',
 				'title'			=> 'Page navigation type',
@@ -1320,24 +989,21 @@ function cherry_defaults_settings() {
 					'content'	=> 'Select the pagination type'
 				),
 				'value'			=> 'pagination',
-				'default-value'	=> 'pagination',
+				'default_value'	=> 'pagination',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'pagination',
 					'select-2'	=> 'infinite scroll',
 					'select-3'	=>	'title navigation'
 				)
-				);
-
+		);
 		$pagination_option['pagination-next-previous'] = array(
 				'type'			=>  'switcher',
 				'title' 		=>  'pagination',
 				'label'			=>	'Enable / Disable',
-				/*'decsription'	=>	'',*/
 				'value'			=>	'true',
-				'default-value'	=>	'true'
+				'default_value'	=>	'true'
 		);
-
 		$pagination_option['pagination-label'] = array(
 				'type'			=> 'text',
 				'title'			=> 'pagination label',
@@ -1347,10 +1013,8 @@ function cherry_defaults_settings() {
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> 'Pages:',
-				'default-value'	=> 'Pages:'
-
+				'default_value'	=> 'Pages:'
 		);
-
 		$pagination_option['pagination-previous-page'] = array(
 				'type'			=> 'text',
 				'title'			=> 'previous page',
@@ -1360,10 +1024,8 @@ function cherry_defaults_settings() {
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> '&laquo;',
-				'default-value'	=> '&laquo;'
-
+				'default_value'	=> '&laquo;'
 		);
-
 		$pagination_option['pagination-next-page'] = array(
 				'type'			=> 'text',
 				'title'			=> 'next page',
@@ -1373,75 +1035,53 @@ function cherry_defaults_settings() {
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> '&raquo;',
-				'default-value'	=> '&raquo;'
-
+				'default_value'	=> '&raquo;'
 		);
-
 		$pagination_option['pagination-page-range'] = array(
 				'type'			=> 'stepper',
 				'title'			=> 'page range',
-				/*'label'			=> 'max title length',*/
 				'decsription'	=> 'decsription stepper',
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'The number of page links to show before and after the current page. Recommended value: 4'
 				),
 				'value'			=> '4',
-				'default-value'	=> '4',
+				'default_value'	=> '4',
 				'value-step'	=> '1',
 				'max-value'		=> '9999',
 				'min-value'		=> '1'
-				);
-
-
+		);
 		$pagination_option['pagination-page-anchors'] = array(
 				'type'			=> 'stepper',
 				'title'			=> 'page anchors',
-				/*'label'			=> 'max title length',*/
 				'decsription'	=> 'decsription stepper',
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'The number of links to always show at beginning and end of pagination. Recommended value: 1'
 				),
 				'value'			=> '1',
-				'default-value'	=> '1',
+				'default_value'	=> '1',
 				'value-step'	=> '1',
 				'max-value'		=> '99',
 				'min-value'		=> '1'
 				);
-
 		$pagination_option['pagination-page-gap'] = array(
 				'type'			=> 'stepper',
 				'title'			=> 'page anchors',
-				/*'label'			=> 'max title length',*/
 				'decsription'	=> 'decsription stepper',
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added. Recommended value: 3'
 				),
 				'value'			=> '3',
-				'default-value'	=> '3',
+				'default_value'	=> '3',
 				'value-step'	=> '1',
 				'max-value'		=> '9999',
 				'min-value'		=> '1'
-				);
-
-
-		$optSectionsArray['pagination-options-section'] = array(
-				'name'			=>	'Pagination',
-				'icon'			=>	'dashicons dashicons-arrow-right',
-				'parent'		=>	'navigation-options-section',
-				'priority'		=>	40,
-				'options-list'	=>	$pagination_option
-			);
-
-
-
-////////// Styling options /////////////////////////////////////////////////////
-//dashicons-art
-
-
-
+		);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Styling options /////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$styling_options = array();
 	$styling_options['styling-options'] = array(
 			'type'			=> 'info',
@@ -1449,40 +1089,35 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Styling Options</h2>'
 	);
-
 	//background image
 	$styling_options['styling-main-content-background'] = array(
 				'type'			=> 'background',
 				'title'			=> 'title background',
 				'label'			=> 'set default background',
-				/*'decsription'	=> 'decsription background',*/
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Background for main container'
 				),
-				'return-data-type'	=> 'url',
-				'value'			=> array(
-						'image'	=> '',
-						'color'	=> '#ff0000',
-						'repeat'	=> 'repeat',
-						'position'	=> 'left',
-						'attachment'=> 'fixed'
-					)
+				'return_data_type'	=> 'url',
+				'value'				=> array(
+					'image'	=> '',
+					'color'	=> '#ff0000',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
 	);
-
 	$styling_options['styling-main-background-full-scale'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'Full scale background',
 				'label'			=> 'Enable / Disable',
-				/*'decsription'	=> '',*/
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Enable this option to have scale according to the browzer size. Background image display at 100% in width and height'
 				),
 				'value'			=> 'true',
-				'default-value'	=> 'true'
+				'default_value'	=> 'true'
 	);
-
 	$styling_options['styling-main-parallax-background'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'Parallax background',
@@ -1493,9 +1128,8 @@ function cherry_defaults_settings() {
 					'content'	=> 'For using parallax effect on background press ON.'
 				),
 				'value'			=> 'true',
-				'default-value'	=> 'true'
+				'default_value'	=> 'true'
 	);
-
 	$styling_options['styling-main-background-pattern'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'background pattern',
@@ -1505,38 +1139,37 @@ function cherry_defaults_settings() {
 					'type'		=> 'text',
 					'content'	=> 'Background pattern for main container'
 				),
-				'value'			=> 'radio-image-1',
-				'default-value'	=> 'radio-image-1',
+				'value'			=> 'background-pattern-radio-2',
+				'default_value'	=> 'background-pattern-radio-2',
 				'class'			=> '',
-				'display-input'	=> false,
+				'display_input'	=> false,
 				'options'		=> array(
-					'radio-image-1' => array(
+					'background-pattern-radio-1' => array(
 						'label' => 'radio image 1',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio-image-2' => array(
+					'background-pattern-radio-2' => array(
 						'label' => 'radio image 2',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio-image-3' => array(
+					'background-pattern-radio-3' => array(
 						'label' => 'radio image 3',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio-image-4' => array(
+					'background-pattern-radio-4' => array(
 						'label' => 'radio image 4',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio-image-5' => array(
+					'background-pattern-radio-5' => array(
 						'label' => 'radio image 5',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio-image-6' => array(
+					'background-pattern-radio-6' => array(
 						'label' => 'radio image 6',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
 				)
 	);
-
 	$styling_options['styling-color-scheme'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'color scheme',
@@ -1547,9 +1180,9 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'radio-image-8',
-				'default-value'	=> 'radio-image-8',
+				'default_value'	=> 'radio-image-8',
 				'class'			=> '',
-				'display-input'	=> false,
+				'display_input'	=> false,
 				'options'		=> array(
 					'radio-image-8' => array(
 						'label' => 'radio image 8',
@@ -1565,13 +1198,12 @@ function cherry_defaults_settings() {
 					),
 				)
 	);
-
 	$styling_options['styling-primary-field-background'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Primary input field background',
 			'label'			=> 'Select background color',
 			'decsription'	=> 'Primary input field background',
-			'return-data-type'	=> 'id',
+			'return_data_type'	=> 'id',
 			'value'			=> array(
 					'image'	=> '',
 					'color'	=> '#a4cc3f',
@@ -1580,7 +1212,6 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
-
 	$styling_options['styling-primary-invalid-field-background'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Primary invalid field background',
@@ -1595,20 +1226,120 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
+//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Typography options /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
+	$typography_options = array();
+	$typography_options['typography-options'] = array(
+			'type'			=> 'info',
+			'title'			=> '',
+			'decsription'	=> 'decsription info',
+			'value'			=>'<h2>Typography options</h2>'
+	);
 
-
-
-
-	$optSectionsArray['styling-options-section'] = array(
-			'name' => 'Styling',
-			'icon' => 'dashicons dashicons-art',
-			'parent' => '',
-			'priority' => 30,
-			'options-list' => $styling_options
+	$typography_options['typography-body'] = array(
+			'type'			=> 'typography',
+			'title'			=> '',
+			'label'			=> 'Body text',
+			'decsription'	=> 'decsription typography',
+			'hint'			=>  array(
+				'type'			=> 'text',
+				'content'		=> ''
+			),
+			'value' => array(
+				'size'			=> '10',
+				'lineheight'	=> '10',
+				'color'			=> 'blue',
+				'family'		=> 'Abril Fatface',
+				'character'		=> 'latin-ext',
+				'style'			=> 'italic',
+				'letterspacing' => '0',
+				'align'			=> 'notdefined'
+			)
+	);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$sections_array = array();
+	$sections_array['demo-options-section'] = array(
+		'name'			=> 'All interface elements',
+		'icon'			=> 'dashicons dashicons-carrot',
+		'parent'		=> '',
+		'priority'		=> 1,
+		'options-list'	=> $demo_options
+	);
+	$sections_array['general-options-section'] = array(
+		'name'			=> 'General',
+		'icon' 			=> 'dashicons dashicons-admin-generic',
+		'parent'		=> '',
+		'priority'		=> 10,
+		'options-list'	=> $general_options
+	);
+	$sections_array['grid-options-section'] = array(
+		'name'			=> 'Grid',
+		'icon'			=> 'dashicons dashicons-admin-appearance',
+		'parent'		=> '',
+		'priority'		=> 20,
+		'options-list'	=> $grid_options
+	);
+	$sections_array['styling-options-section'] = array(
+		'name' 			=> 'Styling',
+		'icon' 			=> 'dashicons dashicons-art',
+		'parent'		=> '',
+		'priority'		=> 30,
+		'options-list'	=> $styling_options
+	);
+	$sections_array['navigation-options-section'] = array(
+		'name'			=> 'Navigation',
+		'icon' 			=> 'dashicons dashicons-menu',
+		'parent' 		=> '',
+		'priority'		=> 40,
+		'options-list'	=> $navigation_options
+	);
+	$sections_array['breadcrumbs-options-section'] = array(
+		'name'			=>'Breadcrumbs',
+		'icon' 			=> 'dashicons dashicons-arrow-right',
+		'parent'		=> 'navigation-options-section',
+		'priority'		=> 91,
+		'options-list'	=> $breadcrumbs_options
+	);
+	$sections_array['pagination-options-section'] = array(
+		'name'			=> 'Pagination',
+		'icon'			=> 'dashicons dashicons-arrow-right',
+		'parent'		=> 'navigation-options-section',
+		'priority'		=> 42,
+		'options-list'	=> $pagination_option
+	);
+	$sections_array['header-options-section'] = array(
+		'name'			=> 'Header',
+		'icon'			=> 'dashicons dashicons-admin-appearance',
+		'parent'		=> '',
+		'priority'		=> 50,
+		'options-list'	=> $header_options
+	);
+	$sections_array['logo-options-section'] = array(
+		'name'			=> 'Logo',
+		'icon'			=> 'dashicons dashicons-arrow-right',
+		'parent'		=> 'header-options-section',
+		'priority'		=> 51,
+		'options-list'	=> $logo_options
+	);
+	$sections_array['footer-options-section'] = array(
+		'name' 			=> 'Footer',
+		'icon' 			=> 'dashicons dashicons-admin-appearance',
+		'parent' 		=> '',
+		'priority'		=> 60,
+		'options-list'	=> $footer_options
+	);
+	$sections_array['typography-options-section'] = array(
+		'name' => 'Typography',
+		'icon' => 'dashicons dashicons-admin-generic',
+		'parent' => '',
+		'priority' => 70,
+		'options-list' => $typography_options
 	);
 
 
-
-	return apply_filters( 'cherry_defaults_settings', $optSectionsArray );
+	return apply_filters( 'cherry_defaults_settings', $sections_array );
 }

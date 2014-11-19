@@ -66,13 +66,13 @@
 			border: 1px solid #cccccc;
 			background: #fff;
 			padding: 10px 15px;
-			margin-bottom: 15px; 
+			margin-bottom: 15px;
 		}
 		.cherry-type-wrap{
 			border: 1px solid #cccccc;
 			background: #fff;
 			padding: 5px 10px 0px 10px;
-			margin-bottom: 5px; 
+			margin-bottom: 5px;
 		}
 		/*End Cherry column style*/
 		/*html ellements stule*/
@@ -132,11 +132,11 @@
 				text-align: center;
 				line-height: 12px;
 				font-size: 16px;
-				-webkit-user-select: none; 
-	  			   -moz-user-select: none;     
-	  				-ms-user-select: none;      
-	  				 -o-user-select: none;
-	  					user-select: none; 
+				-webkit-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					 -o-user-select: none;
+						user-select: none;
 				@media screen and (max-width: 782px){
 					line-height: 16px;
 					height: 16px;
@@ -148,11 +148,16 @@
 		.cherry-switcher-wrap{
 			overflow: hidden;
 			margin-top: 10px;
+			-webkit-user-select: none;
+					-moz-user-select: none;
+					-ms-user-select: none;
+					 -o-user-select: none;
+						user-select: none;
 				.sw-enable{
 					padding: 5px 10px;
 					background-color: #F5F5F5;
 					border: 1px solid #ccc;
-					border-right: none; 
+					border-right: none;
 					border-radius: 3px 0 0 3px;
 					display: block;
 					float: left;
@@ -162,7 +167,7 @@
 						&.selected{
 							background-color: #2EA2CC;
 							border: 1px solid #0074A2;
-							border-right: none; 
+							border-right: none;
 							box-shadow: inset 0 1px 0 rgba(120, 200, 230, 0.5),0 1px 0 rgba(0, 0, 0, 0.15);
 								span{
 									color: #fff;
@@ -173,7 +178,7 @@
 					padding: 5px 10px;
 					background-color: #F5F5F5;
 					border: 1px solid #ccc;
-					border-left: none; 
+					border-left: none;
 					border-radius: 0 3px 3px 0;
 					display: block;
 					float: left;
@@ -183,7 +188,7 @@
 						&.selected{
 							background-color: #646464;
 							border: 1px solid #3a3939;
-							border-left: none; 
+							border-left: none;
 							box-shadow: inset 0 1px 0 rgba(148, 148, 148, 0.5),0 1px 0 rgba(0, 0, 0, 0.15);
 								span{
 									color: #fff;
@@ -622,11 +627,11 @@
 								height: 40px;
 								margin-bottom: 5px;
 								background: rgba(46, 162, 204, 0.3);
-								border-color: #2EA2CC;  
+								border-color: #2EA2CC;
 							}
 					}
 			}
-			
+
 			.cherry-accordion-control{
 				.cherry-label{
 					text-align: right;
@@ -647,7 +652,7 @@
 						}
 				}
 				.add-new-btn{
-					float: right; 
+					float: right;
 				}
 			}
 		}
@@ -657,7 +662,7 @@
 body{
 	.custom-tooltip-styling{
 		border-width: 1px;
-		border-color: #D8D8D8; 
+		border-color: #D8D8D8;
 		border-radius: 0;
 		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 		background: #fff;
