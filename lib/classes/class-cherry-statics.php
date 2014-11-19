@@ -273,12 +273,12 @@ class Cherry_Statics {
 
 		if ( isset( $static_area['container_wrap'] ) ) {
 			$container = (bool) $static_area['container_wrap'];
-			$wrap_class = ( $container ) ? $wrap_class : $wrap_class . ' no-container';
+			$wrap_class = ( $container ) ? $wrap_class . ' with-container' : $wrap_class . ' no-container' ;
 		}
 
 		if ( isset( $static_area['row_wrap'] ) ) {
 			$row = (bool) $static_area['row_wrap'];
-			$wrap_class = ( $row ) ? $wrap_class : $wrap_class . ' no-row';
+			$wrap_class = ( $row ) ? $wrap_class . ' with-row' : $wrap_class . ' no-row';
 		}
 
 		// Wrap open (default).
