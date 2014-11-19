@@ -14,69 +14,67 @@
 	function new_cherry_set($result_array) {
 		$sections_array = array();
 
-
-////////// Dropdown options ///////////////////////////////////////////////////
-		/*$dropdown_options = array();
-		$dropdown_options['sub-navigation-options'] = array(
+////////// Megamenu options ///////////////////////////////////////////////////
+		$megamenu_options = array();
+		$megamenu_options['megamenu-options'] = array(
 					'type'			=> 'info',
 					'title'			=> '',
 					'decsription'	=> 'decsription info',
-					'value'			=> '<h2>Sub menu options</h2>'
+					'value'			=> '<h2>Megamenu</h2>'
 		);
-		$dropdown_options['dropdown'] = array(
+		$megamenu_options['megamenu-dropdown'] = array(
 					'type'			=> 'switcher',
-					'title'			=> 'Dropdown',
+					'title'			=> 'Megamenu',
 					'label'			=> 'Dropdown menu',
 					'decsription'	=> 'Enable/Disable dropdown menu.',
 					'value'			=> 'true',
-					'default_value'	=> 'default_value'
+					'default-value'	=> 'default-value'
 		);
-		$dropdown_options['dropdown-fadein-animation'] = array(
+		$megamenu_options['megamenu-fadein-animation'] = array(
 					'type'			=> 'switcher',
 					'title'			=> 'Drop down fade-in animation',
 					'label'			=> 'Fade-in animation',
 					'decsription'	=> 'Enable/Disable drop down fade-in animation.',
 					'value'			=> 'true',
-					'default_value'	=> 'default_value'
+					'default-value'	=> 'default-value'
 		);
-		$dropdown_options['dropdown-slidedown-animation'] = array(
+		$megamenu_options['megamenu-slidedown-animation'] = array(
 					'type'			=> 'switcher',
 					'title'			=> 'Drop down Slide-down animation',
 					'label'			=> 'Slide-down animation',
 					'decsription'	=> 'Enable/Disable drop down slide-down animation.',
 					'value'			=> 'false',
-					'default_value'	=> 'default_value'
+					'default-value'	=> 'default-value'
 		);
-		$dropdown_options['dropdown-animation-speed'] = array(
+		$megamenu_options['megamenu-animation-speed'] = array(
 					'type'			=> 'select',
 					'title'			=> 'Drop down animation speed',
 					'label'			=> 'Animation speed',
-					'decsription'	=> 'dDrop down animation speed',
+					'decsription'	=> 'Drop down animation speed',
 					'value'			=> 'Normal',
 					'default_value'	=> 'Normal',
 					'class'			=> 'width-full',
 					'options'		=> array(
-						'select_1'	=> 'Slow',
-						'select_2'	=> 'Normal',
-						'select_3'	=> 'Fast'
+						'select-1'	=> 'Slow',
+						'select-2'	=> 'Normal',
+						'select-3'	=> 'Fast'
 					)
 		);
-		$dropdown_options['dropdown-animation-delay'] = array(
+		$megamenu_options['dropdown-animation-delay'] = array(
 					'type'			=> 'text',
 					'title'			=> 'Drop down animation delay',
 					'label'			=> 'Animation delay',
 					'decsription'	=> 'Miliseconds delay on mouseout.',
 					'value'			=> '1000',
-					'default_value'	=> 'default_value'
+					'default-value'	=> 'default-value'
 		);
-		$optSectionsArray['dropdown-options'] = array(
-				'name' => 'Dropdown',
+		$sections_array['megamenu-options'] = array(
+				'name' => 'Megamenu',
 				'icon' => 'dashicons dashicons-arrow-right',
 				'parent' => 'navigation-options-section',
 				'priority' => 1,
-				'options-list' => $dropdown_options
-		);*/
-
+				'options-list' => $megamenu_options
+		);
 
 		foreach ($sections_array as $section_value => $value) {
 			$result_array[$section_value] = $value;
