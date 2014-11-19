@@ -12,54 +12,18 @@
 	add_filter('cherry_defaults_settings', 'new_cherry_set');
 
 	function new_cherry_set($result_array) {
-		$optSectionsArray = array();
-////////// Navigation options ///////////////////////////////////////////////////
-		$navigation_options = array();
-		$navigation_options['navigation-options'] = array(
-				'type'			=> 'info',
-				'title'			=> '',
-				'decsription'	=> 'decsription info',
-				'value'			=> '<h2>Navigation options</h2>'
-		);
-		/*$navigation_options['stickup-menu'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'StickUp menu',
-				'label'			=> 'Using stickUp menu',
-				'decsription'	=> 'Do you want to use stickUp menu?',
-				'value'			=> 'true',
-				'default_value'	=> 'default_value'
-		);
-		$navigation_options['menu-typography'] = array(
-				'type'			=> 'typography',
-				'title'			=> 'Menu Typography',
-				'label'			=> 'Menu Typography style',
-				'decsription'	=> 'Choose your prefered font for menu.',
-				'value'			=> array(
-					'size'			=> '14',
-					'lineheight'	=> '14',
-					'color'			=> '#aa00aa',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic'
-				)
-		);*/
-		$optSectionsArray['navigation-options-section'] = array(
-				'name' => 'Navigation',
-				'icon' => 'dashicons dashicons-menu',
-				'parent' => '',
-				'priority' => 40,
-				'options-list' => $navigation_options
-		);
+		$sections_array = array();
+
 
 ////////// Dropdown options ///////////////////////////////////////////////////
-		$dropdown_options = array();
+		/*$dropdown_options = array();
 		$dropdown_options['sub-navigation-options'] = array(
 					'type'			=> 'info',
 					'title'			=> '',
 					'decsription'	=> 'decsription info',
 					'value'			=> '<h2>Sub menu options</h2>'
 		);
-		/*$dropdown_options['dropdown'] = array(
+		$dropdown_options['dropdown'] = array(
 					'type'			=> 'switcher',
 					'title'			=> 'Dropdown',
 					'label'			=> 'Dropdown menu',
@@ -104,17 +68,17 @@
 					'decsription'	=> 'Miliseconds delay on mouseout.',
 					'value'			=> '1000',
 					'default_value'	=> 'default_value'
-		);*/
+		);
 		$optSectionsArray['dropdown-options'] = array(
 				'name' => 'Dropdown',
 				'icon' => 'dashicons dashicons-arrow-right',
 				'parent' => 'navigation-options-section',
 				'priority' => 1,
 				'options-list' => $dropdown_options
-		);
+		);*/
 
 
-		foreach ($optSectionsArray as $section_value => $value) {
+		foreach ($sections_array as $section_value => $value) {
 			$result_array[$section_value] = $value;
 		}
 		return $result_array;
