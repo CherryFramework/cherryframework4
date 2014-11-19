@@ -32,7 +32,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function __construct() {
 			// Global variables.
-			global $cherry, $cherry_registered_static_areas, $cherry_registered_statics;
+			global $cherry, $cherry_registered_static_areas, $cherry_registered_statics, $cherry_layout, $cherry_container_width;
 
 			// Set up an empty class for the global $cherry object.
 			$cherry = new stdClass;
@@ -42,6 +42,11 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Set up a stores the registered static elements.
 			$cherry_registered_statics = array();
+
+			// Set up a layout type.
+			$cherry_layout = 'boxed'; // boxed or wide TEMP
+
+			$cherry_container_width = '1170'; // TEMP
 
 			// Define framework, parent theme, and child theme constants.
 			add_action( 'after_setup_theme', array( $this, 'constants' ), 1 );
@@ -168,6 +173,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_filter( 'cherry_the_post_footer',     'do_shortcode', 20 );
 			add_filter( 'cherry_get_the_post_meta',   'do_shortcode', 20 );
 			add_filter( 'cherry_get_the_post_footer', 'do_shortcode', 20 );
+
+			// Load the core filters.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'filters.php' );
 		}
 
 		/**

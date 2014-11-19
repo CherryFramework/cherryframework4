@@ -8,7 +8,7 @@ add_action( 'cherry_header',        'cherry_header_load_template' );
 // Footer structure.
 add_action( 'cherry_footer_before', 'cherry_footer_wrap',    999 );
 add_action( 'cherry_footer_after',  'cherry_footer_wrap',      0 );
-// add_action( 'cherry_footer',        'cherry_footer_sidebar',   9 );
+add_action( 'cherry_footer',        'cherry_footer_sidebar',   9 );
 // add_action( 'cherry_footer',        'cherry_footer_menu',     15 );
 // add_action( 'cherry_footer',        'cherry_footer_info',     25 );
 add_action( 'cherry_footer',        'cherry_footer_load_template' );

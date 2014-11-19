@@ -30,25 +30,25 @@ function cherry_theme_setup() {
 		// 'container_wrap' => true,
 		// 'row_wrap'       => true,
 	) );
-	cherry_register_static_area( array(
-		'id'             => 'header-left',
-		'name'           => __( 'Header Left', 'cherry' ),
-		'before'         => '<div class="col-md-7">',
-		'after'          => '</div>',
-		'container_wrap' => false,
-	) );
-	cherry_register_static_area( array(
-		'id'             => 'header-right',
-		'name'           => __( 'Header Right', 'cherry' ),
-		'before'         => '<div class="col-md-5">',
-		'after'          => '</div>',
-		'container_wrap' => false,
-	) );
-	cherry_register_static_area( array(
-		'id'             => 'header-bottom',
-		'name'           => __( 'Header Bottom', 'cherry' ),
-		'container_wrap' => false,
-	) );
+	// cherry_register_static_area( array(
+	// 	'id'             => 'header-left',
+	// 	'name'           => __( 'Header Left', 'cherry' ),
+	// 	'before'         => '<div class="col-md-7">',
+	// 	'after'          => '</div>',
+	// 	'container_wrap' => false,
+	// ) );
+	// cherry_register_static_area( array(
+	// 	'id'             => 'header-right',
+	// 	'name'           => __( 'Header Right', 'cherry' ),
+	// 	'before'         => '<div class="col-md-5">',
+	// 	'after'          => '</div>',
+	// 	'container_wrap' => false,
+	// ) );
+	// cherry_register_static_area( array(
+	// 	'id'             => 'header-bottom',
+	// 	'name'           => __( 'Header Bottom', 'cherry' ),
+	// 	'container_wrap' => false,
+	// ) );
 	cherry_register_static_area( array(
 		'id'             => 'footer-top',
 		'name'           => __( 'Footer Top', 'cherry' ),

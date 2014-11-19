@@ -66,11 +66,38 @@ function cherry_set_content_width( $width = '' ) {
  * Function for getting the theme's content width.
  *
  * @since  4.0.0
- * @global int    $content_width The width for the theme's content area.
- * @return int    $content_width
+ * @global int   $content_width The width for the theme's content area.
+ * @return int   $content_width
  */
 function cherry_get_content_width() {
 	global $content_width;
 
 	return $content_width;
+}
+
+function cherry_get_container_class( $location ) {
+	global $cherry_layout;
+
+	if ( 'wide' === $cherry_layout ) {
+		$class = 'container';
+	} elseif ( 'boxed' === $cherry_layout ) {
+		$class = 'container-fluid';
+	}
+
+	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
+		$class = 'container-fluid';
+	}
+
+	$class .= ' container-' . sanitize_html_class( $location );
+
+	/**
+	 * Filters a class for container.
+	 *
+	 * @since 4.0.0
+	 * @param string $class    HTML-class for container.
+	 * @param string $location A container location.
+	 */
+	$class = apply_filters( 'cherry_get_container_class', $class, $location );
+
+	return esc_attr( trim( $class ) );
 }
