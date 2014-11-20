@@ -1,2 +1,11 @@
 @import "cherry-css-framework/variables";
 @import "cherry-css-framework/cherry-css-framework";
+
+// Fix for static-area without .container
+.static-area.no-container.with-row {
+	@include container-fixed();
+	.container & {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}

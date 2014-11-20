@@ -15,3 +15,34 @@ Use it to make something cool, have fun, and share what you've learned with othe
 */
 
 @import "assets/css/style-main.css";
+
+.cherry-container {
+	margin: 0 auto;
+}
+.cherry-container-fluid,
+.cherry-container {
+	background: #ccc;
+}
+/*.box-gray { background: #999; }
+.box-green { background: #c7ff00; }
+.container { background: #428bca; }
+.container-fluid { background: #428bca; }*/
+
+.site-header { background: #aaa; border-bottom: 3px solid #000; }
+.site-footer { background: #aaa; border-top: 3px solid #000; }
+.widget-area { background: #999; }
+
+@media (min-width: 992px) {
+	.cherry-with-sidebar .content-area {
+		float: left;
+		width: 75%;
+	}
+	#secondary.widget-area {
+		float: left;
+		width: 23%;
+		margin-left: 2%;
+	}
+	.cherry-with-sidebar .entry-content .container {
+		width: 80%; /* fix */
+	}
+}
