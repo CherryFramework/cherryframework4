@@ -29,6 +29,8 @@
   /*End Cherry tooltip style*/
   /*Cherry accordion style*/
   /*End Cherry accordion style*/
+  /*Cherry icon-sets-editor style*/
+  /*Cherry icon-sets-editor style*/
 }
 .cherry-section .cherry-title {
   margin: 0 0 5px 0;
@@ -645,6 +647,12 @@
 }
 .cherry-section .cherry-static-area-editor-wrap .cherry-accordion-control .add-new-btn {
   float: right;
+}
+.cherry-section .cherry-icon-sets-editor-wrap {
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
 body .custom-tooltip-styling {

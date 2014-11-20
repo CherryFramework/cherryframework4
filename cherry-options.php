@@ -7,11 +7,34 @@ function cherry_defaults_settings() {
 	//var_dump($all_statics);
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
-	$demo_options['title_demo'] = array(
+	$demo_options['title-demo'] = array(
 				'type'			=> 'info',
 				'title'			=> '',
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Demo options</h2>'
+	);
+	$demo_options['icons-editor'] = array(
+				'type'			=> 'icons_editor',
+				'title'			=> 'title icon-editor',
+				'label'			=> 'label icon-editor',
+				'decsription'	=> 'decsription icon-editor',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> array(
+					'icon_set_1' => array(
+						'set_name' => __('Icon set 1', 'cherry'),
+						'set_list' => array(
+							'icon_1' => array(
+								'title'		=> __('Facebook', 'cherry'),
+								'type'		=> 'text',
+								'link'		=> 'https://facebook.com/',
+							)
+						)
+					)
+				),
+				'default_value'	=> 'default_value'
 	);
 	$demo_options['static-area-editor'] = array(
 				'type'			=> 'static_area_editor',
@@ -139,12 +162,32 @@ function cherry_defaults_settings() {
 				'value'			=> 'true',
 				'default_value'	=> 'true'
 	);
+	$demo_options['switcher-custom-toogle-demo'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'title custom switcher',
+				'label'			=> 'label custom switcher',
+				'decsription'	=> 'decsription custom switcher',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true',
+				'toggle'		=> array(
+					'true_toggle'	=> __( 'Enabled', 'cherry' ),
+					'false_toggle'	=> __( 'Disabled', 'cherry' )
+				),
+				'nested_items' => array(
+					'true_relative' => 'wrap-cherry-title-demo-sw-enable',
+					'false_relative' => 'wrap-cherry-title-demo-sw-disable'
+				)
+	);
 	$demo_options['slider-demo'] = array(
 				'type'			=> 'slider',
 				'title'			=> 'title Slider',
 				'label'			=> 'label Slider',
 				'decsription'	=> 'decsription Slider',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),

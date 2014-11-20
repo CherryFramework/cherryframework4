@@ -110,6 +110,10 @@ class Cherry_Interface_Builder {
 			'title'              => '',
 			'decsription'        => '',
 			'hint'               => '',
+			'toggle'             => array(
+				'true_toggle'	=> __( 'On', 'cherry' ),
+				'false_toggle'	=> __( 'Off', 'cherry' )
+			)
 		);
 		extract( array_merge( $default, $args ) );
 
@@ -288,8 +292,8 @@ class Cherry_Interface_Builder {
 			*/
 			case 'switcher':
 				$output .= '<div class="cherry-switcher-wrap">';
-				$output .= '<label class="sw-enable"><span>On</span></label>';
-				$output .= '<label class="sw-disable"><span>Off</span></label>';
+				$output .= '<label class="sw-enable"><span>' . $toggle['true_toggle'] . '</span></label>';
+				$output .= '<label class="sw-disable"><span>' . $toggle['false_toggle'] . '</span></label>';
 				$output .= '<input type="hidden" ' . $item_inline_style . ' class="cherry-input ' . $class . '" name="' . $name . '" ' . checked( $default_value, $value, false ) . ' value="' . esc_html( $value ) . '" >';
 				$output .= '</div>';
 			break;
@@ -348,7 +352,7 @@ class Cherry_Interface_Builder {
 			break;
 			/*
 			arg:
-				type: accordion
+				type: static_area_editor
 				title: ''
 				label: ''
 				decsription: ''
@@ -440,6 +444,24 @@ class Cherry_Interface_Builder {
 
 				$output .= '</div>';
 			break;
+
+			/*
+			arg:
+				type: icon_sets_editor
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				default_value: ''
+				class: ''
+				item_inline_style: ''
+			*/
+			case 'icon_sets_editor':
+				$output .= '<div id="' . $id . '" class="cherry-icon-sets-editor-wrap" data-name="' . $name . '">';
+
+				$output .= '</div>';
+			break;
+
 
 			/*
 			arg:
