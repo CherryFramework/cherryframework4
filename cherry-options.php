@@ -636,7 +636,7 @@ function cherry_defaults_settings() {
 	$grid_options = array();
 	$grid_options['grid-options'] = array(
 			'type'			=> 'info',
-			'title'			=> 'Grid options',
+			'title'			=> '',
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Grid Options</h2>'
 	);
@@ -655,15 +655,79 @@ function cherry_defaults_settings() {
 				'display_input'	=> false,
 				'options'		=> array(
 					'grid-type-radio-1' => array(
-						'label' => 'radio image 1',
+						'label' => 'grid-wide',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
 					'grid-type-radio-2' => array(
-						'label' => 'radio image 2',
+						'label' => 'grid-boxed',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
 				)
 	);
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////// Page layout options ////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+		$page_layout_options = array();
+		$page_layout_options['page-layout-options'] = array(
+				'type'			=> 'info',
+				'title'			=> '',
+				'description'	=>'description',
+				'value'			=>'<h2>Page layouts</h2>'
+
+				);
+
+		$page_layout_options['page-layout-container-width'] = array(
+				'type'			=> 'text',
+				'title'			=> 'container width',
+				/*'label'			=> 'label text',*/
+				'decsription'	=> 'width of main container',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'width of main container'
+				),
+				'value'			=> '1170',
+				'default-value'	=> 'default-value'
+	);
+
+		$page_layout_options['page-layout-type-options'] = array(
+			'type'			=> 'radio',
+			'title'			=> __('Header type layout', 'cherry'),
+			'label'			=> __('Header type layout', 'cherry'),
+			'decsription'	=> __('Choose header type layout.', 'cherry'),
+			'value'			=> 'header-type-layout-radio-1',
+			'default-value'	=> 'header-type-layout-radio-1',
+			'class'			=> '',
+			'display_input'	=> false,
+			'options'		=> array(
+				'header-type-layout-radio-1' => array(
+					'label' => 'Top static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
+				),
+				'header-type-layout-radio-2' => array(
+					'label' => 'Left static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
+				),
+				'header-type-layout-radio-3' => array(
+					'label' => 'Right static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
+				),
+				'header-type-layout-radio-4' => array(
+					'label' => 'Top toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
+				),
+				'header-type-layout-radio-5' => array(
+					'label' => 'Left toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
+				),
+				'header-type-layout-radio-6' => array(
+					'label' => 'Right toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
+				)
+			)
+	);
+
 ////////// Logo options ///////////////////////////////////////////////////////
 
 	$logo_options = array();
@@ -1282,6 +1346,13 @@ function cherry_defaults_settings() {
 		'parent'		=> '',
 		'priority'		=> 20,
 		'options-list'	=> $grid_options
+	);
+	$sections_array['page-layout-options-section'] = array(
+		'name'			=> 'Page layouts',
+		'icon' 			=> 'dashicons dashicons-arrow-right',
+		'parent'		=> 'grid-options-section',
+		'priority'		=> 21,
+		'options-list'	=> $page_layout_options
 	);
 	$sections_array['styling-options-section'] = array(
 		'name' 			=> 'Styling',
