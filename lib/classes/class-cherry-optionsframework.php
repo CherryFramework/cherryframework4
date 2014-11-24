@@ -313,7 +313,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	}
 }
 
-function cherry_get_option( $name , $default = false) {
+function cherry_get_option( $name , $default = false ) {
 	return Cherry_Options_Framework::get_option_value( $name, $default );
 }
 //var_dump(Cherry_Options_Framework::get_option_value('static-area-editor'));

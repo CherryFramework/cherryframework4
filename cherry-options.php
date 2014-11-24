@@ -678,34 +678,34 @@ function cherry_defaults_settings() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	$grid_options = array();
 	$grid_options['grid-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=> '<h2>Grid Options</h2>'
+		'type'        => 'info',
+		'title'       => '',
+		'decsription' => 'decsription info',
+		'value'       => '<h2>Grid Options</h2>',
 	);
 	$grid_options['grid-type'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'background pattern',
-				'label'			=> 'select one of them',
-				'decsription'	=> 'Background pattern for main container',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Background pattern for main container'
+				'type'        => 'radio',
+				'title'       => __( 'Grid type', 'cherry' ),
+				'label'       => __( 'select one of them', 'cherry' ),
+				'decsription' => __( 'Grid type for main container', 'cherry' ),
+				'hint'        => array(
+					'type'    => 'text',
+					'content' => __( 'Background pattern for main container', 'cherry' ),
 				),
-				'value'			=> 'grid-type-radio-1',
-				'default_value'	=> 'grid-type-radio-1',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'grid-type-radio-1' => array(
-						'label' => 'grid-wide',
+				'value'         => 'grid-boxed',
+				'default_value' => 'grid-boxed',
+				'class'         => '',
+				'display_input' => false,
+				'options'       => array(
+					'grid-wide' => array(
+						'label'   => __( 'Wide', 'cherry' ),
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'grid-type-radio-2' => array(
-						'label' => 'grid-boxed',
+					'grid-boxed' => array(
+						'label'   => __( 'Boxed', 'cherry' ),
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-				)
+				),
 	);
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// Page layout options ////////////////////////////////////////////////
@@ -714,25 +714,22 @@ function cherry_defaults_settings() {
 
 		$page_layout_options = array();
 		$page_layout_options['page-layout-options'] = array(
-				'type'			=> 'info',
-				'title'			=> '',
-				'description'	=>'description',
-				'value'			=>'<h2>Page layouts</h2>'
-
-				);
+			'type'  => 'info',
+			'value' =>'<h2>Page layouts</h2>',
+		);
 
 		$page_layout_options['page-layout-container-width'] = array(
-				'type'			=> 'text',
-				'title'			=> 'container width',
-				/*'label'			=> 'label text',*/
-				'decsription'	=> 'width of main container',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'width of main container'
-				),
-				'value'			=> '1170',
-				'default-value'	=> 'default-value'
-	);
+			'type'        => 'slider',
+			'title'       => __( 'Container width', 'cherry' ),
+			'decsription' => __( 'Width of main container (px)', 'cherry' ),
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => __( 'Width of main container (px)', 'cherry' ),
+			),
+			'max_value' => 1920, // Full HD
+			'min_value' => 970,
+			'value'     => 1170,
+		);
 
 		$page_layout_options['page-layout-type-options'] = array(
 			'type'			=> 'radio',
