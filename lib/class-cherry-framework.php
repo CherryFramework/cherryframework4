@@ -168,6 +168,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_filter( 'cherry_the_post_footer',     'do_shortcode', 20 );
 			add_filter( 'cherry_get_the_post_meta',   'do_shortcode', 20 );
 			add_filter( 'cherry_get_the_post_footer', 'do_shortcode', 20 );
+
+			// Load the core filters.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'filters.php' );
 		}
 
 		/**

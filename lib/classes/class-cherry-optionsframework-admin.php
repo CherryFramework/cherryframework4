@@ -203,6 +203,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				//var_dump($_POST['cherry']);
 				$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
 				do_action('cherry-options-updated');
+				//$location = add_query_arg( array( 'saved' => 'true' ), menu_page_url( 'cherry-options', 0 ) );
+				//wp_redirect( $location );
+				//exit;
 			}
 			//restore section
 			if(isset($_POST['cherry']['restore-section'])){
@@ -214,10 +217,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				$cherry_options_framework -> restore_default_settings_array();
 				do_action('cherry-options-restored');
 			}
-			//restore options
-			/*if(isset($_POST['cherry']['export-options'])){
-				$cherry_options_framework -> json_export_options($_POST['cherry']);
-			}*/
 
 			$cherry_options = $cherry_options_framework->get_settings();
 
@@ -239,6 +238,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 						<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
 					</div>
 					<?php settings_errors( 'cherry-options-group' ); ?>
+
 						<form id="cherry-options" method="post">
 							<?php settings_fields( 'cherry-options-group' ); ?>
 							<input class="active-section-field" type="hidden" name="active_section" value="">

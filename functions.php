@@ -30,24 +30,32 @@ function cherry_theme_setup() {
 		// 'container_wrap' => true,
 		// 'row_wrap'       => true,
 	) );
+	// cherry_register_static_area( array(
+	// 	'id'             => 'header-left',
+	// 	'name'           => __( 'Header Left', 'cherry' ),
+	// 	'before'         => '<div class="col-md-7">',
+	// 	'after'          => '</div>',
+	// 	'container_wrap' => false,
+	// ) );
+	// cherry_register_static_area( array(
+	// 	'id'             => 'header-right',
+	// 	'name'           => __( 'Header Right', 'cherry' ),
+	// 	'before'         => '<div class="col-md-5">',
+	// 	'after'          => '</div>',
+	// 	'container_wrap' => false,
+	// ) );
+	// cherry_register_static_area( array(
+	// 	'id'             => 'header-bottom',
+	// 	'name'           => __( 'Header Bottom', 'cherry' ),
+	// 	'container_wrap' => false,
+	// ) );
 	cherry_register_static_area( array(
-		'id'             => 'header-left',
-		'name'           => __( 'Header Left', 'cherry' ),
-		'before'         => '<div class="col-md-7">',
-		'after'          => '</div>',
-		'container_wrap' => false,
+		'id'             => 'footer-top',
+		'name'           => __( 'Footer Top', 'cherry' ),
 	) );
 	cherry_register_static_area( array(
-		'id'             => 'header-right',
-		'name'           => __( 'Header Right', 'cherry' ),
-		'before'         => '<div class="col-md-5">',
-		'after'          => '</div>',
-		'container_wrap' => false,
-	) );
-	cherry_register_static_area( array(
-		'id'             => 'header-bottom',
-		'name'           => __( 'Header Bottom', 'cherry' ),
-		'container_wrap' => false,
+		'id'             => 'footer-bottom',
+		'name'           => __( 'Footer Bottom', 'cherry' ),
 	) );
 
 	// Registered a static elements.
@@ -61,7 +69,7 @@ function cherry_theme_setup() {
 			'col-lg'   => 'col-lg-4',
 			'class'    => 'custom-logo',
 			'area'     => 'header-top',
-			'priority' => 10,
+			'priority' => 1,
 		)
 	) );
 	cherry_register_static( array(
@@ -137,6 +145,28 @@ function cherry_theme_setup() {
 			'area'     => 'header-bottom',
 		)
 	) );
+	cherry_register_static( array(
+		'name'    => __( 'Sidebar', 'cherry4' ),
+		'id'      => 'header_sidebar',
+		'options' => array(
+			'priority' => 3,
+			'area'     => 'header-bottom',
+		)
+	) );
+
+	cherry_register_static( array(
+		'id'      => 'footer_menu',
+		'name'    => __( 'Footer Menu', 'cherry4' ),
+		'options' => array(
+			'col-lg'   => 'col-lg-8',
+			'col-md'   => 'col-md-8',
+			'col-sm'   => 'col-sm-12',
+			'col-xs'   => 'col-xs-12',
+			'class'    => 'custom-footer-menu',
+			'priority' => 1,
+			'area'     => 'footer-top',
+		)
+	) );
 
 	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array(
@@ -174,9 +204,6 @@ function cherry_theme_setup() {
 
 function banner_callback() {
 	echo '<img src="http://dummyimage.com/800x600/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">';
-}
-function loginout_callback() {
-	wp_loginout();
 }
 function info_callback() {
 	echo "Static 6";

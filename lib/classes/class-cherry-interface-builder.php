@@ -110,6 +110,10 @@ class Cherry_Interface_Builder {
 			'title'              => '',
 			'decsription'        => '',
 			'hint'               => '',
+			'toggle'             => array(
+				'true_toggle'	=> __( 'On', 'cherry' ),
+				'false_toggle'	=> __( 'Off', 'cherry' )
+			)
 		);
 		extract( array_merge( $default, $args ) );
 
@@ -288,8 +292,8 @@ class Cherry_Interface_Builder {
 			*/
 			case 'switcher':
 				$output .= '<div class="cherry-switcher-wrap">';
-				$output .= '<label class="sw-enable"><span>On</span></label>';
-				$output .= '<label class="sw-disable"><span>Off</span></label>';
+				$output .= '<label class="sw-enable"><span>' . $toggle['true_toggle'] . '</span></label>';
+				$output .= '<label class="sw-disable"><span>' . $toggle['false_toggle'] . '</span></label>';
 				$output .= '<input type="hidden" ' . $item_inline_style . ' class="cherry-input ' . $class . '" name="' . $name . '" ' . checked( $default_value, $value, false ) . ' value="' . esc_html( $value ) . '" >';
 				$output .= '</div>';
 			break;
@@ -333,14 +337,14 @@ class Cherry_Interface_Builder {
 				$output .= '<div class="cherry-rangeslider-wrap">';
 					$output .= '<input type="hidden" class="cherry-input range-hidden-input' . $class . '" name="' . $name . '" value="" >';
 					$output .= '<div class="cherry-rangeslider-left-input">';
-						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-left' . $class . '" name="' . $name . '[left_value]" value="' . esc_html( $value['left_value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
+						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-left' . $class . '" name="' . $name . '[left-value]" value="' . esc_html( $value['left-value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
 						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 					$output .= '</div>';
 					$output .= '<div class="cherry-range-slider-holder">';
-						$output .= '<div class="cherry-range-slider-unit" data-left-limit="' . $min_value . '" data-right-limit="' . $max_value . '" data-left-value="' . $value['left_value'] . '" data-right-value="' . $value['right_value'] . '"></div>';
+						$output .= '<div class="cherry-range-slider-unit" data-left-limit="' . $min_value . '" data-right-limit="' . $max_value . '" data-left-value="' . $value['left-value'] . '" data-right-value="' . $value['right-value'] . '"></div>';
 					$output .= '</div>';
 					$output .= '<div class="cherry-rangeslider-right-input">';
-						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-right' . $class . '" name="' . $name . '[right_value]" value="' . esc_html( $value['right_value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
+						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-right' . $class . '" name="' . $name . '[right-value]" value="' . esc_html( $value['right-value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
 						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 					$output .= '</div>';
 					$output .= '<div class="clear"></div>';
@@ -348,7 +352,7 @@ class Cherry_Interface_Builder {
 			break;
 			/*
 			arg:
-				type: accordion
+				type: static_area_editor
 				title: ''
 				label: ''
 				decsription: ''
@@ -360,7 +364,6 @@ class Cherry_Interface_Builder {
 			case 'static_area_editor':
 				global $cherry_registered_static_areas;
 				$available_areas = $cherry_registered_static_areas;
-				
 				$output .= '<div id="' . $id . '" class="cherry-static-area-editor-wrap" data-name="' . $name . '">';
 					foreach ($available_areas as $area => $area_settings) {
 						$output .= '<div class="area-unit" data-area="' . $area . '">';
@@ -413,6 +416,7 @@ class Cherry_Interface_Builder {
 											$output .= '</div>';
 											$output .= '<div class="field-class">';
 												$output .= $this -> add_label($id . '-class',  __( 'Custom class', 'cherry' ), $this->options['class']['label'].' cherry-block');
+
 												$output .= '<input class="width-full key-custom-class" name="' . $name . '[' . $handle . '][options][class]" value="' . esc_html( $handleArray['options']['class'] ) . '" type="text" />';
 											$output .= '</div>';
 											$output .= '<input type="hidden" class="key-item-name" name="' . $name . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
@@ -440,7 +444,25 @@ class Cherry_Interface_Builder {
 
 				$output .= '</div>';
 			break;
-			
+
+			/*
+			arg:
+				type: icon_sets_editor
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				default_value: ''
+				class: ''
+				item_inline_style: ''
+			*/
+			case 'icon_sets_editor':
+				$output .= '<div id="' . $id . '" class="cherry-icon-sets-editor-wrap" data-name="' . $name . '">';
+
+				$output .= '</div>';
+			break;
+
+
 			/*
 			arg:
 				type: multicheckbox
@@ -637,15 +659,15 @@ class Cherry_Interface_Builder {
 							'repeat-y' => __( 'Repeat Vertically', 'cherry' )
 					),
 					'position' => array(
-							'top left' => __( 'Top Left', 'cherry' ),
+							'top-left' => __( 'Top Left', 'cherry' ),
 							'top' => __( 'Top Center', 'cherry' ),
-							'right top' => __( 'Top Right', 'cherry' ),
+							'right-top' => __( 'Top Right', 'cherry' ),
 							'left' => __( 'Middle Left', 'cherry' ),
 							'center' => __( 'Middle Center', 'cherry' ),
 							'right' => __( 'Middle Right', 'cherry' ),
-							'bottom left' => __( 'Bottom Left', 'cherry' ),
+							'bottom-left' => __( 'Bottom Left', 'cherry' ),
 							'bottom' => __( 'Bottom Center', 'cherry' ),
-							'bottom right' => __( 'Bottom Right', 'cherry' )
+							'bottom-right' => __( 'Bottom Right', 'cherry' )
 					),
 					'attachment' => array(
 							'fixed' => __( 'Scroll Normally', 'cherry' ),
@@ -657,7 +679,7 @@ class Cherry_Interface_Builder {
 							'content-box' => __( 'Content box', 'cherry' )
 					),
 					'size' => array(
-							'auto auto' => __( 'Auto Auto', 'cherry' ),
+							'auto-auto' => __( 'Auto Auto', 'cherry' ),
 							'cover'     => __( 'Cover', 'cherry' ),
 							'contain'   => __( 'Contain', 'cherry' )
 					),
@@ -684,15 +706,17 @@ class Cherry_Interface_Builder {
 				$output .= '<div '.$img_style.' class="cherry-element-wrap cherry-upload-preview" >';
 					$output .= '<div class="cherry-group">';
 						$output .= $this -> add_label($id,  __( 'Background Settings', 'cherry' ), $this->options['class']['label'].' cherry-block');
-						foreach ($background_options as $options_key => $options_value) {
-							$output .= '<div class="cherry-bgsetting">';
-								$output .= $this -> add_label($id . '['. $options_key .']',  __( 'Background '.$options_key, 'cherry' ), $this->options['class']['label'].' cherry-block');
-								$output .= '<select class="widefat'.$this->options['class']['section'].'" id="' . $id . '['.$options_key.']" name="' . $name . '['.$options_key.']">';
-									foreach ($options_value as $option => $option_value) {
-										$output .= '<option value="'.$option.'" ' . selected( $value[$options_key], $option, false ) . '>' . esc_html( $option_value ). '</option>';
-									}
-								$output .= '</select>';
-							$output .= '</div>';
+						foreach ($background_options as $options_key => $options_settings) {
+							if( isset( $value[$options_key] ) ){
+								$output .= '<div class="cherry-bgsetting">';
+									$output .= $this -> add_label($id . '['. $options_key .']',  __( 'Background '.$options_key, 'cherry' ), $this->options['class']['label'].' cherry-block');
+									$output .= '<select class="widefat'.$this->options['class']['section'].'" id="' . $id . '['.$options_key.']" name="' . $name . '['.$options_key.']">';
+										foreach ($options_settings as $option => $option_value) {
+											$output .= '<option value="'.$option.'" ' . selected( $value[$options_key], $option, false ) . '>' . esc_html( $option_value ). '</option>';
+										}
+									$output .= '</select>';
+								$output .= '</div>';
+							}
 						}
 						$output .= '<div class="clear"></div>';
 					$output .= '</div>';
@@ -837,7 +861,7 @@ class Cherry_Interface_Builder {
 						$output .= $this -> add_label($id . '[letter-spacing]',  __( 'Letter-spacing', 'cherry' ), $this->options['class']['label'].' cherry-block');
 						$output .= '<input id="' . $id . '[letterspacing]" name="' . $name . '[letterspacing]" class="cherry-stepper-input font-letterspacing" type="text" value="' . esc_html( $value['letterspacing'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="0" data-value-step="1">';
 						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span> px';
-					$output .= '</div>';	
+					$output .= '</div>';
 					//color
 					$output .= '<div class="field-font-color">';
 						$output .= $this -> add_label($id . '[color]',  __( 'Font color', 'cherry' ), $this->options['class']['label'].' cherry-block');
@@ -845,8 +869,8 @@ class Cherry_Interface_Builder {
 					$output .= '</div>';
 				$output .= '</div>';
 
-				
-				
+
+
 				$output .= '<input name="' . $name . '[category]" value="" class="cherry-font-category" type="hidden" />';
 				$output .= '</div>';
 

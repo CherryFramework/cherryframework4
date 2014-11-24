@@ -156,22 +156,22 @@ function cherry_get_the_post_header() {
 	$post_id   = get_the_ID();
 	$post_type = get_post_type();
 
-	$defaults = array(
+	/**
+	 * Filter the arguments used to display a post header.
+	 *
+	 * @since 4.0.0
+	 * @param array  $args      Array of arguments.
+	 * @param int    $post_id   The post ID.
+	 * @param string $post_type The post type of the current post.
+	 */
+	$args = apply_filters( 'cherry_get_the_post_header_args', array(
 		'tag'    => is_singular( $post_type ) ? 'h1' : 'h2',
 		'class'  => '',
 		'url'    => 'permalink',
 		'before' => '',
 		'after'  => '',
-		'wrap'   => is_singular( $post_type ) ? '<header class="entry-header"><%1$s class="%2$s">%4$s</%1$s></header>' : '<header class="entry-header"><%1$s class="%2$s"><a href="%3$s" rel="bookmark">%4$s</a></%1$s></header>',
-	);
-	/**
-	 * Filter the arguments used to display a post header.
-	 *
-	 * @since 4.0.0
-	 * @param array $args Array of arguments.
-	 */
-	$args = apply_filters( 'cherry_get_the_post_header_args', $defaults );
-	$args = wp_parse_args( $args, $defaults );
+		'wrap'   => is_singular( $post_type ) ? '<header class="entry-header"><div class="%1$s"><%2$s class="%3$s">%5$s</%2$s></div></header>' : '<header class="entry-header"><div class="%1$s"><%2$s class="%3$s"><a href="%4$s" rel="bookmark">%5$s</a></%2$s></div></header>',
+	), $post_id, $post_type );
 
 	// OPTIONAL: Declare each item in $args as its own variable.
 	extract( $args, EXTR_SKIP );
@@ -196,12 +196,10 @@ function cherry_get_the_post_header() {
 	$url  = ( $url ) ? $url : 'permalink';
 
 	if ( 'permalink' === $url ) {
-
 		$url = get_permalink( $post_id );
-
 	}
 
-	$post_header = sprintf( $wrap, tag_escape( $tag ), esc_attr( trim( $class ) ), esc_url( $url ), $title );
+	$post_header = sprintf( $wrap, cherry_get_container_class( 'entry-header' ), tag_escape( $tag ), esc_attr( trim( $class ) ), esc_url( $url ), $title );
 
 	return $post_header;
 }
@@ -237,7 +235,7 @@ function cherry_get_the_post_meta() {
 		return;
 	}
 
-	return sprintf( '<div class="entry-meta">%s</div>', $post_meta );
+	return sprintf( '<div class="entry-meta"><div class="%1$s">%2$s</div></div>', cherry_get_container_class( 'entry-meta' ), $post_meta );
 }
 
 /**
@@ -268,7 +266,9 @@ function cherry_the_post_content() {
  */
 function cherry_the_post_excerpt() {
 	echo '<div class="entry-summary">';
-		the_excerpt();
+		echo '<div class="' . cherry_get_container_class( 'entry-summary' ) . '">';
+			the_excerpt();
+		echo '</div>';
 	echo '</div>';
 }
 
@@ -303,7 +303,7 @@ function cherry_get_the_post_footer() {
 		return;
 	}
 
-	return sprintf( '<footer class="entry-footer">%s</footer>', $post_info );
+	return sprintf( '<footer class="entry-footer"><div class="%1$s">%2$s</div></footer>', cherry_get_container_class( 'entry-footer' ), $post_info );
 }
 
 /**

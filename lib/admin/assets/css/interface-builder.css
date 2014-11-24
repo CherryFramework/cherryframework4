@@ -29,6 +29,8 @@
   /*End Cherry tooltip style*/
   /*Cherry accordion style*/
   /*End Cherry accordion style*/
+  /*Cherry icon-sets-editor style*/
+  /*Cherry icon-sets-editor style*/
 }
 .cherry-section .cherry-title {
   margin: 0 0 5px 0;
@@ -175,6 +177,11 @@
 .cherry-section .cherry-switcher-wrap {
   overflow: hidden;
   margin-top: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 .cherry-section .cherry-switcher-wrap .sw-enable {
   padding: 5px 10px;
@@ -641,6 +648,12 @@
 .cherry-section .cherry-static-area-editor-wrap .cherry-accordion-control .add-new-btn {
   float: right;
 }
+.cherry-section .cherry-icon-sets-editor-wrap {
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
 
 body .custom-tooltip-styling {
   border-width: 1px;
@@ -649,8 +662,4 @@ body .custom-tooltip-styling {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   background: #fff;
   max-width: 400px;
-}
-
-#wrap-cherry-styling-color-scheme .cherry-fegr.cherry-radio-img {
-  max-width: 215px;
 }

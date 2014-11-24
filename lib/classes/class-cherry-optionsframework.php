@@ -22,7 +22,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 
 		/**
 		* Cherry_Options_Framework constructor
-		* 
+		*
 		* @since 1.0.0
 		*/
 		function __construct() {
@@ -46,7 +46,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 * Save options to DB
 		 *
 		 * @since 1.0.0
@@ -57,7 +57,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 * Load options from DB
 		 *
 		 * @since 1.0.0
@@ -70,7 +70,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 *
 		 * @since 1.0.0
 		 */
@@ -81,7 +81,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 *
 		 * @since 1.0.0
 		 */
@@ -92,7 +92,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 *
 		 * @since 1.0.0
 		 */
@@ -107,10 +107,10 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			}
 			return $result;
 		}
-		
+
 		/**
-		 * 
-		 * Create 
+		 *
+		 * Create
 		 *
 		 * @since 1.0.0
 		 */
@@ -122,7 +122,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				$set = array();
 					foreach ( $value['options-list'] as $key => $value ) {
 						$set[$key] = $value['value'];
-					}	
+					}
 				$options_parsed_array[$setname] = array('options-list'=>$set);
 			}
 
@@ -130,15 +130,15 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 * Create and save updated options
 		 *
 		 * @since 1.0.0
 		 */
 		public function create_updated_options_array( $post_array ) {
-			
+
 			$options = $this->create_options_array();
-			if(isset($options)){				
+			if(isset($options)){
 				foreach ( $options as $section_key => $value ) {
 					$section_name = $section_key;
 					$option_list = $value['options-list'];
@@ -176,16 +176,16 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				$this->save_options($options);
 			}
 		}
-		
+
 		/**
-		 * 
+		 *
 		 * Restore section and save options
 		 *
 		 * @since 1.0.0
 		 */
 		public function restore_section_settings_array($activeSection) {
 			$activeSectionName = $activeSection;
-			
+
 			$loaded_settings = $this->load_options();
 			$default_settings = $this->create_options_array();
 
@@ -204,7 +204,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 * Restore and save options
 		 *
 		 * @since 1.0.0
@@ -217,7 +217,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 * Export options
 		 *
 		 * @since 1.0.0
@@ -225,7 +225,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		public function json_export_options( $post_array ) {
 
 		}
-
 
 		/**
 		 * Get default set of options
@@ -235,15 +234,15 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		public function load_settings() {
 			$result_settings = null;
 			if ( !$result_settings ) {
-		        // Load options from options.php file (if it exists)
-		        $location = apply_filters( 'default_set_file_location', array('cherry-options.php') );
-		        if ( $optionsfile = locate_template( $location, true ) ) {
-		            if ( function_exists( 'cherry_defaults_settings' ) ) {
+				// Load options from options.php file (if it exists)
+				$location = apply_filters( 'default_set_file_location', array('cherry-options.php') );
+				if ( $optionsfile = locate_template( $location, true ) ) {
+					if ( function_exists( 'cherry_defaults_settings' ) ) {
 						$result_settings = cherry_defaults_settings();
 					}
-		        }
+				}
 			}
-			
+
 			return $result_settings;
 		}
 		/**
@@ -255,12 +254,12 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			$result_settings = null;
 
 			$default_settings = $this->loaded_settings;
-			$loaded_settings = $this->load_options();			
+			$loaded_settings = $this->load_options();
 
 			foreach ( $default_settings as $key => $value ) {
 				$section_name = $key;
 				$option_list = $value['options-list'];
-				
+
 					foreach ($option_list as $optname => $value) {
 						if(array_key_exists($section_name, $loaded_settings)){
 							$default_settings[$section_name]['options-list'][$optname]['value'] = $loaded_settings[$section_name]['options-list'][$optname];
@@ -270,7 +269,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 
 			$result_settings = $default_settings;
 			return $result_settings;
-		}	
+		}
 
 		/**
 		 * Check for the existence of an option in the database
@@ -302,10 +301,10 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				return $default;
 			}
 			$options_array = get_option( $setting['id'] );
-			if ( isset( $options_array ) ) {
-				foreach ( $options_array as $sections_name => $value ) {
-					if(array_key_exists($name, $value['options-list'])){
-						return $value['options-list'][$name];
+			if ( $options_array ) {
+				foreach ( $options_array as $sections_name => $section_value ) {
+					if(array_key_exists($name, $section_value['options-list'])){
+						return $section_value['options-list'][$name];
 					}
 				}
 			}
@@ -313,5 +312,10 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 	}
 }
+
+function cherry_get_option( $name , $default = false ) {
+	return Cherry_Options_Framework::get_option_value( $name, $default );
+}
+//var_dump(Cherry_Options_Framework::get_option_value('static-area-editor'));
 
 ?>
