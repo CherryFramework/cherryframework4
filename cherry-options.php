@@ -14,7 +14,7 @@ function cherry_defaults_settings() {
 				'value'			=> '<h2>Demo options</h2>'
 	);
 	$demo_options['icons-editor'] = array(
-				'type'			=> 'icons_editor',
+				'type'			=> 'icon_editor',
 				'title'			=> 'title icon-editor',
 				'label'			=> 'label icon-editor',
 				'decsription'	=> 'decsription icon-editor',
@@ -23,15 +23,29 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> array(
-					'icon_set_1' => array(
-						'set_name' => __('Icon set 1', 'cherry'),
-						'set_list' => array(
-							'icon_1' => array(
-								'title'		=> __('Facebook', 'cherry'),
-								'type'		=> 'text',
-								'link'		=> 'https://facebook.com/',
-							)
-						)
+					'icon_1' => array(
+						'title'		=> __('Facebook', 'cherry'),
+						'type'		=> 'label',
+						'text'		=> 'Facebook',
+						'link'		=> 'https://facebook.com/',
+					),
+					'icon_2' => array(
+						'title'		=> __('Facebook', 'cherry'),
+						'type'		=> 'img',
+						'upload'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
+						'link'		=> 'https://facebook.com/',
+					),
+					'icon_3' => array(
+						'title'		=> __('Facebook', 'cherry'),
+						'type'		=> 'font',
+						'class'		=> 'dashicons dashicons-carrot',
+						'link'		=> 'https://facebook.com/',
+					),
+					'icon_4' => array(
+						'title'		=> __('Facebook', 'cherry'),
+						'type'		=> 'sprite',
+						'class'		=> 'sprite-class',
+						'link'		=> 'https://facebook.com/',
 					)
 				),
 				'default_value'	=> 'default_value'
@@ -41,7 +55,7 @@ function cherry_defaults_settings() {
 				'title'			=> 'title static-area-editor',
 				'label'			=> 'label static-area-editor',
 				'decsription'	=> 'decsription static-area-editor',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'image',
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
@@ -191,17 +205,16 @@ function cherry_defaults_settings() {
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
-				'max_value'		=> 100,
-				'min_value'		=> 0,
-				'value'			=> 50,
-				'default_value' => 50
+				'max_value'		=> 1920,
+				'min_value'		=> 980,
+				'value'			=> 1000
 	);
 	$demo_options['rangeslider-demo'] = array(
 				'type'			=> 'rangeslider',
 				'title'			=> 'title Range Slider',
 				'label'			=> 'label Range Slider',
 				'decsription'	=> 'decsription Range Slider',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
@@ -1453,7 +1466,6 @@ function cherry_defaults_settings() {
 		'priority' => 70,
 		'options-list' => $typography_options
 	);
-
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
 }

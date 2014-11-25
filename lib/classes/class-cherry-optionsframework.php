@@ -74,7 +74,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function is_db_options_exist() {
+		static function is_db_options_exist() {
 			$cherry_options_settings = get_option( 'cherry-options' );
 			(get_option($cherry_options_settings['id']) == false)? $is_options=false : $is_options = true;
 			return $is_options;
@@ -266,7 +266,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 						}
 					}
 			}
-
 			$result_settings = $default_settings;
 			return $result_settings;
 		}
@@ -279,7 +278,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		public function get_settings() {
 			$result_settings = array();
 
-			if($this->is_db_options_exist()){
+			if(self::is_db_options_exist()){
 				//var_dump('merged_settings');
 				$result_settings = $this->merged_settings();
 			}else{
@@ -297,14 +296,25 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 */
 		static function get_option_value( $name, $default = false ) {
 			$setting = get_option( 'cherry-options' );
-			if ( ! isset( $setting['id'] ) ) {
-				return $default;
-			}
-			$options_array = get_option( $setting['id'] );
-			if ( $options_array ) {
-				foreach ( $options_array as $sections_name => $section_value ) {
-					if(array_key_exists($name, $section_value['options-list'])){
-						return $section_value['options-list'][$name];
+
+			if(self::is_db_options_exist()){
+				$options_array = get_option( $setting['id'] );
+				if ( $options_array ) {
+					foreach ( $options_array as $sections_name => $section_value ) {
+						if(array_key_exists($name, $section_value['options-list'])){
+							var_dump('opt');
+							return $section_value['options-list'][$name];
+						}
+					}
+				}
+			}else{
+				$settings_array = self::load_settings();
+				if ( $settings_array ) {
+					foreach ( $settings_array as $sections_name => $section_value ) {
+						if(array_key_exists($name, $section_value['options-list'])){
+							var_dump('!sopt');
+							return $section_value['options-list'][$name]['value'];
+						}
 					}
 				}
 			}
@@ -313,9 +323,13 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	}
 }
 
+/**
+ * Get cherry option value
+ *
+ * @since 1.0.0
+ */
 function cherry_get_option( $name , $default = false) {
 	return Cherry_Options_Framework::get_option_value( $name, $default );
 }
-//var_dump(Cherry_Options_Framework::get_option_value('static-area-editor'));
 
 ?>

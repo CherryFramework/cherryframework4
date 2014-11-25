@@ -456,9 +456,14 @@ class Cherry_Interface_Builder {
 				class: ''
 				item_inline_style: ''
 			*/
-			case 'icon_sets_editor':
-				$output .= '<div id="' . $id . '" class="cherry-icon-sets-editor-wrap" data-name="' . $name . '">';
+			case 'icon_editor':
+				$output .= '<div id="' . $id . '" class="cherry-icon-editor-wrap" data-name="' . $name . '">';
+					$output .= '<div class="icon-create-form">';
 
+					$output .= '</div>';
+					$output .= '<div class="icon-list-preview">';
+
+					$output .= '</div>';
 				$output .= '</div>';
 			break;
 

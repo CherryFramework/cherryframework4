@@ -648,7 +648,13 @@
 .cherry-section .cherry-static-area-editor-wrap .cherry-accordion-control .add-new-btn {
   float: right;
 }
-.cherry-section .cherry-icon-sets-editor-wrap {
+.cherry-section .cherry-icon-editor-wrap .icon-create-form {
+  border: 1px solid #dfdfdf;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview {
   border: 1px solid #dfdfdf;
   background: #fff;
   padding: 5px;

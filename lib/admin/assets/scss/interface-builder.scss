@@ -631,7 +631,6 @@
 							}
 					}
 			}
-
 			.cherry-accordion-control{
 				.cherry-label{
 					text-align: right;
@@ -658,11 +657,19 @@
 		}
 		/*End Cherry accordion style*/
 		/*Cherry icon-sets-editor style*/
-		.cherry-icon-sets-editor-wrap{
-			border: 1px solid #dfdfdf;
-			background: #fff;
-			padding: 5px;
-			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+		.cherry-icon-editor-wrap{
+			.icon-create-form{
+				border: 1px solid #dfdfdf;
+				background: #fff;
+				padding: 5px;
+				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+			}
+			.icon-list-preview{
+				border: 1px solid #dfdfdf;
+				background: #fff;
+				padding: 5px;
+				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+			}
 		}
 		/*Cherry icon-sets-editor style*/
 }
