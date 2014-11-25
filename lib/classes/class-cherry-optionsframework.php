@@ -323,12 +323,13 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	}
 }
 
+
 /**
  * Get cherry option value
  *
  * @since 1.0.0
  */
-function cherry_get_option( $name , $default = false) {
+function cherry_get_option( $name , $default = false ) {
 	return Cherry_Options_Framework::get_option_value( $name, $default );
 }
 

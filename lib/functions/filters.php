@@ -13,17 +13,18 @@
 // Filters the body class.
 add_filter( 'body_class', 'cherry_add_layout_class' );
 
+// Prints option styles.
 add_action( 'wp_head', 'cherry_add_option_styles', 9999 );
 
 
 // Add specific CSS class by filter.
 function cherry_add_layout_class( $classes ) {
-	global $cherry_layout;
+	$layout_type = cherry_get_option('grid-type');
 
 	// Layout.
-	if ( 'wide' === $cherry_layout ) {
+	if ( 'grid-wide' === $layout_type ) {
 		$classes[] = 'cherry-wide';
-	} elseif ( 'boxed' === $cherry_layout ) {
+	} elseif ( 'grid-boxed' === $layout_type ) {
 		$classes[] = 'cherry-boxed';
 	}
 
@@ -38,26 +39,24 @@ function cherry_add_layout_class( $classes ) {
 }
 
 function cherry_add_option_styles() {
-	global $cherry_layout, $cherry_container_width;
+	$layout          = cherry_get_option('grid-type');
+	$container_width = intval( cherry_get_option('page-layout-container-width') );
+	$output          = '';
 
-	$output = '';
-
-	$cherry_container_width = intval( $cherry_container_width );
-
-	if ( !$cherry_container_width ) {
-		$cherry_container_width = 1170; // get default value
+	if ( !$container_width ) {
+		$container_width = 1170; // get default value
 	}
 
 	// Check a layout type option.
-	// if ( 'boxed' === $cherry_layout ) { // UNCOMMENT AFTER OPTION REALSE
-		$output .= ".cherry-container { max-width : {$cherry_container_width}px; }\n";
-	// }
+	if ( 'grid-boxed' === $layout ) {
+		$output .= ".cherry-container { max-width : {$container_width}px; }\n";
+	}
 
 	// Check a container width option.
-	if ( $cherry_container_width < 1170 ) {
+	if ( $container_width < 1170 ) {
 		$output .= ".cherry-no-sidebar .container,\n";
 		$output .= ".cherry-with-sidebar .site-header .container,\n";
-		$output .= ".cherry-with-sidebar .site-footer .container { max-width : {$cherry_container_width}px; }\n";
+		$output .= ".cherry-with-sidebar .site-footer .container { max-width : {$container_width}px; }\n";
 	}
 
 	// Prepare a string with a styles.
