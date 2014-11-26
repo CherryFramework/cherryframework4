@@ -296,13 +296,11 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 */
 		static function get_option_value( $name, $default = false ) {
 			$setting = get_option( 'cherry-options' );
-
 			if(self::is_db_options_exist()){
 				$options_array = get_option( $setting['id'] );
 				if ( $options_array ) {
 					foreach ( $options_array as $sections_name => $section_value ) {
 						if(array_key_exists($name, $section_value['options-list'])){
-							var_dump('opt');
 							return $section_value['options-list'][$name];
 						}
 					}
@@ -312,7 +310,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				if ( $settings_array ) {
 					foreach ( $settings_array as $sections_name => $section_value ) {
 						if(array_key_exists($name, $section_value['options-list'])){
-							var_dump('!sopt');
 							return $section_value['options-list'][$name]['value'];
 						}
 					}

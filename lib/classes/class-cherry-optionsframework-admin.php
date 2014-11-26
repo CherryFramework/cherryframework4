@@ -80,13 +80,13 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 	     *
 	     * @since 4.0.0
 	     */
-	    function settings_init() {
-	    	// Load Options Framework Settings
-        	$cherry_options_settings = get_option( 'cherry-options' );
+		function settings_init() {
+			// Load Options Framework Settings
+		$cherry_options_settings = get_option( 'cherry-options' );
 			register_setting( 'cherry-options-group', $cherry_options_settings['id'],  array ( $this, 'validate_options' ) );
-	    }
+		}
 
-	    /**
+		/**
 		 * Display message when options have been saved
 		 */
 
@@ -158,12 +158,19 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 	     * @since 4.0.0
 	     */
 		private function priority_sorting($base_array) {
-			uasort($base_array, function($a, $b){
-			    return ($a['priority'] - $b['priority']);
-			});
+			uasort($base_array, array( $this, 'compare' ));
 			return $base_array;
 		}
-
+		/**
+		 * Custom compare function.
+		 *
+		 * @since  4.0.0
+		 * @param  int $a
+		 * @param  int $b
+		 */
+		private function compare( $a, $b ) {
+			return ($a['priority'] - $b['priority']);
+		}
 		/**
 	     * Child priority sorting
 	     *

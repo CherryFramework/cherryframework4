@@ -653,12 +653,74 @@
   background: #fff;
   padding: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
 }
 .cherry-section .cherry-icon-editor-wrap .icon-list-preview {
   border: 1px solid #dfdfdf;
   background: #fff;
   padding: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul {
+  margin: 0;
+  overflow: hidden;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li {
+  width: 33%;
+  float: left;
+  margin: 0;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li.icon-type-image .inner .icon-preview .image-preview {
+  max-width: 30px;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li.icon-type-font .inner .icon-preview span {
+  width: 30px;
+  height: 30px;
+  font-size: 25px;
+  line-height: 30px;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li.icon-type-sprite .inner .icon-preview span {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li .inner {
+  border: 1px solid #ccc;
+  margin: 3px;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li .inner .icon-preview {
+  width: 30px;
+  height: 30px;
+  float: left;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li .inner .icon-info {
+  float: left;
+  margin-left: 5px;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li .inner .icon-info .icon-title {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li .inner .icon-info .icon-link {
+  display: block;
+  font-size: 10px;
+  line-height: 10px;
+  font-style: italic;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li .inner .control {
+  width: 40px;
+  float: right;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li .inner .control .edit {
+  width: 20px;
+  margin: 5px 0;
+  color: #7ad03a;
+}
+.cherry-section .cherry-icon-editor-wrap .icon-list-preview ul li .inner .control .delete {
+  width: 20px;
+  margin: 5px 0;
+  color: #f4130c;
 }
 
 body .custom-tooltip-styling {

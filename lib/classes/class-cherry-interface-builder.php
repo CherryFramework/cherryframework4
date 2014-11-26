@@ -441,7 +441,6 @@ class Cherry_Interface_Builder {
 						$output .= '</div>';
 					$output .= '<div class="clear"></div>';
 					$output .= '</div>';
-
 				$output .= '</div>';
 			break;
 
@@ -462,7 +461,52 @@ class Cherry_Interface_Builder {
 
 					$output .= '</div>';
 					$output .= '<div class="icon-list-preview">';
+						$output .= '<ul>';
+							foreach ($value as $icon_id => $icon_settings) {
+								$output .= '<li class="icon-type-' . $icon_settings['type'] . '">';
+									$output .= '<div class="inner">';
+										$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][title]" value="' . $icon_settings['title'] . '" class="hidden-title">';
+										$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][link]"  value="' . $icon_settings['link'] . '" class="hidden-link">';
+										$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][type]" value="' . $icon_settings['type'] . '" class="hidden-type">';
+										switch ( $icon_settings['type'] ) {
+											case 'label':
 
+											break;
+											case 'image':
+												$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][upload]" value="' . $icon_settings['upload'] . '" class="hidden-image">';
+
+												$output .= '<div class="icon-preview">';
+													$output .= '<img class="image-preview" src="' . $icon_settings['upload'] . '" alt="">';
+												$output .= '</div>';
+											break;
+											case 'font':
+												$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][class]" value="' . $icon_settings['class'] . '" class="hidden-font-class">';
+												$output .= '<div class="icon-preview">';
+													$output .= '<span class="' . $icon_settings['class'] . '"></span>';
+												$output .= '</div>';
+											break;
+											case 'sprite':
+												$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][class]" value="' . $icon_settings['class'] . '" class="hidden-sprite-class">';
+												$output .= '<div class="icon-preview">';
+													$output .= '<span class="' . $icon_settings['class'] . '"></span>';
+												$output .= '</div>';
+											break;
+										}
+
+										$output .= '<div class="icon-info">';
+											$output .= '<span class="icon-title">' . $icon_settings['title'] . '</span>';
+											$output .= '<a class="icon-link" href="' . $icon_settings['link'] . '">' . $icon_settings['link'] . '</a>';
+										$output .= '</div>';
+										$output .= '<div class="control">';
+											$output .= '<span class="edit dashicons dashicons-edit"></span>';
+											$output .= '<span class="delete dashicons dashicons-no"></span>';
+										$output .= '</div>';
+										$output .= '<div class="clear"></div>';
+									$output .= '</div>';
+
+								$output .= '</li>';
+							}
+						$output .= '</ul>';
 					$output .= '</div>';
 				$output .= '</div>';
 			break;

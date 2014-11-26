@@ -663,12 +663,95 @@
 				background: #fff;
 				padding: 5px;
 				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+				margin-bottom: 10px;
 			}
 			.icon-list-preview{
 				border: 1px solid #dfdfdf;
 				background: #fff;
 				padding: 5px;
 				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+					ul{
+						margin: 0;
+						overflow: hidden;
+							li{
+								width: 33%;
+								float: left;
+								margin: 0;
+									&.icon-type-label{
+
+									}
+									&.icon-type-image{
+										.inner{
+											.icon-preview{
+												.image-preview{
+													max-width: 30px;
+												}
+											}
+										}
+									}
+									&.icon-type-font{
+										.inner{
+											.icon-preview{
+												span{
+													width: 30px;
+													height: 30px;
+													font-size: 25px;
+													line-height: 30px;
+												}
+											}
+										}
+									}
+									&.icon-type-sprite{
+										.inner{
+											.icon-preview{
+												span{
+													width: 30px;
+													height: 30px;
+													line-height: 30px;
+												}
+											}
+										}
+									}
+									.inner{
+										border: 1px solid #ccc;
+										margin: 3px;
+											.icon-preview{
+												width: 30px;
+												height: 30px;
+												float: left;
+											}
+											.icon-info{
+												float: left;
+												margin-left: 5px;
+													.icon-title{
+														display: block;
+														font-size: 12px;
+														line-height: 16px;
+													}
+													.icon-link{
+														display: block;
+														font-size: 10px;
+														line-height: 10px;
+														font-style: italic;
+													}
+											}
+											.control{
+												width: 40px;
+												float: right;
+													.edit{
+														width: 20px;
+														margin: 5px 0;
+														color: #7ad03a;
+													}
+													.delete{
+														width: 20px;
+														margin: 5px 0;
+														color: #f4130c;
+													}
+											}
+									}
+							}
+					}
 			}
 		}
 		/*Cherry icon-sets-editor style*/

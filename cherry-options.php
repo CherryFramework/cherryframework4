@@ -24,29 +24,57 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> array(
 					'icon_1' => array(
-						'title'		=> __('Facebook', 'cherry'),
-						'type'		=> 'label',
-						'text'		=> 'Facebook',
+						'title'		=> __('Icon name 1', 'cherry'),
 						'link'		=> 'https://facebook.com/',
+						'type'		=> 'label'
 					),
 					'icon_2' => array(
-						'title'		=> __('Facebook', 'cherry'),
-						'type'		=> 'img',
-						'upload'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
+						'title'		=> __('Icon name 2', 'cherry'),
 						'link'		=> 'https://facebook.com/',
+						'type'		=> 'image',
+						'upload'	=> PARENT_URI.'/lib/admin/assets/images/temp-folder/icon1.png'
 					),
 					'icon_3' => array(
-						'title'		=> __('Facebook', 'cherry'),
-						'type'		=> 'font',
-						'class'		=> 'dashicons dashicons-carrot',
+						'title'		=> __('Icon name 3', 'cherry'),
 						'link'		=> 'https://facebook.com/',
+						'type'		=> 'font',
+						'class'		=> 'dashicons dashicons-carrot'
 					),
 					'icon_4' => array(
-						'title'		=> __('Facebook', 'cherry'),
-						'type'		=> 'sprite',
-						'class'		=> 'sprite-class',
+						'title'		=> __('Icon name 4', 'cherry'),
 						'link'		=> 'https://facebook.com/',
-					)
+						'type'		=> 'sprite',
+						'class'		=> 'dashicons dashicons-admin-site'
+					),
+					'icon_5' => array(
+						'title'		=> __('Icon name 5', 'cherry'),
+						'link'		=> 'https://facebook.com/',
+						'type'		=> 'image',
+						'upload'	=> PARENT_URI.'/lib/admin/assets/images/temp-folder/icon2.png'
+					),
+					'icon_6' => array(
+						'title'		=> __('Icon name 6', 'cherry'),
+						'link'		=> 'https://facebook.com/',
+						'type'		=> 'image',
+						'upload'	=> PARENT_URI.'/lib/admin/assets/images/temp-folder/icon3.png'
+					),
+					'icon_7' => array(
+						'title'		=> __('Icon name 7', 'cherry'),
+						'link'		=> 'https://facebook.com/',
+						'type'		=> 'font',
+						'class'		=> 'dashicons dashicons-facebook'
+					),
+					'icon_8' => array(
+						'title'		=> __('Icon name 8', 'cherry'),
+						'link'		=> 'https://facebook.com/',
+						'type'		=> 'image',
+						'upload'	=> PARENT_URI.'/lib/admin/assets/images/temp-folder/icon4.png'
+					),
+					'icon_9' => array(
+						'title'		=> __('Icon name 9', 'cherry'),
+						'link'		=> 'https://facebook.com/',
+						'type'		=> 'label'
+					),
 				),
 				'default_value'	=> 'default_value'
 	);
