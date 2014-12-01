@@ -640,9 +640,21 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Grid Options</h2>'
 	);
+	$grid_options['grid-responsive'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Responsive grid',
+				'label'			=> 'Enable / Disable',
+				/*'decsription'	=> 'decsription switcher',*/
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'If for any reason you want to disable responsive layout for your site, you are able to turn it off here.'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
 	$grid_options['grid-type'] = array(
 				'type'			=> 'radio',
-				'title'			=> 'background pattern',
+				'title'			=> 'Grid type',
 				'label'			=> 'select one of them',
 				'decsription'	=> 'Background pattern for main container',
 				'hint'      	=>  array(
@@ -1044,6 +1056,19 @@ function cherry_defaults_settings() {
 				'value'			=>	'true',
 				'default_value'	=>	'true'
 		);
+
+		$pagination_option['pagination-below'] = array(
+				'type'			=>  'switcher',
+				'title' 		=>  'Show Pagination Below of the Posts',
+				'label'			=>	'Enable / Disable',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Enable pagination links for blog index pages on bottom side of the posts (after showing posts).'
+				),
+				'value'			=>	'true',
+				'default_value'	=>	'true'
+		);
+
 		$pagination_option['pagination-type'] = array(
 				'type'			=> 'select',
 				'title'			=> 'Page navigation type',
@@ -1290,6 +1315,35 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// Typography options /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+	$color_options = array();
+	$color_options['color-options'] = array(
+			'type'			=> 'info',
+			'title'			=> '',
+			'decsription'	=> 'decsription info',
+			'value'			=>'<h2>Color options</h2>'
+	);
+	$color_options['color-brand-primary'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'Brand primary color',
+			'label'			=> 'label colorpicker',
+			'decsription'	=> 'decsription colorpicker',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+			),
+			'value'			=> '#005566',
+			'default_value'	=> '#005566'
+	);
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Typography options /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
