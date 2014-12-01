@@ -32,7 +32,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function __construct() {
 			// Global variables.
-			global $cherry, $cherry_registered_static_areas, $cherry_registered_statics, $cherry_layout, $cherry_container_width;
+			global $cherry, $cherry_registered_static_areas, $cherry_registered_statics;
 
 			// Set up an empty class for the global $cherry object.
 			$cherry = new stdClass;
@@ -42,11 +42,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Set up a stores the registered static elements.
 			$cherry_registered_statics = array();
-
-			// Set up a layout type.
-			$cherry_layout = 'boxed'; // boxed or wide TEMP
-
-			$cherry_container_width = '1170'; // TEMP
 
 			// Define framework, parent theme, and child theme constants.
 			add_action( 'after_setup_theme', array( $this, 'constants' ), 1 );

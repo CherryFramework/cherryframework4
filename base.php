@@ -1,11 +1,11 @@
-<?php do_action( 'cherry_get_header' ); ?>
+<?php do_action( 'cherry_get_header' );
 
-<?php global $cherry_layout;
+$layout_type     = cherry_get_option('grid-type');
 $container_class = '';
 
-if ( 'wide' === $cherry_layout ) {
+if ( 'grid-wide' === $layout_type ) {
 	$container_class .= 'cherry-container-fluid';
-} elseif ( 'boxed' === $cherry_layout ) {
+} elseif ( 'grid-boxed' === $layout_type ) {
 	$container_class .= 'cherry-container';
 }
 $container_class = ( empty( $container_class ) ) ? 'clearfix' : $container_class .= ' clearfix';

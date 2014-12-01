@@ -150,11 +150,11 @@ class Cherry_Statics {
 			'id'      => "static-$i",
 			'name'    => sprintf( __( 'Static %d', 'cherry' ), $i ),
 			'options' => array(
-				'col-xs'   => '',
-				'col-sm'   => '',
-				'col-md'   => '',
-				'col-lg'   => '',
-				'class'    => '',
+				'col-xs' => '',
+				'col-sm' => '',
+				'col-md' => '',
+				'col-lg' => '',
+				'class'  => '',
 			)
 		), $args, $i );
 
@@ -189,9 +189,7 @@ class Cherry_Statics {
 			$cherry_registered_statics[ $id ] = $static;
 
 			// Sort an array with a user-defined comparison function and maintain index association.
-			uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
-
-			//var_dump($cherry_registered_statics);
+			// uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
 		}
 	}
 
@@ -344,6 +342,9 @@ class Cherry_Statics {
 			endforeach;
 
 		}
+
+		// Sort an array with a user-defined comparison function and maintain index association.
+		uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
 
 		foreach ( $cherry_registered_statics as $id => $data ) :
 
@@ -547,7 +548,7 @@ class Cherry_Statics {
 	}
 
 	/**
-	 * Prints HTML with Search Form.
+	 * Callback-function for a `searchform`.
 	 *
 	 * @since 4.0.0
 	 */

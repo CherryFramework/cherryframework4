@@ -76,11 +76,11 @@ function cherry_get_content_width() {
 }
 
 function cherry_get_container_class( $location ) {
-	global $cherry_layout;
+	$layout_type = cherry_get_option('grid-type');
 
-	if ( 'wide' === $cherry_layout ) {
+	if ( 'grid-wide' === $layout_type ) {
 		$class = 'container';
-	} elseif ( 'boxed' === $cherry_layout ) {
+	} elseif ( 'grid-boxed' === $layout_type ) {
 		$class = 'container-fluid';
 	}
 

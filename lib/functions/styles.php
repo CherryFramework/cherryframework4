@@ -16,7 +16,7 @@
 add_action( 'wp_enqueue_scripts', 'cherry_register_styles', 0 );
 
 // Load Cherry Framework styles.
-add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 5 );
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 11 );
 
 /**
  * Registers stylesheets for the framework. This function merely registers styles with WordPress using

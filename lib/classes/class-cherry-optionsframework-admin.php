@@ -63,6 +63,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				add_filter( 'utility_sanitize_textarea', array( $this, 'utility_sanitize_textarea' ) );
 				// Utility sanitize checkbox
 				add_filter( 'utility_sanitize_checkbox', array( $this, 'utility_sanitize_checkbox' ) );
+				// Utility sanitize lider
+				add_filter( 'utility_sanitize_slider', array( $this, 'utility_sanitize_slider' ) );
 				// Utility sanitize editor
 				add_filter( 'utility_sanitize_editor', array( $this, 'utility_sanitize_editor' ) );
 				// Utility sanitize editor
@@ -78,13 +80,13 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 	     *
 	     * @since 4.0.0
 	     */
-	    function settings_init() {
-	    	// Load Options Framework Settings
-        	$cherry_options_settings = get_option( 'cherry-options' );
+		function settings_init() {
+			// Load Options Framework Settings
+		$cherry_options_settings = get_option( 'cherry-options' );
 			register_setting( 'cherry-options-group', $cherry_options_settings['id'],  array ( $this, 'validate_options' ) );
-	    }
+		}
 
-	    /**
+		/**
 		 * Display message when options have been saved
 		 */
 
@@ -137,27 +139,16 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		function validate_options( $option_value ) {
 			global $cherry_options_framework;
-			//var_dump($option_value);
-
 			foreach ($option_value as $sectionName => $sectionOptionsList) {
 				foreach ($sectionOptionsList['options-list'] as $optionId => $optionValue) {
 					$optionType = $cherry_options_framework->get_type_by_option_id($optionId);
 					// For a value to be submitted to database it must pass through a sanitization filter
-  					/*var_dump($optionType);
-					var_dump($optionValue);
-					var_dump('///////////////////////////////////////////////');*/
-
 					if ( has_filter( 'utility_sanitize_' . $optionType ) ) {
-						//var_dump($optionValue);
 						$validated_value = apply_filters( 'utility_sanitize_' . $optionType, $optionValue );
-						//var_dump($optionType . '  '. $validated_value);
-					}else{
-						//var_dump($optionType . '  '. $optionValue);
+						$option_value[$sectionName]['options-list'][$optionId] = $validated_value;
 					}
-
 				}
 			}
-
 			return $option_value;
 		}
 
@@ -167,12 +158,19 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 	     * @since 4.0.0
 	     */
 		private function priority_sorting($base_array) {
-			uasort($base_array, function($a, $b){
-			    return ($a['priority'] - $b['priority']);
-			});
+			uasort($base_array, array( $this, 'compare' ));
 			return $base_array;
 		}
-
+		/**
+		 * Custom compare function.
+		 *
+		 * @since  4.0.0
+		 * @param  int $a
+		 * @param  int $b
+		 */
+		private function compare( $a, $b ) {
+			return ($a['priority'] - $b['priority']);
+		}
 		/**
 	     * Child priority sorting
 	     *
@@ -332,6 +330,11 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		/* Checkbox type*/
 		function utility_sanitize_checkbox( $input ) {
 			$output = $input;
+			return $output;
+		}
+		/* Text type */
+		function utility_sanitize_slider( $input) {
+				$output = (int) $input;
 			return $output;
 		}
 		/* Editor type */
