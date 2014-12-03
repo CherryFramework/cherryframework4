@@ -71,9 +71,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				add_filter( 'utility_sanitize_image', array( $this, 'utility_sanitize_image' ) );
 				// Utility sanitize color picker
 				add_filter( 'utility_sanitize_colorpicker', array( $this, 'utility_sanitize_colorpicker' ) );
-
 		}
-
 
 		/**
 	     * Registers the settings

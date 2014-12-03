@@ -416,7 +416,6 @@ class Cherry_Interface_Builder {
 											$output .= '</div>';
 											$output .= '<div class="field-class">';
 												$output .= $this -> add_label($id . '-class',  __( 'Custom class', 'cherry' ), $this->options['class']['label'].' cherry-block');
-
 												$output .= '<input class="width-full key-custom-class" name="' . $name . '[' . $handle . '][options][class]" value="' . esc_html( $handleArray['options']['class'] ) . '" type="text" />';
 											$output .= '</div>';
 											$output .= '<input type="hidden" class="key-item-name" name="' . $name . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
@@ -456,21 +455,89 @@ class Cherry_Interface_Builder {
 				item_inline_style: ''
 			*/
 			case 'icon_editor':
+				$icon_types = array(
+					'label'  => __( 'Label', 'cherry' ),
+					'image'  => __( 'Image icon', 'cherry' ),
+					'font'   => __( 'Font icon', 'cherry' ),
+					'sprite' => __( 'Sprite icon', 'cherry' )
+				);
 				$output .= '<div id="' . $id . '" class="cherry-icon-editor-wrap" data-name="' . $name . '">';
 					$output .= '<div class="icon-create-form">';
-
+						$output .= '<div class="control-wrap">';
+							$output .= $this -> add_label($id.'-icon-type',  __( 'Icon type', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<select ' . $item_inline_style . ' class="icon-type-selector width-full">';
+								foreach ($icon_types as $type => $name) {
+									$output .= '<option data-icon-type="'. $type .'" value="' . $type . '">'. esc_html( $name ) .'</option>';
+								}
+						$output .= '</select>';
+						$output .= '</div>';
+						$output .= '<div class="control-wrap">';
+							$output .= $this -> add_label($id.'-icon-label',  __( 'Icon label', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<input class="width-full icon-label" name="" value="' . esc_html( __( 'Icon name', 'cherry' ) ) . '" type="text" />';
+						$output .= '</div>';
+						$output .= '<div class="control-wrap">';
+							$output .= $this -> add_label($id.'-icon-id',  __( 'Icon id', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<input class="width-full icon-id" name="" value="' . esc_html( __( 'icon_id_', 'cherry' ) ) . '" type="text" />';
+						$output .= '</div>';
+						$output .= '<div class="control-wrap">';
+							$output .= $this -> add_label($id.'-icon-link',  __( 'Icon link', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<input class="width-full icon-link" name="" value="' . esc_html( __( 'http://www.demolink.com', 'cherry' ) ) . '" type="text" />';
+						$output .= '</div>';
+						$output .= '<div class="control-wrap">';
+							$output .= $this -> add_label($id.'-icon-font-class',  __( 'Icon font class', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<input class="width-full icon-font-class" name="" value="" type="text" />';
+						$output .= '</div>';
+						$output .= '<div class="control-wrap">';
+							$output .= $this -> add_label($id.'-icon-sprite-class',  __( 'Icon sprite class', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<input class="width-full icon-sprite-class" name="" value="" type="text" />';
+						$output .= '</div>';
+						$output .= '<div class="control-wrap">';
+							$output .= $this -> add_label($id.'-icon-upload',  __( 'Icon upload', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$img_style = !$value ? 'style="display:none;"' : '' ;
+							$images = '';
+							$output .= '<div class="cherry-element-wrap">';
+								$output .= '<div class="cherry-uiw">';
+									$output .= '<input ' . $item_inline_style . ' class="cherry-upload-input '.$this->options['class']['text'].'" id="' . $id . '-icon-image" name="" type="text" value="" >';
+								$output .= '</div>';
+								$output .= '<div class="cherry-uicw">';
+									$output .= '<input class="cherry-upload-image '.$this->options['class']['submit'].'" type="button" value="' . $upload_button_text . '" data-title="'.__( 'Choose Image', 'cherry' ).'" data-return-data="'.$return_data_type.'" data-multi-upload="false" />';
+								$output .= '</div>';
+							$output .= '</div>';
+							if($display_image){
+								$output .= '<div '.$img_style.' class="cherry-upload-preview" >';
+									$output .= '<div class="cherry-all-images-wrap">';
+										if(is_array($images) && !empty($images)){
+											foreach ($images as $images_key => $images_value) {
+												if($return_data_type == 'url'){
+													$img_src = $images_value;
+												}else{
+													$img_src = wp_get_attachment_image_src( $images_value );
+													$img_src = $img_src[0];
+												}
+												$output .= '<div class="cherry-image-wrap"><img  src="' . esc_html( $img_src ) . '" alt="'.__( 'Current Image', 'cherry' ).'" data-img-attr="'.$images_value.'"><a class="media-modal-icon cherry-remove-image" href="#" title="' . $remove_button_text . '"></a></div>';
+											}
+										}
+									$output .= '</div>';
+								$output .= '</div>';
+							}
+							add_action( 'admin_footer', array($this, 'include_media_script_style'));
+							add_action( 'admin_footer', array($this, 'include_scripts'));
+						$output .= '</div>';
+						$output .= '<a href="javascript:void(0);" class="button-primary button add-new-icon">'. __( 'Add new icon', 'cherry' ) .'</a>';
+						$output .= '<div class="clear"></div>';
 					$output .= '</div>';
 					$output .= '<div class="icon-list-preview">';
+						$output .= $this -> add_label($id.'-icons-list',  __( 'All icons list', 'cherry' ), $this->options['class']['label'].' cherry-block');
 						$output .= '<ul>';
 							foreach ($value as $icon_id => $icon_settings) {
 								$output .= '<li class="icon-type-' . $icon_settings['type'] . '">';
 									$output .= '<div class="inner">';
-										$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][title]" value="' . $icon_settings['title'] . '" class="hidden-title">';
+										$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][title]" value="' . $icon_settings['title'] . '" class="hidden-label">';
 										$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][link]"  value="' . $icon_settings['link'] . '" class="hidden-link">';
 										$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][type]" value="' . $icon_settings['type'] . '" class="hidden-type">';
 										switch ( $icon_settings['type'] ) {
 											case 'label':
-
+												$output .= '<div class="icon-preview"></div>';
 											break;
 											case 'image':
 												$output .= '<input type="hidden" name="' . $name . '[' . $icon_id . '][upload]" value="' . $icon_settings['upload'] . '" class="hidden-image">';
@@ -492,7 +559,6 @@ class Cherry_Interface_Builder {
 												$output .= '</div>';
 											break;
 										}
-
 										$output .= '<div class="icon-info">';
 											$output .= '<span class="icon-title">' . $icon_settings['title'] . '</span>';
 											$output .= '<a class="icon-link" href="' . $icon_settings['link'] . '">' . $icon_settings['link'] . '</a>';

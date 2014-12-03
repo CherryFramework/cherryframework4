@@ -231,7 +231,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function load_settings() {
+		static function load_settings() {
 			$result_settings = null;
 			if ( !$result_settings ) {
 				// Load options from options.php file (if it exists)

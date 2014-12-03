@@ -664,6 +664,15 @@
 				padding: 5px;
 				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 				margin-bottom: 10px;
+					.control-wrap{
+						border: 1px solid #ccc;
+						margin: 3px;
+						padding: 5px;
+					}
+					.add-new-icon{
+						margin: 10px;
+						float: right;
+					}
 			}
 			.icon-list-preview{
 				border: 1px solid #dfdfdf;
@@ -674,7 +683,7 @@
 						margin: 0;
 						overflow: hidden;
 							li{
-								width: 33%;
+								width: 33.3333%;
 								float: left;
 								margin: 0;
 									&.icon-type-label{
@@ -684,7 +693,8 @@
 										.inner{
 											.icon-preview{
 												.image-preview{
-													max-width: 30px;
+													max-width: 26px;
+													margin: 5px;
 												}
 											}
 										}
@@ -693,10 +703,10 @@
 										.inner{
 											.icon-preview{
 												span{
-													width: 30px;
-													height: 30px;
+													width: 36px;
+													height: 36px;
 													font-size: 25px;
-													line-height: 30px;
+													line-height: 36px;
 												}
 											}
 										}
@@ -705,9 +715,9 @@
 										.inner{
 											.icon-preview{
 												span{
-													width: 30px;
-													height: 30px;
-													line-height: 30px;
+													width: 36px;
+													height: 36px;
+													line-height: 36px;
 												}
 											}
 										}
@@ -715,9 +725,10 @@
 									.inner{
 										border: 1px solid #ccc;
 										margin: 3px;
+										background: #fff;
 											.icon-preview{
-												width: 30px;
-												height: 30px;
+												width: 36px;
+												height: 36px;
 												float: left;
 											}
 											.icon-info{
@@ -725,8 +736,8 @@
 												margin-left: 5px;
 													.icon-title{
 														display: block;
-														font-size: 12px;
-														line-height: 16px;
+														font-size: 15px;
+														line-height: 22px;
 													}
 													.icon-link{
 														display: block;
@@ -738,15 +749,17 @@
 											.control{
 												width: 40px;
 												float: right;
-													.edit{
-														width: 20px;
-														margin: 5px 0;
-														color: #7ad03a;
-													}
 													.delete{
 														width: 20px;
-														margin: 5px 0;
 														color: #f4130c;
+														margin: 8px 0;
+														cursor: pointer;
+													}
+													.edit{
+														width: 20px;
+														color: #7ad03a;
+														margin: 8px 0;
+														cursor: pointer;
 													}
 											}
 									}
