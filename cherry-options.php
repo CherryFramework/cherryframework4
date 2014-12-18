@@ -12,7 +12,7 @@ function cherry_defaults_settings() {
 				'title'			=> '',
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Demo options</h2>'
-	);
+	);/*
 	$demo_options['icons-editor'] = array(
 				'type'			=> 'icon_editor',
 				'title'			=> 'title icon-editor',
@@ -77,7 +77,7 @@ function cherry_defaults_settings() {
 					),
 				),
 				'default_value'	=> 'default_value'
-	);
+	);*/
 	$demo_options['static-area-editor'] = array(
 				'type'			=> 'static_area_editor',
 				'title'			=> 'title static-area-editor',
@@ -442,6 +442,7 @@ function cherry_defaults_settings() {
 				'type'			=> 'submit',
 				'value'			=> 'get value'
 	);
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////// General options //////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -555,112 +556,6 @@ function cherry_defaults_settings() {
 				'default_value'	=> 'default_value'
 	);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////// Header options //////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	$header_options = array();
-	$header_options['header-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=> '<h2>Header options</h2>'
-	);
-	$header_options['header-type-layout'] = array(
-			'type'			=> 'radio',
-			'title'			=> __('Header type layout', 'cherry'),
-			'label'			=> __('Header type layout', 'cherry'),
-			'decsription'	=> __('Choose header type layout.', 'cherry'),
-			'value'			=> 'header-type-layout-radio-1',
-			'default_value'	=> 'header-type-layout-radio-1',
-			'class'			=> '',
-			'display_input'	=> false,
-			'options'		=> array(
-				'header-type-layout-radio-1' => array(
-					'label' => 'Top static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
-				),
-				'header-type-layout-radio-2' => array(
-					'label' => 'Left static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
-				),
-				'header-type-layout-radio-3' => array(
-					'label' => 'Right static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
-				),
-				'header-type-layout-radio-4' => array(
-					'label' => 'Top toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
-				),
-				'header-type-layout-radio-5' => array(
-					'label' => 'Left toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
-				),
-				'header-type-layout-radio-6' => array(
-					'label' => 'Right toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
-				)
-			)
-	);
-	$header_options['header-background'] = array(
-			'type'			=> 'background',
-			'title'			=> 'Header background',
-			'label'			=> 'Header styling section',
-			'decsription'	=> 'Change the Header background',
-			'return_data_type'	=> 'id',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#a4cc3f',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-	);
-	$header_options['header-background-full-scale'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Header full scale background',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Enable/Disable header full scale background',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$header_options['header-parallax-effect'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Parallax effect',
-			'label'			=> 'Parallax effect',
-			'decsription'	=> 'Enable/Disable header parallax effect',
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
-	);
-	$header_options['header-sticky'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Header sticky',
-			'label'			=> 'Enable/Disable',
-			'decsription'	=> 'Enable/Disable header sticky',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$header_options['header-sticky-tablets'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Header sticky on tablets',
-			'label'			=> 'Enable/Disable',
-			'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'For enable a fixed header when scrolling on tablets select enable or unselect to disable'
-				),
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
-	);
-	$header_options['header-sticky-mobiles'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Header sticky on mobiles',
-			'label'			=> 'Enable/Disable',
-			'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'For enable a fixed header when scrolling on mobiles select enable or unselect to disable'
-				),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// Footer options /////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1127,53 +1022,300 @@ function cherry_defaults_settings() {
 				'type' => 'info',
 				'value' =>'<h2>Portfolio settings</h2>',
 		);
-		$portfolio_options['portfolio-layout-options'] = array(
+
+		$portfolio_options['portfolio-sidebar-options'] = array(
 			'type'	=> 'radio',
-			'title'	=> __('Portfolio list layout', 'cherry'),
-			'label'	=> __('Portfolio list layout', 'cherry'),
+			'title'	=> __('Portfolio page layout', 'cherry'),
+			'label'	=> __('Portfolio page layout', 'cherry'),
 			'decsription'	=> __('Choose blog page layout.', 'cherry'),
-			'value'	=> 'header-type-layout-radio-1',
-			'default-value'	=> 'header-type-layout-radio-1',
+			'value'	=> 'portfolio-layout-radio-2',
+			'default-value'	=> 'portfolio-layout-radio-2',
 			'class'	=> '',
 			'display_input'	=> false,
 			'options'	=> array(
 			'portfolio-layout-radio-1' => array(
+			'label' => 'Left and right sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-both-sidebar.png'
+			),
+			'portfolio-layout-radio-2' => array(
+			'label' => 'Left sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-left-sidebar.png'
+			),
+			'portfolio-layout-radio-3' => array(
+			'label' => 'Right sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-right-sidebar.png'
+			),
+			'portfolio-layout-radio-4' => array(
+			'label' => 'Sameside left sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
+			),
+			'portfolio-layout-radio-5' => array(
+			'label' => 'Sameside right sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
+			),
+			'portfolio-layout-radio-6' => array(
+			'label' => 'No sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-fullwidth.png'
+			)
+		)
+		);
+
+	$portfolio_options['portfolio-layout-options'] = array(
+			'type'	=> 'radio',
+			'title'	=> __('Portfolio list layout', 'cherry'),
+			'label'	=> __('Portfolio list layout', 'cherry'),
+			'decsription'	=> __('Choose blog page layout.', 'cherry'),
+			'value'	=> 'portfolio-layout-radio-7',
+			'default-value'	=> 'portfolio-layout-radio-7',
+			'class'	=> '',
+			'display_input'	=> false,
+			'options'	=> array(
+			'portfolio-layout-radio-7' => array(
 			'label' => 'Masonry',
 			'img_src' => PARENT_URI.'/lib/admin/assets/images/type-masonry.png'
 			),
-			'portfolio-layout-radio-2' => array(
+			'portfolio-layout-radio-8' => array(
 			'label' => 'Grid',
 			'img_src' => PARENT_URI.'/lib/admin/assets/images/type-grid3.png'
 			),
-			'portfolio-layout-radio-3' => array(
+			'portfolio-layout-radio-9' => array(
 			'label' => 'Lists',
 			'img_src' => PARENT_URI.'/lib/admin/assets/images/type-list.png'
 			),
-			'portfolio-layout-radio-4' => array(
+			'portfolio-layout-radio-10' => array(
 			'label' => 'Justified grid',
 			'img_src' => PARENT_URI.'/lib/admin/assets/images/type-justified.png'
 			)
 		)
 		);
-		$portfolio_options['portfolio-filter'] = array(
+
+
+		$portfolio_options['portfolio-hover-box'] = array(
 				'type'			=> 'select',
-				'title'			=> 'portfolio filter',
-				'label'			=> 'label select',
-				'decsription'	=> 'decsription select',
+				'title'			=> 'portfolio item',
+				'decsription'	=> 'style for hover boxes',
 				'hint'      	=>  array(
 					'type'		=> 'text',
-					'content'	=> 'Background for main breadcrumb container'
+					'content'	=> ''
 				),
-				'value'			=> 'select-1',
+				'value'			=> 'by category',
 				'default_value'	=> 'select-1',
 				'class'			=> 'width-full',
 				'options'		=> array(
-					'select-1'	=> 'select 1',
-					'select-2'	=> 'select 2',
-					'select-3'	=> 'select 3'
+					'select-1'	=> 'simple dark bg  & full set controls',
+					'select-2'	=> 'simple colored bg  & one control',
+					'select-3'	=> 'colored bg & full set controls',
+					'select-4'	=> 'fade dark bg  & full set controls',
+					'select-5'	=> 'direction aware colored bg & full set controls',
+					'select-6'	=> 'side move colored bg & links controls',
+					'select-7'	=> 'move from bottom colored bg & links controls',
+					'select-8'	=> 'fade dark gradient bg & full set controls',
+					'select-9'	=> 'fade dark gradient bg & static links controls',
+					'select-10'	=> 'From bottom & full set controls',
 				)
 	);
 
+		$portfolio_options['portfolio-filter'] = array(
+				'type'			=> 'select',
+				'title'			=> 'portfolio filter',
+				'decsription'	=> 'decsription select',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'value'			=> 'by category',
+				'default_value'	=> 'select-1',
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'by category',
+					'select-2'	=> 'by tags',
+					'select-3'	=> 'none'
+				)
+		);
+
+		$portfolio_options['portfolio-sort-filter'] = array(
+				'type'			=> 'select',
+				'title'			=> 'Sort filter by parameter (orderby)',
+				'decsription'	=> 'Sort filter alphabetically or by unique category ID.',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Sort filter alphabetically or by unique category ID.'
+				),
+				'value'			=> 'by category',
+				'default_value'	=> 'select-1',
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'ID',
+					'select-2'	=> 'Name',
+					'select-3'	=> 'Slug',
+					'select-4'	=> 'Post counts'
+				)
+		);
+
+		$portfolio_options['portfolio-sort-order-filter'] = array(
+				'type'			=> 'select',
+				'title'			=> 'Sort order for filter',
+				'decsription'	=> 'Sort order for filter (either ascending or descending).',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Sort order for filter (either ascending or descending).'
+				),
+				'value'			=> 'by category',
+				'default_value'	=> 'select-1',
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'ASC',
+					'select-2'	=> 'DESC'
+				)
+		);
+
+		$portfolio_options['portfolio-sort-order-posts'] = array(
+				'type'			=> 'select',
+				'title'			=> 'Sort order for posts',
+				'decsription'	=> 'Designates the ascending or descending order of the "orderby" parameter.',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Designates the ascending or descending order of the "orderby" parameter.'
+				),
+				'value'			=> 'by category',
+				'default_value'	=> 'select-2',
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'ASC',
+					'select-2'	=> 'DESC'
+				)
+		);
+
+		$portfolio_options['portfolio-sort-retrieved-post'] = array(
+				'type'			=> 'select',
+				'title'			=> 'Sort retrieved posts by parameter (orderby)',
+				'decsription'	=> 'Sort retrieved posts by parameter.',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Sort retrieved posts by parameter.'
+				),
+				'value'			=> 'by category',
+				'default_value'	=> 'select-3',
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'ID',
+					'select-2'	=> 'Author',
+					'select-3'	=> 'Title',
+					'select-4'	=> 'Name (slug)',
+					'select-5'	=> 'Modified',
+					'select-6'	=> 'Comments',
+					'select-7'	=> 'Random'
+
+				)
+		);
+
+		$portfolio_options['portfolio-breadcrumbs'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Show breadcrumb?',
+				'decsription'	=> 'Show breadcrumb',
+				'value'			=> 'true',
+				'default_value'	=> 'default_value'
+		);
+
+		$portfolio_options['portfolio-show-title'] = array(
+				'type'			=> 'multicheckbox',
+				'title'			=> 'Show title?',
+				'decsription'	=> 'Enable or Disable title for portfolio posts.',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Enable or Disable title for portfolio posts.'
+				),
+				'class'			=> '',
+				'value'			=> array(
+					'title_portfolio_list'	=> true,
+					'title_category'	=> true,
+					'title_single page'	=> true
+				),
+				'options'		=> array(
+					'title_portfolio_list'	=> 'In portfolio list',
+					'title_category'	=> 'In category',
+					'title_single page'	=> 'In single page'
+				)
+		);
+
+		$portfolio_options['portfolio-show-excerpt'] = array(
+				'type'			=> 'multicheckbox',
+				'title'			=> 'Show excerpt?',
+				'decsription'	=> 'Enable or Disable excerpt for portfolio posts.',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Enable or Disable excerpt for portfolio posts.'
+				),
+				'class'			=> '',
+				'value'			=> array(
+					'title_portfolio_list'	=> true,
+					'title_category'	=> true,
+					'title_single page'	=> false
+				),
+				'options'		=> array(
+					'title_portfolio_list'	=> 'In portfolio list',
+					'title_category'	=> 'In category'
+				)
+		);
+
+		$portfolio_options['portfolio-excerpt'] = array(
+				'type'			=> 'stepper',
+				'title'			=> 'Excerpt words length',
+				'decsription'	=> 'Excerpt length (words).',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'value'			=> '10',
+				'value-step'	=> '1',
+				'max-value'		=> '1000',
+				'min-value'		=> '0'
+	);
+
+		$portfolio_options['portfolio-sort'] = array(
+				'type'			=> 'info',
+				'decsription'	=> 'decsription info',
+				'value'			=> '<h2>Portfolio single page</h2>'
+		);
+
+
+
+		$portfolio_options['portfolio-single-page'] = array(
+			'type'	=> 'radio',
+			'title'	=> __('Portfolio page layout', 'cherry'),
+			'label'	=> __('Portfolio page layout', 'cherry'),
+			'decsription'	=> __('Choose blog page layout.', 'cherry'),
+			'value'	=> 'portfolio-layout-radio-12',
+			'default-value'	=> 'portfolio-layout-radio-12',
+			'class'	=> '',
+			'display_input'	=> false,
+			'options'	=> array(
+			'portfolio-layout-radio-11' => array(
+			'label' => 'Left and right sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-both-sidebar.png'
+			),
+			'portfolio-layout-radio-12' => array(
+			'label' => 'Left sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-left-sidebar.png'
+			),
+			'portfolio-layout-radio-13' => array(
+			'label' => 'Right sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-right-sidebar.png'
+			),
+			'portfolio-layout-radio-14' => array(
+			'label' => 'Sameside left sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
+			),
+			'portfolio-layout-radio-15' => array(
+			'label' => 'Sameside right sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
+			),
+			'portfolio-layout-radio-16' => array(
+			'label' => 'No sidebar',
+			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-fullwidth.png'
+			)
+		)
+		);
 
 
 
@@ -1233,7 +1375,9 @@ function cherry_defaults_settings() {
 					'align'			=> 'notdefined'
 				)
 	);
+
 ////////// Navigation options ///////////////////////////////////////////////////
+
 		$navigation_options = array();
 		$navigation_options['navigation-options'] = array(
 				'type'			=> 'info',
@@ -1608,9 +1752,11 @@ function cherry_defaults_settings() {
 				'max-value'		=> '9999',
 				'min-value'		=> '1'
 		);
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// Styling options /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 	$styling_options = array();
 	$styling_options['styling-options'] = array(
 			'type'			=> 'info',
@@ -1759,7 +1905,7 @@ function cherry_defaults_settings() {
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////// Color options /////////////////////////////////////////////////////
+////////////////////////////// Color scheme options /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$color_options = array();
@@ -1767,19 +1913,188 @@ function cherry_defaults_settings() {
 			'type'			=> 'info',
 			'title'			=> '',
 			'decsription'	=> 'decsription info',
-			'value'			=>'<h2>Color options</h2>'
+			'value'			=>'<h2>Color scheme</h2>'
 	);
-	$color_options['color-brand-primary'] = array(
+	$color_options['color-primary'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> 'Brand primary color',
-			'label'			=> 'label colorpicker',
-			'decsription'	=> 'decsription colorpicker',
+			'title'			=> 'Primary color',
+			'decsription'	=> 'Primary color for text, backgrounds and etc.',
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 			),
-			'value'			=> '#005566',
-			'default_value'	=> '#005566'
+			'value'			=> '#286090',
+			'default_value'	=> '#286090'
+	);
+	$color_options['color-success'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'Success color',
+			'decsription'	=> 'Success color for text, backgrounds and etc.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+			),
+			'value'			=> '#DFF0D8',
+			'default_value'	=> '#DFF0D8'
+	);
+	$color_options['color-info'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'Info color',
+			'decsription'	=> 'Info color for text, backgrounds and etc.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+			),
+			'value'			=> '#D9EDF7',
+			'default_value'	=> '#D9EDF7'
+	);
+	$color_options['color-warning'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'Warning color',
+			'decsription'	=> 'Warning color for text, backgrounds and etc.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+			),
+			'value'			=> '#FCF8E3',
+			'default_value'	=> '#FCF8E3'
+	);
+	$color_options['color-danger'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'Danger color',
+			'decsription'	=> 'Danger color for text, backgrounds and etc.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+			),
+			'value'			=> '#F2DEDE',
+			'default_value'	=> '#F2DEDE'
+	);
+	$color_options['color-gray-variations'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'Gray color variations',
+			'decsription'	=> 'Gray variations color for text, backgrounds and etc.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Gray color variations </br>
+								<hr>
+								gray-darker:           darken(20%)</br>
+								gray-dark:             darken(15%)</br>
+								gray-light:            lighten(15%)</br>
+								gray-lighter:          lighten(20%)</br>'
+							),
+			'value'			=> '#555555',
+			'default_value'	=> '#555555'
+	);
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Header options //////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	$header_options = array();
+	$header_options['header-options'] = array(
+			'type'			=> 'info',
+			'title'			=> '',
+			'decsription'	=> 'decsription info',
+			'value'			=> '<h2>Header options</h2>'
+	);
+	$header_options['header-type-layout'] = array(
+			'type'			=> 'radio',
+			'title'			=> __('Header type layout', 'cherry'),
+			'label'			=> __('Header type layout', 'cherry'),
+			'decsription'	=> __('Choose header type layout.', 'cherry'),
+			'value'			=> 'header-type-layout-radio-1',
+			'default_value'	=> 'header-type-layout-radio-1',
+			'class'			=> '',
+			'display_input'	=> false,
+			'options'		=> array(
+				'header-type-layout-radio-1' => array(
+					'label' => 'Top static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
+				),
+				'header-type-layout-radio-2' => array(
+					'label' => 'Left static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
+				),
+				'header-type-layout-radio-3' => array(
+					'label' => 'Right static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
+				),
+				'header-type-layout-radio-4' => array(
+					'label' => 'Top toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
+				),
+				'header-type-layout-radio-5' => array(
+					'label' => 'Left toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
+				),
+				'header-type-layout-radio-6' => array(
+					'label' => 'Right toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
+				)
+			)
+	);
+	$header_options['header-background'] = array(
+			'type'			=> 'background',
+			'title'			=> 'Header background',
+			'label'			=> 'Header styling section',
+			'decsription'	=> 'Change the Header background',
+			'return_data_type'	=> 'id',
+			'value'			=> array(
+					'image'	=> '',
+					'color'	=> '#a4cc3f',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+	);
+	$header_options['header-background-full-scale'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header full scale background',
+			'label'			=> 'Enable / Disable',
+			'decsription'	=> 'Enable/Disable header full scale background',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+	$header_options['header-parallax-effect'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Parallax effect',
+			'label'			=> 'Parallax effect',
+			'decsription'	=> 'Enable/Disable header parallax effect',
+			'value'			=> 'true',
+			'default_value'	=> 'default_value'
+	);
+	$header_options['header-sticky'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header sticky',
+			'label'			=> 'Enable/Disable',
+			'decsription'	=> 'Enable/Disable header sticky',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+	$header_options['header-sticky-tablets'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header sticky on tablets',
+			'label'			=> 'Enable/Disable',
+			'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'For enable a fixed header when scrolling on tablets select enable or unselect to disable'
+				),
+			'value'			=> 'true',
+			'default_value'	=> 'default_value'
+	);
+	$header_options['header-sticky-mobiles'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Header sticky on mobiles',
+			'label'			=> 'Enable/Disable',
+			'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'For enable a fixed header when scrolling on mobiles select enable or unselect to disable'
+				),
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
 	);
 
 
@@ -1976,7 +2291,7 @@ function cherry_defaults_settings() {
 			'type'			=> 'info',
 			'title'			=> '',
 			'decsription'	=> 'decsription info',
-			'value'			=>'<h2>Typography options</h2>'
+			'value'			=>'<h2>Lists options</h2>'
 	);
 
 	$lists_options['lists-text-color'] = array(
@@ -2028,7 +2343,7 @@ function cherry_defaults_settings() {
 					'select-4'	=> 'icon_caret_left'
 				)
 	);
-
+/*
 	$lists_options['lists-mark-icon'] = array(
 				'type'			=> 'stepper',
 				'title'			=> 'title stepper',
@@ -2044,6 +2359,87 @@ function cherry_defaults_settings() {
 				'max-value'		=> '50',
 				'min-value'		=> '-50'
 	);
+*/
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////// Social options /////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+$social_options = array();
+	$social_options['social-options'] = array(
+			'type'			=> 'info',
+			'title'			=> '',
+			'decsription'	=> 'decsription info',
+			'value'			=>'<h2>Social settings</h2>'
+	);
+
+	$social_options['social_comments'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Comments via social accounts',
+				'label'			=> 'Enable / Disable',
+				'decsription'	=> 'Parallax background on main container',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+
+	$social_options['social_sharing'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Social sharing ',
+				'label'			=> 'Enable / Disable',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+
+	$social_options['social_login'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Social login',
+				'label'			=> 'Enable / Disable',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+
+	$social_options['social_registration'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Social login',
+				'label'			=> 'Enable / Disable',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+	$social_options['cache_duration'] = array(
+				'type'			=> 'slider',
+				'title'			=> 'Cache Duration',
+				'decsription'	=> 'How long messages will be fetched from cache, not from social networks',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'in seconds, empty value for default. 0 value means no cache at all (use it only if you use cache for a whole site)'
+				),
+				'max_value'		=> 86400,
+				'min_value'		=> 0,
+				'value'			=> 3600
+	);
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2099,6 +2495,15 @@ function cherry_defaults_settings() {
 		'priority'		=> 30,
 		'options-list'	=> $styling_options
 	);
+
+	$sections_array['color-options-section'] = array(
+		'name'			=>'Color scheme',
+		'icon' 			=> 'dashicons dashicons-arrow-right',
+		'parent'		=> 'styling-options-section',
+		'priority'		=> 31,
+		'options-list'	=> $color_options
+	);
+
 	$sections_array['navigation-options-section'] = array(
 		'name'			=> 'Navigation',
 		'icon' 			=> 'dashicons dashicons-menu',
@@ -2110,7 +2515,7 @@ function cherry_defaults_settings() {
 		'name'			=>'Breadcrumbs',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'navigation-options-section',
-		'priority'		=> 91,
+		'priority'		=> 41,
 		'options-list'	=> $breadcrumbs_options
 	);
 	$sections_array['pagination-options-section'] = array(
@@ -2154,6 +2559,13 @@ function cherry_defaults_settings() {
 		'parent'		=> 'typography-options-section',
 		'priority'		=> 71,
 		'options-list'	=> $lists_options
+	);
+	$sections_array['social-options-section'] = array(
+		'name' => 'Social',
+		'icon' => 'dashicons dashicons-admin-generic',
+		'parent' => '',
+		'priority' => 80,
+		'options-list' => $social_options
 	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
