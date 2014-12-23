@@ -85,7 +85,7 @@ function cherry_get_container_class( $location ) {
 	}
 
 	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
-		$class = 'container-fluid';
+		$class = 'container';
 	}
 
 	$class .= ' container-' . sanitize_html_class( $location );
@@ -94,10 +94,11 @@ function cherry_get_container_class( $location ) {
 	 * Filters a class for container.
 	 *
 	 * @since 4.0.0
-	 * @param string $class    HTML-class for container.
-	 * @param string $location A container location.
+	 * @param string $class       HTML-class for container.
+	 * @param string $location    A container location.
+	 * @param string $layout_type Current `grid-type` option.
 	 */
-	$class = apply_filters( 'cherry_get_container_class', $class, $location );
+	$class = apply_filters( 'cherry_get_container_class', $class, $location, $layout_type );
 
 	return esc_attr( trim( $class ) );
 }

@@ -42,7 +42,10 @@ Use it to make something cool, have fun, and share what you've learned with othe
 		width: 23%;
 		margin-left: 2%;
 	}
-	.cherry-with-sidebar .entry-content .container {
+	.cherry-with-sidebar .entry-header .container,
+	.cherry-with-sidebar .entry-content .container,
+	.cherry-with-sidebar .comments-area .container,
+	.cherry-with-sidebar .entry-footer .container {
 		width: 80%; /* fix */
 	}
 }
