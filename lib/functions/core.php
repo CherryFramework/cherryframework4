@@ -74,31 +74,3 @@ function cherry_get_content_width() {
 
 	return $content_width;
 }
-
-function cherry_get_container_class( $location ) {
-	$layout_type = cherry_get_option('grid-type');
-
-	if ( 'grid-wide' === $layout_type ) {
-		$class = 'container';
-	} elseif ( 'grid-boxed' === $layout_type ) {
-		$class = 'container-fluid';
-	}
-
-	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
-		$class = 'container';
-	}
-
-	$class .= ' container-' . sanitize_html_class( $location );
-
-	/**
-	 * Filters a class for container.
-	 *
-	 * @since 4.0.0
-	 * @param string $class       HTML-class for container.
-	 * @param string $location    A container location.
-	 * @param string $layout_type Current `grid-type` option.
-	 */
-	$class = apply_filters( 'cherry_get_container_class', $class, $location, $layout_type );
-
-	return esc_attr( trim( $class ) );
-}
