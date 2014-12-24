@@ -451,8 +451,8 @@ function cherry_defaults_settings() {
 	$general_options['general-options'] = array(
 			'type'			=> 'info',
 			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=> '<h2>General options</h2>'
+			'decsription'	=> 'decsription info'
+			/*'value'			=> '<h2>General options</h2>'*/
 	);
 	$general_options['general-logo'] = array(
 			'type'				=> 'image',

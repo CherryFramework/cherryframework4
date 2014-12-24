@@ -1075,7 +1075,7 @@ class Cherry_Interface_Builder {
 				$hint_content = '<div class="hint-video dashicons dashicons-video-alt3"  data-hint-video="">'. $embed_code .'</div>';
 				break;
 			default:
-				$hint_content = '<div class="hint-text dashicons dashicons-editor-help" title="' . $hint['content'] .'"></div>';
+				$hint_content = '<div class="hint-text" title="' . $hint['content'] .'"></div>';
 				break;
 		}
 
