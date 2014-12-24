@@ -451,8 +451,8 @@ function cherry_defaults_settings() {
 	$general_options['general-options'] = array(
 			'type'			=> 'info',
 			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=> '<h2>General options</h2>'
+			'decsription'	=> 'decsription info'
+			/*'value'			=> '<h2>General options</h2>'*/
 	);
 	$general_options['general-logo'] = array(
 			'type'				=> 'image',
@@ -544,6 +544,36 @@ function cherry_defaults_settings() {
 				'value'			=> 'true',
 				'default_value'	=> 'true'
 	);
+	$general_options['general-maintenance mode'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Maintenance mode',
+				'decsription'	=> 'Hide your site from regular visitors',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Logged in administrator gets full access to the site, while regular visitors will
+					be redirected to the chosen page.'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+
+	$general_options['general-maintenance-page'] = array(
+				'type'			=> 'select',
+				'title'			=> 'maintenance page',
+				'decsription'	=> 'Select template of maintenance page, which you gonna used.',
+				'hint'      	=>  array(
+					'type'		=> 'video',
+					'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
+				),
+				'value'			=> 'select-1',
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'page_template_1',
+					'select-2'	=> 'page_template_2',
+					'select-3'	=> 'page_template_3'
+				)
+	);
+
 	$general_options['general-google-analytics'] = array(
 				'type'			=> 'textarea',
 				'title'			=> 'Google Analytic',
@@ -893,6 +923,18 @@ function cherry_defaults_settings() {
 				)
 		);
 
+		$blog_options['blog-related-posts'] = array(
+			'type'			=> 'switcher',
+				'title'			=> 'Related posts',
+				'decsription'	=> 'Show related posts?',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Show related posts?'
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+		);
+
 		$blog_options['blog-post-publication-date'] = array(
 			'type'			=> 'switcher',
 				'title'			=> 'Post publication date.',
@@ -1027,7 +1069,7 @@ function cherry_defaults_settings() {
 			'type'	=> 'radio',
 			'title'	=> __('Portfolio page layout', 'cherry'),
 			'label'	=> __('Portfolio page layout', 'cherry'),
-			'decsription'	=> __('Choose blog page layout.', 'cherry'),
+			'decsription'	=> __('Choose portfolio page layout.', 'cherry'),
 			'value'	=> 'portfolio-layout-radio-2',
 			'default-value'	=> 'portfolio-layout-radio-2',
 			'class'	=> '',
@@ -1064,7 +1106,7 @@ function cherry_defaults_settings() {
 			'type'	=> 'radio',
 			'title'	=> __('Portfolio list layout', 'cherry'),
 			'label'	=> __('Portfolio list layout', 'cherry'),
-			'decsription'	=> __('Choose blog page layout.', 'cherry'),
+			'decsription'	=> __('Choose portfolio page layout.', 'cherry'),
 			'value'	=> 'portfolio-layout-radio-7',
 			'default-value'	=> 'portfolio-layout-radio-7',
 			'class'	=> '',
@@ -1088,6 +1130,8 @@ function cherry_defaults_settings() {
 			)
 		)
 		);
+
+	///////////////////////////////////Portfolio image size
 
 
 		$portfolio_options['portfolio-hover-box'] = array(
@@ -1284,7 +1328,7 @@ function cherry_defaults_settings() {
 			'type'	=> 'radio',
 			'title'	=> __('Portfolio page layout', 'cherry'),
 			'label'	=> __('Portfolio page layout', 'cherry'),
-			'decsription'	=> __('Choose blog page layout.', 'cherry'),
+			'decsription'	=> __('Choose portfolio page layout.', 'cherry'),
 			'value'	=> 'portfolio-layout-radio-12',
 			'default-value'	=> 'portfolio-layout-radio-12',
 			'class'	=> '',
@@ -1385,7 +1429,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Navigation options</h2>'
 		);
-		$navigation_options['stickup-menu'] = array(
+		$navigation_options['navigation-stickup-menu'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'StickUp menu',
 				'label'			=> 'Using stickUp menu',
@@ -1393,7 +1437,7 @@ function cherry_defaults_settings() {
 				'value'			=> 'true',
 				'default_value'	=> 'default_value'
 		);
-		$navigation_options['menu-typography'] = array(
+		$navigation_options['navigation-menu-typography'] = array(
 				'type'			=> 'typography',
 				'title'			=> 'Menu Typography',
 				'label'			=> 'Menu Typography style',
@@ -1409,6 +1453,71 @@ function cherry_defaults_settings() {
 					'align'			=> 'notdefined'
 				)
 		);
+
+		$navigation_options['navigation-smooth-scroll'] = array(
+				'type'			=> 'switcher',
+				'title'			=> 'Smooth scroll',
+				'decsription'	=> 'Enable to use smooth scrolling on pages',
+				'value'			=> 'true',
+				'default_value'	=> 'default_value'
+		);
+
+		$demo_options['navigation-scroll-effect'] = array(
+				'type'			=> 'multicheckbox',
+				'title'			=> 'Scroll effect',
+				'decsription'	=> 'decsription multicheckbox',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'class'			=> '',
+				'value'			=> array(
+					'checkbox-1'	=> true,
+					'checkbox-2'	=> false,
+					'checkbox-3'	=> true,
+					'checkbox-4'	=> true,
+				),
+				'options'		=> array(
+					'linear-effect'		=> 'Linear',
+					'ease-in-effect'	=> 'Ease-In',
+					'ease-in-out-effect'=> 'Ease-in-out',
+					'ease-out-effect'	=> 'Ease-out'
+				)
+	);
+
+			$navigation_options['navigation-scroll-effect'] = array(
+				'type'			=> 'radio',
+				'title'			=> 'Scroll effect',
+				'label'			=> 'label radio',
+				'decsription'	=> 'decsription radio',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'value'			=> 'radio-2',
+				'class'			=> '',
+				'display-input'	=> true,
+				'options'		=> array(
+					'radio-1' => array(
+						'label' => 'Linear',
+						'img_src' => ''
+					),
+					'radio-2' => array(
+						'label' => 'Ease-In',
+						'img_src' => ''
+					),
+					'radio-3' => array(
+						'label' => 'Ease-in-out',
+						'img_src' => ''
+					),
+					'radio-4' => array(
+						'label' => 'Ease-out',
+						'img_src' => ''
+					)
+				)
+	);
+
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// Breadcrumbs options ////////////////////////////////////////////////////////////////////
@@ -1633,6 +1742,7 @@ function cherry_defaults_settings() {
 				'description'	=>	'description info',
 				'value' 		=>	'<h2>Pagination options</h2>'
 		);
+
 		$pagination_option['pagination-display'] = array(
 				'type'			=>  'switcher',
 				'title' 		=>  'pagination',
@@ -1647,7 +1757,7 @@ function cherry_defaults_settings() {
 				'label'			=>	'Enable / Disable',
 				'hint'      	=>  array(
 					'type'		=> 'text',
-					'content'	=> 'Enable pagination links for blog index pages on bottom side of the posts (after showing posts).'
+					'content'	=> 'Enable pagination links for portfolio index pages on bottom side of the posts (after showing posts).'
 				),
 				'value'			=>	'true',
 				'default_value'	=>	'true'
@@ -1665,17 +1775,17 @@ function cherry_defaults_settings() {
 				'default_value'	=> 'pagination',
 				'class'			=> 'width-full',
 				'options'		=> array(
-					'select-1'	=> 'pagination',
+					'select-1'	=> 'standart pagination',
 					'select-2'	=> 'infinite scroll',
-					'select-3'	=>	'title navigation'
+					'select-3'	=> 'load more button',
+					'select-4'	=> 'ajax pagination',
 				)
 		);
 		$pagination_option['pagination-next-previous'] = array(
 				'type'			=>  'switcher',
-				'title' 		=>  'pagination',
-				'label'			=>	'Enable / Disable',
-				'value'			=>	'true',
-				'default_value'	=>	'true'
+				'title' 		=>  'previous an next page navigation',
+				'decsription'	=> 'Enable or disable previous an next page navigation',
+				'value'			=>	'true'
 		);
 		$pagination_option['pagination-label'] = array(
 				'type'			=> 'text',
@@ -1691,7 +1801,7 @@ function cherry_defaults_settings() {
 		$pagination_option['pagination-previous-page'] = array(
 				'type'			=> 'text',
 				'title'			=> 'previous page',
-				'decsription'	=> 'The text/HTML to display for the next page link',
+				'decsription'	=> 'The text/HTML to display for the previous page link.',
 				'hint'      	=>  array(
 					'type'		=> 'image',
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
@@ -1702,7 +1812,7 @@ function cherry_defaults_settings() {
 		$pagination_option['pagination-next-page'] = array(
 				'type'			=> 'text',
 				'title'			=> 'next page',
-				'decsription'	=> 'Limit the length of the breadcrumb title',
+				'decsription'	=> 'The text/HTML to display for the next page link.',
 				'hint'      	=>  array(
 					'type'		=> 'image',
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
@@ -1713,7 +1823,7 @@ function cherry_defaults_settings() {
 		$pagination_option['pagination-page-range'] = array(
 				'type'			=> 'stepper',
 				'title'			=> 'page range',
-				'decsription'	=> 'decsription stepper',
+				'decsription'	=> 'The number of page links to show before and after the current page.',
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'The number of page links to show before and after the current page. Recommended value: 4'
@@ -1727,7 +1837,7 @@ function cherry_defaults_settings() {
 		$pagination_option['pagination-page-anchors'] = array(
 				'type'			=> 'stepper',
 				'title'			=> 'page anchors',
-				'decsription'	=> 'decsription stepper',
+				'decsription'	=> 'The number of links to always show at beginning and end of pagination.',
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'The number of links to always show at beginning and end of pagination. Recommended value: 1'
@@ -1740,8 +1850,8 @@ function cherry_defaults_settings() {
 				);
 		$pagination_option['pagination-page-gap'] = array(
 				'type'			=> 'stepper',
-				'title'			=> 'page anchors',
-				'decsription'	=> 'decsription stepper',
+				'title'			=> 'page gap',
+				'decsription'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added.',
 				'hint'      	=>  array(
 					'type'		=> 'text',
 					'content'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added. Recommended value: 3'
@@ -2000,6 +2110,21 @@ function cherry_defaults_settings() {
 			'decsription'	=> 'decsription info',
 			'value'			=> '<h2>Header options</h2>'
 	);
+
+	$header_options['header-static-area-editor'] = array(
+				'type'			=> 'static_area_editor',
+				'title'			=> 'header static area editor',
+				'label'			=> 'label static-area-editor',
+				'decsription'	=> 'decsription static-area-editor',
+				'hint'			=>  array(
+					'type'		=> 'image',
+					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+				),
+				'value'			=> $all_statics,
+				'default_value'	=> 'default_value',
+				'options' => $all_statics
+	);
+
 	$header_options['header-type-layout'] = array(
 			'type'			=> 'radio',
 			'title'			=> __('Header type layout', 'cherry'),
@@ -2376,7 +2501,7 @@ $social_options = array();
 			'value'			=>'<h2>Social settings</h2>'
 	);
 
-	$social_options['social_comments'] = array(
+	$social_options['social-comments'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'Comments via social accounts',
 				'label'			=> 'Enable / Disable',
@@ -2389,7 +2514,7 @@ $social_options = array();
 				'default_value'	=> 'true'
 	);
 
-	$social_options['social_sharing'] = array(
+	$social_options['social-sharing'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'Social sharing ',
 				'label'			=> 'Enable / Disable',
@@ -2401,6 +2526,34 @@ $social_options = array();
 				'value'			=> 'true',
 				'default_value'	=> 'true'
 	);
+
+	$social_options['social-sharing-items'] = array(
+				'type'			=> 'multicheckbox',
+				'title'			=> 'Sharing items',
+				'decsription'	=> 'decsription multicheckbox',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> ''
+				),
+				'class'			=> '',
+				'value'			=> array(
+					'google_sharing'	=> true,
+					'facebook_sharing'	=> true,
+					'twitter_sharing'	=> true,
+					'pinterest_sharing'	=> true,
+					'linkedin_sharing'	=> true,
+				),
+
+				'options'		=> array(
+					'google_sharing'	=> 'Google +',
+					'facebook_sharing'	=> 'Facebook',
+					'twitter_sharing'	=> 'Twitter',
+					'pinterest_sharing'	=> 'Pinterest',
+					'linkedin_sharing'	=> 'LinkedIn',
+				)
+	);
+
+	//Sharing button location editor
 
 	$social_options['social_login'] = array(
 				'type'			=> 'switcher',

@@ -1,6 +1,8 @@
 .cherry-section {
-  margin: 0 0 1em 0;
+  margin: 0 0 0 0;
   overflow: hidden;
+  padding: 18px;
+  border-top: 1px solid #d4d5d6;
   /*Cherry column style*/
   /*End Cherry column style*/
   /*html ellements stule*/
@@ -32,10 +34,19 @@
   /*Cherry icon-sets-editor style*/
   /*Cherry icon-sets-editor style*/
 }
+.cherry-section:nth-child(2n){
+  background: #fcfcfc;
+}
+.cherry-section:nth-child(2n) {
+  background-color: #f2f3f4;
+}
+
+.cherry-section
+
 .cherry-section .cherry-title {
   margin: 0 0 5px 0;
   padding: 0 0 5px 0;
-  border-bottom: 1px solid #cccccc;
+  /*border-bottom: 1px solid #cccccc;*/
 }
 .cherry-section .cherry-title:first-letter {
   text-transform: uppercase;
@@ -69,7 +80,7 @@
   }
 }
 .cherry-section .cherry-col-2 {
-  width: 75%;
+  width: 73%;
 }
 @media screen and (max-width: 782px) {
   .cherry-section .cherry-col-2 {
@@ -108,8 +119,15 @@
   margin-bottom: 5px;
 }
 .cherry-section input[type=text], .cherry-section select {
-  margin: 0 0 5px 0;
+  margin: 0 0 0 0;
+  padding: 10px 5px;
+  border: 1px solid #dddcdc;
+  border-radius: 6px;
 }
+.cherry-section select{
+  height: 42px;
+}
+
 .cherry-section textarea {
   width: 100%;
 }
@@ -383,7 +401,6 @@
 }
 .cherry-section .cherry-uiw {
   margin-right: 115px;
-  padding-top: 1px;
 }
 @media screen and (max-width: 782px) {
   .cherry-section .cherry-uiw {
@@ -391,13 +408,21 @@
   }
 }
 .cherry-section .cherry-uicw {
-  width: 107px;
+  width: 108px;
   position: absolute;
   top: 0;
   right: 2px;
 }
 .cherry-section .cherry-uicw .cherry-upload-image {
   margin: 0;
+  border: 2px solid #dddcdc;
+  border-radius: 6px;
+  /*
+  background: none repeat scroll 0 0 #f7f7f7;
+  border-color: #ccc;
+  box-shadow: 0 1px 0 #fff inset, 0 1px 0 rgba(0, 0, 0, 0.08);*/
+  background-color: #FFFFFF;
+  height: 42px;
 }
 @media screen and (max-width: 782px) {
   .cherry-section .cherry-uicw {
@@ -468,10 +493,25 @@
 .cherry-section .hint-text {
   float: left;
   color: #555555;
-  margin: 3px 20px 3px 0;
+  margin: 0px 20px 0px 0;
+  background-image: url("../images/help-small-icon.png");
+  background-repeat: no-repeat;
+  background-color: #dee0e1;
+  background-position: 12px 10px;
+
+     -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+
+  width: 42px;
+  height: 40px;
+  border: 1px solid #c8c8c8;
 }
 .cherry-section .hint-text:hover {
   color: #2EA2CC;
+  background-color: #2EA2CC;
+  border: 1px solid #2EA2CC;
+  cursor: pointer;
 }
 .cherry-section .hint-image {
   float: left;
