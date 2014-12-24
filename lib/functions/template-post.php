@@ -337,3 +337,40 @@ function cherry_get_post_format_url( $post = null ) {
 
 	return esc_url( $url );
 }
+
+/**
+ * Retrieve the classes for the location element.
+ *
+ * @since  4.0.0
+ * @param  string $location
+ * @return string
+ */
+function cherry_get_container_class( $location ) {
+	$classes     = array();
+	$layout_type = cherry_get_option('grid-type');
+
+	if ( 'grid-wide' == $layout_type ) {
+		$classes[] = 'container';
+	} elseif ( 'grid-boxed' == $layout_type ) {
+		$classes[] = 'container-fluid';
+	}
+
+	if ( ( 'grid-wide' == $layout_type ) && cherry_display_sidebar( 'sidebar-main' ) ) {
+		$classes[] = 'container-fluid';
+	}
+
+	$classes[] = 'container-' . sanitize_html_class( $location );
+
+	/**
+	 * Filters the CSS classes for list.
+	 *
+	 * @since 1.0.0
+	 * @param array $wrap_classes An array of classes.
+	 * @param array $atts         Shortcode attributes.
+	 */
+	$classes = apply_filters( 'cherry_get_container_class', $classes, $location );
+	$classes = array_unique( $classes );
+	$classes = join( ' ', $classes );
+
+	return esc_attr( $classes );
+}

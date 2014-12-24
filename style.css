@@ -16,22 +16,24 @@ Use it to make something cool, have fun, and share what you've learned with othe
 
 @import "assets/css/style-main.css";
 
+img {
+	max-width: 100%;
+	height: auto;
+}
+.site {
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
 .cherry-container {
 	margin: 0 auto;
 }
-.cherry-container-fluid,
-.cherry-container {
-	background: #ccc;
+.cherry-boxed .cherry-container .container {
+	width: auto;
 }
-/*.box-gray { background: #999; }
-.box-green { background: #c7ff00; }
-.container { background: #428bca; }
-.container-fluid { background: #428bca; }*/
-
-.site-header { background: #aaa; border-bottom: 3px solid #000; }
-.site-footer { background: #aaa; border-top: 3px solid #000; }
-.widget-area { background: #999; }
-
+.container .static-area.no-container {
+	padding-left: 0;
+	padding-right: 0;
+}
 @media (min-width: 992px) {
 	.cherry-with-sidebar .content-area {
 		float: left;
@@ -49,3 +51,13 @@ Use it to make something cool, have fun, and share what you've learned with othe
 		width: 80%; /* fix */
 	}
 }
+
+
+
+.cherry-container-fluid,
+.cherry-container {
+	background: #ccc;
+}
+.site-header { background: #aaa; border-bottom: 3px solid #000; }
+.site-footer { background: #aaa; border-top: 3px solid #000; }
+.widget-area { background: #999; }
