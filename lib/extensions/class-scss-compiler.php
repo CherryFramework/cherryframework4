@@ -2,8 +2,8 @@
 
 require_once "class-scss.inc.php";
 
-$scssInput = PARENT_DIR .'/assets/scss/style-main.scss';
-$cssOutput = PARENT_DIR .'/assets/css/style-main.css';
+$scssInput = PARENT_DIR .'/assets/scss/main.scss';
+$cssOutput = PARENT_DIR .'/assets/css/main.css';
 
 class scssCompiler extends scssc{
 	function __construct(){
@@ -18,7 +18,7 @@ class scssCompiler extends scssc{
 		} catch (Exception $ex) {
 			echo $ex->getMessage();
 		}
-		
+
 		file_put_contents($outputFile, $compiledCss);
 	}
 }

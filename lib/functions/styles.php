@@ -16,7 +16,10 @@
 add_action( 'wp_enqueue_scripts', 'cherry_register_styles', 0 );
 
 // Load Cherry Framework styles.
-add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 11 );
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 5 );
+
+// Load theme style.
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_theme_style', 11 );
 
 /**
  * Registers stylesheets for the framework. This function merely registers styles with WordPress using
@@ -30,14 +33,18 @@ function cherry_register_styles() {
 	// Get framework styles.
 	$styles = cherry_get_styles();
 
+	// Get the active theme stylesheet version.
+	$version = wp_get_theme()->get( 'Version' );
+	$handle  = get_stylesheet();
+
 	// Loop through each style and register it.
 	foreach ( $styles as $style => $args ) {
 
 		$defaults = array(
 			'handle'  => $style,
-			'src'     => trailingslashit( CHERRY_URI ) . "css/{$style}.css",
+			'src'     => trailingslashit( CHILD_URI ) . "assets/css/{$style}.css",
 			'deps'    => null,
-			'version' => false,
+			'version' => $version,
 			'media'   => 'all'
 		);
 
@@ -67,10 +74,17 @@ function cherry_enqueue_styles() {
 	if ( !is_array( $supports[0] ) )
 		return;
 
+	$handle = get_stylesheet();
+
 	// Loop through each of the core framework styles and enqueue them if supported.
 	foreach ( $supports[0] as $style ) {
 		wp_enqueue_style( $style );
 	}
+}
+
+function cherry_enqueue_theme_style() {
+	$handle = get_stylesheet();
+	wp_enqueue_style( 'style' );
 }
 
 /**
@@ -80,28 +94,24 @@ function cherry_enqueue_styles() {
  * @return array $styles All the available framework styles.
  */
 function cherry_get_styles() {
+	// Responsive grid?
+	$responsive      = cherry_get_option('grid-responsive');
+	$grid_responsive = ( 'true' == $responsive  ) ? array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/grid-responsive.css' ) : false;
 
 	// Default styles available.
 	$styles = array(
-		'drop-downs' => array( 'version' => CHERRY_VERSION ),
-	);
-
-	// If a child theme is active, add the parent theme's style.
-	if ( is_child_theme() ) {
-
-		// Get the parent theme stylesheet.
-		$src = trailingslashit( PARENT_URI ) . 'style.css';
-
-		$styles['parent'] = array(
-			'src'     => $src,
+		'main'            => array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/main.css' ),
+		'grid-base'       => array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/grid-base.css' ),
+		'grid-responsive' => $grid_responsive,
+		'drop-downs'      => array(
+			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
 			'version' => CHERRY_VERSION,
-		);
-	}
-
-	// Add the active theme style.
-	$styles['style'] = array(
-		'src'     => get_stylesheet_uri(),
-		'version' => wp_get_theme()->get( 'Version' ),
+		),
+		'add-ons' => array(
+			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
+			'version' => CHERRY_VERSION,
+		),
+		'style'   => array( 'src' => get_stylesheet_uri() ),
 	);
 
 	/**

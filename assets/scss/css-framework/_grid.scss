@@ -6,9 +6,6 @@
   @include container-fixed();
 }
 
-
-
-
 // Fluid container
 //
 // Utilizes the mixin meant for fixed width containers, but without any defined
@@ -38,7 +35,6 @@
 // smartphones.
 
 @include make-grid(xs);
-
-
-
-
+@include make-grid(sm);
+@include make-grid(md);
+@include make-grid(lg);
