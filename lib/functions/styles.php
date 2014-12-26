@@ -35,13 +35,14 @@ function cherry_register_styles() {
 
 	// Get the active theme stylesheet version.
 	$version = wp_get_theme()->get( 'Version' );
-	$handle  = get_stylesheet();
+	// $prefix  = cherry_get_prefix( true );
+	$prefix  = cherry_get_prefix();
 
 	// Loop through each style and register it.
 	foreach ( $styles as $style => $args ) {
 
 		$defaults = array(
-			'handle'  => $style,
+			'handle'  => $prefix . $style,
 			'src'     => trailingslashit( CHILD_URI ) . "assets/css/{$style}.css",
 			'deps'    => null,
 			'version' => $version,
@@ -74,17 +75,27 @@ function cherry_enqueue_styles() {
 	if ( !is_array( $supports[0] ) )
 		return;
 
-	$handle = get_stylesheet();
+	// Get framework styles.
+	$styles = cherry_get_styles();
+
+	// Get prefix.
+	// $prefix = cherry_get_prefix( true );
+	$prefix = cherry_get_prefix();
 
 	// Loop through each of the core framework styles and enqueue them if supported.
 	foreach ( $supports[0] as $style ) {
-		wp_enqueue_style( $style );
+
+		if ( isset( $styles[ $style ]['handle'] ) ) {
+			wp_enqueue_style( $styles[ $style ]['handle'] );
+		} else {
+			wp_enqueue_style( $prefix . $style );
+		}
 	}
 }
 
 function cherry_enqueue_theme_style() {
-	$handle = get_stylesheet();
-	wp_enqueue_style( 'style' );
+	// wp_enqueue_style( cherry_get_prefix( true ) . 'style' );
+	wp_enqueue_style( cherry_get_prefix() . 'style' );
 }
 
 /**
@@ -96,7 +107,7 @@ function cherry_enqueue_theme_style() {
 function cherry_get_styles() {
 	// Responsive grid?
 	$responsive      = cherry_get_option('grid-responsive');
-	$grid_responsive = ( 'true' == $responsive  ) ? array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/grid-responsive.css' ) : false;
+	$grid_responsive = ( 'true' == $responsive  ) ? array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/grid-responsive.css' ) : array( 'src' => false );
 
 	// Default styles available.
 	$styles = array(
@@ -104,10 +115,12 @@ function cherry_get_styles() {
 		'grid-base'       => array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/grid-base.css' ),
 		'grid-responsive' => $grid_responsive,
 		'drop-downs'      => array(
+			'handle'  => get_template() . '-drop-downs',
 			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
 			'version' => CHERRY_VERSION,
 		),
 		'add-ons' => array(
+			'handle'  => get_template() . '-add-ons',
 			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
 			'version' => CHERRY_VERSION,
 		),

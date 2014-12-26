@@ -28,10 +28,7 @@ function cherry_set_prefix( $prefix ) {
 }
 
 /**
- * Defines the theme prefix. This allows developers to infinitely change the theme. In theory,
- * one could use the Cherry_Framework core to create their own theme or filter 'cherry_prefix' with a
- * plugin to make it easier to use hooks across multiple themes without having to figure out
- * each theme's hooks (assuming other themes used the same system).
+ * Defines the theme prefix.
  *
  * @since  4.0.0
  * @global object $cherry         The global Cherry_Framework object.
@@ -42,7 +39,12 @@ function cherry_get_prefix() {
 
 	// If the global prefix isn't set, define it. Plugin/theme authors may also define a custom prefix.
 	if ( empty( $cherry->prefix ) ) {
-		$cherry->prefix = sanitize_key( apply_filters( 'cherry_prefix', get_template() ) );
+
+		$prefix = ( is_child_theme() ) ? get_stylesheet() : get_template();
+		$prefix = preg_replace( '/\W/', '_', strtolower( $prefix ) );
+		$prefix .= '-';
+
+		$cherry->prefix = sanitize_key( apply_filters( 'cherry_prefix', $prefix ) );
 	}
 
 	return $cherry->prefix;

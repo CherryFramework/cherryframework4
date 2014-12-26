@@ -13,6 +13,10 @@
 // Filters the body class.
 add_filter( 'body_class', 'cherry_add_layout_class' );
 
+add_filter( 'shortcode_atts_row', 'cherry_add_template_atts', 10, 3 );
+
+add_filter( 'su/data/shortcodes', 'cherry_add_template_view', 20 );
+
 // Prints option styles.
 add_action( 'wp_head', 'cherry_add_option_styles', 9999 );
 
@@ -45,6 +49,33 @@ function cherry_add_layout_class( $classes ) {
 
 	return $classes;
 }
+
+function cherry_add_template_atts( $out, $pairs, $atts ) {
+	$out['type'] = ( isset( $atts['type'] ) ) ? $atts['type'] : 'fixed-width';
+
+	return $out;
+}
+
+function cherry_add_template_view( $shortcodes ) {
+		$shortcode = ( !empty( $_REQUEST['shortcode'] ) ) ? sanitize_key( $_REQUEST['shortcode'] ) : '';
+
+		if ( empty( $shortcode ) ) {
+			return $shortcodes;
+		}
+
+		$shortcodes[ $shortcode ]['atts']['type'] = array(
+			'type'   => 'select',
+			'values' => array(
+				'fixed-width' => __( 'Fixed Width', 'cherry' ),
+				'full-width'  => __( 'Full Width', 'cherry' ),
+			),
+			'default' => 'fixed-width',
+			'name'    => __( 'Type', 'cherry' ),
+			'desc'    => __( 'Type width', 'cherry' ),
+		);
+
+		return $shortcodes;
+	}
 
 function cherry_add_option_styles() {
 	$responsive      = cherry_get_option('grid-responsive');
