@@ -1,5 +1,39 @@
 @import "css-framework/base";
 
+img {
+	@include img-responsive();
+}
+.site {
+	@include hyphens(auto);
+}
+.cherry-container {
+	@include center-block();
+}
+.cherry-boxed .cherry-container .container {
+	width: auto;
+}
+.container .static-area.no-container {
+	padding-left: 0;
+	padding-right: 0;
+}
+@media (min-width: 992px) {
+	.cherry-with-sidebar .content-area {
+		float: left;
+		width: 75%;
+	}
+	#secondary.widget-area {
+		float: left;
+		width: 23%;
+		margin-left: 2%;
+	}
+	.cherry-with-sidebar .entry-header .container,
+	.cherry-with-sidebar .entry-content .container,
+	.cherry-with-sidebar .comments-area .container,
+	.cherry-with-sidebar .entry-footer .container {
+		width: 80%; /* fix */
+	}
+}
+
 // Fix for static-area without .container
 .static-area.no-container.with-row {
 	@include container-fixed();

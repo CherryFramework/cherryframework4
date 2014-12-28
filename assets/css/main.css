@@ -1260,6 +1260,46 @@ embed, iframe, object {
 .affix {
   position: fixed;
 }
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.site {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+.cherry-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cherry-boxed .cherry-container .container {
+  width: auto;
+}
+.container .static-area.no-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+@media (min-width: 992px) {
+  .cherry-with-sidebar .content-area {
+    float: left;
+    width: 75%;
+  }
+  #secondary.widget-area {
+    float: left;
+    width: 23%;
+    margin-left: 2%;
+  }
+  .cherry-with-sidebar .entry-header .container, .cherry-with-sidebar .entry-content .container, .cherry-with-sidebar .comments-area .container, .cherry-with-sidebar .entry-footer .container {
+    /* fix */
+    width: 80%;
+  }
+}
 .static-area.no-container.with-row {
   margin-right: auto;
   margin-left: auto;
