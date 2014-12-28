@@ -13,9 +13,9 @@
 // Filters the body class.
 add_filter( 'body_class', 'cherry_add_layout_class' );
 
-add_filter( 'shortcode_atts_row', 'cherry_add_template_atts', 10, 3 );
+add_filter( 'shortcode_atts_row', 'cherry_add_type_atts', 10, 3 );
 
-add_filter( 'su/data/shortcodes', 'cherry_add_template_view', 20 );
+add_filter( 'su/data/shortcodes', 'cherry_add_type_view' );
 
 // Prints option styles.
 add_action( 'wp_head', 'cherry_add_option_styles', 9999 );
@@ -50,16 +50,20 @@ function cherry_add_layout_class( $classes ) {
 	return $classes;
 }
 
-function cherry_add_template_atts( $out, $pairs, $atts ) {
+function cherry_add_type_atts( $out, $pairs, $atts ) {
 	$out['type'] = ( isset( $atts['type'] ) ) ? $atts['type'] : 'fixed-width';
 
 	return $out;
 }
 
-function cherry_add_template_view( $shortcodes ) {
+function cherry_add_type_view( $shortcodes ) {
 		$shortcode = ( !empty( $_REQUEST['shortcode'] ) ) ? sanitize_key( $_REQUEST['shortcode'] ) : '';
 
 		if ( empty( $shortcode ) ) {
+			return $shortcodes;
+		}
+
+		if ( 'row' != $shortcode ) {
 			return $shortcodes;
 		}
 

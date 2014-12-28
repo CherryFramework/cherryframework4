@@ -346,31 +346,29 @@ function cherry_get_post_format_url( $post = null ) {
  * @return string
  */
 function cherry_get_container_class( $location ) {
-	$classes     = array();
 	$layout_type = cherry_get_option('grid-type');
 
 	if ( 'grid-wide' == $layout_type ) {
-		$classes[] = 'container';
+		$classes = 'container';
 	} elseif ( 'grid-boxed' == $layout_type ) {
-		$classes[] = 'container-fluid';
+		$classes = 'container-fluid';
 	}
 
 	if ( ( 'grid-wide' == $layout_type ) && cherry_display_sidebar( 'sidebar-main' ) ) {
-		$classes[] = 'container-fluid';
+		$classes = 'container-fluid';
 	}
 
-	$classes[] = 'container-' . sanitize_html_class( $location );
+	$classes .= ' container-' . sanitize_html_class( $location );
 
 	/**
 	 * Filters the CSS classes for list.
 	 *
 	 * @since 1.0.0
-	 * @param array $wrap_classes An array of classes.
-	 * @param array $atts         Shortcode attributes.
+	 * @param string $classes     HTML-classes for container.
+	 * @param string $location    A container location.
+	 * @param string $layout_type Current `grid-type` option.
 	 */
-	$classes = apply_filters( 'cherry_get_container_class', $classes, $location );
-	$classes = array_unique( $classes );
-	$classes = join( ' ', $classes );
+	$classes = apply_filters( 'cherry_get_container_class', $classes, $location, $layout_type );
 
-	return esc_attr( $classes );
+	return esc_attr( trim( $classes ) );
 }

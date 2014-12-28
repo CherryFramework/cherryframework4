@@ -53,7 +53,7 @@ class Cherry_Interface_Builder {
 		$this->options         = $this->processed_input_data( $this->options, $args );
 		$this->google_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/google-fonts.json';
 
-		add_action( 'admin_footer', array( $this, 'enqueue_style' ) );
+		// add_action( 'admin_footer', array( $this, 'enqueue_style' ) );
 	}
 
 	/**
