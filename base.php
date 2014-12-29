@@ -1,18 +1,7 @@
-<?php do_action( 'cherry_get_header' );
-
-$layout_type     = cherry_get_option('grid-type');
-$container_class = '';
-
-if ( 'grid-wide' === $layout_type ) {
-	$container_class .= 'cherry-container-fluid';
-} elseif ( 'grid-boxed' === $layout_type ) {
-	$container_class .= 'cherry-container';
-}
-$container_class = ( empty( $container_class ) ) ? 'clearfix' : $container_class .= ' clearfix';
-?>
+<?php do_action( 'cherry_get_header' ); ?>
 
 <div id="content" class="site-content">
-	<div class="<?php echo $container_class; ?>">
+	<div class="<?php echo apply_filters( 'cherry_get_container_class', 'cherry-container' ); ?>">
 
 		<?php
 			do_action( 'cherry_content_before' );

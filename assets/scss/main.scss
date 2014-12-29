@@ -6,9 +6,6 @@ img {
 .site {
 	@include hyphens(auto);
 }
-.cherry-container {
-	@include center-block();
-}
 .cherry-boxed .cherry-container .container {
 	width: auto;
 }
@@ -22,7 +19,7 @@ img {
 		width: 75%;
 	}
 	#secondary.widget-area {
-		float: left;
+		float: right;
 		width: 23%;
 		margin-left: 2%;
 	}

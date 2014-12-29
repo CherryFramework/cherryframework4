@@ -11,11 +11,14 @@
  */
 
 // Filters the body class.
-add_filter( 'body_class', 'cherry_add_layout_class' );
+add_filter( 'body_class',                 'cherry_add_layout_class' );
 
-add_filter( 'shortcode_atts_row', 'cherry_add_type_atts', 10, 3 );
+// Filters the `.cherry-container` class.
+add_filter( 'cherry_get_container_class', 'cherry_get_the_container_classes' );
 
-add_filter( 'su/data/shortcodes', 'cherry_add_type_view' );
+add_filter( 'shortcode_atts_row',         'cherry_add_type_atts', 10, 3 );
+
+add_filter( 'su/data/shortcodes',         'cherry_add_type_view' );
 
 // Prints option styles.
 add_action( 'wp_head', 'cherry_add_option_styles', 9999 );
@@ -48,6 +51,24 @@ function cherry_add_layout_class( $classes ) {
 	}
 
 	return $classes;
+}
+
+function cherry_get_the_container_classes( $class ) {
+	$layout  = cherry_get_option('grid-type');
+	$classes = array();
+	$classes[] = $class;
+
+	if ( 'grid-wide' == $layout ) {
+		$classes[] = 'container-fluid';
+	} elseif ( 'grid-boxed' == $layout ) {
+		$classes[] = 'container';
+	}
+	$classes[] = 'clearfix';
+
+	$classes = apply_filters( 'cherry_get_the_container_classes', $classes, $class );
+	$classes = array_unique( $classes );
+
+	return join( ' ', $classes );
 }
 
 function cherry_add_type_atts( $out, $pairs, $atts ) {
@@ -93,7 +114,7 @@ function cherry_add_option_styles() {
 
 	// Check a layout type option.
 	if ( 'grid-boxed' == $layout || 'false' == $responsive ) {
-		$output .= ".cherry-container { max-width : {$container_width}px; }\n";
+		$output .= ".cherry-container.container { max-width : {$container_width}px; }\n";
 	}
 
 	// Check a container width option.

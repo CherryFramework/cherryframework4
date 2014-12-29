@@ -20,7 +20,7 @@ function cherry_paging_nav() {
 	} ?>
 
 	<nav class="navigation paging-navigation" role="navigation">
-		<div class="<?php echo cherry_get_container_class( 'paging-navigation' ); ?>">
+		<div class="paging-navigation">
 			<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'cherry' ); ?></h1>
 			<div class="nav-links">
 
@@ -59,7 +59,7 @@ function cherry_post_nav() {
 		return;
 	} ?>
 	<nav class="navigation post-navigation" role="navigation">
-		<div class="<?php echo cherry_get_container_class( 'paging-navigation' ); ?>">
+		<div class="paging-navigation">
 			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'cherry' ); ?></h1>
 			<div class="nav-links">
 				<?php
