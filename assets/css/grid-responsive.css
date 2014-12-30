@@ -1,3 +1,8 @@
+/*
+Description: The stylesheet with a responsive grid.
+Author:      Cherry Team
+Version:     1.0.0
+*/
 @media (min-width: 768px) {
   .container {
     width: 750px;
