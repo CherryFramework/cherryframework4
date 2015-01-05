@@ -41,9 +41,9 @@ function cherry_add_control_classes( $classes ) {
 	}
 
 	// Grid type.
-	if ( 'grid-wide' === $grid_type ) {
+	if ( 'grid-wide' == $grid_type ) {
 		$classes[] = 'cherry-wide';
-	} elseif ( 'grid-boxed' === $grid_type ) {
+	} elseif ( 'grid-boxed' == $grid_type ) {
 		$classes[] = 'cherry-boxed';
 	}
 
@@ -120,11 +120,12 @@ function cherry_add_type_view( $shortcodes ) {
 	}
 
 function cherry_add_option_styles() {
-	$responsive       = cherry_get_option('grid-responsive');
-	$grid_type        = cherry_get_option('grid-type');
-	$container_width  = intval( cherry_get_option('page-layout-container-width') );
-	$sidebar_position = cherry_get_option('blog-sidebar-position');
-	$output           = '';
+	$responsive        = cherry_get_option('grid-responsive');
+	$grid_type         = cherry_get_option('grid-type');
+	$sidebar_position  = cherry_get_option('blog-sidebar-position');
+	$container_width   = intval( cherry_get_option('page-layout-container-width') );
+	$grid_gutter_width = intval( apply_filters( 'cherry_grid_gutter_width', 30 ) );
+	$output            = '';
 
 	if ( !$container_width ) {
 		$container_width = 1170; // get default value
@@ -144,7 +145,7 @@ function cherry_add_option_styles() {
 		$output .= ".cherry-no-responsive .site-footer .container { max-width : {$container_width}px; }\n";
 	// }
 
-	$output .= ".cherry-no-responsive .cherry-container .container { max-width : " . ( $container_width - 30 ) . "px; }\n";
+	$output .= ".cherry-no-responsive .cherry-container .container { max-width : " . ( $container_width - $grid_gutter_width ) . "px; }\n";
 
 	if ( 'false' == $responsive ) {
 		$output .= "body { min-width : {$container_width}px; }\n";
