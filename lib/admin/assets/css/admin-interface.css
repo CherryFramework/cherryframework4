@@ -1,6 +1,7 @@
 .options-page-wrapper {
   margin: 20px 20px 0 0;
   position: relative;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 .options-page-wrapper .settings-error {
   margin: 0 0 10px 0;
@@ -24,20 +25,24 @@
   line-height: 35px;
 }
 
-.cherry-sections-wrapper {
+.cherry-sections-wrapper{
   /*background: #f4f4f4;*/
   background: #2a445d;
-  border: 1px solid #D8D8D8;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #D8D8D8;
+/*
+  border-color: #D8D8D8 #D8D8D8 transparent #D8D8D8;
+  border-width: 1px 1px 0px 1px;
+  border-style: solid;*/
 }
 
 .cherry-submit-wrapper {
-  border: 1px solid #D8D8D8;
+  /*border: 1px solid #D8D8D8;*/
   overflow: hidden;
   padding: 10px 20px;
-  background: #FCFCFC;
-  margin: 10px 0 0 0;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  background: #2a445d;
+
+  /*margin: 10px 0 0 0;*/
+  /*box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);*/
 }
 .cherry-submit-wrapper #wrap-cherry-save-options {
   float: right;

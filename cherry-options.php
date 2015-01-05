@@ -81,7 +81,6 @@ function cherry_defaults_settings() {
 	$demo_options['static-area-editor'] = array(
 				'type'			=> 'static_area_editor',
 				'title'			=> 'title static-area-editor',
-				'label'			=> 'label static-area-editor',
 				'decsription'	=> 'decsription static-area-editor',
 				'hint'			=>  array(
 					'type'		=> 'image',
