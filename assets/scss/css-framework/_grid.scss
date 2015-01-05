@@ -29,10 +29,7 @@
 
 @include make-grid-columns();
 
-// Extra small grid
-//
-// Columns, offsets, pushes, and pulls for extra small devices like
-// smartphones.
+// Columns, offsets, pushes, and pulls.
 
 @include make-grid(xs);
 @include make-grid(sm);

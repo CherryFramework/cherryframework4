@@ -755,301 +755,339 @@ function cherry_defaults_settings() {
 
 		$blog_options = array();
 		$blog_options['blog-options'] = array(
-				'type' => 'info',
+				'type'  => 'info',
 				'value' =>'<h2>Blog settings</h2>',
 		);
-		$blog_options['blog-layout-options'] = array(
-			'type'	=> 'radio',
-			'title'	=> __('Blog page layout', 'cherry'),
-			'label'	=> __('Blog page layout', 'cherry'),
-			'decsription'	=> __('Choose blog page layout.', 'cherry'),
-			'value'	=> 'header-type-layout-radio-1',
-			'default-value'	=> 'header-type-layout-radio-1',
-			'class'	=> '',
-			'display_input'	=> false,
-			'options'	=> array(
-			'header-type-layout-radio-1' => array(
-			'label' => 'Top static',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
-			),
-			'header-type-layout-radio-2' => array(
-			'label' => 'Left static',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
-			),
-			'header-type-layout-radio-3' => array(
-			'label' => 'Right static',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
-			),
-			'header-type-layout-radio-4' => array(
-			'label' => 'Top toogle',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
-			),
-			'header-type-layout-radio-5' => array(
-			'label' => 'Left toogle',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
-			),
-			'header-type-layout-radio-6' => array(
-			'label' => 'Right toogle',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
+
+		$blog_options['blog-sidebar-position'] = array(
+			'type'          => 'radio',
+			'title'         => __( 'Blog page layout', 'cherry' ),
+			'label'         => __( 'Blog page layout', 'cherry' ),
+			'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
+			'value'         => 'blog-layout-radio-3',
+			'default-value' => 'blog-layout-radio-3',
+			'class'         => '',
+			'display_input' => false,
+			'options'       => array(
+				'1-left-2-right' => array(
+					'label'   => 'Left and right sidebar',
+					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-both-sidebar.png',
+				),
+				'1-left' => array(
+					'label'   => 'Left sidebar',
+					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-left-sidebar.png',
+				),
+				'1-right' => array(
+					'label'   => 'Right sidebar',
+					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-right-sidebar.png',
+				),
+				'1-left-2-left' => array(
+					'label'   => 'Sameside left sidebar',
+					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-sameside-sidebar.png',
+				),
+				'1-right-2-right' => array(
+					'label'   => 'Sameside right sidebar',
+					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-sameside-sidebar.png',
+				),
+				'no-sidebar' => array(
+					'label'   => 'No sidebar',
+					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-fullwidth.png',
+				)
 			)
-		)
+		);
+
+		$blog_options['blog-layout-options'] = array(
+			'type'          => 'radio',
+			'title'         => __( 'Blog page layout', 'cherry' ),
+			'label'         => __( 'Blog page layout', 'cherry' ),
+			'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
+			'value'         => 'header-type-layout-radio-1',
+			'default-value' => 'header-type-layout-radio-1',
+			'class'         => '',
+			'display_input' => false,
+			'options'       => array(
+				'header-type-layout-radio-1' => array(
+					'label'   => 'Top static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png',
+				),
+				'header-type-layout-radio-2' => array(
+					'label'   => 'Left static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png',
+				),
+				'header-type-layout-radio-3' => array(
+					'label'   => 'Right static',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png',
+				),
+				'header-type-layout-radio-4' => array(
+					'label'   => 'Top toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png',
+				),
+				'header-type-layout-radio-5' => array(
+					'label'   => 'Left toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png',
+				),
+				'header-type-layout-radio-6' => array(
+					'label'   => 'Right toogle',
+					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png',
+				)
+			)
 		);
 
 		$blog_options['blog-button-text'] = array(
-				'type'			=> 'text',
-				'title'			=> 'title text',
-				'label'			=> '',
-				'decsription'	=> 'Button text for blog posts.',
-				'hint'			=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> 'Read more'
+			'type'        => 'text',
+			'title'       => 'title text',
+			'label'       => '',
+			'decsription' => 'Button text for blog posts.',
+			'hint'        => array(
+				'type'    => 'image',
+				'content' => PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
+			),
+			'value' => 'Read more',
 		);
 
 		$blog_options['blog-social-sharing'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Social networks sharing buttons',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Activate this to enable social sharing buttons on your blog posts',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+			'type'        => 'switcher',
+			'title'       => 'Social networks sharing buttons',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Activate this to enable social sharing buttons on your blog posts',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
+			),
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-comments'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Comment hide',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Enabling this option will hide comments on blog List',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'value'			=> 'false',
-				'default_value'	=> 'false'
+			'type'        => 'switcher',
+			'title'       => 'Comment hide',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Enabling this option will hide comments on blog List',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
+			),
+			'value'         => 'false',
+			'default_value' => 'false',
 		);
 
 
 ///////////////////////////////////Blog image size
 
 		$blog_options['blog-images-page-scroll'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Should images be uploaded on page scroll?',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'You can enable images load only as you scroll down the page. Otherwise images will load all at once.',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+			'type'        => 'switcher',
+			'title'       => 'Should images be uploaded on page scroll?',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'You can enable images load only as you scroll down the page. Otherwise images will load all at once.',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
+			),
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-button-text'] = array(
-				'type'			=> 'text',
-				'title'			=> 'title text',
-				'label'			=> '',
-				'decsription'	=> 'Button text for blog posts.',
-				'hint'			=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> 'Read more'
+			'type'        => 'text',
+			'title'       => 'title text',
+			'label'       => '',
+			'decsription' => 'Button text for blog posts.',
+			'hint'        => array(
+				'type'    => 'image',
+				'content' => PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
+			),
+			'value' => 'Read more',
 		);
 
 		$blog_options['blog-meta-info'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'view meta of the blog.',
-				'label'			=> 'choose one of them',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Select meta block type which will be displayed on blog and post pages.'
+			'type'			=> 'radio',
+			'title'			=> 'view meta of the blog.',
+			'label'			=> 'choose one of them',
+			'decsription'	=> '',
+			'hint'      	=> array(
+				'type'    => 'text',
+				'content' => 'Select meta block type which will be displayed on blog and post pages.',
+			),
+			'value'         => 'radio-2',
+			'default_value' => 'radio-1',
+			'class'         => '',
+			'display-input' => true,
+			'options'       => array(
+				'radio-1' => array(
+					'label'   => 'Do not show.',
+					'img_src' => '',
 				),
-				'value'			=> 'radio-2',
-				'default_value'	=> 'radio-1',
-				'class'			=> '',
-				'display-input'	=> true,
-				'options'		=> array(
-					'radio-1' => array(
-						'label' => 'Do not show.',
-						'img_src' => ''
-					),
-					'radio-2' => array(
-						'label' => 'Lines',
-						'img_src' => ''
-					),
-					'radio-3' => array(
-						'label' => 'Icons',
-						'img_src' => ''
-					),
-				)
-	);
+				'radio-2' => array(
+					'label'   => 'Lines',
+					'img_src' => '',
+				),
+				'radio-3' => array(
+					'label'   => 'Icons',
+					'img_src' => '',
+				),
+			)
+		);
 
 		$blog_options['blog-display-meta'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'Display meta.',
-				'label'			=> 'choose one of them',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Select where to display meta block.'
+			'type'        => 'radio',
+			'title'       => 'Display meta.',
+			'label'       => 'choose one of them',
+			'decsription' => '',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => 'Select where to display meta block.',
+			),
+			'value'         => 'radio-2',
+			'default_value' => 'radio-1',
+			'class'         => '',
+			'display-input' => true,
+			'options'       => array(
+				'radio-1' => array(
+					'label'   => 'Only blog.',
+					'img_src' => '',
 				),
-				'value'			=> 'radio-2',
-				'default_value'	=> 'radio-1',
-				'class'			=> '',
-				'display-input'	=> true,
-				'options'		=> array(
-					'radio-1' => array(
-						'label' => 'Only blog.',
-						'img_src' => ''
-					),
-					'radio-2' => array(
-						'label' => 'Only post.',
-						'img_src' => ''
-					),
-					'radio-3' => array(
-						'label' => 'Blog and post.',
-						'img_src' => ''
-					),
-					'radio-4' => array(
-						'label' => 'Do not show.',
-						'img_src' => ''
-					),
-				)
+				'radio-2' => array(
+					'label'   => 'Only post.',
+					'img_src' => '',
+				),
+				'radio-3' => array(
+					'label'   => 'Blog and post.',
+					'img_src' => '',
+				),
+				'radio-4' => array(
+					'label'   => 'Do not show.',
+					'img_src' => '',
+				),
+			)
 		);
 
 		$blog_options['blog-related-posts'] = array(
-			'type'			=> 'switcher',
-				'title'			=> 'Related posts',
-				'decsription'	=> 'Show related posts?',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Show related posts?'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+			'type'        => 'switcher',
+			'title'       => 'Related posts',
+			'decsription' => 'Show related posts?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => 'Show related posts?',
+			),
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-post-publication-date'] = array(
-			'type'			=> 'switcher',
-				'title'			=> 'Post publication date.',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Should the post publication date be displayed?',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+			'type'        => 'switcher',
+			'title'       => 'Post publication date.',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Should the post publication date be displayed?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
+			),
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-post-author'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Author of the post.',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Display the author of the post?',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
+			'type'        => 'switcher',
+			'title'       => 'Author of the post.',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Display the author of the post?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-direct-link'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Direct link to the post.',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Should the direct link to the post be displayed?',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
+			'type'        => 'switcher',
+			'title'       => 'Direct link to the post.',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Should the direct link to the post be displayed?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-tags'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Tags be displayed',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Should the tags be displayed?',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
+			'type'        => 'switcher',
+			'title'       => 'Tags be displayed',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Should the tags be displayed?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-post-categories'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Post categories.',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Should the post categories be displayed?',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
+			'type'        => 'switcher',
+			'title'       => 'Post categories.',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Should the post categories be displayed?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-comments-number'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Number of comments.',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Should the number of comments be displayed?',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
+			'type'        => 'switcher',
+			'title'       => 'Number of comments.',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Should the number of comments be displayed?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-view-number'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Number of view.',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Should the number of view be displayed?',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
+			'type'        => 'switcher',
+			'title'       => 'Number of view.',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Should the number of view be displayed?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-likes-number'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Number of likes.',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Should the number of likes be displayed?',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
+			'type'        => 'switcher',
+			'title'       => 'Number of likes.',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Should the number of likes be displayed?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 		$blog_options['blog-dislikes-number'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Number of dislikes.',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Should the number of dislikes be displayed?',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
+			'type'        => 'switcher',
+			'title'       => 'Number of dislikes.',
+			'label'       => 'Enable / Disable',
+			'decsription' => 'Should the number of dislikes be displayed?',
+			'hint'        => array(
+				'type'    => 'text',
+				'content' => '',
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+			'value'         => 'true',
+			'default_value' => 'true',
 		);
 
 
@@ -1061,46 +1099,46 @@ function cherry_defaults_settings() {
 
 		$portfolio_options = array();
 		$portfolio_options['portfolio-options'] = array(
-				'type' => 'info',
-				'value' =>'<h2>Portfolio settings</h2>',
+			'type'  => 'info',
+			'value' =>'<h2>Portfolio settings</h2>',
 		);
 
 		$portfolio_options['portfolio-sidebar-options'] = array(
-			'type'	=> 'radio',
-			'title'	=> __('Portfolio page layout', 'cherry'),
-			'label'	=> __('Portfolio page layout', 'cherry'),
-			'decsription'	=> __('Choose portfolio page layout.', 'cherry'),
-			'value'	=> 'portfolio-layout-radio-2',
-			'default-value'	=> 'portfolio-layout-radio-2',
-			'class'	=> '',
-			'display_input'	=> false,
-			'options'	=> array(
+			'type'          => 'radio',
+			'title'         => __('Portfolio page layout', 'cherry'),
+			'label'         => __('Portfolio page layout', 'cherry'),
+			'decsription'   => __('Choose portfolio page layout.', 'cherry'),
+			'value'         => 'portfolio-layout-radio-2',
+			'default-value' => 'portfolio-layout-radio-2',
+			'class'         => '',
+			'display_input' => false,
+			'options'       => array(
 			'portfolio-layout-radio-1' => array(
-			'label' => 'Left and right sidebar',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-both-sidebar.png'
+				'label'   => 'Left and right sidebar',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-both-sidebar.png',
 			),
 			'portfolio-layout-radio-2' => array(
-			'label' => 'Left sidebar',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-left-sidebar.png'
+				'label'   => 'Left sidebar',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-left-sidebar.png',
 			),
 			'portfolio-layout-radio-3' => array(
-			'label' => 'Right sidebar',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-right-sidebar.png'
+				'label'   => 'Right sidebar',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-right-sidebar.png',
 			),
 			'portfolio-layout-radio-4' => array(
-			'label' => 'Sameside left sidebar',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
+				'label'   => 'Sameside left sidebar',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png',
 			),
 			'portfolio-layout-radio-5' => array(
-			'label' => 'Sameside right sidebar',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png'
+				'label'   => 'Sameside right sidebar',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-sameside-sidebar.png',
 			),
 			'portfolio-layout-radio-6' => array(
-			'label' => 'No sidebar',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-fullwidth.png'
+				'label'   => 'No sidebar',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/layout-fullwidth.png',
 			)
 		)
-		);
+	);
 
 	$portfolio_options['portfolio-layout-options'] = array(
 			'type'	=> 'radio',

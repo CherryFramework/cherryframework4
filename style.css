@@ -11,7 +11,6 @@ Tags:        dark, light, white, black, gray, left-sidebar, right-sidebar, fluid
 Text Domain: cherry
 */
 
-.cherry-container-fluid,
 .cherry-container {
 	background: #ccc;
 }

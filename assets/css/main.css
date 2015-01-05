@@ -1787,32 +1787,11 @@ img {
 .cherry-boxed .cherry-container .container {
   width: auto;
 }
-
-.container .static-area.no-container {
+.cherry-no-responsive .cherry-container .container {
   padding-left: 0;
   padding-right: 0;
 }
 
-@media (min-width: 992px) {
-  .cherry-with-sidebar .content-area {
-    float: left;
-    width: 75%;
-  }
-
-  #secondary.widget-area {
-    float: right;
-    width: 23%;
-    margin-left: 2%;
-  }
-
-  .cherry-with-sidebar .entry-header .container,
-  .cherry-with-sidebar .entry-content .container,
-  .cherry-with-sidebar .comments-area .container,
-  .cherry-with-sidebar .entry-footer .container {
-    width: 80%;
-    /* fix */
-  }
-}
 .static-area.no-container.with-row {
   margin-right: auto;
   margin-left: auto;
@@ -1826,7 +1805,53 @@ img {
 .static-area.no-container.with-row:after {
   clear: both;
 }
-.container .static-area.no-container.with-row {
+.container .static-area.no-container {
   padding-left: 0;
   padding-right: 0;
+}
+
+.cherry-with-sidebar.cherry-no-responsive.cherry-blog-layout-1-left #primary, .cherry-with-sidebar.cherry-no-responsive.cherry-blog-layout-1-left-2-left #primary {
+  float: right;
+  width: 75%;
+}
+.cherry-with-sidebar.cherry-no-responsive.cherry-blog-layout-1-right #primary, .cherry-with-sidebar.cherry-no-responsive.cherry-blog-layout-1-right-2-right #primary {
+  float: left;
+  width: 75%;
+}
+
+.cherry-no-responsive.cherry-blog-layout-1-left #secondary, .cherry-no-responsive.cherry-blog-layout-1-left-2-left #secondary {
+  float: left;
+  width: 23%;
+}
+.cherry-no-responsive.cherry-blog-layout-1-right #secondary, .cherry-no-responsive.cherry-blog-layout-1-right-2-right #secondary {
+  float: right;
+  width: 23%;
+}
+
+@media (min-width: 992px) {
+  .cherry-with-sidebar.cherry-blog-layout-1-left #primary, .cherry-with-sidebar.cherry-blog-layout-1-left-2-left #primary {
+    float: right;
+    width: 75%;
+  }
+  .cherry-with-sidebar.cherry-blog-layout-1-right #primary, .cherry-with-sidebar.cherry-blog-layout-1-right-2-right #primary {
+    float: left;
+    width: 75%;
+  }
+
+  .cherry-blog-layout-1-left #secondary, .cherry-blog-layout-1-left-2-left #secondary {
+    float: left;
+    width: 23%;
+  }
+  .cherry-blog-layout-1-right #secondary, .cherry-blog-layout-1-right-2-right #secondary {
+    float: right;
+    width: 23%;
+  }
+
+  .cherry-with-sidebar .entry-header .container,
+  .cherry-with-sidebar .entry-content .container,
+  .cherry-with-sidebar .comments-area .container,
+  .cherry-with-sidebar .entry-footer .container {
+    width: 80%;
+    /* fix */
+  }
 }

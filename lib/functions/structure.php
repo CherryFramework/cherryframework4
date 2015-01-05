@@ -129,7 +129,7 @@ function cherry_content_wrap() {
 	if ( !did_action( 'cherry_content' ) ) {
 
 		echo '<!-- Primary column -->';
-		printf( '<div id="primary" class="content-area %1$s"><main %2$s>', cherry_content_class(), cherry_get_attr( 'content' ) );
+		printf( '<div id="primary" class="content-area"><main %s>', cherry_get_attr( 'content' ) );
 
 	} else {
 
