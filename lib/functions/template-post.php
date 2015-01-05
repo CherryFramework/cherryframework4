@@ -199,7 +199,7 @@ function cherry_get_the_post_header() {
 		$url = get_permalink( $post_id );
 	}
 
-	$post_header = sprintf( $wrap, cherry_get_container_class( 'entry-header' ), tag_escape( $tag ), esc_attr( trim( $class ) ), esc_url( $url ), $title );
+	$post_header = sprintf( $wrap, 'entry-header', tag_escape( $tag ), esc_attr( trim( $class ) ), esc_url( $url ), $title );
 
 	return $post_header;
 }
@@ -235,7 +235,7 @@ function cherry_get_the_post_meta() {
 		return;
 	}
 
-	return sprintf( '<div class="entry-meta"><div class="%1$s">%2$s</div></div>', cherry_get_container_class( 'entry-meta' ), $post_meta );
+	return sprintf( '<div class="entry-meta"><div class="%1$s">%2$s</div></div>', 'entry-meta', $post_meta );
 }
 
 /**
@@ -266,7 +266,7 @@ function cherry_the_post_content() {
  */
 function cherry_the_post_excerpt() {
 	echo '<div class="entry-summary">';
-		echo '<div class="' . cherry_get_container_class( 'entry-summary' ) . '">';
+		echo '<div class="' . 'entry-summary' . '">';
 			the_excerpt();
 		echo '</div>';
 	echo '</div>';
@@ -303,7 +303,7 @@ function cherry_get_the_post_footer() {
 		return;
 	}
 
-	return sprintf( '<footer class="entry-footer"><div class="%1$s">%2$s</div></footer>', cherry_get_container_class( 'entry-footer' ), $post_info );
+	return sprintf( '<footer class="entry-footer"><div class="%1$s">%2$s</div></footer>', 'entry-footer', $post_info );
 }
 
 /**
@@ -336,41 +336,4 @@ function cherry_get_post_format_url( $post = null ) {
 	$url         = !empty( $content_url ) ? $content_url : get_permalink( $post->ID );
 
 	return esc_url( $url );
-}
-
-/**
- * Retrieve the classes for the location element.
- *
- * @since  4.0.0
- * @param  string $location
- * @return string
- */
-function cherry_get_container_class( $location ) {
-	$classes     = array();
-	$layout_type = cherry_get_option('grid-type');
-
-	if ( 'grid-wide' == $layout_type ) {
-		$classes[] = 'container';
-	} elseif ( 'grid-boxed' == $layout_type ) {
-		$classes[] = 'container-fluid';
-	}
-
-	if ( ( 'grid-wide' == $layout_type ) && cherry_display_sidebar( 'sidebar-main' ) ) {
-		$classes[] = 'container-fluid';
-	}
-
-	$classes[] = 'container-' . sanitize_html_class( $location );
-
-	/**
-	 * Filters the CSS classes for list.
-	 *
-	 * @since 1.0.0
-	 * @param array $wrap_classes An array of classes.
-	 * @param array $atts         Shortcode attributes.
-	 */
-	$classes = apply_filters( 'cherry_get_container_class', $classes, $location );
-	$classes = array_unique( $classes );
-	$classes = join( ' ', $classes );
-
-	return esc_attr( $classes );
 }

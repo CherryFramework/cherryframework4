@@ -6,9 +6,6 @@
   @include container-fixed();
 }
 
-
-
-
 // Fluid container
 //
 // Utilizes the mixin meant for fixed width containers, but without any defined
@@ -32,13 +29,9 @@
 
 @include make-grid-columns();
 
-// Extra small grid
-//
-// Columns, offsets, pushes, and pulls for extra small devices like
-// smartphones.
+// Columns, offsets, pushes, and pulls.
 
 @include make-grid(xs);
-
-
-
-
+@include make-grid(sm);
+@include make-grid(md);
+@include make-grid(lg);

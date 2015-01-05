@@ -102,8 +102,9 @@ function cherry_sidebar_footer_wrap_close() {
 /**
  * Define which templates/pages exclude the sidebar.
  *
- * @since 4.0.0
- * @return boolean Display or not the sidebar?
+ *  @since 4.0.0
+ * @param  string $id Sidebar ID.
+ * @return bool       Display or not the sidebar?
  */
 function cherry_display_sidebar( $id ) {
 	global $wp_registered_sidebars;
@@ -148,24 +149,6 @@ function cherry_display_sidebar( $id ) {
 	) );
 
 	return apply_filters( 'cherry_display_sidebar', $sidebars[ $id ]->display, $id );
-}
-
-/**
- * Output classes for Primary column.
- *
- * @since 4.0.0
- *
- * @return string Classes name
- */
-function cherry_content_class() {
-	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
-		// $class = 'col-sm-8';
-		$class = 'with-sidebar';
-	} else {
-		// $class = 'col-sm-12';
-		$class = 'no-sidebar';
-	}
-	return apply_filters( 'cherry_content_class', $class );
 }
 
 /**

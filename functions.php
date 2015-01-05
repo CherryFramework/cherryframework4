@@ -181,14 +181,11 @@ function cherry_theme_setup() {
 
 	// Loads styles.
 	add_theme_support( 'cherry-styles', array(
-		'drop-downs', 'parent', 'style',
+		'main', 'grid-base', 'grid-responsive', 'drop-downs', 'add-ons',
 	) );
 
 	// Loads shortcodes.
 	add_theme_support( 'cherry-shortcodes' );
-
-	// Enable support SCSS compiler.
-	add_theme_support( 'cherry-scss-compiler' );
 
 	// Handle content width for embeds and images.
 	cherry_set_content_width( 780 );

@@ -1,60 +1,16 @@
 /*
-Theme Name: Cherry Framework
-Theme URI: http://www.cherryframework.com/
-Author: Cherry Team
-Author URI: http://www.cherryframework.com/
+Theme Name:  Cherry Framework
+Theme URI:   http://www.cherryframework.com/
 Description: A theme for Wordpress 3.9.x
-Version: 4.0.0
-License: GNU General Public License
+Author:      Cherry Team
+Author URI:  http://www.cherryframework.com/
+Version:     4.0.0
+License:     GNU General Public License
 License URI: license.txt
+Tags:        dark, light, white, black, gray, left-sidebar, right-sidebar, fluid-layout, fixed-layout, responsive-layout, custom-menu, editor-style, featured-images, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
 Text Domain: cherry
-Tags: dark, light, white, black, gray, left-sidebar, right-sidebar, fluid-layout, fixed-layout, responsive-layout, custom-menu, editor-style, featured-images, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 */
 
-@import "assets/css/style-main.css";
-
-img {
-	max-width: 100%;
-	height: auto;
-}
-.site {
-	-ms-word-wrap: break-word;
-	word-wrap: break-word;
-}
-.cherry-container {
-	margin: 0 auto;
-}
-.cherry-boxed .cherry-container .container {
-	width: auto;
-}
-.container .static-area.no-container {
-	padding-left: 0;
-	padding-right: 0;
-}
-@media (min-width: 992px) {
-	.cherry-with-sidebar .content-area {
-		float: left;
-		width: 75%;
-	}
-	#secondary.widget-area {
-		float: left;
-		width: 23%;
-		margin-left: 2%;
-	}
-	.cherry-with-sidebar .entry-header .container,
-	.cherry-with-sidebar .entry-content .container,
-	.cherry-with-sidebar .comments-area .container,
-	.cherry-with-sidebar .entry-footer .container {
-		width: 80%; /* fix */
-	}
-}
-
-
-
-.cherry-container-fluid,
 .cherry-container {
 	background: #ccc;
 }

@@ -63,7 +63,11 @@ function cherry_doctitle() {
  * @since  4.0.0
  */
 function cherry_meta_viewport() {
-	echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
+	$is_responsive = cherry_get_option('grid-responsive');
+
+	if ( 'true' == $is_responsive ) {
+		echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
+	}
 }
 
 /**

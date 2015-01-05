@@ -32,7 +32,7 @@ function cherry_register_scripts() {
 
 	// Register the 'drop-downs' script if the current theme supports 'drop-downs'.
 	if ( isset( $supports[0] ) && in_array( 'drop-downs', $supports[0] ) ) {
-		wp_register_script( 'drop-downs', esc_url( trailingslashit( CHERRY_URI ) . 'js/superfish.js' ), array( 'jquery' ), CHERRY_VERSION, true );
+		wp_register_script( 'drop-downs', esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/superfish.js' ), array( 'jquery' ), CHERRY_VERSION, true );
 	}
 }
 

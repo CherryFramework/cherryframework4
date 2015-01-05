@@ -292,8 +292,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function extensions() {
 
-			// Load the SCSS compiler library if supported.
-			require_if_theme_supports( 'cherry-scss-compiler', trailingslashit( CHERRY_DIR ) . 'extensions/class-scss-compiler.php' );
+			// Load if supported.
+			// require_if_theme_supports();
 		}
 
 		/**

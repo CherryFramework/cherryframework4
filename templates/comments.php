@@ -16,7 +16,7 @@ if ( post_password_required() ) {
 do_action( 'cherry_comments_before' ); ?>
 
 <div id="comments" class="comments-area">
-	<div class="<?php echo cherry_get_container_class( 'comments' ); ?>">
+	<div class="comments">
 
 	<?php if ( have_comments() ) : // Check if there are any comments.
 

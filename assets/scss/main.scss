@@ -1,0 +1,112 @@
+/*
+Description: The stylesheet with a main style.
+Author:      Cherry Team
+Version:     1.0.0
+*/
+@import "css-framework/base";
+
+img {
+	@include img-responsive();
+}
+
+.site {
+	@include hyphens(auto);
+}
+
+.container {
+	.cherry-container & {
+		.cherry-boxed & {
+			width: auto;
+		}
+		.cherry-no-responsive & {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+// Fix for static-area without .container
+.static-area {
+	&.no-container {
+		&.with-row {
+			@include container-fixed();
+		}
+		.container & {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+.cherry-with-sidebar {
+	&.cherry-no-responsive {
+		&.cherry-blog-layout-1-left,
+		&.cherry-blog-layout-1-left-2-left {
+			#primary {
+				float: right;
+				width: 75%;
+			}
+		}
+		&.cherry-blog-layout-1-right,
+		&.cherry-blog-layout-1-right-2-right {
+			#primary {
+				float: left;
+				width: 75%;
+			}
+		}
+	}
+}
+
+.cherry-no-responsive {
+	&.cherry-blog-layout-1-left,
+	&.cherry-blog-layout-1-left-2-left {
+		#secondary {
+			float: left;
+			width: 23%;
+		}
+	}
+	&.cherry-blog-layout-1-right,
+	&.cherry-blog-layout-1-right-2-right {
+		#secondary {
+			float: right;
+			width: 23%;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.cherry-with-sidebar {
+		&.cherry-blog-layout-1-left,
+		&.cherry-blog-layout-1-left-2-left {
+			#primary {
+				float: right;
+				width: 75%;
+			}
+		}
+		&.cherry-blog-layout-1-right,
+		&.cherry-blog-layout-1-right-2-right {
+			#primary {
+				float: left;
+				width: 75%;
+			}
+		}
+	}
+	#secondary {
+		.cherry-blog-layout-1-left &,
+		.cherry-blog-layout-1-left-2-left & {
+			float: left;
+			width: 23%;
+		}
+		.cherry-blog-layout-1-right &,
+		.cherry-blog-layout-1-right-2-right & {
+			float: right;
+			width: 23%;
+		}
+	}
+	.cherry-with-sidebar .entry-header .container,
+	.cherry-with-sidebar .entry-content .container,
+	.cherry-with-sidebar .comments-area .container,
+	.cherry-with-sidebar .entry-footer .container {
+		width: 80%; /* fix */
+	}
+}
