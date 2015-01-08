@@ -758,7 +758,7 @@ function cherry_defaults_settings() {
 				'value' =>'<h2>Blog settings</h2>',
 		);
 
-		$blog_options['blog-sidebar-position'] = array(
+		$blog_options['blog-page-layout'] = array(
 			'type'          => 'radio',
 			'title'         => __( 'Blog page layout', 'cherry' ),
 			'label'         => __( 'Blog page layout', 'cherry' ),
