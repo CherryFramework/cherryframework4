@@ -61,15 +61,16 @@
          li {
             margin: 0;
                a {
-                  color: #555555;
-                  background: #f4f4f4;
+                  color: #FFFFFF;
+                  background: #2a445d;
                   padding: 10px 5px 10px 10px;
                   text-decoration: none;
                   display: block;
-                  border-bottom: 1px solid #ebebeb;
+                  border-bottom: 1px solid #516579;
                   font-weight: bold;
                   font-size: 16px;
                   line-height: 24px;
+                  position: relative;
                      i {
                         width: 24px;
                         height: 24px;
@@ -83,25 +84,36 @@
                      }
                      &:hover {
                         color: #ffffff;
-                        background: #2EA2CC;
+                        background: #385067;
                      }
+
                }
                &.active{
                   a {
-                     color: #000000;
-                     background: #fcfcfc !important;
-                     border-bottom: 1px solid #D8D8D8;
+                     color: #FFFFFF;
+                     background: #f62e46 !important;
                      box-shadow: 1px 0 0 #fcfcfc;
                         i {
-                           color: #2EA2CC;
+                           color: #FFFFFF;
                         }
+                        &:after{
+                        border-bottom: 22px solid transparent;
+                        border-left: 12px solid #f62e46;
+                        border-top: 22px solid transparent;
+                        content: "";
+                        height: 0;
+                        position: absolute;
+                        right: -12px;
+                        top: 0;
+                        width: 0;
+                           }
                   }
                }
                &.subitem{
                   a{
                      padding: 4px 5px 4px 30px;
                      font-size: 12px;
-                     background: #eaeaea;
+                     background: #344d65;
                      border-bottom: none;
                         i {
                            width: 24px;
@@ -110,10 +122,25 @@
                            float: left;
                         }
                         &:hover{
-                           background: #3ba5cc;
+                           background: #41596f;
+                        }
+
+                  &.active {
+                     a{
+
+
+                     &:after{
+                     border-bottom: 16px solid transparent;
+                     border-left: 12px solid #f62e46;
+                     border-top: 16px solid transparent;
+                                          }
+                              }
                         }
                   }
-               }
+            }
+
+
+
                &:first-child a {
                   border-top: none;
                }
@@ -125,7 +152,7 @@
       border-left: 1px solid #D8D8D8;
       min-height: 800px;
          .options-group {
-            padding: 10px 20px;
+            padding: 10px 0px;
             display: none;
          }
    }

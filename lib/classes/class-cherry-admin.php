@@ -29,6 +29,7 @@ class Cherry_Admin {
 		wp_register_style( 'jquery-ui', trailingslashit( CHERRY_URI ) . 'admin/assets/css/jquery-ui.css', array(), CHERRY_VERSION, 'all' );
 		wp_register_style( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/css/interface-builder.css', array(), CHERRY_VERSION, 'all' );
 		wp_register_style( 'admin-interface', trailingslashit( CHERRY_URI ) . 'admin/assets/css/admin-interface.css', array(), CHERRY_VERSION, 'all' );
+		wp_register_style( 'cherry-ui-elements', trailingslashit( CHERRY_URI ) . 'admin/assets/css/cherry-ui-elements.css', array(), CHERRY_VERSION, 'all' );
 	}
 
 	/**
@@ -42,6 +43,7 @@ class Cherry_Admin {
 			wp_enqueue_style( 'jquery-ui' );
 			wp_enqueue_style( 'interface-builder' );
 			wp_enqueue_style( 'admin-interface' );
+			wp_enqueue_style( 'cherry-ui-elements' );
 		}
 	}
 
