@@ -1,0 +1,40 @@
+/////////////////////////////////////////////////
+////////////////////Variables////////////////////
+/////////////////////////////////////////////////
+
+$primary-color: #F62E46;
+$dark-blue-color: #2a445d;
+$blue-color: #344d65;
+$light-blue-color: #41596F;
+
+/////////////////////////////////////////////////
+
+.cherry-ui-core{
+	.button_{
+		display: inline-block;
+		cursor: pointer;
+		white-space: nowrap;
+		text-decoration: none;
+
+		}
+		.button-primary_{
+			@extend .button_;
+			background-color: $primary-color;
+			border-radius: 6px;
+			line-height: 42px;
+			padding: 0px 16px;
+			color: #FFFFFF;
+			&:hover{
+				text-decoration: none;
+				color: #FFFFFF;
+				box-shadow: none;
+				cursor: pointer;
+			}
+			&:link{
+				@extend .button-primary_:hover;
+			}
+			&:active{
+				@extend .button-primary_:hover;
+		}
+	}
+}

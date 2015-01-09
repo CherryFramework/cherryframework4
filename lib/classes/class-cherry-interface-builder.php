@@ -430,7 +430,7 @@ class Cherry_Interface_Builder {
 					}// end foreach $available_areas
 					$output .= '<div class="cherry-accordion-control">';
 						$output .= $this -> add_label($id.'-static',  __( 'Create new static', 'cherry' ), $this->options['class']['label'].' cherry-block');
-						$output .= '<a href="javascript:void(0);" class="cherry-primary-btn add-new-btn">'. __( 'Add new static', 'cherry' ) .'</a>';
+						$output .= '<a href="javascript:void(0);" class="button-primary_ add-new-btn">'. __( 'Add new static', 'cherry' ) .'</a>';
 						$output .= '<div class="field-static">';
 							$output .= '<select ' . $item_inline_style . ' class="static-selector width-full">';
 								foreach ($options as $static => $staticSettings) {

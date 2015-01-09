@@ -234,7 +234,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 					</div>
 					<?php settings_errors( 'cherry-options-group' ); ?>
 
-						<form id="cherry-options" method="post">
+						<form id="cherry-options" class="cherry-ui-core" method="post">
 							<?php settings_fields( 'cherry-options-group' ); ?>
 							<input class="active-section-field" type="hidden" name="active_section" value="">
 							<div class="cherry-sections-wrapper">
