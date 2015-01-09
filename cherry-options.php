@@ -758,13 +758,13 @@ function cherry_defaults_settings() {
 				'value' =>'<h2>Blog settings</h2>',
 		);
 
-		$blog_options['blog-sidebar-position'] = array(
+		$blog_options['blog-page-layout'] = array(
 			'type'          => 'radio',
 			'title'         => __( 'Blog page layout', 'cherry' ),
 			'label'         => __( 'Blog page layout', 'cherry' ),
 			'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-			'value'         => 'blog-layout-radio-3',
-			'default-value' => 'blog-layout-radio-3',
+			'value'         => '1-right',
+			'default-value' => '1-right',
 			'class'         => '',
 			'display_input' => false,
 			'options'       => array(
@@ -791,14 +791,14 @@ function cherry_defaults_settings() {
 				'no-sidebar' => array(
 					'label'   => 'No sidebar',
 					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-fullwidth.png',
-				)
+				),
 			)
 		);
 
 		$blog_options['blog-layout-options'] = array(
 			'type'          => 'radio',
-			'title'         => __( 'Blog page layout', 'cherry' ),
-			'label'         => __( 'Blog page layout', 'cherry' ),
+			'title'         => __( 'Blog list layout', 'cherry' ),
+			'label'         => __( 'Blog list layout', 'cherry' ),
 			'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
 			'value'         => 'header-type-layout-radio-1',
 			'default-value' => 'header-type-layout-radio-1',
