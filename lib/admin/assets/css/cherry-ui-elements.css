@@ -1,14 +1,19 @@
-.cherry-primary-btn{
+.cherry-ui-core .button_, .cherry-ui-core .button-primary_ {
   display: inline-block;
-  background-color: #F62E46;
-  border-radius: 6px;
-  line-height: 42px;
-  color: #FFFFFF;
-  padding: 0px 16px;
+  cursor: pointer;
+  white-space: nowrap;
   text-decoration: none;
 }
-.cherry-primary-btn:hover, .cherry-primary-btn:link, .cherry-primary-btn:link{
+.cherry-ui-core .button-primary_ {
+  background-color: #f62e46;
+  border-radius: 6px;
+  line-height: 42px;
+  padding: 0px 16px;
+  color: #FFFFFF;
+}
+.cherry-ui-core .button-primary_:hover, .cherry-ui-core .button-primary_:link, .cherry-ui-core .button-primary_:active {
   text-decoration: none;
   color: #FFFFFF;
   box-shadow: none;
+  cursor: pointer;
 }
