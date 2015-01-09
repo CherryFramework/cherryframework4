@@ -769,28 +769,28 @@ function cherry_defaults_settings() {
 			'display_input' => false,
 			'options'       => array(
 				'1-left-2-right' => array(
-					'label'   => 'Left and right sidebar',
-					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-both-sidebar.png',
+					'label'   => __( 'Left and right sidebar', 'cherry' ),
+					'img_src' => CHERRY_URI . '/admin/assets/images/layout-both-sidebar.png',
 				),
 				'1-left' => array(
-					'label'   => 'Left sidebar',
-					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-left-sidebar.png',
+					'label'   => __( 'Left sidebar', 'cherry' ),
+					'img_src' => CHERRY_URI . '/admin/assets/images/layout-left-sidebar.png',
 				),
 				'1-right' => array(
-					'label'   => 'Right sidebar',
-					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-right-sidebar.png',
+					'label'   => __( 'Right sidebar', 'cherry' ),
+					'img_src' => CHERRY_URI . '/admin/assets/images/layout-right-sidebar.png',
 				),
 				'1-left-2-left' => array(
-					'label'   => 'Sameside left sidebar',
-					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-sameside-sidebar.png',
+					'label'   => __( 'Sameside left sidebar', 'cherry' ),
+					'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-sidebar.png',
 				),
 				'1-right-2-right' => array(
-					'label'   => 'Sameside right sidebar',
-					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-sameside-sidebar.png',
+					'label'   => __( 'Sameside right sidebar', 'cherry' ),
+					'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-sidebar.png',
 				),
 				'no-sidebar' => array(
-					'label'   => 'No sidebar',
-					'img_src' => PARENT_URI . '/lib/admin/assets/images/layout-fullwidth.png',
+					'label'   => __( 'No sidebar', 'cherry' ),
+					'img_src' => CHERRY_URI . '/admin/assets/images/layout-fullwidth.png',
 				),
 			)
 		);

@@ -18,11 +18,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 	class Cherry_Options_Framework_Admin {
 
 		/**
-	     * @since 4.0.0
-	     * @type string
-	     */
-	    protected $options_screen = null;
-	    private $option_inteface_builder;
+		 * @since 4.0.0
+		 * @var   string
+		 */
+		private $option_inteface_builder = null;
 
 		/**
 		* Cherry_Options_Framework_Admin constructor
@@ -39,45 +38,45 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			$this->option_inteface_builder = new Cherry_Interface_Builder(array('pattern' => 'grid'));
 
-				// Add the options page and menu item.
-				add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );
+			// Add the options page and menu item.
+			add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );
 
-				// Settings need to be registered after admin_init
-				add_action( 'admin_init', array( $this, 'settings_init' ) );
+			// Settings need to be registered after admin_init
+			add_action( 'admin_init', array( $this, 'settings_init' ) );
 
-				// Displays notice after options save
-				add_action('cherry-options-updated', array( $this, 'save_options_notice' ) );
+			// Displays notice after options save
+			add_action('cherry-options-updated', array( $this, 'save_options_notice' ) );
 
-				// Displays notice after section restored
-				add_action('cherry-section-restored', array( $this, 'restore_section_notice' ) );
+			// Displays notice after section restored
+			add_action('cherry-section-restored', array( $this, 'restore_section_notice' ) );
 
-				// Displays notice after options restored
-				add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
+			// Displays notice after options restored
+			add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
 
-				add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
+			add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
 
-				//************* Sanitize Utility Filters  ************************************//
-				// Utility sanitize text
-				add_filter( 'utility_sanitize_text', array( $this, 'utility_sanitize_text' ) );
-				// Utility sanitize textarea
-				add_filter( 'utility_sanitize_textarea', array( $this, 'utility_sanitize_textarea' ) );
-				// Utility sanitize checkbox
-				add_filter( 'utility_sanitize_checkbox', array( $this, 'utility_sanitize_checkbox' ) );
-				// Utility sanitize lider
-				add_filter( 'utility_sanitize_slider', array( $this, 'utility_sanitize_slider' ) );
-				// Utility sanitize editor
-				add_filter( 'utility_sanitize_editor', array( $this, 'utility_sanitize_editor' ) );
-				// Utility sanitize editor
-				add_filter( 'utility_sanitize_image', array( $this, 'utility_sanitize_image' ) );
-				// Utility sanitize color picker
-				add_filter( 'utility_sanitize_colorpicker', array( $this, 'utility_sanitize_colorpicker' ) );
+			//************* Sanitize Utility Filters  ************************************//
+			// Utility sanitize text
+			add_filter( 'utility_sanitize_text',        array( $this, 'utility_sanitize_text' ) );
+			// Utility sanitize textarea
+			add_filter( 'utility_sanitize_textarea',    array( $this, 'utility_sanitize_textarea' ) );
+			// Utility sanitize checkbox
+			add_filter( 'utility_sanitize_checkbox',    array( $this, 'utility_sanitize_checkbox' ) );
+			// Utility sanitize lider
+			add_filter( 'utility_sanitize_slider',      array( $this, 'utility_sanitize_slider' ) );
+			// Utility sanitize editor
+			add_filter( 'utility_sanitize_editor',      array( $this, 'utility_sanitize_editor' ) );
+			// Utility sanitize editor
+			add_filter( 'utility_sanitize_image',       array( $this, 'utility_sanitize_image' ) );
+			// Utility sanitize color picker
+			add_filter( 'utility_sanitize_colorpicker', array( $this, 'utility_sanitize_colorpicker' ) );
 		}
 
 		/**
-	     * Registers the settings
-	     *
-	     * @since 4.0.0
-	     */
+		 * Registers the settings
+		 *
+		 * @since 4.0.0
+		 */
 		function settings_init() {
 			// Load Options Framework Settings
 		$cherry_options_settings = get_option( 'cherry-options' );
@@ -109,10 +108,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
-	     * Registers the settings
-	     *
-	     * @since 4.0.0
-	     */
+		 * Registers the settings
+		 *
+		 * @since 4.0.0
+		 */
 		function new_section_name($result) {
 			global $cherry_options_framework;
 			$currentSectionName = $cherry_options_framework->get_section_name_by_id($_POST['active_section']);
@@ -121,9 +120,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
-	     *
-	     * @since 4.0.0
-	     */
+		 *
+		 * @since 4.0.0
+		 */
 		function cherry_admin_menu_add_item() {
 			$cherry_options_menu_item = 'cherry-options';
 			add_menu_page( __( 'Cherry page', 'cherry' ), __( 'Cherry Options', 'cherry' ), 'edit_theme_options', $cherry_options_menu_item, array( $this, 'cherry_options_page_build' ), 'dashicons-clipboard', 62 );
@@ -151,10 +150,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
-	     * Priority sorting
-	     *
-	     * @since 4.0.0
-	     */
+		 * Priority sorting
+		 *
+		 * @since 4.0.0
+		 */
 		private function priority_sorting($base_array) {
 			uasort($base_array, array( $this, 'compare' ));
 			return $base_array;
@@ -170,10 +169,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			return ($a['priority'] - $b['priority']);
 		}
 		/**
-	     * Child priority sorting
-	     *
-	     * @since 4.0.0
-	     */
+		 * Child priority sorting
+		 *
+		 * @since 4.0.0
+		 */
 		private function child_priority_sorting($base_array) {
 			foreach ($base_array as $sectionName => $sectionSettings) {
 				$section = $sectionName;
@@ -188,9 +187,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
-	     *
-	     * @since 4.0.0
-	     */
+		 *
+		 * @since 4.0.0
+		 */
 		function cherry_options_page_build() {
 			global $cherry_options_framework;
 			$section_index = 0;
