@@ -26,9 +26,6 @@
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-/* Register metadata with WordPress. */
-// add_action( 'init', 'theme_layouts_register_meta' );
-
 // Add post type support for theme layouts.
 add_action( 'init', 'theme_layouts_add_post_type_support', 5 );
 
@@ -36,38 +33,10 @@ add_action( 'init', 'theme_layouts_add_post_type_support', 5 );
 add_action( 'admin_init', 'theme_layouts_admin_setup' );
 
 /* Filters the theme layout mod. */
-add_filter( 'theme_mod_theme_layout', 'theme_layouts_filter_layout', 5 );
+// add_filter( 'theme_mod_theme_layout', 'theme_layouts_filter_layout', 5 );
 
 // Filters the body_class hook to add a custom class.
-add_filter( 'body_class', 'theme_layouts_body_class' );
-
-/**
- * Registers the theme layouts meta key ('Layout') for specific object types and provides a function to
- * sanitize the metadata on update.
- *
- * @since  0.4.0
- * @access public
- * @return void
- */
-function theme_layouts_register_meta() {
-	register_meta( 'post', theme_layouts_get_meta_key(), 'theme_layouts_sanitize_meta' );
-	register_meta( 'user', theme_layouts_get_meta_key(), 'theme_layouts_sanitize_meta' );
-}
-
-/**
- * Callback function for sanitizing meta when add_metadata() or update_metadata() is called by WordPress.
- * If a developer wants to set up a custom method for sanitizing the data, they should use the
- * "sanitize_{$meta_type}_meta_{$meta_key}" filter hook to do so.
- *
- * @since  4.0.0
- * @param  mixed  $meta_value The value of the data to sanitize.
- * @param  string $meta_key   The meta key name.
- * @param  string $meta_type  The type of metadata (post, comment, user, etc.)
- * @return mixed  $meta_value
- */
-function theme_layouts_sanitize_meta( $meta_value, $meta_key, $meta_type ) {
-	return sanitize_html_class( $meta_value );
-}
+// add_filter( 'body_class', 'theme_layouts_body_class' );
 
 /**
  * Adds post type support to `post` and `page`.
@@ -104,94 +73,35 @@ function theme_layouts_get_layouts() {
 
 	// Get theme-supported layouts.
 	$layouts = cherry_get_options('blog-page-layout');
-	$layouts = array_merge( $default , $layouts);
+	$layouts = array_merge( $default, $layouts);
 
 	return apply_filters( 'theme_layouts_get_layouts', $layouts );
 }
 
 /**
- * Returns an array of arguments for setting up the theme layouts script.  The defaults are merged
- * with the theme-supported arguments.
+ * Adds the post layout class to the WordPress body class in the form of "layout-$layout". This allows
+ * theme developers to design their theme layouts based on the layout class. If designing a theme with
+ * this extension, the theme should make sure to handle all possible layout classes.
  *
- * @since  0.5.0
- * @access public
- * @return array  Arguments for the theme layouts script.
+ * @since  4.0.0
+ * @param  array $classes
+ * @return array $classes
  */
-function theme_layouts_get_args() {
-	$defaults = array(
-		'customize' => true,
-		'post_meta' => true,
-		'default'   => 'default'
-	);
+function theme_layouts_body_class( $classes ) {
 
-	$layouts = get_theme_support( 'theme-layouts' );
-
-	$args = isset( $layouts[1] ) ? $layouts[1] : array();
-
-	return apply_filters( 'theme_layouts_args', wp_parse_args( $args, $defaults ) );
-}
-
-/**
- * Filters the 'theme_mods_theme_layout' hook to alter the layout based on post and user metadata.
- * Theme authors should also use this hook to filter the layout if need be.
- *
- * @since  0.5.0
- * @access public
- * @param  string  $theme_layout
- * @return string
- */
-function theme_layouts_filter_layout( $theme_layout ) {
-
-	/* If viewing a singular post, get the post layout. */
-	if ( is_singular() )
+	if ( is_singular() ) {
 		$layout = get_post_layout( get_queried_object_id() );
+	}
 
-	/* If viewing an author archive, get the user layout. */
-	elseif ( is_author() )
-		$layout = get_user_layout( get_queried_object_id() );
+	// elseif ( is_author() )
+	// 	$layout = get_user_layout( get_queried_object_id() );
 
-	/* If a layout was found, set it. */
 	if ( !empty( $layout ) && 'default' !== $layout ) {
-		$theme_layout = $layout;
+		$layout = 'cherry-blog-layout-' . $layout;
+		$classes[] = sanitize_html_class( $layout );
 	}
 
-	/* Else, if no layout option has yet been saved, return the theme default. */
-	elseif ( empty( $theme_layout ) ) {
-		$args = theme_layouts_get_args();
-		$theme_layout = $args['default'];
-	}
-
-	return $theme_layout;
-}
-
-/**
- * Gets the layout for the current post based off the 'Layout' custom field key if viewing a singular post
- * entry.  All other pages are given a default layout of 'layout-default'.
- *
- * @since  0.2.0
- * @access public
- * @return string The layout for the given page.
- */
-function theme_layouts_get_layout() {
-
-	/* Get the available theme layouts. */
-	$layouts = theme_layouts_get_layouts();
-
-	/* Get the theme layout arguments. */
-	$args = theme_layouts_get_args();
-
-	/* Set the layout to an empty string. */
-	$layout = get_theme_mod( 'theme_layout', $args['default'] );
-
-	/* Make sure the given layout is in the array of available post layouts for the theme. */
-	if ( empty( $layout ) || !in_array( $layout, $layouts ) || 'default' == $layout )
-		$layout = $args['default'];
-
-	/* @deprecated 0.2.0. Use the 'get_theme_layout' hook. */
-	$layout = apply_filters( 'get_post_layout', "layout-{$layout}" );
-
-	/* @deprecated 0.5.0.  Use the 'theme_mods_theme_layout' hook. */
-	return esc_attr( apply_filters( 'get_theme_layout', $layout ) );
+	return $classes;
 }
 
 /**
@@ -219,7 +129,6 @@ function get_post_layout( $post_id ) {
  * @return bool            True on successful update, false on failure.
  */
 function set_post_layout( $post_id, $layout ) {
-	error_log('set_post_layout');
 	return update_post_meta( $post_id, theme_layouts_get_meta_key(), $layout );
 }
 
@@ -231,7 +140,6 @@ function set_post_layout( $post_id, $layout ) {
  * @return bool            True on successful delete, false on failure.
  */
 function delete_post_layout( $post_id ) {
-	error_log('delete_post_layout');
 	return delete_post_meta( $post_id, theme_layouts_get_meta_key() );
 }
 
@@ -252,85 +160,6 @@ function has_post_layout( $layout, $post_id = '' ) {
 
 	// Return true/false based on whether the layout matches.
 	return ( $layout == get_post_layout( $post_id ) ? true : false );
-}
-
-/**
- * Get the layout for a user/author archive page based on a specific user ID.
- *
- * @since  0.3.0
- * @access public
- * @param  int    $user_id The ID of the user to get the layout for.
- * @return string          The layout if one exists, 'default' if one doesn't.
- */
-// function get_user_layout( $user_id ) {
-
-// 	/* Get the user layout. */
-// 	$layout = get_user_meta( $user_id, theme_layouts_get_meta_key(), true );
-
-// 	/* Return the layout if one is found.  Otherwise, return 'default'. */
-// 	return ( !empty( $layout ) ? $layout : 'default' );
-// }
-
-/**
- * Update/set the layout for a user/author archive paged based on the user ID.
- *
- * @since  0.3.0
- * @access public
- * @param  int    $user_id The ID of the user to set the layout for.
- * @param  string $layout  The name of the layout to set.
- * @return bool            True on successful update, false on failure.
- */
-// function set_user_layout( $user_id, $layout ) {
-// 	return update_user_meta( $user_id, theme_layouts_get_meta_key(), $layout );
-// }
-
-/**
- * Deletes a user layout.
- *
- * @since  0.4.0
- * @access public
- * @param  int    $user_id The ID of the user to delete the layout for.
- * @return bool            True on successful delete, false on failure.
- */
-// function delete_user_layout( $user_id ) {
-// 	return delete_user_meta( $user_id, theme_layouts_get_meta_key() );
-// }
-
-/**
- * Checks if a specific user's layout matches that of the given layout.
- *
- * @since  0.3.0
- * @access public
- * @param  string $layout  The name of the layout to check if the user has.
- * @param  int    $user_id The ID of the user to check the layout for.
- * @return bool            Whether the given layout matches the user's layout.
- */
-// function has_user_layout( $layout, $user_id = '' ) {
-
-// 	/* If no user ID is given, assume we're viewing an author archive page and get the user ID. */
-// 	if ( empty( $user_id ) )
-// 		$user_id = get_query_var( 'author' );
-
-// 	/* Return true/false based on whether the layout matches. */
-// 	return ( $layout == get_user_layout( $user_id ) ? true : false );
-// }
-
-/**
- * Adds the post layout class to the WordPress body class in the form of "layout-$layout". This allows
- * theme developers to design their theme layouts based on the layout class. If designing a theme with
- * this extension, the theme should make sure to handle all possible layout classes.
- *
- * @since  4.0.0
- * @param  array $classes
- * @return array $classes
- */
-function theme_layouts_body_class( $classes ) {
-
-	// Adds the layout to array of body classes.
-	$classes[] = sanitize_html_class( theme_layouts_get_layout() );
-
-	// Return the $classes array.
-	return $classes;
 }
 
 /**
@@ -383,12 +212,6 @@ function theme_layouts_get_string( $layout ) {
  * @return void
  */
 function theme_layouts_admin_setup() {
-	/* Get the extension arguments. */
-	// $args = theme_layouts_get_args();
-
-	/* Return if the theme doesn't support the post meta box. */
-	// if ( false === $args['post_meta'] )
-	// 	return;
 
 	// Load the post meta boxes on the new post and edit post screens.
 	add_action( 'load-post.php',     'theme_layouts_load_meta_boxes' );
@@ -465,8 +288,7 @@ function theme_layouts_post_meta_box( $post, $box ) {
 /**
  * Saves the post layout metadata if on the post editing screen in the admin.
  *
- * @since  0.2.0
- * @access public
+ * @since  4.0.0
  * @param  int      $post_id The ID of the current post being saved.
  * @param  object   $post    The post object currently being saved.
  * @return void|int
@@ -509,11 +331,9 @@ function theme_layouts_save_post( $post_id, $post = '' ) {
 	}
 
 	// If the old layout doesn't match the new layout, update the post layout meta.
-	elseif ( current_user_can( 'edit_post_meta', $post_id, $meta_key ) && $meta_value !== $new_meta_value ) {
+	elseif ( current_user_can( 'edit_post_meta', $post_id, $meta_key ) && $new_meta_value && $new_meta_value != $meta_value ) {
 		set_post_layout( $post_id, $new_meta_value );
 	}
-
-	error_log($meta_key);
 }
 
 /**
@@ -523,13 +343,5 @@ function theme_layouts_save_post( $post_id, $post = '' ) {
  * @return string The meta key used for theme layouts.
  */
 function theme_layouts_get_meta_key() {
-	return apply_filters( 'theme_layouts_meta_key', '_cherry_theme_layout' );
-}
-
-/**
- * @since      0.1.0
- * @deprecated 0.2.0 Use theme_layouts_get_layout().
- */
-function post_layouts_get_layout() {
-	return theme_layouts_get_layout();
+	return apply_filters( 'theme_layouts_meta_key', 'cherry_theme_layout' );
 }

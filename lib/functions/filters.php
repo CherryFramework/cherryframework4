@@ -29,9 +29,9 @@ add_action( 'wp_head', 'cherry_add_option_styles', 9999 );
 
 // Add specific CSS class by filter.
 function cherry_add_control_classes( $classes ) {
-	$responsive       = cherry_get_option('grid-responsive');
-	$grid_type        = cherry_get_option('grid-type');
-	$blog_page_layout = cherry_get_option('blog-page-layout');
+	$responsive  = cherry_get_option('grid-responsive');
+	$grid_type   = cherry_get_option('grid-type');
+	$blog_layout = cherry_get_option('blog-page-layout');
 
 	// Responsive.
 	if ( 'true' == $responsive ) {
@@ -54,8 +54,16 @@ function cherry_add_control_classes( $classes ) {
 		$classes[] = 'cherry-no-sidebar';
 	}
 
+	if ( is_singular() ) {
+		$single_layout = get_post_meta( get_queried_object_id(), theme_layouts_get_meta_key(), true );
+	}
+
 	// Sidebar Position.
-	$classes[] = sanitize_html_class( 'cherry-blog-layout-' . $blog_page_layout );
+	if ( !empty( $single_layout ) && ( 'default' != $single_layout ) ) {
+		$classes[] = sanitize_html_class( 'cherry-blog-layout-' . $single_layout );
+	} else {
+		$classes[] = sanitize_html_class( 'cherry-blog-layout-' . $blog_layout );
+	}
 
 	return $classes;
 }
@@ -79,9 +87,23 @@ function cherry_get_the_container_classes( $class ) {
 }
 
 function cherry_not_display_sidebar( $display, $id ) {
-	$blog_page_layout = cherry_get_option('blog-page-layout');
+	$single_layout = '';
 
-	if ( 'no-sidebar' == $blog_page_layout ) {
+	if ( is_singular() ) {
+		$single_layout = get_post_meta( get_queried_object_id(), theme_layouts_get_meta_key(), true );
+	}
+
+	if ( empty( $single_layout ) || ( 'default' == $single_layout ) ) {
+
+		$blog_layout = cherry_get_option('blog-page-layout');
+
+		if ( 'no-sidebar' == $blog_layout ) {
+			return false;
+		}
+
+	}
+
+	if ( !empty( $single_layout ) && ( 'no-sidebar' == $single_layout ) ) {
 		return false;
 	}
 
@@ -122,7 +144,6 @@ function cherry_add_type_view( $shortcodes ) {
 function cherry_add_option_styles() {
 	$responsive        = cherry_get_option('grid-responsive');
 	$grid_type         = cherry_get_option('grid-type');
-	$blog_page_layout  = cherry_get_option('blog-page-layout');
 	$container_width   = intval( cherry_get_option('page-layout-container-width') );
 	$grid_gutter_width = intval( apply_filters( 'cherry_grid_gutter_width', 30 ) );
 	$output            = '';

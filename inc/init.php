@@ -137,8 +137,7 @@ function cherry_display_sidebar( $id ) {
 			 * Any of these page templates that return true won't show the sidebar.
 			 */
 			array(
-				'templates/template-fullwidth.php',
-				'templates/template-fullwidth-2.php',
+				// 'templates/my-template-name.php',
 			)
 		),
 		'sidebar-footer' => new Cherry_Sidebar(
