@@ -317,6 +317,24 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			}
 			return $default;
 		}
+
+		public static function get_option_values( $name ) {
+			$settings_array = self::load_settings();
+
+			if ( !$settings_array ) {
+				return false;
+			}
+
+			foreach ( $settings_array as $sections_name => $section_value ) :
+
+				if ( isset( $section_value['options-list'][ $name ]['options'] ) ) {
+					return $section_value['options-list'][ $name ]['options'];
+				}
+
+			endforeach;
+
+			return false;
+		}
 	}
 }
 
@@ -326,8 +344,12 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
  *
  * @since 1.0.0
  */
-function cherry_get_option( $name , $default = false ) {
+function cherry_get_option( $name, $default = false ) {
 	return Cherry_Options_Framework::get_option_value( $name, $default );
+}
+
+function cherry_get_options( $name ) {
+	return Cherry_Options_Framework::get_option_values( $name );
 }
 
 ?>

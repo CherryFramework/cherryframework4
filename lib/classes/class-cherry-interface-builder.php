@@ -64,16 +64,16 @@ class Cherry_Interface_Builder {
 	 * @param  array  $argument
 	 * @return array
 	 */
-	private function processed_input_data( $default = array(), $argument = array() ) {
+	private function processed_input_data( $default = array(), $args = array() ) {
 
 		foreach ( $default as $key => $value ) :
 
-			if ( array_key_exists( $key, $argument ) ) {
+			if ( array_key_exists( $key, $args ) ) {
 
 				if ( is_array( $value ) ) {
-					$default[ $key ] = array_merge( $value, $argument[ $key ] );
+					$default[ $key ] = array_merge( $value, $args[ $key ] );
 				} else {
-					$default[ $key ] = $argument[ $key ];
+					$default[ $key ] = $args[ $key ];
 				}
 
 			}
@@ -622,23 +622,31 @@ class Cherry_Interface_Builder {
 					)
 			*/
 			case 'radio':
-				if($options && !empty($options) && is_array($options)){
-					$output .= '<div>';
-					foreach ($options as $option => $option_value) {
-						$checked = $option == $value ? ' checked' : '' ;
-						$radio_id = $this -> generate_field_id($option);
-						$item_inline_style = $display_input ? $item_inline_style : 'style="' . $inline_style . ' display:none;"' ;
-						$img = isset($option_value['img_src']) && !empty($option_value['img_src']) ? '<img src="'.$option_value['img_src'].'" alt="'.$option_value['label'].'"><span class="check"><span class="media-modal-icon"></span></span>' : '' ;
-						$class_box= isset($option_value['img_src']) && !empty($option_value['img_src']) ? 'cherry-radio-img '. $checked : '' ;
-						$item_label = $option_value['label'];
 
-						$output .= '<div class="cherry-fegr '.$class_box.'">';
-						$output .= '<input type="'.$type.'" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $radio_id . '" name="' . $name . '" '.$checked.' value="' . esc_html( $option ) . '" >';
-						$output .= $this -> add_label($radio_id, $img.$item_label);
+				if ( $options && !empty( $options ) && is_array( $options) ) {
+
+					$output .= '<div>';
+
+					foreach ( $options as $option => $option_value ) {
+
+						$checked           = $option == $value ? ' checked' : '';
+						$radio_id          = $this->generate_field_id( $option );
+						$item_inline_style = $display_input ? $item_inline_style : 'style="' . $inline_style . ' display:none;"';
+						$img               = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? '<img src="' . esc_url( $option_value['img_src'] ) . '" alt="' . esc_html( $option_value['label'] ) . '"><span class="check"><span class="media-modal-icon"></span></span>' : '';
+						$class_box         = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? ' cherry-radio-img' . $checked : '';
+
+						$output .= '<div class="cherry-fegr' . $class_box . '">';
+						$output .= '<input type="' . $type . '" ' . $item_inline_style . ' class="cherry-input ' . sanitize_html_class( $class ) . '" id="' . esc_attr( $radio_id ) . '" name="' . esc_attr( $name ) . '" ' . checked( $option, $value, false ) . ' value="' . esc_attr( $option ) . '">';
+						$output .= $this->add_label( $radio_id, $img . $option_value['label'] );
 						$output .= '</div>';
 					}
+
 					$output .= '</div>';
+
+					add_action( 'admin_footer', array( $this, 'include_scripts' ) );
+
 				}
+
 			break;
 			/*
 			arg:
@@ -994,47 +1002,57 @@ class Cherry_Interface_Builder {
 			break;
 		}
 
-		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type. ' ' .$this->options['class']['section'], $title, $label, $decsription, $hint );
+		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $decsription, $hint );
 	}
 
 	/**
-	* Wrap the generated item
-	*
-	* @since 4.0.0
-	* @return string
-	*/
-	private function wrap_item($item, $id, $class, $title, $label, $decsription, $hint){
-		$decsription = $decsription ? $this -> add_description($decsription) : '' ;
-		$class = 'cherry-section-'.$this->options['pattern'].' '.$class;
+	 * Wrap the generated item.
+	 *
+	 * @since  4.0.0
+	 * @return string
+	 */
+	private function wrap_item( $item, $id, $class, $title, $label, $decsription, $hint ) {
+		$decsription = $decsription ? $this->add_description( $decsription ) : '';
+		$class       = 'cherry-section-' . $this->options['pattern'] . ' ' . $class;
+		$output      = '<div id="wrap-' . $id . '" class="' . $class . '">';
+		$output      .= $title ? $this->add_title( $title ) : '';
 
-		$output = '<div id="wrap-'.$id.'" class="'.$class.'">';
-		$output .= $title ? $this -> add_title($title) : '' ;
-		if($this->options['pattern'] == 'inline'){
-			$output .= $this -> add_label($id, $label) . $item . $decsription;
-		}else{
-			$output .= '<div class="cherry-col-1">' . $this -> add_label($id, $label). $decsription . '</div>';
-			if($hint != ''){
-				$output .= $this -> add_hint($hint);
+		if ( $this->options['pattern'] == 'inline' ) :
+
+			$output .= $this->add_label( $id, $label ) . $item . $decsription;
+
+		else :
+
+			$output .= '<div class="cherry-col-1">' . $this->add_label( $id, $label ) . $decsription . '</div>';
+
+			if ( $hint ) {
+				$output .= $this->add_hint( $hint );
 			}
+
 			$output .= '<div class="cherry-col-2">' . $item . '</div>';
-		}
+
+		endif;
+
 		$output .= '</div>';
 
 		return $output;
 	}
 
 	/**
-	* Add label to form items
-	*
-	* @since 4.0.0
-	* @return string
-	*/
-	private function add_label($id, $label, $class = ''){
-		$class = !$class ? $this->options['class']['label'] : $class ;
+	 * Add label to form item.
+	 *
+	 * @since 4.0.0
+	 * @param string $id
+	 * @param string $label
+	 * @param string $class
+	 */
+	private function add_label( $id, $label, $class = '' ){
+		$class = !$class ? $this->options['class']['label'] : $class;
 
-		$output = $label ? sprintf($this -> options['html_wrappers']['label_start'], 'for="' . $id . '"', 'class="cherry-label ' .$class . '"' ) : '' ;
-		$output .= $label ;
-		$output .= $label ? $this -> options['html_wrappers']['label_end'] : '' ;
+		$output = $label ? sprintf( $this->options['html_wrappers']['label_start'], 'for="' . $id . '"', 'class="cherry-label ' . $class . '"' ) : '';
+		$output .= $label;
+		$output .= $label ? $this->options['html_wrappers']['label_end'] : '';
+
 		return $output;
 	}
 
@@ -1083,37 +1101,39 @@ class Cherry_Interface_Builder {
 	}
 
 	/**
-	* Generated field id
-	*
-	* @since 4.0.0
-	* @return string
-	*/
-	private function generate_field_id($id){
-		$return_id = '';
-		if($this->options['widget']['id_base'] && $this->options['widget']['number']){
-			$return_id = 'widget-' . $this->options['widget']['id_base'] . '-' . $this->options['widget']['number'] . '-' . $id;
-		}else{
-			$return_id = $this -> options['name_prefix'] . '-' . $id;
+	 * Generated field id.
+	 *
+	 * @since  4.0.0
+	 * @param  string $id
+	 * @return string
+	 */
+	private function generate_field_id( $_id ) {
+
+		if ( $this->options['widget']['id_base'] && $this->options['widget']['number'] ) {
+			$id = 'widget-' . $this->options['widget']['id_base'] . '-' . $this->options['widget']['number'] . '-' . $_id;
+		} else {
+			$id = $this->options['name_prefix'] . '-' . $_id;
 		}
-		return esc_attr($return_id);
+
+		return esc_attr( $id );
 	}
 
 	/**
-	* Generated field name
-	*
-	* @since 4.0.0
-	* @return string
-	*/
-	private function generate_field_name($id){
-		$return_name = '';
-		if($id){
-			if($this->options['widget']['id_base'] && $this->options['widget']['number']){
-				$return_name = 'widget-' . $this->options['widget']['id_base'] . '[' . $this->options['widget']['number'] . '][' . $id . ']';
-			}else{
-				$return_name =  $this -> options['name_prefix'] . '[' . $id . ']';
-			}
+	 * Generated field name.
+	 *
+	 * @since  4.0.0
+	 * @param  string $id
+	 * @return string
+	 */
+	private function generate_field_name( $id ) {
+
+		if ( $this->options['widget']['id_base'] && $this->options['widget']['number'] ) {
+			$name = 'widget-' . $this->options['widget']['id_base'] . '[' . $this->options['widget']['number'] . '][' . $id . ']';
+		} else {
+			$name = $this->options['name_prefix'] . '[' . $id . ']';
 		}
-		return esc_attr($return_name);
+
+		return esc_attr( $name );
 	}
 
 	/**

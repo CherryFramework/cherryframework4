@@ -777,6 +777,10 @@
   margin: 8px 0;
   cursor: pointer;
 }
+.cherry-section.single-section {
+  padding: 0;
+  border: none;
+}
 
 body .custom-tooltip-styling {
   border-width: 1px;

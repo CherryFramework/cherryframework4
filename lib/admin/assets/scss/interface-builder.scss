@@ -1,7 +1,7 @@
 .cherry-section{
 	border-top: 1px solid #d4d5d6;
-    overflow: hidden;
-    padding: 18px;
+	overflow: hidden;
+	padding: 18px;
 
 		&:nth-child(2n){
 			background: #fcfcfc;
@@ -86,7 +86,7 @@
 		input[type=text], select{
 			border: 1px solid #dddcdc;
 			border-radius: 6px;
- 			margin: 0;
+			margin: 0;
 			padding: 10px 12px 10px 5px;
 		}
 		textarea{
@@ -153,18 +153,18 @@
 
 
 					background-color: #eeeded;
-    border: 1px solid #cccccc;
-    color: #444444;
-    cursor: pointer;
-    display: block;
-    font-size: 16px;
-    height: 16px;
-    line-height: 12px;
-    margin: 0 0 0 -1px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    width: 20px;
+	border: 1px solid #cccccc;
+	color: #444444;
+	cursor: pointer;
+	display: block;
+	font-size: 16px;
+	height: 16px;
+	line-height: 12px;
+	margin: 0 0 0 -1px;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	width: 20px;
 
 
 				-webkit-user-select: none;
@@ -188,7 +188,7 @@
 				display: inline-block;
 				overflow: hidden;
 				padding: 4px;
-			    -webkit-user-select: none;
+				-webkit-user-select: none;
 				   -moz-user-select: none;
 					-ms-user-select: none;
 					 -o-user-select: none;
@@ -519,9 +519,9 @@
 			background-color: #dee0e1;
 			background-position: 12px 10px;
 
-     -moz-border-radius: 4px;
+	 -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
-          border-radius: 4px;
+		  border-radius: 4px;
 
 			width: 42px;
 			height: 40px;
@@ -840,6 +840,11 @@
 			}
 		}
 		/*Cherry icon-sets-editor style*/
+
+	&.single-section {
+		padding: 0;
+		border: none;
+	}
 }
 
 body{
