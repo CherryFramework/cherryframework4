@@ -424,17 +424,11 @@
 			}
 		}
 		.cherry-uicw{
-			width: 107px;
+			width: 108px;
 			position: absolute;
 			top: 0;
 			right: 2px;
-			.cherry-upload-image{
-				background-color: #ffffff;
-				border: 2px solid #dddcdc;
-				border-radius: 6px;
-				height: 42px;
-				margin: 0;
-			}
+
 			@media screen and (max-width: 782px){
 				position:relative;
 				width: 100%;
@@ -573,24 +567,28 @@
 						text-align: center;
 					}
 					.accordion-unit{
-						border: 1px solid #dfdfdf;
+
 						padding: 5px;
-						background: #f4f4f4;
-							.group{
-								background: #f9f9f9;
-								margin-bottom: 5px;
-									&:last-child{
-										margin-bottom: 0;
-									}
+						background: transparent;
+						.group{
+							border: 1px solid #dddcdc;
+							background: #f2f3f4;
+							margin-bottom: 5px;
+							border-radius: 6px;
+
+							&:last-child{
+								margin-bottom: 0;
+							}
 									.ui-accordion-header{
 										font-size: 16px;
 										margin: 0;
 										padding: 10px 10px 10px 30px;
 										color: #444;
 										background-image: none;
-										background: #fff;
-										border-radius: 0;
+										background: #f2f3f4;
+										border-radius: 6px;
 										font-weight: normal;
+										border: none;
 											.ui-accordion-header-icon{
 												background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
 											}
@@ -652,7 +650,7 @@
 											}
 											&.ui-state-hover{
 												background: none;
-												border: 1px solid #cccccc;
+												//border: 1px solid #cccccc;
 											}
 									}
 									.ui-accordion-content{

@@ -1,8 +1,9 @@
-.cherry-ui-core .button_, .cherry-ui-core .button-primary_ {
+.cherry-ui-core .button_, .cherry-ui-core .button-primary_, .cherry-ui-core .button-default_ {
   display: inline-block;
   cursor: pointer;
   white-space: nowrap;
   text-decoration: none;
+  box-sizing: border-box;
 }
 .cherry-ui-core .button-primary_ {
   background-color: #f62e46;
@@ -10,10 +11,26 @@
   line-height: 42px;
   padding: 0px 16px;
   color: #FFFFFF;
+  font-size: 13px;
 }
 .cherry-ui-core .button-primary_:hover, .cherry-ui-core .button-primary_:link, .cherry-ui-core .button-primary_:active {
   text-decoration: none;
   color: #FFFFFF;
   box-shadow: none;
   cursor: pointer;
+}
+.cherry-ui-core .button-default_ {
+  font-size: 13px;
+  background-color: #ffffff;
+  border: 2px solid #dddcdc;
+  border-radius: 6px;
+  height: 42px;
+  margin: 0;
+  box-shadow: none;
+}
+.cherry-ui-core .title-primary_ {
+  color: #2a445d;
+}
+.cherry-ui-core .title-mid_ {
+  font-size: 1.3em;
 }

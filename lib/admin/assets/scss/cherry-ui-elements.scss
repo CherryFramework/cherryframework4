@@ -10,31 +10,69 @@ $light-blue-color: #41596F;
 /////////////////////////////////////////////////
 
 .cherry-ui-core{
+
+/////////////////////////////////////////////////
+////////////////////Buttons//////////////////////
+/////////////////////////////////////////////////
+
 	.button_{
 		display: inline-block;
 		cursor: pointer;
 		white-space: nowrap;
 		text-decoration: none;
-
-		}
-		.button-primary_{
-			@extend .button_;
-			background-color: $primary-color;
-			border-radius: 6px;
-			line-height: 42px;
-			padding: 0px 16px;
+		box-sizing: border-box;
+	}
+	.button-primary_{
+		@extend .button_;
+		background-color: $primary-color;
+		border-radius: 6px;
+		line-height: 42px;
+		padding: 0px 16px;
+		color: #FFFFFF;
+		font-size: 13px;
+		&:hover{
+			text-decoration: none;
 			color: #FFFFFF;
-			&:hover{
-				text-decoration: none;
-				color: #FFFFFF;
-				box-shadow: none;
-				cursor: pointer;
-			}
-			&:link{
-				@extend .button-primary_:hover;
-			}
-			&:active{
-				@extend .button-primary_:hover;
+			box-shadow: none;
+			cursor: pointer;
+		}
+		&:link{
+			@extend .button-primary_:hover;
+		}
+		&:active{
+			@extend .button-primary_:hover;
 		}
 	}
+
+	.button-default_{
+		@extend .button_;
+		font-size: 13px;
+		background-color: #ffffff;
+		border: 2px solid #dddcdc;
+		border-radius: 6px;
+		height: 42px;
+		margin: 0;
+		box-shadow: none;
+	}
+
+/////////////////////////////////////////////////
+////////////////////Titles///////////////////////
+/////////////////////////////////////////////////
+
+	.title_{
+
+	}
+
+	.title-primary_{
+		color: #2a445d;
+	}
+
+	.title-mid_{
+		font-size: 1.3em;
+	}
+
+
 }
+
+
+
