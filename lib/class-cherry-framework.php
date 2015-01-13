@@ -294,7 +294,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load if supported.
 			// require_if_theme_supports();
-			require_if_theme_supports( 'theme-layouts', trailingslashit( CHERRY_ADMIN ) . 'theme-layouts.php' );
 		}
 
 		/**

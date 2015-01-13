@@ -198,7 +198,7 @@ function cherry_theme_setup() {
 	// 	),
 	// 	array( 'default' => is_rtl() ? '2c-r' :'2c-l' )
 	// );
-	add_theme_support( 'theme-layouts' );
+	// add_theme_support( 'theme-layouts' );
 
 	// Handle content width for embeds and images.
 	cherry_set_content_width( 780 );

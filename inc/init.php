@@ -9,8 +9,9 @@ if ( current_theme_supports( 'post-thumbnails' ) ) {
 	add_action( 'init', 'cherry_register_image_sizes' );
 }
 
-// Setup of certain features for a 'page' post type.
-add_action( 'init', 'cherry_page_support' );
+// Add extra support for post types.
+add_action( 'init', 'cherry_add_post_type_support' );
+add_action( 'init', 'cherry_remove_post_type_support' );
 
 // Register custom menus.
 add_action( 'init', 'cherry_register_menus' );
@@ -38,11 +39,26 @@ function cherry_register_image_sizes() {
 	add_image_size( 'slider-post-thumbnail', 1025, 500, true );
 }
 
-// Setup of certain features for a 'page' post type.
-function cherry_page_support() {
+function cherry_add_post_type_support() {
 
 	// Enable support for excerpts.
 	add_post_type_support( 'page', 'excerpt' );
+
+	/**
+	 * Filters the array with post types that supported `cherry-layouts`.
+	 *
+	 * @since 4.0.0
+	 * @var   array
+	 */
+	$post_types = apply_filters( 'cherry_layouts_add_post_type_support', array( 'post', 'page' ) );
+
+	// For each available post type, create a meta box on its edit page.
+	foreach ( $post_types as $type ) {
+		add_post_type_support( $type, 'cherry-layouts' );
+	}
+}
+
+function cherry_remove_post_type_support() {
 
 	// Disable support for thumbnails.
 	remove_post_type_support( 'page', 'thumbnail' );

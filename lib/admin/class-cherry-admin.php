@@ -1,10 +1,32 @@
 <?php
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
+/**
+ * Sets up the admin functionality for the framework.
+ *
+ * @package   Cherry_Framework
+ * @version   4.0.0
+ * @author    Cherry Team <support@cherryframework.com>
+ * @copyright Copyright (c) 2012 - 2014, Cherry Team
+ * @link      http://www.cherryframework.com/
+ * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
 
 class Cherry_Admin {
 
 	/**
-	 * Initialize the loading admin scripts & styles and adding a
-	 * settings page and menu.
+	 * Holds the instances of this class.
+	 *
+	 * @since 4.0.0
+	 * @var   object
+	 */
+	private static $instance = null;
+
+	/**
+	 * Initialize the loading admin scripts & styles. Adding the meta boxes.
 	 *
 	 * @since 4.0.0
 	 */
@@ -17,6 +39,10 @@ class Cherry_Admin {
 		// Load admin javascript and stylesheet.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
+
+		// Load post meta boxes on the post editing screen.
+		add_action( 'load-post.php',     array( $this, 'load_post_meta_boxes' ) );
+		add_action( 'load-post-new.php', array( $this, 'load_post_meta_boxes' ) );
 	}
 
 	/**
@@ -78,5 +104,35 @@ class Cherry_Admin {
 			wp_enqueue_style( 'cherry-ui-elements' );
 		// }
 	}
+
+	/**
+	 * Loads custom meta boxes.
+	 *
+	 * @since 4.0.0
+	 */
+	public function load_post_meta_boxes() {
+		$screen = get_current_screen();
+
+		if ( !empty( $screen->post_type ) && post_type_supports( $screen->post_type, 'cherry-layouts' ) ) {
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-layouts.php' );
+		}
+	}
+
+	/**
+	 * Returns the instance.
+	 *
+	 * @since  4.0.0
+	 * @return object
+	 */
+	public static function get_instance() {
+
+		// If the single instance hasn't been set, set it now.
+		if ( null == self::$instance ) {
+			self::$instance = new self;
+		}
+
+		return self::$instance;
+	}
 }
-new Cherry_Admin();
+
+Cherry_Admin::get_instance();
