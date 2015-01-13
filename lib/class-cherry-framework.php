@@ -308,9 +308,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 				// Load the main admin file.
 				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );
-
-				// Load the Theme Layouts.
-				// require_once( trailingslashit( CHERRY_ADMIN ) . 'theme-layouts.php' );
 			}
 		}
 

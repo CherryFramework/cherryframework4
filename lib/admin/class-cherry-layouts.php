@@ -21,6 +21,14 @@ class Cherry_Layouts {
 	 */
 	public function __construct() {
 
+		if ( !class_exists( 'Cherry_Interface_Builder' ) ) {
+			return;
+		}
+
+		if ( !class_exists( 'Cherry_Options_Framework' ) ) {
+			return;
+		}
+
 		// Add the layout meta box on the 'add_meta_boxes' hook.
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
 
@@ -40,7 +48,7 @@ class Cherry_Layouts {
 	public function add_meta_boxes( $post_type, $post ) {
 
 		if ( ( post_type_supports( $post_type, 'cherry-layouts' ) ) && ( current_user_can( 'edit_post_meta', $post->ID ) || current_user_can( 'add_post_meta', $post->ID ) || current_user_can( 'delete_post_meta', $post->ID ) ) )
-			add_meta_box( 'theme-layouts-post-meta-box', __( 'Layout', 'cherry' ), array( $this, 'theme_layouts_post_meta_box' ), $post_type, 'normal', 'high' );
+			add_meta_box( 'cherry-layouts-metabox', __( 'Layout', 'cherry' ), array( $this, 'callback_metabox' ), $post_type, 'normal', 'high' );
 	}
 
 	/**
@@ -52,7 +60,7 @@ class Cherry_Layouts {
 	 * @param  array  $box  Specific information about the meta box being loaded.
 	 * @return void
 	 */
-	public function theme_layouts_post_meta_box( $post, $box ) {
+	public function callback_metabox( $post, $box ) {
 
 		// Get theme-supported theme layouts.
 		$post_layouts = $this->get_layouts();
