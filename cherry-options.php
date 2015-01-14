@@ -782,11 +782,11 @@ function cherry_defaults_settings() {
 				),
 				'1-left-2-left' => array(
 					'label'   => __( 'Sameside left sidebar', 'cherry' ),
-					'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-sidebar.png',
+					'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-left-sidebar.png',
 				),
 				'1-right-2-right' => array(
 					'label'   => __( 'Sameside right sidebar', 'cherry' ),
-					'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-sidebar.png',
+					'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-right-sidebar.png',
 				),
 				'no-sidebar' => array(
 					'label'   => __( 'No sidebar', 'cherry' ),

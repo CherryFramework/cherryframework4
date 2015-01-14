@@ -8,9 +8,10 @@
 			include cherry_template_path();
 			do_action( 'cherry_content' );
 			do_action( 'cherry_content_after' );
-		?>
 
-		<?php do_action( 'cherry_get_sidebar', 'sidebar-main' ); ?>
+			do_action( 'cherry_get_sidebar', 'sidebar-main' );
+			do_action( 'cherry_get_sidebar', 'sidebar-secondary' );
+		?>
 
 	</div>
 </div>

@@ -87,23 +87,23 @@ function cherry_get_the_container_classes( $class ) {
 }
 
 function cherry_hide_sidebar( $display, $id ) {
-	$single_layout = '';
+	$layout = false;
 
 	if ( is_singular() ) {
-		$single_layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
+		$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
 	}
 
-	if ( empty( $single_layout ) || ( 'default' == $single_layout ) ) {
+	if ( !$layout || ( 'default' == $layout ) ) :
 
-		$blog_layout = cherry_get_option('blog-page-layout');
+		$layout = cherry_get_option('blog-page-layout');
 
-		if ( 'no-sidebar' == $blog_layout ) {
-			return false;
-		}
+	endif;
 
+	if ( 'no-sidebar' == $layout ) {
+		return false;
 	}
 
-	if ( !empty( $single_layout ) && ( 'no-sidebar' == $single_layout ) ) {
+	if ( ( ( '1-left' == $layout ) || ( '1-right' == $layout ) ) && ( 'sidebar-secondary' == $id ) ) {
 		return false;
 	}
 

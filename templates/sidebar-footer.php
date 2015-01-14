@@ -1,16 +1,8 @@
-<?php
-/**
- * The Sidebar located in the footer of the site.
- *
- * @package Cherry Framework
- */
-?>
-<!-- Footer widget area -->
-<?php do_action( 'cherry_sidebar_footer_before' ); ?>
+<?php do_action( 'cherry_sidebar_before', 'footer' ); ?>
 
 <div <?php cherry_attr( 'sidebar', 'subsidiary' ); ?>>
 
-	<?php do_action( 'cherry_sidebar_footer_start' );
+	<?php do_action( 'cherry_sidebar_start', 'footer' );
 
 		if ( is_active_sidebar( 'sidebar-footer' ) ) :
 
@@ -18,12 +10,12 @@
 
 		else :
 
-			do_action( 'cherry_sidebar_footer_empty' );
+			do_action( 'cherry_sidebar_empty', 'footer' );
 
 		endif;
 
-	do_action( 'cherry_sidebar_footer_end' ); ?>
+	do_action( 'cherry_sidebar_end', 'footer' ); ?>
 
 </div>
 
-<?php do_action( 'cherry_sidebar_footer_after' ); ?>
+<?php do_action( 'cherry_sidebar_after', 'footer' ); ?>

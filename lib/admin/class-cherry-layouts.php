@@ -149,7 +149,7 @@ class Cherry_Layouts {
 		// Set up the default layout strings.
 		$default = array(
 			'default' => array(
-				'label'   => __( 'Default', 'cherry' ),
+				'label'   => __( 'Inherit', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-default.png',
 			),
 		);

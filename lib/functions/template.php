@@ -19,7 +19,7 @@ add_action( 'cherry_post',               'cherry_get_content_template' );
 add_action( 'cherry_page',               'cherry_get_content_template' );
 
 add_action( 'cherry_get_sidebar',        'cherry_get_sidebar_template' );
-add_action( 'cherry_get_footer_sidebar', 'cherry_get_sidebar_template' );
+// add_action( 'cherry_get_footer_sidebar', 'cherry_get_sidebar_template' );
 
 add_action( 'cherry_get_comments',       'cherry_get_comments_template' );
 

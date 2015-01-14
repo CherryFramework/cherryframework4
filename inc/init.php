@@ -77,7 +77,15 @@ function cherry_register_sidebars() {
 		array(
 			'id'          => 'sidebar-main',
 			'name'        => __( 'Main Sidebar', 'cherry' ),
-			'description' => __( 'The main sidebar. It is displayed on either the left or right side of the page based on the chosen layout.', 'cherry' )
+			'description' => __( 'This is the main sidebar if you are using a two or three column site layout option.', 'cherry' )
+		)
+	);
+
+	cherry_register_sidebar(
+		array(
+			'id'          => 'sidebar-secondary',
+			'name'        => __( 'Secondary Sidebar', 'cherry' ),
+			'description' => __( 'This is the secondary sidebar if you are using a three column site layout option.', 'cherry' )
 		)
 	);
 
@@ -154,6 +162,12 @@ function cherry_display_sidebar( $id ) {
 			 */
 			array(
 				// 'templates/my-template-name.php',
+			)
+		),
+		'sidebar-secondary' => new Cherry_Sidebar(
+			array(
+				'is_404',
+				'is_front_page',
 			)
 		),
 		'sidebar-footer' => new Cherry_Sidebar(
