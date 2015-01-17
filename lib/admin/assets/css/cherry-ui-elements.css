@@ -24,13 +24,64 @@
   background-color: #ffffff;
   border: 2px solid #dddcdc;
   border-radius: 6px;
-  height: 42px;
+  line-height: 38px;
   margin: 0;
   box-shadow: none;
+  color: #464646;
+  padding: 0 16px;
 }
 .cherry-ui-core .title-primary_ {
   color: #2a445d;
 }
 .cherry-ui-core .title-mid_ {
-  font-size: 1.3em;
+  font-size: 22px;
+}
+.cherry-ui-core .text_center_ {
+  text-align: center;
+}
+.cherry-ui-core .main-title_ {
+  background: #FFF;
+  /*border-left: 4px solid #2EA2CC;*/
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  padding: 1px 10px;
+  margin: 0 2px 2px 0;
+}
+.cherry-ui-core .select2-container .select2-choice {
+  box-shadow: none;
+  border-radius: 6px;
+  height: 42px;
+}
+.cherry-ui-core .select2-container .select2-choice .select2-arrow b {
+  background-position: 0px 8px;
+}
+.cherry-ui-core .select2-container .select2-choice > .select2-chosen {
+  line-height: 42px;
+}
+.cherry-ui-core .select2-container-multi .select2-choices {
+  box-shadow: none;
+  border-radius: 6px;
+  min-height: 40px;
+}
+.cherry-ui-core .select2-container-multi .select2-choices .select2-search-choice {
+  line-height: 28px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 3px 5px 3px 20px;
+}
+.cherry-ui-core .select2-search-choice-close {
+  background: url("../images/close-icon.png") no-repeat scroll right top transparent;
+  top: 11px;
+}
+.cherry-ui-core .ui-widget-content {
+  border: none;
+}
+
+input[type="checkbox"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="radio"], input[type="search"], input[type="tel"], .cherry-ui-core input[type="text"], input[type="time"], input[type="url"], input[type="week"], .cherry-ui-core select, .cherry-ui-core textarea {
+  box-shadow: none;
+}
+
+textarea {
+  border-radius: 6px;
 }

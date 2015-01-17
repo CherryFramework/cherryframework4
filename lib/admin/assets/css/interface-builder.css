@@ -482,18 +482,10 @@
 .cherry-section.cherry-info .cherry-col-2 {
   width: 100%;
 }
-.cherry-section.cherry-info .cherry-info-holder {
-  background: #FFF;
-  border-left: 4px solid #2EA2CC;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  padding: 1px 10px;
-  margin: 0 2px 2px 0;
-}
 .cherry-section.cherry-info .cherry-description {
   display: none;
 }
-.cherry-section .hint-text {
+.cherry-section .hint-text, .cherry-section .hint-image, .cherry-section .hint-video {
   float: left;
   color: #555555;
   margin: 0px 20px 0px 0;
@@ -508,30 +500,14 @@
   height: 40px;
   border: 1px solid #c8c8c8;
 }
-.cherry-section .hint-text:hover {
+.cherry-section .hint-text:hover, .cherry-section .hint-image:hover, .cherry-section .hint-video:hover {
   color: #2EA2CC;
   background-color: #2EA2CC;
   border: 1px solid #2EA2CC;
   cursor: pointer;
 }
-.cherry-section .hint-image {
-  float: left;
-  color: #555555;
-  margin: 3px 20px 3px 0;
-}
-.cherry-section .hint-image:hover {
-  color: #2EA2CC;
-}
-.cherry-section .hint-video {
-  float: left;
-  color: #555555;
-  margin: 3px 20px 3px 0;
-}
 .cherry-section .hint-video iframe {
   display: none;
-}
-.cherry-section .hint-video:hover {
-  color: #2EA2CC;
 }
 .cherry-section .cherry-static-area-editor-wrap .area-unit {
   background: none repeat scroll 0 0 #fcfcfc;
@@ -549,8 +525,8 @@
   background: transparent;
 }
 .cherry-section .cherry-static-area-editor-wrap .area-unit .accordion-unit .group {
-  border: 1px solid #dddcdc;
-  background: #f2f3f4;
+  /*border: 1px solid #dddcdc;
+  background: #f2f3f4;*/
   margin-bottom: 5px;
   border-radius: 6px;
 }
@@ -567,6 +543,7 @@
   border-radius: 6px;
   font-weight: normal;
   border: none;
+  border: 1px solid #dddcdc;
 }
 .cherry-section .cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .ui-accordion-header-icon {
   background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
@@ -625,6 +602,7 @@
 }
 .cherry-section .cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header.ui-state-hover {
   background: none;
+  border: 1px solid #cccccc;
 }
 .cherry-section .cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-content {
   background: none;

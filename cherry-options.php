@@ -1192,7 +1192,7 @@ function cherry_defaults_settings() {
 					'select-7'	=> 'move from bottom colored bg & links controls',
 					'select-8'	=> 'fade dark gradient bg & full set controls',
 					'select-9'	=> 'fade dark gradient bg & static links controls',
-					'select-10'	=> 'From bottom & full set controls',
+					'select-10'	=> 'from bottom & full set controls',
 				)
 	);
 

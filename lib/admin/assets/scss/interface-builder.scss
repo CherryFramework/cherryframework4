@@ -496,14 +496,6 @@
 			.cherry-col-2{
 				width: 100%;
 			}
-			.cherry-info-holder{
-				background: #FFF;
-				border-left: 4px solid #2EA2CC;
-				box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-				box-sizing: border-box;
-				padding:1px 10px;
-				margin: 0 2px 2px 0;
-			}
 			.cherry-description{
 				display: none;
 			}
@@ -533,24 +525,13 @@
 					cursor: pointer;
 				}
 		}
-
 		.hint-image{
-			float: left;
-			color: #555555;
-			margin: 3px 20px 3px 0;
-				&:hover{
-					color: #2EA2CC;
-				}
+			@extend .hint-text;
 		}
 		.hint-video{
-			float: left;
-			color: #555555;
-			margin: 3px 20px 3px 0;
+			@extend .hint-text;
 				iframe{
 					display: none;
-				}
-				&:hover{
-					color: #2EA2CC;
 				}
 		}
 		/*End Cherry tooltip style*/
@@ -571,8 +552,8 @@
 						padding: 5px;
 						background: transparent;
 						.group{
-							border: 1px solid #dddcdc;
-							background: #f2f3f4;
+							/*border: 1px solid #dddcdc;
+							background: #f2f3f4;*/
 							margin-bottom: 5px;
 							border-radius: 6px;
 
@@ -589,6 +570,7 @@
 										border-radius: 6px;
 										font-weight: normal;
 										border: none;
+										border: 1px solid #dddcdc;
 											.ui-accordion-header-icon{
 												background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
 											}
@@ -650,6 +632,7 @@
 											}
 											&.ui-state-hover{
 												background: none;
+												border: 1px solid #cccccc;
 												//border: 1px solid #cccccc;
 											}
 									}

@@ -367,7 +367,7 @@ class Cherry_Interface_Builder {
 				$output .= '<div id="' . $id . '" class="cherry-static-area-editor-wrap" data-name="' . $name . '">';
 					foreach ($available_areas as $area => $area_settings) {
 						$output .= '<div class="area-unit" data-area="' . $area . '">';
-							$output .= '<h3 class="area-name">' . $area_settings['name'] . '</h3>';
+							$output .= '<h3 class="title-primary_ title-mid_ text_center_">' . $area_settings['name'] . '</h3>';
 							$output .= '<div class="accordion-unit">';
 								foreach ($value as $handle => $handleArray) {
 									if($area == $handleArray['options']['area']){
@@ -867,7 +867,7 @@ class Cherry_Interface_Builder {
 				default_value: ''
 			*/
 			case 'info':
-				$output .= '<div class="cherry-info-holder">' . $value . '</div>';
+				$output .= '<div class="main-title_">' . $value . '</div>';
 			break;
 			/*
 			arg:
@@ -1086,11 +1086,11 @@ class Cherry_Interface_Builder {
 		$type_hint = $hint['type'];
 		switch ($type_hint) {
 			case 'image':
-				$hint_content = '<div class="hint-image dashicons dashicons-format-image"  data-hint-image="' . $hint['content'] .'"></div>';
+				$hint_content = '<div class="hint-image"  data-hint-image="' . $hint['content'] .'"></div>';
 				break;
 			case 'video':
 				$embed_code = wp_oembed_get($hint['content'], array('width' => 400));
-				$hint_content = '<div class="hint-video dashicons dashicons-video-alt3"  data-hint-video="">'. $embed_code .'</div>';
+				$hint_content = '<div class="hint-video"  data-hint-video="">'. $embed_code .'</div>';
 				break;
 			default:
 				$hint_content = '<div class="hint-text" title="' . $hint['content'] .'"></div>';
