@@ -271,13 +271,18 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 										'type'  => 'submit',
 										'value' => __( 'Restore Options', 'cherry' ),
 									);
-									/*$submitSection['export-options'] = array(
-										'type'  => 'submit',
-										'class' => 'primary export-btn',
-										'value' => __( 'Export Options', 'cherry' ),
-									);*/
+
+									//echo $this->option_inteface_builder->multi_output_items( $submitSection );
 								?>
-								<?php echo $this->option_inteface_builder->multi_output_items( $submitSection ); ?>
+								<div id="wrap-cherry-save-options">
+									<?php echo get_submit_button( $submitSection['save-options']['value'], 'button-primary_', 'cherry[save-options]', false ); ?>
+								</div>
+								<div id="wrap-cherry-restore-section">
+									<?php echo get_submit_button( $submitSection['restore-section']['value'], 'button-default_', 'cherry[restore-section]', false ); ?>
+								</div>
+								<div id="wrap-cherry-restore-options">
+									<?php echo get_submit_button( $submitSection['restore-options']['value'], 'button-default_', 'cherry[restore-options]', false ); ?>
+								</div>
 							</div>
 						</form>
 				</div>
