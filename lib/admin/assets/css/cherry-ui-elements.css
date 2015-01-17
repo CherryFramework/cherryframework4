@@ -26,9 +26,9 @@
   border-radius: 6px;
   line-height: 38px;
   margin: 0;
+  padding: 0 14px;
   box-shadow: none;
   color: #464646;
-  padding: 0 16px;
 }
 .cherry-ui-core .title-primary_ {
   color: #2a445d;
@@ -42,10 +42,11 @@
 .cherry-ui-core .main-title_ {
   background: #FFF;
   /*border-left: 4px solid #2EA2CC;*/
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
-  padding: 1px 10px;
-  margin: 0 2px 2px 0;
+  color: #2a445d;
+  padding: 15px 30px 20px;
+  margin: 0 0 20px 0;
 }
 .cherry-ui-core .select2-container .select2-choice {
   box-shadow: none;
