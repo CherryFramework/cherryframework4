@@ -294,7 +294,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load if supported.
 			// require_if_theme_supports();
-			require_if_theme_supports( 'theme-layouts', trailingslashit( CHERRY_ADMIN ) . 'theme-layouts.php' );
 		}
 
 		/**
@@ -309,9 +308,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 				// Load the main admin file.
 				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );
-
-				// Load the Theme Layouts.
-				// require_once( trailingslashit( CHERRY_ADMIN ) . 'theme-layouts.php' );
 			}
 		}
 

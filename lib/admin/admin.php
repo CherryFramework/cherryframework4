@@ -1,4 +1,9 @@
 <?php
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Theme administration functions used with other components of the framework admin.
  * This file is for setting up any basic features and holding additional admin helper functions.
@@ -10,15 +15,15 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
-	require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-admin.php' );
 
-	// Include theme options page.
-	require_once( 'views/cherry-framework-options-page.php' );
+require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-admin.php' );
 
-	// Added menu items in admin panel.
-	function cherry_add_admin_menu() {
+// Include theme options page.
+require_once( 'views/cherry-framework-options-page.php' );
 
-	}
-	// add_action( 'admin_menu', 'cherry_add_admin_menu');
+// Added menu items in admin panel.
+function cherry_add_admin_menu() {
 
+}
+// add_action( 'admin_menu', 'cherry_add_admin_menu');
 ?>

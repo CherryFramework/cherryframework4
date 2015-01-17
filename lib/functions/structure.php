@@ -17,6 +17,7 @@ add_action( 'cherry_footer',        'cherry_footer_load_template' );
 // add_action( 'cherry_get_content',    'cherry_content_register_hook' );
 add_action( 'cherry_content_before', 'cherry_content_wrap',     999 );
 add_action( 'cherry_content_after',  'cherry_content_wrap',       0 );
+add_action( 'cherry_sidebar_after',  'cherry_content_sidebar_wrap_close', 0 );
 
 // Post structure in the loop.
 add_action( 'cherry_post_loop', 'cherry_post_structure_loop' );
@@ -46,7 +47,6 @@ function cherry_header_wrap() {
 		echo '</header>';
 
 	}
-
 }
 
 /**
@@ -80,7 +80,8 @@ function cherry_footer_load_template() {
  * @since 4.0.0
  */
 function cherry_footer_sidebar() {
-	do_action( 'cherry_get_footer_sidebar', 'sidebar-footer' );
+	// do_action( 'cherry_get_footer_sidebar', 'sidebar-footer' );
+	do_action( 'cherry_get_sidebar', 'sidebar-footer' );
 }
 
 /**
@@ -128,22 +129,35 @@ function cherry_content_wrap() {
 
 	if ( !did_action( 'cherry_content' ) ) {
 
-		echo '<!-- Primary column -->';
-		printf( '<div id="primary" class="content-area"><main %s>', cherry_get_attr( 'content' ) );
+		printf( '<div class="content-sidebar-wrapper"><div id="primary" class="content-area"><main %s>', cherry_get_attr( 'content' ) );
 
 	} else {
 
 		echo '</main></div>';
 
 	}
+}
 
+/**
+ * Closed a `.content-sidebar-wrapper`
+ *
+ * @since  4.0.0
+ * @param  string $sidebar Sidebar ID.
+ * @return string          HTML tag.
+ */
+function cherry_content_sidebar_wrap_close( $sidebar ) {
+
+	if ( 'main' != $sidebar ) {
+		return;
+	}
+
+	echo '</div>';
 }
 
 /**
  * Setup default the post stucture in the loop.
  *
  * @since  4.0.0
- *
  * @param  string $template_name The template name for content
  * @return void
  */
@@ -177,7 +191,6 @@ function cherry_post_structure_loop( $template_name = '' ) {
  * Setup default the single post stucture.
  *
  * @since  4.0.0
- *
  * @param  string $template_name The template name for content
  * @return void
  */
@@ -211,7 +224,6 @@ function cherry_post_structure_single( $template_name = '' ) {
  * Modifies the post stucture in the loop.
  *
  * @since  4.0.0
- *
  * @param  array  $structure_elements The elements of post structure
  * @param  string $template_name      The template name for content
  * @param  string $post_type          The post type of the current post
@@ -267,8 +279,7 @@ function cherry_post_loop_structure_setup( $structure_elements, $template_name, 
 /**
  * Modifies the single post stucture.
  *
- * @since 4.0.0
- *
+ * @since  4.0.0
  * @param  array  $structure_elements The elements of post structure
  * @param  string $template_name      The template name for content
  * @param  string $post_type          The post type of the current post
@@ -316,8 +327,7 @@ function cherry_post_single_structure_setup( $structure_elements, $template_name
 /**
  * Display or retrieve the attachment meta.
  *
- * @since 4.0.0
- *
+ * @since  4.0.0
  * @param  int           $post_id Attachment ID.
  * @param  bool          $echo    Display the attachment meta?
  * @return void | array
