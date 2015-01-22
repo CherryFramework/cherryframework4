@@ -7,13 +7,23 @@
 }
 .cherry-ui-core .button-primary_ {
   background-color: #f62e46;
+  border: medium none;
   border-radius: 6px;
-  line-height: 42px;
-  padding: 0px 16px;
-  color: #FFFFFF;
+  box-shadow: none;
+  color: #ffffff;
   font-size: 13px;
+  height: auto;
+  line-height: 42px;
+  padding: 0 16px;
 }
-.cherry-ui-core .button-primary_:hover, .cherry-ui-core .button-primary_:link, .cherry-ui-core .button-primary_:active {
+.cherry-ui-core .button-primary_:hover, .cherry-ui-core .button-primary_:active, .cherry-ui-core .button-primary_:focus {
+  text-decoration: none;
+  color: #FFFFFF;
+  box-shadow: none;
+  cursor: pointer;
+  background-color: #f85f71;
+}
+.cherry-ui-core .button-primary_:link {
   text-decoration: none;
   color: #FFFFFF;
   box-shadow: none;
@@ -29,6 +39,7 @@
   padding: 0 14px;
   box-shadow: none;
   color: #464646;
+  height: auto;
 }
 .cherry-ui-core .title-primary_ {
   color: #2a445d;
@@ -47,6 +58,12 @@
   color: #2a445d;
   padding: 15px 30px 20px;
   margin: 0 0 20px 0;
+}
+.cherry-ui-core .box-default_ {
+  background-color: #f2f3f4;
+  padding: 15px;
+  width: auto;
+  margin: 0;
 }
 .cherry-ui-core .select2-container .select2-choice {
   box-shadow: none;
@@ -78,11 +95,38 @@
 .cherry-ui-core .ui-widget-content {
   border: none;
 }
-
-input[type="checkbox"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="radio"], input[type="search"], input[type="tel"], .cherry-ui-core input[type="text"], input[type="time"], input[type="url"], input[type="week"], .cherry-ui-core select, .cherry-ui-core textarea {
-  box-shadow: none;
+.cherry-ui-core input[type=text], .cherry-ui-core select {
+  border: 1px solid #dddcdc;
+  border-radius: 6px;
+  margin: 0;
+  padding: 10px 12px 10px 10px;
+  background-color: #fff;
+  transition: border-color 0.05s ease-in-out 0s;
+  outline: 0 none;
+  color: #333;
+}
+.cherry-ui-core textarea {
+  border-radius: 6px;
+  padding: 10px 12px 10px 10px;
 }
 
-textarea {
-  border-radius: 6px;
+.cherry-ui-core input[type="checkbox"],
+.cherry-ui-core input[type="color"],
+.cherry-ui-core input[type="date"],
+.cherry-ui-core input[type="datetime-local"],
+.cherry-ui-core input[type="datetime"],
+.cherry-ui-core input[type="email"],
+.cherry-ui-core input[type="month"],
+.cherry-ui-core input[type="number"],
+.cherry-ui-core input[type="password"],
+.cherry-ui-core input[type="radio"],
+.cherry-ui-core input[type="search"],
+.cherry-ui-core input[type="tel"],
+.cherry-ui-core input[type="text"],
+.cherry-ui-core input[type="time"],
+.cherry-ui-core input[type="url"],
+.cherry-ui-core input[type="week"],
+.cherry-ui-core select,
+.cherry-ui-core textarea {
+  box-shadow: none;
 }

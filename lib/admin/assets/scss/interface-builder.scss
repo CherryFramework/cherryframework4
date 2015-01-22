@@ -82,13 +82,13 @@
 		}
 		/*End Cherry column style*/
 		/*html ellements stule*/
-
+/*
 		input[type=text], select{
 			border: 1px solid #dddcdc;
 			border-radius: 6px;
 			margin: 0;
 			padding: 10px 12px 10px 5px;
-		}
+		}*/
 		textarea{
 			width: 100%
 		}
@@ -417,14 +417,14 @@
 			}
 		}
 		.cherry-uiw{
-			margin-right: 115px;
+			margin-right: 125px;
 			padding-top: 1px;
 			@media screen and (max-width: 782px){
 				margin-right: 0px;
 			}
 		}
 		.cherry-uicw{
-			width: 108px;
+			/*width: 108px;*/
 			position: absolute;
 			top: 0;
 			right: 2px;

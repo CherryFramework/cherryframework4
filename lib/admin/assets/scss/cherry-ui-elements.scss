@@ -6,6 +6,7 @@ $primary-color: #F62E46;
 $dark-blue-color: #2a445d;
 $blue-color: #344d65;
 $light-blue-color: #41596F;
+$grey-color: #f2f3f4;
 
 /////////////////////////////////////////////////
 
@@ -25,21 +26,31 @@ $light-blue-color: #41596F;
 	.button-primary_{
 		@extend .button_;
 		background-color: $primary-color;
+		border: medium none;
 		border-radius: 6px;
-		line-height: 42px;
-		padding: 0px 16px;
-		color: #FFFFFF;
+		box-shadow: none;
+		color: #ffffff;
 		font-size: 13px;
+		height: auto;
+		line-height: 42px;
+		padding: 0 16px;
 		&:hover{
 			text-decoration: none;
 			color: #FFFFFF;
 			box-shadow: none;
 			cursor: pointer;
+			background-color: lighten($primary-color, 10%)
 		}
 		&:link{
-			@extend .button-primary_:hover;
+			text-decoration: none;
+			color: #FFFFFF;
+			box-shadow: none;
+			cursor: pointer;
 		}
 		&:active{
+			@extend .button-primary_:hover;
+		}
+		&:focus{
 			@extend .button-primary_:hover;
 		}
 	}
@@ -55,6 +66,7 @@ $light-blue-color: #41596F;
 		padding: 0 14px;
 		box-shadow: none;
 		color: #464646;
+		height: auto;
 	}
 
 /////////////////////////////////////////////////
@@ -84,6 +96,15 @@ $light-blue-color: #41596F;
 		color: #2a445d;
 		padding: 15px 30px 20px;
 		margin: 0 0 20px 0;
+	}
+
+/////////////////BOXES///////////////////
+
+	.box-default_{
+		background-color: $grey-color;
+		padding: 15px;
+		width: auto;
+		margin: 0;
 	}
 
 /////////////////SELECT//////////////////
@@ -125,17 +146,51 @@ $light-blue-color: #41596F;
 	.ui-widget-content{
 		border: none;
 	}
+
+////INPUTS////
+
+	input[type=text], select{
+			border: 1px solid #dddcdc;
+			border-radius: 6px;
+			margin: 0;
+			padding: 10px 12px 10px 10px;
+			background-color: #fff;
+			transition: border-color 0.05s ease-in-out 0s;
+			outline: 0 none;
+			color: #333;
+		}
+	textarea{
+	border-radius: 6px;
+	padding: 10px 12px 10px 10px;
 }
+}
+
+
 
 /////////////////OTHER ELEMENTS//////////////////
 
-input[type="checkbox"], input[type="color"], input[type="date"], input[type="datetime-local"], input[type="datetime"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="radio"], input[type="search"], input[type="tel"], .cherry-ui-core input[type="text"], input[type="time"], input[type="url"], input[type="week"], .cherry-ui-core select, .cherry-ui-core textarea{
+.cherry-ui-core input[type="checkbox"],
+.cherry-ui-core input[type="color"],
+.cherry-ui-core input[type="date"],
+.cherry-ui-core input[type="datetime-local"],
+.cherry-ui-core input[type="datetime"],
+.cherry-ui-core input[type="email"],
+.cherry-ui-core input[type="month"],
+.cherry-ui-core input[type="number"],
+.cherry-ui-core input[type="password"],
+.cherry-ui-core input[type="radio"],
+.cherry-ui-core input[type="search"],
+.cherry-ui-core input[type="tel"],
+.cherry-ui-core input[type="text"],
+.cherry-ui-core input[type="time"],
+.cherry-ui-core input[type="url"],
+.cherry-ui-core input[type="week"],
+.cherry-ui-core select,
+.cherry-ui-core textarea{
 	box-shadow: none;
 }
 
-textarea{
-	border-radius: 6px;
-}
+
 
 
 
