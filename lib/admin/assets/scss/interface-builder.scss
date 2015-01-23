@@ -152,21 +152,19 @@
 				font-size: 16px;*/
 
 
-					background-color: #eeeded;
-	border: 1px solid #cccccc;
-	color: #444444;
-	cursor: pointer;
-	display: block;
-	font-size: 16px;
-	height: 16px;
-	line-height: 12px;
-	margin: 0 0 0 -1px;
-	position: relative;
-	text-align: center;
-	text-decoration: none;
-	width: 20px;
-
-
+				background-color: #eeeded;
+				border: 1px solid #cccccc;
+				color: #444444;
+				cursor: pointer;
+				display: block;
+				font-size: 16px;
+				height: 16px;
+				line-height: 12px;
+				margin: 0 0 0 -1px;
+				position: relative;
+				text-align: center;
+				text-decoration: none;
+				width: 20px;
 				-webkit-user-select: none;
 					-moz-user-select: none;
 					-ms-user-select: none;
@@ -278,7 +276,6 @@
 				}
 		}
 		.cherry-slider-wrap{
-
 				.cherry-slider-input{
 					width: 15%;
 					float: left;
@@ -290,19 +287,23 @@
 						.cherry-slider-unit{
 							margin: 5px 15px;
 							font-size: 1.5em;
+							border: 1px solid #dddcdc;
 								.ui-slider-range{
 									background: #2a445d;
 								}
-								a{
-									&:hover{
-										border: 1px solid #4BACCF;
-										background: #f4f4f4;
-									}
-									&.ui-state-focus{
-										border: 1px solid #4BACCF;
-										color: #f4f4f4;
-										background: #f4f4f4;
-									}
+								.ui-slider-handle{
+									border: 1px solid #dddcdc;
+									top: -7px;
+									background: #f7f7f7;
+										&.ui-state-hover{
+											border: 1px solid #dddcdc;
+											background: #f4f4f4;
+										}
+										&.ui-state-focus{
+											border: 1px solid #dddcdc;
+											color: #f4f4f4;
+											background: #f4f4f4;
+										}
 								}
 						}
 				}
@@ -359,15 +360,14 @@
 			max-width: 100px;
 			position: relative;
 				img{
-					width: 100%;
 					height: auto;
 					margin: 0 0 5px 0;
 					pointer-events: none;
 				}
 				.check{
 					display: none;
-					background-color: #1E8CBE;
-					box-shadow: 0 0 0 1px #FFF,0 0 0 2px #1E8CBE;
+					background-color: #2a445d;
+					box-shadow: 0 0 0 1px #FFF,0 0 0 2px #2a445d;
 					height: 24px;
 					width: 24px;
 					position: absolute;
@@ -390,7 +390,7 @@
 				display: block;
 			}
 			img{
-				box-shadow: 0 0 0 1px #FFF,0 0 0 5px #1E8CBE;
+				box-shadow: 0 0 0 1px #FFF,0 0 0 5px #2a445d;
 			}
 		}
 		/*End cherry radio buttons style*/
