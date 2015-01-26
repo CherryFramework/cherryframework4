@@ -25,18 +25,13 @@
 }
 
 .cherry-sections-wrapper {
-  background: #f4f4f4;
-  border: 1px solid #D8D8D8;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  background: #2a445d;
 }
 
 .cherry-submit-wrapper {
-  border: 1px solid #D8D8D8;
+  background: none repeat scroll 0 0 #2a445d;
   overflow: hidden;
   padding: 10px 20px;
-  background: #FCFCFC;
-  margin: 10px 0 0 0;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 }
 .cherry-submit-wrapper #wrap-cherry-save-options {
   float: right;
