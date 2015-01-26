@@ -2649,6 +2649,7 @@ $social_options = array();
 		'parent'		=> '',
 		'priority'		=> 10,
 		'options-list'	=> $general_options
+		//apply_filters("cherry_demo_setting", $general_options)
 	);
 	$sections_array['grid-options-section'] = array(
 		'name'			=> 'Grid',

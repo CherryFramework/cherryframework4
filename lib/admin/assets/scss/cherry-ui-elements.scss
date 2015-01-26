@@ -22,6 +22,14 @@ $grey-color: #f2f3f4;
 		white-space: nowrap;
 		text-decoration: none;
 		box-sizing: border-box;
+
+		backface-visibility: hidden;
+		box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+		position: relative;
+		transform: translateZ(0px);
+		transition-duration: 0.5s;
+		transition-property: color;
+		vertical-align: middle;
 	}
 	.button-primary_{
 		@extend .button_;
@@ -34,12 +42,32 @@ $grey-color: #f2f3f4;
 		height: auto;
 		line-height: 42px;
 		padding: 0 16px;
+		&:before {
+			background-color: lighten($primary-color, 10%);
+			bottom: 0;
+			content: "";
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			transition: all 500ms cubic-bezier(0.075, 0.820, 0.165, 1.000);
+			transform: scale(0);
+			transition-duration: 0.1s;
+			transition-property: transform;
+			transition-timing-function: ease-out;
+			z-index: -1;
+			border-radius: 6px;
+		}
 		&:hover{
 			text-decoration: none;
 			color: #FFFFFF;
 			box-shadow: none;
-			cursor: pointer;
-			background-color: lighten($primary-color, 10%)
+			cursor: pointer;border-radius: 6px;
+			background: $primary-color;
+			&:before{
+				transform: scale(1);
+				border-radius: 6px;
+			}
 		}
 		&:link{
 			text-decoration: none;
@@ -49,9 +77,17 @@ $grey-color: #f2f3f4;
 		}
 		&:active{
 			@extend .button-primary_:hover;
+			&:before{
+				transform: scale(1);
+				border-radius: 6px;
+			}
 		}
 		&:focus{
 			@extend .button-primary_:hover;
+			&:before{
+				transform: scale(1);
+				border-radius: 6px;
+			}
 		}
 	}
 

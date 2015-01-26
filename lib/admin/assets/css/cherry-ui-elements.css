@@ -4,6 +4,13 @@
   white-space: nowrap;
   text-decoration: none;
   box-sizing: border-box;
+  backface-visibility: hidden;
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  transform: translateZ(0px);
+  transition-duration: 0.5s;
+  transition-property: color;
+  vertical-align: middle;
 }
 .cherry-ui-core .button-primary_ {
   background-color: #f62e46;
@@ -16,18 +23,47 @@
   line-height: 42px;
   padding: 0 16px;
 }
+.cherry-ui-core .button-primary_:before {
+  background-color: #f85f71;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: all 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: scale(0);
+  transition-duration: 0.1s;
+  transition-property: transform;
+  transition-timing-function: ease-out;
+  z-index: -1;
+  border-radius: 6px;
+}
 .cherry-ui-core .button-primary_:hover, .cherry-ui-core .button-primary_:active, .cherry-ui-core .button-primary_:focus {
   text-decoration: none;
   color: #FFFFFF;
   box-shadow: none;
   cursor: pointer;
-  background-color: #f85f71;
+  border-radius: 6px;
+  background: #f62e46;
+}
+.cherry-ui-core .button-primary_:hover:before, .cherry-ui-core .button-primary_:active:before, .cherry-ui-core .button-primary_:focus:before {
+  transform: scale(1);
+  border-radius: 6px;
 }
 .cherry-ui-core .button-primary_:link {
   text-decoration: none;
   color: #FFFFFF;
   box-shadow: none;
   cursor: pointer;
+}
+.cherry-ui-core .button-primary_:active:before {
+  transform: scale(1);
+  border-radius: 6px;
+}
+.cherry-ui-core .button-primary_:focus:before {
+  transform: scale(1);
+  border-radius: 6px;
 }
 .cherry-ui-core .button-default_ {
   font-size: 13px;
