@@ -12,72 +12,7 @@ function cherry_defaults_settings() {
 				'title'			=> '',
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Demo options</h2>'
-	);/*
-	$demo_options['icons-editor'] = array(
-				'type'			=> 'icon_editor',
-				'title'			=> 'title icon-editor',
-				'label'			=> 'label icon-editor',
-				'decsription'	=> 'decsription icon-editor',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> array(
-					'icon_1' => array(
-						'title'		=> __('Icon name 1', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'label'
-					),
-					'icon_2' => array(
-						'title'		=> __('Icon name 2', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'image',
-						'upload'	=> PARENT_URI.'/lib/admin/assets/images/temp-folder/icon1.png'
-					),
-					'icon_3' => array(
-						'title'		=> __('Icon name 3', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'font',
-						'class'		=> 'dashicons dashicons-carrot'
-					),
-					'icon_4' => array(
-						'title'		=> __('Icon name 4', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'sprite',
-						'class'		=> 'dashicons dashicons-admin-site'
-					),
-					'icon_5' => array(
-						'title'		=> __('Icon name 5', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'image',
-						'upload'	=> PARENT_URI.'/lib/admin/assets/images/temp-folder/icon2.png'
-					),
-					'icon_6' => array(
-						'title'		=> __('Icon name 6', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'image',
-						'upload'	=> PARENT_URI.'/lib/admin/assets/images/temp-folder/icon3.png'
-					),
-					'icon_7' => array(
-						'title'		=> __('Icon name 7', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'font',
-						'class'		=> 'dashicons dashicons-facebook'
-					),
-					'icon_8' => array(
-						'title'		=> __('Icon name 8', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'image',
-						'upload'	=> PARENT_URI.'/lib/admin/assets/images/temp-folder/icon4.png'
-					),
-					'icon_9' => array(
-						'title'		=> __('Icon name 9', 'cherry'),
-						'link'		=> 'https://facebook.com/',
-						'type'		=> 'label'
-					),
-				),
-				'default_value'	=> 'default_value'
-	);*/
+	);
 	$demo_options['static-area-editor'] = array(
 				'type'			=> 'static_area_editor',
 				'title'			=> 'title static-area-editor',
@@ -1187,29 +1122,6 @@ function cherry_defaults_settings() {
 				'value'			=> 'true',
 				'default_value'	=> 'default_value'
 		);
-
-		$demo_options['navigation-scroll-effect'] = array(
-				'type'			=> 'multicheckbox',
-				'title'			=> 'Scroll effect',
-				'decsription'	=> 'decsription multicheckbox',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'class'			=> '',
-				'value'			=> array(
-					'checkbox-1'	=> true,
-					'checkbox-2'	=> false,
-					'checkbox-3'	=> true,
-					'checkbox-4'	=> true,
-				),
-				'options'		=> array(
-					'linear-effect'		=> 'Linear',
-					'ease-in-effect'	=> 'Ease-In',
-					'ease-in-out-effect'=> 'Ease-in-out',
-					'ease-out-effect'	=> 'Ease-out'
-				)
-	);
 
 			$navigation_options['navigation-scroll-effect'] = array(
 				'type'			=> 'radio',

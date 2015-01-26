@@ -275,7 +275,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function get_settings() {
+		public function get_current_settings() {
 			$result_settings = array();
 
 			if(self::is_db_options_exist()){
