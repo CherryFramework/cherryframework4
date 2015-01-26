@@ -514,7 +514,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'Display comments on regular page',
 				'hint'      	=>  array(
 					'type'		=> 'text',
-					'content'	=> 'Disable or enable comments by default on new pages and custom post types. You can change the default for new posts or pages, as well as enable/disable comments on posts or pages you’ve already published.'
+					'content'	=> "Disable or enable comments by default on new pages and custom post types. You can change the default for new posts or pages, as well as enable/disable comments on posts or pages you've already published."
 				),
 				'value'			=> 'true',
 				'default_value'	=> 'true'

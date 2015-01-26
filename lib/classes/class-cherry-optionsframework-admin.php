@@ -96,8 +96,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 
 		function restore_section_notice() {
-			$tmp_active_section = apply_filters( 'cherry_set_active_section', '');
-			add_settings_error( 'cherry-options-group', 'restore-section', __( 'Section ' . $tmp_active_section .' restored', 'cherry-options' ), 'updated slide_up' );
+			$tmp_active_section = apply_filters( 'cherry_set_active_section', '' );
+			$message            = sprintf( __( 'Section %s restored', 'cherry-options' ), $tmp_active_section );
+			add_settings_error( 'cherry-options-group', 'restore-section', $message, 'updated slide_up' );
 		}
 
 		/**

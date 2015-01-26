@@ -54,8 +54,8 @@ function cherry_meta_charset() {
  * @since  4.0.0
  */
 function cherry_doctitle() {
-	printf( "<title>%s</title>\n", wp_title( '|', false, 'right' ) );
-}
+	?><title><?php wp_title( '|' ); ?></title>
+<?php }
 
 /**
  * Adds the meta viewport to the header.

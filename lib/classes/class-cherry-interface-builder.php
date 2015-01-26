@@ -697,7 +697,8 @@ class Cherry_Interface_Builder {
 						foreach ($background_options as $options_key => $options_settings) {
 							if( isset( $value[$options_key] ) ){
 								$output .= '<div class="cherry-bgsetting">';
-									$output .= $this -> add_label($id . '['. $options_key .']',  __( 'Background '.$options_key, 'cherry' ), $this->options['class']['label'].' cherry-block');
+									$label = sprintf( __( 'Background %s', 'cherry' ), $options_key );
+									$output .= $this->add_label( $id . '['. $options_key .']', $label, $this->options['class']['label'] . ' cherry-block');
 									$output .= '<select class="widefat'.$this->options['class']['section'].'" id="' . $id . '['.$options_key.']" name="' . $name . '['.$options_key.']">';
 										foreach ($options_settings as $option => $option_value) {
 											$output .= '<option value="'.$option.'" ' . selected( $value[$options_key], $option, false ) . '>' . esc_html( $option_value ). '</option>';
