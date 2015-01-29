@@ -214,7 +214,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				do_action('cherry-options-restored');
 			}
 
-			$cherry_options = $cherry_options_framework->get_settings();
+			$cherry_options = $cherry_options_framework->get_current_settings();
 
 			$cherry_options = $this->child_priority_sorting($cherry_options);
 
