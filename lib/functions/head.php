@@ -54,7 +54,7 @@ function cherry_meta_charset() {
  * @since  4.0.0
  */
 function cherry_doctitle() {
-	?><title><?php wp_title( '|' ); ?></title>
+	?><title><?php wp_title( '|', true, 'right' ); ?></title>
 <?php }
 
 /**
