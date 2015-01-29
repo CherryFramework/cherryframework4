@@ -22,7 +22,6 @@ $grey-color: #f2f3f4;
 		white-space: nowrap;
 		text-decoration: none;
 		box-sizing: border-box;
-
 		backface-visibility: hidden;
 		box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 		position: relative;
@@ -114,7 +113,7 @@ $grey-color: #f2f3f4;
 	}
 
 	.title-primary_{
-		color: #2a445d;
+		color: $dark-blue-color;
 	}
 
 	.title-mid_{
@@ -161,7 +160,6 @@ $grey-color: #f2f3f4;
 		}
 	}
 	.select2-container-multi{
-
 		.select2-choices{
 			box-shadow: none;
 			border-radius: 6px;
@@ -186,19 +184,19 @@ $grey-color: #f2f3f4;
 ////INPUTS////
 
 	input[type=text], select{
-			border: 1px solid #dddcdc;
-			border-radius: 6px;
-			margin: 0;
-			padding: 10px 12px 10px 10px;
-			background-color: #fff;
-			transition: border-color 0.05s ease-in-out 0s;
-			outline: 0 none;
-			color: #333;
-		}
+		border: 1px solid #dddcdc;
+		border-radius: 6px;
+		margin: 0;
+		padding: 10px 12px 10px 10px;
+		background-color: #fff;
+		transition: border-color 0.05s ease-in-out 0s;
+		outline: 0 none;
+		color: #333;
+	}
 	textarea{
-	border-radius: 6px;
-	padding: 10px 12px 10px 10px;
-}
+		border-radius: 6px;
+		padding: 10px 12px 10px 10px;
+	}
 }
 
 
