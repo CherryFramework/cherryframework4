@@ -77,7 +77,6 @@ class Cherry_Admin {
 	 * @since 4.0.0
 	 */
 	public function enqueue_admin_scripts( $hook_suffix ) {
-		// if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
 			// jQ select2.js plugin for custom select
 			wp_enqueue_script( 'select2' );
 			wp_enqueue_script( 'statics-areas-editor-plugin' );
@@ -86,8 +85,9 @@ class Cherry_Admin {
 			wp_enqueue_script( 'jquery-ui-slider' );
 			wp_enqueue_script( 'jquery-ui-accordion' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
+		if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
 			wp_enqueue_script( 'admin-interface' );
-		// }
+		}
 	}
 
 	/**
