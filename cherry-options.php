@@ -13,7 +13,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Demo options</h2>'
 	);
-	$demo_options['static-area-editor'] = array(
+	/*$demo_options['static-area-editor'] = array(
 				'type'			=> 'static_area_editor',
 				'title'			=> 'title static-area-editor',
 				'decsription'	=> 'decsription static-area-editor',
@@ -24,7 +24,7 @@ function cherry_defaults_settings() {
 				'value'			=> $all_statics,
 				'default_value'	=> 'default_value',
 				'options' => $all_statics
-	);
+	);*/
 	$demo_options['text-demo'] = array(
 				'type'			=> 'text',
 				'title'			=> 'title text',
