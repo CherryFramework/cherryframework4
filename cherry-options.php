@@ -594,28 +594,28 @@ function cherry_defaults_settings() {
 				'default_value'	=> 'true'
 	);
 	$grid_options['grid-type'] = array(
-		'type' => 'radio',
-		'title' => __( 'Grid type', 'cherry' ),
-		'label' => __( 'select one of them', 'cherry' ),
+		'type'        => 'radio',
+		'title'       => __( 'Grid type', 'cherry' ),
+		'label'       => __( 'Select one of them', 'cherry' ),
 		'decsription' => __( 'Grid type for main container', 'cherry' ),
-		'hint' => array(
-		'type' => 'text',
-		'content' => __( 'Background pattern for main container', 'cherry' ),
-	),
-		'value' => 'grid-boxed',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Background pattern for main container', 'cherry' ),
+		),
+		'value'         => 'grid-boxed',
 		'default_value' => 'grid-boxed',
-		'class' => '',
+		'class'         => '',
 		'display_input' => false,
-		'options' => array(
-		'grid-wide' => array(
-		'label' => __( 'Wide', 'cherry' ),
-		'img_src' => PARENT_URI.'/screenshot.png'
-	),
-		'grid-boxed' => array(
-		'label' => __( 'Boxed', 'cherry' ),
-		'img_src' => PARENT_URI.'/screenshot.png'
-	),
-	),
+		'options'       => array(
+			'grid-wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/screenshot.png',
+			),
+			'grid-boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/screenshot.png',
+			),
+		),
 	);
 
 

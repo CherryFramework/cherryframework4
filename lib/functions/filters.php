@@ -29,8 +29,13 @@ add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
 
 // Add specific CSS class by filter.
 function cherry_add_control_classes( $classes ) {
-	$responsive  = cherry_get_option('grid-responsive');
-	$grid_type   = cherry_get_option('grid-type');
+	$responsive    = cherry_get_option( 'grid-responsive' );
+	$single_layout = $single_grid_type = '';
+
+	if ( is_singular() ) {
+		$single_layout    = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
+		$single_grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	}
 
 	// Responsive.
 	if ( 'true' == $responsive ) {
@@ -40,10 +45,17 @@ function cherry_add_control_classes( $classes ) {
 	}
 
 	// Grid type.
-	if ( 'grid-wide' == $grid_type ) {
-		$classes[] = 'cherry-wide';
-	} elseif ( 'grid-boxed' == $grid_type ) {
-		$classes[] = 'cherry-boxed';
+	// if ( 'grid-wide' == $grid_type ) {
+	// 	$classes[] = 'cherry-wide';
+	// } elseif ( 'grid-boxed' == $grid_type ) {
+	// 	$classes[] = 'cherry-boxed';
+	// }
+
+	if ( !empty( $single_grid_type ) && ( 'default-grid-type' != $single_grid_type ) ) {
+		$classes[] = sanitize_html_class( 'cherry-' . $single_grid_type );
+	} else {
+		$grid_type = cherry_get_option( 'grid-type' );
+		$classes[] = sanitize_html_class( 'cherry-' . $grid_type );
 	}
 
 	// Sidebar.
@@ -53,15 +65,11 @@ function cherry_add_control_classes( $classes ) {
 		$classes[] = 'cherry-no-sidebar';
 	}
 
-	if ( is_singular() ) {
-		$single_layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
-	}
-
 	// Sidebar Position.
-	if ( !empty( $single_layout ) && ( 'default' != $single_layout ) ) {
+	if ( !empty( $single_layout ) && ( 'default-layout' != $single_layout ) ) {
 		$classes[] = sanitize_html_class( 'cherry-blog-layout-' . $single_layout );
 	} else {
-		$blog_layout = cherry_get_option('blog-page-layout');
+		$blog_layout = cherry_get_option( 'blog-page-layout' );
 		$classes[]   = sanitize_html_class( 'cherry-blog-layout-' . $blog_layout );
 	}
 
@@ -69,9 +77,19 @@ function cherry_add_control_classes( $classes ) {
 }
 
 function cherry_get_the_container_classes( $class ) {
-	$grid_type = cherry_get_option('grid-type');
 	$classes   = array();
 	$classes[] = $class;
+	$grid_type = false;
+
+	if ( is_singular() ) {
+		$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	}
+
+	if ( !$grid_type || ( 'default-grid-type' == $grid_type ) ) :
+
+		$grid_type = cherry_get_option( 'grid-type' );
+
+	endif;
 
 	if ( 'grid-wide' == $grid_type ) {
 		$classes[] = 'container-fluid';
@@ -93,7 +111,7 @@ function cherry_hide_sidebar( $display, $id ) {
 		$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
 	}
 
-	if ( !$layout || ( 'default' == $layout ) ) :
+	if ( !$layout || ( 'default-layout' == $layout ) ) :
 
 		$layout = cherry_get_option('blog-page-layout');
 
@@ -143,10 +161,20 @@ function cherry_add_type_view( $shortcodes ) {
 
 function cherry_add_extra_styles() {
 	$responsive        = cherry_get_option('grid-responsive');
-	$grid_type         = cherry_get_option('grid-type');
 	$container_width   = intval( cherry_get_option('page-layout-container-width') );
 	$grid_gutter_width = intval( apply_filters( 'cherry_grid_gutter_width', 30 ) );
+	$grid_type         = false;
 	$output            = '';
+
+	if ( is_singular() ) {
+		$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	}
+
+	if ( !$grid_type || ( 'default-grid-type' == $grid_type ) ) :
+
+		$grid_type = cherry_get_option( 'grid-type' );
+
+	endif;
 
 	if ( !$container_width ) {
 		$container_width = 1170; // get default value
@@ -160,8 +188,8 @@ function cherry_add_extra_styles() {
 	// Check a container width option.
 	// if ( $container_width < 1170 ) {
 		$output .= ".cherry-no-sidebar .cherry-container.container,\n";
-		$output .= ".cherry-boxed .site-header .container,\n";
-		$output .= ".cherry-boxed .site-footer .container,\n";
+		$output .= ".cherry-grid-boxed .site-header .container,\n";
+		$output .= ".cherry-grid-boxed .site-footer .container,\n";
 		$output .= ".cherry-no-responsive .site-header .container,\n";
 		$output .= ".cherry-no-responsive .site-footer .container { max-width : {$container_width}px; }\n";
 	// }

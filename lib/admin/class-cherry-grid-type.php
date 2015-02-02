@@ -4,7 +4,7 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
-class Cherry_Layouts {
+class Cherry_Grid_Type {
 
 	/**
 	 * Holds the instances of this class.
@@ -29,7 +29,7 @@ class Cherry_Layouts {
 			return;
 		}
 
-		// Add the layout meta box on the 'add_meta_boxes' hook.
+		// Add the `Grid Type` meta box on the 'add_meta_boxes' hook.
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
 
 		// Saves the post format on the post editing page.
@@ -37,7 +37,7 @@ class Cherry_Layouts {
 	}
 
 	/**
-	 * Adds the theme layouts meta box if the post type supports 'theme-layouts' and the current user has
+	 * Adds the meta box if the post type supports 'cherry-grid-type' and the current user has
 	 * permission to edit post meta.
 	 *
 	 * @since  4.0.0
@@ -47,13 +47,13 @@ class Cherry_Layouts {
 	 */
 	public function add_meta_boxes( $post_type, $post ) {
 
-		if ( ( post_type_supports( $post_type, 'cherry-layouts' ) ) && ( current_user_can( 'edit_post_meta', $post->ID ) || current_user_can( 'add_post_meta', $post->ID ) || current_user_can( 'delete_post_meta', $post->ID ) ) )
-			add_meta_box( 'cherry-layouts-metabox', __( 'Layout', 'cherry' ), array( $this, 'callback_metabox' ), $post_type, 'normal', 'high' );
+		if ( ( post_type_supports( $post_type, 'cherry-grid-type' ) ) && ( current_user_can( 'edit_post_meta', $post->ID ) || current_user_can( 'add_post_meta', $post->ID ) || current_user_can( 'delete_post_meta', $post->ID ) ) )
+			add_meta_box( 'cherry-grid-type-metabox', __( 'Grid Type', 'cherry' ), array( $this, 'callback_metabox' ), $post_type, 'normal', 'high' );
 	}
 
 	/**
 	 * Displays a meta box of radio selectors on the post editing screen, which allows theme users to select
-	 * the layout they wish to use for the specific post.
+	 * the grid type they wish to use for the specific post.
 	 *
 	 * @since  4.0.0
 	 * @param  object $post The post object currently being edited.
@@ -61,22 +61,20 @@ class Cherry_Layouts {
 	 * @return void
 	 */
 	public function callback_metabox( $post, $box ) {
+		$grid_types = $this->get_grid_types();
 
-		// Get theme-supported theme layouts.
-		$post_layouts = $this->get_layouts();
-
-		// Get the current post's layout.
-		$post_layout = $this->get_post_layout( $post->ID );
+		// Get the current post's grid type.
+		$post_grid_type = $this->get_post_grid_type( $post->ID );
 
 		$args = array(
-			'id'            => 'cherry-layout',
+			'id'            => 'cherry-grid-type',
 			'type'          => 'radio',
-			'value'         => $post_layout,
+			'value'         => $post_grid_type,
 			'display_input' => false,
-			'options'       => $post_layouts,
+			'options'       => $grid_types,
 		);
 
-		wp_nonce_field( basename( __FILE__ ), 'cherry-layouts-nonce' );
+		wp_nonce_field( basename( __FILE__ ), 'cherry-grid-type-nonce' );
 
 		$builder = new Cherry_Interface_Builder( array(
 			'name_prefix' => 'cherry',
@@ -84,11 +82,11 @@ class Cherry_Layouts {
 			'class'       => array( 'section' => 'single-section' ),
 		) );
 
-		printf( '<div class="post-layout">%s</div>', $builder->add_form_item( $args ) );
+		printf( '<div class="post-grid-type">%s</div>', $builder->add_form_item( $args ) );
 	}
 
 	/**
-	 * Saves the post layout metadata if on the post editing screen in the admin.
+	 * Saves the post grid type metadata if on the post editing screen in the admin.
 	 *
 	 * @since  4.0.0
 	 * @param  int      $post_id The ID of the current post being saved.
@@ -102,101 +100,101 @@ class Cherry_Layouts {
 		}
 
 		// Verify the nonce for the post formats meta box.
-		if ( !isset( $_POST['cherry-layouts-nonce'] ) || !wp_verify_nonce( $_POST['cherry-layouts-nonce'], basename( __FILE__ ) ) ) {
+		if ( !isset( $_POST['cherry-grid-type-nonce'] ) || !wp_verify_nonce( $_POST['cherry-grid-type-nonce'], basename( __FILE__ ) ) ) {
 			return $post_id;
 		}
 
 		// Get the meta key.
-		$meta_key = 'cherry_layout';
+		$meta_key = 'cherry_grid_type';
 
-		// Get the previous post layout.
-		$meta_value = $this->get_post_layout( $post_id );
+		// Get the previous post grid type.
+		$meta_value = $this->get_post_grid_type( $post_id );
 
 		// Get the all submitted `cherry` data.
 		$cherry_meta = $_POST['cherry'];
 
-		// Get the submitted post layout.
-		if ( isset( $cherry_meta['cherry-layout'] ) ) {
-			$new_meta_value = $cherry_meta['cherry-layout'];
+		// Get the submitted post grid type.
+		if ( isset( $cherry_meta['cherry-grid-type'] ) ) {
+			$new_meta_value = $cherry_meta['cherry-grid-type'];
 		} else {
 			$new_meta_value = '';
 		}
 
 		// If there is no new meta value but an old value exists, delete it.
 		if ( current_user_can( 'delete_post_meta', $post_id, $meta_key ) && '' == $new_meta_value && $meta_value ) {
-			$this->delete_post_layout( $post_id );
+			$this->delete_post_grid_type( $post_id );
 		}
 
 		// If a new meta value was added and there was no previous value, add it.
 		elseif ( current_user_can( 'add_post_meta', $post_id, $meta_key ) && $new_meta_value && '' == $meta_value ) {
-			$this->set_post_layout( $post_id, $new_meta_value );
+			$this->set_post_grid_type( $post_id, $new_meta_value );
 		}
 
-		// If the old layout doesn't match the new layout, update the post layout meta.
+		// If the old grid type doesn't match the new grid type, update the post grid type meta.
 		elseif ( current_user_can( 'edit_post_meta', $post_id, $meta_key ) && $new_meta_value && $new_meta_value != $meta_value ) {
-			$this->set_post_layout( $post_id, $new_meta_value );
+			$this->set_post_grid_type( $post_id, $new_meta_value );
 		}
 	}
 
 	/**
-	 * Gets all the available layouts for the theme.
+	 * Gets all the available grid types for the theme.
 	 *
 	 * @since  4.0.0
-	 * @return array Either theme-supported layouts or the default layouts.
+	 * @return array Either theme-supported grid types or the default grid types.
 	 */
-	public function get_layouts() {
+	public function get_grid_types() {
 
-		// Set up the default layout strings.
+		// Set up the default grid types strings.
 		$default = array(
-			'default-layout' => array(
+			'default-grid-type' => array(
 				'label'   => __( 'Inherit', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/inherit.png',
 			),
 		);
 
-		$layouts = cherry_get_options('blog-page-layout');
-		$layouts = array_merge( $default, $layouts);
+		$grid_type = cherry_get_options( 'grid-type' );
+		$grid_type = array_merge( $default, $grid_type );
 
-		return apply_filters( 'cherry_grid_type_get_types', $layouts );
+		return apply_filters( 'cherry_grid_type_get_types', $grid_type );
 	}
 
 	/**
-	 * Get the post layout based on the given post ID.
+	 * Get the post grid type based on the given post ID.
 	 *
 	 * @since  4.0.0
-	 * @param  int    $post_id The ID of the post to get the layout for.
-	 * @return string $layout  The name of the post's layout.
+	 * @param  int    $post_id   The ID of the post to get the grid types for.
+	 * @return string $grid_type The name of the post's grid types.
 	 */
-	public function get_post_layout( $post_id ) {
+	public function get_post_grid_type( $post_id ) {
 
-		// Get the post layout.
-		$layout = get_post_meta( $post_id, 'cherry_layout', true );
+		// Get the post grid type.
+		$grid_type = get_post_meta( $post_id, 'cherry_grid_type', true );
 
-		// Return the layout if one is found. Otherwise, return 'default-layout'.
-		return ( !empty( $layout ) ? $layout : 'default-layout' );
+		// Return the grid type if one is found. Otherwise, return 'default-grid-type'.
+		return ( !empty( $grid_type ) ? $grid_type : 'default-grid-type' );
 	}
 
 	/**
-	 * Update/set the post layout based on the given post ID and layout.
+	 * Update/set the post grid type based on the given post ID and grid type.
 	 *
 	 * @since  4.0.0
-	 * @param  int    $post_id The ID of the post to set the layout for.
-	 * @param  string $layout  The name of the layout to set.
+	 * @param  int    $post_id The ID of the post to set the grid type for.
+	 * @param  string $grid_type  The name of the grid type to set.
 	 * @return bool            True on successful update, false on failure.
 	 */
-	public function set_post_layout( $post_id, $layout ) {
-		return update_post_meta( $post_id, 'cherry_layout', $layout );
+	public function set_post_grid_type( $post_id, $grid_type ) {
+		return update_post_meta( $post_id, 'cherry_grid_type', $grid_type );
 	}
 
 	/**
-	 * Deletes a post layout.
+	 * Deletes a post grid type.
 	 *
 	 * @since  4.0.0
-	 * @param  int    $post_id The ID of the post to delete the layout for.
+	 * @param  int    $post_id The ID of the post to delete the grid type for.
 	 * @return bool            True on successful delete, false on failure.
 	 */
-	public function delete_post_layout( $post_id ) {
-		return delete_post_meta( $post_id, 'cherry_layout' );
+	public function delete_post_grid_type( $post_id ) {
+		return delete_post_meta( $post_id, 'cherry_grid_type' );
 	}
 
 	/**
@@ -216,4 +214,4 @@ class Cherry_Layouts {
 	}
 }
 
-Cherry_Layouts::get_instance();
+Cherry_Grid_Type::get_instance();
