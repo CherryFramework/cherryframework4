@@ -56,6 +56,19 @@ function cherry_add_post_type_support() {
 	foreach ( $post_types as $type ) {
 		add_post_type_support( $type, 'cherry-layouts' );
 	}
+
+	/**
+	 * Filters the array with post types that supported `cherry-grid-type`.
+	 *
+	 * @since 4.0.0
+	 * @var   array
+	 */
+	$post_types = apply_filters( 'cherry_grid_type_add_post_type_support', array( 'post', 'page' ) );
+
+	// For each available post type, create a meta box on its edit page.
+	foreach ( $post_types as $type ) {
+		add_post_type_support( $type, 'cherry-grid-type' );
+	}
 }
 
 function cherry_remove_post_type_support() {
