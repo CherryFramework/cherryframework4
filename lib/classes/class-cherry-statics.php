@@ -325,7 +325,7 @@ class Cherry_Statics {
 		}
 
 		// Get statics from options.
-		$args = cherry_get_option('static-area-editor');
+		$args = cherry_get_option('header-static-area-editor');
 
 		// Statics were saved.
 		$cherry_saved_statics = false;

@@ -111,10 +111,15 @@ class Cherry_Admin {
 	 * @since 4.0.0
 	 */
 	public function load_post_meta_boxes() {
-		$screen = get_current_screen();
+		$screen    = get_current_screen();
+		$post_type = $screen->post_type;
 
-		if ( !empty( $screen->post_type ) && post_type_supports( $screen->post_type, 'cherry-layouts' ) ) {
+		if ( !empty( $post_type ) && post_type_supports( $post_type, 'cherry-layouts' ) ) {
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-layouts.php' );
+		}
+
+		if ( !empty( $post_type ) && post_type_supports( $post_type, 'cherry-grid-type' ) ) {
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-grid-type.php' );
 		}
 	}
 
