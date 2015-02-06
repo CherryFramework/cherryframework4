@@ -36,7 +36,13 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		private function init(){
 			global $cherry_options_framework;
 
-			$this->option_inteface_builder = new Cherry_Interface_Builder(array('pattern' => 'grid'));
+			$this->option_inteface_builder = new Cherry_Interface_Builder(
+				array(
+					'pattern'		=> 'grid',
+					//'hidden_items'	=> apply_filters('cherry-hidden-options', array('general-logo') )
+					'hidden_items'	=> apply_filters('cherry-hidden-options', array() )
+				)
+			);
 
 			// Add the options page and menu item.
 			add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );

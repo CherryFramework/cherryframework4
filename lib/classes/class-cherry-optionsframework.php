@@ -121,7 +121,9 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				$setname = $key;
 				$set = array();
 					foreach ( $value['options-list'] as $key => $value ) {
-						$set[$key] = $value['value'];
+						if( isset( $value['value'] ) ){
+							$set[$key] = $value['value'];
+						}
 					}
 				$options_parsed_array[$setname] = array('options-list'=>$set);
 			}

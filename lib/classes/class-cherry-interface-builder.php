@@ -41,6 +41,7 @@ class Cherry_Interface_Builder {
 								'id_base' => '',
 								'number'  => '',
 							),
+		'hidden_items'	=> array(),
 	);
 
 	/**
@@ -116,13 +117,18 @@ class Cherry_Interface_Builder {
 			)
 		);
 		extract( array_merge( $default, $args ) );
-
 		$value             = $value == '' || $value == false && $value != 0 ? $default_value : $value;
+		$item_id           = $id;
 		$name              = $this->generate_field_name( $id );
 		$id                = $this->generate_field_id( $id );
 		$item_inline_style = $inline_style ? 'style="' . $inline_style . '"' : '';
 		$output            = '';
-
+		//var_dump($item_id);
+		//var_dump($this->options['hidden_items']);
+		if(is_array($this->options['hidden_items']) && in_array($item_id, $this->options['hidden_items']) ){
+			//var_dump($item_id);
+			return;
+		}
 		switch ( $type ) {
 			/*
 			arg:
