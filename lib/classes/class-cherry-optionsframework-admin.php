@@ -39,8 +39,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			$this->option_inteface_builder = new Cherry_Interface_Builder(
 				array(
 					'pattern'		=> 'grid',
-					//'hidden_items'	=> apply_filters('cherry-hidden-options', array('general-logo') )
-					'hidden_items'	=> apply_filters('cherry-hidden-options', array() )
+					'hidden_items'	=> apply_filters( 'cherry-hidden-options', array() )
 				)
 			);
 
