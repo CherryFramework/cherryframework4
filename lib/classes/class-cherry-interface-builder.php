@@ -169,7 +169,7 @@ class Cherry_Interface_Builder {
 				item_inline_style: ''
 			*/
 			case 'text':
-				$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . '" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '" data-image-hint="http://192.168.9.83/wodrpress-git/wp-cherry4-master/wordpress/wp-content/uploads/2014/10/teamunit1.jpg">';
+				$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . '" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '">';
 				//$output .= '<div class="infohint dashicons dashicons-info" title="' . $hint .'"></div>';
 			break;
 			/*
