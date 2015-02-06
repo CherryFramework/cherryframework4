@@ -123,10 +123,8 @@ class Cherry_Interface_Builder {
 		$id                = $this->generate_field_id( $id );
 		$item_inline_style = $inline_style ? 'style="' . $inline_style . '"' : '';
 		$output            = '';
-		//var_dump($item_id);
-		//var_dump($this->options['hidden_items']);
+
 		if(is_array($this->options['hidden_items']) && in_array($item_id, $this->options['hidden_items']) ){
-			//var_dump($item_id);
 			return;
 		}
 		switch ( $type ) {
