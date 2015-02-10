@@ -2,20 +2,20 @@
 ////////////////////Variables////////////////////
 /////////////////////////////////////////////////
 
-$primary-color: #F62E46;
+$primary-color: #f62e46;
 $dark-blue-color: #2a445d;
 $blue-color: #344d65;
 $light-blue-color: #41596F;
 $grey-color: #f2f3f4;
 
+
+/////////////////////////////////////////////////
+////////////////////Main Styles//////////////////
 /////////////////////////////////////////////////
 
 .cherry-ui-core{
 
-/////////////////////////////////////////////////
 ////////////////////Buttons//////////////////////
-/////////////////////////////////////////////////
-
 	.button_{
 		display: inline-block;
 		cursor: pointer;
@@ -29,6 +29,11 @@ $grey-color: #f2f3f4;
 		transition-duration: 0.5s;
 		transition-property: color;
 		vertical-align: middle;
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+		}
 	}
 	.button-primary_{
 		@extend .button_;
@@ -104,10 +109,7 @@ $grey-color: #f2f3f4;
 		height: auto;
 	}
 
-/////////////////////////////////////////////////
 ////////////////////Titles///////////////////////
-/////////////////////////////////////////////////
-
 	.title_{
 
 	}
@@ -115,7 +117,6 @@ $grey-color: #f2f3f4;
 	.title-primary_{
 		color: $dark-blue-color;
 	}
-
 	.title-mid_{
 		font-size: 22px;
 	}
@@ -128,22 +129,124 @@ $grey-color: #f2f3f4;
 		/*border-left: 4px solid #2EA2CC;*/
 		box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
 		box-sizing: border-box;
-		color: #2a445d;
+		color: $dark-blue-color;
 		padding: 15px 30px 20px;
 		margin: 0 0 20px 0;
 	}
 
-/////////////////BOXES///////////////////
+////////////////////Breadcrumbs//////////////////////
+	.breadcrumb_{
+		padding: 0;
+		margin: 0 0 20px;
+		list-style: none;
+		> li {
+			display: inline-block;
+			margin: 0;
+			color: #a3a7ac;
 
-	.box-default_{
-		background-color: $grey-color;
-		padding: 15px;
-		width: auto;
-		margin: 0;
+			+ li:before {
+				content: '|';
+				padding: 0 5px;
+			}
+		}
+
+		> .active {
+			color: $dark-blue-color;
+			text-transform: capitalize;
+		}
 	}
 
-/////////////////SELECT//////////////////
+////////////////////Boxes//////////////////////
+	.box{
+		&-default_{
+			background-color: $grey-color;
+			padding: 15px;
+			width: auto;
+			margin: 0;
+		}
+		&-primary_{
+			background-color: $dark-blue-color;
+			color: #fff;
+			border-radius: 5px;
+		}
+	}
 
+////////////////////Dropdown/////////////////////
+	.action-dropdown_{
+		position: relative;
+		z-index: 99;
+		ul {
+			display: none;
+			position: absolute;
+			right: -18px;
+			top: 100%;
+			float: right;
+			background: #fff;
+			border: 2px solid #d7d7d7;
+			border-radius: 5px;
+			padding: 7px 0;
+			margin: 20px 0 0;
+			&:before {
+				position: absolute;
+				top: -10px;
+				left: 50%;
+				margin-left: -7px;
+				z-index: 999;
+				display: block;
+				content: '';
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 11px 10px 11px;
+				border-color: transparent transparent #fff transparent;
+			}
+			&:after {
+				position: absolute;
+				top: -13px;
+				left: 50%;
+				margin-left: -9px;
+				z-index: 99;
+				display: block;
+				content: '';
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 0 13px 13px 13px;
+				border-color: transparent transparent #d7d7d7 transparent;
+			}
+		}
+		li {
+			padding: 0;
+			margin: 0;
+			border: none;
+			input, a {
+				display: block;
+				min-width: 97px;
+				height: 20px;
+				padding: 0 20px;
+				margin: 0;
+				box-sizing: border-box;
+				font-size: 13px;
+				line-height: 20px;
+				text-decoration: none;
+				color: #333;
+				border: none;
+				background: none;
+				box-shadow: none;
+				border-radius: 0;
+				text-align: left;
+				&:hover,
+				&:active,
+				&:focus {
+					background: #f1f1f1;
+					outline: none;
+					cursor: pointer;
+				}
+			}
+		}
+	}
+
+////////////////////Select/////////////////////
 	.select2-container {
 		.select2-choice{
 			box-shadow: none;
@@ -181,8 +284,7 @@ $grey-color: #f2f3f4;
 		border: none;
 	}
 
-////INPUTS////
-
+////////////////////Inputs//////////////////////
 	input[type=text], select{
 		border: 1px solid #dddcdc;
 		border-radius: 6px;
@@ -201,8 +303,7 @@ $grey-color: #f2f3f4;
 
 
 
-/////////////////OTHER ELEMENTS//////////////////
-
+////////////////Others elements/////////////////
 .cherry-ui-core input[type="checkbox"],
 .cherry-ui-core input[type="color"],
 .cherry-ui-core input[type="date"],

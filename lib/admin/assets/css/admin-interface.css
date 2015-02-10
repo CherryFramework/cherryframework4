@@ -144,6 +144,12 @@
   padding: 10px 0px;
   display: none;
 }
+#cherry-options .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
+  background: #fcfcfc;
+}
+#cherry-options .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
+  background-color: #f2f3f4;
+}
 
 .fixed-control-holder {
   position: fixed;

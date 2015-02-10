@@ -41,6 +41,7 @@ class Cherry_Interface_Builder {
 								'id_base' => '',
 								'number'  => '',
 							),
+		'hidden_items'	=> array(),
 	);
 
 	/**
@@ -116,13 +117,16 @@ class Cherry_Interface_Builder {
 			)
 		);
 		extract( array_merge( $default, $args ) );
-
 		$value             = $value == '' || $value == false && $value != 0 ? $default_value : $value;
+		$item_id           = $id;
 		$name              = $this->generate_field_name( $id );
 		$id                = $this->generate_field_id( $id );
 		$item_inline_style = $inline_style ? 'style="' . $inline_style . '"' : '';
 		$output            = '';
 
+		if(is_array($this->options['hidden_items']) && in_array($item_id, $this->options['hidden_items']) ){
+			return;
+		}
 		switch ( $type ) {
 			/*
 			arg:
@@ -169,7 +173,7 @@ class Cherry_Interface_Builder {
 				item_inline_style: ''
 			*/
 			case 'text':
-				$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . '" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '" data-image-hint="http://192.168.9.83/wodrpress-git/wp-cherry4-master/wordpress/wp-content/uploads/2014/10/teamunit1.jpg">';
+				$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . '" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '">';
 				//$output .= '<div class="infohint dashicons dashicons-info" title="' . $hint .'"></div>';
 			break;
 			/*

@@ -150,6 +150,14 @@
          .options-group {
             padding: 10px 0px;
             display: none;
+               .cherry-section{
+                  &:nth-child(2n){
+                     background: #fcfcfc;
+                  }
+                  &:nth-child(2n) {
+                     background-color: #f2f3f4;
+                  }
+               }
          }
    }
 }
