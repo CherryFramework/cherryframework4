@@ -17,7 +17,7 @@ add_filter( 'cherry_attr_footer',  'cherry_attr_footer',  9 );
 add_filter( 'cherry_attr_content', 'cherry_attr_content', 9 );
 add_filter( 'cherry_attr_sidebar', 'cherry_attr_sidebar', 9, 2 );
 add_filter( 'cherry_attr_menu',    'cherry_attr_menu',    9, 2 );
-add_filter( 'cherry_attr_post',    'cherry_attr_post',    9);
+add_filter( 'cherry_attr_post',    'cherry_attr_post',    9 );
 
 /**
  * Outputs an HTML element's attributes.
@@ -50,9 +50,7 @@ function cherry_get_attr( $slug, $context = '' ) {
 	}
 
 	foreach ( $attr as $name => $value ) {
-
 		$output .= !empty( $value ) ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
-
 	}
 
 	return trim( $output );
@@ -128,9 +126,7 @@ function cherry_attr_content( $attr ) {
 function cherry_attr_sidebar( $attr, $context ) {
 
 	if ( !empty( $context ) ) {
-
 		$attr['id'] = "$context";
-
 	}
 
 	$attr['class'] = 'widget-area';

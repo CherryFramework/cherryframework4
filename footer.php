@@ -11,7 +11,7 @@
 
 		do_action( 'cherry_footer_after' ); ?>
 
-	</div>
+	</div><!--site-wrapper-->
 
 <?php do_action( 'cherry_body_end' ); ?>
 

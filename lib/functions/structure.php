@@ -39,13 +39,9 @@ add_filter( 'cherry_post_structure_single', 'cherry_post_single_structure_setup'
 function cherry_header_wrap() {
 
 	if ( !did_action( 'cherry_header' ) ) {
-
 		printf( '<header %s>', cherry_get_attr( 'header' ) );
-
 	} else {
-
 		echo '</header>';
-
 	}
 }
 
@@ -57,11 +53,8 @@ function cherry_header_wrap() {
 function cherry_footer_wrap() {
 
 	if ( !did_action( 'cherry_footer' ) ) {
-
 		printf( '<footer %s>', cherry_get_attr( 'footer' ) );
-
 	} else {
-
 		echo '</footer>';
 	}
 }
@@ -80,8 +73,7 @@ function cherry_footer_load_template() {
  * @since 4.0.0
  */
 function cherry_footer_sidebar() {
-	// do_action( 'cherry_get_footer_sidebar', 'sidebar-footer' );
-	do_action( 'cherry_get_sidebar', 'sidebar-footer' );
+	cherry_get_sidebar( 'sidebar-footer' );
 }
 
 /**
@@ -129,12 +121,16 @@ function cherry_content_wrap() {
 
 	if ( !did_action( 'cherry_content' ) ) {
 
-		printf( '<div class="content-sidebar-wrapper"><div id="primary" class="content-area"><main %s>', cherry_get_attr( 'content' ) );
+		$wrapper = '';
+
+		if ( false !== cherry_display_sidebar( 'sidebar-main' ) ) {
+			$wrapper = '<div class="content-sidebar-wrapper">';
+		}
+
+		printf( '%1$s<div id="primary" class="content-area"><main %2$s>', $wrapper, cherry_get_attr( 'content' ) );
 
 	} else {
-
 		echo '</main></div>';
-
 	}
 }
 
