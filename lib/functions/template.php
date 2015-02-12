@@ -33,7 +33,7 @@ add_action( 'cherry_loop_else',          'cherry_noposts' );
  */
 function cherry_get_header( $name = null ) {
 
-	do_action( 'get_header', $name ); // Core WordPress hook
+	do_action( 'get_header', $name ); // Core WordPress hook.
 
 	$templates = array();
 	$name      = (string) $name;
@@ -58,7 +58,7 @@ function cherry_get_header( $name = null ) {
  */
 function cherry_get_footer( $name = null ) {
 
-	do_action( 'get_footer', $name ); // Core WordPress hook
+	do_action( 'get_footer', $name ); // Core WordPress hook.
 
 	$templates = array();
 	$name      = (string) $name;
@@ -134,27 +134,49 @@ function cherry_get_content_template() {
  */
 function cherry_get_sidebar( $name = null ) {
 
-	do_action( 'get_sidebar', $name ); // Core WordPress hook
+	do_action( 'get_sidebar', $name ); // Core WordPress hook.
 
 	$name = (string) $name;
 
-	if ( false === cherry_display_sidebar( $name ) ) {
+	if ( false === cherry_display_sidebar( 'sidebar-' . $name ) ) {
 		return;
 	}
 
-	// $templates = array();
+	$_name = $name . '-' . cherry_template_base();
 
-	// if ( '' !== $name ) {
-	// 	$templates[] = "sidebar-{$name}.php";
-	// 	$templates[] = "sidebar/{$name}.php";
-	// }
+	$templates   = array();
+	$templates[] = "sidebar-{$_name}.php";
+	$templates[] = "sidebar/{$_name}.php";
+	$templates[] = "sidebar-{$name}.php";
+	$templates[] = "sidebar/{$name}.php";
+	$templates[] = 'sidebar.php';
+	$templates[] = 'sidebar/sidebar.php';
 
-	// $templates[] = 'sidebar.php';
-	// $templates[] = 'sidebar/sidebar.php';
+	$template_path = locate_template( $templates );
 
-	// locate_template( $templates, true );
+	if ( '' !== $template_path ) {
+		load_template( $template_path );
+		return;
+	}
 
-	include cherry_sidebar_path( $name );
+	// Backward compat (when template not found).
+	do_action( 'cherry_sidebar_before', $name );
+
+	printf( '<div %s>', cherry_get_attr( 'sidebar', $name ) );
+
+	do_action( 'cherry_sidebar_start', $name );
+
+	if ( is_active_sidebar( "sidebar-{$name}" ) ) {
+		dynamic_sidebar( "sidebar-{$name}" );
+	} else {
+		do_action( 'cherry_sidebar_empty', $name );
+	}
+
+	do_action( 'cherry_sidebar_end', $name );
+
+	echo '</div>';
+
+	do_action( 'cherry_sidebar_after', $name );
 }
 
 /**

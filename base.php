@@ -9,8 +9,8 @@
 			do_action( 'cherry_content' );
 			do_action( 'cherry_content_after' );
 
-			cherry_get_sidebar( 'sidebar-main' );
-			cherry_get_sidebar( 'sidebar-secondary' );
+			cherry_get_sidebar( 'main' );
+			cherry_get_sidebar( 'secondary' );
 		?>
 
 	</div>

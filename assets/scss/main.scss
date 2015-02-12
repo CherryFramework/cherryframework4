@@ -124,7 +124,7 @@ img {
 		&.cherry-blog-layout-1-left-2-left,
 		&.cherry-blog-layout-1-left-2-right,
 		&.cherry-blog-layout-1-right-2-right {
-			.content-sidebar-wrapper, {
+			.content-sidebar-wrapper {
 				width: 80%;
 			}
 		}
@@ -142,7 +142,7 @@ img {
 			}
 		}
 	}
-	#secondary {
+	#sidebar-main {
 		width: 23%;
 		.cherry-blog-layout-1-left &,
 		.cherry-blog-layout-1-left-2-left & {
@@ -154,7 +154,7 @@ img {
 			float: right;
 		}
 	}
-	#tertiary {
+	#sidebar-secondary {
 		width: 18%;
 		.cherry-blog-layout-1-left-2-left &,
 		.cherry-blog-layout-1-left-2-right & {
