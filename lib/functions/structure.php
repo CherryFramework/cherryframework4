@@ -8,13 +8,9 @@ add_action( 'cherry_header',        'cherry_header_load_template' );
 // Footer structure.
 add_action( 'cherry_footer_before', 'cherry_footer_wrap',    999 );
 add_action( 'cherry_footer_after',  'cherry_footer_wrap',      0 );
-add_action( 'cherry_footer',        'cherry_footer_sidebar',   9 );
-// add_action( 'cherry_footer',        'cherry_footer_menu',     15 );
-// add_action( 'cherry_footer',        'cherry_footer_info',     25 );
 add_action( 'cherry_footer',        'cherry_footer_load_template' );
 
 // Content structure.
-// add_action( 'cherry_get_content',    'cherry_content_register_hook' );
 add_action( 'cherry_content_before', 'cherry_content_wrap',     999 );
 add_action( 'cherry_content_after',  'cherry_content_wrap',       0 );
 add_action( 'cherry_sidebar_after',  'cherry_content_sidebar_wrap_close', 0 );
@@ -65,51 +61,6 @@ function cherry_header_load_template() {
 
 function cherry_footer_load_template() {
 	get_template_part( 'templates/wrapper-footer' );
-}
-
-/**
- * Register hook for `sidebar-footer`.
- *
- * @since 4.0.0
- */
-function cherry_footer_sidebar() {
-	cherry_get_sidebar( 'sidebar-footer' );
-}
-
-/**
- * Prints HTML with Secondary Menu.
- *
- * @since 4.0.0
- */
-function cherry_footer_menu() {
-	cherry_get_menu_template( 'secondary' );
-}
-
-/**
- * Prints HTML with Footer Info.
- *
- * @since 4.0.0
- */
-function cherry_footer_info() {
-	$output = "<div class='site-info'>";
-	$output .= sprintf(
-					__( 'Copyright &copy; %1$s %2$s. Powered by %3$s and %4$s.', 'cherry' ),
-					date_i18n( 'Y' ), cherry_get_site_link(), cherry_get_wp_link(), cherry_get_theme_link()
-				);
-	$output .= "</div>";
-
-	echo $output;
-}
-
-/**
- * Register Content hooks.
- *
- * @since 4.0.0
- */
-function cherry_content_register_hook() {
-	do_action( 'cherry_content_before' );
-	do_action( 'cherry_content' );
-	do_action( 'cherry_content_after' );
 }
 
 /**

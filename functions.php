@@ -147,7 +147,7 @@ function cherry_theme_setup() {
 		)
 	) );
 	cherry_register_static( array(
-		'name'    => __( 'Sidebar', 'cherry4' ),
+		'name'    => __( 'Header Sidebar', 'cherry4' ),
 		'id'      => 'header_sidebar',
 		'options' => array(
 			'priority' => 3,
@@ -156,6 +156,14 @@ function cherry_theme_setup() {
 	) );
 
 	cherry_register_static( array(
+		'name'    => __( 'Footer Sidebar', 'cherry4' ),
+		'id'      => 'footer_sidebar',
+		'options' => array(
+			'priority' => 1,
+			'area'     => 'footer-top',
+		)
+	) );
+	cherry_register_static( array(
 		'id'      => 'footer_menu',
 		'name'    => __( 'Footer Menu', 'cherry4' ),
 		'options' => array(
@@ -163,9 +171,20 @@ function cherry_theme_setup() {
 			'col-md'   => 'col-md-8',
 			'col-sm'   => 'col-sm-12',
 			'col-xs'   => 'col-xs-12',
-			'class'    => 'custom-footer-menu',
-			'priority' => 1,
-			'area'     => 'footer-top',
+			'priority' => 2,
+			'area'     => 'footer-bottom',
+		)
+	) );
+	cherry_register_static( array(
+		'id'      => 'footer_info',
+		'name'    => __( 'Footer Info', 'cherry4' ),
+		'options' => array(
+			'col-lg'   => 'col-lg-4',
+			'col-md'   => 'col-md-4',
+			'col-sm'   => 'col-sm-12',
+			'col-xs'   => 'col-xs-12',
+			'priority' => 3,
+			'area'     => 'footer-bottom',
 		)
 	) );
 

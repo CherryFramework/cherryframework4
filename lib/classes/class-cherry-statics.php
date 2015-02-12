@@ -571,9 +571,35 @@ class Cherry_Statics {
 	 * @since 4.0.0
 	 */
 	public static function header_sidebar( $options ) {
-		if ( is_active_sidebar( 'sidebar-header' ) ) :
-			dynamic_sidebar( 'sidebar-header' );
-		endif;
+		cherry_get_sidebar( 'header' );
+	}
+
+	/**
+	 * Callback-function for a 'footer_sidebar' static.
+	 *
+	 * @since 4.0.0
+	 */
+	public static function footer_sidebar( $options ) {
+		cherry_get_sidebar( 'footer' );
+	}
+
+	/**
+	 * Callback-function for a 'footer_info' static.
+	 *
+	 * @since 4.0.0
+	 */
+	public static function footer_info() {
+		$output = '<div class="site-info">';
+		$output .= sprintf( __( 'Copyright &copy; %1$s %2$s. Powered by %3$s and %4$s.', 'cherry' ),
+						date_i18n( 'Y' ),
+						cherry_get_site_link(),
+						cherry_get_wp_link(),
+						cherry_get_theme_link()
+					);
+		$output .= '</div>';
+
+		$output = apply_filters( 'cherry_footer_info', $output );
+		echo $output;
 	}
 
 }
