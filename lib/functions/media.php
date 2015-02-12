@@ -17,7 +17,7 @@ add_filter( 'image_size_names_choose', 'cherry_image_size_names_choose' );
 add_filter( 'wp_get_attachment_id3_keys', 'cherry_attachment_id3_keys', 5, 3 );
 
 // Filters the [audio] shortcode.
-add_filter( 'wp_audio_shortcode', 'cherry_audio_shortcode', 10, 4 );
+//add_filter( 'wp_audio_shortcode', 'cherry_audio_shortcode', 10, 4 );
 
 // Filter the [video] shortcode attributes.
 add_filter( 'shortcode_atts_video', 'cherry_video_atts' );
