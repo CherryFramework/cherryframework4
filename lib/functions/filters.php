@@ -14,7 +14,7 @@
 add_filter( 'body_class',                 'cherry_add_control_classes' );
 
 // Filters the `.cherry-container` class.
-add_filter( 'cherry_get_container_class', 'cherry_get_the_container_classes' );
+add_filter( 'cherry_get_container_class', 'cherry_get_container_classes' );
 
 // Filters a sidebar visibility.
 add_filter( 'cherry_display_sidebar',     'cherry_hide_sidebar', 9, 2 );
@@ -76,7 +76,7 @@ function cherry_add_control_classes( $classes ) {
 	return $classes;
 }
 
-function cherry_get_the_container_classes( $class ) {
+function cherry_get_container_classes( $class ) {
 	$classes   = array();
 	$classes[] = $class;
 	$grid_type = false;
@@ -98,7 +98,7 @@ function cherry_get_the_container_classes( $class ) {
 	}
 	$classes[] = 'clearfix';
 
-	$classes = apply_filters( 'cherry_get_the_container_classes', $classes, $class );
+	$classes = apply_filters( 'cherry_get_container_classes', $classes, $class );
 	$classes = array_unique( $classes );
 
 	return join( ' ', $classes );

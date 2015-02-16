@@ -286,7 +286,7 @@ function cherry_defaults_settings() {
 				'default_value'		=> '',
 				'display-image'		=> true,
 				'multi-upload'		=> true,
-				'return-data_type'	=> 'url'
+				'return_data_type'	=> 'url'
 	);
 	$demo_options['colorpicker-demo'] = array(
 				'type'			=> 'colorpicker',
