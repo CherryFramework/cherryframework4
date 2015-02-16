@@ -244,7 +244,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 							<?php settings_fields( 'cherry-options-group' ); ?>
 							<input class="active-section-field" type="hidden" name="active_section" value="">
 							<div class="cherry-sections-wrapper">
-								<ul class="cherry-tab-menu">
+								<ul class="vertical-tabs_">
 									<?php
 									foreach ($cherry_options as $section_key => $section_value) {
 										($section_value["parent"] != '')? $subClass = 'subitem' : $subClass = '';
