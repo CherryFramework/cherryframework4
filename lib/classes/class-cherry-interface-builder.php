@@ -535,10 +535,14 @@ class Cherry_Interface_Builder {
 				library_type: image, audio, video default is ''
 			*/
 			case 'media':
-				$value = str_replace(' ', '', $value);
+				if ($value != '') {
+					$value = str_replace(' ', '', $value);
+					$images = explode(',', $value);
+				}else{
+					$value = '';
+					$images = array();
+				}
 				$img_style = !$value ? 'style="display:none;"' : '' ;
-				$images = explode(',', $value);
-
 				$output .= '<div class="cherry-element-wrap">';
 				$output .= '<div class="cherry-uiw">';
 				$output .= '<input ' . $item_inline_style . ' class="cherry-upload-input '.$this->options['class']['text'].'" id="' . $id . '" name="' . $name . '" type="text" value="' . esc_html( $value ) . '" >';
@@ -550,6 +554,7 @@ class Cherry_Interface_Builder {
 				if($display_image){
 					$output .= '<div '.$img_style.' class="cherry-upload-preview" ><div class="cherry-all-images-wrap">';
 					if(is_array($images) && !empty($images)){
+						var_dump(empty($images));
 						foreach ($images as $images_key => $images_value) {
 							if($return_data_type == 'url'){
 								$img_src = $images_value;
