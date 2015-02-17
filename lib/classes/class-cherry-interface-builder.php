@@ -107,6 +107,7 @@ class Cherry_Interface_Builder {
 			'multi_upload'       => true,
 			'display_image'      => true,
 			'display_input'      => true,
+			'library_type'       => '',
 			'label'              => '',
 			'title'              => '',
 			'decsription'        => '',
@@ -542,7 +543,7 @@ class Cherry_Interface_Builder {
 				$output .= '<input ' . $item_inline_style . ' class="cherry-upload-input '.$this->options['class']['text'].'" id="' . $id . '" name="' . $name . '" type="text" value="' . esc_html( $value ) . '" >';
 				$output .= '</div>';
 				$output .= '<div class="cherry-uicw">';
-				$output .= '<input class="upload-button button-default_ '.$this->options['class']['submit'].'" type="button" value="' . $upload_button_text . '" data-title="'.__( 'Choose Media', 'cherry' ).'" data-return-data="'.$return_data_type.'" data-multi-upload="'.$multi_upload.'" />';
+				$output .= '<input class="upload-button button-default_ '.$this->options['class']['submit'].'" type="button" value="' . $upload_button_text . '" data-title="'.__( 'Choose Media', 'cherry' ).'" data-return-data="'.$return_data_type.'" data-multi-upload="'.$multi_upload.'" data-library-type="'.$multi_upload.'"/>';
 				$output .= '</div></div>';
 
 				if($display_image){
