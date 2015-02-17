@@ -19,19 +19,6 @@ function cherry_template_base() {
 	return Cherry_Wrapping::$base;
 }
 
-/**
- * Function return new instance of Cherry_Wrapping class for sidebar
- * with the fallback templates/sidebar-*.php as the first item.
- *
- * @since  4.0.0
- * @return object
- */
-function cherry_sidebar_path( $id ) {
-	$sidebar_template = "templates/{$id}.php";
-
-	return new Cherry_Wrapping( $sidebar_template );
-}
-
 class Cherry_Wrapping {
 
 	/**

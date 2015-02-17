@@ -1798,7 +1798,10 @@ function cherry_defaults_settings() {
 			'type'			=> 'background',
 			'title'			=> 'Header background',
 			'label'			=> 'Header styling section',
-			'decsription'	=> 'Change the Header background',
+			'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Рекомендуемый минимальный размер картинки при использовании на всю ширину окна 2560X1600. Загруженная фоновая картинка будет оптимизированная для отображения на мобильных и retina устройствах'
+				),
 			'return_data_type'	=> 'id',
 			'value'			=> array(
 					'image'	=> '',
@@ -2245,6 +2248,7 @@ $social_options = array();
 		'parent'		=> '',
 		'priority'		=> 10,
 		'options-list'	=> $general_options
+		//apply_filters("cherry_demo_setting", $general_options)
 	);
 	$sections_array['grid-options-section'] = array(
 		'name'			=> 'Grid',

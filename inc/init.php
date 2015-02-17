@@ -190,6 +190,10 @@ function cherry_display_sidebar( $id ) {
 		),
 	) );
 
+	if ( !isset( $sidebars[ $id ] ) ) {
+		return true;
+	}
+
 	return apply_filters( 'cherry_display_sidebar', $sidebars[ $id ]->display, $id );
 }
 
