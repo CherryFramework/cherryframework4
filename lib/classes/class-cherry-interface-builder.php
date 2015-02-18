@@ -103,7 +103,7 @@ class Cherry_Interface_Builder {
 			'options'            => '',
 			'upload_button_text' => __( 'Choose Media', 'cherry' ),
 			'remove_button_text' => __( 'Remove Media', 'cherry' ),
-			'return_data_type'   => 'url',
+			'return_data_type'   => 'id',
 			'multi_upload'       => true,
 			'display_image'      => true,
 			'display_input'      => true,
@@ -502,7 +502,7 @@ class Cherry_Interface_Builder {
 						$checked           = $option == $value ? ' checked' : '';
 						$radio_id          = $this->generate_field_id( $option );
 						$item_inline_style = $display_input ? $item_inline_style : 'style="' . $inline_style . ' display:none;"';
-						$img               = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? '<img src="' . esc_url( $option_value['img_src'] ) . '" alt="' . esc_html( $option_value['label'] ) . '"><span class="check"><span class="media-modal-icon"></span></span>' : '';
+						$img               = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? '<img src="' . esc_url( $option_value['img_src'] ) . '" alt="' . esc_html( $option_value['label'] ) . '"><span class="check"><i class="dashicons dashicons-yes"></i></span>' : '';
 						$class_box         = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? ' cherry-radio-img' . $checked : '';
 
 						$output .= '<div class="cherry-fegr' . $class_box . '">';
@@ -554,20 +554,18 @@ class Cherry_Interface_Builder {
 				if($display_image){
 					$output .= '<div '.$img_style.' class="cherry-upload-preview" ><div class="cherry-all-images-wrap">';
 					if(is_array($images) && !empty($images)){
-						var_dump(empty($images));
 						foreach ($images as $images_key => $images_value) {
 							if($return_data_type == 'url'){
 								$img_src = $images_value;
 							}else{
-								$img_src = wp_get_attachment_image_src( $images_value );
+								$img_src = wp_get_attachment_image_src( $images_value, 'thumbnail' );
 								$img_src = $img_src[0];
 							}
-							$output .= '<div class="cherry-image-wrap"><img  src="' . esc_html( $img_src ) . '" alt="'.__( 'Current Image', 'cherry' ).'" data-img-attr="'.$images_value.'"><a class="media-modal-icon cherry-remove-image" href="#" title="' . $remove_button_text . '"></a></div>';
+							$output .= '<div class="cherry-image-wrap"><img  src="' . esc_html( $img_src ) . '" alt="'.__( 'Current Image', 'cherry' ).'" data-img-attr="'.$images_value.'"><a class="cherry-remove-image" href="#" title="' . $remove_button_text . '"><i class="dashicons dashicons-no"></i></a></div>';
 						}
 					}
 					$output .= '</div></div>';
 				}
-
 				add_action( 'admin_footer', array($this, 'include_media_script_style'));
 				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
