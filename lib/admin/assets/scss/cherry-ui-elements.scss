@@ -383,7 +383,7 @@ $grey-color: #f2f3f4;
    }
 
 ////////////////////Inputs//////////////////////
-	input[type=text], select{
+	input[type=text], select, input[type="email"], input[type="password"], input[type="search"]{
 		border: 1px solid #dddcdc;
 		border-radius: 6px;
 		margin: 0;

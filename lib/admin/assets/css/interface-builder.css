@@ -16,6 +16,11 @@
   /*Text input, textarea, select size*/
   /*End text input size*/
   /*Cherry stepper style*/
+  /*
+  		select {
+  			height: 42px;
+  		}
+  */
   /*End cherry stepper style*/
   /*Cherry switcher style*/
   /*End cherry switcher style*/
@@ -135,9 +140,6 @@
 }
 .cherry-section .cherry-stepper-input {
   max-width: 80px;
-}
-.cherry-section select {
-  height: 42px;
 }
 .cherry-section .cherry-stepper-controls {
   display: inline-block;
