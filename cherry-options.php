@@ -13,18 +13,6 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Demo options</h2>'
 	);
-	/*$demo_options['static-area-editor'] = array(
-				'type'			=> 'static_area_editor',
-				'title'			=> 'title static-area-editor',
-				'decsription'	=> 'decsription static-area-editor',
-				'hint'			=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> $all_statics,
-				'default_value'	=> 'default_value',
-				'options' => $all_statics
-	);*/
 	$demo_options['text-demo'] = array(
 				'type'			=> 'text',
 				'title'			=> 'title text',
@@ -274,7 +262,7 @@ function cherry_defaults_settings() {
 				)
 	);
 	$demo_options['image-demo'] = array(
-				'type'				=> 'image',
+				'type'				=> 'media',
 				'title'				=> 'title image',
 				'label'				=> 'label image',
 				'decsription'		=> 'decsription image',
@@ -286,7 +274,7 @@ function cherry_defaults_settings() {
 				'default_value'		=> '',
 				'display-image'		=> true,
 				'multi-upload'		=> true,
-				'return_data_type'	=> 'url'
+				'return_data_type'	=> 'id'
 	);
 	$demo_options['colorpicker-demo'] = array(
 				'type'			=> 'colorpicker',
@@ -384,7 +372,7 @@ function cherry_defaults_settings() {
 	$general_options = array();
 
 	$general_options['general-logo'] = array(
-			'type'				=> 'image',
+			'type'				=> 'media',
 			'title'				=> 'Logo',
 			'label'				=> 'Choose four images',
 			'decsription'		=> 'Retina ready logo set',
@@ -420,7 +408,7 @@ function cherry_defaults_settings() {
 				)
 	);
 	$general_options['general-favicon'] = array(
-				'type'				=> 'image',
+				'type'				=> 'media',
 				'title'				=> 'Favicon',
 				'label'				=> 'Choose four images',
 				'decsription'		=> 'Retina ready favicon set',
@@ -1049,7 +1037,7 @@ function cherry_defaults_settings() {
 				)
 	);
 	$logo_options['logo-image-path'] = array(
-				'type'				=> 'image',
+				'type'				=> 'media',
 				'title'				=> 'Logo Image Path',
 				'label'				=> 'Click Upload or Enter the direct path to your logo image.',
 				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
