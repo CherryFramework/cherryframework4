@@ -140,10 +140,6 @@ function cherry_defaults_settings() {
 				'toggle'		=> array(
 					'true_toggle'	=> __( 'Enabled', 'cherry' ),
 					'false_toggle'	=> __( 'Disabled', 'cherry' )
-				),
-				'nested_items' => array(
-					'true_relative' => 'wrap-cherry-title-demo-sw-enable',
-					'false_relative' => 'wrap-cherry-title-demo-sw-disable'
 				)
 	);
 	$demo_options['slider-demo'] = array(

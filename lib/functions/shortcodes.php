@@ -168,43 +168,6 @@ function cherry_entry_terms_shortcode( $attr ) {
 	return apply_filters( 'cherry_entry_terms_shortcode', $return, $attr );
 }
 
-// get taxonomies terms links
-function custom_taxonomies_terms_links( $is_category = true ) {
-	global $post;
-
-	// get post by post id
-	$post = get_post( $post->ID );
-
-	// get post type by post
-	$post_type = $post->post_type;
-
-	// get post type taxonomies
-	$taxonomies = get_object_taxonomies( $post_type, 'objects' );
-
-	foreach ( $taxonomies as $tax_name => $tax_obj ) {
-
-		if ( 'post_format' === $tax_name ) {
-			continue;
-		}
-
-		if ( $is_category !== $tax_obj->hierarchical ) {
-			continue;
-		}
-
-		// get the terms related to post
-		$terms = get_the_terms( $post->ID, $tax_name );
-		$output   = '';
-
-		if ( is_array( $terms ) ) {
-			$output .= $tax_name.": ";
-			foreach ( $terms as $term ) {
-				$output .= '<a href="' .get_term_link( $term->slug, $tax_name ) .'">' . $term->name . '</a> ';
-			}
-		}
-	}
-	return $output;
-}
-
 /**
  * Displays a post's number of comments.
  *
