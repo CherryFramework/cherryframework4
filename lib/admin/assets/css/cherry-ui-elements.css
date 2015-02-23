@@ -232,7 +232,6 @@
   height: 42px;
 }
 .cherry-ui-core .vertical-tabs_ {
-  width: 200px;
   float: left;
   margin: 0;
   list-style: none;
@@ -313,7 +312,13 @@
 .cherry-ui-core .vertical-tabs_ li:first-child a {
   border-top: none;
 }
-.cherry-ui-core input[type=text], .cherry-ui-core select {
+.cherry-ui-core .vertical-tabs_.vertical-tabs_width_mid_ {
+  width: 200px;
+}
+.cherry-ui-core .vertical-tabs_.vertical-tabs_width_small_ {
+  width: 180px;
+}
+.cherry-ui-core input[type=text], .cherry-ui-core select, .cherry-ui-core input[type="email"], .cherry-ui-core input[type="password"], .cherry-ui-core input[type="search"] {
   border: 1px solid #dddcdc;
   border-radius: 6px;
   margin: 0;
