@@ -47,8 +47,43 @@ class Cherry_Grid_Type {
 	 */
 	public function add_meta_boxes( $post_type, $post ) {
 
-		if ( ( post_type_supports( $post_type, 'cherry-grid-type' ) ) && ( current_user_can( 'edit_post_meta', $post->ID ) || current_user_can( 'add_post_meta', $post->ID ) || current_user_can( 'delete_post_meta', $post->ID ) ) )
-			add_meta_box( 'cherry-grid-type-metabox', __( 'Grid Type', 'cherry' ), array( $this, 'callback_metabox' ), $post_type, 'normal', 'high' );
+		if ( ( post_type_supports( $post_type, 'cherry-grid-type' ) )
+			&& ( current_user_can( 'edit_post_meta', $post->ID )
+				|| current_user_can( 'add_post_meta', $post->ID )
+				|| current_user_can( 'delete_post_meta', $post->ID ) )
+			) {
+
+			$grid_types = $this->get_grid_types();
+
+			/**
+			 * Filter the array of 'add_meta_box' parametrs.
+			 *
+			 * @since 4.0.0
+			 */
+			$metabox = apply_filters( 'cherry_grid_type_metabox_params', array(
+				'id'            => 'cherry-grid-type-metabox',
+				'title'         => __( 'Grid Type', 'cherry' ),
+				'page'          => $post_type,
+				'context'       => 'normal',
+				'priority'      => 'high',
+				'callback_args' => $grid_types,
+			) );
+
+			/**
+			 * Add meta box to the administrative interface.
+			 *
+			 * @link http://codex.wordpress.org/Function_Reference/add_meta_box
+			 */
+			add_meta_box(
+				$metabox['id'],
+				$metabox['title'],
+				array( $this, 'callback_metabox' ),
+				$metabox['page'],
+				$metabox['context'],
+				$metabox['priority'],
+				$metabox['callback_args']
+			);
+		}
 	}
 
 	/**
@@ -56,12 +91,11 @@ class Cherry_Grid_Type {
 	 * the grid type they wish to use for the specific post.
 	 *
 	 * @since  4.0.0
-	 * @param  object $post The post object currently being edited.
-	 * @param  array  $box  Specific information about the meta box being loaded.
+	 * @param  object $post    The post object currently being edited.
+	 * @param  array  $metabox Specific information about the meta box being loaded.
 	 * @return void
 	 */
-	public function callback_metabox( $post, $box ) {
-		$grid_types = $this->get_grid_types();
+	public function callback_metabox( $post, $metabox ) {
 
 		// Get the current post's grid type.
 		$post_grid_type = $this->get_post_grid_type( $post->ID );
@@ -71,7 +105,7 @@ class Cherry_Grid_Type {
 			'type'          => 'radio',
 			'value'         => $post_grid_type,
 			'display_input' => false,
-			'options'       => $grid_types,
+			'options'       => $metabox['args'],
 		);
 
 		wp_nonce_field( basename( __FILE__ ), 'cherry-grid-type-nonce' );
@@ -83,6 +117,15 @@ class Cherry_Grid_Type {
 		) );
 
 		printf( '<div class="post-grid-type">%s</div>', $builder->add_form_item( $args ) );
+
+		/**
+		 * Fires after `Grid Type` fields of metabox.
+		 *
+		 * @since 4.0.0
+		 * @param object $post
+		 * @param array  $metabox
+		 */
+		do_action( 'cherry_grid_type_metabox_after', $post, $metabox );
 	}
 
 	/**
@@ -100,7 +143,9 @@ class Cherry_Grid_Type {
 		}
 
 		// Verify the nonce for the post formats meta box.
-		if ( !isset( $_POST['cherry-grid-type-nonce'] ) || !wp_verify_nonce( $_POST['cherry-grid-type-nonce'], basename( __FILE__ ) ) ) {
+		if ( !isset( $_POST['cherry-grid-type-nonce'] )
+			|| !wp_verify_nonce( $_POST['cherry-grid-type-nonce'], basename( __FILE__ ) )
+			) {
 			return $post_id;
 		}
 
@@ -121,17 +166,24 @@ class Cherry_Grid_Type {
 		}
 
 		// If there is no new meta value but an old value exists, delete it.
-		if ( current_user_can( 'delete_post_meta', $post_id, $meta_key ) && '' == $new_meta_value && $meta_value ) {
+		if ( current_user_can( 'delete_post_meta', $post_id, $meta_key )
+			&& ( '' == $new_meta_value && $meta_value )
+			) {
 			$this->delete_post_grid_type( $post_id );
 		}
 
 		// If a new meta value was added and there was no previous value, add it.
-		elseif ( current_user_can( 'add_post_meta', $post_id, $meta_key ) && $new_meta_value && '' == $meta_value ) {
+		elseif ( current_user_can( 'add_post_meta', $post_id, $meta_key )
+			&& ( $new_meta_value && '' == $meta_value )
+			) {
 			$this->set_post_grid_type( $post_id, $new_meta_value );
 		}
 
 		// If the old grid type doesn't match the new grid type, update the post grid type meta.
-		elseif ( current_user_can( 'edit_post_meta', $post_id, $meta_key ) && $new_meta_value && $new_meta_value != $meta_value ) {
+		elseif ( current_user_can( 'edit_post_meta', $post_id, $meta_key )
+			&& $new_meta_value
+			&& ( $new_meta_value != $meta_value )
+			) {
 			$this->set_post_grid_type( $post_id, $new_meta_value );
 		}
 	}

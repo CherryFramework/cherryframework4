@@ -29,7 +29,7 @@ class Cherry_Layouts {
 			return;
 		}
 
-		// Add the layout meta box on the 'add_meta_boxes' hook.
+		// Add the `Layout` meta box on the 'add_meta_boxes' hook.
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
 
 		// Saves the post format on the post editing page.
@@ -37,7 +37,7 @@ class Cherry_Layouts {
 	}
 
 	/**
-	 * Adds the theme layouts meta box if the post type supports 'theme-layouts' and the current user has
+	 * Adds the meta box if the post type supports 'cherry-layouts' and the current user has
 	 * permission to edit post meta.
 	 *
 	 * @since  4.0.0
@@ -47,8 +47,44 @@ class Cherry_Layouts {
 	 */
 	public function add_meta_boxes( $post_type, $post ) {
 
-		if ( ( post_type_supports( $post_type, 'cherry-layouts' ) ) && ( current_user_can( 'edit_post_meta', $post->ID ) || current_user_can( 'add_post_meta', $post->ID ) || current_user_can( 'delete_post_meta', $post->ID ) ) )
-			add_meta_box( 'cherry-layouts-metabox', __( 'Layout', 'cherry' ), array( $this, 'callback_metabox' ), $post_type, 'normal', 'high' );
+		if ( ( post_type_supports( $post_type, 'cherry-layouts' ) )
+			&& ( current_user_can( 'edit_post_meta', $post->ID )
+				|| current_user_can( 'add_post_meta', $post->ID )
+				|| current_user_can( 'delete_post_meta', $post->ID ) )
+			) {
+
+			// Get theme-supported theme layouts.
+			$post_layouts = $this->get_layouts();
+
+			/**
+			 * Filter the array of 'add_meta_box' parametrs.
+			 *
+			 * @since 4.0.0
+			 */
+			$metabox = apply_filters( 'cherry_layouts_metabox_params', array(
+				'id'            => 'cherry-layouts-metabox',
+				'title'         => __( 'Layout', 'cherry' ),
+				'page'          => $post_type,
+				'context'       => 'normal',
+				'priority'      => 'high',
+				'callback_args' => $post_layouts,
+			) );
+
+			/**
+			 * Add meta box to the administrative interface.
+			 *
+			 * @link http://codex.wordpress.org/Function_Reference/add_meta_box
+			 */
+			add_meta_box(
+				$metabox['id'],
+				$metabox['title'],
+				array( $this, 'callback_metabox' ),
+				$metabox['page'],
+				$metabox['context'],
+				$metabox['priority'],
+				$metabox['callback_args']
+			);
+		}
 	}
 
 	/**
@@ -56,14 +92,11 @@ class Cherry_Layouts {
 	 * the layout they wish to use for the specific post.
 	 *
 	 * @since  4.0.0
-	 * @param  object $post The post object currently being edited.
-	 * @param  array  $box  Specific information about the meta box being loaded.
+	 * @param  object $post    The post object currently being edited.
+	 * @param  array  $metabox Specific information about the meta box being loaded.
 	 * @return void
 	 */
-	public function callback_metabox( $post, $box ) {
-
-		// Get theme-supported theme layouts.
-		$post_layouts = $this->get_layouts();
+	public function callback_metabox( $post, $metabox ) {
 
 		// Get the current post's layout.
 		$post_layout = $this->get_post_layout( $post->ID );
@@ -73,7 +106,7 @@ class Cherry_Layouts {
 			'type'          => 'radio',
 			'value'         => $post_layout,
 			'display_input' => false,
-			'options'       => $post_layouts,
+			'options'       => $metabox['args'],
 		);
 
 		wp_nonce_field( basename( __FILE__ ), 'cherry-layouts-nonce' );
@@ -85,6 +118,15 @@ class Cherry_Layouts {
 		) );
 
 		printf( '<div class="post-layout">%s</div>', $builder->add_form_item( $args ) );
+
+		/**
+		 * Fires after `Layouts` fields of metabox.
+		 *
+		 * @since 4.0.0
+		 * @param object $post
+		 * @param array  $metabox
+		 */
+		do_action( 'cherry_layouts_metabox_after', $post, $metabox );
 	}
 
 	/**
@@ -102,7 +144,9 @@ class Cherry_Layouts {
 		}
 
 		// Verify the nonce for the post formats meta box.
-		if ( !isset( $_POST['cherry-layouts-nonce'] ) || !wp_verify_nonce( $_POST['cherry-layouts-nonce'], basename( __FILE__ ) ) ) {
+		if ( !isset( $_POST['cherry-layouts-nonce'] )
+			|| !wp_verify_nonce( $_POST['cherry-layouts-nonce'], basename( __FILE__ ) )
+			) {
 			return $post_id;
 		}
 
@@ -123,17 +167,24 @@ class Cherry_Layouts {
 		}
 
 		// If there is no new meta value but an old value exists, delete it.
-		if ( current_user_can( 'delete_post_meta', $post_id, $meta_key ) && '' == $new_meta_value && $meta_value ) {
+		if ( current_user_can( 'delete_post_meta', $post_id, $meta_key )
+			&& ( '' == $new_meta_value && $meta_value )
+			) {
 			$this->delete_post_layout( $post_id );
 		}
 
 		// If a new meta value was added and there was no previous value, add it.
-		elseif ( current_user_can( 'add_post_meta', $post_id, $meta_key ) && $new_meta_value && '' == $meta_value ) {
+		elseif ( current_user_can( 'add_post_meta', $post_id, $meta_key )
+			&& ( $new_meta_value && '' == $meta_value )
+			) {
 			$this->set_post_layout( $post_id, $new_meta_value );
 		}
 
 		// If the old layout doesn't match the new layout, update the post layout meta.
-		elseif ( current_user_can( 'edit_post_meta', $post_id, $meta_key ) && $new_meta_value && $new_meta_value != $meta_value ) {
+		elseif ( current_user_can( 'edit_post_meta', $post_id, $meta_key )
+			&& $new_meta_value
+			&& ( $new_meta_value != $meta_value )
+			) {
 			$this->set_post_layout( $post_id, $new_meta_value );
 		}
 	}
@@ -154,10 +205,10 @@ class Cherry_Layouts {
 			),
 		);
 
-		$layouts = cherry_get_options('blog-page-layout');
+		$layouts = cherry_get_options( 'blog-page-layout' );
 		$layouts = array_merge( $default, $layouts);
 
-		return apply_filters( 'cherry_grid_type_get_types', $layouts );
+		return apply_filters( 'cherry_layouts_get_layouts', $layouts );
 	}
 
 	/**
