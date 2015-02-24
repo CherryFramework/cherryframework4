@@ -167,11 +167,19 @@ function cherry_link_header( $args ) {
 	if ( has_post_format( 'link' ) ) :
 
 		$post_type = get_post_type();
-		$args  = array(
-				'url'   => apply_filters( 'cherry_link_header_url', cherry_get_post_format_url() ),
-				'after' => apply_filters( 'cherry_link_header_after', is_singular( $post_type ) ? '' : '<span class="format-link-marker">&rarr;</span>' ),
-				'wrap'  => apply_filters( 'cherry_link_header_wrap', is_singular( $post_type ) ? '<header class="entry-header"><%1$s class="%2$s">%4$s</%1$s></header>' : '<header class="entry-header"><%1$s class="%2$s"><a href="%3$s" rel="bookmark" target="_blank">%4$s</a></%1$s></header>' ),
-			);
+
+		$args['url']   = apply_filters( 'cherry_link_header_url', cherry_get_post_format_url() );
+
+		$args['after'] = apply_filters( 'cherry_link_header_after',
+			is_singular( $post_type ) ?
+			'' :
+			'<span class="format-link-marker">&rarr;</span>' );
+
+		$args['wrap']  = apply_filters( 'cherry_link_header_wrap',
+			is_singular( $post_type ) ?
+			'<header class="entry-header"><%2$s class="%1$s">%5$s</%2$s></header>' :
+			'<header class="entry-header"><%2$s class="%1$s"><a href="%4$s" rel="bookmark" target="_blank">%4$s</a></%2$s></header>'
+		);
 
 	endif;
 
@@ -272,9 +280,11 @@ function cherry_status_header( $args ) {
 			$avatar     = get_avatar( get_the_author_meta( 'email' ) );
 			$title_attr = esc_attr( the_title_attribute( 'echo=0' ) );
 
-			$args = array(
-					'wrap' => apply_filters( 'cherry_status_header_wrap', is_singular( get_post_type() ) ? '<header class="entry-header">' . $avatar . '</header>' : '<header class="entry-header"><a href="%3$s" title="' . $title_attr . '">' . $avatar . '</a></header>' ),
-				);
+			$args['wrap'] = apply_filters( 'cherry_status_header_wrap',
+				is_singular( get_post_type() ) ?
+				'<header class="entry-header">' . $avatar . '</header>' :
+				'<header class="entry-header"><a href="%3$s" title="' . $title_attr . '">' . $avatar . '</a></header>'
+			);
 
 		endif;
 
