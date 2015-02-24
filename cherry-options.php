@@ -13,12 +13,39 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> '<h2>Demo options</h2>'
 	);
+	$demo_options['repeater-demo'] = array(
+				'type'			=> 'repeater',
+				'title'			=> 'repeater text',
+				'label'			=> 'repeater text',
+				'decsription'	=> 'repeater text',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> array(
+					array(
+						'external-link'	=> 'http://google.com',
+						'font-class'	=> 'dashicons-admin-site',
+						'link-label'	=> 'custom text',
+					),
+					array(
+						'external-link'	=> 'https://www.youtube.com/',
+						'font-class'	=> 'dashicons-admin-generic',
+						'link-label'	=> 'custom text',
+					),
+					array(
+						'external-link'	=> 'https://vimeo.com/',
+						'font-class'	=> 'dashicons-admin-media',
+						'link-label'	=> 'custom text',
+					),
+				)
+	);
 	$demo_options['text-demo'] = array(
 				'type'			=> 'text',
 				'title'			=> 'title text',
 				'label'			=> 'label text',
 				'decsription'	=> 'decsription text',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
@@ -43,8 +70,9 @@ function cherry_defaults_settings() {
 				'label'			=> 'label select',
 				'decsription'	=> 'decsription select',
 				'hint'      	=>  array(
-					'type'		=> 'video',
-					'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
+					'type'		=> 'text',
+					//'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'
 				),
 				'value'			=> 'select-1',
 				'default_value'	=> 'select-1',
@@ -61,8 +89,9 @@ function cherry_defaults_settings() {
 				'label'			=> 'label filterselect',
 				'decsription'	=> 'decsription filterselect',
 				'hint'      	=>  array(
-					'type'		=> 'video',
-					'content'	=> 'https://player.vimeo.com/video/97337577'
+					'type'		=> 'text',
+					//'content'	=> 'https://player.vimeo.com/video/97337577'
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'
 				),
 				'value'			=> 'select_1',
 				'default_value'	=> 'select_1',
@@ -2232,7 +2261,6 @@ $social_options = array();
 		'parent'		=> '',
 		'priority'		=> 10,
 		'options-list'	=> $general_options
-		//apply_filters("cherry_demo_setting", $general_options)
 	);
 	$sections_array['grid-options-section'] = array(
 		'name'			=> 'Grid',

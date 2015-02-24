@@ -304,6 +304,54 @@ class Cherry_Interface_Builder {
 			break;
 			/*
 			arg:
+				type: repeater
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				default_value: ''
+				class: ''
+				item_inline_style: ''
+			*/
+			case 'repeater':
+				$output .= '<div class="cherry-repeater-wrap" data-name="' . $name . '">';
+					$output .= '<div class="cherry-repeater-item-list">';
+						$output .= '<div class="cherry-repeater-dublicate-item">';
+							$output .= '<div class="col">';
+								$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . 'external-link" name="" type="text" placeholder="' . __( 'External link', 'cherry' ) . '" value="">';
+							$output .= '</div>';
+							$output .= '<div class="col">';
+								$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . 'font-class" name="" type="text" placeholder="' . __( 'Font class', 'cherry' ) . '" value="">';
+							$output .= '</div>';
+							$output .= '<div class="col">';
+								$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . 'link-label" name="" type="text" placeholder="' . __( 'Link label', 'cherry' ) . '" value="">';
+							$output .= '</div>';
+							$output .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
+						$output .= '</div>';
+						if( is_array( $value ) ){
+							foreach ($value as $handle => $handleArray) {
+								$output .= '<div class="cherry-repeater-item">';
+									$output .= '<div class="col">';
+										$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . 'external-link" name="' . $name . '[' . $handle. '][external-link]" type="text" placeholder="' . __( 'External link', 'cherry' ) . '" value="' . esc_html( $handleArray['external-link'] ) . '">';
+									$output .= '</div>';
+									$output .= '<div class="col">';
+										$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . 'font-class" name="' . $name . '[' . $handle. '][font-class]" type="text" placeholder="' . __( 'Font class', 'cherry' ) . '" value="' . esc_html( $handleArray['font-class'] ) . '">';
+									$output .= '</div>';
+									$output .= '<div class="col">';
+										$output .= '<input ' . $item_inline_style . ' class="widefat ' . $class . 'link-label" name="' . $name . '[' . $handle. '][link-label]" type="text" placeholder="' . __( 'Link label', 'cherry' ) . '" value="' . esc_html( $handleArray['link-label'] ) . '">';
+									$output .= '</div>';
+									$output .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
+								$output .= '</div>';
+							}
+						}
+					$output .= '</div>';
+					$output .= '<div class="repeater-add-button-holder">';
+						$output .= '<a class="repeater-add-button" href="javascript:void(0);"><i class="dashicons dashicons-plus"></i></a>';
+					$output .= '</div>';
+				$output .= '</div>';
+			break;
+			/*
+			arg:
 				type: slider
 				title: ''
 				label: ''

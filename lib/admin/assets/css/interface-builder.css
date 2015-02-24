@@ -26,6 +26,7 @@
   /*End cherry switcher style*/
   /*Cherry rangeslider style*/
   /*Cherry rangeslider style*/
+  /*Cherry repeater style*/
   /*Cherry color picker style*/
   /*End cherry color picker style*/
   /*Cherry radio buttons style*/
@@ -160,18 +161,6 @@
   border-radius: 0 0 3px 0;
 }
 .cherry-section .cherry-stepper-controls em {
-  /*text-decoration: none;
-  margin: 0 0 0 -1px;
-  color: rgb(68, 68, 68);
-  border: 1px solid rgb(204, 204, 204);
-  cursor: pointer;
-  position: relative;
-  height: 12px;
-  width: 20px;
-  display:block;
-  text-align: center;
-  line-height: 12px;
-  font-size: 16px;*/
   background-color: #eeeded;
   border: 1px solid #cccccc;
   color: #444444;
@@ -317,6 +306,88 @@
 .cherry-section .cherry-slider-wrap .cherry-input {
   margin: 0;
   width: 100%;
+}
+.cherry-section .cherry-repeater-wrap {
+  background: none repeat scroll 0 0 #fcfcfc;
+  border: 1px solid #dfdfdf;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 5px;
+  overflow: hidden;
+}
+.cherry-section .cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-dublicate-item {
+  display: none;
+}
+.cherry-section .cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item {
+  border: 1px solid #d4d5d6;
+  background-color: #f2f3f4;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.cherry-section .cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .col {
+  width: 30%;
+  margin-right: 1%;
+  float: left;
+}
+.cherry-section .cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .repeater-delete-button-holder {
+  width: 7%;
+  float: left;
+  text-align: right;
+}
+.cherry-section .cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .repeater-delete-button-holder .repeater-delete-button {
+  padding: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  outline: none;
+  background-color: #f62e46;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+.cherry-section .cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .repeater-delete-button-holder .repeater-delete-button:focus {
+  box-shadow: none;
+}
+.cherry-section .cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .repeater-delete-button-holder .repeater-delete-button i {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 30px;
+  line-height: 30px;
+}
+.cherry-section .cherry-repeater-wrap .repeater-add-button-holder {
+  text-align: center;
+}
+.cherry-section .cherry-repeater-wrap .repeater-add-button-holder .repeater-add-button {
+  padding: 2px;
+  border-radius: 6px;
+  text-decoration: none;
+  outline: none;
+  background-color: #8bc735;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border: 3px solid #8bc735;
+}
+.cherry-section .cherry-repeater-wrap .repeater-add-button-holder .repeater-add-button:focus {
+  box-shadow: none;
+}
+.cherry-section .cherry-repeater-wrap .repeater-add-button-holder .repeater-add-button i {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 30px;
+  line-height: 36px;
+}
+.cherry-section .cherry-repeater-wrap .sortable-placeholder {
+  width: 100%;
+  height: 70px;
+  margin-bottom: 10px;
+  border: 1px solid #8BC735;
+  border-radius: 6px;
+  background: rgba(139, 199, 53, 0.3);
+  box-sizing: border-box;
 }
 .cherry-section .wp-picker-container {
   display: block;
