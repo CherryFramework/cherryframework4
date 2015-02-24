@@ -291,99 +291,104 @@ $grey-color: #f2f3f4;
 ////////////////////Tabs////////////////////
 
 	.vertical-tabs_{
-      width: 200px;
-      float: left;
-      margin: 0;
-      list-style: none;
-      position: relative;
-      z-index: 2;
-         li {
-            margin: 0;
-               a {
-                  color: #FFFFFF;
-                  background: #2a445d;
-                  padding: 10px 5px 10px 10px;
-                  text-decoration: none;
-                  display: block;
-                  border-bottom: 1px solid #516579;
-                  font-weight: bold;
-                  font-size: 16px;
-                  line-height: 24px;
-                  position: relative;
-                     i {
-                        width: 24px;
-                        height: 24px;
-                        font-size: 24px;
-                        float: left;
-                     }
-                     span {
-                        padding-left: 10px;
-                        display: block;
-                        overflow: hidden;
-                     }
-                     &:hover {
-                        color: #ffffff;
-                        background: #385067;
-                     }
-
-               }
-               &.active{
-                  a {
-                     color: #FFFFFF;
-                     background: #f62e46 !important;
-                     box-shadow: 1px 0 0 #fcfcfc;
-                        i {
-                           color: #FFFFFF;
-                        }
-                        &:after{
-                           border-bottom: 22px solid transparent;
-                           border-left: 12px solid #f62e46;
-                           border-top: 22px solid transparent;
-                           content: "";
-                           height: 0;
-                           position: absolute;
-                           right: -12px;
-                           top: 50%;
-                           width: 0;
-                           margin-top: -22px;
-                        }
-                  }
-               }
-               &.subitem{
-                  a{
-                     padding: 4px 5px 4px 30px;
-                     font-size: 12px;
-                     background: #344d65;
-                     border-bottom: none;
-                        i {
-                           width: 24px;
-                           height: 24px;
-                           font-size: 24px;
-                           float: left;
-                        }
-                        &:hover{
-                           background: #41596f;
-                        }
-                  }
-                  &.active {
-                     a{
-                        &:after{
-                           border-bottom: 16px solid transparent;
-                           border-left: 12px solid #f62e46;
-                           border-top: 16px solid transparent;
-                           margin-top: -16px;
-                        }
-                     }
-                  }
-               }
-               &:first-child a {
-                  border-top: none;
-               }
-         }
-   }
+		float: left;
+		margin: 0;
+		list-style: none;
+		position: relative;
+		z-index: 2;
+		li{
+			margin: 0;
+			a{
+				color: #FFFFFF;
+				background: #2a445d;
+				padding: 10px 5px 10px 10px;
+				text-decoration: none;
+				display: block;
+				border-bottom: 1px solid #516579;
+				font-weight: bold;
+				font-size: 16px;
+				line-height: 24px;
+				position: relative;
+				i{
+					width: 24px;
+					height: 24px;
+					font-size: 24px;
+					float: left;
+				}
+				span {
+					padding-left: 10px;
+					display: block;
+					overflow: hidden;
+				}
+				&:hover {
+					color: #ffffff;
+					background: #385067;
+				}
+			}
+			&.active{
+				a {
+					color: #FFFFFF;
+					background: #f62e46 !important;
+					box-shadow: 1px 0 0 #fcfcfc;
+					i {
+						color: #FFFFFF;
+					}
+					&:after{
+						border-bottom: 22px solid transparent;
+						border-left: 12px solid #f62e46;
+						border-top: 22px solid transparent;
+						content: "";
+						height: 0;
+						position: absolute;
+						right: -12px;
+						top: 50%;
+						width: 0;
+						margin-top: -22px;
+					}
+				}
+			}
+			&.subitem{
+				a{
+					padding: 4px 5px 4px 30px;
+					font-size: 12px;
+					background: #344d65;
+					border-bottom: none;
+					i {
+						width: 24px;
+						height: 24px;
+						font-size: 24px;
+						float: left;
+					}
+					&:hover{
+						background: #41596f;
+					}
+				}
+				&.active {
+					a{
+						&:after{
+							border-bottom: 16px solid transparent;
+							border-left: 12px solid #f62e46;
+							border-top: 16px solid transparent;
+							margin-top: -16px;
+						}
+					}
+				}
+			}
+			&:first-child a {
+				border-top: none;
+			}
+		}
+	}
+	.vertical-tabs_.vertical-tabs_width_mid_{
+		width: 200px;
+	}
+	.vertical-tabs_.vertical-tabs_width_small_{
+		width: 180px;
+	}
 
 ////////////////////Inputs//////////////////////
-	input[type=text], select{
+
+	input[type=text], select, input[type="email"], input[type="password"], input[type="search"]{
 		border: 1px solid #dddcdc;
 		border-radius: 6px;
 		margin: 0;
