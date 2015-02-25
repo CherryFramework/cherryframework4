@@ -67,12 +67,7 @@
 			padding: 10px 15px;
 			margin-bottom: 15px;
 		}
-		.cherry-type-wrap{
-			border: 1px solid #cccccc;
-			background: #fff;
-			padding: 5px 10px 0px 10px;
-			margin-bottom: 5px;
-		}
+
 		/*End Cherry column style*/
 		/*html ellements stule*/
 /*
@@ -109,11 +104,6 @@
 		.cherry-stepper-input{
 			max-width: 80px;
 		}
-/*
-		select {
-			height: 42px;
-		}
-*/
 
 		.cherry-stepper-controls{
 			display: inline-block;
@@ -226,21 +216,19 @@
 								.ui-slider-range{
 									background: #2a445d;
 								}
-								a{
-									&:hover{
-										border: 1px solid #4BACCF;
-										background: #f4f4f4;
-									}
-									&.ui-state-focus{
-										border: 1px solid #4BACCF;
-										color: #f4f4f4;
-										background: #f4f4f4;
-									}
-									&.ui-state-hover{
-										border: 1px solid #4BACCF;
-										color: #f4f4f4;
-										background: #f4f4f4;
-									}
+								.ui-slider-handle{
+									border: 1px solid #dddcdc;
+									top: -7px;
+									background: #f7f7f7;
+										&.ui-state-hover{
+											border: 1px solid #dddcdc;
+											background: #f4f4f4;
+										}
+										&.ui-state-focus{
+											border: 1px solid #dddcdc;
+											color: #f4f4f4;
+											background: #f4f4f4;
+										}
 								}
 						}
 				}
@@ -290,6 +278,7 @@
 					width: 100%;
 				}
 		}
+
 		/*Cherry rangeslider style*/
 		/*Cherry repeater style*/
 		.cherry-repeater-wrap{
@@ -555,20 +544,30 @@
 		/*End cherry background image style*/
 		/*Cherry typography options style*/
 		&.cherry-typography{
-			div[class^="field-font"]{
-				display: inline-block;
+
+			.field-font-family, .field-font-style, .field-font-character, .field-font-align{
+				margin-bottom: 5px;
+				clear: both;
+				.cherry-filter-select{
+					width: 100%;
+				}
+			}
+			.field-font-size, .field-font-lineheight, .field-font-letter-spacing, .field-font-color{
+				float: left;
 				overflow: hidden;
 				margin-right: 10px;
+				margin-bottom: 5px;
 					&:last-child{
 						margin-right: 0;
 					}
 			}
-			.field-font-family, .field-font-character{
-				select{
-					max-width: 120px;
-				}
+			.cherry-type-wrap{
+				width: 48%;
+				float: left;
+				margin-right: 2%;
 			}
 		}
+
 		/*End cherry typography options style*/
 		/*Cherry info block style*/
 		&.cherry-info{
@@ -791,118 +790,7 @@
 			}
 		}
 		/*End Cherry accordion style*/
-		/*Cherry icon-sets-editor style*/
-		.cherry-icon-editor-wrap{
-			.icon-create-form{
-				border: 1px solid #dfdfdf;
-				background: #fff;
-				padding: 5px;
-				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-				margin-bottom: 10px;
-					.control-wrap{
-						border: 1px solid #ccc;
-						margin: 3px;
-						padding: 5px;
-					}
-					.add-new-icon{
-						margin: 10px;
-						float: right;
-					}
-			}
-			.icon-list-preview{
-				border: 1px solid #dfdfdf;
-				background: #fff;
-				padding: 5px;
-				box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-					ul{
-						margin: 0;
-						overflow: hidden;
-							li{
-								width: 33.3333%;
-								float: left;
-								margin: 0;
-									&.icon-type-label{
 
-									}
-									&.icon-type-image{
-										.inner{
-											.icon-preview{
-												.image-preview{
-													max-width: 26px;
-													margin: 5px;
-												}
-											}
-										}
-									}
-									&.icon-type-font{
-										.inner{
-											.icon-preview{
-												span{
-													width: 36px;
-													height: 36px;
-													font-size: 25px;
-													line-height: 36px;
-												}
-											}
-										}
-									}
-									&.icon-type-sprite{
-										.inner{
-											.icon-preview{
-												span{
-													width: 36px;
-													height: 36px;
-													line-height: 36px;
-												}
-											}
-										}
-									}
-									.inner{
-										border: 1px solid #ccc;
-										margin: 3px;
-										background: #fff;
-											.icon-preview{
-												width: 36px;
-												height: 36px;
-												float: left;
-											}
-											.icon-info{
-												float: left;
-												margin-left: 5px;
-													.icon-title{
-														display: block;
-														font-size: 15px;
-														line-height: 22px;
-													}
-													.icon-link{
-														display: block;
-														font-size: 10px;
-														line-height: 10px;
-														font-style: italic;
-													}
-											}
-											.control{
-												width: 40px;
-												float: right;
-													.delete{
-														width: 20px;
-														color: #f4130c;
-														margin: 8px 0;
-														cursor: pointer;
-													}
-													.edit{
-														width: 20px;
-														color: #7ad03a;
-														margin: 8px 0;
-														cursor: pointer;
-													}
-											}
-									}
-							}
-					}
-			}
-		}
-		/*Cherry icon-sets-editor style*/
 
 	&.single-section {
 		padding: 0;

@@ -193,15 +193,11 @@ function cherry_defaults_settings() {
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
-				'max-value'		=> 100,
-				'min-value'		=> 0,
+				'max_value'		=> 100,
+				'min_value'		=> 20,
 				'value'			=> array(
-					'left-value'	=> 20,
+					'left-value'	=> 30,
 					'right-value'	=> 50,
-				),
-				'default_value' => array(
-					'left-value'	=> 0,
-					'right-value'	=> 100,
 				)
 	);
 	$demo_options['multicheckbox-demo'] = array(
@@ -296,7 +292,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'				=> '',
-				'default_value'		=> '',
 				'display-image'		=> true,
 				'multi-upload'		=> true,
 				'return_data_type'	=> 'id'
