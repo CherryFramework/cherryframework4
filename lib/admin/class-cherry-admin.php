@@ -53,7 +53,7 @@ class Cherry_Admin {
 	public function register_admin_scripts() {
 		wp_register_script( 'select2', trailingslashit( CHERRY_URI ) . 'admin/assets/js/select2.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'statics-areas-editor-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/statics-areas-editor-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
-		wp_register_script( 'icon-editor-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/icon-editor-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
+		wp_register_script( 'repeater-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/cherry-repeater-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/js/interface-builder.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'admin-interface', trailingslashit( CHERRY_URI ) . 'admin/assets/js/admin-interface.js', array( 'jquery' ), CHERRY_VERSION, true );
 	}
@@ -80,14 +80,14 @@ class Cherry_Admin {
 			// jQ select2.js plugin for custom select
 			wp_enqueue_script( 'select2' );
 			wp_enqueue_script( 'statics-areas-editor-plugin' );
-			// wp_enqueue_script( 'icon-editor-plugin' );
+			wp_enqueue_script( 'repeater-plugin' );
 			wp_enqueue_script( 'jquery-ui-tooltip' );
 			wp_enqueue_script( 'jquery-ui-slider' );
 			wp_enqueue_script( 'jquery-ui-accordion' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
-		if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
-			wp_enqueue_script( 'admin-interface' );
-		}
+			if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
+				wp_enqueue_script( 'admin-interface' );
+			}
 	}
 
 	/**

@@ -222,13 +222,12 @@ class Cherry_Statics {
 		global $cherry_registered_static_areas, $cherry_registered_statics;
 
 		if ( is_int( $index ) ) {
-			$_index = $index;
 			$index  = "static-area-$index";
 		} else {
-			$index = $_index = sanitize_title( $index );
+			$index = sanitize_title( $index );
 		}
 
-		if ( !isset( $cherry_registered_static_areas[ $index ] ) || empty( $cherry_registered_static_areas[ $index ] ) ) {
+		if ( empty( $cherry_registered_static_areas[ $index ] ) ) {
 
 			/**
 			 * Filters returned boolean variable when a static area is not found
@@ -270,17 +269,17 @@ class Cherry_Statics {
 		echo $static_area['before'];
 
 		if ( isset( $static_area['container_wrap'] ) ) {
-			$container = (bool) $static_area['container_wrap'];
-			$wrap_class = ( $container ) ? $wrap_class . ' with-container' : $wrap_class . ' no-container' ;
+			$container  = (bool) $static_area['container_wrap'];
+			$wrap_class = ( $container ) ? $wrap_class . ' with-container' : $wrap_class . ' no-container';
 		}
 
 		if ( isset( $static_area['row_wrap'] ) ) {
-			$row = (bool) $static_area['row_wrap'];
+			$row        = (bool) $static_area['row_wrap'];
 			$wrap_class = ( $row ) ? $wrap_class . ' with-row' : $wrap_class . ' no-row';
 		}
 
 		// Wrap open (default).
-		printf( '<div id="static-area-%1$s" class="static-area%2$s">', $_index, $wrap_class );
+		printf( '<div id="static-area-%1$s" class="static-area%2$s">', $index, $wrap_class );
 
 		if ( $container ) {
 			/**
@@ -325,7 +324,7 @@ class Cherry_Statics {
 		}
 
 		// Get statics from options.
-		$args = cherry_get_option('header-static-area-editor');
+		$args = cherry_get_option( 'header-static-area-editor', false );
 
 		// Statics were saved.
 		$cherry_saved_statics = false;
@@ -336,7 +335,10 @@ class Cherry_Statics {
 
 			foreach ( $args as $id => $data ) :
 
-				$cherry_registered_statics[ $id ]['options'] = wp_parse_args( $args[ $id ]['options'], $cherry_registered_statics[ $id ]['options'] );
+				$cherry_registered_statics[ $id ]['options'] = wp_parse_args(
+					$args[ $id ]['options'],
+					$cherry_registered_statics[ $id ]['options']
+				);
 				array_push( $cherry_saved_statics, $id );
 
 			endforeach;
@@ -348,7 +350,9 @@ class Cherry_Statics {
 
 		foreach ( $cherry_registered_statics as $id => $data ) :
 
-			if ( is_array( $cherry_saved_statics ) && !in_array( $id, $cherry_saved_statics ) ) {
+			if ( is_array( $cherry_saved_statics )
+				&& !in_array( $id, $cherry_saved_statics )
+				) {
 				continue;
 			}
 
@@ -462,24 +466,27 @@ class Cherry_Statics {
 	public static function is_active_static_area( $index ) {
 		global $cherry_registered_statics;
 
-		$cherry_saved_statics = cherry_get_option( 'static-area-editor', false );
-		$cherry_saved_statics = ( false === $cherry_saved_statics ) ? $cherry_registered_statics : $cherry_saved_statics;
+		$saved_statics = cherry_get_option( 'static-area-editor', false );
 
-		if ( $cherry_saved_statics ) {
-
-			foreach ( $cherry_saved_statics as $id => $static ) :
-
-				if ( !isset( $static['options']['area'] ) ) {
-					return false;
-				}
-
-				if ( $index === $static['options']['area'] ) {
-					return true;
-				}
-
-			endforeach;
-
+		if ( false === $saved_statics ) {
+			$saved_statics = $cherry_registered_statics;
 		}
+
+		if ( empty( $saved_statics ) ) {
+			return false;
+		}
+
+		foreach ( $saved_statics as $id => $static ) :
+
+			if ( !isset( $static['options']['area'] ) ) {
+				return false;
+			}
+
+			if ( $index === $static['options']['area'] ) {
+				return true;
+			}
+
+		endforeach;
 
 		return false;
 	}

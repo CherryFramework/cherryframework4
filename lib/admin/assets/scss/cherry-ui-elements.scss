@@ -251,14 +251,14 @@ $grey-color: #f2f3f4;
 		.select2-choice{
 			box-shadow: none;
 			border-radius: 6px;
-			height: 42px;
+			height: 39px;
 			.select2-arrow{
 				b{
 					background-position: 0px 8px;
 				}
 			}
 			> .select2-chosen{
-				line-height: 42px;
+				line-height: 39px;
 			}
 		}
 	}
@@ -280,12 +280,11 @@ $grey-color: #f2f3f4;
 		background: url("../images/close-icon.png") no-repeat scroll right top rgba(0, 0, 0, 0);
 		top: 11px;
 	}
-	.ui-widget-content{
-		/*border: none;*/
-	}
+	.ui-widget-content{}
+
 	select {
 		height: 42px;
-		}
+	}
 
 
 ////////////////////Tabs////////////////////
