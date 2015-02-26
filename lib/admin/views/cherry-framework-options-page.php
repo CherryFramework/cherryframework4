@@ -15,7 +15,7 @@
 		$sections_array = array();
 
 ////////// Megamenu options ///////////////////////////////////////////////////
-		$megamenu_options = array();
+/*		$megamenu_options = array();
 		$megamenu_options['megamenu-options'] = array(
 					'type'			=> 'info',
 					'title'			=> '',
@@ -75,7 +75,7 @@
 				'priority' => 1,
 				'options-list' => $megamenu_options
 		);
-
+*/
 		foreach ($sections_array as $section_value => $value) {
 			$result_array[$section_value] = $value;
 		}

@@ -281,7 +281,7 @@ $grey-color: #f2f3f4;
 		top: 11px;
 	}
 	.ui-widget-content{
-		border: none;
+		/*border: none;*/
 	}
 	select {
 		height: 42px;
@@ -401,6 +401,7 @@ $grey-color: #f2f3f4;
 	textarea{
 		border-radius: 6px;
 		padding: 10px 12px 10px 10px;
+		resize: vertical;
 	}
 }
 
