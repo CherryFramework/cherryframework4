@@ -15,8 +15,7 @@
 /**
  * Check if post has an image attached.
  *
- * @since 4.0.0
- *
+ * @since  4.0.0
  * @param  int  $post_id Optional. Post ID.
  * @return bool          Whether post has an image attached.
  */
@@ -75,8 +74,7 @@ function cherry_the_post_thumbnail() {
 /**
  * Retrieve the post thumbnail.
  *
- * @since 4.0.0
- *
+ * @since  4.0.0
  * @param  int    $post_id        The post ID.
  * @return string $post_thumbnail The post thumbnail HTML
  */
@@ -170,7 +168,7 @@ function cherry_get_the_post_header() {
 		'url'    => 'permalink',
 		'before' => '',
 		'after'  => '',
-		'wrap'   => is_singular( $post_type ) ? '<header class="entry-header"><div class="%1$s"><%2$s class="%3$s">%5$s</%2$s></div></header>' : '<header class="entry-header"><div class="%1$s"><%2$s class="%3$s"><a href="%4$s" rel="bookmark">%5$s</a></%2$s></div></header>',
+		'wrap'   => is_singular( $post_type ) ? '<header class="entry-header"><%1$s class="%2$s">%4$s</%1$s></header>' : '<header class="entry-header"><%1$s class="%2$s"><a href="%3$s" rel="bookmark">%4$s</a></%1$s></header>',
 	), $post_id, $post_type );
 
 	// OPTIONAL: Declare each item in $args as its own variable.
@@ -199,7 +197,7 @@ function cherry_get_the_post_header() {
 		$url = get_permalink( $post_id );
 	}
 
-	$post_header = sprintf( $wrap, 'entry-header', tag_escape( $tag ), esc_attr( trim( $class ) ), esc_url( $url ), $title );
+	$post_header = sprintf( $wrap, tag_escape( $tag ), esc_attr( trim( $class ) ), esc_url( $url ), $title );
 
 	return $post_header;
 }
@@ -229,13 +227,16 @@ function cherry_get_the_post_meta() {
 	 *
 	 * @since 4.0.0
 	 */
-	$post_meta = apply_filters( 'cherry_get_the_post_meta', __( 'Posted on', 'cherry' ) . ' [entry-published] ' . __( 'by', 'cherry' ) . ' [entry-author] [entry-comments-link] [entry-edit-link]', get_the_ID() );
+	$post_meta = apply_filters( 'cherry_get_the_post_meta',
+		__( 'Posted on', 'cherry' ) . ' [entry-published] ' . __( 'by', 'cherry' ) . ' [entry-author] [entry-comments-link] [entry-edit-link]',
+		get_the_ID()
+	);
 
 	if ( empty( $post_meta ) ) {
 		return;
 	}
 
-	return sprintf( '<div class="entry-meta"><div class="%1$s">%2$s</div></div>', 'entry-meta', $post_meta );
+	return sprintf( '<div class="entry-meta">%s</div>', $post_meta );
 }
 
 /**
@@ -266,9 +267,7 @@ function cherry_the_post_content() {
  */
 function cherry_the_post_excerpt() {
 	echo '<div class="entry-summary">';
-		echo '<div class="' . 'entry-summary' . '">';
-			the_excerpt();
-		echo '</div>';
+		the_excerpt();
 	echo '</div>';
 }
 
@@ -297,13 +296,16 @@ function cherry_get_the_post_footer() {
 	 *
 	 * @since 4.0.0
 	 */
-	$post_info = apply_filters( 'cherry_get_the_post_footer', __( 'Posted in', 'cherry' ) . ' [entry-terms]', get_the_ID() );
+	$post_info = apply_filters( 'cherry_get_the_post_footer',
+		__( 'Posted in', 'cherry' ) . ' [entry-terms]',
+		get_the_ID()
+	);
 
 	if ( empty( $post_info ) ) {
 		return;
 	}
 
-	return sprintf( '<footer class="entry-footer"><div class="%1$s">%2$s</div></footer>', 'entry-footer', $post_info );
+	return sprintf( '<footer class="entry-footer">%s</footer>', $post_info );
 }
 
 /**
