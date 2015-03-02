@@ -575,7 +575,6 @@ class Cherry_Interface_Builder {
 				value: ''
 				default_value: ''
 				item_inline_style: ''
-				display_image: true/false
 				upload_button_text:Choose Image
 				remove_button_text:Remove Image
 				return_data_type:url, id
@@ -585,35 +584,65 @@ class Cherry_Interface_Builder {
 			case 'media':
 				if ($value != '') {
 					$value = str_replace(' ', '', $value);
-					$images = explode(',', $value);
+					$medias = explode(',', $value);
 				}else{
 					$value = '';
-					$images = array();
+					$medias = array();
 				}
-				$img_style = !$value ? 'style="display:none;"' : '' ;
-				$output .= '<div class="cherry-element-wrap">';
-				$output .= '<div class="cherry-uiw">';
-				$output .= '<input ' . $item_inline_style . ' class="cherry-upload-input '.$this->options['class']['text'].'" id="' . $id . '" name="' . $name . '" type="text" value="' . esc_html( $value ) . '" >';
-				$output .= '</div>';
-				$output .= '<div class="cherry-uicw">';
-				$output .= '<input class="upload-button button-default_ '.$this->options['class']['submit'].'" type="button" value="' . $upload_button_text . '" data-title="'.__( 'Choose Media', 'cherry' ).'" data-return-data="'.$return_data_type.'" data-multi-upload="'.$multi_upload.'" data-library-type="'.$library_type.'"/>';
-				$output .= '</div></div>';
 
-				if($display_image){
-					$output .= '<div '.$img_style.' class="cherry-upload-preview" ><div class="cherry-all-images-wrap">';
-					if(is_array($images) && !empty($images)){
-						foreach ($images as $images_key => $images_value) {
-							if($return_data_type == 'url'){
-								$img_src = $images_value;
-							}else{
-								$img_src = wp_get_attachment_image_src( $images_value, 'thumbnail' );
-								$img_src = $img_src[0];
+				$img_style = !$value ? 'style="display:none;"' : '' ;
+					$output .= '<div '.$img_style.' class="cherry-upload-preview" >';
+						$output .= '<div class="cherry-all-images-wrap">';
+							if( is_array( $medias ) && !empty( $medias ) ){
+								foreach ($medias as $medias_key => $medias_value) {
+									$media_title = get_the_title( $medias_value );
+									$mime_type = get_post_mime_type( $medias_value );
+									$tmp = wp_get_attachment_metadata( $medias_value );
+									$img_src = '';
+									$thumb = '';
+
+									switch ($mime_type) {
+										case 'image/jpeg':
+										case 'image/png':
+										case 'image/gif':
+											$img_src = wp_get_attachment_image_src( $medias_value, 'thumbnail' );
+											$img_src = $img_src[0];
+											$thumb = '<img  src="' . esc_html( $img_src ) . '" alt="">';
+											break;
+										case 'video/mpeg':
+										case 'video/mp4':
+										case 'video/quicktime':
+										case 'video/webm':
+										case 'video/ogg':
+												$thumb = '<span class="dashicons dashicons-format-video"></span>';
+											break;
+										case 'audio/mpeg':
+										case 'audio/wav':
+										case 'audio/ogg':
+												$thumb = '<span class="dashicons dashicons-format-audio"></span>';
+											break;
+									}
+									$output .= '<div class="cherry-image-wrap">';
+										$output .= '<div class="inner">';
+											$output .= '<div class="preview-holder"  data-id-attr="' . $medias_value . '">';
+												$output .= $thumb;
+											$output .= '</div>';
+											$output .= '<span class="title">' . $media_title . '</span>';
+											$output .= '<a class="cherry-remove-image" href="#" title=""><i class="dashicons dashicons-no"></i></a>';
+										$output .= '</div>';
+									$output .= '</div>';
+								}
 							}
-							$output .= '<div class="cherry-image-wrap"><img  src="' . esc_html( $img_src ) . '" alt="'.__( 'Current Image', 'cherry' ).'" data-img-attr="'.$images_value.'"><a class="cherry-remove-image" href="#" title=""><i class="dashicons dashicons-no"></i></a></div>';
-						}
-					}
-					$output .= '</div></div>';
-				}
+						$output .= '</div>';
+					$output .= '</div>';
+					$output .= '<div class="cherry-element-wrap">';
+						$output .= '<div class="cherry-uiw">';
+							$output .= '<input ' . $item_inline_style . ' class="cherry-upload-input '.$this->options['class']['text'].'" id="' . $id . '" name="' . $name . '" type="hidden" value="' . esc_html( $value ) . '" >';
+						$output .= '</div>';
+						$output .= '<div class="cherry-uicw">';
+							$output .= '<input class="upload-button button-default_ '.$this->options['class']['submit'].'" type="button" value="' . $upload_button_text . '" data-title="'.__( 'Choose Media', 'cherry' ).'" data-multi-upload="'.$multi_upload.'" data-library-type="'.$library_type.'"/>';
+						$output .= '</div>';
+					$output .= '</div>';
 				add_action( 'admin_footer', array($this, 'include_media_script_style'));
 				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
@@ -735,46 +764,58 @@ class Cherry_Interface_Builder {
 					)
 				);
 				$img_style = !$value['image'] ? 'style="display:none;"' : '' ;
+
+				$output .= $this -> add_label($id . '[image]',  __( 'Background Image', 'cherry' ));
+				$output .= '<div '.$img_style.' class="cherry-element-wrap cherry-upload-preview" >';
+					$img_src = wp_get_attachment_image_src( $value['image'], 'thumbnail' );
+					$img_src = $img_src[0];
+					$thumb = '<img  src="' . esc_html( $img_src ) . '" alt="">';
+					$media_title = get_the_title( $value['image'] );
+
+					$output .= '<div class="cherry-all-images-wrap">';
+						//$output .= '<div class="cherry-image-wrap"><img src="' . esc_html( $img_src ) . '" alt="'.__( 'Current Image', 'cherry' ).'" data-img-attr="'.$value['image'].'"><a class="media-modal-icon cherry-remove-image" href="#" title="' . $remove_button_text . '"></a></div>' ;
+						$output .= '<div class="cherry-image-wrap">';
+										$output .= '<div class="inner">';
+											$output .= '<div class="preview-holder"  data-id-attr="' . $value['image'] . '">';
+												$output .= $thumb;
+											$output .= '</div>';
+											$output .= '<span class="title">' . $media_title . '</span>';
+											$output .= '<a class="cherry-remove-image" href="#" title=""><i class="dashicons dashicons-no"></i></a>';
+										$output .= '</div>';
+									$output .= '</div>';
+					$output .= '</div>';
+				$output .= '</div>';
+
+				$output .= '<div class="cherry-element-wrap">';
+					$output .= '<div class="cherry-uiw">';
+						$output .= '<input class="cherry-upload cherry-upload-input '.$this->options['class']['text'].'" id="' . $id . '[image]" name="' . $name . '[image]" type="hidden" value="' . esc_html( $value['image'] ) . '" >';
+					$output .= '</div>';
+					$output .= '<div class="cherry-uicw">';
+						$output .= '<input class="upload-button button-default_ '.$this->options['class']['submit'].'" type="button" value="' . esc_html( $upload_button_text ) . '" data-title="'.__( 'Choose Image', 'cherry' ).'" data-return-data="'.$return_data_type.'" data-library-type="'.$library_type.'">';
+					$output .= '</div>';
+				$output .= '</div>';
+
 				$output .= '<div class="cherry-ebm">';
 					$output .= $this -> add_label($id . '[color]',  __( 'Background Color', 'cherry' ), $this->options['class']['label'].' cherry-block');
 					$output .= '<input id="' . $id . '[color]" name="' . $name . '[color]" value="' . esc_html( $value['color'] ) . '" class="cherry-color-picker" type="text" />';
 				$output .= '</div>';
-				$output .= $this -> add_label($id . '[image]',  __( 'Background Image', 'cherry' ));
-				$output .= '<div class="cherry-element-wrap">';
-					$output .= '<div class="cherry-uiw">';
-						$output .= '<input class="cherry-upload cherry-upload-input '.$this->options['class']['text'].'" id="' . $id . '[image]" name="' . $name . '[image]" type="text" value="' . esc_html( $value['image'] ) . '" >';
-					$output .= '</div>';
-					$output .= '<div class="cherry-uicw">';
-						$output .= '<input class="upload-button button-default_ '.$this->options['class']['submit'].'" type="button" value="' . esc_html( $upload_button_text ) . '" data-title="'.__( 'Choose Image', 'cherry' ).'" data-return-data="'.$return_data_type.'" />';
-					$output .= '</div>';
-				$output .= '</div>';
-				$output .= '<div '.$img_style.' class="cherry-element-wrap cherry-upload-preview" >';
-					$output .= '<div class="cherry-group">';
-						$output .= $this -> add_label($id,  __( 'Background Settings', 'cherry' ), $this->options['class']['label'].' cherry-block');
-						foreach ($background_options as $options_key => $options_settings) {
-							if( isset( $value[$options_key] ) ){
-								$output .= '<div class="cherry-bgsetting">';
-									$label = sprintf( __( 'Background %s', 'cherry' ), $options_key );
-									$output .= $this->add_label( $id . '['. $options_key .']', $label, $this->options['class']['label'] . ' cherry-block');
-									$output .= '<select class="widefat'.$this->options['class']['section'].'" id="' . $id . '['.$options_key.']" name="' . $name . '['.$options_key.']">';
-										foreach ($options_settings as $option => $option_value) {
-											$output .= '<option value="'.$option.'" ' . selected( $value[$options_key], $option, false ) . '>' . esc_html( $option_value ). '</option>';
-										}
-									$output .= '</select>';
-								$output .= '</div>';
-							}
+
+				$output .= '<div class="cherry-group">';
+					$output .= $this -> add_label($id,  __( 'Background Settings', 'cherry' ), $this->options['class']['label'].' cherry-block');
+					foreach ($background_options as $options_key => $options_settings) {
+						if( isset( $value[$options_key] ) ){
+							$output .= '<div class="cherry-bgsetting">';
+								$label = sprintf( __( 'Background %s', 'cherry' ), $options_key );
+								$output .= $this->add_label( $id . '['. $options_key .']', $label, $this->options['class']['label'] . ' cherry-block');
+								$output .= '<select class="widefat'.$this->options['class']['section'].'" id="' . $id . '['.$options_key.']" name="' . $name . '['.$options_key.']">';
+									foreach ($options_settings as $option => $option_value) {
+										$output .= '<option value="'.$option.'" ' . selected( $value[$options_key], $option, false ) . '>' . esc_html( $option_value ). '</option>';
+									}
+								$output .= '</select>';
+							$output .= '</div>';
 						}
-						$output .= '<div class="clear"></div>';
-					$output .= '</div>';
-				if($return_data_type == 'url'){
-					$img_src = $value['image'];
-				}else{
-					$img_src = wp_get_attachment_image_src( $value['image'] );
-					$img_src = $img_src[0];
-				}
-					$output .= '<div class="cherry-all-images-wrap">';
-						$output .= $display_image ? '<div class="cherry-image-wrap"><img src="' . esc_html( $img_src ) . '" alt="'.__( 'Current Image', 'cherry' ).'" data-img-attr="'.$value['image'].'"><a class="media-modal-icon cherry-remove-image" href="#" title="' . $remove_button_text . '"></a></div>' : '' ;
-					$output .= '</div>';
+					}
+					$output .= '<div class="clear"></div>';
 				$output .= '</div>';
 
 				add_action( 'admin_footer', array($this, 'include_colorpicker_script_style'));
@@ -818,9 +859,8 @@ class Cherry_Interface_Builder {
 					'justify'    => __( 'Justify', 'cherry' )
 				);
 
-				$output .= '<div class="cherry-typography">';
+				$output .= '<div>';
 				$output .= '<div class="cherry-type-wrap">';
-
 					//Font Family
 					$font_array = $this->get_google_font();
 					$character_array = array();

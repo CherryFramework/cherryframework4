@@ -45,7 +45,6 @@
 		.cherry-element-wrap{
 			position: relative;
 			overflow: hidden;
-			margin-bottom: 10px;
 				.cherry-stepper-input{
 					max-width: 100px;
 				}
@@ -362,7 +361,7 @@
 				width: 100%;
 				height: 70px;
 				margin-bottom: 10px;
-				border: 1px solid #8BC735;
+				border: 1px dashed #8BC735;
 				border-radius: 6px;
 				background: rgba(139, 199, 53, 0.3);
 				box-sizing:  border-box;
@@ -466,41 +465,65 @@
 		/*Cherry upload image style*/
 		.cherry-upload-preview{
 			display: block;
-			margin-left: -10px;
+			margin-bottom: 10px;
 			.cherry-image-wrap{
 				position: relative;
-				margin-left: 10px;
-				padding-bottom: 5px;
 				display: inline-block;
 				vertical-align: top;
-				img{
-					max-width: 100px;
-					height: auto;
-					padding: 5px;
-					border: 1px solid #B4B4B4;
-					background: #fff;
+				width: 160px;
+				height: 160px;
+				.inner{
+					width: 150px;
+					height: 150px;
+					margin: 5px;
+					position: relative;
+					border: 1px solid #bababa;
+					.preview-holder{
+						width: 100%;
+						height: 100%;
+						position: relative;
+						background: #eee;
+						box-sizing: border-box;
+							img{
+								width: 100%;
+								height: auto;
+							}
+							span{
+								width: auto;
+								height: auto;
+								font-size: 60px;
+								margin: 45px;
+							}
+					}
+					.title{
+						position: absolute;
+						width: 100%;
+						padding: 5px 0;
+						bottom: 0;
+						left: 0;
+						color: #464646;
+						background: rgba(255, 255, 255, 0.6);
+						text-align: center;
+						font-size: 10px;
+					}
 				}
 			}
-			& .cherry-label + .cherry-bgsetting{
-				margin-left: 0%;
+			.cherry-media-thumb-sortable-placeholder{
+				width: 148px;
+				height: 148px;
+				margin: 5px;
+				vertical-align: top;
+				border: 1px dotted #8bc735;
+				display: inline-block;
+				background-color: rgba(139, 199, 53, 0.3);
 			}
 		}
 		.cherry-uiw{
-			margin-right: 125px;
-			padding-top: 1px;
-			@media screen and (max-width: 782px){
-				margin-right: 0px;
-			}
+
 		}
 		.cherry-uicw{
-			/*width: 108px;*/
-			position: absolute;
-			top: 0;
-			right: 2px;
-
-			@media screen and (max-width: 782px){
-				position:relative;
-				width: 100%;
+			.upload-button{
+				float: right;
 			}
 		}
 		.cherry-remove-image{
@@ -511,10 +534,10 @@
 			background-position: -58px 2px;
 			display: block;
 			border-radius: 20px;
-			border: 1px solid #f62e46;
+			border: 2px solid #f62e46;
 			position: absolute;
-			top: -5px;
-			right: -5px;
+			top: 2px;
+			right: 2px;
 			cursor: pointer;
 			text-decoration: none;
 			outline: 0;
@@ -797,15 +820,7 @@
 		border: none;
 	}
 }
-.cherry-media-thumb-sortable-placeholder{
-	width: 100px;
-	height: 100px;
-	padding: 5px;
-	border: 1px solid #B4B4B4;
-	display: inline-block;
-	margin-left: 10px;
-	background-color: #fff;
-}
+
 body{
 	.custom-tooltip-styling{
 		border-width: 1px;
