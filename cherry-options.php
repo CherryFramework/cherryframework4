@@ -2139,21 +2139,18 @@ function cherry_defaults_settings() {
 	$sections_array['demo-options-section'] = array(
 		'name'			=> 'All interface elements',
 		'icon'			=> 'dashicons dashicons-carrot',
-		//'parent'		=> '',
 		'priority'		=> 1,
 		'options-list'	=> $demo_options
 	);
 	$sections_array['general-options-section'] = array(
 		'name'			=> 'General',
 		'icon' 			=> 'dashicons dashicons-admin-generic',
-		//'parent'		=> '',
 		'priority'		=> 10,
 		'options-list'	=> $general_options
 	);
 	$sections_array['grid-options-section'] = array(
 		'name'			=> 'Grid',
 		'icon'			=> 'dashicons dashicons-admin-appearance',
-		//'parent'		=> '',
 		'priority'		=> 20,
 		'options-list'	=> $grid_options
 	);
@@ -2174,7 +2171,6 @@ function cherry_defaults_settings() {
 	$sections_array['styling-options-section'] = array(
 		'name' 			=> 'Styling',
 		'icon' 			=> 'dashicons dashicons-art',
-		//'parent'		=> '',
 		'priority'		=> 30,
 		'options-list'	=> $styling_options
 	);
@@ -2190,7 +2186,6 @@ function cherry_defaults_settings() {
 	$sections_array['navigation-options-section'] = array(
 		'name'			=> 'Navigation',
 		'icon' 			=> 'dashicons dashicons-menu',
-		//'parent' 		=> '',
 		'priority'		=> 40,
 		'options-list'	=> $navigation_options
 	);
@@ -2211,7 +2206,6 @@ function cherry_defaults_settings() {
 	$sections_array['header-options-section'] = array(
 		'name'			=> 'Header',
 		'icon'			=> 'dashicons dashicons-admin-appearance',
-		//'parent'		=> '',
 		'priority'		=> 50,
 		'options-list'	=> $header_options
 	);
@@ -2225,14 +2219,12 @@ function cherry_defaults_settings() {
 	$sections_array['footer-options-section'] = array(
 		'name' 			=> 'Footer',
 		'icon' 			=> 'dashicons dashicons-admin-appearance',
-		//'parent' 		=> '',
 		'priority'		=> 60,
 		'options-list'	=> $footer_options
 	);
 	$sections_array['typography-options-section'] = array(
 		'name' => 'Typography',
 		'icon' => 'dashicons dashicons-admin-generic',
-		//'parent' => '',
 		'priority' => 70,
 		'options-list' => $typography_options
 	);

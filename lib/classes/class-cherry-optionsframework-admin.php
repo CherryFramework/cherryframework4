@@ -182,7 +182,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		private function child_priority_sorting($base_array) {
 			foreach ($base_array as $sectionName => $sectionSettings) {
 				$section = $sectionName;
-				$parent = isset( $sectionSettings['parent'] ) ? $sectionSettings['parent'] : '';
+				$parent = !empty( $sectionSettings['parent'] ) ? $sectionSettings['parent'] : '';
 				if($parent !== ''){
 					$tmpPriority = $base_array[$parent]['priority']+1;
 					$base_array[$section]['priority'] = $tmpPriority;
@@ -246,9 +246,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 								<ul class="vertical-tabs_ vertical-tabs_width_mid_">
 									<?php
 									foreach ($cherry_options as $section_key => $section_value) {
-										isset( $section_value["parent"] ) ? $subClass = 'subitem' : $subClass = '';
+										$parent = !empty( $section_value['parent'] ) ? $section_value['parent'] : '';
+										( $parent !== '') ? $subClass = 'subitem' : $subClass = '';
 										$priority_value = $section_value['priority']; ?>
-										<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo isset( $section_value["parent"] ) ? $subClass = 'subitem' : $subClass = ''; ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
+										<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $parent ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
 
 									<?php $section_index++; } ?>
 								</ul>
