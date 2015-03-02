@@ -831,7 +831,7 @@ class Cherry_Interface_Builder {
 				default_value: ''
 			*/
 			case 'info':
-				$output .= '<div class="main-title_">' . $value . '</div>';
+				$output .= '<div class="main-title_">' . $this->add_title( $value ) . '</div>';
 			break;
 			/*
 			arg:
