@@ -2131,113 +2131,6 @@ function cherry_defaults_settings() {
 */
 
 
-
-//////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////// Social options /////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-$social_options = array();
-	$social_options['social-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=>'<h2>Social settings</h2>'
-	);
-
-	$social_options['social-comments'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Comments via social accounts',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Parallax background on main container',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-
-	$social_options['social-sharing'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Social sharing ',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-
-	$social_options['social-sharing-items'] = array(
-				'type'			=> 'multicheckbox',
-				'title'			=> 'Sharing items',
-				'decsription'	=> 'decsription multicheckbox',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'class'			=> '',
-				'value'			=> array(
-					'google_sharing'	=> true,
-					'facebook_sharing'	=> true,
-					'twitter_sharing'	=> true,
-					'pinterest_sharing'	=> true,
-					'linkedin_sharing'	=> true,
-				),
-
-				'options'		=> array(
-					'google_sharing'	=> 'Google +',
-					'facebook_sharing'	=> 'Facebook',
-					'twitter_sharing'	=> 'Twitter',
-					'pinterest_sharing'	=> 'Pinterest',
-					'linkedin_sharing'	=> 'LinkedIn',
-				)
-	);
-
-	//Sharing button location editor
-
-	$social_options['social_login'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Social login',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-
-	$social_options['social_registration'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Social login',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-	$social_options['cache_duration'] = array(
-				'type'			=> 'slider',
-				'title'			=> 'Cache Duration',
-				'decsription'	=> 'How long messages will be fetched from cache, not from social networks',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'in seconds, empty value for default. 0 value means no cache at all (use it only if you use cache for a whole site)'
-				),
-				'max_value'		=> 86400,
-				'min_value'		=> 0,
-				'value'			=> 3600
-	);
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2349,13 +2242,6 @@ $social_options = array();
 		'parent'		=> 'typography-options-section',
 		'priority'		=> 71,
 		'options-list'	=> $lists_options
-	);
-	$sections_array['social-options-section'] = array(
-		'name' => 'Social',
-		'icon' => 'dashicons dashicons-admin-generic',
-		'parent' => '',
-		'priority' => 80,
-		'options-list' => $social_options
 	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );

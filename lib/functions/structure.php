@@ -111,26 +111,24 @@ function cherry_content_sidebar_wrap_close( $sidebar ) {
 function cherry_post_structure_loop( $template_name = '' ) {
 	$post_type = get_post_type();
 
-	if ( '' === $template_name ) {
+	if ( '' === $template_name ) :
 
-		if ( post_type_supports( $post_type, 'post-formats' ) ) :
-
+		if ( post_type_supports( $post_type, 'post-formats' ) ) {
 			$template_name = ( get_post_format( get_the_ID() ) ) ? get_post_format( get_the_ID() ) : 'standard';
-
-		else :
-
+		} else {
 			$template_name = apply_filters( 'cherry_default_content_template', 'content', $post_type );
+		}
 
-		endif;
+	endif;
 
-	}
-
-	$structure_elements = apply_filters( 'cherry_post_structure_loop', array( 'header', 'meta', 'excerpt' ), $template_name, $post_type );
+	$structure_elements = apply_filters( 'cherry_post_structure_loop',
+		array( 'header', 'meta', 'excerpt' ),
+		$template_name,
+		$post_type
+	);
 
 	foreach ( $structure_elements as $element ) {
-
 		call_user_func( apply_filters( 'cherry_post_call_user_func', "cherry_the_post_{$element}", $element ) );
-
 	}
 }
 
@@ -144,26 +142,24 @@ function cherry_post_structure_loop( $template_name = '' ) {
 function cherry_post_structure_single( $template_name = '' ) {
 	$post_type = get_post_type();
 
-	if ( '' === $template_name ) {
+	if ( '' === $template_name ) :
 
-		if ( post_type_supports( $post_type, 'post-formats' ) ) :
-
+		if ( post_type_supports( $post_type, 'post-formats' ) ) {
 			$template_name = ( get_post_format( get_the_ID() ) ) ? get_post_format( get_the_ID() ) : 'standard';
-
-		else :
-
+		} else {
 			$template_name = apply_filters( 'cherry_default_content_template', 'content', $post_type );
+		}
 
-		endif;
+	endif;
 
-	}
-
-	$structure_elements = apply_filters( 'cherry_post_structure_single', array( 'header', 'meta', 'content', 'footer' ), $template_name, $post_type );
+	$structure_elements = apply_filters( 'cherry_post_structure_single',
+		array( 'header', 'meta', 'content', 'footer' ),
+		$template_name,
+		$post_type
+	);
 
 	foreach ( $structure_elements as $element ) {
-
 		call_user_func( apply_filters( 'cherry_post_call_user_func', "cherry_the_post_{$element}", $element ) );
-
 	}
 }
 
@@ -284,17 +280,11 @@ function cherry_get_attachment_metadata( $post_id = 0, $echo = true ) {
 	$post_id = ( $post_id ) ? $post_id : get_the_ID();
 
 	if ( wp_attachment_is_image( $post_id ) ) {
-
 		$type = 'image';
-
 	} elseif ( cherry_attachment_is_audio( $post_id ) ) {
-
 		$type = 'audio';
-
 	} elseif ( cherry_attachment_is_video( $post_id ) ) {
-
 		$type = 'video';
-
 	}
 
 	// Get the attachment metadata.
@@ -306,7 +296,7 @@ function cherry_get_attachment_metadata( $post_id = 0, $echo = true ) {
 
 	if ( is_array( $metadata ) ) :
 
-		if ( function_exists("cherry_{$type}_meta") ) :
+		if ( function_exists( "cherry_{$type}_meta" ) ) :
 
 			$items = call_user_func( "cherry_{$type}_meta", $post_id, $metadata );
 
@@ -319,25 +309,27 @@ function cherry_get_attachment_metadata( $post_id = 0, $echo = true ) {
 	endif;
 
 	if ( isset( $items ) && !empty( $items ) ) {
-
 		$display = '';
 
 		foreach ( $items as $item ) {
 
-			$display .= sprintf( '<li><span class="prep">%1$s</span> <span class="data">%2$s</span></li>', $item[1], $item[0] );
+			$display .= sprintf( '<li><span class="prep">%1$s</span> <span class="data">%2$s</span></li>',
+				$item[1],
+				$item[0]
+			);
 
 		}
 
 		$display = '<ul class="media-meta">' . $display . '</ul>';
-
 	}
 
 	if ( isset( $display ) ) {
-
 		$title = sprintf( __( '%s Info', 'cherry' ), $type );
 
-		printf( '<div class="attachment-meta"><div class="media-info"><h3 class="media-title">%1$s</h3>%2$s</div></div>', $title, $display );
-
+		printf( '<div class="attachment-meta"><div class="media-info"><h3 class="media-title">%1$s</h3>%2$s</div></div>',
+			$title,
+			$display
+		);
 	}
 
 }

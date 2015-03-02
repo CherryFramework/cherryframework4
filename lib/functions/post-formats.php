@@ -112,14 +112,10 @@ function cherry_post_audio_excerpt( $excerpt ) {
 	if ( has_post_format( 'audio' ) && !post_password_required() ) :
 
 		if ( has_excerpt() ) {
-
 			return $excerpt;
-
 		} else {
-
 			$excerpt = '';
 			the_content();
-
 		}
 
 	endif;
@@ -177,8 +173,8 @@ function cherry_link_header( $args ) {
 
 		$args['wrap']  = apply_filters( 'cherry_link_header_wrap',
 			is_singular( $post_type ) ?
-			'<header class="entry-header"><%2$s class="%1$s">%5$s</%2$s></header>' :
-			'<header class="entry-header"><%2$s class="%1$s"><a href="%4$s" rel="bookmark" target="_blank">%4$s</a></%2$s></header>'
+			'<header class="entry-header"><%1$s class="%2$s">%4$s</%1$s></header>' :
+			'<header class="entry-header"><%1$s class="%2$s"><a href="%3$s" rel="bookmark" target="_blank">%4$s</a></%1$s></header>'
 		);
 
 	endif;
@@ -224,8 +220,9 @@ function cherry_quote_content( $content ) {
 	if ( has_post_format( 'quote' ) && !post_password_required() ) {
 		preg_match( '/<blockquote.*?>/', $content, $matches );
 
-		if ( empty( $matches ) )
+		if ( empty( $matches ) ) {
 			$content = "<blockquote>{$content}</blockquote>";
+		}
 	}
 
 	return $content;
@@ -271,11 +268,9 @@ function cherry_status_header( $args ) {
 
 	if ( has_post_format( 'status' ) ) :
 
-		if ( !get_option( 'show_avatars' ) ) : // If avatars are enabled.
-
+		if ( !get_option( 'show_avatars' ) ) { // If avatars are enabled.
 			return false;
-
-		else :
+		} else {
 
 			$avatar     = get_avatar( get_the_author_meta( 'email' ) );
 			$title_attr = esc_attr( the_title_attribute( 'echo=0' ) );
@@ -286,7 +281,7 @@ function cherry_status_header( $args ) {
 				'<header class="entry-header"><a href="%3$s" title="' . $title_attr . '">' . $avatar . '</a></header>'
 			);
 
-		endif;
+		}
 
 	endif;
 
@@ -333,14 +328,10 @@ function cherry_post_video_excerpt( $excerpt ) {
 	if ( has_post_format( 'video' ) && !post_password_required() ) :
 
 		if ( has_excerpt() ) {
-
 			return $excerpt;
-
 		} else {
-
 			$excerpt = '';
 			the_content();
-
 		}
 
 	endif;
