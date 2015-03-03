@@ -181,11 +181,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		private function child_priority_sorting($base_array) {
 			foreach ($base_array as $sectionName => $sectionSettings) {
-				$section = $sectionName;
 				$parent = !empty( $sectionSettings['parent'] ) ? $sectionSettings['parent'] : '';
 				if($parent !== ''){
 					$tmpPriority = $base_array[$parent]['priority']+1;
-					$base_array[$section]['priority'] = $tmpPriority;
+					$base_array[$sectionName]['priority'] = $tmpPriority;
 
 				}
 			}
@@ -238,7 +237,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 						<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
 					</div>
 					<?php settings_errors( 'cherry-options-group' ); ?>
-
 						<form id="cherry-options" class="cherry-ui-core" method="post">
 							<?php settings_fields( 'cherry-options-group' ); ?>
 							<input class="active-section-field" type="hidden" name="active_section" value="">
@@ -255,8 +253,11 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 								</ul>
 								<div class="cherry-option-group-list">
 									<?php
-									foreach ($cherry_options as $section_key => $section_value) { ?>
-										<div class="options-group"><?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?></div>
+									foreach ($cherry_options as $section_key => $section_value) {?>
+										<div class="options-group">
+											<div class="group-name"><span><?php echo $section_value[ 'name' ] ?></span></div>
+											<?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?>
+										</div>
 									<?php } ?>
 								</div>
 							</div>

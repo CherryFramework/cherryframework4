@@ -7,12 +7,6 @@ function cherry_defaults_settings() {
 	//var_dump($all_statics);
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
-	$demo_options['title-demo'] = array(
-				'type'			=> 'info',
-				'title'			=> '',
-				'decsription'	=> 'decsription info',
-				'value'			=> 'Demo options'
-	);
 	$demo_options['repeater-demo'] = array(
 				'type'			=> 'repeater',
 				'title'			=> 'repeater text',
@@ -118,7 +112,6 @@ function cherry_defaults_settings() {
 				),
 				'placeholder'	=> 'Select value',
 				'value'			=> array('select-1','select-8'),
-				'default_value'	=> array('select-1','select-8'),
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'Item 1',
@@ -141,7 +134,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'true',
-				'default_value'	=> 'true'
 	);
 	$demo_options['switcher-demo'] = array(
 				'type'			=> 'switcher',
@@ -210,16 +202,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'class'			=> '',
-				'value'			=> array(
-					'checkbox-1'	=> true,
-					'checkbox-2'	=> false,
-					'checkbox-3'	=> true
-				),
-				'default_value'	=> array(
-					'checkbox-1'	=> false,
-					'checkbox-2'	=> true,
-					'checkbox-3'	=> true
-				),
+				'value'			=> array( 'checkbox-2', 'checkbox-3' ),
 				'options'		=> array(
 					'checkbox-1'	=> 'checkbox 1',
 					'checkbox-2'	=> 'checkbox 2',
@@ -527,12 +510,6 @@ function cherry_defaults_settings() {
 /////////////////////////////////// Footer options /////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$footer_options = array();
-	$footer_options['footer-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=> 'Footer options'
-	);
 	$footer_options['footer-background'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Footer background',
@@ -578,12 +555,6 @@ function cherry_defaults_settings() {
 ////////////////////////////////// Grid options /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	$grid_options = array();
-	$grid_options['grid-options'] = array(
-		'type'        => 'info',
-		'title'       => '',
-		'decsription' => 'decsription info',
-		'value'       => '<h2>Grid Options</h2>',
-	);
 	$grid_options['grid-responsive'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'Responsive grid',
@@ -620,422 +591,392 @@ function cherry_defaults_settings() {
 			),
 		),
 	);
-
-
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// Page layout options ////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-		$page_layout_options = array();
-		$page_layout_options['page-layout-options'] = array(
-				'type' => 'info',
-				'value' =>'<h2>Page layouts</h2>',
-		);
-
-		$page_layout_options['page-layout-container-width'] = array(
-			'type' => 'slider',
-			'title' => __( 'Container width', 'cherry' ),
-			'decsription' => __( 'Width of main container (px)', 'cherry' ),
-			'hint' => array(
+	$page_layout_options = array();
+	$page_layout_options['page-layout-container-width'] = array(
+		'type' => 'slider',
+		'title' => __( 'Container width', 'cherry' ),
+		'decsription' => __( 'Width of main container (px)', 'cherry' ),
+		'hint' => array(
 			'type' => 'text',
 			'content' => __( 'Width of main container (px)', 'cherry' ),
 		),
-			'max_value' => 1920, // Full HD
-			'min_value' => 970,
-			'value' => 1170,
-		);
-		$page_layout_options['page-layout-type'] = array(
-			'type'	=> 'radio',
-			'title'	=> __('Header type layout', 'cherry'),
-			'label'	=> __('Header type layout', 'cherry'),
-			'decsription'	=> __('Choose header type layout.', 'cherry'),
-			'value'	=> 'header-type-layout-radio-1',
-			'default-value'	=> 'header-type-layout-radio-1',
-			'class'	=> '',
-			'display_input'	=> false,
-			'options'	=> array(
+		'max_value' => 1920, // Full HD
+		'min_value' => 970,
+		'value' => 1170,
+	);
+	$page_layout_options['page-layout-type'] = array(
+		'type'	=> 'radio',
+		'title'	=> __('Header type layout', 'cherry'),
+		'label'	=> __('Header type layout', 'cherry'),
+		'decsription'	=> __('Choose header type layout.', 'cherry'),
+		'value'	=> 'header-type-layout-radio-1',
+		'default-value'	=> 'header-type-layout-radio-1',
+		'class'	=> '',
+		'display_input'	=> false,
+		'options'	=> array(
 			'header-type-layout-radio-1' => array(
-			'label' => 'Top static',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
+				'label' => 'Top static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
 			),
 			'header-type-layout-radio-2' => array(
-			'label' => 'Left static',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
+				'label' => 'Left static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
 			),
 			'header-type-layout-radio-3' => array(
-			'label' => 'Right static',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
+				'label' => 'Right static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
 			),
 			'header-type-layout-radio-4' => array(
-			'label' => 'Top toogle',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
+				'label' => 'Top toogle',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
 			),
 			'header-type-layout-radio-5' => array(
-			'label' => 'Left toogle',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
+				'label' => 'Left toogle',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
 			),
 			'header-type-layout-radio-6' => array(
-			'label' => 'Right toogle',
-			'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
+				'label' => 'Right toogle',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
 			)
 		)
-		);
-
+	);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// Blog layout options ////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
-
-		$blog_options = array();
-		$blog_options['blog-options'] = array(
-				'type'  => 'info',
-				'value' =>'<h2>Blog settings</h2>',
-		);
-
-		$blog_options['blog-page-layout'] = array(
-			'type'          => 'radio',
-			'title'         => __( 'Blog page layout', 'cherry' ),
-			'label'         => __( 'Blog page layout', 'cherry' ),
-			'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-			'value'         => '1-right',
-			'default-value' => '1-right',
-			'class'         => '',
-			'display_input' => false,
-			'options'       => array(
-				'1-left-2-right' => array(
-					'label'   => __( 'Left and right sidebar', 'cherry' ),
-					'img_src' => CHERRY_URI . '/admin/assets/images/layout-both-sidebar.png',
-				),
-				'1-left' => array(
-					'label'   => __( 'Left sidebar', 'cherry' ),
-					'img_src' => CHERRY_URI . '/admin/assets/images/layout-left-sidebar.png',
-				),
-				'1-right' => array(
-					'label'   => __( 'Right sidebar', 'cherry' ),
-					'img_src' => CHERRY_URI . '/admin/assets/images/layout-right-sidebar.png',
-				),
-				'1-left-2-left' => array(
-					'label'   => __( 'Sameside left sidebar', 'cherry' ),
-					'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-left-sidebar.png',
-				),
-				'1-right-2-right' => array(
-					'label'   => __( 'Sameside right sidebar', 'cherry' ),
-					'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-right-sidebar.png',
-				),
-				'no-sidebar' => array(
-					'label'   => __( 'No sidebar', 'cherry' ),
-					'img_src' => CHERRY_URI . '/admin/assets/images/layout-fullwidth.png',
-				),
+	$blog_options = array();
+	$blog_options['blog-page-layout'] = array(
+		'type'          => 'radio',
+		'title'         => __( 'Blog page layout', 'cherry' ),
+		'label'         => __( 'Blog page layout', 'cherry' ),
+		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
+		'value'         => '1-right',
+		'default-value' => '1-right',
+		'class'         => '',
+		'display_input' => false,
+		'options'       => array(
+			'1-left-2-right' => array(
+				'label'   => __( 'Left and right sidebar', 'cherry' ),
+				'img_src' => CHERRY_URI . '/admin/assets/images/layout-both-sidebar.png',
+			),
+			'1-left' => array(
+				'label'   => __( 'Left sidebar', 'cherry' ),
+				'img_src' => CHERRY_URI . '/admin/assets/images/layout-left-sidebar.png',
+			),
+			'1-right' => array(
+				'label'   => __( 'Right sidebar', 'cherry' ),
+				'img_src' => CHERRY_URI . '/admin/assets/images/layout-right-sidebar.png',
+			),
+			'1-left-2-left' => array(
+				'label'   => __( 'Sameside left sidebar', 'cherry' ),
+				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-left-sidebar.png',
+			),
+			'1-right-2-right' => array(
+				'label'   => __( 'Sameside right sidebar', 'cherry' ),
+				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-right-sidebar.png',
+			),
+			'no-sidebar' => array(
+				'label'   => __( 'No sidebar', 'cherry' ),
+				'img_src' => CHERRY_URI . '/admin/assets/images/layout-fullwidth.png',
+			),
+		)
+	);
+	$blog_options['blog-layout-options'] = array(
+		'type'          => 'radio',
+		'title'         => __( 'Blog list layout', 'cherry' ),
+		'label'         => __( 'Blog list layout', 'cherry' ),
+		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
+		'value'         => 'header-type-layout-radio-1',
+		'default-value' => 'header-type-layout-radio-1',
+		'class'         => '',
+		'display_input' => false,
+		'options'       => array(
+			'header-type-layout-radio-1' => array(
+				'label'   => 'Top static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png',
+			),
+			'header-type-layout-radio-2' => array(
+				'label'   => 'Left static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png',
+			),
+			'header-type-layout-radio-3' => array(
+				'label'   => 'Right static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png',
+			),
+			'header-type-layout-radio-4' => array(
+				'label'   => 'Top toogle',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png',
+			),
+			'header-type-layout-radio-5' => array(
+				'label'   => 'Left toogle',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png',
+			),
+			'header-type-layout-radio-6' => array(
+				'label'   => 'Right toogle',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png',
 			)
-		);
-
-		$blog_options['blog-layout-options'] = array(
-			'type'          => 'radio',
-			'title'         => __( 'Blog list layout', 'cherry' ),
-			'label'         => __( 'Blog list layout', 'cherry' ),
-			'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-			'value'         => 'header-type-layout-radio-1',
-			'default-value' => 'header-type-layout-radio-1',
-			'class'         => '',
-			'display_input' => false,
-			'options'       => array(
-				'header-type-layout-radio-1' => array(
-					'label'   => 'Top static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png',
-				),
-				'header-type-layout-radio-2' => array(
-					'label'   => 'Left static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png',
-				),
-				'header-type-layout-radio-3' => array(
-					'label'   => 'Right static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png',
-				),
-				'header-type-layout-radio-4' => array(
-					'label'   => 'Top toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png',
-				),
-				'header-type-layout-radio-5' => array(
-					'label'   => 'Left toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png',
-				),
-				'header-type-layout-radio-6' => array(
-					'label'   => 'Right toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png',
-				)
-			)
-		);
-
-		$blog_options['blog-button-text'] = array(
-			'type'        => 'text',
-			'title'       => 'title text',
-			'label'       => '',
-			'decsription' => 'Button text for blog posts.',
-			'hint'        => array(
-				'type'    => 'image',
-				'content' => PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
-			),
-			'value' => 'Read more',
-		);
-
-		$blog_options['blog-social-sharing'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Social networks sharing buttons',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Activate this to enable social sharing buttons on your blog posts',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
-
-		$blog_options['blog-comments'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Comment hide',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Enabling this option will hide comments on blog List',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'false',
-			'default_value' => 'false',
-		);
-
+		)
+	);
+	$blog_options['blog-button-text'] = array(
+		'type'        => 'text',
+		'title'       => 'title text',
+		'label'       => '',
+		'decsription' => 'Button text for blog posts.',
+		'hint'        => array(
+			'type'    => 'image',
+			'content' => PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
+		),
+		'value' => 'Read more',
+	);
+	$blog_options['blog-social-sharing'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Social networks sharing buttons',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Activate this to enable social sharing buttons on your blog posts',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
+	$blog_options['blog-comments'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Comment hide',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Enabling this option will hide comments on blog List',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'false',
+		'default_value' => 'false',
+	);
 
 ///////////////////////////////////Blog image size
+	$blog_options['blog-images-page-scroll'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Should images be uploaded on page scroll?',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'You can enable images load only as you scroll down the page. Otherwise images will load all at once.',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-images-page-scroll'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Should images be uploaded on page scroll?',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'You can enable images load only as you scroll down the page. Otherwise images will load all at once.',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-button-text'] = array(
+		'type'        => 'text',
+		'title'       => 'title text',
+		'label'       => '',
+		'decsription' => 'Button text for blog posts.',
+		'hint'        => array(
+			'type'    => 'image',
+			'content' => PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
+		),
+		'value' => 'Read more',
+	);
 
-		$blog_options['blog-button-text'] = array(
-			'type'        => 'text',
-			'title'       => 'title text',
-			'label'       => '',
-			'decsription' => 'Button text for blog posts.',
-			'hint'        => array(
-				'type'    => 'image',
-				'content' => PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
+	$blog_options['blog-meta-info'] = array(
+		'type'			=> 'radio',
+		'title'			=> 'view meta of the blog.',
+		'label'			=> 'choose one of them',
+		'decsription'	=> '',
+		'hint'      	=> array(
+			'type'    => 'text',
+			'content' => 'Select meta block type which will be displayed on blog and post pages.',
+		),
+		'value'         => 'radio-2',
+		'default_value' => 'radio-1',
+		'class'         => '',
+		'display-input' => true,
+		'options'       => array(
+			'radio-1' => array(
+				'label'   => 'Do not show.',
+				'img_src' => '',
 			),
-			'value' => 'Read more',
-		);
+			'radio-2' => array(
+				'label'   => 'Lines',
+				'img_src' => '',
+			),
+			'radio-3' => array(
+				'label'   => 'Icons',
+				'img_src' => '',
+			),
+		)
+	);
 
-		$blog_options['blog-meta-info'] = array(
-			'type'			=> 'radio',
-			'title'			=> 'view meta of the blog.',
-			'label'			=> 'choose one of them',
-			'decsription'	=> '',
-			'hint'      	=> array(
-				'type'    => 'text',
-				'content' => 'Select meta block type which will be displayed on blog and post pages.',
+	$blog_options['blog-display-meta'] = array(
+		'type'        => 'radio',
+		'title'       => 'Display meta.',
+		'label'       => 'choose one of them',
+		'decsription' => '',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => 'Select where to display meta block.',
+		),
+		'value'         => 'radio-2',
+		'default_value' => 'radio-1',
+		'class'         => '',
+		'display-input' => true,
+		'options'       => array(
+			'radio-1' => array(
+				'label'   => 'Only blog.',
+				'img_src' => '',
 			),
-			'value'         => 'radio-2',
-			'default_value' => 'radio-1',
-			'class'         => '',
-			'display-input' => true,
-			'options'       => array(
-				'radio-1' => array(
-					'label'   => 'Do not show.',
-					'img_src' => '',
-				),
-				'radio-2' => array(
-					'label'   => 'Lines',
-					'img_src' => '',
-				),
-				'radio-3' => array(
-					'label'   => 'Icons',
-					'img_src' => '',
-				),
-			)
-		);
+			'radio-2' => array(
+				'label'   => 'Only post.',
+				'img_src' => '',
+			),
+			'radio-3' => array(
+				'label'   => 'Blog and post.',
+				'img_src' => '',
+			),
+			'radio-4' => array(
+				'label'   => 'Do not show.',
+				'img_src' => '',
+			),
+		)
+	);
 
-		$blog_options['blog-display-meta'] = array(
-			'type'        => 'radio',
-			'title'       => 'Display meta.',
-			'label'       => 'choose one of them',
-			'decsription' => '',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => 'Select where to display meta block.',
-			),
-			'value'         => 'radio-2',
-			'default_value' => 'radio-1',
-			'class'         => '',
-			'display-input' => true,
-			'options'       => array(
-				'radio-1' => array(
-					'label'   => 'Only blog.',
-					'img_src' => '',
-				),
-				'radio-2' => array(
-					'label'   => 'Only post.',
-					'img_src' => '',
-				),
-				'radio-3' => array(
-					'label'   => 'Blog and post.',
-					'img_src' => '',
-				),
-				'radio-4' => array(
-					'label'   => 'Do not show.',
-					'img_src' => '',
-				),
-			)
-		);
+	$blog_options['blog-related-posts'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Related posts',
+		'decsription' => 'Show related posts?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => 'Show related posts?',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-related-posts'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Related posts',
-			'decsription' => 'Show related posts?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => 'Show related posts?',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-post-publication-date'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Post publication date.',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Should the post publication date be displayed?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-post-publication-date'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Post publication date.',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Should the post publication date be displayed?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-post-author'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Author of the post.',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Display the author of the post?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-post-author'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Author of the post.',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Display the author of the post?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-direct-link'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Direct link to the post.',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Should the direct link to the post be displayed?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-direct-link'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Direct link to the post.',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Should the direct link to the post be displayed?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-tags'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Tags be displayed',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Should the tags be displayed?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-tags'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Tags be displayed',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Should the tags be displayed?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-post-categories'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Post categories.',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Should the post categories be displayed?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-post-categories'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Post categories.',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Should the post categories be displayed?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-comments-number'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Number of comments.',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Should the number of comments be displayed?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-comments-number'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Number of comments.',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Should the number of comments be displayed?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-view-number'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Number of view.',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Should the number of view be displayed?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-view-number'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Number of view.',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Should the number of view be displayed?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-likes-number'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Number of likes.',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Should the number of likes be displayed?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
-		$blog_options['blog-likes-number'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Number of likes.',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Should the number of likes be displayed?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
-
-		$blog_options['blog-dislikes-number'] = array(
-			'type'        => 'switcher',
-			'title'       => 'Number of dislikes.',
-			'label'       => 'Enable / Disable',
-			'decsription' => 'Should the number of dislikes be displayed?',
-			'hint'        => array(
-				'type'    => 'text',
-				'content' => '',
-			),
-			'value'         => 'true',
-			'default_value' => 'true',
-		);
+	$blog_options['blog-dislikes-number'] = array(
+		'type'        => 'switcher',
+		'title'       => 'Number of dislikes.',
+		'label'       => 'Enable / Disable',
+		'decsription' => 'Should the number of dislikes be displayed?',
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => '',
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
 ////////// Logo options ///////////////////////////////////////////////////////
 
 	$logo_options = array();
-	$logo_options['logo-options'] = array(
-				'type'			=> 'info',
-				'title'			=> '',
-				'decsription'	=> 'decsription info',
-				'value'			=> 'Logo options'
-	);
+
 	$logo_options['logo-kind'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'Logo type',
@@ -1086,76 +1027,70 @@ function cherry_defaults_settings() {
 
 ////////// Navigation options ///////////////////////////////////////////////////
 
-		$navigation_options = array();
-		$navigation_options['navigation-options'] = array(
-				'type'			=> 'info',
-				'title'			=> '',
-				'decsription'	=> 'decsription info',
-				'value'			=> 'Navigation options'
-		);
-		$navigation_options['navigation-stickup-menu'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'StickUp menu',
-				'label'			=> 'Using stickUp menu',
-				'decsription'	=> 'Do you want to use stickUp menu?',
-				'value'			=> 'true',
-				'default_value'	=> 'default_value'
-		);
-		$navigation_options['navigation-menu-typography'] = array(
-				'type'			=> 'typography',
-				'title'			=> 'Menu Typography',
-				'label'			=> 'Menu Typography style',
-				'decsription'	=> 'Choose your prefered font for menu.',
-				'value'			=> array(
-					'size'			=> '14',
-					'lineheight'	=> '14',
-					'color'			=> '#aa00aa',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
-		);
+	$navigation_options = array();
+	$navigation_options['navigation-stickup-menu'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'StickUp menu',
+			'label'			=> 'Using stickUp menu',
+			'decsription'	=> 'Do you want to use stickUp menu?',
+			'value'			=> 'true',
+			'default_value'	=> 'default_value'
+	);
+	$navigation_options['navigation-menu-typography'] = array(
+			'type'			=> 'typography',
+			'title'			=> 'Menu Typography',
+			'label'			=> 'Menu Typography style',
+			'decsription'	=> 'Choose your prefered font for menu.',
+			'value'			=> array(
+				'size'			=> '14',
+				'lineheight'	=> '14',
+				'color'			=> '#aa00aa',
+				'family'		=> 'Abril Fatface',
+				'character'		=> 'latin-ext',
+				'style'			=> 'italic',
+				'letterspacing' => '0',
+				'align'			=> 'notdefined'
+			)
+	);
 
-		$navigation_options['navigation-smooth-scroll'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Smooth scroll',
-				'decsription'	=> 'Enable to use smooth scrolling on pages',
-				'value'			=> 'true',
-				'default_value'	=> 'default_value'
-		);
+	$navigation_options['navigation-smooth-scroll'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Smooth scroll',
+			'decsription'	=> 'Enable to use smooth scrolling on pages',
+			'value'			=> 'true',
+			'default_value'	=> 'default_value'
+	);
 
-			$navigation_options['navigation-scroll-effect'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'Scroll effect',
-				'label'			=> 'label radio',
-				'decsription'	=> 'decsription radio',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> ''
+	$navigation_options['navigation-scroll-effect'] = array(
+			'type'			=> 'radio',
+			'title'			=> 'Scroll effect',
+			'label'			=> 'label radio',
+			'decsription'	=> 'decsription radio',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> ''
+			),
+			'value'			=> 'radio-2',
+			'class'			=> '',
+			'display-input'	=> true,
+			'options'		=> array(
+				'radio-1' => array(
+					'label' => 'Linear',
+					'img_src' => ''
 				),
-				'value'			=> 'radio-2',
-				'class'			=> '',
-				'display-input'	=> true,
-				'options'		=> array(
-					'radio-1' => array(
-						'label' => 'Linear',
-						'img_src' => ''
-					),
-					'radio-2' => array(
-						'label' => 'Ease-In',
-						'img_src' => ''
-					),
-					'radio-3' => array(
-						'label' => 'Ease-in-out',
-						'img_src' => ''
-					),
-					'radio-4' => array(
-						'label' => 'Ease-out',
-						'img_src' => ''
-					)
+				'radio-2' => array(
+					'label' => 'Ease-In',
+					'img_src' => ''
+				),
+				'radio-3' => array(
+					'label' => 'Ease-in-out',
+					'img_src' => ''
+				),
+				'radio-4' => array(
+					'label' => 'Ease-out',
+					'img_src' => ''
 				)
+			)
 	);
 
 
@@ -1164,357 +1099,340 @@ function cherry_defaults_settings() {
 ////////////////////////////////// Breadcrumbs options ////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-		$breadcrumbs_options = array();
-		$breadcrumbs_options['breadcrumbs-options'] = array(
-				'type'			=> 'info',
-				'title'			=> '',
-				'description'	=>'description',
-				'value'			=>'Breadcrumbs options'
-		);
-		$breadcrumbs_options['breadcrumbs'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Breadcrumbs',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Enable or disable breadcrumb navigation',
-				'value'			=> 'true',
-				'default_value'	=> 'default_value'
-		);
-		$breadcrumbs_options['breadcrumbs-display'] = array(
-				'type'			=> 'multicheckbox',
-				'title'			=> 'Breadcrumb display',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'decsription multicheckbox',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Enable or disable displaying on mobile devices'
-				),
-				'class'			=> '',
-				'value'			=> array(
-					'checkbox-1'	=> true,
-					'checkbox-2'	=> true,
-				),
-				'default_value'	=> array(
-					'checkbox-1'	=> true,
-					'checkbox-2'	=> true,
-				),
-				'options'		=> array(
-					'checkbox-1'	=> 'tablet',
-					'checkbox-2'	=> 'mobile',
-				)
-		);
-		$breadcrumbs_options['breadcrumbs-bg-color'] = array(
-				'type'			=> 'background',
-				'title'			=> 'title background',
-				'label'			=> 'set default background',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Background for main breadcrumb container'
-				),
-				'return_data_type'	=> 'url',
-				'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#ffCCCC',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-		);
-		$breadcrumbs_options['breadcrumbs-bg-hover-color'] = array(
-				'type'			=> 'background',
-				'title'			=> 'title background',
-				'label'			=> 'set default background',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Background hover for main breadcrumb container'
-				),
-				'return_data_type'	=> 'url',
-				'value'			=> array(
-					'image'		=> '',
-					'color'		=> '#ffCCCC',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-		);
-		$breadcrumbs_options['breadcrumbs-separator'] = array(
-				'type'			=> 'filterselect',
-				'title'			=> 'Item separator',
-				'label'			=> 'select separator type',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> 'arrow-outline',
-				'default_value'	=> 'arrow-outline',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'box-outline',
-					'select-2'	=> 'arrow-outline',
-					'select-3'	=> 'divider-outline',
-					'select-4'	=> 'divider-arrow-outline'
-				)
-		);
-		$breadcrumbs_options['breadcrumbs-separator-icon'] = array(
-				'type'			=> 'filterselect',
-				'title'			=> 'Item icon separator',
-				'label'			=> 'select separator type',
-				//'decsription'	=> 'decsription filterselect',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> 'icon-right-dir',
-				'default_value'	=> 'icon-right-dir',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'icon-right-open',
-					'select-2'	=> 'icon-right-open-mini',
-					'select-3'	=> 'icon-right-dir',
-					'select-4'	=> 'icon-right-bold',
-					'select-5'	=> 'icon-right-thin'
-				)
-		);
-		$breadcrumbs_options['breadcrumbs-style'] = array(
-				'type'			=> 'select',
-				'title'			=> 'Breadcrumb style',
-				'label'			=> 'Select one of theme',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'For a stylized display breadcrumbs select one of the types'
-				),
-				'value'			=> 'simple',
-				'default_value'	=> 'simple',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'simple',
-					'select-2'	=> 'tabbed',
-				)
-		);
-		$breadcrumbs_options['breadcrumbs-link-color'] = array(
-				'type'			=> 'colorpicker',
-				'title'			=> 'color for breadcrumbs link',
-				'label'			=> 'select color',
-				'value'			=> '#ff5566',
-				'default_value'	=> '#ff5566'
-		);
-		$breadcrumbs_options['breadcrumbs-link-hover-color'] = array(
-				'type'			=> 'colorpicker',
-				'title'			=> 'hover color for breadcrumbs link',
-				'label'			=> 'select color',
-				'value'			=> '#ff5566',
-				'default_value'	=> '#ff5566'
-		);
-		$breadcrumbs_options['breadcrumbs-active-link-color'] = array(
-				'type'			=> 'colorpicker',
-				'title'			=> 'color for active breadcrumbs link',
-				'label'			=> 'select color',
-				'value'			=> '#ff5566',
-				'default_value'	=> '#ff5566'
-		);
-		$breadcrumbs_options['breadcrumbs-home-link-color'] = array(
-				'type'			=> 'colorpicker',
-				'title'			=> 'color for breadcrumbs home link',
-				'label'			=> 'select color',
-				'value'			=> '#454545',
-				'default_value'	=> '#454545'
-		);
-		$breadcrumbs_options['breadcrumbs-prefix-path'] = array(
-				'type'			=> 'text',
-				'title'			=> 'breadcrumbs prefix path',
-				'decsription'	=> 'Title before breadcrumb navigation',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> 'You are here',
-				'default_value'	=> 'You are here'
-		);
-		$breadcrumbs_options['breadcrumbs-hierarchical-attachments'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'breadcrumb hierarchical attachments',
-				'label'			=> 'Enable / Disable',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Show the taxonomy leading to a post in the breadcrumb trail.'
-				),
-				'value'			=> 'false',
-				'default_value'	=> 'default_value'
+	$breadcrumbs_options = array();
 
-		);
-		$breadcrumbs_options['breadcrumbs-post-hierarchy'] = array(
-				'type'			=> 'select',
-				'title'			=> 'Breadcrumbs post hierarchy',
-				'label'			=> 'Select one of them',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'The hierarchy which the breadcrumb trail will show. Note that the "Post Parent" option may require an additional plugin to behave as expected since this is a non-hierarchical post type.'
-				),
-				'value'			=> 'Categories',
-				'default_value'	=> 'Categories',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'Categories',
-					'select-2'	=> 'Dates',
-					'select-3'	=> 'Tags',
-					'select-4'	=> 'Post Parent',
-				)
-		);
-		$breadcrumbs_options['breadcrumbs-title-length'] = array(
-				'type'			=> 'stepper',
-				'title'			=> 'breadcrumb title length',
-				'label'			=> 'max title length',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Limit the length of the breadcrumb title'
-				),
-				'value'			=> '0',
-				'default_value'	=> '0',
-				'value-step'	=> '1',
-				'max-value'		=> '150',
-				'min-value'		=> '1'
-		);
+	$breadcrumbs_options['breadcrumbs'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Breadcrumbs',
+			'label'			=> 'Enable / Disable',
+			'decsription'	=> 'Enable or disable breadcrumb navigation',
+			'value'			=> 'true',
+			'default_value'	=> 'default_value'
+	);
+	$breadcrumbs_options['breadcrumbs-display'] = array(
+			'type'			=> 'multicheckbox',
+			'title'			=> 'Breadcrumb display',
+			'label'			=> 'Enable / Disable',
+			'decsription'	=> 'decsription multicheckbox',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Enable or disable displaying on mobile devices'
+			),
+			'class'			=> '',
+			'value'			=> array(
+				'checkbox-1'	=> true,
+				'checkbox-2'	=> true,
+			),
+			'default_value'	=> array(
+				'checkbox-1'	=> true,
+				'checkbox-2'	=> true,
+			),
+			'options'		=> array(
+				'checkbox-1'	=> 'tablet',
+				'checkbox-2'	=> 'mobile',
+			)
+	);
+	$breadcrumbs_options['breadcrumbs-bg-color'] = array(
+			'type'			=> 'background',
+			'title'			=> 'title background',
+			'label'			=> 'set default background',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Background for main breadcrumb container'
+			),
+			'return_data_type'	=> 'url',
+			'value'			=> array(
+				'image'	=> '',
+				'color'	=> '#ffCCCC',
+				'repeat'	=> 'repeat',
+				'position'	=> 'left',
+				'attachment'=> 'fixed'
+			)
+	);
+	$breadcrumbs_options['breadcrumbs-bg-hover-color'] = array(
+			'type'			=> 'background',
+			'title'			=> 'title background',
+			'label'			=> 'set default background',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Background hover for main breadcrumb container'
+			),
+			'return_data_type'	=> 'url',
+			'value'			=> array(
+				'image'		=> '',
+				'color'		=> '#ffCCCC',
+				'repeat'	=> 'repeat',
+				'position'	=> 'left',
+				'attachment'=> 'fixed'
+			)
+	);
+	$breadcrumbs_options['breadcrumbs-separator'] = array(
+			'type'			=> 'filterselect',
+			'title'			=> 'Item separator',
+			'label'			=> 'select separator type',
+			'hint'      	=>  array(
+				'type'		=> 'image',
+				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			),
+			'value'			=> 'arrow-outline',
+			'default_value'	=> 'arrow-outline',
+			'class'			=> 'width-full',
+			'options'		=> array(
+				'select-1'	=> 'box-outline',
+				'select-2'	=> 'arrow-outline',
+				'select-3'	=> 'divider-outline',
+				'select-4'	=> 'divider-arrow-outline'
+			)
+	);
+	$breadcrumbs_options['breadcrumbs-separator-icon'] = array(
+			'type'			=> 'filterselect',
+			'title'			=> 'Item icon separator',
+			'label'			=> 'select separator type',
+			//'decsription'	=> 'decsription filterselect',
+			'hint'      	=>  array(
+				'type'		=> 'image',
+				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			),
+			'value'			=> 'icon-right-dir',
+			'default_value'	=> 'icon-right-dir',
+			'class'			=> 'width-full',
+			'options'		=> array(
+				'select-1'	=> 'icon-right-open',
+				'select-2'	=> 'icon-right-open-mini',
+				'select-3'	=> 'icon-right-dir',
+				'select-4'	=> 'icon-right-bold',
+				'select-5'	=> 'icon-right-thin'
+			)
+	);
+	$breadcrumbs_options['breadcrumbs-style'] = array(
+			'type'			=> 'select',
+			'title'			=> 'Breadcrumb style',
+			'label'			=> 'Select one of theme',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'For a stylized display breadcrumbs select one of the types'
+			),
+			'value'			=> 'simple',
+			'default_value'	=> 'simple',
+			'class'			=> 'width-full',
+			'options'		=> array(
+				'select-1'	=> 'simple',
+				'select-2'	=> 'tabbed',
+			)
+	);
+	$breadcrumbs_options['breadcrumbs-link-color'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'color for breadcrumbs link',
+			'label'			=> 'select color',
+			'value'			=> '#ff5566',
+			'default_value'	=> '#ff5566'
+	);
+	$breadcrumbs_options['breadcrumbs-link-hover-color'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'hover color for breadcrumbs link',
+			'label'			=> 'select color',
+			'value'			=> '#ff5566',
+			'default_value'	=> '#ff5566'
+	);
+	$breadcrumbs_options['breadcrumbs-active-link-color'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'color for active breadcrumbs link',
+			'label'			=> 'select color',
+			'value'			=> '#ff5566',
+			'default_value'	=> '#ff5566'
+	);
+	$breadcrumbs_options['breadcrumbs-home-link-color'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'color for breadcrumbs home link',
+			'label'			=> 'select color',
+			'value'			=> '#454545',
+			'default_value'	=> '#454545'
+	);
+	$breadcrumbs_options['breadcrumbs-prefix-path'] = array(
+			'type'			=> 'text',
+			'title'			=> 'breadcrumbs prefix path',
+			'decsription'	=> 'Title before breadcrumb navigation',
+			'hint'      	=>  array(
+				'type'		=> 'image',
+				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			),
+			'value'			=> 'You are here',
+			'default_value'	=> 'You are here'
+	);
+	$breadcrumbs_options['breadcrumbs-hierarchical-attachments'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'breadcrumb hierarchical attachments',
+			'label'			=> 'Enable / Disable',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Show the taxonomy leading to a post in the breadcrumb trail.'
+			),
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+
+	);
+	$breadcrumbs_options['breadcrumbs-post-hierarchy'] = array(
+			'type'			=> 'select',
+			'title'			=> 'Breadcrumbs post hierarchy',
+			'label'			=> 'Select one of them',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'The hierarchy which the breadcrumb trail will show. Note that the "Post Parent" option may require an additional plugin to behave as expected since this is a non-hierarchical post type.'
+			),
+			'value'			=> 'Categories',
+			'default_value'	=> 'Categories',
+			'class'			=> 'width-full',
+			'options'		=> array(
+				'select-1'	=> 'Categories',
+				'select-2'	=> 'Dates',
+				'select-3'	=> 'Tags',
+				'select-4'	=> 'Post Parent',
+			)
+	);
+	$breadcrumbs_options['breadcrumbs-title-length'] = array(
+			'type'			=> 'stepper',
+			'title'			=> 'breadcrumb title length',
+			'label'			=> 'max title length',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Limit the length of the breadcrumb title'
+			),
+			'value'			=> '0',
+			'default_value'	=> '0',
+			'value-step'	=> '1',
+			'max-value'		=> '150',
+			'min-value'		=> '1'
+	);
 
 //////////////////////////////// Page navigation options /////////////////////////////////////////////
 
-		$pagination_option = array();
-		$pagination_option['pagination-options'] = array(
-				'type'			=> 'info',
-				'title'			=>	'',
-				'description'	=>	'description info',
-				'value' 		=>	'Pagination options'
-		);
+	$pagination_option = array();
 
-		$pagination_option['pagination-display'] = array(
-				'type'			=>  'switcher',
-				'title' 		=>  'pagination',
-				'label'			=>	'Enable / Disable',
-				'value'			=>	'true',
-				'default_value'	=>	'true'
-		);
+	$pagination_option['pagination-display'] = array(
+			'type'			=>  'switcher',
+			'title' 		=>  'pagination',
+			'label'			=>	'Enable / Disable',
+			'value'			=>	'true',
+			'default_value'	=>	'true'
+	);
 
-		$pagination_option['pagination-below'] = array(
-				'type'			=>  'switcher',
-				'title' 		=>  'Show Pagination Below of the Posts',
-				'label'			=>	'Enable / Disable',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Enable pagination links for portfolio index pages on bottom side of the posts (after showing posts).'
-				),
-				'value'			=>	'true',
-				'default_value'	=>	'true'
-		);
+	$pagination_option['pagination-below'] = array(
+			'type'			=>  'switcher',
+			'title' 		=>  'Show Pagination Below of the Posts',
+			'label'			=>	'Enable / Disable',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Enable pagination links for portfolio index pages on bottom side of the posts (after showing posts).'
+			),
+			'value'			=>	'true',
+			'default_value'	=>	'true'
+	);
 
-		$pagination_option['pagination-type'] = array(
-				'type'			=> 'select',
-				'title'			=> 'Page navigation type',
-				'label'			=> 'Select one of them',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Select the pagination type'
-				),
-				'value'			=> 'pagination',
-				'default_value'	=> 'pagination',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'standart pagination',
-					'select-2'	=> 'infinite scroll',
-					'select-3'	=> 'load more button',
-					'select-4'	=> 'ajax pagination',
-				)
-		);
-		$pagination_option['pagination-next-previous'] = array(
-				'type'			=>  'switcher',
-				'title' 		=>  'previous an next page navigation',
-				'decsription'	=> 'Enable or disable previous an next page navigation',
-				'value'			=>	'true'
-		);
-		$pagination_option['pagination-label'] = array(
-				'type'			=> 'text',
-				'title'			=> 'pagination label',
-				'decsription'	=> 'The text/HTML to display before the list of pages',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> 'Pages:',
-				'default_value'	=> 'Pages:'
-		);
-		$pagination_option['pagination-previous-page'] = array(
-				'type'			=> 'text',
-				'title'			=> 'previous page',
-				'decsription'	=> 'The text/HTML to display for the previous page link.',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> '&laquo;',
-				'default_value'	=> '&laquo;'
-		);
-		$pagination_option['pagination-next-page'] = array(
-				'type'			=> 'text',
-				'title'			=> 'next page',
-				'decsription'	=> 'The text/HTML to display for the next page link.',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> '&raquo;',
-				'default_value'	=> '&raquo;'
-		);
-		$pagination_option['pagination-page-range'] = array(
-				'type'			=> 'stepper',
-				'title'			=> 'page range',
-				'decsription'	=> 'The number of page links to show before and after the current page.',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'The number of page links to show before and after the current page. Recommended value: 4'
-				),
-				'value'			=> '4',
-				'default_value'	=> '4',
-				'value-step'	=> '1',
-				'max-value'		=> '9999',
-				'min-value'		=> '1'
-		);
-		$pagination_option['pagination-page-anchors'] = array(
-				'type'			=> 'stepper',
-				'title'			=> 'page anchors',
-				'decsription'	=> 'The number of links to always show at beginning and end of pagination.',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'The number of links to always show at beginning and end of pagination. Recommended value: 1'
-				),
-				'value'			=> '1',
-				'default_value'	=> '1',
-				'value-step'	=> '1',
-				'max-value'		=> '99',
-				'min-value'		=> '1'
-				);
-		$pagination_option['pagination-page-gap'] = array(
-				'type'			=> 'stepper',
-				'title'			=> 'page gap',
-				'decsription'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added.',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added. Recommended value: 3'
-				),
-				'value'			=> '3',
-				'default_value'	=> '3',
-				'value-step'	=> '1',
-				'max-value'		=> '9999',
-				'min-value'		=> '1'
-		);
+	$pagination_option['pagination-type'] = array(
+			'type'			=> 'select',
+			'title'			=> 'Page navigation type',
+			'label'			=> 'Select one of them',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Select the pagination type'
+			),
+			'value'			=> 'pagination',
+			'default_value'	=> 'pagination',
+			'class'			=> 'width-full',
+			'options'		=> array(
+				'select-1'	=> 'standart pagination',
+				'select-2'	=> 'infinite scroll',
+				'select-3'	=> 'load more button',
+				'select-4'	=> 'ajax pagination',
+			)
+	);
+	$pagination_option['pagination-next-previous'] = array(
+			'type'			=>  'switcher',
+			'title' 		=>  'previous an next page navigation',
+			'decsription'	=> 'Enable or disable previous an next page navigation',
+			'value'			=>	'true'
+	);
+	$pagination_option['pagination-label'] = array(
+			'type'			=> 'text',
+			'title'			=> 'pagination label',
+			'decsription'	=> 'The text/HTML to display before the list of pages',
+			'hint'      	=>  array(
+				'type'		=> 'image',
+				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			),
+			'value'			=> 'Pages:',
+			'default_value'	=> 'Pages:'
+	);
+	$pagination_option['pagination-previous-page'] = array(
+			'type'			=> 'text',
+			'title'			=> 'previous page',
+			'decsription'	=> 'The text/HTML to display for the previous page link.',
+			'hint'      	=>  array(
+				'type'		=> 'image',
+				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			),
+			'value'			=> '&laquo;',
+			'default_value'	=> '&laquo;'
+	);
+	$pagination_option['pagination-next-page'] = array(
+			'type'			=> 'text',
+			'title'			=> 'next page',
+			'decsription'	=> 'The text/HTML to display for the next page link.',
+			'hint'      	=>  array(
+				'type'		=> 'image',
+				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			),
+			'value'			=> '&raquo;',
+			'default_value'	=> '&raquo;'
+	);
+	$pagination_option['pagination-page-range'] = array(
+			'type'			=> 'stepper',
+			'title'			=> 'page range',
+			'decsription'	=> 'The number of page links to show before and after the current page.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'The number of page links to show before and after the current page. Recommended value: 4'
+			),
+			'value'			=> '4',
+			'default_value'	=> '4',
+			'value-step'	=> '1',
+			'max-value'		=> '9999',
+			'min-value'		=> '1'
+	);
+	$pagination_option['pagination-page-anchors'] = array(
+			'type'			=> 'stepper',
+			'title'			=> 'page anchors',
+			'decsription'	=> 'The number of links to always show at beginning and end of pagination.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'The number of links to always show at beginning and end of pagination. Recommended value: 1'
+			),
+			'value'			=> '1',
+			'default_value'	=> '1',
+			'value-step'	=> '1',
+			'max-value'		=> '99',
+			'min-value'		=> '1'
+			);
+	$pagination_option['pagination-page-gap'] = array(
+			'type'			=> 'stepper',
+			'title'			=> 'page gap',
+			'decsription'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added. Recommended value: 3'
+			),
+			'value'			=> '3',
+			'default_value'	=> '3',
+			'value-step'	=> '1',
+			'max-value'		=> '9999',
+			'min-value'		=> '1'
+	);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// Styling options /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$styling_options = array();
-	$styling_options['styling-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=> 'Styling Options'
-	);
 	//background image
 	$styling_options['styling-main-content-background'] = array(
 				'type'			=> 'background',
@@ -1653,19 +1571,11 @@ function cherry_defaults_settings() {
 				)
 	);
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// Color scheme options /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$color_options = array();
-	$color_options['color-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=>'Color scheme'
-	);
 	$color_options['color-primary'] = array(
 			'type'			=> 'colorpicker',
 			'title'			=> 'Primary color',
@@ -1738,19 +1648,10 @@ function cherry_defaults_settings() {
 			'default_value'	=> '#555555'
 	);
 
-
-
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////// Header options //////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	$header_options = array();
-	$header_options['header-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=> 'Header options'
-	);
 
 	$header_options['header-static-area-editor'] = array(
 				'type'			=> 'static_area_editor',
@@ -1866,19 +1767,11 @@ function cherry_defaults_settings() {
 			'default_value'	=> 'default_value'
 	);
 
-
-
 //////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////// Typography options /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$typography_options = array();
-	$typography_options['typography-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=>'Typography options'
-	);
 
 	$typography_options['typography-body-text'] = array(
 			'type'			=> 'typography',
@@ -1932,7 +1825,6 @@ function cherry_defaults_settings() {
 			)
 	);
 
-
 	$typography_options['typography-input-text'] = array(
 			'type'			=> 'typography',
 			'title'			=> 'Input text settings',
@@ -1950,9 +1842,7 @@ function cherry_defaults_settings() {
 			)
 	);
 
-
 //+++++++++++++++++++++++++++++++++CUSTOM FONTS UPLOAD
-
 
 	$typography_options['typography-h1'] = array(
 			'type'			=> 'typography',
@@ -2056,12 +1946,6 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$lists_options = array();
-	$lists_options['lists-options'] = array(
-			'type'			=> 'info',
-			'title'			=> '',
-			'decsription'	=> 'decsription info',
-			'value'			=>'Lists options'
-	);
 
 	$lists_options['lists-text-color'] = array(
 			'type'			=> 'typography',
@@ -2112,24 +1996,6 @@ function cherry_defaults_settings() {
 					'select-4'	=> 'icon_caret_left'
 				)
 	);
-/*
-	$lists_options['lists-mark-icon'] = array(
-				'type'			=> 'stepper',
-				'title'			=> 'title stepper',
-				'label'			=> 'label stepper',
-				'decsription'	=> 'decsription stepper',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> '0',
-				'default_value'	=> '0',
-				'value-step'	=> '1',
-				'max-value'		=> '50',
-				'min-value'		=> '-50'
-	);
-*/
-
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2142,7 +2008,7 @@ function cherry_defaults_settings() {
 		'priority'		=> 1,
 		'options-list'	=> $demo_options
 	);
-	$sections_array['general-options-section'] = array(
+/*	$sections_array['general-options-section'] = array(
 		'name'			=> 'General',
 		'icon' 			=> 'dashicons dashicons-admin-generic',
 		'priority'		=> 10,
@@ -2158,14 +2024,14 @@ function cherry_defaults_settings() {
 		'name'			=> 'Blog layouts',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'grid-options-section',
-		'priority'		=> 21,
+		'priority'		=> 1,
 		'options-list'	=> $blog_options
 	);
 	$sections_array['page-layout-options-section'] = array(
 		'name'			=> 'Page layouts',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'grid-options-section',
-		'priority'		=> 21,
+		'priority'		=> 2,
 		'options-list'	=> $page_layout_options
 	);
 	$sections_array['styling-options-section'] = array(
@@ -2234,7 +2100,7 @@ function cherry_defaults_settings() {
 		'parent'		=> 'typography-options-section',
 		'priority'		=> 71,
 		'options-list'	=> $lists_options
-	);
+	);*/
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
 }
