@@ -63,6 +63,19 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		private $current_dir_url = false;
 
 		/**
+		 * Check if we can write dynamic CSS to uploads
+		 */
+		private $is_writable = false;
+
+		/**
+		 * Compiler settings
+		 */
+		public $settings = array(
+			'concatenate_css' => 'true',
+			'dynamic_css'     => 'file'
+		);
+
+		/**
 		 * Construct function
 		 */
 		function __construct() {
@@ -71,36 +84,109 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 				return;
 			}
 
-			$prefix = cherry_get_prefix();
-
-			$this->compile_handles = apply_filters(
-				'cherry_compiler_static_css',
-				array( $prefix . 'main', $prefix . 'grid-base', $prefix . 'grid-responsive' )
-			);
-
-			$upload_dir = wp_upload_dir();
-
-			$this->css_file_url = apply_filters(
-				'cherry_dynamic_css_url',
-				$upload_dir['baseurl'] . '/cherry-css/style.css'
-			);
-
-			$css_dir_path = $upload_dir['basedir'] . '/cherry-css/';
-
-			$this->css_file_path = apply_filters(
-				'cherry_dynamic_css_path',
-				$css_dir_path . 'style.css'
-			);
-
-			// create directory for stylesheet
-			if ( ! file_exists( $css_dir_path ) && ! is_dir( $css_dir_path ) ) {
-				wp_mkdir_p( $css_dir_path );
+			if ( is_admin() ) {
+				$this->_admin();
+			} else {
+				$this->_public();
 			}
 
-			$this->already_compiled = get_transient( 'cherry_compiled_css' );
+		}
 
-			add_filter( 'style_loader_tag', array( $this, 'disable_handles' ), 1, 2 );
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_stylesheet' ), 999 );
+		/**
+		 * Run admin actions
+		 *
+		 * @since 4.0.0
+		 */
+		function _admin() {
+			add_action( 'cherry-options-updated', array( &$this, 'reset_compiled_css' ) );
+			add_action( 'cherry-section-restored', array( &$this, 'reset_compiled_css' ) );
+			add_action( 'cherry-options-restored', array( &$this, 'reset_compiled_css' ) );
+			add_action( 'cherry_plugin_activate', array( &$this, 'reset_compiled_css' ) );
+			add_action( 'cherry_plugin_deactivate', array( &$this, 'reset_compiled_css' ) );
+		}
+
+		/**
+		 * Run public actions
+		 *
+		 * @since 4.0.0
+		 */
+		function _public() {
+
+			$this->settings = array(
+				'concatenate_css' => cherry_get_option( 'concatenate-css', 'true' ),
+				'dynamic_css'     => cherry_get_option( 'dynamic-css', 'file' )
+			);
+
+			// chaeck if upload dir is writable
+			$upload_dir        = wp_upload_dir();
+			$this->is_writable = is_writable( $upload_dir['basedir'] );
+
+			// Do this only if we have something to print into static file
+			if ( 'file' == $this->settings['dynamic_css'] || 'true' == $this->settings['concatenate_css'] ) {
+
+				// get handles list
+				$this->compile_handles = $this->get_static_css_handles();
+				// set static file URL
+				$this->css_file_url = apply_filters(
+					'cherry_dynamic_css_url',
+					$upload_dir['baseurl'] . '/cherry-css/style.css'
+				);
+
+				$css_dir_path = $upload_dir['basedir'] . '/cherry-css/';
+				// set static file path
+				$this->css_file_path = apply_filters(
+					'cherry_dynamic_css_path',
+					$css_dir_path . 'style.css'
+				);
+
+				// create directory for stylesheet
+				if ( ! file_exists( $css_dir_path ) && ! is_dir( $css_dir_path ) ) {
+					wp_mkdir_p( $css_dir_path );
+				}
+				// check if CSS already compiled
+				$this->already_compiled = get_transient( 'cherry_compiled_css' );
+				// one more check - if CSS must be compiled, but file not exists - set compiled variable to false
+				if ( false !== $this->already_compiled && ! file_exists( $this->css_file_path ) ) {
+					$this->already_compiled = false;
+				}
+
+				add_filter( 'style_loader_tag', array( &$this, 'disable_handles' ), 1, 2 );
+				add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_stylesheet' ), 999 );
+			}
+
+			// print dynamic CSS directly into head tag if uploads dir not writable
+			if ( ! $this->is_writable || 'tag' == $this->settings['dynamic_css'] ) {
+				add_action( 'wp_enqueue_scripts', array( &$this, 'print_dynamic_css_inline' ), 999 );
+			}
+		}
+
+		/**
+		 * Get static CSS hanles array to concatenate
+		 *
+		 * @since 4.0.0
+		 */
+		function get_static_css_handles() {
+
+			if ( 'false' == $this->settings['concatenate_css'] ) {
+				return false;
+			}
+
+			$cherry_styles = cherry_get_styles();
+			$handles       = array();
+
+			foreach ( $cherry_styles as $id => $style_data ) {
+
+				if ( ! $style_data || 'style' == $id ) {
+					continue;
+				}
+
+				$handles[] = $style_data['handle'];
+			}
+
+			/**
+			 * Filter static CSS handles to compile
+			 */
+			return apply_filters( 'cherry_compiler_static_css', $handles );
 		}
 
 		/**
@@ -113,7 +199,11 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 */
 		function disable_handles( $src, $handle ) {
 
-			if ( in_array( $handle, $this->compile_handles ) ) {
+			if ( ! $this->is_writable ) {
+				return $src;
+			}
+
+			if ( is_array( $this->compile_handles ) && in_array( $handle, $this->compile_handles ) ) {
 				return;
 			}
 
@@ -143,10 +233,6 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 				),
 				'a:hover' => array(
 					'color' => $variables['color-success']
-				),
-				'#bla-bla > .ho-ho-ho' => array(
-					'background-color' => $variables['color-primary'],
-					'color'            => $variables['color-success'],
 				)
 			);
 
@@ -218,15 +304,38 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 */
 		public function enqueue_stylesheet() {
 
-			if ( ! $this->already_compiled ) {
+			// do nothing if uploads dir not writable
+			if ( ! $this->is_writable ) {
+				return;
+			}
+
+			// compile stylesheet if it was reseted or not compiled before
+			if ( false === $this->already_compiled ) {
 				$this->prepare_static_css();
 				$this->compile_stylesheet();
 			}
 
-			wp_enqueue_style(
-				'cherry-dynamic-style',
-				$this->css_file_url, array(), filemtime( $this->css_file_path )
-			);
+			$ver = file_exists( $this->css_file_path ) ? filemtime( $this->css_file_path ) : '0';
+			wp_enqueue_style( 'cherry-dynamic-style', $this->css_file_url, array(), $ver );
+		}
+
+		/**
+		 * Print dynamic CSS inline
+		 *
+		 * @since 4.0.0
+		 */
+		function print_dynamic_css_inline() {
+
+			$data          = $this->prepare_dynamic_css();
+			$cherry_styles = cherry_get_styles();
+
+			$handle = isset( $cherry_styles['style'] ) ? $cherry_styles['style']['handle'] : false;
+
+			if ( ! $handle ) {
+				return;
+			}
+
+			wp_add_inline_style( $handle, $data );
 		}
 
 		/**
@@ -239,11 +348,17 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			$compiled_style = '';
 
 			// Concatenate Cherry CSS file into single CSS
-			if ( ! empty( $this->compiler_data ) ) {
+			if ( ! empty( $this->compiler_data ) && 'true' == $this->settings['concatenate_css'] ) {
 				$compiled_style .= $this->concatenate_static_css();
 			}
 			// Compile dynamic styles
-			$compiled_style .= $this->prepare_dynamic_css();
+			if ( 'file' == $this->settings['dynamic_css'] ) {
+				$compiled_style .= $this->prepare_dynamic_css();
+			}
+
+			if ( empty( $compiled_style ) ) {
+				return false;
+			}
 
 			// Minify CSS
 			require_once( CHERRY_EXTENSIONS . '/class-cssmin.php' );
@@ -365,9 +480,9 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 
 	}
 
-	cherry_css_compiler::get_instance();
-
 }
+
+add_action( 'after_setup_theme', array( 'cherry_css_compiler', 'get_instance' ), 40 );
 
 /**
  * Delete compiler status transient to recompile CSS

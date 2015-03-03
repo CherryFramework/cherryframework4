@@ -1997,6 +1997,46 @@ function cherry_defaults_settings() {
 				)
 	);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////// Optimization options ///////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	$optimization_options = array();
+
+	$optimization_options['concatenate-css'] = array(
+		'type'          => 'switcher',
+		'title'         => 'Concatenate CSS',
+		'label'         => 'Concatenate CSS',
+		'decsription'   => 'Concatenate and minify CSS files to perfomance optimization',
+		'hint'          =>  array(
+			'type'    => 'text',
+			'content' => 'Merge Cherry CSS into one file or not.'
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+		'toggle'        => array(
+			'true_toggle'  => __( 'Yes', 'cherry' ),
+			'false_toggle' => __( 'No', 'cherry' )
+		)
+	);
+
+	$optimization_options['dynamic-css'] = array(
+		'type'			=> 'select',
+		'title'			=> 'Dynamic CSS output',
+		'label'			=> 'Dynamic CSS output',
+		'decsription'	=> 'Output dynamic CSS into separate file or into style tag',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> 'Output dynamic CSS into separate file or into style tag'
+		),
+		'value'			=> 'file',
+		'class'			=> 'width-full',
+		'options'		=> array(
+			'file'	=> 'Separate file',
+			'tag'	=> 'Style tag in HEAD'
+		)
+	);
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -2100,6 +2140,13 @@ function cherry_defaults_settings() {
 		'parent'		=> 'typography-options-section',
 		'priority'		=> 71,
 		'options-list'	=> $lists_options
+	);
+	$sections_array['optimization-options-section'] = array(
+		'name'         => 'Optimization',
+		'icon'         => 'dashicons dashicons-admin-tools',
+		'parent'       => '',
+		'priority'     => 90,
+		'options-list' => $optimization_options
 	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
