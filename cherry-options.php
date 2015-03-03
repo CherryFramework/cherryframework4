@@ -2008,7 +2008,7 @@ function cherry_defaults_settings() {
 		'priority'		=> 1,
 		'options-list'	=> $demo_options
 	);
-/*	$sections_array['general-options-section'] = array(
+	$sections_array['general-options-section'] = array(
 		'name'			=> 'General',
 		'icon' 			=> 'dashicons dashicons-admin-generic',
 		'priority'		=> 10,
@@ -2100,7 +2100,7 @@ function cherry_defaults_settings() {
 		'parent'		=> 'typography-options-section',
 		'priority'		=> 71,
 		'options-list'	=> $lists_options
-	);*/
+	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
 }
