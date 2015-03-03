@@ -56,11 +56,23 @@
   border-left: 1px solid #D8D8D8;
   min-height: 800px;
   position: relative;
+  overflow: hidden;
   z-index: 1;
 }
 #cherry-options .cherry-option-group-list .options-group {
-  padding: 10px 0px;
   display: none;
+}
+#cherry-options .cherry-option-group-list .options-group .group-name {
+  background: #FFF;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 15px;
+  background-color: #f2f3f4;
+  border: 1px solid #d4d5d6;
+}
+#cherry-options .cherry-option-group-list .options-group .group-name span {
+  font-size: 20px;
+  line-height: 20px;
 }
 #cherry-options .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
   background: #fcfcfc;

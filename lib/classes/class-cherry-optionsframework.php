@@ -138,8 +138,8 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 1.0.0
 		 */
 		public function create_updated_options_array( $post_array ) {
-
 			$options = $this->create_options_array();
+			$default_settings = $this->loaded_settings;
 			if(isset($options)){
 				foreach ( $options as $section_key => $value ) {
 					$section_name = $section_key;
@@ -158,14 +158,17 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 									}
 									break;
 								case 'multicheckbox':
-									foreach ($value as $k => $val) {
-										if (isset($post_array[$k])) {
-											$value[$k] = true;
-										}else{
-											$value[$k] = false;
+									$value = array();
+									$optionArray = $default_settings[ $section_key ][ 'options-list' ][$key]['options'];
+									foreach ( $optionArray as $k => $val ) {
+										if ( isset( $post_array[ $k ] ) ) {
+											$value[] = $k;
 										}
 									}
 									$options[$section_name]['options-list'][$key] = $value;
+									break;
+								case 'multiselect':
+										$options[$section_name]['options-list'][$key] = $post_array[$key];
 									break;
 								default:
 									if (isset($post_array[$key])) {
