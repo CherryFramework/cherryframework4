@@ -67,6 +67,10 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 */
 		function __construct() {
 
+			if ( defined( 'CHERRY_DEVELOPER_MODE' ) && CHERRY_DEVELOPER_MODE ) {
+				return;
+			}
+
 			$prefix = cherry_get_prefix();
 
 			$this->compile_handles = apply_filters(
