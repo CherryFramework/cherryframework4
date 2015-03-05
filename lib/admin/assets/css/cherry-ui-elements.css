@@ -198,32 +198,40 @@
   outline: none;
   cursor: pointer;
 }
-.cherry-ui-core .select2-container .select2-choice {
+.cherry-ui-core .select2 .selection .select2-selection {
   box-shadow: none;
   border-radius: 6px;
-  height: 39px;
+  border: 1px solid #dddcdc;
 }
-.cherry-ui-core .select2-container .select2-choice .select2-arrow b {
-  background-position: 0px 8px;
+.cherry-ui-core .select2 .selection .select2-selection.select2-selection--single {
+  height: 42px;
 }
-.cherry-ui-core .select2-container .select2-choice > .select2-chosen {
-  line-height: 39px;
+.cherry-ui-core .select2 .selection .select2-selection.select2-selection--single .select2-selection__rendered {
+  font-size: 14px;
+  padding: 6px 20px 6px 14px;
 }
-.cherry-ui-core .select2-container-multi .select2-choices {
-  box-shadow: none;
-  border-radius: 6px;
-  min-height: 40px;
+.cherry-ui-core .select2 .selection .select2-selection.select2-selection--single .select2-selection__arrow {
+  height: 40px;
 }
-.cherry-ui-core .select2-container-multi .select2-choices .select2-search-choice {
-  line-height: 28px;
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-  padding: 3px 5px 3px 20px;
+.cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered {
+  font-size: 14px;
 }
-.cherry-ui-core .select2-search-choice-close {
-  background: url("../images/close-icon.png") no-repeat scroll right top transparent;
-  top: 11px;
+.cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+  border: 1px solid #dddcdc;
+  line-height: 30px;
+  background: #fff;
+}
+.cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search {
+  margin: 0;
+}
+.cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search .select2-search__field {
+  margin: 0;
+}
+.cherry-ui-core .select2 .select2-dropdown {
+  border: 1px solid #dddcdc;
+}
+.cherry-ui-core .select2 .select2-dropdown.select2-container--open, .cherry-ui-core .select2 .select2-dropdown.select2-dropdown--below {
+  border: 1px solid #dddcdc;
 }
 .cherry-ui-core select {
   height: 42px;
@@ -328,7 +336,6 @@
 .cherry-ui-core textarea {
   border-radius: 6px;
   padding: 10px 12px 10px 10px;
-  resize: vertical;
 }
 
 .cherry-ui-core input[type="checkbox"],

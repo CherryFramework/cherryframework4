@@ -110,6 +110,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			/** Sets the path to the core framework admin directory. */
 			define( 'CHERRY_ADMIN', trailingslashit( CHERRY_DIR ) . 'admin' );
+
+			/** Sets the path to the core framework extensions directory. */
+			define( 'CHERRY_EXTENSIONS', trailingslashit( CHERRY_DIR ) . 'extensions' );
 		}
 
 		/**
@@ -149,6 +152,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load the Cherry_Static class.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-statics.php' );
+
+			// Include CSS compiler.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-css-compiler.php' );
 		}
 
 		/**

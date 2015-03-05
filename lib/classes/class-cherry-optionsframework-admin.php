@@ -181,11 +181,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		private function child_priority_sorting($base_array) {
 			foreach ($base_array as $sectionName => $sectionSettings) {
-				$section = $sectionName;
-				$parent = $sectionSettings['parent'];
+				$parent = !empty( $sectionSettings['parent'] ) ? $sectionSettings['parent'] : '';
 				if($parent !== ''){
 					$tmpPriority = $base_array[$parent]['priority']+1;
-					$base_array[$section]['priority'] = $tmpPriority;
+					$base_array[$sectionName]['priority'] = $tmpPriority;
 
 				}
 			}
@@ -201,7 +200,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			$section_index = 0;
 			//save options
 			if(isset($_POST['cherry']['save-options'])){
-				//var_dump($_POST['cherry']);
 				$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
 				do_action('cherry-options-updated');
 				//$location = add_query_arg( array( 'saved' => 'true' ), menu_page_url( 'cherry-options', 0 ) );
@@ -239,7 +237,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 						<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
 					</div>
 					<?php settings_errors( 'cherry-options-group' ); ?>
-
 						<form id="cherry-options" class="cherry-ui-core" method="post">
 							<?php settings_fields( 'cherry-options-group' ); ?>
 							<input class="active-section-field" type="hidden" name="active_section" value="">
@@ -247,16 +244,20 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 								<ul class="vertical-tabs_ vertical-tabs_width_mid_">
 									<?php
 									foreach ($cherry_options as $section_key => $section_value) {
-										($section_value["parent"] != '')? $subClass = 'subitem' : $subClass = '';
+										$parent = !empty( $section_value['parent'] ) ? $section_value['parent'] : '';
+										( $parent !== '') ? $subClass = 'subitem' : $subClass = '';
 										$priority_value = $section_value['priority']; ?>
-										<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $section_value["parent"]; ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
+										<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $parent ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
 
 									<?php $section_index++; } ?>
 								</ul>
 								<div class="cherry-option-group-list">
 									<?php
-									foreach ($cherry_options as $section_key => $section_value) { ?>
-										<div class="options-group"><?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?></div>
+									foreach ($cherry_options as $section_key => $section_value) {?>
+										<div class="options-group">
+											<div class="group-name"><span><?php echo $section_value[ 'name' ] ?></span></div>
+											<?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?>
+										</div>
 									<?php } ?>
 								</div>
 							</div>
