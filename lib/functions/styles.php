@@ -16,10 +16,7 @@
 add_action( 'wp_enqueue_scripts', 'cherry_register_styles', 0 );
 
 // Load Cherry Framework styles.
-add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 5 );
-
-// Load theme style.
-add_action( 'wp_enqueue_scripts', 'cherry_enqueue_theme_style', 11 );
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 10 );
 
 /**
  * Registers stylesheets for the framework. This function merely registers styles with WordPress using
@@ -33,30 +30,14 @@ function cherry_register_styles() {
 	// Get framework styles.
 	$styles = cherry_get_styles();
 
-	// Get the active theme stylesheet version.
-	$version = wp_get_theme()->get( 'Version' );
-	// $prefix  = cherry_get_prefix( true );
-	$prefix  = cherry_get_prefix();
-
 	// Loop through each style and register it.
-	foreach ( $styles as $style => $args ) {
-
-		$defaults = array(
-			'handle'  => $prefix . $style,
-			'src'     => trailingslashit( CHILD_URI ) . "assets/css/{$style}.css",
-			'deps'    => null,
-			'version' => $version,
-			'media'   => 'all'
-		);
-
-		$args = wp_parse_args( $args, $defaults );
-
+	foreach ( $styles as $style ) {
 		wp_register_style(
-			sanitize_key( $args['handle'] ),
-			esc_url( $args['src'] ),
-			is_array( $args['deps'] ) ? $args['deps'] : null,
-			preg_replace( '/[^a-z0-9_\-.]/', '', strtolower( $args['version'] ) ),
-			esc_attr( $args['media'] )
+			sanitize_key( $style['handle'] ),
+			esc_url( $style['src'] ),
+			null,
+			preg_replace( '/[^a-z0-9_\-.]/', '', strtolower( $style['version'] ) ),
+			'all'
 		);
 	}
 }
@@ -67,35 +48,13 @@ function cherry_register_styles() {
  * @since  4.0.0
  */
 function cherry_enqueue_styles() {
-
-	// Get the theme-supported stylesheets.
-	$supports = get_theme_support( 'cherry-styles' );
-
-	// If the theme doesn't add support for any styles, return.
-	if ( !is_array( $supports[0] ) )
-		return;
-
 	// Get framework styles.
 	$styles = cherry_get_styles();
 
-	// Get prefix.
-	// $prefix = cherry_get_prefix( true );
-	$prefix = cherry_get_prefix();
-
 	// Loop through each of the core framework styles and enqueue them if supported.
-	foreach ( $supports[0] as $style ) {
-
-		if ( isset( $styles[ $style ]['handle'] ) ) {
-			wp_enqueue_style( $styles[ $style ]['handle'] );
-		} else {
-			wp_enqueue_style( $prefix . $style );
-		}
+	foreach ( $styles as $style ) {
+		wp_enqueue_style( $style );
 	}
-}
-
-function cherry_enqueue_theme_style() {
-	// wp_enqueue_style( cherry_get_prefix( true ) . 'style' );
-	wp_enqueue_style( cherry_get_prefix() . 'style' );
 }
 
 /**
@@ -105,26 +64,79 @@ function cherry_enqueue_theme_style() {
  * @return array $styles All the available framework styles.
  */
 function cherry_get_styles() {
-	// Responsive grid?
-	$responsive      = cherry_get_option('grid-responsive');
-	$grid_responsive = ( 'true' == $responsive  ) ? array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/grid-responsive.css' ) : array( 'src' => false );
+	// Get the theme prefix.
+	$prefix = cherry_get_prefix();
 
-	// Default styles available.
-	$styles = array(
-		'main'            => array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/main.css' ),
-		'grid-base'       => array( 'src' => trailingslashit( CHILD_URI ) . 'assets/css/grid-base.css' ),
-		'grid-responsive' => $grid_responsive,
-		'drop-downs'      => array(
-			'handle'  => get_template() . '-drop-downs',
-			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
-			'version' => CHERRY_VERSION,
-		),
-		'add-ons' => array(
-			'handle'  => get_template() . '-add-ons',
-			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
-			'version' => CHERRY_VERSION,
-		),
-		'style'   => array( 'src' => get_stylesheet_uri() ),
+	// Get the active theme stylesheet version.
+	$version = wp_get_theme()->get( 'Version' );
+
+	// Get the theme-supported stylesheets.
+	$supports = get_theme_support( 'cherry-styles' );
+
+	// If the theme support for any styles.
+	if ( is_array( $supports[0] ) ) :
+
+		// Responsive grid?
+		$responsive = cherry_get_option( 'grid-responsive' );
+
+		$grid_responsive = ( 'true' == $responsive ) ?
+			array(
+				'handle'  => $prefix . 'grid-responsive',
+				'src'     => trailingslashit( CHILD_URI ) . 'assets/css/grid-responsive.css',
+				'version' => $version,
+			) : false;
+
+		// Default styles.
+		$defaults = apply_filters( 'cherry_get_styles_defaults', array(
+			'main' => array(
+				'handle'  => $prefix . 'main',
+				'src'     => trailingslashit( CHILD_URI ) . 'assets/css/main.css',
+				'version' => $version,
+			),
+			'grid-base' => array(
+				'handle'  => $prefix . 'grid-base',
+				'src'     => trailingslashit( CHILD_URI ) . 'assets/css/grid-base.css',
+				'version' => $version,
+			),
+			'grid-responsive' => $grid_responsive,
+			'drop-downs' => array(
+				'handle'  => get_template() . '-drop-downs',
+				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
+				'version' => CHERRY_VERSION,
+			),
+			'add-ons' => array(
+				'handle'  => get_template() . '-add-ons',
+				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
+				'version' => CHERRY_VERSION,
+			),
+			'style' => array(
+				'handle'  => $prefix . 'style',
+				'src'     => get_stylesheet_uri(),
+				'version' => $version,
+			),
+		) );
+
+		$styles = array();
+		foreach ( $supports[0] as $s ) {
+
+			if ( empty( $defaults[ $s ] ) ) {
+				continue;
+			}
+
+			if ( !is_array( $defaults[ $s ] ) ) {
+				continue;
+			}
+
+			$styles[ $s ] = $defaults[ $s ];
+		}
+
+	endif;
+
+	// Add the main stylesheet (this must be included).
+	$styles['style'] = array(
+		'handle'  => $prefix . 'style',
+		'src'     => get_stylesheet_uri(),
+		'version' => $version,
 	);
 
 	/**

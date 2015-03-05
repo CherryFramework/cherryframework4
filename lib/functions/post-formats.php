@@ -31,7 +31,7 @@ function cherry_structured_post_formats() {
 
 	// Filter the excerpt of audio posts.
 	if ( current_theme_supports( 'post-formats', 'audio' ) ) {
-		add_filter( 'the_excerpt', 'cherry_post_audio_excerpt', 9 );
+		add_filter( 'the_excerpt', 'cherry_post_audio_excerpt', 11 );
 	}
 
 	// Filter the excerpt of chat posts.
@@ -71,7 +71,7 @@ function cherry_structured_post_formats() {
 
 	// Filter the excerpt of video posts.
 	if ( current_theme_supports( 'post-formats', 'video' ) ) {
-		add_filter( 'the_excerpt', 'cherry_post_video_excerpt', 9 );
+		add_filter( 'the_excerpt', 'cherry_post_video_excerpt', 11 );
 	}
 
 	// Filter the entry-footer of page.

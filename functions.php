@@ -200,7 +200,7 @@ function cherry_theme_setup() {
 
 	// Loads styles.
 	add_theme_support( 'cherry-styles', array(
-		'main', 'grid-base', 'grid-responsive', 'drop-downs', 'add-ons',
+		'grid-base', 'grid-responsive', 'drop-downs', 'main', 'add-ons',
 	) );
 
 	// Loads shortcodes.
