@@ -260,9 +260,7 @@ class Cherry_Interface_Builder {
 								break;
 							}
 						}
-
 						$output .= '<option value="' . $option . '" ' . $tmp . '>'. esc_html( $option_value ) .'</option>';
-						//$output .= '<option value="' . $option . '" ' . selected( $value, $option, false ) . '>'. esc_html( $option_value ) .'</option>';
 					}
 				}
 				$output .= '</select>';
@@ -1187,7 +1185,7 @@ class Cherry_Interface_Builder {
 	* @since 4.0.0
 	*/
 	public function include_scripts(){
-		wp_enqueue_script( 'interface-builder' );
+		//wp_enqueue_script( 'interface-builder' );
 	}
 
 	/**
@@ -1196,6 +1194,6 @@ class Cherry_Interface_Builder {
 	* @since 4.0.0
 	*/
 	public function enqueue_style(){
-		wp_enqueue_style( 'interface-builder' );
+		//wp_enqueue_style( 'interface-builder' );
 	}
 }

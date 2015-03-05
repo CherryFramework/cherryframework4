@@ -284,17 +284,7 @@ $grey-color: #f2f3f4;
 					}
 			}
 		}
-		.select2-dropdown{
-			border: 1px solid #dddcdc;
-			&.select2-container--open, &.select2-dropdown--below{
-				border: 1px solid #dddcdc;
-			}
-		}
 	}
-	.select2-container{
-
-	}
-
 	select {
 		height: 42px;
 	}
@@ -438,3 +428,4 @@ $grey-color: #f2f3f4;
 .cherry-ui-core textarea{
 	box-shadow: none;
 }
+

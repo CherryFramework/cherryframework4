@@ -227,12 +227,6 @@
 .cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search .select2-search__field {
   margin: 0;
 }
-.cherry-ui-core .select2 .select2-dropdown {
-  border: 1px solid #dddcdc;
-}
-.cherry-ui-core .select2 .select2-dropdown.select2-container--open, .cherry-ui-core .select2 .select2-dropdown.select2-dropdown--below {
-  border: 1px solid #dddcdc;
-}
 .cherry-ui-core select {
   height: 42px;
 }

@@ -106,7 +106,7 @@ function cherry_defaults_settings() {
 				'title'			=> 'title multiselect',
 				'label'			=> 'label multiselect',
 				'decsription'	=> 'decsription multiselect',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
@@ -129,7 +129,7 @@ function cherry_defaults_settings() {
 				'title'			=> 'title checkbox',
 				'label'			=> 'label checkbox',
 				'decsription'	=> 'decsription checkbox',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
@@ -140,7 +140,7 @@ function cherry_defaults_settings() {
 				'title'			=> 'title switcher',
 				'label'			=> 'label switcher',
 				'decsription'	=> 'decsription switcher',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),

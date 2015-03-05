@@ -241,14 +241,13 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 							<?php settings_fields( 'cherry-options-group' ); ?>
 							<input class="active-section-field" type="hidden" name="active_section" value="">
 							<div class="cherry-sections-wrapper">
-								<ul class="vertical-tabs_ vertical-tabs_width_mid_">
+								<ul class="cherry-option-section-tab vertical-tabs_ vertical-tabs_width_mid_">
 									<?php
 									foreach ($cherry_options as $section_key => $section_value) {
 										$parent = !empty( $section_value['parent'] ) ? $section_value['parent'] : '';
 										( $parent !== '') ? $subClass = 'subitem' : $subClass = '';
 										$priority_value = $section_value['priority']; ?>
 										<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $parent ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
-
 									<?php $section_index++; } ?>
 								</ul>
 								<div class="cherry-option-group-list">
@@ -278,7 +277,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 										'type'  => 'submit',
 										'value' => __( 'Restore Options', 'cherry' ),
 									);
-
 									//echo $this->option_inteface_builder->multi_output_items( $submitSection );
 								?>
 								<div id="wrap-cherry-save-options">

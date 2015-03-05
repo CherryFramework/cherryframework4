@@ -24,10 +24,6 @@
   line-height: 35px;
 }
 
-.cherry-sections-wrapper {
-  background: #2a445d;
-}
-
 .cherry-submit-wrapper {
   background: none repeat scroll 0 0 #2a445d;
   overflow: hidden;
@@ -50,34 +46,35 @@
   margin: 0 5px;
 }
 
-#cherry-options .cherry-option-group-list {
+#cherry-options .cherry-sections-wrapper {
+  background: #2a445d;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list {
   margin-left: 200px;
   background: #fcfcfc;
   border-left: 1px solid #D8D8D8;
   min-height: 800px;
   position: relative;
-  overflow: hidden;
   z-index: 1;
 }
-#cherry-options .cherry-option-group-list .options-group {
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group {
   display: none;
 }
-#cherry-options .cherry-option-group-list .options-group .group-name {
-  background: #FFF;
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .group-name {
   padding: 20px;
-  margin: 20px 15px;
-  background-color: #f2f3f4;
-  border: 1px solid #d4d5d6;
+  margin-bottom: 20px;
 }
-#cherry-options .cherry-option-group-list .options-group .group-name span {
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .group-name span {
   font-size: 20px;
   line-height: 20px;
 }
-#cherry-options .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
   background: #fcfcfc;
 }
-#cherry-options .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
   background-color: #f2f3f4;
 }
 
@@ -128,4 +125,27 @@
 }
 .fixed-control-holder .marker:hover {
   color: #7ad03a;
+}
+
+.cherry-options-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 999;
+  pointer-events: none;
+}
+.cherry-options-loader span {
+  width: 75px;
+  height: 75px;
+  left: 50%;
+  top: 50%;
+  margin-left: -37px;
+  margin-right: -37px;
+  display: block;
+  position: relative;
+  background: url("../images/cherry-ajax-loader-2.gif") 50% 50% no-repeat;
+  border-radius: 40px;
 }

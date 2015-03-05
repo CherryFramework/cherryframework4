@@ -85,6 +85,8 @@ class Cherry_Admin {
 			wp_enqueue_script( 'jquery-ui-slider' );
 			wp_enqueue_script( 'jquery-ui-accordion' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
+			wp_enqueue_script( 'interface-builder' );
+
 			if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
 				wp_enqueue_script( 'admin-interface' );
 			}
