@@ -446,11 +446,13 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 				return 'url("' . $this->current_dir_url . '/' . $matches[1] . '")';
 			}
 
-			for ( $i = 1; $i <= $depth ; $i++) {
-				$url  = preg_replace( '/\/([^\/]*)$/', '', $this->current_dir_url, 1 );
-				$path = preg_replace( '/(\.\.\/)/', '', $matches[1] );
-			}
+			$url  = $this->current_dir_url;
+			$path = $matches[1];
 
+			for ( $i = 1; $i <= $depth ; $i++) {
+				$url  = preg_replace( '/\/([^\/]*)$/', '', $url, 1 );
+				$path = preg_replace( '/(\.\.\/)/', '', $path, 1 );
+			}
 			return 'url("' . $url . '/' . $path . '")';
 		}
 
