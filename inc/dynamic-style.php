@@ -17,9 +17,8 @@ if ( !defined( 'WPINC' ) ) {
 $cherry_css_vars = cherry_get_css_varaibles();
 
 ?>
-a {
-	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
-}
-a:hover {
-	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-primary' ), 20 ); ?>;
+
+.cherry-btn-primary {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+	color: <?php echo cherry_contrast_color( cherry_esc_value( $cherry_css_vars, 'color-primary' ) ); ?>;
 }
