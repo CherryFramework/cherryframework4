@@ -12,7 +12,8 @@
 		}
 		.current-theme{
 			background: #FFF;
-			border-left: 4px solid #2EA2CC;
+			position: relative;
+			border-left: 5px solid #2a445d;
 			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 			box-sizing: border-box;
 			padding: 20px;
@@ -63,7 +64,8 @@
 			position: relative;
 			z-index: 1;
 				.options-group {
-					display: none;
+					visibility: hidden;
+
 						.group-name{
 							padding: 20px;
 							margin-bottom: 20px;
@@ -134,27 +136,5 @@
 				&:hover{
 					color: #7ad03a;
 				}
-		}
-}
-.cherry-options-loader{
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: none;
-	z-index: 999;
-	pointer-events: none;
-		span{
-			width: 75px;
-			height: 75px;
-			left: 50%;
-			top: 50%;
-			margin-left: -37px;
-			margin-right: -37px;
-			display: block;
-			position: relative;
-			background: url('../images/cherry-ajax-loader-2.gif') 50% 50% no-repeat ;
-			border-radius: 40px;
 		}
 }

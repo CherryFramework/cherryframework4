@@ -396,9 +396,9 @@ function cherry_defaults_settings() {
 				'type'			=> 'radio',
 				'title'			=> 'what kind of logo?',
 				'value'			=> 'text-logo',
-				'default_value'	=> 'image-logo',
 				'class'			=> '',
 				'display-input'	=> true,
+				'library_type'	=> 'image',
 				'options'		=> array(
 					'radio-1' => array(
 						'label' => 'text',
@@ -423,10 +423,10 @@ function cherry_defaults_settings() {
 									Icon for Apple iPad Retina (144px * 144px )<br>'
 				),
 				'value'				=> '',
-				'default_value'		=> '',
 				'display_image'		=> true,
 				'multi_upload'		=> true,
-				'return_data_type'	=> 'url'
+				'return_data_type'	=> 'url',
+				'library_type'	=> 'image'
 	);
 	$general_options['general-page-comments'] = array(
 				'type'			=> 'switcher',
@@ -516,6 +516,7 @@ function cherry_defaults_settings() {
 			'label'			=> 'Footer styling section',
 			'decsription'	=> 'Change the footer background',
 			'return_data_type'	=> 'id',
+			'library_type'		=> 'image',
 			'value'			=> array(
 					'image'	=> '',
 					'color'	=> '#a4cc3f',
@@ -1098,7 +1099,6 @@ function cherry_defaults_settings() {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////// Breadcrumbs options ////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	$breadcrumbs_options = array();
 
 	$breadcrumbs_options['breadcrumbs'] = array(
@@ -1443,6 +1443,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Background for main container'
 				),
 				'return_data_type'	=> 'url',
+				'library_type'		=> 'image',
 				'value'				=> array(
 					'image'	=> '',
 					'color'	=> '#ff0000',
@@ -1562,6 +1563,7 @@ function cherry_defaults_settings() {
 			'label'			=> 'Select invalid background color',
 			'decsription'	=> 'Primary input invalid field background ',
 			'return_data_type'	=> 'id',
+			'library_type'		=> 'image',
 			'value'			=> array(
 					'image'	=> '',
 					'color'	=> '#FF7766',
@@ -1712,6 +1714,7 @@ function cherry_defaults_settings() {
 					'content'	=> 'Рекомендуемый минимальный размер картинки при использовании на всю ширину окна 2560X1600. Загруженная фоновая картинка будет оптимизированная для отображения на мобильных и retina устройствах'
 				),
 			'return_data_type'	=> 'id',
+			'library_type'		=> 'image',
 			'value'			=> array(
 					'image'	=> '',
 					'color'	=> '#a4cc3f',
@@ -2150,4 +2153,5 @@ function cherry_defaults_settings() {
 	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
+	//return $sections_array;
 }

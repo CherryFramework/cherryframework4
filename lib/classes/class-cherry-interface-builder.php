@@ -658,8 +658,6 @@ class Cherry_Interface_Builder {
 			*/
 			case 'colorpicker':
 				$output .= '<input id="' . $id . '" name="' . $name . '" value="' . esc_html( $value ) . '" ' . $item_inline_style . ' class="cherry-color-picker '. $class . '" type="text" />';
-				add_action( 'admin_footer', array($this, 'include_colorpicker_script_style'));
-				add_action( 'admin_footer', array($this, 'include_colorpicker_script_style'));
 				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
 			/*
@@ -816,8 +814,6 @@ class Cherry_Interface_Builder {
 					}
 					$output .= '<div class="clear"></div>';
 				$output .= '</div>';
-
-				add_action( 'admin_footer', array($this, 'include_colorpicker_script_style'));
 				add_action( 'admin_footer', array($this, 'include_media_script_style'));
 				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
@@ -957,7 +953,6 @@ class Cherry_Interface_Builder {
 				$output .= '<input name="' . $name . '[category]" value="" class="cherry-font-category" type="hidden" />';
 				$output .= '</div>';
 
-				add_action( 'admin_footer', array($this, 'include_colorpicker_script_style'));
 				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
 		}
@@ -976,6 +971,7 @@ class Cherry_Interface_Builder {
 		$class       = 'cherry-section-' . $this->options['pattern'] . ' ' . $class;
 		$output      = '<div id="wrap-' . $id . '" class="' . $class . '">';
 		$output      .= $title ? $this->add_title( $title ) : '';
+		$hint_html	= '';
 
 		if ( $this->options['pattern'] == 'inline' ) :
 
@@ -983,14 +979,13 @@ class Cherry_Interface_Builder {
 
 		else :
 
-			$output .= '<div class="cherry-col-1">' . $this->add_label( $id, $label ) . $decsription . '</div>';
-
 			if ( $hint ) {
-				$output .= $this->add_hint( $hint );
+				$hint_html .=  $this->add_hint( $hint ) ;
 			}
 
+			$output .= '<div class="cherry-col-1">' . $this->add_label( $id, $label ) . $decsription . $hint_html. '</div>';
 			$output .= '<div class="cherry-col-2">' . $item . '</div>';
-
+			//$output .= '<div class="clear"></div>';
 		endif;
 
 		$output .= '</div>';
@@ -1167,16 +1162,6 @@ class Cherry_Interface_Builder {
 	*/
 	public function include_media_script_style(){
 		wp_enqueue_media();
-	}
-
-	/**
-	* Include color picker JS and CSS files.
-	*
-	* @since 4.0.0
-	*/
-	public function include_colorpicker_script_style(){
-		wp_enqueue_style( 'wp-color-picker' );
-		wp_enqueue_script( 'wp-color-picker');
 	}
 
 	/**

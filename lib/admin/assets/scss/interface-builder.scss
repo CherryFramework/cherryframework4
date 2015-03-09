@@ -1,7 +1,8 @@
 .cherry-section{
 	border-top: 1px solid #d4d5d6;
-	overflow: hidden;
 	padding: 18px;
+	position: relative;
+	overflow: hidden;
 		.cherry-title{
 			margin: 14px 0 14px 0;
 				&:first-letter{
@@ -27,21 +28,25 @@
 
 		/*Cherry column style*/
 		.cherry-col-1, .cherry-col-2{
-			float: left;
+			display: inline-block;
+			position: relative;
+			vertical-align: top;
 		}
 		.cherry-col-1{
-			width: 20%;
+			width: 25%;
 				@media screen and (max-width: 782px){
 					width: 100%;
-					margin:0 0 10px 0;
+					margin: 0 0 10px 0;
 				}
 		}
 		.cherry-col-2{
-			width: 73%;
+			width: 75%;
 				@media screen and (max-width: 782px){
 					width: 100%;
+					margin: 0 0 10px 0;
 				}
 		}
+
 		.cherry-element-wrap{
 			position: relative;
 			overflow: hidden;
@@ -607,7 +612,9 @@
 		/*End cherry info block style*/
 		/*Cherry tooltip style*/
 		.hint-text{
-			float: left;
+			position: absolute;
+			top: 0;
+			right: 10px;
 			color: #555555;
 			margin: 0px 20px 0px 0;
 			background-image: url("../images/help-small-icon.png");
