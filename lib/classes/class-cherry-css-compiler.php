@@ -211,40 +211,6 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		}
 
 		/**
-		 * Get dynamic CSS data to compile in the end of main CSS file
-		 *
-		 * @since 4.0.0
-		 */
-		function get_dynamic_css() {
-
-			$variables = array(
-				'color-primary' => cherry_get_option( 'color-primary' ),
-				'color-success' => cherry_get_option( 'color-success' )
-			);
-
-			/**
-			 * Filter CSS varaibles list
-			 */
-			$variables = apply_filters( 'cherry_css_varaibles', $variables );
-
-			$data = array(
-				'a' => array(
-					'color' => $variables['color-primary']
-				),
-				'a:hover' => array(
-					'color' => $variables['color-success']
-				)
-			);
-
-			/**
-			 * Filter dynamic styles list
-			 */
-			$data = apply_filters( 'cherry_compiler_dynamic_css', $data );
-
-			return $data;
-		}
-
-		/**
 		 * Replace URL with path in src
 		 *
 		 * @since  4.0.0
@@ -329,7 +295,11 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			$data          = $this->prepare_dynamic_css();
 			$cherry_styles = cherry_get_styles();
 
-			$handle = isset( $cherry_styles['style'] ) ? $cherry_styles['style']['handle'] : false;
+			if ( 'true' == $this->settings['concatenate_css'] ) {
+				$handle = 'cherry-dynamic-style';
+			} else {
+				$handle = isset( $cherry_styles['style'] ) ? $cherry_styles['style']['handle'] : false;
+			}
 
 			if ( ! $handle ) {
 				return;
@@ -408,23 +378,15 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 */
 		function prepare_dynamic_css() {
 
-			$dynamic_styles = $this->get_dynamic_css();
+			// First of all grab dynamic CSS from plugins
+			$data = apply_filters( 'cherry_compiler_dynamic_css', '' );
 
-			if ( ! $dynamic_styles || ! is_array( $dynamic_styles ) ) {
-				return;
-			}
+			// Then get theme CSS (child theme if exist, or from framework)
+			ob_start();
+			get_template_part( 'inc/dynamic-style' );
+			$data .= ob_get_clean();
 
-			$css = '';
-
-			foreach ( $dynamic_styles as $selector => $style ) {
-				$css_str = '';
-				foreach ( $style as $property => $value ) {
-					$css_str .= $property . ':' . $value . ';';
-				}
-				$css .= $selector . ' {' . $css_str . '}';
-			}
-
-			return $css;
+			return $data;
 		}
 
 		/**

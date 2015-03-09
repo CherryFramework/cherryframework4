@@ -76,3 +76,25 @@ function cherry_get_content_width() {
 
 	return $content_width;
 }
+
+/**
+ * Safely get value from arry by key
+ *
+ * @since  4.0.0
+ * @param  array   $array    array to search value in
+ * @param  string  $key      key
+ * @param  mixed   $default  default value to return if key not found in array
+ * @return mixed             value from array ar default if nothing found
+ */
+function cherry_esc_value( $array, $key, $default = false ) {
+
+	if ( ! $array || ! is_array( $array ) ) {
+		return $default;
+	}
+
+	if ( ! empty( $array[$key] ) ) {
+		return $array[$key];
+	}
+
+	return $default;
+}

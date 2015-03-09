@@ -150,10 +150,13 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );
 
+			// Load the color control functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'colors.php' );
+
 			// Load the Cherry_Static class.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-statics.php' );
 
-			// Include CSS compiler.
+			// Load CSS compiler.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-css-compiler.php' );
 		}
 

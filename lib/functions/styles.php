@@ -147,3 +147,45 @@ function cherry_get_styles() {
 	 */
 	return apply_filters( 'cherry_get_styles', $styles );
 }
+
+/**
+ * Get CSS variables into array
+ *
+ * @since  4.0.0
+ *
+ * @return array  dynamic CSS variables
+ */
+function cherry_get_css_varaibles() {
+
+	$var_list = array(
+		'color-primary',
+		'color-success',
+		'color-info',
+		'color-warning',
+		'color-danger',
+		'color-gray-variations',
+		'typography-body-text',
+		'typography-link',
+		'typography-input-text',
+		'typography-h1',
+		'typography-h2',
+		'typography-h3',
+		'typography-h4',
+		'typography-h5',
+		'typography-h6'
+	);
+
+	$var_list = apply_filters( 'cherry_css_var_list', $var_list );
+
+	if ( ! is_array( $var_list ) ) {
+		return false;
+	}
+
+	$result = array();
+
+	foreach ( $var_list as $var ) {
+		$result[$var] = cherry_get_option($var);
+	}
+
+	return $result;
+}
