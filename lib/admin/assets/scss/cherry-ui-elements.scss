@@ -270,6 +270,7 @@ $grey-color: #f2f3f4;
 									border: 1px solid #dddcdc;
 									line-height: 30px;
 									background: #fff;
+									margin-bottom: 3px;
 										.select2-selection__choice__remove{
 
 										}
@@ -284,18 +285,9 @@ $grey-color: #f2f3f4;
 					}
 			}
 		}
-		.select2-dropdown{
-			border: 1px solid #dddcdc;
-			&.select2-container--open, &.select2-dropdown--below{
-				border: 1px solid #dddcdc;
-			}
-		}
 	}
-	.select2-container{
-
-	}
-
 	select {
+		width: 100%;
 		height: 42px;
 	}
 
@@ -438,3 +430,4 @@ $grey-color: #f2f3f4;
 .cherry-ui-core textarea{
 	box-shadow: none;
 }
+

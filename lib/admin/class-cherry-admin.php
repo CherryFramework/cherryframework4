@@ -78,6 +78,7 @@ class Cherry_Admin {
 	 */
 	public function enqueue_admin_scripts( $hook_suffix ) {
 			// jQ select2.js plugin for custom select
+			wp_enqueue_script( 'wp-color-picker');
 			wp_enqueue_script( 'select2' );
 			wp_enqueue_script( 'statics-areas-editor-plugin' );
 			wp_enqueue_script( 'repeater-plugin' );
@@ -85,6 +86,8 @@ class Cherry_Admin {
 			wp_enqueue_script( 'jquery-ui-slider' );
 			wp_enqueue_script( 'jquery-ui-accordion' );
 			wp_enqueue_script( 'jquery-ui-sortable' );
+			wp_enqueue_script( 'interface-builder' );
+
 			if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
 				wp_enqueue_script( 'admin-interface' );
 			}
@@ -97,6 +100,7 @@ class Cherry_Admin {
 	 */
 	public function enqueue_admin_styles( $hook_suffix ) {
 		// if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
+			wp_enqueue_style( 'wp-color-picker' );
 			wp_enqueue_style( 'select2' );
 			wp_enqueue_style( 'jquery-ui' );
 			wp_enqueue_style( 'interface-builder' );

@@ -13,7 +13,8 @@
 }
 .options-page-wrapper .current-theme {
   background: #FFF;
-  border-left: 4px solid #2EA2CC;
+  position: relative;
+  border-left: 5px solid #2a445d;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   padding: 20px;
@@ -22,10 +23,6 @@
 .options-page-wrapper .current-theme span {
   font-size: 30px;
   line-height: 35px;
-}
-
-.cherry-sections-wrapper {
-  background: #2a445d;
 }
 
 .cherry-submit-wrapper {
@@ -50,34 +47,35 @@
   margin: 0 5px;
 }
 
-#cherry-options .cherry-option-group-list {
+#cherry-options .cherry-sections-wrapper {
+  background: #2a445d;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list {
   margin-left: 200px;
   background: #fcfcfc;
   border-left: 1px solid #D8D8D8;
   min-height: 800px;
   position: relative;
-  overflow: hidden;
   z-index: 1;
 }
-#cherry-options .cherry-option-group-list .options-group {
-  display: none;
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group {
+  visibility: hidden;
 }
-#cherry-options .cherry-option-group-list .options-group .group-name {
-  background: #FFF;
-  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .group-name {
   padding: 20px;
-  margin: 20px 15px;
-  background-color: #f2f3f4;
-  border: 1px solid #d4d5d6;
+  margin-bottom: 20px;
 }
-#cherry-options .cherry-option-group-list .options-group .group-name span {
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .group-name span {
   font-size: 20px;
   line-height: 20px;
 }
-#cherry-options .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
   background: #fcfcfc;
 }
-#cherry-options .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
+#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .cherry-section:nth-child(2n) {
   background-color: #f2f3f4;
 }
 
