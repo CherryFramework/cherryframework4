@@ -239,7 +239,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 */
 		static function load_settings() {
 			$result_settings = null;
-			if ( !$result_settings ) {
 				// Load options from options.php file (if it exists)
 				$location = apply_filters( 'default_set_file_location', array('cherry-options.php') );
 				if ( $optionsfile = locate_template( $location, true ) ) {
@@ -247,8 +246,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 						$result_settings = cherry_defaults_settings();
 					}
 				}
-			}
-
 			return $result_settings;
 		}
 		/**
