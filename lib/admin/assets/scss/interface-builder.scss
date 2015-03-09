@@ -2,7 +2,6 @@
 	border-top: 1px solid #d4d5d6;
 	padding: 18px;
 	position: relative;
-	overflow: hidden;
 		.cherry-title{
 			margin: 14px 0 14px 0;
 				&:first-letter{
@@ -34,6 +33,12 @@
 		}
 		.cherry-col-1{
 			width: 25%;
+				label{
+					margin-right: 60px;
+				}
+				small{
+					margin-right: 60px;
+				}
 				@media screen and (max-width: 782px){
 					width: 100%;
 					margin: 0 0 10px 0;
@@ -616,7 +621,6 @@
 			top: 0;
 			right: 10px;
 			color: #555555;
-			margin: 0px 20px 0px 0;
 			background-image: url("../images/help-small-icon.png");
 			background-repeat: no-repeat;
 			background-color: #dee0e1;

@@ -2,7 +2,6 @@
   border-top: 1px solid #d4d5d6;
   padding: 18px;
   position: relative;
-  overflow: hidden;
   /*Cherry column style*/
   /*End Cherry column style*/
   /*html ellements stule*/
@@ -69,6 +68,12 @@
 }
 .cherry-section .cherry-col-1 {
   width: 25%;
+}
+.cherry-section .cherry-col-1 label {
+  margin-right: 60px;
+}
+.cherry-section .cherry-col-1 small {
+  margin-right: 60px;
 }
 @media screen and (max-width: 782px) {
   .cherry-section .cherry-col-1 {
@@ -594,7 +599,6 @@
   top: 0;
   right: 10px;
   color: #555555;
-  margin: 0px 20px 0px 0;
   background-image: url("../images/help-small-icon.png");
   background-repeat: no-repeat;
   background-color: #dee0e1;
