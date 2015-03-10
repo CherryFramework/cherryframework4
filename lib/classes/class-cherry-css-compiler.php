@@ -80,6 +80,8 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 */
 		function __construct() {
 
+			define( 'CHERRY_DYNAMIC_CSS_HANDLE', 'cherry-dynamic-style' );
+
 			if ( defined( 'CHERRY_DEVELOPER_MODE' ) && CHERRY_DEVELOPER_MODE ) {
 				return;
 			}
@@ -151,7 +153,8 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 				}
 
 				add_filter( 'style_loader_tag', array( &$this, 'disable_handles' ), 1, 2 );
-				add_action( 'wp_enqueue_scripts', array( &$this, 'enqueue_stylesheet' ), 999 );
+				add_action( 'wp_enqueue_scripts', array( &$this, 'register_stylesheet' ), 1 );
+				add_action( 'wp_enqueue_scripts', array( &$this, 'process_stylesheet' ), 99 );
 			}
 
 			// print dynamic CSS directly into head tag if uploads dir not writable
@@ -264,25 +267,35 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		}
 
 		/**
-		 * Run stylesheet compilation and enqueue or just enqueue if compiled
+		 * Register compiled stylesheet
 		 *
 		 * @since  4.0.0
 		 */
-		public function enqueue_stylesheet() {
+		public function register_stylesheet() {
 
 			// do nothing if uploads dir not writable
 			if ( ! $this->is_writable ) {
 				return;
 			}
 
+			$ver = file_exists( $this->css_file_path ) ? filemtime( $this->css_file_path ) : '0';
+			wp_register_style( CHERRY_DYNAMIC_CSS_HANDLE, $this->css_file_url, array(), $ver );
+		}
+
+		/**
+		 * Process stylesheet compilation
+		 *
+		 * @since  4.0.0
+		 */
+		function process_stylesheet() {
+
 			// compile stylesheet if it was reseted or not compiled before
-			if ( false === $this->already_compiled ) {
-				$this->prepare_static_css();
-				$this->compile_stylesheet();
+			if ( false !== $this->already_compiled ) {
+				return;
 			}
 
-			$ver = file_exists( $this->css_file_path ) ? filemtime( $this->css_file_path ) : '0';
-			wp_enqueue_style( 'cherry-dynamic-style', $this->css_file_url, array(), $ver );
+			$this->prepare_static_css();
+			$this->compile_stylesheet();
 		}
 
 		/**
@@ -295,8 +308,8 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			$data          = $this->prepare_dynamic_css();
 			$cherry_styles = cherry_get_styles();
 
-			if ( 'true' == $this->settings['concatenate_css'] ) {
-				$handle = 'cherry-dynamic-style';
+			if ( wp_style_is( CHERRY_DYNAMIC_CSS_HANDLE, 'enqueued' ) ) {
+				$handle = CHERRY_DYNAMIC_CSS_HANDLE;
 			} else {
 				$handle = isset( $cherry_styles['style'] ) ? $cherry_styles['style']['handle'] : false;
 			}
@@ -305,7 +318,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 				return;
 			}
 
-			wp_add_inline_style( $handle, $data );
+			wp_add_inline_style( $handle, sanitize_text_field( $data ) );
 		}
 
 		/**
