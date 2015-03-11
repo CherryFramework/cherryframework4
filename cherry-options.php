@@ -225,15 +225,12 @@ function cherry_defaults_settings() {
 				'options'		=> array(
 					'radio-1' => array(
 						'label' => 'radio 1',
-						'img_src' => ''
 					),
 					'radio-2' => array(
 						'label' => 'radio 2',
-						'img_src' => ''
 					),
 					'radio-3' => array(
 						'label' => 'radio 3',
-						'img_src' => ''
 					),
 				)
 	);
@@ -371,112 +368,111 @@ function cherry_defaults_settings() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////// General options //////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 	$general_options = array();
-
-	$general_options['general-logo'] = array(
+	$general_options['general-logo-type'] = array(
+			'type'				=> 'radio',
+			'title'				=> __('Logo type', 'cherry'),
+			'decsription'		=> __('What kind of logo?', 'cherry'),
+			'value'				=> 'general-logo-type-image',
+			'display-input'		=> true,
+			'library_type'		=> 'image',
+			'options'			=> array(
+				'general-logo-type-image' => array(
+					'label' => 'image'
+				),
+				'general-logo-type-text' => array(
+					'label' => 'text'
+				),
+			)
+	);
+	$general_options['general-logo-image'] = array(
 			'type'				=> 'media',
-			'title'				=> 'Logo',
-			'label'				=> 'Choose four images',
-			'decsription'		=> 'Retina ready logo set',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Logo for Apple iPhone<br>
-								Logo for Apple iPhone Retina<br>
-								Logo for Apple iPad<br>
-								Logo for Apple iPad Retina<br>'
+			'title'				=> __('Logo image', 'cherry'),
+			'decsription'		=> __('Choose image for logo', 'cherry'),
+			'hint'				=>  array(
+				'type'			=> 'text',
+				'content'		=> __('Choose normal and retina(x2) image for logo', 'cherry'),
 			),
 			'value'				=> '',
-			'default_value'		=> '',
 			'display_image'		=> true,
 			'multi_upload'		=> true,
-			'return_data_type'	=> 'url'
+			'return_data_type'	=> 'url',
+			'library_type'		=> 'image'
 	);
-	$general_options['general-logo-type'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'what kind of logo?',
-				'value'			=> 'text-logo',
-				'class'			=> '',
-				'display-input'	=> true,
-				'library_type'	=> 'image',
-				'options'		=> array(
-					'radio-1' => array(
-						'label' => 'text',
-						'img_src' => ''
-					),
-					'radio-2' => array(
-						'label' => 'image',
-						'img_src' => ''
-					),
-				)
+	$general_options['general-logo-text'] = array(
+			'type'				=> 'typography',
+			'title'				=> __('Logo typography style', 'cherry'),
+			'decsription'		=> __('Choose image for logo', 'cherry'),
+			'value'				=> array(
+				'size'			=> '10',
+				'lineheight'	=> '10',
+				'color'			=> '000',
+				'family'		=> 'Abril Fatface',
+				'character'		=> 'latin-ext',
+				'style'			=> 'italic',
+				'letterspacing' => '0',
+				'align'			=> 'notdefined'
+			)
 	);
 	$general_options['general-favicon'] = array(
-				'type'				=> 'media',
-				'title'				=> 'Favicon',
-				'label'				=> 'Choose four images',
-				'decsription'		=> 'Retina ready favicon set',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Icon for Apple iPhone (57px * 57px) <br>
-									Icon for Apple iPhone Retina (114px * 114px)<br>
-									Icon for Apple iPad (72px * 72px)<br>
-									Icon for Apple iPad Retina (144px * 144px )<br>'
-				),
-				'value'				=> '',
-				'display_image'		=> true,
-				'multi_upload'		=> true,
-				'return_data_type'	=> 'url',
-				'library_type'	=> 'image'
+			'type'				=> 'media',
+			'title'				=> __('Favicon image', 'cherry'),
+			'decsription'		=> __('Favicon image', 'cherry'),
+			'hint'				=>  array(
+				'type'			=> 'text',
+				'content'		=> __('Favicon image', 'cherry'),'Icon for Apple iPhone (57px * 57px) <br>Icon for Apple iPhone Retina (114px * 114px)<br>Icon for Apple iPad (72px * 72px)<br>Icon for Apple iPad Retina (144px * 144px )'
+			),
+			'value'				=> '',
+			'display_image'		=> true,
+			'multi_upload'		=> true,
+			'return_data_type'	=> 'url',
+			'library_type'	=> 'image'
 	);
 	$general_options['general-page-comments'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'page comments',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Display comments on regular page',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> "Disable or enable comments by default on new pages and custom post types. You can change the default for new posts or pages, as well as enable/disable comments on posts or pages you've already published."
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+			'type'			=> 'switcher',
+			'title'			=> 'page comments',
+			'label'			=> 'Enable / Disable',
+			'decsription'	=> 'Display comments on regular page',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> "Disable or enable comments by default on new pages and custom post types. You can change the default for new posts or pages, as well as enable/disable comments on posts or pages you've already published."
+			),
+			'value'			=> 'true',
 	);
 	$general_options['general-featured-images'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'featured images',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Display featured images on page',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Disable or enable displaying of featured images'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+			'type'			=> 'switcher',
+			'title'			=> 'featured images',
+			'label'			=> 'Enable / Disable',
+			'decsription'	=> 'Display featured images on page',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Disable or enable displaying of featured images'
+			),
+			'value'			=> 'true',
 	);
 	$general_options['general-user-css'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'User CSS',
-				'label'			=> 'ON / OFF',
-				'decsription'	=> 'Include user css file',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Disable or enable user css file'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+			'type'			=> 'switcher',
+			'title'			=> 'User CSS',
+			'label'			=> 'ON / OFF',
+			'decsription'	=> 'Include user css file',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Disable or enable user css file'
+			),
+			'value'			=> 'true',
+			'default_value'	=> 'true'
 	);
 	$general_options['general-maintenance mode'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Maintenance mode',
-				'decsription'	=> 'Hide your site from regular visitors',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Logged in administrator gets full access to the site, while regular visitors will
-					be redirected to the chosen page.'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+			'type'			=> 'switcher',
+			'title'			=> 'Maintenance mode',
+			'decsription'	=> 'Hide your site from regular visitors',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Logged in administrator gets full access to the site, while regular visitors will
+				be redirected to the chosen page.'
+			),
+			'value'			=> 'true',
 	);
-
 	$general_options['general-maintenance-page'] = array(
 				'type'			=> 'select',
 				'title'			=> 'maintenance page',
@@ -577,16 +573,15 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Background pattern for main container', 'cherry' ),
 		),
-		'value'         => 'grid-boxed',
-		'default_value' => 'grid-boxed',
+		'value'         => 'grid-type-boxed',
 		'class'         => '',
 		'display_input' => false,
 		'options'       => array(
-			'grid-wide' => array(
+			'grid-type-wide' => array(
 				'label'   => __( 'Wide', 'cherry' ),
 				'img_src' => PARENT_URI . '/screenshot.png',
 			),
-			'grid-boxed' => array(
+			'grid-type-boxed' => array(
 				'label'   => __( 'Boxed', 'cherry' ),
 				'img_src' => PARENT_URI . '/screenshot.png',
 			),
@@ -609,116 +604,101 @@ function cherry_defaults_settings() {
 		'value' => 1170,
 	);
 	$page_layout_options['page-layout-type'] = array(
-		'type'	=> 'radio',
-		'title'	=> __('Header type layout', 'cherry'),
-		'label'	=> __('Header type layout', 'cherry'),
+		'type'			=> 'radio',
+		'title'			=> __('Header type layout', 'cherry'),
+		'label'			=> __('Header type layout', 'cherry'),
 		'decsription'	=> __('Choose header type layout.', 'cherry'),
-		'value'	=> 'header-type-layout-radio-1',
-		'default-value'	=> 'header-type-layout-radio-1',
-		'class'	=> '',
+		'value'			=> 'page-layout-type-1',
 		'display_input'	=> false,
-		'options'	=> array(
-			'header-type-layout-radio-1' => array(
+		'options'		=> array(
+			'page-layout-type-1' => array(
 				'label' => 'Top static',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
 			),
-			'header-type-layout-radio-2' => array(
+			'page-layout-type-2' => array(
 				'label' => 'Left static',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
 			),
-			'header-type-layout-radio-3' => array(
+			'page-layout-type-3' => array(
 				'label' => 'Right static',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
 			),
-			'header-type-layout-radio-4' => array(
+			'page-layout-type-4' => array(
 				'label' => 'Top toogle',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
 			),
-			'header-type-layout-radio-5' => array(
+			'page-layout-type-5' => array(
 				'label' => 'Left toogle',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
 			),
-			'header-type-layout-radio-6' => array(
+			'page-layout-type-6' => array(
 				'label' => 'Right toogle',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
 			)
 		)
 	);
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////// Blog layout options ////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	$blog_options = array();
+	$blog_options['blog-list-layout'] = array(
+		'type'          => 'radio',
+		'title'         => __( 'Blog list layout', 'cherry' ),
+		'label'         => __( 'Blog list layout', 'cherry' ),
+		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
+		'value'         => 'blog-list-layout-masonry',
+		'display_input' => false,
+		'options'       => array(
+			'blog-list-layout-masonry' => array(
+				'label'   => 'Masonry',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
+			),
+			'blog-list-layout-grid' => array(
+				'label'   => 'Grid',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
+			),
+			'blog-list-layout-list' => array(
+				'label'   => 'List',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
+			),
+			'blog-list-layout-timeline' => array(
+				'label'   => 'Timeline',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
+			),
+		)
+	);
 	$blog_options['blog-page-layout'] = array(
 		'type'          => 'radio',
 		'title'         => __( 'Blog page layout', 'cherry' ),
 		'label'         => __( 'Blog page layout', 'cherry' ),
 		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-		'value'         => '1-right',
-		'default-value' => '1-right',
-		'class'         => '',
+		'value'         => 'blog-page-layout-right',
 		'display_input' => false,
 		'options'       => array(
-			'1-left-2-right' => array(
+			'blog-page-layout-left-2-right' => array(
 				'label'   => __( 'Left and right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-both-sidebar.png',
 			),
-			'1-left' => array(
+			'blog-page-layout-left' => array(
 				'label'   => __( 'Left sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-left-sidebar.png',
 			),
-			'1-right' => array(
+			'blog-page-layout-right' => array(
 				'label'   => __( 'Right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-right-sidebar.png',
 			),
-			'1-left-2-left' => array(
+			'blog-page-layout-left-2-left' => array(
 				'label'   => __( 'Sameside left sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-left-sidebar.png',
 			),
-			'1-right-2-right' => array(
+			'blog-page-layout-right-2-right' => array(
 				'label'   => __( 'Sameside right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-right-sidebar.png',
 			),
-			'no-sidebar' => array(
+			'blog-page-layout-no-sidebar' => array(
 				'label'   => __( 'No sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-fullwidth.png',
 			),
-		)
-	);
-	$blog_options['blog-layout-options'] = array(
-		'type'          => 'radio',
-		'title'         => __( 'Blog list layout', 'cherry' ),
-		'label'         => __( 'Blog list layout', 'cherry' ),
-		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-		'value'         => 'header-type-layout-radio-1',
-		'default-value' => 'header-type-layout-radio-1',
-		'class'         => '',
-		'display_input' => false,
-		'options'       => array(
-			'header-type-layout-radio-1' => array(
-				'label'   => 'Top static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png',
-			),
-			'header-type-layout-radio-2' => array(
-				'label'   => 'Left static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png',
-			),
-			'header-type-layout-radio-3' => array(
-				'label'   => 'Right static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png',
-			),
-			'header-type-layout-radio-4' => array(
-				'label'   => 'Top toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png',
-			),
-			'header-type-layout-radio-5' => array(
-				'label'   => 'Left toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png',
-			),
-			'header-type-layout-radio-6' => array(
-				'label'   => 'Right toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png',
-			)
 		)
 	);
 	$blog_options['blog-button-text'] = array(
@@ -742,7 +722,6 @@ function cherry_defaults_settings() {
 			'content' => '',
 		),
 		'value'         => 'true',
-		'default_value' => 'true',
 	);
 	$blog_options['blog-comments'] = array(
 		'type'        => 'switcher',
@@ -754,7 +733,6 @@ function cherry_defaults_settings() {
 			'content' => '',
 		),
 		'value'         => 'false',
-		'default_value' => 'false',
 	);
 
 ///////////////////////////////////Blog image size
@@ -783,7 +761,7 @@ function cherry_defaults_settings() {
 		'value' => 'Read more',
 	);
 
-	$blog_options['blog-meta-info'] = array(
+	$blog_options['blog-meta-type-view'] = array(
 		'type'			=> 'radio',
 		'title'			=> 'view meta of the blog.',
 		'label'			=> 'choose one of them',
@@ -792,29 +770,22 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => 'Select meta block type which will be displayed on blog and post pages.',
 		),
-		'value'         => 'radio-2',
-		'default_value' => 'radio-1',
+		'value'         => 'blog-meta-type-view-line',
 		'class'         => '',
 		'display-input' => true,
 		'options'       => array(
-			'radio-1' => array(
+			'blog-meta-type-view-line' => array(
 				'label'   => 'Do not show.',
-				'img_src' => '',
 			),
-			'radio-2' => array(
+			'blog-meta-type-view-icon' => array(
 				'label'   => 'Lines',
-				'img_src' => '',
-			),
-			'radio-3' => array(
-				'label'   => 'Icons',
-				'img_src' => '',
 			),
 		)
 	);
 
 	$blog_options['blog-display-meta'] = array(
 		'type'        => 'radio',
-		'title'       => 'Display meta.',
+		'title'       => 'Display meta info block',
 		'label'       => 'choose one of them',
 		'decsription' => '',
 		'hint'        => array(
