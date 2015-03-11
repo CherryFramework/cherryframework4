@@ -2020,39 +2020,39 @@ function cherry_defaults_settings() {
 		'name'			=> 'All interface elements',
 		'icon'			=> 'dashicons dashicons-carrot',
 		'priority'		=> 1,
-		'options-list'	=> $demo_options
+		'options-list'	=> apply_filters( 'cherry_demo_options_list', $demo_options )
 	);
 	$sections_array['general-options-section'] = array(
 		'name'			=> 'General',
 		'icon' 			=> 'dashicons dashicons-admin-generic',
 		'priority'		=> 10,
-		'options-list'	=> $general_options
+		'options-list'	=> apply_filters( 'cherry_general_options_list', $general_options )
 	);
 	$sections_array['grid-options-section'] = array(
 		'name'			=> 'Grid',
 		'icon'			=> 'dashicons dashicons-admin-appearance',
 		'priority'		=> 20,
-		'options-list'	=> $grid_options
+		'options-list'	=> apply_filters( 'cherry_grid_options_list', $grid_options )
 	);
 	$sections_array['blog-options-section'] = array(
 		'name'			=> 'Blog layouts',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'grid-options-section',
 		'priority'		=> 1,
-		'options-list'	=> $blog_options
+		'options-list'	=> apply_filters( 'cherry_blog_options_list', $blog_options )
 	);
 	$sections_array['page-layout-options-section'] = array(
 		'name'			=> 'Page layouts',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'grid-options-section',
 		'priority'		=> 2,
-		'options-list'	=> $page_layout_options
+		'options-list'	=> apply_filters( 'cherry_page_layout_options_list', $page_layout_options )
 	);
 	$sections_array['styling-options-section'] = array(
 		'name' 			=> 'Styling',
 		'icon' 			=> 'dashicons dashicons-art',
 		'priority'		=> 30,
-		'options-list'	=> $styling_options
+		'options-list'	=> apply_filters( 'cherry_styling_options_list', $styling_options )
 	);
 
 	$sections_array['color-options-section'] = array(
@@ -2060,67 +2060,67 @@ function cherry_defaults_settings() {
 		'icon' 			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'styling-options-section',
 		'priority'		=> 31,
-		'options-list'	=> $color_options
+		'options-list'	=> apply_filters( 'cherry_color_options_list', $color_options )
 	);
 
 	$sections_array['navigation-options-section'] = array(
 		'name'			=> 'Navigation',
 		'icon' 			=> 'dashicons dashicons-menu',
 		'priority'		=> 40,
-		'options-list'	=> $navigation_options
+		'options-list'	=> apply_filters( 'cherry_navigation_options_list', $navigation_options )
 	);
 	$sections_array['breadcrumbs-options-section'] = array(
 		'name'			=>'Breadcrumbs',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'navigation-options-section',
 		'priority'		=> 41,
-		'options-list'	=> $breadcrumbs_options
+		'options-list'	=> apply_filters( 'cherry_breadcrumbs_options_list', $breadcrumbs_options )
 	);
 	$sections_array['pagination-options-section'] = array(
 		'name'			=> 'Pagination',
 		'icon'			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'navigation-options-section',
 		'priority'		=> 42,
-		'options-list'	=> $pagination_option
+		'options-list'	=> apply_filters( 'cherry_pagination_options_list', $pagination_option )
 	);
 	$sections_array['header-options-section'] = array(
 		'name'			=> 'Header',
 		'icon'			=> 'dashicons dashicons-admin-appearance',
 		'priority'		=> 50,
-		'options-list'	=> $header_options
+		'options-list'	=> apply_filters( 'cherry_header_options_list', $header_options )
 	);
 	$sections_array['logo-options-section'] = array(
 		'name'			=> 'Logo',
 		'icon'			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'header-options-section',
 		'priority'		=> 51,
-		'options-list'	=> $logo_options
+		'options-list'	=> apply_filters( 'cherry_logo_options_list', $logo_options )
 	);
 	$sections_array['footer-options-section'] = array(
 		'name' 			=> 'Footer',
 		'icon' 			=> 'dashicons dashicons-admin-appearance',
 		'priority'		=> 60,
-		'options-list'	=> $footer_options
+		'options-list'	=> apply_filters( 'cherry_footer_options_list', $footer_options )
 	);
 	$sections_array['typography-options-section'] = array(
 		'name' => 'Typography',
 		'icon' => 'dashicons dashicons-admin-generic',
 		'priority' => 70,
-		'options-list' => $typography_options
+		'options-list' => apply_filters( 'cherry_typography_options_list', $typography_options )
 	);
 	$sections_array['lists-options-section'] = array(
 		'name'			=>'Lists',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
 		'parent'		=> 'typography-options-section',
 		'priority'		=> 71,
-		'options-list'	=> $lists_options
+		'options-list'	=> apply_filters( 'cherry_lists_options_list', $lists_options )
 	);
 	$sections_array['optimization-options-section'] = array(
 		'name'         => 'Optimization',
 		'icon'         => 'dashicons dashicons-admin-tools',
 		'parent'       => '',
 		'priority'     => 90,
-		'options-list' => $optimization_options
+		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options )
 	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
