@@ -1560,6 +1560,17 @@ function cherry_defaults_settings() {
 			'value'			=> '#286090',
 			'default_value'	=> '#286090'
 	);
+	$color_options['color-secondary'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'Secondary color',
+			'decsription'	=> 'Secondary color for text, backgrounds and etc.',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Secondary color for text, backgrounds and etc.'
+			),
+			'value'			=> '#333333',
+			'default_value'	=> '#333333'
+	);
 	$color_options['color-success'] = array(
 			'type'			=> 'colorpicker',
 			'title'			=> 'Success color',

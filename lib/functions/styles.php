@@ -116,11 +116,11 @@ function cherry_get_styles() {
 				'version' => $version,
 			),
 			'grid-responsive' => $grid_responsive,
-			'drop-downs' => array(
+			/*'drop-downs' => array(
 				'handle'  => get_template() . '-drop-downs',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
 				'version' => CHERRY_VERSION,
-			),
+			),*/
 			'add-ons' => array(
 				'handle'  => get_template() . '-add-ons',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
@@ -176,6 +176,7 @@ function cherry_get_css_varaibles() {
 
 	$var_list = array(
 		'color-primary',
+		'color-secondary',
 		'color-success',
 		'color-info',
 		'color-warning',
