@@ -13,7 +13,7 @@
  */
 
 // Register Cherry Framework styles.
-add_action( 'wp_enqueue_scripts', 'cherry_register_styles', 0 );
+add_action( 'wp_enqueue_scripts', 'cherry_register_styles', 2 );
 
 // Load Cherry Framework styles.
 add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 10 );
@@ -31,13 +31,30 @@ function cherry_register_styles() {
 	$styles = cherry_get_styles();
 
 	// Loop through each style and register it.
-	foreach ( $styles as $style ) {
+	foreach ( $styles as $id => $style ) {
+
+		if ( 'style' == $id && wp_style_is( CHERRY_DYNAMIC_CSS_HANDLE, 'registered' ) ) {
+			$deps = array( CHERRY_DYNAMIC_CSS_HANDLE );
+		} else {
+			$deps = null;
+		}
+
+		$defaults = array(
+			'handle'  => '',
+			'src'     => '',
+			'deps'    => $deps,
+			'version' => '1.0',
+			'media'   => 'all'
+		);
+
+		$style = wp_parse_args( $style, $defaults );
+
 		wp_register_style(
 			sanitize_key( $style['handle'] ),
 			esc_url( $style['src'] ),
-			null,
+			$style['deps'],
 			preg_replace( '/[^a-z0-9_\-.]/', '', strtolower( $style['version'] ) ),
-			'all'
+			$style['media']
 		);
 	}
 }
@@ -53,7 +70,7 @@ function cherry_enqueue_styles() {
 
 	// Loop through each of the core framework styles and enqueue them if supported.
 	foreach ( $styles as $style ) {
-		wp_enqueue_style( $style );
+		wp_enqueue_style( $style['handle'] );
 	}
 }
 
