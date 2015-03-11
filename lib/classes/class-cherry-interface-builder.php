@@ -557,7 +557,7 @@ class Cherry_Interface_Builder {
 						$output .= $this->add_label( $radio_id, $img . $option_value['label'] );
 						$output .= '</div>';
 					}
-
+					$output .= '<div class="clear"></div>';
 					$output .= '</div>';
 
 					add_action( 'admin_footer', array( $this, 'include_scripts' ) );
