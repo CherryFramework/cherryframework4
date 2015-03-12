@@ -16,7 +16,7 @@
  * @since  4.0.0
  *
  * @param  string  $color  HEX or RGB(A) color value
- * @param  integer $darken darken percent (0-100)
+ * @param  float   $darken darken percent (0-100)
  * @return string          processed color
  */
 function cherry_colors_darken( $color, $darken = 0 ) {
@@ -60,7 +60,7 @@ function cherry_colors_darken( $color, $darken = 0 ) {
  * @since  4.0.0
  *
  * @param  string  $color   HEX or RGB(A) color value
- * @param  integer $lighten lighten percent (0-100)
+ * @param  float   $lighten lighten percent (0-100)
  * @return string           processed color
  */
 function cherry_colors_lighten( $color, $lighten = 0 ) {
@@ -144,7 +144,7 @@ function cherry_contrast_color( $color, $if_dark = '#ffffff', $if_light = '#0000
  * @since  4.0.0
  *
  * @param  string  $color   HEX or RGB(A) color value
- * @param  integer $percent modify percent (0-100)
+ * @param  float   $percent modify percent (0-100)
  * @return array            prepared color and modify percent
  */
 function cherry_prepare_color_mod( $color, $percent = 0 ) {
@@ -153,7 +153,7 @@ function cherry_prepare_color_mod( $color, $percent = 0 ) {
 	$is_rgb  = ( false !== strpos( $color, 'rgb' ) && false === $is_rgba ) ? true : false;
 	$is_hex  = ( false === $is_rgba && false === $is_rgb ) ? true : false;
 
-	$percent = round( (int)$percent / 100, 2 );
+	$percent = round( (double)$percent / 100, 2 );
 
 	if ( $is_hex && '#' == $color[0] ) {
 		$color = substr( $color, 1 );
