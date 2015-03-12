@@ -153,7 +153,7 @@ function cherry_prepare_color_mod( $color, $percent = 0 ) {
 	$is_rgb  = ( false !== strpos( $color, 'rgb' ) && false === $is_rgba ) ? true : false;
 	$is_hex  = ( false === $is_rgba && false === $is_rgb ) ? true : false;
 
-	$percent = round( (double)$percent / 100, 2 );
+	$percent = round( (double)$percent / 100, 4 );
 
 	if ( $is_hex && '#' == $color[0] ) {
 		$color = substr( $color, 1 );
