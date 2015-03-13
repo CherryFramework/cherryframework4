@@ -245,7 +245,6 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #333333;
   background-color: white;
 }
 
@@ -335,7 +334,6 @@ legend {
   margin-bottom: 20px;
   font-size: 21px;
   line-height: inherit;
-  color: #333333;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -699,7 +697,6 @@ select[multiple].input-lg, .form-group-lg .form-control {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #737373;
 }
 
 @media (min-width: 768px) {
