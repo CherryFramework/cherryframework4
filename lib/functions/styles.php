@@ -93,6 +93,18 @@ function cherry_get_styles() {
 	// If the theme support for any styles.
 	if ( is_array( $supports[0] ) ) :
 
+		$drop_downs = array(
+			'handle'  => get_template() . '-drop-downs',
+			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
+			'version' => CHERRY_VERSION,
+		);
+
+		// Disable dropdown CSS if Mega Menu enabled
+		$active_plugins = apply_filters( 'active_plugins', get_option( 'active_plugins' ) );
+		if ( in_array( 'cherry-mega-menu/cherry-mega-menu.php', $active_plugins ) ) {
+			$drop_downs = false;
+		}
+
 		// Responsive grid?
 		$responsive = cherry_get_option( 'grid-responsive' );
 
@@ -116,11 +128,7 @@ function cherry_get_styles() {
 				'version' => $version,
 			),
 			'grid-responsive' => $grid_responsive,
-			/*'drop-downs' => array(
-				'handle'  => get_template() . '-drop-downs',
-				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
-				'version' => CHERRY_VERSION,
-			),*/
+			'drop-downs' => $drop_downs,
 			'add-ons' => array(
 				'handle'  => get_template() . '-add-ons',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
