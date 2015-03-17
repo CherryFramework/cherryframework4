@@ -118,9 +118,31 @@ body {
 	background-color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
 }
 
+.cherry-drop-cap:first-letter {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+}
+.cherry-drop-cap-bg:first-letter {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+}
+.cherry-drop-cap-bg-grey:first-letter {
+		background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $body_typography, 'color' ), 24); ?>;
+}
 
 
+.cherry-blockquote, .cherry-blockquote:before{
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+	}
+.cherry-highlight {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+}
+.cherry-highlight-grey {
+	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+}
 
+
+.cherry-btn-transparent:hover{
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ); ?>;
+}
 
 .help-block {
 	color: <?php echo cherry_colors_lighten( cherry_esc_value( $body_typography, 'color' ), 20); ?>;
@@ -134,3 +156,28 @@ legend {
 output {
 	<?php echo cherry_esc_value( $cherry_css_vars, 'color-gray-variations' );?>
 }
+
+<!--input disabled  background color-->
+
+.form-control:disabled, .form-control:readonly, .form-control fieldset:disabled {
+	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+
+<!--Blockquote border color-->
+
+blockquote {
+	border-left: 5px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+	}
+
+.blockquote-reverse, blockquote.pull-right {
+	border-right: 5px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+	}
+
+<!--Page header border color-->
+.page-header {
+	border-bottom: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+}
+
+<!--Horizontal line color-->
+hr {
+	border-top: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+	}

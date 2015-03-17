@@ -142,7 +142,6 @@ output {
   &[readonly],
   fieldset[disabled] & {
     cursor: $cursor-disabled;
-    background-color: $input-bg-disabled;
     opacity: 1; // iOS fix for unreadable disabled content
   }
 
