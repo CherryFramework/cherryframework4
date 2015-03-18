@@ -19,10 +19,6 @@ add_filter( 'cherry_get_container_class', 'cherry_get_container_classes' );
 // Filters a sidebar visibility.
 add_filter( 'cherry_display_sidebar',     'cherry_hide_sidebar', 9, 2 );
 
-add_filter( 'shortcode_atts_row',         'cherry_add_type_atts', 10, 3 );
-
-add_filter( 'su/data/shortcodes',         'cherry_add_type_view' );
-
 // Prints option styles.
 add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
 
@@ -126,37 +122,6 @@ function cherry_hide_sidebar( $display, $id ) {
 	}
 
 	return $display;
-}
-
-function cherry_add_type_atts( $out, $pairs, $atts ) {
-	$out['type'] = ( isset( $atts['type'] ) ) ? $atts['type'] : 'fixed-width';
-
-	return $out;
-}
-
-function cherry_add_type_view( $shortcodes ) {
-	$shortcode = ( !empty( $_REQUEST['shortcode'] ) ) ? sanitize_key( $_REQUEST['shortcode'] ) : '';
-
-	if ( empty( $shortcode ) ) {
-		return $shortcodes;
-	}
-
-	if ( 'row' != $shortcode ) {
-		return $shortcodes;
-	}
-
-	$shortcodes[ $shortcode ]['atts']['type'] = array(
-		'type'   => 'select',
-		'values' => array(
-			'fixed-width' => __( 'Fixed Width', 'cherry' ),
-			'full-width'  => __( 'Full Width', 'cherry' ),
-		),
-		'default' => 'fixed-width',
-		'name'    => __( 'Type', 'cherry' ),
-		'desc'    => __( 'Type width', 'cherry' ),
-	);
-
-	return $shortcodes;
 }
 
 function cherry_add_extra_styles() {
