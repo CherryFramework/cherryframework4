@@ -243,20 +243,19 @@ function cherry_defaults_settings() {
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
-				'value'			=> 'radio-image-1',
-				'default_value'	=> 'radio-image-1',
+				'value'			=> 'radio-1',
 				'class'			=> '',
 				'display_input'	=> false,
 				'options'		=> array(
-					'radio-image-1' => array(
+					'radio-1' => array(
 						'label' => 'radio image 1',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio-image-2' => array(
+					'radio-2' => array(
 						'label' => 'radio image 2',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
-					'radio-image-3' => array(
+					'radio-3' => array(
 						'label' => 'radio image 3',
 						'img_src' => PARENT_URI.'/screenshot.png'
 					),
@@ -649,19 +648,19 @@ function cherry_defaults_settings() {
 		'value'         => 'blog-list-layout-masonry',
 		'display_input' => false,
 		'options'       => array(
-			'blog-list-layout-masonry' => array(
+			'masonry' => array(
 				'label'   => 'Masonry',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
 			),
-			'blog-list-layout-grid' => array(
+			'grid' => array(
 				'label'   => 'Grid',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
 			),
-			'blog-list-layout-list' => array(
+			'list' => array(
 				'label'   => 'List',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
 			),
-			'blog-list-layout-timeline' => array(
+			'timeline' => array(
 				'label'   => 'Timeline',
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
 			),
@@ -675,27 +674,27 @@ function cherry_defaults_settings() {
 		'value'         => 'blog-page-layout-right',
 		'display_input' => false,
 		'options'       => array(
-			'blog-page-layout-left-2-right' => array(
+			'left-2-right' => array(
 				'label'   => __( 'Left and right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-both-sidebar.png',
 			),
-			'blog-page-layout-left' => array(
+			'left' => array(
 				'label'   => __( 'Left sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-left-sidebar.png',
 			),
-			'blog-page-layout-right' => array(
+			'right' => array(
 				'label'   => __( 'Right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-right-sidebar.png',
 			),
-			'blog-page-layout-left-2-left' => array(
+			'left-2-left' => array(
 				'label'   => __( 'Sameside left sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-left-sidebar.png',
 			),
-			'blog-page-layout-right-2-right' => array(
+			'right-2-right' => array(
 				'label'   => __( 'Sameside right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-right-sidebar.png',
 			),
-			'blog-page-layout-no-sidebar' => array(
+			'no-sidebar' => array(
 				'label'   => __( 'No sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-fullwidth.png',
 			),

@@ -5,5 +5,4 @@
 	$cherry_options_framework = new Cherry_Options_Framework;
 	$options_framework_admin = new Cherry_Options_Framework_Admin;
 
-
 ?>

@@ -51,7 +51,7 @@ class Cherry_Interface_Builder {
 	 * @param array $args
 	 */
 	public function __construct( $args = array() ) {
-		$this->options         = $this->processed_input_data( $this->options, $args );
+		$this->options = $this->processed_input_data( $this->options, $args );
 		$this->google_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/google-fonts.json';
 
 		// add_action( 'admin_footer', array( $this, 'enqueue_style' ) );
@@ -547,7 +547,8 @@ class Cherry_Interface_Builder {
 					foreach ( $options as $option => $option_value ) {
 
 						$checked           = $option == $value ? ' checked' : '';
-						$radio_id          = $this->generate_field_id( $option );
+						$concat_id         = $id . '-' . $option;
+						$radio_id          = $this->generate_field_id( $concat_id, false );
 						$item_inline_style = $display_input ? $item_inline_style : 'style="' . $inline_style . ' display:none;"';
 						$img               = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? '<img src="' . esc_url( $option_value['img_src'] ) . '" alt="' . esc_html( $option_value['label'] ) . '"><span class="check"><i class="dashicons dashicons-yes"></i></span>' : '';
 						$class_box         = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? ' cherry-radio-img' . $checked : '';
@@ -1062,12 +1063,16 @@ class Cherry_Interface_Builder {
 	 * @param  string $id
 	 * @return string
 	 */
-	private function generate_field_id( $_id ) {
+	private function generate_field_id( $_id, $prefix = true ) {
 
 		if ( $this->options['widget']['id_base'] && $this->options['widget']['number'] ) {
 			$id = 'widget-' . $this->options['widget']['id_base'] . '-' . $this->options['widget']['number'] . '-' . $_id;
 		} else {
-			$id = $this->options['name_prefix'] . '-' . $_id;
+			if($prefix){
+				$id = $this->options['name_prefix'] . '-' . $_id;
+			}else{
+				$id = $_id;
+			}
 		}
 
 		return esc_attr( $id );
