@@ -671,7 +671,7 @@ function cherry_defaults_settings() {
 		'title'         => __( 'Blog page layout', 'cherry' ),
 		'label'         => __( 'Blog page layout', 'cherry' ),
 		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-		'value'         => 'blog-page-layout-right',
+		'value'         => 'right',
 		'display_input' => false,
 		'options'       => array(
 			'left-2-right' => array(
