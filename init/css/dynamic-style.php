@@ -233,4 +233,8 @@ hr {
 	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 1.15); ?>px;
 }
 
+@media (min-width: 780px) {
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'round', 1.5); ?>px;
+}
+
 
