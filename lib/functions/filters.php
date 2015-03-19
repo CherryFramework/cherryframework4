@@ -25,34 +25,29 @@ add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
 
 // Add specific CSS class by filter.
 function cherry_add_control_classes( $classes ) {
-	$responsive    = cherry_get_option( 'grid-responsive' );
-	$single_layout = $single_grid_type = '';
+	$layout    = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
+	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
 
-	if ( is_singular() ) {
-		$single_layout    = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
-		$single_grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
+		$layout = cherry_get_option( 'blog-page-layout' );
+	}
+
+	if ( empty( $grid_type ) || ( 'default-grid-type' == $grid_type ) ) {
+		$grid_type = cherry_get_option( 'grid-type' );
 	}
 
 	// Responsive.
-	if ( 'true' == $responsive ) {
+	if ( 'true' == cherry_get_option( 'grid-responsive' ) ) {
 		$classes[] = 'cherry-responsive';
 	} else {
 		$classes[] = 'cherry-no-responsive';
 	}
 
-	// Grid type.
-	// if ( 'grid-wide' == $grid_type ) {
-	// 	$classes[] = 'cherry-wide';
-	// } elseif ( 'grid-boxed' == $grid_type ) {
-	// 	$classes[] = 'cherry-boxed';
-	// }
+	// Sidebar Position.
+	$classes[] = sanitize_html_class( 'cherry-blog-layout-' . $layout );
 
-	if ( !empty( $single_grid_type ) && ( 'default-grid-type' != $single_grid_type ) ) {
-		$classes[] = sanitize_html_class( 'cherry-' . $single_grid_type );
-	} else {
-		$grid_type = cherry_get_option( 'grid-type' );
-		$classes[] = sanitize_html_class( 'cherry-' . $grid_type );
-	}
+	// Grid type.
+	$classes[] = sanitize_html_class( 'cherry-' . $grid_type );
 
 	// Sidebar.
 	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
@@ -61,35 +56,24 @@ function cherry_add_control_classes( $classes ) {
 		$classes[] = 'cherry-no-sidebar';
 	}
 
-	// Sidebar Position.
-	if ( !empty( $single_layout ) && ( 'default-layout' != $single_layout ) ) {
-		$classes[] = sanitize_html_class( 'cherry-blog-layout-' . $single_layout );
-	} else {
-		$blog_layout = cherry_get_option( 'blog-page-layout' );
-		$classes[]   = sanitize_html_class( 'cherry-blog-layout-' . $blog_layout );
-	}
-
 	return $classes;
 }
 
 function cherry_get_container_classes( $class ) {
 	$classes   = array();
 	$classes[] = $class;
-	$grid_type = false;
 
-	if ( is_singular() ) {
-		$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+
+	// var_dump($grid_type);
+
+	if ( empty( $grid_type ) || ( 'default-grid-type' == $grid_type ) ) {
+		$grid_type = cherry_get_option( 'grid-type' );
 	}
 
-	if ( !$grid_type || ( 'default-grid-type' == $grid_type ) ) :
-
-		$grid_type = cherry_get_option( 'grid-type' );
-
-	endif;
-
-	if ( 'grid-wide' == $grid_type ) {
+	if ( 'wide' == $grid_type ) {
 		$classes[] = 'container-fluid';
-	} elseif ( 'grid-boxed' == $grid_type ) {
+	} elseif ( 'boxed' == $grid_type ) {
 		$classes[] = 'container';
 	}
 	$classes[] = 'clearfix';
