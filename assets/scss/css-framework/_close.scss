@@ -5,16 +5,11 @@
 
 .close {
   float: right;
-  font-size:($font-size-base * 1.5);
-  font-weight: $font-weight-base;
   line-height: 1;
-  color: $brand-warning;
-  //text-shadow: $close-text-shadow;
   @include opacity(.2);
 
   &:hover,
   &:focus {
-    color: $brand-warning;
     text-decoration: none;
     cursor: pointer;
     @include opacity(.5);

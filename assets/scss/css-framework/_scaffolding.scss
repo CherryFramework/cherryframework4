@@ -26,7 +26,6 @@ html {
 
 body {
   font-family: $font-family-base;
-  font-size: $font-size-base;
   line-height: $line-height-base;
   background-color: $body-bg;
 }
@@ -45,12 +44,10 @@ textarea {
 // Links
 
 a {
-  color: $link-color;
   text-decoration: none;
 
   &:hover,
   &:focus {
-    color: $link-hover-color;
     text-decoration: underline;
   }
 
