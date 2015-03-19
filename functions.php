@@ -17,62 +17,8 @@ add_action( 'after_setup_theme', 'cherry_theme_setup' );
 function cherry_theme_setup() {
 
 	// Load files.
-	require_once( trailingslashit( PARENT_DIR ) . 'inc/init.php' );
+	require_once( trailingslashit( PARENT_DIR ) . 'init/init.php' );
 
-	// Registered a static areas.
-	cherry_register_static_area( array(
-		'id'             => 'header-top',
-		'name'           => __( 'Header Top', 'cherry' ),
-		// 'before'         => '',
-		// 'after'          => '',
-		// 'before_static'  => '<div class="static clearfix">',
-		// 'after_static'   => '</div>',
-		// 'container_wrap' => true,
-		// 'row_wrap'       => true,
-	) );
-	cherry_register_static_area( array(
-		'id'             => 'header-left',
-		'name'           => __( 'Header Left', 'cherry' ),
-		'before'         => '<div class="col-md-7">',
-		'after'          => '</div>',
-		'container_wrap' => false,
-	) );
-	cherry_register_static_area( array(
-		'id'             => 'header-right',
-		'name'           => __( 'Header Right', 'cherry' ),
-		'before'         => '<div class="col-md-5">',
-		'after'          => '</div>',
-		'container_wrap' => false,
-	) );
-	cherry_register_static_area( array(
-		'id'             => 'header-bottom',
-		'name'           => __( 'Header Bottom', 'cherry' ),
-		'container_wrap' => false,
-		)
-	);
-	cherry_register_static_area( array(
-		'id'             => 'footer-top',
-		'name'           => __( 'Footer Top', 'cherry' ),
-	) );
-	cherry_register_static_area( array(
-		'id'             => 'footer-bottom',
-		'name'           => __( 'Footer Bottom', 'cherry' ),
-	) );
-
-	// Registered a static elements.
-	cherry_register_static( array(
-		'id'      => 'header_logo',
-		'name'    => __( 'Logo', 'cherry4' ),
-		'options' => array(
-			'col-xs'   => 'col-xs-12',
-			'col-sm'   => 'col-sm-12',
-			'col-md'   => 'col-md-4',
-			'col-lg'   => 'col-lg-4',
-			'class'    => 'custom-logo',
-			'area'     => 'header-top',
-			'priority' => 1,
-		)
-	) );
 	cherry_register_static( array(
 		'id'      => 'header_menu',
 		'name'    => __( 'Header Menu', 'cherry4' ),
@@ -138,14 +84,14 @@ function cherry_theme_setup() {
 			'area'     => 'header-bottom',
 		)
 	) );
-	cherry_register_static( array(
+	/*cherry_register_static( array(
 		'id'       => 'info2',
 		'callback' => 'info2_callback',
 		'options'  => array(
 			'priority' => 2,
 			'area'     => 'header-bottom',
 		)
-	) );
+	) );*/
 	cherry_register_static( array(
 		'name'    => __( 'Header Sidebar', 'cherry4' ),
 		'id'      => 'header_sidebar',

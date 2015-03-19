@@ -113,6 +113,12 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			/** Sets the path to the core framework extensions directory. */
 			define( 'CHERRY_EXTENSIONS', trailingslashit( CHERRY_DIR ) . 'extensions' );
+
+			/** Sets the path to the theme config folder. */
+			define( 'PARENT_CONFIG_DIR', '/init/config/' );
+
+			/** Sets relative path to the theme statics folder. */
+			define( 'PARENT_STATICS_DIR', '/init/statics/' );
 		}
 
 		/**
@@ -161,6 +167,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load CSS compiler.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-css-compiler.php' );
+
+			// Load abstract class for static registration.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
 		}
 
 		/**
