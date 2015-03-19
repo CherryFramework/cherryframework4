@@ -101,7 +101,7 @@ class Cherry_Grid_Type {
 		$post_grid_type = $this->get_post_grid_type( $post->ID );
 
 		$args = array(
-			'id'            => 'cherry-grid-type',
+			'id'            => 'grid-type',
 			'type'          => 'radio',
 			'value'         => $post_grid_type,
 			'display_input' => false,
@@ -159,8 +159,8 @@ class Cherry_Grid_Type {
 		$cherry_meta = $_POST['cherry'];
 
 		// Get the submitted post grid type.
-		if ( isset( $cherry_meta['cherry-grid-type'] ) ) {
-			$new_meta_value = $cherry_meta['cherry-grid-type'];
+		if ( isset( $cherry_meta['grid-type'] ) ) {
+			$new_meta_value = $cherry_meta['grid-type'];
 		} else {
 			$new_meta_value = '';
 		}

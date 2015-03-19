@@ -102,7 +102,7 @@ class Cherry_Layouts {
 		$post_layout = $this->get_post_layout( $post->ID );
 
 		$args = array(
-			'id'            => 'cherry-layout',
+			'id'            => 'layout',
 			'type'          => 'radio',
 			'value'         => $post_layout,
 			'display_input' => false,
@@ -160,8 +160,8 @@ class Cherry_Layouts {
 		$cherry_meta = $_POST['cherry'];
 
 		// Get the submitted post layout.
-		if ( isset( $cherry_meta['cherry-layout'] ) ) {
-			$new_meta_value = $cherry_meta['cherry-layout'];
+		if ( isset( $cherry_meta['layout'] ) ) {
+			$new_meta_value = $cherry_meta['layout'];
 		} else {
 			$new_meta_value = '';
 		}
