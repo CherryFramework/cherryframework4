@@ -169,7 +169,7 @@ a:hover, a:focus {
 }
 legend {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 20); ?>;
-	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 1.5); ?>px;
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'round', 1.5); ?>px;
 }
 .cherry-highlight-grey {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
@@ -225,16 +225,16 @@ hr {
 
 .close, .close:hover, .close:focus {
 	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-warning' ); ?>;
-	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 1.5); ?>px;
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'round', 1.5); ?>px;
 	font-weight: normal;
 }
 
 .lead {
-	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 1.15); ?>px;
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'round', 1.15); ?>px;
 }
 
-@media (min-width: 780px) {
-	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'round', 1.5); ?>px;
+.cherry-post-meta .cherry-post-date {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
 }
 
 
