@@ -42,7 +42,7 @@ function cherry_static_autoload() {
 	// prepare parent static files
 	if ( is_array( $parent ) ) {
 		foreach ( $parent as $file ) {
-			$parent_staics[$file] = PARENT_STATICS_DIR . $file;
+			$parent_statics[$file] = PARENT_STATICS_DIR . $file;
 		}
 	}
 
@@ -53,7 +53,7 @@ function cherry_static_autoload() {
 		}
 	}
 	// combine parent and child statics into single array
-	$statics = array_merge( $parent_staics, $child_statics );
+	$statics = array_merge( (array)$parent_statics, $child_statics );
 
 	if ( ! $statics || ! is_array( $statics ) ) {
 		return false;
@@ -62,4 +62,5 @@ function cherry_static_autoload() {
 	foreach ( $statics as $static_file => $static_path ) {
 		cherry_require( $static_path );
 	}
+
 }

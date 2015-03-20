@@ -16,6 +16,7 @@ new Cherry_Framework();
 add_action( 'after_setup_theme', 'cherry_theme_setup' );
 function cherry_theme_setup() {
 
+
 	// Load files.
 	require_once( trailingslashit( PARENT_DIR ) . 'init/init.php' );
 
