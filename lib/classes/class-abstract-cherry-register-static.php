@@ -15,17 +15,21 @@
  */
 abstract class cherry_register_static {
 
+	function __construct( $options ) {
+		$this->register( $options );
+	}
+
 	/**
 	 * Register static function
 	 *
 	 * @since 4.0.0
 	 */
-	public static function register( $options ) {
+	public function register( $options ) {
 
 		$options = wp_parse_args(
 			$options,
 			array(
-				'callback' => array( get_called_class(), 'callback' )
+				'callback' => array( $this, 'callback' )
 			)
 		);
 
@@ -37,6 +41,6 @@ abstract class cherry_register_static {
 	 *
 	 * @since 4.0.0
 	 */
-	public static function callback() {}
+	public function callback() {}
 
 }

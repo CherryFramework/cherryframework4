@@ -335,6 +335,10 @@ class Cherry_Statics {
 
 			foreach ( $args as $id => $data ) :
 
+				if ( empty( $cherry_registered_statics[ $id ] ) ) {
+					continue;
+				}
+
 				$cherry_registered_statics[ $id ]['options'] = wp_parse_args(
 					$args[ $id ]['options'],
 					$cherry_registered_statics[ $id ]['options']
