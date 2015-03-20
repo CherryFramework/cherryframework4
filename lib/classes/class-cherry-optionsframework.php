@@ -14,11 +14,15 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
+add_action( 'after_setup_theme', array( 'Cherry_Options_Framework', 'get_instance' ) );
+
 if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	class Cherry_Options_Framework {
 
 		public $current_section_name = '';
 		public $loaded_settings;
+		public $is_db_options_exist = null;
+		private static $instance = null;
 
 		/**
 		* Cherry_Options_Framework constructor
@@ -27,6 +31,15 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		*/
 		function __construct() {
 			add_action( 'admin_init', array( $this, 'create_themename_option' ) );
+		}
+
+		public static function get_instance() {
+
+			// If the single instance hasn't been set, set it now.
+			if ( null == self::$instance )
+				self::$instance = new self;
+
+			return self::$instance;
 		}
 
 		/**
@@ -74,9 +87,17 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		static function is_db_options_exist() {
+		public function is_db_options_exist() {
+
+			if ( null !== $this->is_db_options_exist ) {
+				return $this->is_db_options_exist;
+			}
+
 			$cherry_options_settings = get_option( 'cherry-options' );
 			(get_option($cherry_options_settings['id']) == false)? $is_options=false : $is_options = true;
+
+			$this->is_db_options_exist = $is_options;
+
 			return $is_options;
 		}
 
@@ -297,7 +318,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		static function get_option_value( $name, $default = false ) {
+		public function get_option_value( $name, $default = false ) {
 			$setting = get_option( 'cherry-options' );
 			if(self::is_db_options_exist()){
 				$options_array = get_option( $setting['id'] );
@@ -321,7 +342,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			return $default;
 		}
 
-		public static function get_option_values( $name ) {
+		public function get_option_values( $name ) {
 			$settings_array = self::load_settings();
 
 			if ( !$settings_array ) {
@@ -348,11 +369,13 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
  * @since 1.0.0
  */
 function cherry_get_option( $name, $default = false ) {
-	return Cherry_Options_Framework::get_option_value( $name, $default );
+	$options_framework = Cherry_Options_Framework::get_instance();
+	return $options_framework->get_option_value( $name, $default );
 }
 
 function cherry_get_options( $name ) {
-	return Cherry_Options_Framework::get_option_values( $name );
+	$options_framework = Cherry_Options_Framework::get_instance();
+	return $options_framework->get_option_values( $name );
 }
 
 ?>
