@@ -396,7 +396,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 
 			// Then get theme CSS (child theme if exist, or from framework)
 			ob_start();
-			get_template_part( 'inc/dynamic-style' );
+			get_template_part( 'init/css/dynamic-style' );
 			$data .= ob_get_clean();
 
 			return $data;
@@ -443,7 +443,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		/**
 		 * Returns the instance.
 		 *
-		 * @since  1.0.0
+		 * @since  4.0.0
 		 * @return object
 		 */
 		public static function get_instance() {

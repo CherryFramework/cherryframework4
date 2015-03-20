@@ -98,3 +98,48 @@ function cherry_esc_value( $array, $key, $default = false ) {
 
 	return $default;
 }
+
+/**
+ * Load and evaluates the specified file.
+ * Previously search file with in child theme, then in framework,
+ * so you can easly overload needed file in your child theme
+ *
+ * @since  4.0.0
+ *
+ * @param  string  $path  file path, relative to theme directory
+ */
+function cherry_require( $path ) {
+
+	if ( defined( 'CHILD_DIR' ) ) {
+		$child_dir = CHILD_DIR;
+	} else {
+		$child_dir = get_stylesheet_directory();
+	}
+
+	$abspath = preg_replace( '#/+#', '/', trailingslashit( $child_dir ) . $path );
+
+	// if file found in child theme - include it and break function
+	if ( file_exists( $abspath ) ) {
+		require_once $abspath;
+		return;
+	}
+
+	// if file was not found in child theme - search it in parent
+	if ( defined( 'PARENT_DIR' ) ) {
+		$parent_dir = PARENT_DIR;
+	} else {
+		$parent_dir = get_template_directory();
+	}
+
+	$abspath = preg_replace( '#/+#', '/', trailingslashit( $parent_dir ) . $path );
+
+	if ( file_exists( $abspath ) ) {
+		require_once $abspath;
+		return;
+	}
+
+	// if file was not found at all - die with message
+	$message = sprintf( __( 'File %s doesn\'t exist', 'cherry' ), $abspath );
+	$title   = __( 'Doing it wrong', 'cherry' );
+	wp_die( $message, $title );
+}

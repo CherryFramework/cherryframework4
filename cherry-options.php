@@ -572,15 +572,15 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Background pattern for main container', 'cherry' ),
 		),
-		'value'         => 'grid-type-boxed',
+		'value'         => 'boxed',
 		'class'         => '',
 		'display_input' => false,
 		'options'       => array(
-			'grid-type-wide' => array(
+			'wide' => array(
 				'label'   => __( 'Wide', 'cherry' ),
 				'img_src' => PARENT_URI . '/screenshot.png',
 			),
-			'grid-type-boxed' => array(
+			'boxed' => array(
 				'label'   => __( 'Boxed', 'cherry' ),
 				'img_src' => PARENT_URI . '/screenshot.png',
 			),
@@ -645,7 +645,7 @@ function cherry_defaults_settings() {
 		'title'         => __( 'Blog list layout', 'cherry' ),
 		'label'         => __( 'Blog list layout', 'cherry' ),
 		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-		'value'         => 'blog-list-layout-masonry',
+		'value'         => 'masonry',
 		'display_input' => false,
 		'options'       => array(
 			'masonry' => array(
@@ -671,26 +671,26 @@ function cherry_defaults_settings() {
 		'title'         => __( 'Blog page layout', 'cherry' ),
 		'label'         => __( 'Blog page layout', 'cherry' ),
 		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-		'value'         => 'blog-page-layout-right',
+		'value'         => '1-right',
 		'display_input' => false,
 		'options'       => array(
-			'left-2-right' => array(
+			'1-left-2-right' => array(
 				'label'   => __( 'Left and right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-both-sidebar.png',
 			),
-			'left' => array(
+			'1-left' => array(
 				'label'   => __( 'Left sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-left-sidebar.png',
 			),
-			'right' => array(
+			'1-right' => array(
 				'label'   => __( 'Right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-right-sidebar.png',
 			),
-			'left-2-left' => array(
+			'1-left-2-left' => array(
 				'label'   => __( 'Sameside left sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-left-sidebar.png',
 			),
-			'right-2-right' => array(
+			'1-right-2-right' => array(
 				'label'   => __( 'Sameside right sidebar', 'cherry' ),
 				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-right-sidebar.png',
 			),

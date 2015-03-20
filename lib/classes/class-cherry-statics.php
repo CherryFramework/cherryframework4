@@ -508,23 +508,6 @@ class Cherry_Statics {
 	}
 
 	/**
-	 * Callback-function for a 'header_logo' static.
-	 *
-	 * @since 4.0.0
-	 */
-	public static function header_logo( $options ) {
-
-		if ( cherry_get_site_title() || cherry_get_site_description() ) {
-
-			printf( '<div class="site-branding">%1$s %2$s</div>',
-				cherry_get_site_title(),
-				cherry_get_site_description()
-			);
-
-		}
-	}
-
-	/**
 	 * Callback-function for a 'footer_logo' static.
 	 *
 	 * @since 4.0.0

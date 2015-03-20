@@ -18,10 +18,26 @@ $cherry_css_vars = cherry_get_css_varaibles();
 
 $body_typography = $cherry_css_vars['typography-body-text'] ;
 
+//var_dump($body_typography);
+
 ?>
+blockquote {
+	border-left: 5px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'floor', 1.25); ?>px;
+}
+
 
 body {
 	color: <?php echo cherry_esc_value( $body_typography, 'color' ); ?>;
+	font-size: <?php echo cherry_esc_value( $body_typography, 'size' ); ?>px;
+}
+
+a {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+}
+
+a:hover, a:focus {
+	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-primary' ), 15); ?>;
 }
 
 .cherry-btn-primary {
@@ -144,29 +160,53 @@ body {
 	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ); ?>;
 }
 
+<!--Text muted color-->
+.text-muted {
+	color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
+}
 .help-block {
 	color: <?php echo cherry_colors_lighten( cherry_esc_value( $body_typography, 'color' ), 20); ?>;
 }
 legend {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 20); ?>;
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 1.5); ?>px;
 }
 .cherry-highlight-grey {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
 }
+
+
+<!--Abbreviations and acronyms border color-->
+abbr[title],
+abbr[data-original-title] {
+	border-bottom: 1px dotted <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
+}
+
 output {
-	<?php echo cherry_esc_value( $cherry_css_vars, 'color-gray-variations' );?>
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ); ?>;
+	font-size: <?php echo cherry_esc_value( $body_typography, 'size' ); ?>px;
+}
+
+<!--Headings small color-->
+footer, small, .small {
+	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
+}
+small, .small {
+
 }
 
 <!--input disabled  background color-->
 
-.form-control:disabled, .form-control:readonly, .form-control fieldset:disabled {
+.form-control[disabled], .form-control[readonly], .form-control fieldset[disabled] {
 	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+}
+.form-control {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ); ?>;
+	font-size: <?php echo cherry_esc_value( $body_typography, 'size' ); ?>px;
+}
 
 <!--Blockquote border color-->
 
-blockquote {
-	border-left: 5px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
-	}
 
 .blockquote-reverse, blockquote.pull-right {
 	border-right: 5px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
@@ -181,3 +221,20 @@ blockquote {
 hr {
 	border-top: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
 	}
+
+
+.close, .close:hover, .close:focus {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-warning' ); ?>;
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 1.5); ?>px;
+	font-weight: normal;
+}
+
+.lead {
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 1.15); ?>px;
+}
+
+@media (min-width: 780px) {
+	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'round', 1.5); ?>px;
+}
+
+
