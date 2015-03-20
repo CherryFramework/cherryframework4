@@ -24,26 +24,13 @@ class cherry_moto_slider_static extends cherry_register_static {
 	 */
 	public function callback() {
 
-		$cached_slider = get_transient( 'cherry_slider' );
-
-		if ( $cached_slider ) {
-			echo $cached_slider;
-			return;
-		}
-
 		$alias = cherry_get_option( 'moto_slider_alias' );
 
 		if ( ! $alias ) {
 			return;
 		}
 
-		ob_start();
 		motoPressSlider($alias);
-		$result = ob_get_clean();
-
-		set_transient( 'cherry_slider', $result );
-
-		echo $result;
 
 	}
 
