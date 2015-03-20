@@ -146,11 +146,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 					wp_mkdir_p( $css_dir_path );
 				}
 				// check if CSS already compiled
-				$this->already_compiled = get_transient( 'cherry_compiled_css' );
-				// one more check - if CSS must be compiled, but file not exists - set compiled variable to false
-				if ( false !== $this->already_compiled && ! file_exists( $this->css_file_path ) ) {
-					$this->already_compiled = false;
-				}
+				$this->already_compiled = file_exists( $this->css_file_path );
 
 				add_filter( 'style_loader_tag', array( &$this, 'disable_handles' ), 1, 2 );
 				add_action( 'wp_enqueue_scripts', array( &$this, 'register_stylesheet' ), 1 );
@@ -437,7 +433,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 * @since 4.0.0
 		 */
 		function reset_compiled_css() {
-			delete_transient( 'cherry_compiled_css' );
+			unlink( $this->css_file_path );
 		}
 
 		/**
