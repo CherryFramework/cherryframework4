@@ -433,7 +433,9 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 * @since 4.0.0
 		 */
 		function reset_compiled_css() {
-			unlink( $this->css_file_path );
+			if ( file_exists( $this->css_file_path ) ) {
+				unlink( $this->css_file_path );
+			}
 		}
 
 		/**
