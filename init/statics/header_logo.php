@@ -9,7 +9,7 @@
  */
 
 /**
- * Info block static
+ * Header logo static
  */
 class cherry_header_logo_static extends cherry_register_static {
 
@@ -17,7 +17,7 @@ class cherry_header_logo_static extends cherry_register_static {
 	 * Callbck method for registered static
 	 * @since 4.0.0
 	 */
-	public static function callback() {
+	public function callback() {
 		if ( cherry_get_site_title() || cherry_get_site_description() ) {
 
 			printf( '<div class="site-branding">%1$s %2$s</div>',
@@ -30,9 +30,9 @@ class cherry_header_logo_static extends cherry_register_static {
 }
 
 /**
- * Call info block static registration
+ * Call Header logostatic registration
  */
-cherry_header_logo_static::register(
+new cherry_header_logo_static(
 	array(
 		'id'      => 'header_logo',
 		'name'    => __( 'Logo', 'cherry4' ),

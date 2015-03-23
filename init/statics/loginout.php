@@ -9,28 +9,34 @@
  */
 
 /**
- * Info block static
+ * Login/out block static
  */
-class cherry_info_block_static extends cherry_register_static {
+class cherry_loginout_static extends cherry_register_static {
 
 	/**
 	 * Callbck method for registered static
 	 * @since 4.0.0
 	 */
 	public function callback() {
-		echo "Static 7";
+		wp_loginout();
 	}
 }
 
 /**
- * Call info block static registration
+ * Call Login/out static registration
  */
-new cherry_info_block_static(
+new cherry_loginout_static(
 	array(
-		'id'       => 'info2',
+		'id'       => 'loginout',
+		'name'     => __( 'Log In/Out', 'cherry' ),
 		'options'  => array(
+			'col-lg'   => 'col-lg-6',
+			'col-md'   => 'col-md-6',
+			'col-sm'   => 'col-sm-6',
+			'col-xs'   => 'col-xs-6',
+			'class'    => 'custom-loginout',
 			'priority' => 2,
-			'area'     => 'header-bottom',
+			'area'     => 'header-left',
 		)
 	)
 );

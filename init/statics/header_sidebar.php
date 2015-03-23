@@ -9,27 +9,28 @@
  */
 
 /**
- * Info block static
+ * Header sidebar static
  */
-class cherry_info_block_static extends cherry_register_static {
+class cherry_header_sidebar_static extends cherry_register_static {
 
 	/**
 	 * Callbck method for registered static
 	 * @since 4.0.0
 	 */
 	public function callback() {
-		echo "Static 7";
+		cherry_get_sidebar( 'header' );
 	}
 }
 
 /**
- * Call info block static registration
+ * Call Header sidebar static registration
  */
-new cherry_info_block_static(
+new cherry_header_sidebar_static(
 	array(
-		'id'       => 'info2',
-		'options'  => array(
-			'priority' => 2,
+		'name'    => __( 'Header Sidebar', 'cherry' ),
+		'id'      => 'header_sidebar',
+		'options' => array(
+			'priority' => 3,
 			'area'     => 'header-bottom',
 		)
 	)
