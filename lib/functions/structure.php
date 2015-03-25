@@ -128,6 +128,9 @@ function cherry_post_structure_loop( $template_name = '' ) {
 	);
 
 	foreach ( $structure_elements as $element ) {
+
+		do_action( "cherry_entry_{$element}" );
+
 		call_user_func( apply_filters( 'cherry_post_call_user_func', "cherry_the_post_{$element}", $element ) );
 	}
 }
@@ -159,6 +162,9 @@ function cherry_post_structure_single( $template_name = '' ) {
 	);
 
 	foreach ( $structure_elements as $element ) {
+
+		do_action( "cherry_entry_{$element}" );
+
 		call_user_func( apply_filters( 'cherry_post_call_user_func', "cherry_the_post_{$element}", $element ) );
 	}
 }
