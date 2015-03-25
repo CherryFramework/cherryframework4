@@ -197,12 +197,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		function cherry_options_page_build() {
 			global $cherry_options_framework;
-			delete_transient( 'cherry_page_options');
-			$html = get_transient( 'cherry_page_options' );
-			if ( $html ) {
-				echo $html;
-			}else{
-				ob_start();
+
 				$section_index = 0;
 				//save options
 				if(isset($_POST['cherry']['save-options'])){
@@ -298,12 +293,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 							</form>
 					</div>
 				<?php
-				$html = ob_get_contents();
-				set_transient( 'cherry_page_options', $html, DAY_IN_SECONDS );
-
-				ob_end_clean();
-				echo $html;
-			}
 		}
 
 		/**

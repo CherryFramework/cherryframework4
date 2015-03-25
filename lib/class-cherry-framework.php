@@ -162,6 +162,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the typography control functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'typography.php' );
 
+			// Utility functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'utils.php' );
+
 			// Load the Cherry_Static class.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-statics.php' );
 
