@@ -136,11 +136,11 @@ function cherry_add_extra_styles() {
 
 	// Check a container width option.
 	// if ( $container_width < 1170 ) {
-		$output .= ".cherry-no-sidebar .cherry-container.container,\n";
+		$output .= ".cherry-container.container,\n";
 		$output .= ".cherry-grid-boxed .site-header .container,\n";
 		$output .= ".cherry-grid-boxed .site-footer .container,\n";
 		$output .= ".cherry-no-responsive .site-header .container,\n";
-		$output .= ".cherry-no-responsive .site-footer .container { max-width : {$container_width}px; }\n";
+		$output .= ".cherry-no-responsive .site-footer .container { max-width : {$container_width}px; width : auto; }\n";
 	// }
 
 	$output .= ".cherry-no-responsive .cherry-container .container { max-width : " . ( $container_width - $grid_gutter_width ) . "px; }\n";
