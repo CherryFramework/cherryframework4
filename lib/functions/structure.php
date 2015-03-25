@@ -24,9 +24,6 @@ add_action( 'cherry_post_single', 'cherry_post_structure_single' );
 // Attachment metadata.
 add_action( 'cherry_post_after', 'cherry_get_attachment_metadata' );
 
-add_filter( 'cherry_post_structure_loop',   'cherry_post_loop_structure_setup',   9, 3 );
-add_filter( 'cherry_post_structure_single', 'cherry_post_single_structure_setup', 9, 3 );
-
 /**
  * Output Header Wrap.
  *
@@ -121,17 +118,13 @@ function cherry_post_structure_loop( $template_name = '' ) {
 
 	endif;
 
-	$structure_elements = apply_filters( 'cherry_post_structure_loop',
-		array( 'header', 'meta', 'excerpt' ),
-		$template_name,
-		$post_type
-	);
+	$structure_elements = cherry_get_post_loop_structure( $template_name, $post_type );
 
 	foreach ( $structure_elements as $element ) {
 
 		do_action( "cherry_entry_{$element}" );
 
-		call_user_func( apply_filters( 'cherry_post_call_user_func', "cherry_the_post_{$element}", $element ) );
+		call_user_func( "cherry_the_post_{$element}" );
 	}
 }
 
@@ -155,30 +148,27 @@ function cherry_post_structure_single( $template_name = '' ) {
 
 	endif;
 
-	$structure_elements = apply_filters( 'cherry_post_structure_single',
-		array( 'header', 'meta', 'content', 'footer' ),
-		$template_name,
-		$post_type
-	);
+	$structure_elements = cherry_get_post_single_structure( $template_name, $post_type );
 
 	foreach ( $structure_elements as $element ) {
 
 		do_action( "cherry_entry_{$element}" );
 
-		call_user_func( apply_filters( 'cherry_post_call_user_func', "cherry_the_post_{$element}", $element ) );
+		call_user_func( "cherry_the_post_{$element}" );
 	}
 }
 
 /**
- * Modifies the post stucture in the loop.
+ * Retrieve the post stucture in the loop.
  *
  * @since  4.0.0
- * @param  array  $structure_elements The elements of post structure
  * @param  string $template_name      The template name for content
  * @param  string $post_type          The post type of the current post
  * @return array                      The elements of post structure
  */
-function cherry_post_loop_structure_setup( $structure_elements, $template_name, $post_type ) {
+function cherry_get_post_loop_structure( $template_name, $post_type ) {
+
+	$structure_elements = array();
 
 	switch ( $template_name ) {
 
@@ -222,19 +212,20 @@ function cherry_post_loop_structure_setup( $structure_elements, $template_name, 
 			break;
 	}
 
-	return $structure_elements;
+	return apply_filters( 'cherry_get_post_loop_structure', $structure_elements, $template_name, $post_type );
 }
 
 /**
- * Modifies the single post stucture.
+ * Retrieve the single post stucture.
  *
  * @since  4.0.0
- * @param  array  $structure_elements The elements of post structure
  * @param  string $template_name      The template name for content
  * @param  string $post_type          The post type of the current post
  * @return array                      The elements of post structure
  */
-function cherry_post_single_structure_setup( $structure_elements, $template_name ) {
+function cherry_get_post_single_structure( $template_name, $post_type ) {
+
+	$structure_elements = array();
 
 	switch ( $template_name ) {
 
@@ -270,7 +261,7 @@ function cherry_post_single_structure_setup( $structure_elements, $template_name
 			break;
 	}
 
-	return $structure_elements;
+	return apply_filters( 'cherry_get_post_single_structure', $structure_elements, $template_name, $post_type );
 }
 
 /**
