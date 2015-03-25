@@ -19,8 +19,7 @@ function cherry_theme_config() {
 		'menus',
 		'sidebars',
 		'display-sidebars',
-		'static-areas',
-		'statics'
+		'static-areas'
 	);
 
 	// get from child theme disabled config statements array
@@ -30,6 +29,63 @@ function cherry_theme_config() {
 
 	foreach ( $config_statements as $statement ) {
 		cherry_require( PARENT_CONFIG_DIR . "$statement.php" );
+	}
+
+}
+
+/**
+ * add statics autoloader on init
+ */
+add_action( 'init', 'cherry_static_autoload' );
+
+/**
+ * Autoload existing statics
+ *
+ * @since 4.0.0
+ */
+function cherry_static_autoload() {
+
+	$child_dir = defined( 'CHILD_STATICS_DIR' ) ? CHILD_STATICS_DIR : PARENT_STATICS_DIR;
+
+	$parent = array();
+	$child  = array();
+
+	if ( file_exists( PARENT_DIR . PARENT_STATICS_DIR ) && is_dir( PARENT_DIR . PARENT_STATICS_DIR ) ) {
+		$parent = scandir( PARENT_DIR . PARENT_STATICS_DIR );
+	}
+
+	if ( file_exists( CHILD_DIR . $child_dir ) && is_dir( CHILD_DIR . $child_dir ) ) {
+		$child = scandir( CHILD_DIR . $child_dir );
+	}
+
+	$parent = array_diff( $parent, array( '.', '..', 'index.php' ) );
+	$child  = array_diff( $child, array( '.', '..', 'index.php' ) );
+
+	$parent_statics = array();
+	$child_statics  = array();
+
+	// prepare parent static files
+	if ( is_array( $parent ) ) {
+		foreach ( $parent as $file ) {
+			$parent_statics[$file] = PARENT_STATICS_DIR . $file;
+		}
+	}
+
+	// prepare child static files
+	if ( is_array( $child ) ) {
+		foreach ( $child as $file ) {
+			$child_statics[$file] = $child_dir . $file;
+		}
+	}
+	// combine parent and child statics into single array
+	$statics = array_merge( (array)$parent_statics, $child_statics );
+
+	if ( ! $statics || ! is_array( $statics ) ) {
+		return false;
+	}
+
+	foreach ( $statics as $static_file => $static_path ) {
+		cherry_require( $static_path );
 	}
 
 }
