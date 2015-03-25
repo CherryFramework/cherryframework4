@@ -29,7 +29,6 @@ class cherry_moto_slider_static extends cherry_register_static {
 		if ( ! $alias ) {
 			return;
 		}
-
 		motoPressSlider($alias);
 
 	}

@@ -160,6 +160,15 @@ a:hover, a:focus {
 	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ); ?>;
 }
 
+<!---->
+.cherry-tabs .cherry-tabs-nav span {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ); ?>;
+}
+.cherry-tabs .cherry-tabs-nav span.cherry-tabs-current {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+	border-bottom: 2px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 54); ?>;
+}
+
 <!--Text muted color-->
 .text-muted {
 	color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
