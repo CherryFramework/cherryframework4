@@ -23,7 +23,7 @@
 function cherry_typography_size( $size, $operation = ' ', $func = 'round', $percent) {
 
 	if ( ! $size ) {
-			return false;
+		return false;
 	}
 
 	switch( $operation ) {
