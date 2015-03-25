@@ -324,7 +324,8 @@ class Cherry_Statics {
 		}
 
 		// Get statics from options.
-		$args = cherry_get_option( 'header-static-area-editor', false );
+		$option_name = apply_filters( 'cherry_statics_option_name', 'header-static-area-editor', $index );
+		$args        = cherry_get_option( $option_name, false );
 
 		// Statics were saved.
 		$cherry_saved_statics = false;
@@ -470,7 +471,8 @@ class Cherry_Statics {
 	public static function is_active_static_area( $index ) {
 		global $cherry_registered_statics;
 
-		$saved_statics = cherry_get_option( 'static-area-editor', false );
+		$option_name   = apply_filters( 'cherry_statics_option_name', 'header-static-area-editor', $index );
+		$saved_statics = cherry_get_option( $option_name, false );
 
 		if ( false === $saved_statics ) {
 			$saved_statics = $cherry_registered_statics;

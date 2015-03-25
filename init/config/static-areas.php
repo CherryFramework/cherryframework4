@@ -49,6 +49,13 @@ function cherry_register_static_areas() {
 	);
 
 	cherry_register_static_area( array(
+		'id'             => 'slider',
+		'name'           => __( 'Slider Area', 'cherry' ),
+		'container_wrap' => false,
+		'row_wrap'       => false,
+	) );
+
+	cherry_register_static_area( array(
 		'id'   => 'footer-top',
 		'name' => __( 'Footer Top', 'cherry' ),
 	) );

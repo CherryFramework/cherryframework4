@@ -10,3 +10,4 @@
 </div>
 
 <?php cherry_static_area('header-bottom'); ?>
+<?php cherry_static_area('slider'); ?>
