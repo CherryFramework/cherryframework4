@@ -459,9 +459,8 @@ function cherry_defaults_settings() {
 				'content'	=> 'Disable or enable user css file'
 			),
 			'value'			=> 'true',
-			'default_value'	=> 'true'
 	);
-	$general_options['general-maintenance mode'] = array(
+	$general_options['general-maintenance-mode'] = array(
 			'type'			=> 'switcher',
 			'title'			=> 'Maintenance mode',
 			'decsription'	=> 'Hide your site from regular visitors',
@@ -488,17 +487,15 @@ function cherry_defaults_settings() {
 					'select-3'	=> 'page_template_3'
 				)
 	);
-
-	$general_options['general-google-analytics'] = array(
-				'type'			=> 'textarea',
-				'title'			=> 'Google Analytic',
-				'decsription'	=> 'Google Analytic code goes here',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'This code will be added into the footer template of your theme.'
-				),
-				'value'			=> 'value',
-				'default_value'	=> 'default_value'
+	$general_options['general-smoothscroll'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Document smooth scroll',
+			'decsription'	=> 'Enable smooth scrolling',
+			'hint'			=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Jquery vertical mousewheel smooth scrolling for desktop chrome version only.'
+			),
+			'value'			=> 'true',
 	);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
