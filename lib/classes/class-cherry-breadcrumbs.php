@@ -1,13 +1,13 @@
 <?php
 /**
  * Cherry breadcrumbs class.
- * Based on Breadcrumb Trail plugin by Justin Tadlock (http://themehybrid.com/plugins/cherry)
+ * Based on Breadcrumb Trail plugin by Justin Tadlock (http://themehybrid.com/plugins/breadcrumb-trail)
  *
  * @package    Cherry_Framework
  * @subpackage Class
  * @author     Cherry Team <support@cherryframework.com>
  * @copyright  Copyright (c) 2012 - 2015, Cherry Team
- * @link       http://themehybrid.com/plugins/cherry, http://www.cherryframework.com/
+ * @link       http://themehybrid.com/plugins/breadcrumb-trail, http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -249,6 +249,12 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 						$this->add_default_archive_items();
 
 					}
+				} elseif ( is_search() ) {
+					/* If viewing a search results page. */
+					$this->add_search_items();
+				} elseif ( is_404() ) {
+					/* If viewing the 404 page. */
+					$this->add_404_items();
 				}
 
 				/* Add paged items if they exist. */
@@ -1017,7 +1023,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		public function add_404_items() {
 
 			if ( true === $this->args['show_title'] ) {
-				$this->items[] = $this->args['labels']['error_404'];
+				$this->_add_item( 'target_format', $this->args['labels']['error_404'] );
 			}
 		}
 
