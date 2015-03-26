@@ -64,6 +64,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				'separator'     => '&#47;',
 				'before'        => '',
 				'after'         => '',
+				'show_mobile'   => true,
+				'show_tablet'   => true,
 				'item_format'   => '<div class="%2$s">%1$s</div>',
 				'home_format'   => '<a href="%4$s" class="%2$s is-home" rel="home" title="%3$s">%1$s</a>',
 				'link_format'   => '<a href="%4$s" class="%2$s" rel="tag" title="%3$s">%1$s</a>',
@@ -73,7 +75,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				'show_title'    => true,
 				'show_browse'   => true,
 				'echo'          => true,
-				'labels'        => $this->default_labels(),
+				'labels'        => array(),
 				'post_taxonomy' => apply_filters(
 					'cherry_breadcrumbs_trail_taxonomies',
 					array(
@@ -84,6 +86,10 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			);
 
 			$this->args = apply_filters( 'cherry_breadcrumb_args', wp_parse_args( $args, $defaults ) );
+
+			if ( ! empty( $args['labels'] ) ) {
+				$this->args['labels'] = wp_parse_args( $args['labels'], $this->default_labels() );
+			}
 
 			$this->build_trail();
 
@@ -110,8 +116,22 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$breadcrumb .= $this->args['before'];
 			}
 
+			$wrapper_classes = array(
+				esc_attr( $this->css['module'] )
+			);
+
+			if ( false === $this->args['show_mobile'] ) {
+				$wrapper_classes[] = 'hide-mobile';
+			}
+
+			if ( false === $this->args['show_tablet'] ) {
+				$wrapper_classes[] = 'hide-tablet';
+			}
+
+			$wrapper_css = implode( ' ', $wrapper_classes );
+
 			/* Open the breadcrumb trail containers. */
-			$breadcrumb = "\n\t\t" . '<div class="' . esc_attr( $this->css['module'] ) . '" itemprop="breadcrumb">';
+			$breadcrumb = "\n\t\t" . '<div class="' . $wrapper_css . '" itemprop="breadcrumb">';
 
 
 			/* Add 'browse' label if it should be shown. */

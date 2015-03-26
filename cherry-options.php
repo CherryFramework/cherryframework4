@@ -1070,270 +1070,120 @@ function cherry_defaults_settings() {
 
 	$breadcrumbs_options['breadcrumbs'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'Breadcrumbs',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Enable or disable breadcrumb navigation',
+			'title'			=> __( 'Breadcrumbs', 'cherry' ),
+			'label'			=> __( 'Enable / Disable', 'cherry' ),
+			'decsription'	=> __( 'Enable or disable breadcrumb navigation', 'cherry' ),
 			'value'			=> 'true',
-			'default_value'	=> 'default_value'
+			'default_value'	=> 'true'
 	);
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 			'type'			=> 'multicheckbox',
-			'title'			=> 'Breadcrumb display',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'decsription multicheckbox',
+			'title'			=> __( 'Breadcrumb display', 'cherry' ),
+			'label'			=> __( 'Enable / Disable', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> 'Enable or disable displaying on mobile devices'
+				'content'	=> __( 'Enable or disable displaying on mobile devices', 'cherry' )
 			),
 			'class'			=> '',
 			'value'			=> array(
-				'checkbox-1'	=> true,
-				'checkbox-2'	=> true,
+				'tablet'	=> true,
+				'mobile'	=> true,
 			),
 			'default_value'	=> array(
-				'checkbox-1'	=> true,
-				'checkbox-2'	=> true,
+				'tablet'	=> true,
+				'mobile'	=> true,
 			),
 			'options'		=> array(
-				'checkbox-1'	=> 'tablet',
-				'checkbox-2'	=> 'mobile',
+				'tablet'	=> __( 'Tablet', 'cherry' ),
+				'mobile'	=> __( 'Mobile', 'cherry' ),
 			)
 	);
-	$breadcrumbs_options['breadcrumbs-bg-color'] = array(
-			'type'			=> 'background',
-			'title'			=> 'title background',
-			'label'			=> 'set default background',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Background for main breadcrumb container'
-			),
-			'return_data_type'	=> 'url',
-			'value'			=> array(
-				'image'	=> '',
-				'color'	=> '#ffCCCC',
-				'repeat'	=> 'repeat',
-				'position'	=> 'left',
-				'attachment'=> 'fixed'
-			)
+
+	$breadcrumbs_options['breadcrumbs-show-on-front'] = array(
+			'type'			=> 'switcher',
+			'title' 		=> __( 'Previous and next page buttons', 'cherry' ),
+			'decsription'	=> __( 'Show or hide previous an next page buttons', 'cherry' ),
+			'value'			=> 'false'
 	);
-	$breadcrumbs_options['breadcrumbs-bg-hover-color'] = array(
-			'type'			=> 'background',
-			'title'			=> 'title background',
-			'label'			=> 'set default background',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Background hover for main breadcrumb container'
-			),
-			'return_data_type'	=> 'url',
-			'value'			=> array(
-				'image'		=> '',
-				'color'		=> '#ffCCCC',
-				'repeat'	=> 'repeat',
-				'position'	=> 'left',
-				'attachment'=> 'fixed'
-			)
+
+	$breadcrumbs_options['breadcrumbs-show-title'] = array(
+			'type'			=> 'switcher',
+			'title' 		=> __( 'Previous and next page buttons', 'cherry' ),
+			'decsription'	=> __( 'Show or hide previous an next page buttons', 'cherry' ),
+			'value'			=> 'true'
 	);
+
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
-			'type'			=> 'filterselect',
-			'title'			=> 'Item separator',
-			'label'			=> 'select separator type',
-			'hint'      	=>  array(
-				'type'		=> 'image',
-				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-			),
-			'value'			=> 'arrow-outline',
-			'default_value'	=> 'arrow-outline',
-			'class'			=> 'width-full',
-			'options'		=> array(
-				'select-1'	=> 'box-outline',
-				'select-2'	=> 'arrow-outline',
-				'select-3'	=> 'divider-outline',
-				'select-4'	=> 'divider-arrow-outline'
-			)
-	);
-	$breadcrumbs_options['breadcrumbs-separator-icon'] = array(
-			'type'			=> 'filterselect',
-			'title'			=> 'Item icon separator',
-			'label'			=> 'select separator type',
-			//'decsription'	=> 'decsription filterselect',
-			'hint'      	=>  array(
-				'type'		=> 'image',
-				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-			),
-			'value'			=> 'icon-right-dir',
-			'default_value'	=> 'icon-right-dir',
-			'class'			=> 'width-full',
-			'options'		=> array(
-				'select-1'	=> 'icon-right-open',
-				'select-2'	=> 'icon-right-open-mini',
-				'select-3'	=> 'icon-right-dir',
-				'select-4'	=> 'icon-right-bold',
-				'select-5'	=> 'icon-right-thin'
-			)
-	);
-	$breadcrumbs_options['breadcrumbs-style'] = array(
-			'type'			=> 'select',
-			'title'			=> 'Breadcrumb style',
-			'label'			=> 'Select one of theme',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'For a stylized display breadcrumbs select one of the types'
-			),
-			'value'			=> 'simple',
-			'default_value'	=> 'simple',
-			'class'			=> 'width-full',
-			'options'		=> array(
-				'select-1'	=> 'simple',
-				'select-2'	=> 'tabbed',
-			)
-	);
-	$breadcrumbs_options['breadcrumbs-link-color'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'color for breadcrumbs link',
-			'label'			=> 'select color',
-			'value'			=> '#ff5566',
-			'default_value'	=> '#ff5566'
-	);
-	$breadcrumbs_options['breadcrumbs-link-hover-color'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'hover color for breadcrumbs link',
-			'label'			=> 'select color',
-			'value'			=> '#ff5566',
-			'default_value'	=> '#ff5566'
-	);
-	$breadcrumbs_options['breadcrumbs-active-link-color'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'color for active breadcrumbs link',
-			'label'			=> 'select color',
-			'value'			=> '#ff5566',
-			'default_value'	=> '#ff5566'
-	);
-	$breadcrumbs_options['breadcrumbs-home-link-color'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'color for breadcrumbs home link',
-			'label'			=> 'select color',
-			'value'			=> '#454545',
-			'default_value'	=> '#454545'
+			'type'			=> 'text',
+			'title'			=> __( 'Item separator', 'cherry' ),
+			'label'			=> __( 'Select separator type', 'cherry' ),
+			'value'			=> '&#47;',
+			'default_value'	=> '&#47;',
+			'class'			=> 'width-full'
 	);
 	$breadcrumbs_options['breadcrumbs-prefix-path'] = array(
 			'type'			=> 'text',
-			'title'			=> 'breadcrumbs prefix path',
-			'decsription'	=> 'Title before breadcrumb navigation',
-			'hint'      	=>  array(
+			'title'			=> __( 'Breadcrumbs prefix path', 'cherry' ),
+			'decsription'	=> __( 'Title before breadcrumb navigation', 'cherry' ),
+			'hint'      	=> array(
 				'type'		=> 'image',
 				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 			),
-			'value'			=> 'You are here',
-			'default_value'	=> 'You are here'
-	);
-	$breadcrumbs_options['breadcrumbs-hierarchical-attachments'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'breadcrumb hierarchical attachments',
-			'label'			=> 'Enable / Disable',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Show the taxonomy leading to a post in the breadcrumb trail.'
-			),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-
-	);
-	$breadcrumbs_options['breadcrumbs-post-hierarchy'] = array(
-			'type'			=> 'select',
-			'title'			=> 'Breadcrumbs post hierarchy',
-			'label'			=> 'Select one of them',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'The hierarchy which the breadcrumb trail will show. Note that the "Post Parent" option may require an additional plugin to behave as expected since this is a non-hierarchical post type.'
-			),
-			'value'			=> 'Categories',
-			'default_value'	=> 'Categories',
-			'class'			=> 'width-full',
-			'options'		=> array(
-				'select-1'	=> 'Categories',
-				'select-2'	=> 'Dates',
-				'select-3'	=> 'Tags',
-				'select-4'	=> 'Post Parent',
-			)
+			'value'			=> __( 'You are here:', 'cherry' ),
+			'default_value'	=> __( 'You are here:', 'cherry' )
 	);
 	$breadcrumbs_options['breadcrumbs-title-length'] = array(
 			'type'			=> 'stepper',
-			'title'			=> 'breadcrumb title length',
-			'label'			=> 'max title length',
+			'title'			=> __( 'Breadcrumb title length', 'cherry' ),
+			'label'			=> __( 'Max title length', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> 'Limit the length of the breadcrumb title'
+				'content'	=> __( 'Limit the length of the breadcrumb title', 'cherry' )
 			),
 			'value'			=> '0',
 			'default_value'	=> '0',
 			'value-step'	=> '1',
-			'max-value'		=> '150',
-			'min-value'		=> '1'
+			'max-value'		=> '200',
+			'min-value'		=> '0'
 	);
 
 //////////////////////////////// Page navigation options /////////////////////////////////////////////
 
 	$pagination_option = array();
 
-	$pagination_option['pagination-display'] = array(
-			'type'			=>  'switcher',
-			'title' 		=>  'pagination',
-			'label'			=>	'Enable / Disable',
-			'value'			=>	'true',
-			'default_value'	=>	'true'
-	);
-
-	$pagination_option['pagination-below'] = array(
-			'type'			=>  'switcher',
-			'title' 		=>  'Show Pagination Below of the Posts',
-			'label'			=>	'Enable / Disable',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Enable pagination links for portfolio index pages on bottom side of the posts (after showing posts).'
-			),
-			'value'			=>	'true',
-			'default_value'	=>	'true'
-	);
-
-	$pagination_option['pagination-type'] = array(
+	$pagination_option['pagination-position'] = array(
 			'type'			=> 'select',
-			'title'			=> 'Page navigation type',
-			'label'			=> 'Select one of them',
-			'hint'      	=>  array(
+			'title' 		=> __( 'Pagination position', 'cherry' ),
+			'decsription'	=> __( 'Select, where to display post pagination', 'cherry' ),
+			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> 'Select the pagination type'
+				'content'	=> __( 'Select, where to display post pagination', 'cherry' )
 			),
-			'value'			=> 'pagination',
-			'default_value'	=> 'pagination',
-			'class'			=> 'width-full',
-			'options'		=> array(
-				'select-1'	=> 'standart pagination',
-				'select-2'	=> 'infinite scroll',
-				'select-3'	=> 'load more button',
-				'select-4'	=> 'ajax pagination',
+			'value'			=> 'after',
+			'options'    	=> array(
+				'after'  => __( 'After posts loop', 'cherry' ),
+				'before' => __( 'Before posts loop', 'cherry' ),
+				'both'   => __( 'Both', 'cherry' )
 			)
 	);
+
 	$pagination_option['pagination-next-previous'] = array(
-			'type'			=>  'switcher',
-			'title' 		=>  'previous an next page navigation',
-			'decsription'	=> 'Enable or disable previous an next page navigation',
-			'value'			=>	'true'
+			'type'			=> 'switcher',
+			'title' 		=> __( 'Previous and next page buttons', 'cherry' ),
+			'decsription'	=> __( 'Show or hide previous an next page buttons', 'cherry' ),
+			'value'			=> 'true'
 	);
 	$pagination_option['pagination-label'] = array(
 			'type'			=> 'text',
-			'title'			=> 'pagination label',
-			'decsription'	=> 'The text/HTML to display before the list of pages',
-			'hint'      	=>  array(
-				'type'		=> 'image',
-				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-			),
-			'value'			=> 'Pages:',
-			'default_value'	=> 'Pages:'
+			'title'			=> __( 'Pagination label', 'cherry' ),
+			'decsription'	=> __( 'The text/HTML to display before the list of pages', 'cherry' ),
+			'value'			=> __( 'Pages:', 'cherry' ),
+			'default_value'	=> __( 'Pages:', 'cherry' )
 	);
 	$pagination_option['pagination-previous-page'] = array(
 			'type'			=> 'text',
-			'title'			=> 'previous page',
-			'decsription'	=> 'The text/HTML to display for the previous page link.',
+			'title'			=> __( 'previous page', 'cherry' ),
+			'decsription'	=> __( 'The text/HTML to display for the previous page link.', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'image',
 				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
@@ -1343,8 +1193,8 @@ function cherry_defaults_settings() {
 	);
 	$pagination_option['pagination-next-page'] = array(
 			'type'			=> 'text',
-			'title'			=> 'next page',
-			'decsription'	=> 'The text/HTML to display for the next page link.',
+			'title'			=> __( 'next page', 'cherry' ),
+			'decsription'	=> __( 'The text/HTML to display for the next page link.', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'image',
 				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
@@ -1352,44 +1202,28 @@ function cherry_defaults_settings() {
 			'value'			=> '&raquo;',
 			'default_value'	=> '&raquo;'
 	);
-	$pagination_option['pagination-page-range'] = array(
-			'type'			=> 'stepper',
-			'title'			=> 'page range',
-			'decsription'	=> 'The number of page links to show before and after the current page.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'The number of page links to show before and after the current page. Recommended value: 4'
-			),
-			'value'			=> '4',
-			'default_value'	=> '4',
-			'value-step'	=> '1',
-			'max-value'		=> '9999',
-			'min-value'		=> '1'
+	$pagination_option['pagination-show-all'] = array(
+			'type'			=> 'switcher',
+			'title' 		=> __( 'Show all the pages', 'cherry' ),
+			'decsription'	=> __( 'If set to On, then it will show all of the pages instead of a short list of the pages near the current page.', 'cherry' ),
+			'value'			=> 'false'
 	);
-	$pagination_option['pagination-page-anchors'] = array(
+	$pagination_option['pagination-end-size'] = array(
 			'type'			=> 'stepper',
-			'title'			=> 'page anchors',
-			'decsription'	=> 'The number of links to always show at beginning and end of pagination.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'The number of links to always show at beginning and end of pagination. Recommended value: 1'
-			),
+			'title'			=> __( 'End size', 'cherry' ),
+			'decsription'	=> __( 'How many numbers on either the start and the end list edges', 'cherry' ),
 			'value'			=> '1',
 			'default_value'	=> '1',
 			'value-step'	=> '1',
 			'max-value'		=> '99',
 			'min-value'		=> '1'
 			);
-	$pagination_option['pagination-page-gap'] = array(
+	$pagination_option['pagination-mid-size'] = array(
 			'type'			=> 'stepper',
-			'title'			=> 'page gap',
-			'decsription'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'The minimum number of pages in a gap before an ellipsis (...) is added. Recommended value: 3'
-			),
-			'value'			=> '3',
-			'default_value'	=> '3',
+			'title'			=> __( 'Mid size', 'cherry' ),
+			'decsription'	=> __( 'How many numbers to either side of current page, but not including current page', 'cherry' ),
+			'value'			=> '2',
+			'default_value'	=> '2',
 			'value-step'	=> '1',
 			'max-value'		=> '9999',
 			'min-value'		=> '1'

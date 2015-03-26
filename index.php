@@ -12,6 +12,13 @@
 
 if ( have_posts() ) :
 
+	/**
+	 * Hook fires immediately before posts loop output start
+	 * @since  4.0.0
+	 * @hooked 10  cherry_paging_nav  lib/functions/template-tags.php
+	 */
+	do_action( 'cherry_loop_before' );
+
 	while ( have_posts() ) : the_post();
 
 		do_action( 'cherry_post_before' );
@@ -22,10 +29,20 @@ if ( have_posts() ) :
 
 	endwhile;
 
-	do_action( 'cherry_endwhile_after' );
+	/**
+	 * Hook fires immediately after posts loop output end
+	 * @since  4.0.0
+	 * @hooked 10  cherry_paging_nav  lib/functions/template-tags.php
+	 */
+	do_action( 'cherry_loop_after' );
 
 else :
 
-	do_action( 'cherry_loop_else' );
+	/**
+	 * Hook fires if main loop haven't any posts
+	 * @since  4.0.0
+	 * @hooked 10  cherry_noposts  lib/functions/template.php
+	 */
+	do_action( 'cherry_loop_empty' );
 
 endif; ?>

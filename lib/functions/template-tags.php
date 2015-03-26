@@ -6,36 +6,115 @@
  *
  * @package Cherry Framework
  */
-add_action( 'cherry_endwhile_after', 'cherry_paging_nav' );
+
+// add breadcrumbs to template
+add_action( 'cherry_content_before', 'cherry_get_breadcrumbs', 5 );
+
+/**
+ * Add breadcrumbs output to template
+ *
+ * @since 4.0.0
+ */
+function cherry_get_breadcrumbs() {
+
+	$show = cherry_get_option( 'breadcrumbs', 'true' );
+
+	if ( 'true' != $show ) {
+		return;
+	}
+
+	$browse_label = array();
+	$browse_label['browse'] = cherry_get_option( 'breadcrumbs-prefix-path' );
+
+	$show_on = cherry_get_option( 'breadcrumbs-display' );
+
+	$show_mobile = ( is_array( $show_on ) && in_array( 'mobile', $show_on ) ) ? true : false;
+	$show_tablet = ( is_array( $show_on ) && in_array( 'tablet', $show_on ) ) ? true : false;
+
+	$show_on_front = cherry_get_option( 'breadcrumbs-show-on-front', 'false' );
+	$show_on_front = ( 'true' == $show_on_front ) ? true : false;
+
+	$show_title = cherry_get_option( 'breadcrumbs-show-title', 'false' );
+	$show_title = ( 'true' == $show_title ) ? true : false;
+
+	$user_args = apply_filters( 'cherry_breadcrumbs_custom_args', array() );
+
+	$options_args = array(
+		'separator'     => cherry_get_option( 'breadcrumbs-separator', '&#47;' ),
+		'show_mobile'   => $show_mobile,
+		'show_tablet'   => $show_tablet,
+		'show_on_front' => $show_on_front,
+		'show_title'    => $show_title,
+		'labels'        => $browse_label
+	);
+
+	$args = array_merge( $options_args, $user_args );
+
+	$breadcrumbs = new cherry_breadcrumbs( $args );
+	$breadcrumbs->get_trail();
+}
+
+// add paginction to blog loop
+add_action( 'cherry_loop_before', 'cherry_paging_nav' );
+add_action( 'cherry_loop_after', 'cherry_paging_nav' );
 
 if ( !function_exists( 'cherry_paging_nav' ) ) :
 /**
- * Display navigation to next/previous set of posts when applicable.
+ * Display pged navigation for posts loop when applicable.
+ *
+ * @since  4.0.0
  */
 function cherry_paging_nav() {
+
+	$current_hook = current_filter();
+	$position     = cherry_get_option( 'pagination-position', 'after' );
+
+	// if position in option set only 'before' and this is not 'cherry_loop_before' hook - do anything
+	if ( 'before' == $position && 'cherry_loop_before' != $current_hook ) {
+		return;
+	}
+
+	// if position in option set only 'after' and this is not 'cherry_loop_after' hook - do anything
+	if ( 'after' == $position && 'cherry_loop_after' != $current_hook ) {
+		return;
+	}
 
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
-	} ?>
+	}
 
-	<nav class="navigation paging-navigation" role="navigation">
-		<div class="paging-navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'cherry' ); ?></h1>
-			<div class="nav-links">
+	$prev_next = cherry_get_option( 'pagination-next-previous' );
+	$show_all  = cherry_get_option( 'pagination-show-all' );
 
-				<?php if ( get_next_posts_link() ) : ?>
-				<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'cherry' ) ); ?></div>
-				<?php endif; ?>
+	$prev_next = ( 'true' == $prev_next ) ? true : false;
+	$show_all  = ( 'true' == $show_all ) ? true : false;
 
-				<?php if ( get_previous_posts_link() ) : ?>
-				<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'cherry' ) ); ?></div>
-				<?php endif; ?>
+	// get slider args from options
+	$options_args = array(
+		'prev_next'          => $prev_next,
+		'prev_text'          => cherry_get_option( 'pagination-previous-page' ),
+		'next_text'          => cherry_get_option( 'pagination-next-page' ),
+		'screen_reader_text' => cherry_get_option( 'pagination-label' ),
+		'show_all'           => $show_all,
+		'end_size'           => cherry_get_option( 'pagination-end-size', 1 ),
+		'mid_size'           => cherry_get_option( 'pagination-mid-size', 2 )
+	);
 
-			</div><!-- .nav-links -->
-		</div>
-	</nav><!-- .navigation -->
-	<?php
+	// get additional pagination args
+	$custom_args = apply_filters(
+		'cherry_pagination_custom_args',
+		array(
+			'add_fragment' => '',
+			'add_args'     => false
+		)
+	);
+
+	$args = array_merge( $options_args, $custom_args );
+
+	// Previous/next page navigation.
+	the_posts_pagination( $args );
+
 }
 endif;
 

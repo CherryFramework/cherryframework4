@@ -19,8 +19,7 @@ function cherry_theme_config() {
 		'menus',
 		'sidebars',
 		'display-sidebars',
-		'static-areas',
-		'breadcrumbs'
+		'static-areas'
 	);
 
 	// get from child theme disabled config statements array
