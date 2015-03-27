@@ -1101,15 +1101,15 @@ function cherry_defaults_settings() {
 
 	$breadcrumbs_options['breadcrumbs-show-on-front'] = array(
 			'type'			=> 'switcher',
-			'title' 		=> __( 'Previous and next page buttons', 'cherry' ),
-			'decsription'	=> __( 'Show or hide previous an next page buttons', 'cherry' ),
+			'title' 		=> __( 'Show breadcrumbs on front page', 'cherry' ),
+			'decsription'	=> __( 'Show or hide breadcrumbs trail on front page', 'cherry' ),
 			'value'			=> 'false'
 	);
 
 	$breadcrumbs_options['breadcrumbs-show-title'] = array(
 			'type'			=> 'switcher',
-			'title' 		=> __( 'Previous and next page buttons', 'cherry' ),
-			'decsription'	=> __( 'Show or hide previous an next page buttons', 'cherry' ),
+			'title' 		=> __( 'Page title', 'cherry' ),
+			'decsription'	=> __( 'Show or hide page title in breadcrumbs trail', 'cherry' ),
 			'value'			=> 'true'
 	);
 
@@ -1182,7 +1182,7 @@ function cherry_defaults_settings() {
 	);
 	$pagination_option['pagination-previous-page'] = array(
 			'type'			=> 'text',
-			'title'			=> __( 'previous page', 'cherry' ),
+			'title'			=> __( 'Previous page', 'cherry' ),
 			'decsription'	=> __( 'The text/HTML to display for the previous page link.', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'image',
@@ -1193,7 +1193,7 @@ function cherry_defaults_settings() {
 	);
 	$pagination_option['pagination-next-page'] = array(
 			'type'			=> 'text',
-			'title'			=> __( 'next page', 'cherry' ),
+			'title'			=> __( 'Next page', 'cherry' ),
 			'decsription'	=> __( 'The text/HTML to display for the next page link.', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'image',

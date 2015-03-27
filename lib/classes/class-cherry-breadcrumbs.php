@@ -91,6 +91,10 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$this->args['labels'] = wp_parse_args( $args['labels'], $this->default_labels() );
 			}
 
+			if ( is_front_page() && false === $this->args['show_on_front'] ) {
+				return;
+			}
+
 			$this->build_trail();
 
 		}
@@ -106,6 +110,10 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 			/* Connect the breadcrumb trail if there are items in the trail. */
 			if ( empty( $this->items ) && ! is_array( $this->items ) ) {
+				return;
+			}
+
+			if ( is_front_page() && false === $this->args['show_on_front'] ) {
 				return;
 			}
 
@@ -277,11 +285,17 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 					$this->add_404_items();
 				}
 
-				/* Add paged items if they exist. */
-				$this->add_paged_items();
-
 			}
 
+			/* Add paged items if they exist. */
+			$this->add_paged_items();
+
+			/**
+			 * Filter final item array
+			 * @since  4.0.0
+			 * @var    array
+			 */
+			$this->items = apply_filters( 'cherry_breadcrumbs_items', $this->items, $this->args );
 		}
 
 		public function _add_item( $format = 'link_format', $label, $url = '', $class = '' ) {
@@ -415,18 +429,21 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 			// if is paged front page - add home link
 			if ( is_paged() || ( is_singular() && 1 < get_query_var( 'page' ) ) ) {
+
 				$this->add_site_home_link();
+
+			} else {
+
+				if ( true !== $this->args['show_title'] ) {
+					return;
+				}
+
+				$label = ( is_multisite() && true === $this->args['network'] )
+							? get_bloginfo( 'name' )
+							: $this->args['labels']['home'];
+
+				$this->_add_item( 'target_format', $label );
 			}
-
-			if ( true !== $this->args['show_title'] ) {
-				return;
-			}
-
-			$label = ( is_multisite() && true === $this->args['network'] )
-						? get_bloginfo( 'name' )
-						: $this->args['labels']['home'];
-
-			$this->_add_item( 'target_format', $label );
 
 		}
 
