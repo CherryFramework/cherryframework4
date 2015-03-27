@@ -1,15 +1,26 @@
 <!-- Post entry view -->
 <article <?php cherry_attr( 'post' ); ?>>
+	<?php
+		/**
+		 * Default page structure hooks
+		 */
 
-<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post.
+		do_action( 'cherry_entry_thumbnail' );
 
-		do_action( 'cherry_post_single', 'content' );
+		do_action( 'cherry_entry_header' );
 
-	else : // If not viewing a single post.
+		do_action( 'cherry_entry_meta' );
 
-		do_action( 'cherry_post_loop', 'content' );
+		if ( is_singular() ) {
 
-	endif;
-?>
+			do_action( 'cherry_entry_excerpt' );
 
+		} else {
+
+			do_action( 'cherry_entry_content' );
+
+		}
+
+		do_action( 'cherry_entry_footer' );
+	?>
 </article>

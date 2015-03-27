@@ -79,6 +79,11 @@ function cherry_the_post_thumbnail() {
  * @return string $post_thumbnail The post thumbnail HTML
  */
 function cherry_get_the_post_thumbnail( $post_id = null ) {
+
+	if ( in_array( get_post_format(), array( 'image', 'gallery' ) ) ) {
+		return;
+	}
+
 	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
 	$post_type = get_post_type( $post_id );
 
@@ -338,4 +343,67 @@ function cherry_get_post_format_url( $post = null ) {
 	$url         = !empty( $content_url ) ? $content_url : get_permalink( $post->ID );
 
 	return esc_url( $url );
+}
+
+/**
+ * Get featured image for post format image.
+ * If has post thumbnail - will get post thumbnail, else - get first image from content
+ *
+ * @since  4.0.0
+ *
+ * @return string
+ */
+function cherry_get_the_post_image() {
+
+	if ( 'image' != get_post_format() ) {
+		return;
+	}
+
+	$defaults = array(
+		'container'       => 'figure',
+		'container_class' => 'post-thumbnail',
+		'size'            => 'post-thumbnail',
+		'before'          => '',
+		'after'           => '',
+		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s_link popup-img">%3$s</a></%1$s>'
+	);
+
+	/**
+	 * Filter the arguments used to display a post thumbnail.
+	 *
+	 * @since 4.0.0
+	 * @param array $args Array of arguments.
+	 */
+	$args = apply_filters( 'cherry_get_the_post_image_args', $defaults );
+	$args = wp_parse_args( $args, $defaults );
+
+	if ( has_post_thumbnail() ) {
+
+		$post_id   = get_the_id();
+		$thumb     = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['container_class'] . '_img' ) );
+		$thumb     = $args['before'] . $thumb . $args['after'];
+		$url       = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
+
+		$result = sprintf(
+			$args['wrap'],
+			$args['container'], $args['container_class'], $thumb, $url
+		);
+
+		return $result;
+	}
+
+}
+
+/**
+ * Display featured image for post format image.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_image() {
+	/**
+	 * Filter featured image for post format image.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_the_post_image', cherry_get_the_post_image() );
 }

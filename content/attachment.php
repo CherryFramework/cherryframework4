@@ -1,15 +1,17 @@
 <!-- Post entry view -->
 <article <?php cherry_attr( 'post' ); ?>>
+	<?php
+		/**
+		 * Default page structure hooks
+		 */
 
-<?php if ( is_attachment() ) : // If viewing a single attachment.
+		do_action( 'cherry_entry_thumbnail' );
 
-		do_action( 'cherry_post_single', 'attachment' );
+		do_action( 'cherry_entry_header' );
 
-	else : // If not viewing a single attachment.
+		do_action( 'cherry_entry_content' );
 
-		do_action( 'cherry_post_loop', 'attachment' );
+		do_action( 'cherry_entry_footer' );
 
-	endif;
-?>
-
+	?>
 </article>

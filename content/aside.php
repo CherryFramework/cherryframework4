@@ -1,15 +1,11 @@
 <!-- Post entry view -->
 <article <?php cherry_attr( 'post' ); ?>>
+	<?php
+		/**
+		 * Default page structure hooks
+		 */
+		do_action( 'cherry_entry_content' );
 
-<?php if ( is_singular( get_post_type() ) ) : // If viewing a single post.
-
-		do_action( 'cherry_post_single' );
-
-	else : // If not viewing a single post.
-
-		do_action( 'cherry_post_loop' );
-
-	endif;
-?>
-
+		do_action( 'cherry_entry_footer' );
+	?>
 </article>
