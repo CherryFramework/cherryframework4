@@ -8,6 +8,10 @@
 
 		do_action( 'cherry_entry_header' );
 
+		if ( is_singular() ) {
+			do_action( 'cherry_entry_content' );
+		}
+
 		do_action( 'cherry_entry_footer' );
 	?>
 </article>

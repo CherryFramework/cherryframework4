@@ -19,7 +19,8 @@ add_action( 'cherry_sidebar_after',  'cherry_content_sidebar_wrap_close', 0 );
 add_action( 'cherry_entry_header',    'cherry_the_post_header' );
 
 add_action( 'cherry_entry_thumbnail', 'cherry_the_post_thumbnail' );
-add_action( 'cherry_entry_thumbnail', 'cherry_the_post_image' );
+add_action( 'cherry_entry_thumbnail', 'cherry_the_post_format_image' );
+add_action( 'cherry_entry_thumbnail', 'cherry_the_post_format_gallery' );
 
 add_action( 'cherry_entry_content',   'cherry_the_post_content' );
 add_action( 'cherry_entry_excerpt',   'cherry_the_post_excerpt' );

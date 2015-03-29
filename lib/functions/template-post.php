@@ -353,7 +353,7 @@ function cherry_get_post_format_url( $post = null ) {
  *
  * @return string
  */
-function cherry_get_the_post_image() {
+function cherry_get_the_post_format_image() {
 
 	if ( 'image' != get_post_format() ) {
 		return;
@@ -365,11 +365,11 @@ function cherry_get_the_post_image() {
 		'size'            => 'post-thumbnail',
 		'before'          => '',
 		'after'           => '',
-		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s_link popup-img">%3$s</a></%1$s>'
+		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s_link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
 	);
 
 	/**
-	 * Filter the arguments used to display a post thumbnail.
+	 * Filter the arguments used to display a post image.
 	 *
 	 * @since 4.0.0
 	 * @param array $args Array of arguments.
@@ -377,20 +377,61 @@ function cherry_get_the_post_image() {
 	$args = apply_filters( 'cherry_get_the_post_image_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( has_post_thumbnail() ) {
+	$default_init = array( 
+		'type' => 'image'
+	);
+
+	/**
+	 * Filter the arguments used to init image zoom popup.
+	 *
+	 * @since 4.0.0
+	 * @param array $args Array of arguments.
+	 */
+	$init = apply_filters( 'cherry_get_the_post_image_zoom_init', $default_init );
+	$init = wp_parse_args( $init, $default_init );
+
+	$init = json_encode( $init );
+
+	if ( cherry_has_post_thumbnail() ) {
 
 		$post_id   = get_the_id();
 		$thumb     = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['container_class'] . '_img' ) );
 		$thumb     = $args['before'] . $thumb . $args['after'];
 		$url       = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
 
-		$result = sprintf(
-			$args['wrap'],
-			$args['container'], $args['container_class'], $thumb, $url
-		);
+	} else {
 
-		return $result;
+		$img = cherry_get_post_images();
+		
+		if ( ! $img || empty( $img ) || empty( $img[0] ) ) {
+			return false;
+		} elseif ( is_int( $img[0] ) ) {
+
+			$thumb = wp_get_attachment_image( $img[0], $args['size'], '', array( 'class' => $args['container_class'] . '_img' ) );
+			$thumb = $args['before'] . $thumb . $args['after'];
+			$url   = wp_get_attachment_url( $img[0] );
+
+		} else {
+
+			global $_wp_additional_image_sizes;
+
+			if ( ! isset( $_wp_additional_image_sizes[$args['size']] ) ) {
+				return false;
+			}
+
+			$thumb = '<img src="' . esc_url( $img[0] ) . '" class="' . $args['container_class'] . '_img" width="' . $_wp_additional_image_sizes[$args['size']]['width'] . '">';
+			$thumb = $args['before'] . $thumb . $args['after'];
+			$url   = $img[0];
+
+		}
 	}
+
+	$result = sprintf(
+		$args['wrap'],
+		$args['container'], $args['container_class'], $thumb, $url, $init
+	);
+
+	return $result;
 
 }
 
@@ -399,11 +440,200 @@ function cherry_get_the_post_image() {
  *
  * @since 4.0.0
  */
-function cherry_the_post_image() {
+function cherry_the_post_format_image() {
 	/**
 	 * Filter featured image for post format image.
 	 *
 	 * @since 4.0.0
 	 */
-	echo apply_filters( 'cherry_the_post_image', cherry_get_the_post_image() );
+	echo apply_filters( 'cherry_the_post_format_image', cherry_get_the_post_format_image() );
+}
+
+/**
+ * Get featured gallery for post format gallery.
+ * If has post thumbnail - will get post thumbnail, else - get first image from content
+ *
+ * @since  4.0.0
+ *
+ * @return string
+ */
+function cherry_get_the_post_format_gallery() {
+
+	/**
+	 * Filter post format gallery output to rewrite gallery from child theme or plugins
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_post_gallery', false );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
+	$post_id = get_the_id();
+
+	// first - try to get images from galleries in post
+	$post_gallery = get_post_gallery( $post_id, false );
+
+	if ( ! empty( $post_gallery['ids'] ) ) {
+		$post_gallery = explode( ',', $post_gallery['ids'] );
+	} elseif ( ! empty( $post_gallery['src'] ) ) {
+		$post_gallery = $post_gallery['src'];
+	} else {
+		$post_gallery = false;
+	}
+
+
+	// if can't try to catch images inserted into post
+	if ( ! $post_gallery ) {
+		$post_gallery = cherry_get_post_images( $post_id, 15 );
+	}
+
+	// and if not find any images - try to get images attached to post
+	if ( ! $post_gallery || empty( $post_gallery ) ) {
+
+		$attachments = get_children( array(
+			'post_parent'    => $post_id,
+			'posts_per_page' => 3,
+			'post_status'    => 'inherit',
+			'post_type'      => 'attachment',
+			'post_mime_type' => 'image',
+		) );
+
+		if ( $attachments && is_array($attachments) ) {
+			$post_gallery = array_keys($attachments);
+		}
+	}
+
+	if ( ! $post_gallery || empty( $post_gallery ) ) {
+		return false;
+	}
+
+	$defaults = array(
+		'container_class'  => 'post-gallery',
+		'size'             => 'post-thumbnail',
+		'container_format' => '<div class="%2$s" data-init=\'%3$s\'>%1$s</div>',
+		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-img">%1$s</a></figure>'
+	);
+
+	/**
+	 * Filter default gallery arguments
+	 */
+	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
+	$args = wp_parse_args( $args, $defaults );
+
+	$default_init = array(
+		'infinite' => true,
+		'speed'    => 300,
+		'fade'     => true,
+		'cssEase'  => 'linear'
+	);
+
+	/**
+	 * Filter default gallery slider inits
+	 */
+	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_init );
+	$init = wp_parse_args( $init, $default_init );
+	$init = json_encode( $init );
+
+
+	$items = array();
+
+	foreach ( $post_gallery as $img ) {
+		
+		if ( 0 < intval( $img ) ) {
+			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $args['container_class'] . '_item_img' ) );
+			$url   = wp_get_attachment_url( $img );
+		} else {
+
+			global $_wp_additional_image_sizes;
+
+			if ( ! isset( $_wp_additional_image_sizes[$args['size']] ) ) {
+				$width = 'auto';
+			} else {
+				$width = $_wp_additional_image_sizes[$args['size']]['width'];
+			}
+
+			$image = '<img src="' . esc_url( $img ) . '" class="' . $args['container_class'] . '_item_img" width="' . $width . '">';
+			$url   = $img;
+		}
+
+		$items[] = sprintf(
+			$args['item_format'],
+			$image, $url, $args['container_class'] . '_item'
+		);
+	}
+
+	$items = implode( "\r\n", $items );
+
+	$result = sprintf(
+		$args['container_format'],
+		$items, $args['container_class'], $init
+	);
+
+	return $result;
+}
+
+/**
+ * Display featured image for post format image.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_format_gallery() {
+	/**
+	 * Filter featured image for post format image.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_the_post_format_gallery', cherry_get_the_post_format_gallery() );
+}
+
+/**
+ * Get images from post content.
+ * Returns image ID's if can find this image in database,
+ * returns image URL or bollen false in other case
+ *
+ * @since  4.0.0
+ * 
+ * @param  int $post_id post ID to search image in
+ * @param  int $limit   max images count to search
+ * @return bool|string|int
+ */
+function cherry_get_post_images( $post_id = null, $limit = 1 ) {
+	
+	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
+	$content = get_the_content();
+
+	// get first image from content
+	preg_match_all( '/< *img[^>]*src *= *["\']?([^"\']*)/i', $content, $matches );
+
+	if ( !isset( $matches[1] ) ) {
+		return false;
+	}
+
+	$result = array();
+
+	global $wpdb;
+
+	for ( $i = 0; $i < $limit; $i++ ) { 
+
+		if ( empty( $matches[1][$i] ) ) {
+			continue;
+		}
+
+		$image_src = esc_url( $matches[1][$i] );
+		$image_src = preg_replace( '/^(.+)(-\d+x\d+)(\..+)$/', '$1$3', $image_src );
+
+		// try to get current iamge ID
+		$query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
+		$id = $wpdb->get_var( $query );
+
+		if ( ! $id ) {
+			$result[] = $image_src;
+		} else {
+			$result[] = (int)$id;
+		}
+
+	}
+
+	return $result;
 }
