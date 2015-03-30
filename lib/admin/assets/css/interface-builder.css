@@ -320,6 +320,7 @@
   padding: 5px;
   border-radius: 6px;
   overflow: hidden;
+  cursor: -webkit-grab;
 }
 .cherry-section .cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .col {
   width: 30%;
@@ -423,7 +424,7 @@
   float: left;
   margin: 10px 10px 0 5px;
   text-align: center;
-  max-width: 100px;
+  max-width: 120px;
   position: relative;
 }
 .cherry-section .cherry-radio-img img {
@@ -638,6 +639,9 @@
   margin: 4px 0;
   border-radius: 6px;
 }
+.cherry-section .cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-sortable-helper:focus {
+  cursor: -webkit-grabbing;
+}
 .cherry-section .cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header {
   font-size: 16px;
   margin: 0;
@@ -655,7 +659,7 @@
 }
 .cherry-section .cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group {
   float: right;
-  color: #2EA2CC;
+  color: #2a445d;
   cursor: pointer;
   width: 60px;
   height: 20px;

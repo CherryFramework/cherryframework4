@@ -84,7 +84,6 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription filterselect',
 				'hint'      	=>  array(
 					'type'		=> 'text',
-					//'content'	=> 'https://player.vimeo.com/video/97337577'
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'
 				),
 				'value'			=> 'select_1',
@@ -475,10 +474,6 @@ function cherry_defaults_settings() {
 				'type'			=> 'select',
 				'title'			=> 'maintenance page',
 				'decsription'	=> 'Select template of maintenance page, which you gonna used.',
-				'hint'      	=>  array(
-					'type'		=> 'video',
-					'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
-				),
 				'value'			=> 'select-1',
 				'class'			=> 'width-full',
 				'options'		=> array(
@@ -575,11 +570,11 @@ function cherry_defaults_settings() {
 		'options'       => array(
 			'wide' => array(
 				'label'   => __( 'Wide', 'cherry' ),
-				'img_src' => PARENT_URI . '/screenshot.png',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
 			),
 			'boxed' => array(
 				'label'   => __( 'Boxed', 'cherry' ),
-				'img_src' => PARENT_URI . '/screenshot.png',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/grid-type-container.svg',
 			),
 		),
 	);
@@ -599,38 +594,38 @@ function cherry_defaults_settings() {
 		'min_value' => 970,
 		'value' => 1170,
 	);
-	$page_layout_options['page-layout-type'] = array(
-		'type'			=> 'radio',
-		'title'			=> __('Header type layout', 'cherry'),
-		'label'			=> __('Header type layout', 'cherry'),
-		'decsription'	=> __('Choose header type layout.', 'cherry'),
-		'value'			=> 'page-layout-type-1',
-		'display_input'	=> false,
-		'options'		=> array(
-			'page-layout-type-1' => array(
-				'label' => 'Top static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
+	$page_layout_options['page-layout'] = array(
+		'type'          => 'radio',
+		'title'         => __( 'Blog page layout', 'cherry' ),
+		'label'         => __( 'Blog page layout', 'cherry' ),
+		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
+		'value'         => '1-right',
+		'display_input' => false,
+		'options'       => array(
+			'1-left' => array(
+				'label'   => __( 'Left sidebar', 'cherry' ),
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-left-sidebar.svg',
 			),
-			'page-layout-type-2' => array(
-				'label' => 'Left static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
+			'1-right' => array(
+				'label'   => __( 'Right sidebar', 'cherry' ),
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-right-sidebar.svg',
 			),
-			'page-layout-type-3' => array(
-				'label' => 'Right static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
+			'1-left-2-right' => array(
+				'label'   => __( 'Left and right sidebar', 'cherry' ),
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
 			),
-			'page-layout-type-4' => array(
-				'label' => 'Top toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
+			'1-left-2-left' => array(
+				'label'   => __( 'Sameside left sidebar', 'cherry' ),
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
 			),
-			'page-layout-type-5' => array(
-				'label' => 'Left toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
+			'1-right-2-right' => array(
+				'label'   => __( 'Sameside right sidebar', 'cherry' ),
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
 			),
-			'page-layout-type-6' => array(
-				'label' => 'Right toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
-			)
+			'no-sidebar' => array(
+				'label'   => __( 'No sidebar', 'cherry' ),
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-fullwidth.svg',
+			),
 		)
 	);
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -647,56 +642,19 @@ function cherry_defaults_settings() {
 		'options'       => array(
 			'masonry' => array(
 				'label'   => 'Masonry',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-masonry.svg'
 			),
 			'grid' => array(
 				'label'   => 'Grid',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-grid.svg'
 			),
 			'list' => array(
 				'label'   => 'List',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
-			),
-			'timeline' => array(
-				'label'   => 'Timeline',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/inherit.png',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-checkerlist.svg',
 			),
 		)
 	);
-	$blog_options['blog-page-layout'] = array(
-		'type'          => 'radio',
-		'title'         => __( 'Blog page layout', 'cherry' ),
-		'label'         => __( 'Blog page layout', 'cherry' ),
-		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-		'value'         => '1-right',
-		'display_input' => false,
-		'options'       => array(
-			'1-left-2-right' => array(
-				'label'   => __( 'Left and right sidebar', 'cherry' ),
-				'img_src' => CHERRY_URI . '/admin/assets/images/layout-both-sidebar.png',
-			),
-			'1-left' => array(
-				'label'   => __( 'Left sidebar', 'cherry' ),
-				'img_src' => CHERRY_URI . '/admin/assets/images/layout-left-sidebar.png',
-			),
-			'1-right' => array(
-				'label'   => __( 'Right sidebar', 'cherry' ),
-				'img_src' => CHERRY_URI . '/admin/assets/images/layout-right-sidebar.png',
-			),
-			'1-left-2-left' => array(
-				'label'   => __( 'Sameside left sidebar', 'cherry' ),
-				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-left-sidebar.png',
-			),
-			'1-right-2-right' => array(
-				'label'   => __( 'Sameside right sidebar', 'cherry' ),
-				'img_src' => CHERRY_URI . '/admin/assets/images/layout-sameside-right-sidebar.png',
-			),
-			'no-sidebar' => array(
-				'label'   => __( 'No sidebar', 'cherry' ),
-				'img_src' => CHERRY_URI . '/admin/assets/images/layout-fullwidth.png',
-			),
-		)
-	);
+
 	$blog_options['blog-button-text'] = array(
 		'type'        => 'text',
 		'title'       => 'title text',
@@ -1480,42 +1438,35 @@ function cherry_defaults_settings() {
 				'default_value'	=> 'default_value',
 				'options' => $all_statics
 	);
-
-	$header_options['header-type-layout'] = array(
-			'type'			=> 'radio',
-			'title'			=> __('Header type layout', 'cherry'),
-			'label'			=> __('Header type layout', 'cherry'),
-			'decsription'	=> __('Choose header type layout.', 'cherry'),
-			'value'			=> 'header-type-layout-radio-1',
-			'default_value'	=> 'header-type-layout-radio-1',
-			'class'			=> '',
-			'display_input'	=> false,
-			'options'		=> array(
-				'header-type-layout-radio-1' => array(
-					'label' => 'Top static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-static.png'
-				),
-				'header-type-layout-radio-2' => array(
-					'label' => 'Left static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-static.png'
-				),
-				'header-type-layout-radio-3' => array(
-					'label' => 'Right static',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-static.png'
-				),
-				'header-type-layout-radio-4' => array(
-					'label' => 'Top toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-top-toggle.png'
-				),
-				'header-type-layout-radio-5' => array(
-					'label' => 'Left toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-left-toggle.png'
-				),
-				'header-type-layout-radio-6' => array(
-					'label' => 'Right toogle',
-					'img_src' => PARENT_URI.'/lib/admin/assets/images/header-right-toggle.png'
-				)
-			)
+	$header_options['header-layout'] = array(
+		'type'			=> 'radio',
+		'title'			=> __('Header type layout', 'cherry'),
+		'label'			=> __('Header type layout', 'cherry'),
+		'decsription'	=> __('Choose header type layout.', 'cherry'),
+		'value'			=> 'header-layout-type-1',
+		'display_input'	=> false,
+		'options'		=> array(
+			'type-1' => array(
+				'label' => 'Top static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-top-static.svg'
+			),
+			'type-2' => array(
+				'label' => 'Left static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-left-static.svg'
+			),
+			'type-3' => array(
+				'label' => 'Right static',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-right-static.svg'
+			),
+			'type-4' => array(
+				'label' => 'Top toogle',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-top-toggle.svg'
+			),
+			'type-5' => array(
+				'label' => 'Left toogle',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-left-toggle.svg'
+			),
+		)
 	);
 	$header_options['header-background'] = array(
 			'type'			=> 'background',
@@ -1797,10 +1748,6 @@ function cherry_defaults_settings() {
 				'title'			=> 'icon before list item',
 				'label'			=> 'List marker item',
 				'decsription'	=> 'decsription filterselect',
-				'hint'      	=>  array(
-					'type'		=> 'video',
-					'content'	=> 'https://player.vimeo.com/video/97337577'
-				),
 				'value'			=> 'icon_caret_down',
 				'default_value'	=> 'icon_caret_down',
 				'class'			=> 'width-full',
