@@ -359,6 +359,21 @@ function cherry_get_the_post_format_image() {
 		return;
 	}
 
+	// show nothing on single page if image not from featured
+	if ( is_single() && ! cherry_has_post_thumbnail() ) {
+		return;
+	}
+
+	/**
+	 * Filter post format image output to rewrite image from child theme or plugins
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_post_image', false );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
 	$defaults = array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
@@ -463,6 +478,10 @@ function cherry_get_the_post_format_gallery() {
 		return;
 	}
 
+	if ( is_single() ) {
+		return;
+	}
+
 	/**
 	 * Filter post format gallery output to rewrite gallery from child theme or plugins
 	 * @since  4.0.0
@@ -476,7 +495,14 @@ function cherry_get_the_post_format_gallery() {
 	$post_id = get_the_id();
 
 	// first - try to get images from galleries in post
-	$post_gallery = get_post_gallery( $post_id, false );
+	$shortcode_replaced = cherry_get_option( 'blog-gallery-shortcode', 'true' );
+	$is_html = ( 'true' == $shortcode_replaced ) ? true : false;
+	$post_gallery = get_post_gallery( $post_id, $is_html );
+
+	// if stanadrd gallery shortcode replaced with cherry - return HTML
+	if ( is_string( $post_gallery ) && ! empty( $post_gallery ) ) {
+		return $post_gallery;
+	}
 
 	if ( ! empty( $post_gallery['ids'] ) ) {
 		$post_gallery = explode( ',', $post_gallery['ids'] );
@@ -512,11 +538,122 @@ function cherry_get_the_post_format_gallery() {
 		return false;
 	}
 
+	$result = cherry_get_gallery_html( $post_gallery );
+
+	return $result;
+}
+
+/**
+ * Display featured gallery for post format gallery.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_format_gallery() {
+	/**
+	 * Filter featured image for post format image.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_the_post_format_gallery', cherry_get_the_post_format_gallery() );
+}
+
+/**
+ * Custom output for gallery shortcode
+ * @param  array  $atts shortcode atts
+ * @return string       gallery HTML
+ */
+function cherry_gallery_shortcode( $result, $attr, $instance ) {
+
+	$replace_allowed = cherry_get_option( 'blog-gallery-shortcode', 'true' );
+
+	if ( 'true' != $replace_allowed ) {
+		return '';
+	}
+
+	/**
+	 * Filter gallery output
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_gallery_shortcode', false, $attr, $instance );
+
+
+	$post = get_post();
+
+	$atts = shortcode_atts( array(
+		'order'      => 'ASC',
+		'orderby'    => 'menu_order ID',
+		'id'         => $post ? $post->ID : 0,
+		'include'    => '',
+		'exclude'    => '',
+		'link'       => ''
+	), $attr, 'gallery' );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
+	$id = intval( $atts['id'] );
+
+	if ( ! empty( $atts['include'] ) ) {
+
+		$attachments = explode( ',', str_replace( ' ', '', $atts['include'] ) );
+
+	} elseif ( ! empty( $atts['exclude'] ) ) {
+
+		$attachments = get_children(
+			array(
+				'post_parent'    => $id,
+				'exclude'        => $atts['exclude'],
+				'post_status'    => 'inherit',
+				'post_type'      => 'attachment',
+				'post_mime_type' => 'image',
+				'order'          => $atts['order'],
+				'orderby'        => $atts['orderby']
+			)
+		);
+		$attachments = array_keys( $attachments );
+
+	} else {
+
+		$attachments = get_children(
+			array(
+				'post_parent'    => $id,
+				'post_status'    => 'inherit',
+				'post_type'      => 'attachment',
+				'post_mime_type' => 'image',
+				'order'          => $atts['order'],
+				'orderby'        => $atts['orderby']
+			)
+		);
+
+		$attachments = array_keys( $attachments );
+	}
+
+	if ( empty( $attachments ) || ! is_array( $attachments ) ) {
+		return;
+	}
+
+	$result = cherry_get_gallery_html( $attachments );
+
+	return $result;
+
+}
+
+/**
+ * Build default gallery HTML from images array
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $images images array can contain image IDs or URLs
+ * @return string         gallery HTML markup
+ */
+function cherry_get_gallery_html( $images ) {
+
 	$defaults = array(
 		'container_class'  => 'post-gallery',
 		'size'             => 'slider-post-thumbnail',
-		'container_format' => '<div class="%2$s" data-init=\'%3$s\'>%1$s</div>',
-		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-img">%1$s</a></figure>'
+		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
+		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a></figure>'
 	);
 
 	/**
@@ -525,7 +662,7 @@ function cherry_get_the_post_format_gallery() {
 	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
-	$default_init = array(
+	$default_slider_init = array(
 		'infinite' => true,
 		'speed'    => 300,
 		'fade'     => true,
@@ -535,18 +672,39 @@ function cherry_get_the_post_format_gallery() {
 	/**
 	 * Filter default gallery slider inits
 	 */
-	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_init );
-	$init = wp_parse_args( $init, $default_init );
+	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_slider_init );
+	$init = wp_parse_args( $init, $default_slider_init );
 	$init = json_encode( $init );
 
+	$default_gall_init = array(
+		'delegate' => '.popup-gallery-item',
+		'type'     => 'image',
+		'gallery'  => array(
+			'enabled' => true
+		)
+	);
+
+	/**
+	 * Filter default gallery popup inits
+	 */
+	$gall_init = apply_filters( 'cherry_get_the_post_gallery_popup_args', $default_gall_init );
+	$gall_init = wp_parse_args( $gall_init, $default_gall_init );
+	$gall_init = json_encode( $gall_init );
 
 	$items = array();
 
-	foreach ( $post_gallery as $img ) {
+	foreach ( $images as $img ) {
 
 		if ( 0 < intval( $img ) ) {
 			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $args['container_class'] . '_item_img' ) );
 			$url   = wp_get_attachment_url( $img );
+
+			$attachment = get_post( $img );
+
+			if ( ! empty( $attachment->post_excerpt ) ) {
+				$image .= '<figcaption>' . wptexturize( $attachment->post_excerpt ) . '</figcaption>';
+			}
+
 		} else {
 
 			global $_wp_additional_image_sizes;
@@ -571,24 +729,10 @@ function cherry_get_the_post_format_gallery() {
 
 	$result = sprintf(
 		$args['container_format'],
-		$items, $args['container_class'], $init
+		$items, $args['container_class'], $init, $gall_init
 	);
 
 	return $result;
-}
-
-/**
- * Display featured image for post format image.
- *
- * @since 4.0.0
- */
-function cherry_the_post_format_gallery() {
-	/**
-	 * Filter featured image for post format image.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_the_post_format_gallery', cherry_get_the_post_format_gallery() );
 }
 
 /**

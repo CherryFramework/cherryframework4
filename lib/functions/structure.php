@@ -27,6 +27,8 @@ add_action( 'cherry_entry_excerpt',   'cherry_the_post_excerpt' );
 add_action( 'cherry_entry_meta',      'cherry_the_post_meta' );
 add_action( 'cherry_entry_footer',    'cherry_the_post_footer' );
 
+// Replace gallery shortcode
+add_filter( 'post_gallery', 'cherry_gallery_shortcode', 10, 3 );
 
 // Post structure in the loop.
 //add_action( 'cherry_post_loop', 'cherry_post_structure_loop' );
