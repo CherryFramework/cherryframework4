@@ -13,7 +13,10 @@ add_action( 'after_setup_theme', 'cherry_theme_config', 20 );
 function cherry_theme_config() {
 
 	$config_statements = array(
-		'theme-support',
+		'theme-scripts',
+		'theme-styles',
+		'content-width',
+		'post-formats',
 		'thumbnails',
 		'post-type-support',
 		'menus',

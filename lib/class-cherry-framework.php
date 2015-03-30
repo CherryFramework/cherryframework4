@@ -171,6 +171,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load CSS compiler.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-css-compiler.php' );
 
+			// Load Breadcrumbs builder.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-breadcrumbs.php' );
+
 			// Load abstract class for static registration.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
 		}

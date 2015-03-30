@@ -38,9 +38,9 @@ function cherry_colors_darken( $color, $darken = 0 ) {
 	$percent = $prepared_data['percent'];
 
 	// Calc darken vals
-	$r = round( $r - 255*$percent, 0, PHP_ROUND_HALF_UP );
-	$g = round( $g - 255*$percent, 0, PHP_ROUND_HALF_UP );
-	$b = round( $b - 255*$percent, 0, PHP_ROUND_HALF_UP );
+	$r = round( $r - 255*$percent, 0 );
+	$g = round( $g - 255*$percent, 0 );
+	$b = round( $b - 255*$percent, 0 );
 
 	$r = $r < 0 ? 0 : $r;
 	$g = $g < 0 ? 0 : $g;
@@ -82,9 +82,9 @@ function cherry_colors_lighten( $color, $lighten = 0 ) {
 	$percent = $prepared_data['percent'];
 
 	// Calc lighten vals
-	$r = round( $r + 255*$percent, 0, PHP_ROUND_HALF_UP );
-	$g = round( $g + 255*$percent, 0, PHP_ROUND_HALF_UP );
-	$b = round( $b + 255*$percent, 0, PHP_ROUND_HALF_UP );
+	$r = round( $r + 255*$percent, 0 );
+	$g = round( $g + 255*$percent, 0 );
+	$b = round( $b + 255*$percent, 0 );
 
 	$r = $r > 255 ? 255 : $r;
 	$g = $g > 255 ? 255 : $g;

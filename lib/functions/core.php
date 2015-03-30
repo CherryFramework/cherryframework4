@@ -143,3 +143,25 @@ function cherry_require( $path ) {
 	$title   = __( 'Doing it wrong', 'cherry' );
 	wp_die( $message, $title );
 }
+
+/**
+ * Compare child theme Cherry version and current Cherry version.
+ * Returns 0, if child theme version equal framework version
+ * Returns -1, if child theme version greater than frammework
+ * Returns 1, if framework version greater than child theme
+ *
+ * @since  4.0.0
+ *
+ * @return int
+ */
+function cherry_version_compare() {
+
+	$child_data = get_file_data(
+		trailingslashit( CHILD_DIR ) . 'style.css',
+		array( 'CherryVersion' => 'Cherry Version' )
+	);
+
+	$cherry_child_version = ( ! empty( $child_data['CherryVersion'] ) ) ? $child_data['CherryVersion'] : 0;
+
+	return version_compare( CHERRY_VERSION, $cherry_child_version );
+}

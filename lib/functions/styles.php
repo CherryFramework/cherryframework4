@@ -129,6 +129,16 @@ function cherry_get_styles() {
 			),
 			'grid-responsive' => $grid_responsive,
 			'drop-downs' => $drop_downs,
+			'magnific-popup' => array(
+				'handle'  => get_template() . '-magnific-popup',
+				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/magnific-popup.css',
+				'version' => CHERRY_VERSION,
+			),
+			'slick' => array(
+				'handle'  => get_template() . '-slick',
+				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/slick.css',
+				'version' => CHERRY_VERSION,
+			),
 			'add-ons' => array(
 				'handle'  => get_template() . '-add-ons',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',

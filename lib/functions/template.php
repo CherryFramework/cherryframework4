@@ -19,7 +19,7 @@ add_action( 'cherry_page',               'cherry_get_content_template' );
 
 add_action( 'cherry_get_comments',       'cherry_get_comments_template' );
 
-add_action( 'cherry_loop_else',          'cherry_noposts' );
+add_action( 'cherry_loop_empty',         'cherry_noposts' );
 
 /**
  * This is a replacement function for the WordPress `get_header()` function.
