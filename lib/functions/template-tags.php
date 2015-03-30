@@ -112,8 +112,10 @@ function cherry_paging_nav() {
 
 	$args = array_merge( $options_args, $custom_args );
 
-	// Previous/next page navigation.
-	the_posts_pagination( $args );
+	if ( function_exists( 'the_posts_pagination' ) ) {
+		// Previous/next page navigation.
+		the_posts_pagination( $args );
+	}
 
 }
 endif;

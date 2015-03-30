@@ -15,11 +15,24 @@ add_action( 'cherry_content_before', 'cherry_content_wrap',     999 );
 add_action( 'cherry_content_after',  'cherry_content_wrap',       0 );
 add_action( 'cherry_sidebar_after',  'cherry_content_sidebar_wrap_close', 0 );
 
+// Post structure
+add_action( 'cherry_entry_header',    'cherry_the_post_header' );
+
+add_action( 'cherry_entry_thumbnail', 'cherry_the_post_thumbnail' );
+add_action( 'cherry_entry_thumbnail', 'cherry_the_post_format_image' );
+add_action( 'cherry_entry_thumbnail', 'cherry_the_post_format_gallery' );
+
+add_action( 'cherry_entry_content',   'cherry_the_post_content' );
+add_action( 'cherry_entry_excerpt',   'cherry_the_post_excerpt' );
+add_action( 'cherry_entry_meta',      'cherry_the_post_meta' );
+add_action( 'cherry_entry_footer',    'cherry_the_post_footer' );
+
+
 // Post structure in the loop.
-add_action( 'cherry_post_loop', 'cherry_post_structure_loop' );
+//add_action( 'cherry_post_loop', 'cherry_post_structure_loop' );
 
 // Single post structure.
-add_action( 'cherry_post_single', 'cherry_post_structure_single' );
+//add_action( 'cherry_post_single', 'cherry_post_structure_single' );
 
 // Attachment metadata.
 add_action( 'cherry_post_after', 'cherry_get_attachment_metadata' );
@@ -98,6 +111,7 @@ function cherry_content_sidebar_wrap_close( $sidebar ) {
 	echo '</div>';
 }
 
+
 /**
  * Setup default the post stucture in the loop.
  *
@@ -105,6 +119,7 @@ function cherry_content_sidebar_wrap_close( $sidebar ) {
  * @param  string $template_name The template name for content
  * @return void
  */
+/*
 function cherry_post_structure_loop( $template_name = '' ) {
 	$post_type = get_post_type();
 
@@ -127,6 +142,7 @@ function cherry_post_structure_loop( $template_name = '' ) {
 		call_user_func( "cherry_the_post_{$element}" );
 	}
 }
+*/
 
 /**
  * Setup default the single post stucture.
@@ -135,6 +151,7 @@ function cherry_post_structure_loop( $template_name = '' ) {
  * @param  string $template_name The template name for content
  * @return void
  */
+/*
 function cherry_post_structure_single( $template_name = '' ) {
 	$post_type = get_post_type();
 
@@ -157,6 +174,7 @@ function cherry_post_structure_single( $template_name = '' ) {
 		call_user_func( "cherry_the_post_{$element}" );
 	}
 }
+*/
 
 /**
  * Retrieve the post stucture in the loop.
@@ -166,6 +184,7 @@ function cherry_post_structure_single( $template_name = '' ) {
  * @param  string $post_type          The post type of the current post
  * @return array                      The elements of post structure
  */
+/*
 function cherry_get_post_loop_structure( $template_name, $post_type ) {
 
 	$structure_elements = array();
@@ -214,6 +233,7 @@ function cherry_get_post_loop_structure( $template_name, $post_type ) {
 
 	return apply_filters( 'cherry_get_post_loop_structure', $structure_elements, $template_name, $post_type );
 }
+*/
 
 /**
  * Retrieve the single post stucture.
@@ -223,6 +243,7 @@ function cherry_get_post_loop_structure( $template_name, $post_type ) {
  * @param  string $post_type          The post type of the current post
  * @return array                      The elements of post structure
  */
+/*
 function cherry_get_post_single_structure( $template_name, $post_type ) {
 
 	$structure_elements = array();
@@ -263,6 +284,7 @@ function cherry_get_post_single_structure( $template_name, $post_type ) {
 
 	return apply_filters( 'cherry_get_post_single_structure', $structure_elements, $template_name, $post_type );
 }
+ */
 
 /**
  * Display or retrieve the attachment meta.

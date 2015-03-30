@@ -374,6 +374,11 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			if ( empty( $path ) )
 				return;
 
+			// process default Cherry permalinks by own way
+			if ( in_array( $path, array( 'tag', 'category' ) ) ) {
+				return;
+			}
+
 			/* Get parent post by the path. */
 			$post = get_page_by_path( $path );
 
@@ -615,6 +620,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		 * @since  4.0.0
 		 */
 		public function add_term_archive_items() {
+
 			global $wp_rewrite;
 
 			/* Get some taxonomy and term variables. */
@@ -681,10 +687,11 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 					}
 				}
 
+				/* Add the post type archive link to the trail for custom post types */
 				if ( ! $post_type_catched ) {
 					$post_type = isset( $taxonomy->object_type[0] ) ? $taxonomy->object_type[0] : false;
 
-					if ( $post_type ) {
+					if ( $post_type && 'post' != $post_type ) {
 						$post_type_object = get_post_type_object( $post_type );
 
 						$url  = get_post_type_archive_link( $post_type_object->name );
@@ -693,7 +700,6 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 									? $post_type_object->labels->archive_title
 									: $post_type_object->labels->name;
 
-						/* Add the post type archive link to the trail. */
 						$this->_add_item( 'link_format', $label, $url );
 
 					}
@@ -1191,9 +1197,13 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 		/**
 		 * Service function to process single tag item
-		 * @param  string $tag   single tag
+		 * @param  string $tag     single tag
+		 * @param  int    $post_id processed post ID
 		 */
-		function _process_single_tag( $tag ) {
+		function _process_single_tag( $tag, $post_id ) {
+
+			global $post;
+
 			/* Trim any '/' from the $tag. */
 			$tag = trim( $tag, '/' );
 
@@ -1304,7 +1314,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 			/* Loop through each of the matches, adding each to the $trail array. */
 			foreach ( $matches as $match ) {
-				$this->_process_single_tag( $match );
+				$this->_process_single_tag( $match, $post_id );
 			}
 		}
 

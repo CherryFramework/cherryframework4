@@ -19,39 +19,8 @@ function cherry_theme_setup() {
 	// Load files.
 	require_once( trailingslashit( PARENT_DIR ) . 'init/init.php' );
 
-	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array(
-		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video',
-	) );
-
-	// Loads scripts.
-	add_theme_support( 'cherry-scripts', array(
-		'comment-reply', 'drop-downs',
-	) );
-
-	// Loads styles.
-	add_theme_support( 'cherry-styles', array(
-		'grid-base', 'grid-responsive', 'drop-downs', 'main', 'add-ons',
-	) );
-
 	// Loads shortcodes.
 	add_theme_support( 'cherry-shortcodes' );
-
-	/* Theme layouts. */
-	// add_theme_support(
-	// 	'theme-layouts',
-	// 	array(
-	// 		'1c'        => __( '1 Column Wide',                'stargazer' ),
-	// 		'1c-narrow' => __( '1 Column Narrow',              'stargazer' ),
-	// 		'2c-l'      => __( '2 Columns: Content / Sidebar', 'stargazer' ),
-	// 		'2c-r'      => __( '2 Columns: Sidebar / Content', 'stargazer' )
-	// 	),
-	// 	array( 'default' => is_rtl() ? '2c-r' :'2c-l' )
-	// );
-	// add_theme_support( 'theme-layouts' );
-
-	// Handle content width for embeds and images.
-	cherry_set_content_width( 780 );
 
 	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
 	function cherry_wrap_base_cpts( $templates ) {
@@ -61,14 +30,4 @@ function cherry_theme_setup() {
 		}
 		return $templates; // Return modified array with base-$cpt.php at the front of the queue
 	}
-}
-
-function banner_callback() {
-	echo '<img src="http://dummyimage.com/800x600/4d494d/686a82.gif&text=placeholder+image" alt="placeholder+image">';
-}
-function info_callback() {
-	echo "Static 6";
-}
-function info2_callback() {
-	echo "Static 7";
 }
