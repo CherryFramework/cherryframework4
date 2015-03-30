@@ -784,4 +784,141 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 	}
 
 	return $result;
+
+}
+
+/**
+ * Get featured video for video post format from post content.
+ * Returns first finded video, iframe, object or embed tag in content
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_video() {
+
+	if ( 'video' !== get_post_format() ) {
+		return;
+	}
+
+	if ( is_single() ) {
+		return;
+	}
+
+	/**
+	 * Filter post format video output to rewrite video from child theme or plugins
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_post_video', false );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
+	$content = get_the_content();
+
+	$embeds = get_media_embedded_in_content(
+		apply_filters( 'the_content', $content ),
+		array( 'video', 'object', 'embed', 'iframe' )
+	);
+
+	if ( empty( $embeds ) ) {
+		return;
+	}
+
+	global $_wp_additional_image_sizes;
+
+	// get vdeo dimensions by equal image size
+	$embed_size = apply_filters( 'cherry_post_video_size', 'slider-post-thumbnail' );
+
+	if ( ! empty( $_wp_additional_image_sizes[$embed_size] ) ) {
+		$width  = $_wp_additional_image_sizes[$embed_size]['width'];
+		$height = $_wp_additional_image_sizes[$embed_size]['height'];
+	} elseif ( ! empty( $_wp_additional_image_sizes[$embed_size] ) ) {
+		$width  = $_wp_additional_image_sizes['slider-post-thumbnail']['width'];
+		$height = $_wp_additional_image_sizes['slider-post-thumbnail']['height'];
+	} else {
+		$width  = 1025;
+		$height = 500;
+	}
+
+	$embed_html = $embeds[0];
+
+	$reg = '';
+	$patterns = array(
+		'/width=[\'|"]\d+[\'|"]/i',
+		'/height=[\'|"]\d+[\'|"]/i'
+	);
+
+	$replacements = array(
+		'width="' . $width . '"',
+		'height="' . $height . '"'
+	);
+
+	$result = preg_replace( $patterns, $replacements, $embed_html );
+
+	return $result;
+
+}
+
+/**
+ * Show featured video for video post format
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_video() {
+	/**
+	 * Filter featured video for post format video.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_the_post_video', cherry_get_the_post_video() );
+}
+
+/**
+ * Get featured audio for audio post format from post content.
+ * Returns first finded audio tag in page content
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_audio() {
+
+	if ( 'audio' !== get_post_format() ) {
+		return;
+	}
+
+	if ( is_single() ) {
+		return;
+	}
+
+	/**
+	 * Filter post format audio output to rewrite audio from child theme or plugins
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_post_audio', false );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
+	$content = get_the_content();
+
+	$embeds = get_media_embedded_in_content( apply_filters( 'the_content', $content ), array( 'audio' ) );
+
+	if ( ! empty( $embeds ) ) {
+		return $embeds[0];
+	}
+
+}
+
+/**
+ * Show featured audio for audio post format
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_audio() {
+	/**
+	 * Filter featured audio for post format audio.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_the_post_audio', cherry_get_the_post_audio() );
 }
