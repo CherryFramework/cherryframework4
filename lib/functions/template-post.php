@@ -362,7 +362,7 @@ function cherry_get_the_post_format_image() {
 	$defaults = array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
-		'size'            => 'post-thumbnail',
+		'size'            => 'slider-post-thumbnail',
 		'before'          => '',
 		'after'           => '',
 		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s_link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
@@ -377,7 +377,7 @@ function cherry_get_the_post_format_image() {
 	$args = apply_filters( 'cherry_get_the_post_image_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
-	$default_init = array( 
+	$default_init = array(
 		'type' => 'image'
 	);
 
@@ -402,7 +402,7 @@ function cherry_get_the_post_format_image() {
 	} else {
 
 		$img = cherry_get_post_images();
-		
+
 		if ( ! $img || empty( $img ) || empty( $img[0] ) ) {
 			return false;
 		} elseif ( is_int( $img[0] ) ) {
@@ -459,6 +459,10 @@ function cherry_the_post_format_image() {
  */
 function cherry_get_the_post_format_gallery() {
 
+	if ( 'gallery' != get_post_format() ) {
+		return;
+	}
+
 	/**
 	 * Filter post format gallery output to rewrite gallery from child theme or plugins
 	 * @since  4.0.0
@@ -510,7 +514,7 @@ function cherry_get_the_post_format_gallery() {
 
 	$defaults = array(
 		'container_class'  => 'post-gallery',
-		'size'             => 'post-thumbnail',
+		'size'             => 'slider-post-thumbnail',
 		'container_format' => '<div class="%2$s" data-init=\'%3$s\'>%1$s</div>',
 		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-img">%1$s</a></figure>'
 	);
@@ -539,7 +543,7 @@ function cherry_get_the_post_format_gallery() {
 	$items = array();
 
 	foreach ( $post_gallery as $img ) {
-		
+
 		if ( 0 < intval( $img ) ) {
 			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $args['container_class'] . '_item_img' ) );
 			$url   = wp_get_attachment_url( $img );
@@ -593,13 +597,13 @@ function cherry_the_post_format_gallery() {
  * returns image URL or bollen false in other case
  *
  * @since  4.0.0
- * 
+ *
  * @param  int $post_id post ID to search image in
  * @param  int $limit   max images count to search
  * @return bool|string|int
  */
 function cherry_get_post_images( $post_id = null, $limit = 1 ) {
-	
+
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 	$content = get_the_content();
 
@@ -614,7 +618,7 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 
 	global $wpdb;
 
-	for ( $i = 0; $i < $limit; $i++ ) { 
+	for ( $i = 0; $i < $limit; $i++ ) {
 
 		if ( empty( $matches[1][$i] ) ) {
 			continue;
