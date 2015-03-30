@@ -169,6 +169,18 @@ a:hover, a:focus {
 	border-bottom: 2px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 54); ?>;
 }
 
+
+
+.portfolio-wrap .portfolio-container .portfolio-pagination ul.page-link li a {
+	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
+}
+.portfolio-wrap .portfolio-container .portfolio-pagination .page-nav a {
+	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
+}
+
+
+
+
 <!--Text muted color-->
 .text-muted {
 	color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
