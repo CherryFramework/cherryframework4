@@ -29,6 +29,7 @@
   background: none repeat scroll 0 0 #2a445d;
   overflow: hidden;
   padding: 10px 20px;
+  min-width: 698px;
 }
 .cherry-submit-wrapper #wrap-cherry-save-options {
   float: right;
@@ -56,7 +57,8 @@
   margin-left: 200px;
   background: #fcfcfc;
   border-left: 1px solid #D8D8D8;
-  min-height: 800px;
+  min-height: 863px;
+  min-width: 537px;
   position: relative;
   z-index: 1;
 }

@@ -40,6 +40,23 @@ a:hover, a:focus {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-primary' ), 15); ?>;
 }
 
+.cherry-breadcrumbs {
+	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 60.8); ?>;
+}
+
+.cherry-mega-menu-sub.level-0 {
+	border-top: 3px solid <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+}
+.cherry-mega-menu-sub-item > a {
+	color: <?php echo cherry_esc_value( $body_typography, 'color' ); ?>;
+}
+.cherry-mega-menu-sub-item > a:hover {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+}
+.cherry-mega-menu-sub .sub-column-title > a {
+	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ); ?>;
+}
+
 .cherry-btn-primary {
 	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
 	color: <?php echo cherry_contrast_color( cherry_esc_value( $cherry_css_vars, 'color-primary' ) ); ?>;
