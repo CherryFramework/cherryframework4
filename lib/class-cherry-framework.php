@@ -174,6 +174,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load Breadcrumbs builder.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-breadcrumbs.php' );
 
+			// Load Google fonts enqueuer.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-google-fonts-enqueue.php' );
+
 			// Load abstract class for static registration.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
 		}
