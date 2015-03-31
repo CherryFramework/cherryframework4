@@ -29,7 +29,7 @@ function cherry_add_control_classes( $classes ) {
 	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
 
 	if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
-		$layout = cherry_get_option( 'blog-page-layout' );
+		$layout = cherry_get_option( 'page-layout' );
 	}
 
 	if ( empty( $grid_type ) || ( 'default-grid-type' == $grid_type ) ) {
@@ -93,7 +93,7 @@ function cherry_hide_sidebar( $display, $id ) {
 
 	if ( !$layout || ( 'default-layout' == $layout ) ) :
 
-		$layout = cherry_get_option('blog-page-layout');
+		$layout = cherry_get_option('page-layout');
 
 	endif;
 
