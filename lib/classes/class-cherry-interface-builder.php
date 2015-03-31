@@ -513,7 +513,11 @@ class Cherry_Interface_Builder {
 					foreach ($options as $option => $option_value) {
 						$name = $this -> generate_field_name($option);
 						$checkbox_id = $this -> generate_field_id($option);
-						$option_checked = in_array($option, $value) ? $option : '' ;
+						if( '' !== $value ){
+							$option_checked = in_array($option, $value) ? $option : '' ;
+						}else{
+							$option_checked = '';
+						}
 						$output .= '<div class="cherry-fegr">';
 						$output .= '<input type="checkbox" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $checkbox_id . '" name="' . $name . '" ' . checked( $option_checked, $option, false ) . ' value="' . esc_html( $option ) . '" >';
 						$output .= $this -> add_label($checkbox_id, $option_value);
