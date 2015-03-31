@@ -22,6 +22,15 @@
 					font-size: 30px;
 					line-height: 35px;
 				}
+				.ajax-section-spinner{
+					width: 48px;
+					height: 48px;
+					display: none;
+					position: absolute;
+					top: 13px;
+					right: 13px;
+					background: url('../images/ajax-spinner.gif') 50% 50% no-repeat;
+				}
 		}
 }
 
@@ -59,12 +68,11 @@
 			margin-left: 200px;
 			background: #fcfcfc;
 			border-left: 1px solid #D8D8D8;
-			min-height: 800px;
+			min-height: 750px;
 			position: relative;
 			z-index: 1;
 				.options-group {
-					visibility: hidden;
-
+					//visibility: hidden;
 						.group-name{
 							padding: 20px;
 							margin-bottom: 20px;

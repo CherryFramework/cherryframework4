@@ -799,3 +799,6 @@ body .select2-container .select2-dropdown {
 body .select2-container .select2-dropdown.select2-container--open, body .select2-container .select2-dropdown.select2-dropdown--below {
   border: 1px solid #dddcdc;
 }
+body .select2-container .select2-dropdown .select2-results .select2-results__options .li[aria-disabled=true] {
+  display: none;
+}

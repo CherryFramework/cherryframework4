@@ -31,6 +31,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 		function __construct() {
 			$this->init();
+
+
 		}
 
 		private function init(){
@@ -58,7 +60,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			// Displays notice after options restored
 			add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
 
+			add_action( 'wp_ajax_get_options_section', array( $this, 'get_options_section' ) );
+
 			add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
+
 
 			//************* Sanitize Utility Filters  ************************************//
 			// Utility sanitize text
@@ -223,16 +228,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				$cherry_options = $this->child_priority_sorting($cherry_options);
 
 				$cherry_options = $this->priority_sorting($cherry_options);
-
 				?>
-				<div class="fixed-control-holder">
-					<span class="marker dashicons"></span>
-					<div class="inner-wrapper">
-						<div class="button button-primary save-button"><?php echo __( 'Save Options', 'cherry' ) ?></div>
-						<div class="button restore-section-button"><?php echo __( 'Restore Section', 'cherry' ) ?></div>
-						<div class="button restore-button"><?php echo __( 'Restore Options', 'cherry' ) ?></div>
-					</div>
-				</div>
 					<div class="options-page-wrapper">
 						<div class="current-theme">
 							<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
@@ -251,15 +247,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 											<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $parent ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
 										<?php $section_index++; } ?>
 									</ul>
-									<div class="cherry-option-group-list">
-										<?php
-										foreach ($cherry_options as $section_key => $section_value) {?>
-											<div class="options-group">
-												<div class="group-name"><span><?php echo $section_value[ 'name' ] ?></span></div>
-												<?php echo $this->option_inteface_builder->multi_output_items($section_value['options-list']); ?>
-											</div>
-										<?php } ?>
-									</div>
+									<div class="cherry-option-group-list"></div>
 									<div class="clear"></div>
 								</div>
 								<div class="cherry-submit-wrapper">
@@ -295,6 +283,20 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				<?php
 		}
 
+		function get_options_section() {
+			if ( !empty($_POST) && array_key_exists('active_section', $_POST) ) {
+				global $cherry_options_framework;
+				$html = '';
+				$active_section = $_POST['active_section'];
+
+				$cherry_options = $cherry_options_framework->get_current_settings();
+				$current_section_options = $cherry_options[$active_section];
+
+				$html .= $this->option_inteface_builder->multi_output_items($current_section_options['options-list']);
+				printf( '<div class="options-group %1$s">%2$s</div>', $active_section, $html );
+				exit;
+			}
+		}
 		/**
 		 * Is a given string a color formatted in hexidecimal notation?
 		 *

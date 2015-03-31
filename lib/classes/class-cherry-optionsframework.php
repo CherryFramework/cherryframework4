@@ -189,8 +189,9 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 									$options[$section_name]['options-list'][$key] = $value;
 									break;
 								case 'multiselect':
-										//var_dump( $post_array[$key] );
-										$options[$section_name]['options-list'][$key] = $post_array[$key];
+										if( isset( $post_array[$key] ) ){
+											$options[$section_name]['options-list'][$key] = $post_array[$key];
+										}
 									break;
 								default:
 									if (isset($post_array[$key])) {

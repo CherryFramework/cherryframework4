@@ -56,6 +56,7 @@ class Cherry_Admin {
 		wp_register_script( 'repeater-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/cherry-repeater-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/js/interface-builder.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'admin-interface', trailingslashit( CHERRY_URI ) . 'admin/assets/js/admin-interface.js', array( 'jquery' ), CHERRY_VERSION, true );
+
 	}
 
 	/**
@@ -78,6 +79,7 @@ class Cherry_Admin {
 	 */
 	public function enqueue_admin_scripts( $hook_suffix ) {
 			// jQ select2.js plugin for custom select
+			wp_enqueue_media();
 			wp_enqueue_script( 'wp-color-picker');
 			wp_enqueue_script( 'select2' );
 			wp_enqueue_script( 'statics-areas-editor-plugin' );
@@ -91,6 +93,8 @@ class Cherry_Admin {
 			if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
 				wp_enqueue_script( 'admin-interface' );
 			}
+
+			wp_localize_script( 'admin-interface', 'options_section_ajax', array( 'url' => admin_url('admin-ajax.php') ) );
 	}
 
 	/**

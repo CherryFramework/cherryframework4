@@ -301,7 +301,7 @@ function cherry_defaults_settings() {
 				'max-value'		=> '50',
 				'min-value'		=> '-50'
 	);
-	$demo_options['editor-demo'] = array(
+	$demo_options['editordemo'] = array(
 				'type'			=> 'editor',
 				'title'			=> 'title editor',
 				'label'			=> 'label editor',

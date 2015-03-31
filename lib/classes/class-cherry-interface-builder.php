@@ -560,9 +560,6 @@ class Cherry_Interface_Builder {
 					}
 					$output .= '<div class="clear"></div>';
 					$output .= '</div>';
-
-					add_action( 'admin_footer', array( $this, 'include_scripts' ) );
-
 				}
 
 			break;
@@ -643,8 +640,6 @@ class Cherry_Interface_Builder {
 							$output .= '<input class="upload-button button-default_ '.$this->options['class']['submit'].'" type="button" value="' . $upload_button_text . '" data-title="'.__( 'Choose Media', 'cherry' ).'" data-multi-upload="'.$multi_upload.'" data-library-type="'.$library_type.'"/>';
 						$output .= '</div>';
 					$output .= '</div>';
-				add_action( 'admin_footer', array($this, 'include_media_script_style'));
-				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
 			/*
 			arg:
@@ -659,7 +654,6 @@ class Cherry_Interface_Builder {
 			*/
 			case 'colorpicker':
 				$output .= '<input id="' . $id . '" name="' . $name . '" value="' . esc_html( $value ) . '" ' . $item_inline_style . ' class="cherry-color-picker '. $class . '" type="text" />';
-				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
 			/*
 			arg:
@@ -680,8 +674,6 @@ class Cherry_Interface_Builder {
 				$output .= '<input id="' . $id . '" name="' . $name . '" ' . $item_inline_style . ' class="cherry-stepper-input '.$class.'" type="text" value="' . esc_html( $value ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="' . esc_html( $value_step ) . '">';
 				$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 				$output .= '</div>';
-
-				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
 			/*
 			arg:
@@ -696,12 +688,14 @@ class Cherry_Interface_Builder {
 				ob_start();
 					$settings = array(
 						'textarea_name' => $name,
-						'media_buttons' => 1,
-						'tinymce' => array('setup' => 'function(ed) {
-														ed.onChange.add(function(ed) {
-															tinyMCE.triggerSave();
-														});
-													}')
+						'media_buttons' => 2,
+						'tinymce' => array(
+							'setup' => 'function(ed) {
+								ed.onChange.add(function(ed) {
+									tinyMCE.triggerSave();
+								});
+							}'
+						)
 					);
 					wp_editor( $value, $id, $settings );
 				$output .= ob_get_clean();
@@ -815,8 +809,6 @@ class Cherry_Interface_Builder {
 					}
 					$output .= '<div class="clear"></div>';
 				$output .= '</div>';
-				add_action( 'admin_footer', array($this, 'include_media_script_style'));
-				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
 			/*
 			arg:
@@ -863,7 +855,7 @@ class Cherry_Interface_Builder {
 					$style_array = array();
 						$output .= '<div class="field-font-family">';
 						$output .= $this -> add_label($id . '[family]',  __( 'Font Family', 'cherry' ), $this->options['class']['label'].' cherry-block');
-							$output .= '<select class="cherry-filter-select cherry-font-family" id="' . $id . '[family]" name="' . $name . '[family]">';
+							$output .= '<select class="cherry-font-family" id="' . $id . '[family]" name="' . $name . '[family]">';
 								if($font_array && !empty($font_array) && is_array($font_array)){
 									foreach ($font_array as $font_key => $font_value) {
 										$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
@@ -895,7 +887,7 @@ class Cherry_Interface_Builder {
 						//Font style
 						$output .= '<div class="field-font-style">';
 						$output .= $this -> add_label($id . '[style]',  __( 'Font Style', 'cherry' ), $this->options['class']['label'].' cherry-block');
-							$output .= '<select class="cherry-filter-select cherry-font-style" id="' . $id . '[style]" name="' . $name . '[style]">';
+							$output .= '<select class="cherry-font-style" id="' . $id . '[style]" name="' . $name . '[style]">';
 							if($style_array && !empty($style_array) && is_array($style_array)){
 								foreach ($style_array as $style_key => $style_value) {
 									$output .= '<option value="' . $style_key . '" ' . selected( $value['style'], $style_key, false ) . '>'. esc_html( $style_value ) .'</option>';
@@ -906,7 +898,7 @@ class Cherry_Interface_Builder {
 						//Font character
 						$output .= '<div class="field-font-character">';
 						$output .= $this -> add_label($id . '[character]',  __( 'Character Sets', 'cherry' ), $this->options['class']['label'].' cherry-block');
-							$output .= '<select class="cherry-filter-select cherry-font-character" id="' . $id . '[character]" name="' . $name . '[character]">';
+							$output .= '<select class="cherry-font-character" id="' . $id . '[character]" name="' . $name . '[character]">';
 							if($character_array && !empty($character_array) && is_array($character_array)){
 								foreach ($character_array as $character_key => $character_value) {
 									$output .= '<option value="' . $character_key . '" ' . selected( $value['character'], $character_key, false ) . '>'. esc_html( $character_value ) .'</option>';
@@ -938,7 +930,7 @@ class Cherry_Interface_Builder {
 						// text align
 						$output .= '<div class="field-font-align">';
 							$output .= $this -> add_label($id . '[align]',  __( 'Text align', 'cherry' ), $this->options['class']['label'].' cherry-block');
-							$output .= '<select class="cherry-filter-select cherry-text-align" id="' . $id . '[align]" name="' . $name . '[align]">';
+							$output .= '<select class="cherry-text-align" id="' . $id . '[align]" name="' . $name . '[align]">';
 								foreach ($text_align as $align_key => $align_value) {
 									$output .= '<option value="' . $align_key . '" ' . selected( $value['align'], $align_key, false ) . '>'. esc_html( $align_value ) .'</option>';
 								}
@@ -953,8 +945,6 @@ class Cherry_Interface_Builder {
 
 				$output .= '<input name="' . $name . '[category]" value="" class="cherry-font-category" type="hidden" />';
 				$output .= '</div>';
-
-				add_action( 'admin_footer', array($this, 'include_scripts'));
 			break;
 		}
 
@@ -1158,32 +1148,5 @@ class Cherry_Interface_Builder {
 		}
 
 		return $this->google_font;
-	}
-
-	/**
-	* Include media library files. Enables media library modal window.
-	*
-	* @since 4.0.0
-	*/
-	public function include_media_script_style(){
-		wp_enqueue_media();
-	}
-
-	/**
-	* Include interface builder JS files
-	*
-	* @since 4.0.0
-	*/
-	public function include_scripts(){
-		//wp_enqueue_script( 'interface-builder' );
-	}
-
-	/**
-	* Include interface builder CSS files
-	*
-	* @since 4.0.0
-	*/
-	public function enqueue_style(){
-		//wp_enqueue_style( 'interface-builder' );
 	}
 }

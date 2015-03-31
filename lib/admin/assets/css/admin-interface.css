@@ -24,6 +24,15 @@
   font-size: 30px;
   line-height: 35px;
 }
+.options-page-wrapper .current-theme .ajax-section-spinner {
+  width: 48px;
+  height: 48px;
+  display: none;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  background: url("../images/ajax-spinner.gif") 50% 50% no-repeat;
+}
 
 .cherry-submit-wrapper {
   background: none repeat scroll 0 0 #2a445d;
@@ -56,12 +65,9 @@
   margin-left: 200px;
   background: #fcfcfc;
   border-left: 1px solid #D8D8D8;
-  min-height: 800px;
+  min-height: 750px;
   position: relative;
   z-index: 1;
-}
-#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group {
-  visibility: hidden;
 }
 #cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .group-name {
   padding: 20px;

@@ -849,6 +849,13 @@ body{
 			&.select2-container--open, &.select2-dropdown--below{
 				border: 1px solid #dddcdc;
 			}
+			.select2-results{
+				.select2-results__options{
+					.li[aria-disabled=true]{
+						display: none;
+					}
+				}
+			}
 		}
 	}
 }
