@@ -899,6 +899,14 @@ function cherry_defaults_settings() {
 		'default_value' => 'true',
 	);
 
+	$blog_options['blog-gallery-shortcode'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Replace default gallery with slider', 'cherry' ),
+		'decsription'       => __( 'Enable this to replace default WP gallery with Slick slider', 'cherry' ),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
+
 ////////// Logo options ///////////////////////////////////////////////////////
 
 	$logo_options = array();

@@ -11,7 +11,11 @@
 
 		do_action( 'cherry_entry_meta' );
 
-		do_action( 'cherry_entry_content' );
+		if ( is_single() ) {
+
+			do_action( 'cherry_entry_content' );
+
+		}
 
 		do_action( 'cherry_entry_footer' );
 	?>
