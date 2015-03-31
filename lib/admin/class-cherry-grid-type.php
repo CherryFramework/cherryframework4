@@ -200,7 +200,7 @@ class Cherry_Grid_Type {
 		$default = array(
 			'default-grid-type' => array(
 				'label'   => __( 'Inherit', 'cherry' ),
-				'img_src' => CHERRY_URI . '/admin/assets/images/inherit.png',
+				'img_src' => CHERRY_URI . '/admin/assets/images/svg/inherit.svg',
 			),
 		);
 

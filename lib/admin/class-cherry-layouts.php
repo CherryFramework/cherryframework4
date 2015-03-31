@@ -201,11 +201,11 @@ class Cherry_Layouts {
 		$default = array(
 			'default-layout' => array(
 				'label'   => __( 'Inherit', 'cherry' ),
-				'img_src' => CHERRY_URI . '/admin/assets/images/inherit.png',
+				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/inherit.svg',
 			),
 		);
 
-		$layouts = cherry_get_options( 'blog-page-layout' );
+		$layouts = cherry_get_options( 'page-layout' );
 		$layouts = array_merge( $default, $layouts);
 
 		return apply_filters( 'cherry_layouts_get_layouts', $layouts );

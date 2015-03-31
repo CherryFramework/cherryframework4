@@ -1,3 +1,7 @@
+#cherry-options {
+  position: relative;
+}
+
 .options-page-wrapper {
   margin: 20px 20px 0 0;
   position: relative;
@@ -23,6 +27,15 @@
 .options-page-wrapper .current-theme span {
   font-size: 30px;
   line-height: 35px;
+}
+.options-page-wrapper .current-theme .ajax-section-spinner {
+  width: 48px;
+  height: 48px;
+  display: none;
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  background: url("../images/ajax-spinner.gif") 50% 50% no-repeat;
 }
 
 .cherry-submit-wrapper {
@@ -61,9 +74,6 @@
   min-width: 537px;
   position: relative;
   z-index: 1;
-}
-#cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group {
-  visibility: hidden;
 }
 #cherry-options .cherry-sections-wrapper .cherry-option-group-list .options-group .group-name {
   padding: 20px;

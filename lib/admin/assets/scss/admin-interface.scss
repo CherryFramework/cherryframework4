@@ -1,3 +1,6 @@
+#cherry-options{
+	position: relative;
+}
 .options-page-wrapper {
 	margin: 20px 20px 0 0;
 	position: relative;
@@ -21,6 +24,15 @@
 				span{
 					font-size: 30px;
 					line-height: 35px;
+				}
+				.ajax-section-spinner{
+					width: 48px;
+					height: 48px;
+					display: none;
+					position: absolute;
+					top: 13px;
+					right: 13px;
+					background: url('../images/ajax-spinner.gif') 50% 50% no-repeat;
 				}
 		}
 }
@@ -65,8 +77,6 @@
 			position: relative;
 			z-index: 1;
 				.options-group {
-					visibility: hidden;
-
 						.group-name{
 							padding: 20px;
 							margin-bottom: 20px;

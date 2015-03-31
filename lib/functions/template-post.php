@@ -359,10 +359,25 @@ function cherry_get_the_post_format_image() {
 		return;
 	}
 
+	// show nothing on single page if image not from featured
+	if ( is_single() && ! cherry_has_post_thumbnail() ) {
+		return;
+	}
+
+	/**
+	 * Filter post format image output to rewrite image from child theme or plugins
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_post_image', false );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
 	$defaults = array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
-		'size'            => 'post-thumbnail',
+		'size'            => 'slider-post-thumbnail',
 		'before'          => '',
 		'after'           => '',
 		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s_link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
@@ -377,7 +392,7 @@ function cherry_get_the_post_format_image() {
 	$args = apply_filters( 'cherry_get_the_post_image_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
-	$default_init = array( 
+	$default_init = array(
 		'type' => 'image'
 	);
 
@@ -402,7 +417,7 @@ function cherry_get_the_post_format_image() {
 	} else {
 
 		$img = cherry_get_post_images();
-		
+
 		if ( ! $img || empty( $img ) || empty( $img[0] ) ) {
 			return false;
 		} elseif ( is_int( $img[0] ) ) {
@@ -459,6 +474,14 @@ function cherry_the_post_format_image() {
  */
 function cherry_get_the_post_format_gallery() {
 
+	if ( 'gallery' != get_post_format() ) {
+		return;
+	}
+
+	if ( is_single() ) {
+		return;
+	}
+
 	/**
 	 * Filter post format gallery output to rewrite gallery from child theme or plugins
 	 * @since  4.0.0
@@ -472,7 +495,14 @@ function cherry_get_the_post_format_gallery() {
 	$post_id = get_the_id();
 
 	// first - try to get images from galleries in post
-	$post_gallery = get_post_gallery( $post_id, false );
+	$shortcode_replaced = cherry_get_option( 'blog-gallery-shortcode', 'true' );
+	$is_html = ( 'true' == $shortcode_replaced ) ? true : false;
+	$post_gallery = get_post_gallery( $post_id, $is_html );
+
+	// if stanadrd gallery shortcode replaced with cherry - return HTML
+	if ( is_string( $post_gallery ) && ! empty( $post_gallery ) ) {
+		return $post_gallery;
+	}
 
 	if ( ! empty( $post_gallery['ids'] ) ) {
 		$post_gallery = explode( ',', $post_gallery['ids'] );
@@ -508,11 +538,122 @@ function cherry_get_the_post_format_gallery() {
 		return false;
 	}
 
+	$result = cherry_get_gallery_html( $post_gallery );
+
+	return $result;
+}
+
+/**
+ * Display featured gallery for post format gallery.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_format_gallery() {
+	/**
+	 * Filter featured image for post format image.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_the_post_format_gallery', cherry_get_the_post_format_gallery() );
+}
+
+/**
+ * Custom output for gallery shortcode
+ * @param  array  $atts shortcode atts
+ * @return string       gallery HTML
+ */
+function cherry_gallery_shortcode( $result, $attr, $instance ) {
+
+	$replace_allowed = cherry_get_option( 'blog-gallery-shortcode', 'true' );
+
+	if ( 'true' != $replace_allowed ) {
+		return '';
+	}
+
+	/**
+	 * Filter gallery output
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_gallery_shortcode', false, $attr, $instance );
+
+
+	$post = get_post();
+
+	$atts = shortcode_atts( array(
+		'order'      => 'ASC',
+		'orderby'    => 'menu_order ID',
+		'id'         => $post ? $post->ID : 0,
+		'include'    => '',
+		'exclude'    => '',
+		'link'       => ''
+	), $attr, 'gallery' );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
+	$id = intval( $atts['id'] );
+
+	if ( ! empty( $atts['include'] ) ) {
+
+		$attachments = explode( ',', str_replace( ' ', '', $atts['include'] ) );
+
+	} elseif ( ! empty( $atts['exclude'] ) ) {
+
+		$attachments = get_children(
+			array(
+				'post_parent'    => $id,
+				'exclude'        => $atts['exclude'],
+				'post_status'    => 'inherit',
+				'post_type'      => 'attachment',
+				'post_mime_type' => 'image',
+				'order'          => $atts['order'],
+				'orderby'        => $atts['orderby']
+			)
+		);
+		$attachments = array_keys( $attachments );
+
+	} else {
+
+		$attachments = get_children(
+			array(
+				'post_parent'    => $id,
+				'post_status'    => 'inherit',
+				'post_type'      => 'attachment',
+				'post_mime_type' => 'image',
+				'order'          => $atts['order'],
+				'orderby'        => $atts['orderby']
+			)
+		);
+
+		$attachments = array_keys( $attachments );
+	}
+
+	if ( empty( $attachments ) || ! is_array( $attachments ) ) {
+		return;
+	}
+
+	$result = cherry_get_gallery_html( $attachments );
+
+	return $result;
+
+}
+
+/**
+ * Build default gallery HTML from images array
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $images images array can contain image IDs or URLs
+ * @return string         gallery HTML markup
+ */
+function cherry_get_gallery_html( $images ) {
+
 	$defaults = array(
 		'container_class'  => 'post-gallery',
-		'size'             => 'post-thumbnail',
-		'container_format' => '<div class="%2$s" data-init=\'%3$s\'>%1$s</div>',
-		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-img">%1$s</a></figure>'
+		'size'             => 'slider-post-thumbnail',
+		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
+		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a></figure>'
 	);
 
 	/**
@@ -521,7 +662,7 @@ function cherry_get_the_post_format_gallery() {
 	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
-	$default_init = array(
+	$default_slider_init = array(
 		'infinite' => true,
 		'speed'    => 300,
 		'fade'     => true,
@@ -531,18 +672,39 @@ function cherry_get_the_post_format_gallery() {
 	/**
 	 * Filter default gallery slider inits
 	 */
-	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_init );
-	$init = wp_parse_args( $init, $default_init );
+	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_slider_init );
+	$init = wp_parse_args( $init, $default_slider_init );
 	$init = json_encode( $init );
 
+	$default_gall_init = array(
+		'delegate' => '.popup-gallery-item',
+		'type'     => 'image',
+		'gallery'  => array(
+			'enabled' => true
+		)
+	);
+
+	/**
+	 * Filter default gallery popup inits
+	 */
+	$gall_init = apply_filters( 'cherry_get_the_post_gallery_popup_args', $default_gall_init );
+	$gall_init = wp_parse_args( $gall_init, $default_gall_init );
+	$gall_init = json_encode( $gall_init );
 
 	$items = array();
 
-	foreach ( $post_gallery as $img ) {
-		
+	foreach ( $images as $img ) {
+
 		if ( 0 < intval( $img ) ) {
 			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $args['container_class'] . '_item_img' ) );
 			$url   = wp_get_attachment_url( $img );
+
+			$attachment = get_post( $img );
+
+			if ( ! empty( $attachment->post_excerpt ) ) {
+				$image .= '<figcaption>' . wptexturize( $attachment->post_excerpt ) . '</figcaption>';
+			}
+
 		} else {
 
 			global $_wp_additional_image_sizes;
@@ -567,24 +729,10 @@ function cherry_get_the_post_format_gallery() {
 
 	$result = sprintf(
 		$args['container_format'],
-		$items, $args['container_class'], $init
+		$items, $args['container_class'], $init, $gall_init
 	);
 
 	return $result;
-}
-
-/**
- * Display featured image for post format image.
- *
- * @since 4.0.0
- */
-function cherry_the_post_format_gallery() {
-	/**
-	 * Filter featured image for post format image.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_the_post_format_gallery', cherry_get_the_post_format_gallery() );
 }
 
 /**
@@ -593,13 +741,13 @@ function cherry_the_post_format_gallery() {
  * returns image URL or bollen false in other case
  *
  * @since  4.0.0
- * 
+ *
  * @param  int $post_id post ID to search image in
  * @param  int $limit   max images count to search
  * @return bool|string|int
  */
 function cherry_get_post_images( $post_id = null, $limit = 1 ) {
-	
+
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 	$content = get_the_content();
 
@@ -614,7 +762,7 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 
 	global $wpdb;
 
-	for ( $i = 0; $i < $limit; $i++ ) { 
+	for ( $i = 0; $i < $limit; $i++ ) {
 
 		if ( empty( $matches[1][$i] ) ) {
 			continue;
@@ -636,4 +784,141 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 	}
 
 	return $result;
+
+}
+
+/**
+ * Get featured video for video post format from post content.
+ * Returns first finded video, iframe, object or embed tag in content
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_video() {
+
+	if ( 'video' !== get_post_format() ) {
+		return;
+	}
+
+	if ( is_single() ) {
+		return;
+	}
+
+	/**
+	 * Filter post format video output to rewrite video from child theme or plugins
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_post_video', false );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
+	$content = get_the_content();
+
+	$embeds = get_media_embedded_in_content(
+		apply_filters( 'the_content', $content ),
+		array( 'video', 'object', 'embed', 'iframe' )
+	);
+
+	if ( empty( $embeds ) ) {
+		return;
+	}
+
+	global $_wp_additional_image_sizes;
+
+	// get vdeo dimensions by equal image size
+	$embed_size = apply_filters( 'cherry_post_video_size', 'slider-post-thumbnail' );
+
+	if ( ! empty( $_wp_additional_image_sizes[$embed_size] ) ) {
+		$width  = $_wp_additional_image_sizes[$embed_size]['width'];
+		$height = $_wp_additional_image_sizes[$embed_size]['height'];
+	} elseif ( ! empty( $_wp_additional_image_sizes[$embed_size] ) ) {
+		$width  = $_wp_additional_image_sizes['slider-post-thumbnail']['width'];
+		$height = $_wp_additional_image_sizes['slider-post-thumbnail']['height'];
+	} else {
+		$width  = 1025;
+		$height = 500;
+	}
+
+	$embed_html = $embeds[0];
+
+	$reg = '';
+	$patterns = array(
+		'/width=[\'|"]\d+[\'|"]/i',
+		'/height=[\'|"]\d+[\'|"]/i'
+	);
+
+	$replacements = array(
+		'width="' . $width . '"',
+		'height="' . $height . '"'
+	);
+
+	$result = preg_replace( $patterns, $replacements, $embed_html );
+
+	return $result;
+
+}
+
+/**
+ * Show featured video for video post format
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_video() {
+	/**
+	 * Filter featured video for post format video.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_the_post_video', cherry_get_the_post_video() );
+}
+
+/**
+ * Get featured audio for audio post format from post content.
+ * Returns first finded audio tag in page content
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_audio() {
+
+	if ( 'audio' !== get_post_format() ) {
+		return;
+	}
+
+	if ( is_single() ) {
+		return;
+	}
+
+	/**
+	 * Filter post format audio output to rewrite audio from child theme or plugins
+	 * @since  4.0.0
+	 */
+	$result = apply_filters( 'cherry_pre_get_post_audio', false );
+
+	if ( false !== $result ) {
+		return $result;
+	}
+
+	$content = get_the_content();
+
+	$embeds = get_media_embedded_in_content( apply_filters( 'the_content', $content ), array( 'audio' ) );
+
+	if ( ! empty( $embeds ) ) {
+		return $embeds[0];
+	}
+
+}
+
+/**
+ * Show featured audio for audio post format
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_audio() {
+	/**
+	 * Filter featured audio for post format audio.
+	 *
+	 * @since 4.0.0
+	 */
+	echo apply_filters( 'cherry_the_post_audio', cherry_get_the_post_audio() );
 }
