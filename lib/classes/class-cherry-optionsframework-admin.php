@@ -228,6 +228,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				$cherry_options = $this->child_priority_sorting($cherry_options);
 
 				$cherry_options = $this->priority_sorting($cherry_options);
+				var_dump(cherry_get_option('typography-demo'));
 				?>
 					<div class="options-page-wrapper">
 						<div class="current-theme">

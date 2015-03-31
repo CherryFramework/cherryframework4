@@ -894,7 +894,7 @@ class Cherry_Interface_Builder {
 							$output .= '<select class="cherry-font-style" id="' . $id . '[style]" name="' . $name . '[style]">';
 							if($style_array && !empty($style_array) && is_array($style_array)){
 								foreach ($style_array as $style_key => $style_value) {
-									$output .= '<option value="' . $style_key . '" ' . selected( $value['style'], $style_key, false ) . '>'. esc_html( $style_value ) .'</option>';
+									$output .= '<option value="' . $style_key . '" ' . selected( $style_key, $value['style'], false ) . '>'. esc_html( $style_value ) .'</option>';
 								}
 							}
 							$output .= '</select>';
