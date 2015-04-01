@@ -86,6 +86,28 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 				return;
 			}
 
+			// check if upload dir is writable
+			$upload_dir        = wp_upload_dir();
+			$this->is_writable = is_writable( $upload_dir['basedir'] );
+
+			// set static file URL
+			$this->css_file_url = apply_filters(
+				'cherry_dynamic_css_url',
+				$upload_dir['baseurl'] . '/cherry-css/style.css'
+			);
+
+			$css_dir_path = $upload_dir['basedir'] . '/cherry-css/';
+			// set static file path
+			$this->css_file_path = apply_filters(
+				'cherry_dynamic_css_path',
+				$css_dir_path . 'style.css'
+			);
+
+			// create directory for stylesheet
+			if ( ! file_exists( $css_dir_path ) && ! is_dir( $css_dir_path ) ) {
+				wp_mkdir_p( $css_dir_path );
+			}
+
 			if ( is_admin() ) {
 				$this->_admin();
 			} else {
@@ -119,32 +141,12 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 				'dynamic_css'     => cherry_get_option( 'dynamic-css', 'file' )
 			);
 
-			// chaeck if upload dir is writable
-			$upload_dir        = wp_upload_dir();
-			$this->is_writable = is_writable( $upload_dir['basedir'] );
-
 			// Do this only if we have something to print into static file
 			if ( 'file' == $this->settings['dynamic_css'] || 'true' == $this->settings['concatenate_css'] ) {
 
 				// get handles list
 				$this->compile_handles = $this->get_static_css_handles();
-				// set static file URL
-				$this->css_file_url = apply_filters(
-					'cherry_dynamic_css_url',
-					$upload_dir['baseurl'] . '/cherry-css/style.css'
-				);
 
-				$css_dir_path = $upload_dir['basedir'] . '/cherry-css/';
-				// set static file path
-				$this->css_file_path = apply_filters(
-					'cherry_dynamic_css_path',
-					$css_dir_path . 'style.css'
-				);
-
-				// create directory for stylesheet
-				if ( ! file_exists( $css_dir_path ) && ! is_dir( $css_dir_path ) ) {
-					wp_mkdir_p( $css_dir_path );
-				}
 				// check if CSS already compiled
 				$this->already_compiled = file_exists( $this->css_file_path );
 
@@ -345,7 +347,6 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 
 			file_put_contents( $this->css_file_path, $compiled_style );
 
-			set_transient( 'cherry_compiled_css', true, 2*DAY_IN_SECONDS );
 		}
 
 		/**
