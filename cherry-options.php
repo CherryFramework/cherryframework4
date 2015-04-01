@@ -911,21 +911,21 @@ function cherry_defaults_settings() {
 
 	$logo_options = array();
 
-	$logo_options['logo-kind'] = array(
+	$logo_options['logo-type'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'Logo type',
 				'label'			=> 'What kind of logo?',
 				'decsription'	=> 'Select whether you want your main logo to be an image or text. If you select "image" you can put in the image url in the next option, and if you select "text" your Site Title will be shown instead.',
-				'value'			=> 'radio-1',
-				'default_value'	=> 'radio-1',
+				'value'			=> 'text',
+				'default_value'	=> 'text',
 				'class'			=> '',
 				'display_input'	=> true,
 				'options'		=> array(
-					'radio-1' => array(
+					'image' => array(
 						'label' => 'Image logo',
 						'img_src' => ''
 					),
-					'radio-2' => array(
+					'text' => array(
 						'label' => 'Text logo',
 						'img_src' => ''
 					)
