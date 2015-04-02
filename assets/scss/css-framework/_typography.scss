@@ -43,12 +43,12 @@ h6, .h6 {
   }
 }
 
-h1, .h1 { font-size: $font-size-h1; }
+/*h1, .h1 { font-size: $font-size-h1; }
 h2, .h2 { font-size: $font-size-h2; }
 h3, .h3 { font-size: $font-size-h3; }
 h4, .h4 { font-size: $font-size-h4; }
 h5, .h5 { font-size: $font-size-h5; }
-h6, .h6 { font-size: $font-size-h6; }
+h6, .h6 { font-size: $font-size-h6; }*/
 
 
 // Body text
@@ -69,10 +69,7 @@ p {
 // -------------------------
 
 // Ex: (12px small font / 14px base font) * 100% = about 85%
-small,
-.small {
-  //font-size: floor((100% * $font-size-small / $font-size-base));
-}
+
 
 // Undo browser default styling
 cite {
