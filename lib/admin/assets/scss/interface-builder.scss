@@ -419,19 +419,19 @@
 		}
 		/*End cherry color picker style*/
 		/*Cherry radio buttons style*/
-		.cherry-radio-img{
+		.cherry-radio-img {
 			float: left;
 			margin: 10px 10px 0 5px;
 			text-align: center;
 			max-width: 120px;
 			position: relative;
-				img{
-					width: 100%;
-					height: auto;
-					margin: 0 0 5px 0;
-					pointer-events: none;
-				}
-				.check{
+			img {
+				width: 100%;
+				height: auto;
+				margin: 0 0 5px 0;
+				pointer-events: none;
+			}
+				.check {
 					display: none;
 					background-color: #fff;
 					box-shadow: 0 0 0 0px #FFF,0 0 0 2px #8bc735;
@@ -443,17 +443,17 @@
 					outline: 0;
 					border-radius: 15px;
 					box-sizing: content-box;
-						i{
-							color: #8bc735;
-							font-size: 36px;
-							width: 28px;
-							height: 28px;
-								&:before{
-									position: relative;
-									top: -3px;
-									left: -5px;
-								}
+					i{
+						color: #8bc735;
+						font-size: 36px;
+						width: 28px;
+						height: 28px;
+						&:before{
+							position: relative;
+							top: -3px;
+							left: -5px;
 						}
+					}
 						.media-modal-icon{
 							background-position: -21px 0;
 							height: 15px;
@@ -651,10 +651,15 @@
 					border: 1px solid #2EA2CC;
 					cursor: pointer;
 				}
+				@media screen and (max-width: 769px){
+					top: -28px;
+					right: 0px;
+				}
 		}
 		.hint-image{
 			@extend .hint-text;
 		}
+
 		.hint-video{
 			@extend .hint-text;
 				iframe{

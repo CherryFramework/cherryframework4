@@ -627,6 +627,12 @@
   border: 1px solid #2EA2CC;
   cursor: pointer;
 }
+@media screen and (max-width: 769px) {
+  .cherry-section .hint-text, .cherry-section .hint-image, .cherry-section .hint-video {
+    top: -28px;
+    right: 0px;
+  }
+}
 .cherry-section .hint-video iframe {
   display: none;
 }
