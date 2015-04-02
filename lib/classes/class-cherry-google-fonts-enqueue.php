@@ -134,7 +134,7 @@ class cherry_enqueue_fonts {
 			return;
 		}
 
-		if ( ! $this->is_google_font( $option_val['family'] ) ) {
+		if ( ! self::is_google_font( $option_val['family'] ) ) {
 			return;
 		}
 
@@ -161,7 +161,7 @@ class cherry_enqueue_fonts {
 	 * @param  string  $family  font family name to chack
 	 * @return boolean
 	 */
-	public function is_google_font( $family ) {
+	public static function is_google_font( $family ) {
 
 		if ( null == self::$google_fonts ) {
 			$fonts_path = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/google-fonts.json';

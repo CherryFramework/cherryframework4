@@ -946,7 +946,8 @@ class Cherry_Interface_Builder {
 							$output .= '<input id="' . $id . '[color]" name="' . $name . '[color]" value="' . esc_html( $value['color'] ) . '" class="cherry-color-picker" type="text" />';
 						$output .= '</div>';
 					$output .= '</div>';
-
+					$output .= '<div class="clear"></div>';
+					$output .= '<div class="cherry-font-preview"><span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."</span></div>';
 				$output .= '<input name="' . $name . '[category]" value="" class="cherry-font-category" type="hidden" />';
 				$output .= '</div>';
 			break;
@@ -1152,5 +1153,20 @@ class Cherry_Interface_Builder {
 		}
 
 		return $this->google_font;
+	}
+}
+
+add_action( 'wp_ajax_get_google_font_link', 'get_google_font_link' );
+
+function get_google_font_link() {
+	if ( !empty($_POST) && array_key_exists('font_data', $_POST) ) {
+		$font_data = $_POST['font_data'];
+		$font_family = (string)$font_data['family'];
+		$font_style = (string)$font_data['style'];
+		$font_character = (string)$font_data['character'];
+
+		$google_font_url = cherry_enqueue_fonts::get_single_font_url( array( 'family' => $font_family, 'style' => $font_style, 'character' => $font_character ) );
+		echo $google_font_url;
+		exit;
 	}
 }
