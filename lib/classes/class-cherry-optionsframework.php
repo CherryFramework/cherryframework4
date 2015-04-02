@@ -14,14 +14,14 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
-add_action( 'after_setup_theme', array( 'Cherry_Options_Framework', 'get_instance' ) );
+//add_action( 'after_setup_theme', array( 'Cherry_Options_Framework', 'get_instance' ) );
 
 if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	class Cherry_Options_Framework {
 
 		public $current_section_name = '';
 		public $loaded_settings;
-		public $is_db_options_exist = null;
+		public static $is_db_options_exist = null;
 		private static $instance = null;
 
 		/**
@@ -56,6 +56,11 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			update_option('cherry-options', $cherry_options_settings);
 
 			$this->loaded_settings = $this->load_settings();
+
+			if( !self::is_db_options_exist() ){
+				$options = $this->create_options_array( $this->loaded_settings );
+				$this->save_options( $options );
+			}
 		}
 
 		/**
@@ -87,16 +92,16 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function is_db_options_exist() {
+		public static function is_db_options_exist() {
 
-			if ( null !== $this->is_db_options_exist ) {
-				return $this->is_db_options_exist;
+			if ( null !== self::$is_db_options_exist ) {
+				return self::$is_db_options_exist;
 			}
 
 			$cherry_options_settings = get_option( 'cherry-options' );
-			(get_option($cherry_options_settings['id']) == false)? $is_options=false : $is_options = true;
+			( false == get_option($cherry_options_settings['id']) ) ? $is_options = false : $is_options = true;
 
-			$this->is_db_options_exist = $is_options;
+			self::$is_db_options_exist = $is_options;
 
 			return $is_options;
 		}
@@ -159,8 +164,9 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 1.0.0
 		 */
 		public function create_updated_options_array( $post_array ) {
-			$options = $this->create_options_array();
+			$options = $this->load_options();
 			$default_settings = $this->loaded_settings;
+			//var_dump($options);
 			if(isset($options)){
 				foreach ( $options as $section_key => $value ) {
 					$section_name = $section_key;
@@ -303,7 +309,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		public function get_current_settings() {
 			$result_settings = array();
 
-			if(self::is_db_options_exist()){
+			if( self::$is_db_options_exist ){
 				//var_dump('merged_settings');
 				$result_settings = $this->merged_settings();
 			}else{

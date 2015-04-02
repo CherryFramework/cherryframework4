@@ -586,6 +586,16 @@
   float: left;
   margin-right: 2%;
 }
+.cherry-section.cherry-typography .cherry-font-preview {
+  width: 100%;
+  display: none;
+  padding: 15px 10px;
+  margin-top: 20px;
+  border: 1px solid #d4d5d6;
+  border-radius: 6px;
+  box-sizing: border-box;
+  clear: both;
+}
 .cherry-section.cherry-info .cherry-col-1 {
   display: none;
 }
@@ -616,6 +626,12 @@
   background-color: #2EA2CC;
   border: 1px solid #2EA2CC;
   cursor: pointer;
+}
+@media screen and (max-width: 769px) {
+  .cherry-section .hint-text, .cherry-section .hint-image, .cherry-section .hint-video {
+    top: -28px;
+    right: 0px;
+  }
 }
 .cherry-section .hint-video iframe {
   display: none;

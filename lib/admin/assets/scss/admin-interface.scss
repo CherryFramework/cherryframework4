@@ -42,6 +42,7 @@
 	background: none repeat scroll 0 0 #2a445d;
 	overflow: hidden;
 	padding: 10px 20px;
+	min-width: 698px;
 		#wrap-cherry-save-options {
 			float: right;
 			margin: 0 5px;
@@ -71,11 +72,11 @@
 			margin-left: 200px;
 			background: #fcfcfc;
 			border-left: 1px solid #D8D8D8;
-			min-height: 750px;
+			min-height: 863px;
+			min-width:537px;
 			position: relative;
 			z-index: 1;
 				.options-group {
-					//visibility: hidden;
 						.group-name{
 							padding: 20px;
 							margin-bottom: 20px;

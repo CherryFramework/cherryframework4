@@ -19,7 +19,10 @@ if ( !defined( 'WPINC' ) ) {
 require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-admin.php' );
 
 // Include theme options page.
-require_once( 'views/cherry-framework-options-page.php' );
+global $cherry_options_framework;
+
+$cherry_options_framework = new Cherry_Options_Framework;
+$options_framework_admin = new Cherry_Options_Framework_Admin;
 
 // Added menu items in admin panel.
 function cherry_add_admin_menu() {

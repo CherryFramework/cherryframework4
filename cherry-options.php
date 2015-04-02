@@ -7,6 +7,26 @@ function cherry_defaults_settings() {
 	//var_dump($all_statics);
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
+	$demo_options['typography-demo'] = array(
+				'type'			=> 'typography',
+				'title'			=> 'title typography',
+				'label'			=> 'label typography',
+				'decsription'	=> 'decsription typography',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> array(
+					'size'			=> '20',
+					'lineheight'	=> '20',
+					'color'			=> '#222222',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
+				)
+	);
 	$demo_options['repeater-demo'] = array(
 				'type'			=> 'repeater',
 				'title'			=> 'repeater text',
@@ -77,7 +97,7 @@ function cherry_defaults_settings() {
 					'select-3'	=> 'select 3'
 				)
 	);
-	$demo_options['filterselect-demo'] = array(
+	/*$demo_options['filterselect-demo'] = array(
 				'type'			=> 'filterselect',
 				'title'			=> 'title filterselect',
 				'label'			=> 'label filterselect',
@@ -338,30 +358,10 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription info',
 				'value'			=> 'info'
 	);
-	$demo_options['typography-demo'] = array(
-				'type'			=> 'typography',
-				'title'			=> 'title typography',
-				'label'			=> 'label typography',
-				'decsription'	=> 'decsription typography',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> array(
-					'size'			=> '10',
-					'lineheight'	=> '10',
-					'color'			=> 'blue',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
-	);
 	$demo_options['submit-demo'] = array(
 				'type'			=> 'submit',
 				'value'			=> 'get value'
-	);
+	);*/
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////// General options //////////////////////////////////////////////////////////////////////////////////////
@@ -412,7 +412,7 @@ function cherry_defaults_settings() {
 				'align'			=> 'notdefined'
 			)
 	);
-	$general_options['general-favicon'] = array(
+	/*$general_options['general-favicon'] = array(
 			'type'				=> 'media',
 			'title'				=> __('Favicon image', 'cherry'),
 			'decsription'		=> __('Favicon image', 'cherry'),
@@ -491,7 +491,7 @@ function cherry_defaults_settings() {
 				'content'	=> 'Jquery vertical mousewheel smooth scrolling for desktop chrome version only.'
 			),
 			'value'			=> 'true',
-	);
+	);*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// Footer options /////////////////////////////////////////////////////
@@ -911,21 +911,21 @@ function cherry_defaults_settings() {
 
 	$logo_options = array();
 
-	$logo_options['logo-kind'] = array(
+	$logo_options['logo-type'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'Logo type',
 				'label'			=> 'What kind of logo?',
 				'decsription'	=> 'Select whether you want your main logo to be an image or text. If you select "image" you can put in the image url in the next option, and if you select "text" your Site Title will be shown instead.',
-				'value'			=> 'radio-1',
-				'default_value'	=> 'radio-1',
+				'value'			=> 'text',
+				'default_value'	=> 'text',
 				'class'			=> '',
 				'display_input'	=> true,
 				'options'		=> array(
-					'radio-1' => array(
+					'image' => array(
 						'label' => 'Image logo',
 						'img_src' => ''
 					),
-					'radio-2' => array(
+					'text' => array(
 						'label' => 'Text logo',
 						'img_src' => ''
 					)
@@ -1850,7 +1850,6 @@ function cherry_defaults_settings() {
 		'priority'		=> 30,
 		'options-list'	=> apply_filters( 'cherry_styling_options_list', $styling_options )
 	);
-
 	$sections_array['color-options-section'] = array(
 		'name'			=>'Color scheme',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
