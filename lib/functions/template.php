@@ -11,8 +11,9 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-add_action( 'cherry_post',               'cherry_get_content_template' );
-add_action( 'cherry_page',               'cherry_get_content_template' );
+add_action( 'cherry_post',             'cherry_get_content_template' );
+add_action( 'cherry_page',             'cherry_get_content_template' );
+add_action( 'cherry_content_template', 'cherry_content_template' );
 
 // add_action( 'cherry_get_sidebar',        'cherry_get_sidebar_template' );
 // add_action( 'cherry_get_footer_sidebar', 'cherry_get_sidebar_template' );
@@ -102,27 +103,83 @@ function cherry_get_content_template() {
 		$post_format = get_post_format() ? get_post_format() : 'standard';
 
 		// Template based on post type and post format.
-		$templates[] = "content-{$post_type}-{$post_format}.php";
-		$templates[] = "content/{$post_type}-{$post_format}.php";
+		$templates[] = "content/{$post_type}-{$post_format}.tmpl";
 
 		// Template based on the post format.
-		$templates[] = "content-{$post_format}.php";
-		$templates[] = "content/{$post_format}.php";
+		$templates[] = "content/{$post_format}.tmpl";
 	}
 
 	// Template based on the post type.
-	$templates[] = "content-{$post_type}.php";
-	$templates[] = "content/{$post_type}.php";
+	$templates[] = "content/{$post_type}.tmpl";
 
-	// Fallback 'content.php' template.
-	$templates[] = 'content.php';
-	$templates[] = 'content/content.php';
+	// Fallback 'content.tmpl' template.
+	$templates[] = 'content/content.tmpl';
 
 	// Allow devs to filter the content template hierarchy.
 	$templates = apply_filters( 'cherry_content_template_hierarchy', $templates );
 
-	// Apply filters and return the found content template.
-	include( apply_filters( 'cherry_content_template', locate_template( $templates, false, false ) ) );
+	do_action( 'cherry_content_template', $templates );
+}
+
+function cherry_content_template( $templates ) {
+	ob_start();
+
+	include( locate_template( $templates, false, false ) );
+
+	$template = ob_get_contents();
+	ob_end_clean();
+
+	printf( '<article %s>', cherry_get_attr( 'post' ) );
+
+		// Perform a regular expression.
+		$content = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
+
+		echo $content;
+
+	echo '</article>';
+}
+
+function cherry_do_content( $matches ) {
+	if ( !is_array( $matches ) ) {
+		return '';
+	}
+
+	if ( empty( $matches ) ) {
+		return '';
+	}
+
+	$item   = strtolower( trim( $matches[0], '%%' ) );
+	$arr    = explode( ' ', $item, 2 );
+	$macros = $arr[0];
+	$attr   = isset( $arr[1] ) ? shortcode_parse_atts( $arr[1] ) : array();
+
+	$function_name = "cherry_get_the_post_{$macros}";
+
+	/**
+	 * Filter callback function's name for outputing post element.
+	 * @since 4.0.0
+	 */
+	$pre = apply_filters( "cherry_pre_get_the_post_{$macros}", false );
+
+	if ( false !== $pre ) {
+		return $pre;
+	}
+
+	if ( !function_exists( $function_name ) ) {
+		return '';
+	}
+
+	if ( !isset( $attr['where'] ) ) {
+		return call_user_func( $function_name, $attr );
+	}
+
+	if ( ( ( 'loop' === $attr['where'] ) && is_singular() )
+		|| ( ( 'single' === $attr['where'] ) && !is_singular() )
+		) {
+		return '';
+	}
+
+	return call_user_func( $function_name, $attr );
 }
 
 /**

@@ -7,6 +7,26 @@ function cherry_defaults_settings() {
 	//var_dump($all_statics);
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
+	$demo_options['typography-demo'] = array(
+				'type'			=> 'typography',
+				'title'			=> 'title typography',
+				'label'			=> 'label typography',
+				'decsription'	=> 'decsription typography',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> array(
+					'size'			=> '20',
+					'lineheight'	=> '20',
+					'color'			=> '#222222',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
+				)
+	);
 	$demo_options['repeater-demo'] = array(
 				'type'			=> 'repeater',
 				'title'			=> 'repeater text',
@@ -337,26 +357,6 @@ function cherry_defaults_settings() {
 				'title'			=> 'title info',
 				'decsription'	=> 'decsription info',
 				'value'			=> 'info'
-	);
-	$demo_options['typography-demo'] = array(
-				'type'			=> 'typography',
-				'title'			=> 'title typography',
-				'label'			=> 'label typography',
-				'decsription'	=> 'decsription typography',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> array(
-					'size'			=> '10',
-					'lineheight'	=> '10',
-					'color'			=> 'blue',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
 	);
 	$demo_options['submit-demo'] = array(
 				'type'			=> 'submit',
@@ -1850,7 +1850,6 @@ function cherry_defaults_settings() {
 		'priority'		=> 30,
 		'options-list'	=> apply_filters( 'cherry_styling_options_list', $styling_options )
 	);
-
 	$sections_array['color-options-section'] = array(
 		'name'			=>'Color scheme',
 		'icon' 			=> 'dashicons dashicons-arrow-right',
