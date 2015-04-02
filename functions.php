@@ -22,9 +22,6 @@ function cherry_theme_setup() {
 	// Load necessary config parts.
 	cherry_theme_config();
 
-	// Loads shortcodes.
-	add_theme_support( 'cherry-shortcodes' );
-
 	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
 	function cherry_wrap_base_cpts( $templates ) {
 		$cpt = get_post_type(); // Get the current post type
