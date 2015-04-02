@@ -97,7 +97,7 @@ function cherry_defaults_settings() {
 					'select-3'	=> 'select 3'
 				)
 	);
-	/*$demo_options['filterselect-demo'] = array(
+	$demo_options['filterselect-demo'] = array(
 				'type'			=> 'filterselect',
 				'title'			=> 'title filterselect',
 				'label'			=> 'label filterselect',
@@ -361,7 +361,7 @@ function cherry_defaults_settings() {
 	$demo_options['submit-demo'] = array(
 				'type'			=> 'submit',
 				'value'			=> 'get value'
-	);*/
+	);
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////// General options //////////////////////////////////////////////////////////////////////////////////////
@@ -412,7 +412,7 @@ function cherry_defaults_settings() {
 				'align'			=> 'notdefined'
 			)
 	);
-	/*$general_options['general-favicon'] = array(
+	$general_options['general-favicon'] = array(
 			'type'				=> 'media',
 			'title'				=> __('Favicon image', 'cherry'),
 			'decsription'		=> __('Favicon image', 'cherry'),
@@ -491,7 +491,7 @@ function cherry_defaults_settings() {
 				'content'	=> 'Jquery vertical mousewheel smooth scrolling for desktop chrome version only.'
 			),
 			'value'			=> 'true',
-	);*/
+	);
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// Footer options /////////////////////////////////////////////////////
