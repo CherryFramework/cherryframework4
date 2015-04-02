@@ -13,14 +13,14 @@ require_once( trailingslashit( get_template_directory() ) . 'lib/class-cherry-fr
 new Cherry_Framework();
 
 // Sets up theme defaults and registers support for various WordPress features.
-add_action( 'after_setup_theme', 'cherry_theme_setup', 10 );
+add_action( 'after_setup_theme', 'cherry_theme_setup' );
 function cherry_theme_setup() {
 
-	// Load files.
+	// Load the initialization file.
 	require_once( trailingslashit( PARENT_DIR ) . 'init/init.php' );
 
-	// Loads shortcodes.
-	add_theme_support( 'cherry-shortcodes' );
+	// Load necessary config parts.
+	cherry_theme_config();
 
 	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
 	function cherry_wrap_base_cpts( $templates ) {

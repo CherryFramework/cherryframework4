@@ -194,11 +194,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_filter( 'term_description', 'do_shortcode' );
 			add_filter( 'comment_text',     'do_shortcode' );
 
-			add_filter( 'cherry_the_post_meta',       'do_shortcode', 20 );
-			add_filter( 'cherry_the_post_footer',     'do_shortcode', 20 );
-			add_filter( 'cherry_get_the_post_meta',   'do_shortcode', 20 );
-			add_filter( 'cherry_get_the_post_footer', 'do_shortcode', 20 );
-
 			// Load the core filters.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'filters.php' );
 		}
@@ -304,9 +299,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load the structure functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'structure.php' );
-
-			// Load the shortcodes if supported.
-			require_if_theme_supports( 'cherry-shortcodes', trailingslashit( CHERRY_FUNCTIONS ) . 'shortcodes.php' );
 
 			// Load the post format functionality if post formats are supported.
 			require_if_theme_supports( 'post-formats', trailingslashit( CHERRY_FUNCTIONS ) . 'post-formats.php' );

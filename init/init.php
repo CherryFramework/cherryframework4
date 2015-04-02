@@ -3,7 +3,6 @@
  * Sets up custom confguration for the theme. This does things like sets up sidebars, menus, scripts,
  * and lots of other awesome stuff that WordPress themes do.
  */
-add_action( 'after_setup_theme', 'cherry_theme_config', 11 );
 
 /**
  * Load necessary config parts
