@@ -1,0 +1,18 @@
+%%THUMBNAIL where="loop" class="alignleft" size="post-thumbnail"%%
+%%THUMBNAIL where="single" class="aligncenter"%%
+
+%%HEADER%%
+
+<div class="entry-meta">
+	<?php _e( 'Posted on', 'cherry' ); ?> %%DATE%%
+	<?php _e( 'by', 'cherry' );        ?> %%AUTHOR%% %%COMMENTS%%
+</div>
+
+%%EXCERPT where="loop"%%
+%%CONTENT where="single"%%
+
+%%BUTTONs class="btn btn-default" text="read more..."%%
+
+<div class="entry-meta entry-meta-bottom">
+	<?php _e( 'Posted in', 'cherry' ); ?> %%TAXONOMY name="category post_tag"%%
+</div>
