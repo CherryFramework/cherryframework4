@@ -62,78 +62,82 @@ function cherry_has_post_thumbnail( $post_id = null ) {
  *
  * @since 4.0.0
  */
-function cherry_the_post_thumbnail() {
-	/**
-	 * Filter the displayed post thumbnail.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_the_post_thumbnail', cherry_get_the_post_thumbnail() );
+function cherry_the_post_thumbnail( $args ) {
+	echo cherry_get_the_post_thumbnail( $args );
 }
 
 /**
  * Retrieve the post thumbnail.
  *
  * @since  4.0.0
- * @param  int    $post_id        The post ID.
- * @return string $post_thumbnail The post thumbnail HTML
+ * @param  array  $args
+ * @return string $output The post thumbnail HTML
  */
-function cherry_get_the_post_thumbnail( $post_id = null ) {
-
-	if ( in_array( get_post_format(), array( 'image', 'gallery' ) ) ) {
-		return;
-	}
-
-	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
+function cherry_get_the_post_thumbnail( $args ) {
+	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
 	if ( !cherry_has_post_thumbnail( $post_id ) ) {
 		return;
 	}
 
-	$defaults = array(
-		'container'       => 'figure',
-		'container_class' => 'post-thumbnail',
-		'size'            => is_singular( $post_type ) ? 'full' : 'post-thumbnail',
-		'class'           => is_singular( $post_type ) ? 'aligncenter' : 'alignleft',
-		'before'          => '',
-		'after'           => '',
-		'wrap'            => is_singular( $post_type ) ? '<%1$s class="%2$s">%3$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" title="%4$s">%5$s</a></%1$s>',
-	);
 	/**
-	 * Filter the arguments used to display a post thumbnail.
+	 * Filter the default arguments used to display a post thumbnail.
 	 *
 	 * @since 4.0.0
 	 * @param array $args Array of arguments.
 	 */
-	$args = apply_filters( 'cherry_get_the_post_thumbnail_args', $defaults );
-	$args = wp_parse_args( $args, $defaults );
+	$defaults = apply_filters( 'cherry_get_the_post_thumbnail_defaults', array(
+		'container'       => 'figure',
+		'container_class' => 'entry-thumbnail',
+		'size'            => 'slider-post-thumbnail',
+		'class'           => '',
+		'before'          => '',
+		'after'           => '',
+		'wrap'            => is_singular( $post_type ) ? '<%1$s class="%2$s">%3$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" title="%4$s">%5$s</a></%1$s>',
+	), $post_id, $post_type );
 
-	// OPTIONAL: Declare each item in $args as its own variable.
-	extract( $args, EXTR_SKIP );
+	$args = wp_parse_args( $args, $defaults );
 
 	// Get the intermediate image sizes and add the full size to the array.
 	$sizes = get_intermediate_image_sizes();
 	$sizes[] = 'full';
 
 	// Checks if a value exists in an arrays
-	$size = ( in_array( $size, $sizes ) ) ? $size : 'post-thumbnail';
+	$size = ( in_array( $args['size'], $sizes ) ) ? $args['size'] : $defaults['size'];
 
 	// Gets the Featured Image.
-	$thumbnail = get_the_post_thumbnail( $post_id, $size, array( 'class' => $class ) );
-	$thumbnail = $before . $thumbnail . $after;
+	$thumbnail = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['class'] ) );
+	$thumbnail = $args['before'] . $thumbnail . $args['after'];
 
 	if ( is_singular( $post_type ) ) {
 
-		$post_thumbnail = sprintf( $wrap, tag_escape( $container ), esc_attr( $container_class ), $thumbnail );
+		$output = sprintf(
+			$args['wrap'],
+			tag_escape( $args['container'] ),
+			esc_attr( $args['container_class'] ),
+			$thumbnail
+		);
 
 	} else {
 
-		$post_thumbnail = sprintf( $wrap, tag_escape( $container ), esc_attr( $container_class ), esc_url( get_permalink( $post_id ) ), esc_attr( the_title_attribute( 'echo=0' ) ), $thumbnail );
+		$output = sprintf(
+			$args['wrap'],
+			tag_escape( $args['container'] ),
+			esc_attr( $args['container_class'] ),
+			esc_url( get_permalink( $post_id ) ),
+			esc_attr( the_title_attribute( 'echo=0' ) ),
+			$thumbnail
+		);
 
 	}
 
-	return $post_thumbnail;
+	/**
+	 * Filter the retrieved post thumbnail.
+	 *
+	 * @since 4.0.0
+	 */
+	return apply_filters( 'cherry_the_post_thumbnail', $output, $args );
 }
 
 /**
@@ -141,13 +145,8 @@ function cherry_get_the_post_thumbnail( $post_id = null ) {
  *
  * @since 4.0.0
  */
-function cherry_the_post_header() {
-	/**
-	 * Filter the displayed post header.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_the_post_header', cherry_get_the_post_header() );
+function cherry_the_post_header( $args ) {
+	echo cherry_get_the_post_header( $args );
 }
 
 /**
@@ -155,20 +154,20 @@ function cherry_the_post_header() {
  *
  * @since 4.0.0
  */
-function cherry_get_the_post_header() {
+function cherry_get_the_post_header( $args ) {
 	$post_id   = get_the_ID();
-	$post_type = get_post_type();
+	$post_type = get_post_type( $post_id );
 
 	/**
-	 * Filter the arguments used to display a post header.
+	 * Filter the default arguments used to display a post header.
 	 *
 	 * @since 4.0.0
 	 * @param array  $args      Array of arguments.
 	 * @param int    $post_id   The post ID.
 	 * @param string $post_type The post type of the current post.
 	 */
-	$args = apply_filters( 'cherry_get_the_post_header_args', array(
-		'tag'    => is_singular( $post_type ) ? 'h1' : 'h2',
+	$defaults = apply_filters( 'cherry_get_the_post_header_defaults', array(
+		'tag'    => 'h2',
 		'class'  => '',
 		'url'    => 'permalink',
 		'before' => '',
@@ -176,10 +175,9 @@ function cherry_get_the_post_header() {
 		'wrap'   => is_singular( $post_type ) ? '<header class="entry-header"><%1$s class="%2$s">%4$s</%1$s></header>' : '<header class="entry-header"><%1$s class="%2$s"><a href="%3$s" rel="bookmark">%4$s</a></%1$s></header>',
 	), $post_id, $post_type );
 
-	// OPTIONAL: Declare each item in $args as its own variable.
-	extract( $args, EXTR_SKIP );
+	$args = wp_parse_args( $args, $defaults );
 
-	$class .= ' entry-title';
+	$args['class'] .= ' entry-title';
 
 	if ( is_singular( $post_type ) ) :
 
@@ -195,53 +193,27 @@ function cherry_get_the_post_header() {
 		return;
 	}
 
-	$title = $before . $post_title . $after;
-	$url  = ( $url ) ? $url : 'permalink';
+	$title = $args['before'] . $post_title . $args['after'];
+	$url   = ( $args['url'] ) ? $args['url'] : $defaults['url'];
 
-	if ( 'permalink' === $url ) {
+	if ( 'permalink' == $url ) {
 		$url = get_permalink( $post_id );
 	}
 
-	$post_header = sprintf( $wrap, tag_escape( $tag ), esc_attr( trim( $class ) ), esc_url( $url ), $title );
-
-	return $post_header;
-}
-
-/**
- * Display the post meta.
- *
- * @since 4.0.0
- */
-function cherry_the_post_meta() {
-	/**
-	 * Filter the displayed post meta.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_the_post_meta', cherry_get_the_post_meta() );
-}
-
-/**
- * Retrieve the post meta.
- *
- * @since 4.0.0
- */
-function cherry_get_the_post_meta() {
-	/**
-	 * Filter the retrieved the post meta.
-	 *
-	 * @since 4.0.0
-	 */
-	$post_meta = apply_filters( 'cherry_get_the_post_meta',
-		__( 'Posted on', 'cherry' ) . ' [entry-published] ' . __( 'by', 'cherry' ) . ' [entry-author] [entry-comments-link] [entry-edit-link]',
-		get_the_ID()
+	$output = sprintf(
+		$args['wrap'],
+		tag_escape( $args['tag'] ),
+		esc_attr( trim( $args['class'] ) ),
+		esc_url( $url ),
+		$title
 	);
 
-	if ( empty( $post_meta ) ) {
-		return;
-	}
-
-	return sprintf( '<div class="entry-meta">%s</div>', $post_meta );
+	/**
+	 * Filter the displayed post header.
+	 *
+	 * @since 4.0.0
+	 */
+	return apply_filters( 'cherry_get_the_post_header', $output, $args );
 }
 
 /**
@@ -249,20 +221,57 @@ function cherry_get_the_post_meta() {
  *
  * @since 4.0.0
  */
-function cherry_the_post_content() {
+function cherry_the_post_content( $args ) {
 	global $post;
 
 	if ( !$post->post_content ) {
 		return;
 	}
 
-	echo '<div class="entry-content">';
-		the_content();
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . __( 'Pages:', 'cherry' ),
-			'after'  => '</div>',
-		) );
-	echo '</div>';
+	$post_id   = $post->ID;
+	$post_type = $post->post_type;
+
+	$defaults = apply_filters( 'cherry_the_post_content_defaults', array(
+		'type'            => 'full',
+		'container_class' => 'entry-content',
+		'before'          => '',
+		'after'           => '',
+	), $post_id, $post_type );
+
+	$args = wp_parse_args( $args, $defaults );
+
+	printf( '<div class="%1$s">%2$s', esc_attr( $args['container_class'] ), $args['before'] );
+
+		if ( 'full' == $args['type'] ) {
+			the_content( '' );
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'cherry' ),
+				'after'  => '</div>',
+			) );
+
+		} elseif ( 'part' == $args['type'] ) {
+			$content = strip_shortcodes( get_the_content( '' ) );
+			$content = apply_filters( 'the_content', $content );
+			$content = str_replace( ']]>', ']]&gt;', $content );
+			$content = wp_trim_words( $content, 55, '' ); // need option.
+			echo $content;
+		}
+
+	printf( '%s</div>', $args['after'] );
+}
+
+/**
+ * Retrieve the post content.
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_content( $args ) {
+	ob_start();
+	cherry_the_post_content( $args );
+	$output = ob_get_contents();
+	ob_end_clean();
+
+	return apply_filters( 'cherry_get_the_post_content', $output );
 }
 
 /**
@@ -270,47 +279,301 @@ function cherry_the_post_content() {
  *
  * @since 4.0.0
  */
-function cherry_the_post_excerpt() {
-	echo '<div class="entry-summary">';
-		the_excerpt();
-	echo '</div>';
-}
+function cherry_the_post_excerpt( $args ) {
+	global $post;
 
-/**
- * Display the post footer.
- *
- * @since 4.0.0
- */
-function cherry_the_post_footer() {
-	/**
-	 * Filter the displayed post footer.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_the_post_footer', cherry_get_the_post_footer() );
-}
-
-/**
- * Retrieve the post footer.
- *
- * @since 4.0.0
- */
-function cherry_get_the_post_footer() {
-	/**
-	 * Filter the retrieved the post footer.
-	 *
-	 * @since 4.0.0
-	 */
-	$post_info = apply_filters( 'cherry_get_the_post_footer',
-		__( 'Posted in', 'cherry' ) . ' [entry-terms]',
-		get_the_ID()
-	);
-
-	if ( empty( $post_info ) ) {
+	if ( !post_type_supports( $post->post_type, 'excerpt' ) ) {
 		return;
 	}
 
-	return sprintf( '<footer class="entry-footer">%s</footer>', $post_info );
+	$post_id   = $post->ID;
+	$post_type = $post->post_type;
+
+	$defaults = apply_filters( 'cherry_the_post_excerpt_defaults', array(
+		'container_class' => 'entry-summary',
+		'before'          => '',
+		'after'           => '',
+	), $post_id, $post_type );
+
+	$args = wp_parse_args( $args, $defaults );
+
+	printf( '<div class="%1$s">%2$s', esc_attr( $args['container_class'] ), $args['before'] );
+		the_excerpt();  // need option `excerpt_length` (https://codex.wordpress.org/Function_Reference/the_excerpt)
+	printf( '%s</div>', $args['after'] );
+}
+
+/**
+ * Retrieve the post excerpt.
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_excerpt( $args ) {
+	ob_start();
+	cherry_the_post_excerpt( $args );
+	$excerpt = ob_get_contents();
+	ob_end_clean();
+
+	return apply_filters( 'cherry_get_the_post_excerpt', $excerpt );
+}
+
+/**
+ * Display the post button.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_button( $args ) {
+	echo cherry_get_the_post_button( $args );
+}
+
+/**
+ * Retrieve the post button.
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_button( $args ) {
+	$post_id   = get_the_ID();
+	$post_type = get_post_type( $post_id );
+
+	/**
+	 * Filter the default arguments used to display a post button.
+	 *
+	 * @since 4.0.0
+	 * @param array $args Array of arguments.
+	 */
+	$defaults = apply_filters( 'cherry_get_the_post_button_defaults', array(
+		'before' => '',
+		'after'  => '',
+		'class'  => '',
+		'wrap'   => '<a href="%1$s" class="%2$s">%3$s</a>',
+		'text'   => '',
+	), $post_id, $post_type );
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$output = sprintf(
+		$args['wrap'],
+		get_permalink( $post_id ),
+		esc_attr( $args['class'] ),
+		esc_html( $args['text'] )
+	);
+
+	return $output;
+}
+
+/**
+ * Display the post date.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_date( $args ) {
+	echo cherry_get_the_post_date( $args );
+}
+
+/**
+ * Retrieve the post date.
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_date( $args ) {
+	$post_id   = get_the_ID();
+	$post_type = get_post_type( $post_id );
+
+	/**
+	 * Filter the default arguments used to display a post date.
+	 *
+	 * @since 4.0.0
+	 * @param array $args Array of arguments.
+	 */
+	$defaults = apply_filters( 'cherry_get_the_post_date_defaults', array(
+		'before'     => '',
+		'after'      => '',
+		'format'     => get_option( 'date_format' ),
+		'human_time' => '', // `%s ago`
+	), $post_id, $post_type );
+
+	$args = wp_parse_args( $args, $defaults );
+
+	// If $human_time is passed in, allow for '%s ago' where '%s' is the return value of human_time_diff().
+	if ( !empty( $args['human_time'] ) ) :
+
+		$time = sprintf( $args['human_time'], human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+
+	else : // Else, just grab the time based on the format.
+
+		$time = get_the_time( $args['format'] );
+
+	endif;
+
+	$output = '<span class="posted-on">' . $args['before'] . '<time class="entry-date published" datetime="' . get_the_time( 'Y-m-d\TH:i:sP' ) . '">' . $time . '</time>' . $args['after'] . '</span>';
+
+	return apply_filters( 'cherry_get_the_post_date', $output, $args );
+}
+
+/**
+ * Display an individual post's author with a link to his or her archive.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_author( $args ) {
+	echo cherry_get_the_post_author( $args );
+}
+
+/**
+ * Retrieve an individual post's author with a link to his or her archive.
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_author( $args ) {
+	$post_id   = get_the_ID();
+	$post_type = get_post_type( $post_id );
+
+	/**
+	 * Filter the default arguments used to display a post author.
+	 *
+	 * @since 4.0.0
+	 * @param array $args Array of arguments.
+	 */
+	$defaults = apply_filters( 'cherry_get_the_post_author_args', array(
+		'before' => '',
+		'after'  => '',
+	), $post_id, $post_type );
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$author = sprintf( '<a class="url fn n" rel="author" href="%1$s" title="%2$s">%3$s</a>',
+		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+		esc_attr( get_the_author_meta( 'display_name' ) ),
+		get_the_author_meta( 'display_name' )
+	);
+
+	$output = '<span class="author vcard">' . $args['before'] . $author . $args['after'] . '</span>';
+
+	return apply_filters( 'cherry_get_the_post_author', $output, $args );
+}
+
+/**
+ * Display a post's number of comments.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_comments( $args ) {
+	echo cherry_get_the_post_comments( $args );
+}
+
+/**
+ * Retrieve a post's number of comments.
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_comments( $args ) {
+	$post_id   = get_the_ID();
+	$post_type = get_post_type( $post_id );
+
+	if ( !post_type_supports( $post_type, 'comments' ) ) {
+		return;
+	}
+
+	/**
+	 * Filter the default arguments used to display a post author.
+	 *
+	 * @link https://codex.wordpress.org/Function_Reference/comments_number
+	 *
+	 * @since 4.0.0
+	 * @param array $args Array of arguments.
+	 */
+	$defaults = apply_filters( 'cherry_get_the_post_comments_defaults', array(
+		'zero'      => false,
+		'one'       => false,
+		'more'      => false,
+		'before'    => '',
+		'after'     => '',
+	), $post_id, $post_type );
+
+	$args = wp_parse_args( $args, $defaults );
+
+	if ( !comments_open() ) {
+		return;
+	}
+
+	if ( false === $args['zero'] ) {
+		return;
+	}
+
+	ob_start();
+	comments_number( $args['zero'], $args['one'], $args['more'] );
+	$comments = ob_get_clean();
+	$comments = sprintf( '<a href="%s">%s</a>', get_comments_link(), $comments );
+	$output   = '<span class="comments-link">' . $args['before'] . $comments . $args['after'] . '</span>';
+
+	return apply_filters( 'cherry_get_the_post_comments', $output, $args );
+}
+
+/**
+ * Retrieve a post's taxonomy.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_taxonomy( $args ) {
+	echo cherry_get_the_post_taxonomy( $args );
+}
+
+/**
+ * Retrieve a post's taxonomy.
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_taxonomy( $args ) {
+	$post_id   = get_the_ID();
+	$post_type = get_post_type( $post_id );
+
+	/**
+	 * Filter the arguments used to display a post taxonomy.
+	 *
+	 * @since 4.0.0
+	 * @param array $args Array of arguments.
+	 */
+	$defaults = apply_filters( 'cherry_get_the_post_taxonomy_defaults', array(
+		'name'      => 'category',
+		'separator' => ', ',
+		'before'    => '',
+		'after'     => '',
+		'class'     => '',
+	), $post_id, $post_type );
+
+	$args     = wp_parse_args( $args, $defaults );
+	$taxonomy = explode( ' ', $args['name'] );
+
+	/**
+	 * Retrieve the terms for a post.
+	 *
+	 * @link https://codex.wordpress.org/Function_Reference/wp_get_post_terms
+	 */
+	$terms = wp_get_post_terms( $post_id, $taxonomy );
+
+	if ( is_wp_error( $terms ) ) {
+		return;
+	}
+
+	if ( empty( $terms ) ) {
+		return;
+	}
+
+	$output_data = array();
+	foreach ( $terms as $term ) {
+		$output_data[] = sprintf( '<a href="%1$s">%2$s</a>',
+			esc_url( get_term_link( $term->slug, $term->taxonomy ) ),
+			esc_attr( $term->name )
+		);
+	}
+
+	$output = sprintf( '<span class="post-tax post-tax-%1$s">%2$s</span>',
+		sanitize_html_class( $args['class'] ),
+		join( $args['separator'], $output_data )
+	);
+
+	$output = $args['before'] . $output . $args['after'];
+
+	return apply_filters( 'cherry_get_the_post_taxonomy', $output, $args );
 }
 
 /**
@@ -346,24 +609,22 @@ function cherry_get_post_format_url( $post = null ) {
 }
 
 /**
+ * Display featured image for post format image.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_image( $args ) {
+	echo cherry_get_the_post_image( $args );
+}
+
+/**
  * Get featured image for post format image.
  * If has post thumbnail - will get post thumbnail, else - get first image from content
  *
  * @since  4.0.0
- *
  * @return string
  */
-function cherry_get_the_post_format_image() {
-
-	if ( 'image' != get_post_format() ) {
-		return;
-	}
-
-	// show nothing on single page if image not from featured
-	if ( is_single() && ! cherry_has_post_thumbnail() ) {
-		return;
-	}
-
+function cherry_get_the_post_image( $args ) {
 	/**
 	 * Filter post format image output to rewrite image from child theme or plugins
 	 * @since  4.0.0
@@ -374,22 +635,24 @@ function cherry_get_the_post_format_image() {
 		return $result;
 	}
 
-	$defaults = array(
+	$post_id   = get_the_ID();
+	$post_type = get_post_type( $post_id );
+
+	/**
+	 * Filter the default arguments used to display a post image.
+	 *
+	 * @since 4.0.0
+	 * @param array $defaults Array of arguments.
+	 */
+	$defaults = apply_filters( 'cherry_get_the_post_image_defaults', array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
 		'size'            => 'slider-post-thumbnail',
 		'before'          => '',
 		'after'           => '',
-		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s_link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
-	);
+		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s-link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
+	), $post_id, $post_type );
 
-	/**
-	 * Filter the arguments used to display a post image.
-	 *
-	 * @since 4.0.0
-	 * @param array $args Array of arguments.
-	 */
-	$args = apply_filters( 'cherry_get_the_post_image_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
 	$default_init = array(
@@ -407,12 +670,11 @@ function cherry_get_the_post_format_image() {
 
 	$init = json_encode( $init );
 
-	if ( cherry_has_post_thumbnail() ) {
+	if ( cherry_has_post_thumbnail( $post_id ) ) {
 
-		$post_id   = get_the_id();
-		$thumb     = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['container_class'] . '_img' ) );
-		$thumb     = $args['before'] . $thumb . $args['after'];
-		$url       = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
+		$thumb = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['container_class'] . '-img' ) );
+		$thumb = $args['before'] . $thumb . $args['after'];
+		$url   = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
 
 	} else {
 
@@ -420,9 +682,10 @@ function cherry_get_the_post_format_image() {
 
 		if ( ! $img || empty( $img ) || empty( $img[0] ) ) {
 			return false;
+
 		} elseif ( is_int( $img[0] ) ) {
 
-			$thumb = wp_get_attachment_image( $img[0], $args['size'], '', array( 'class' => $args['container_class'] . '_img' ) );
+			$thumb = wp_get_attachment_image( $img[0], $args['size'], '', array( 'class' => $args['container_class'] . '-img' ) );
 			$thumb = $args['before'] . $thumb . $args['after'];
 			$url   = wp_get_attachment_url( $img[0] );
 
@@ -430,11 +693,11 @@ function cherry_get_the_post_format_image() {
 
 			global $_wp_additional_image_sizes;
 
-			if ( ! isset( $_wp_additional_image_sizes[$args['size']] ) ) {
+			if ( ! isset( $_wp_additional_image_sizes[ $args['size'] ] ) ) {
 				return false;
 			}
 
-			$thumb = '<img src="' . esc_url( $img[0] ) . '" class="' . $args['container_class'] . '_img" width="' . $_wp_additional_image_sizes[$args['size']]['width'] . '">';
+			$thumb = '<img src="' . esc_url( $img[0] ) . '" class="' . $args['container_class'] . '-img" width="' . $_wp_additional_image_sizes[ $args['size'] ]['width'] . '">';
 			$thumb = $args['before'] . $thumb . $args['after'];
 			$url   = $img[0];
 
@@ -446,22 +709,21 @@ function cherry_get_the_post_format_image() {
 		$args['container'], $args['container_class'], $thumb, $url, $init
 	);
 
-	return $result;
-
-}
-
-/**
- * Display featured image for post format image.
- *
- * @since 4.0.0
- */
-function cherry_the_post_format_image() {
 	/**
-	 * Filter featured image for post format image.
+	 * Filter featured image.
 	 *
 	 * @since 4.0.0
 	 */
-	echo apply_filters( 'cherry_the_post_format_image', cherry_get_the_post_format_image() );
+	return apply_filters( 'cherry_get_the_post_image', $result, $args );
+}
+
+/**
+ * Display featured gallery.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_gallery() {
+	echo cherry_get_the_post_gallery();
 }
 
 /**
@@ -472,16 +734,7 @@ function cherry_the_post_format_image() {
  *
  * @return string
  */
-function cherry_get_the_post_format_gallery() {
-
-	if ( 'gallery' != get_post_format() ) {
-		return;
-	}
-
-	if ( is_single() ) {
-		return;
-	}
-
+function cherry_get_the_post_gallery() {
 	/**
 	 * Filter post format gallery output to rewrite gallery from child theme or plugins
 	 * @since  4.0.0
@@ -492,12 +745,12 @@ function cherry_get_the_post_format_gallery() {
 		return $result;
 	}
 
-	$post_id = get_the_id();
+	$post_id = get_the_ID();
 
 	// first - try to get images from galleries in post
 	$shortcode_replaced = cherry_get_option( 'blog-gallery-shortcode', 'true' );
-	$is_html = ( 'true' == $shortcode_replaced ) ? true : false;
-	$post_gallery = get_post_gallery( $post_id, $is_html );
+	$is_html            = ( 'true' == $shortcode_replaced ) ? true : false;
+	$post_gallery       = get_post_gallery( $post_id, $is_html );
 
 	// if stanadrd gallery shortcode replaced with cherry - return HTML
 	if ( is_string( $post_gallery ) && ! empty( $post_gallery ) ) {
@@ -511,7 +764,6 @@ function cherry_get_the_post_format_gallery() {
 	} else {
 		$post_gallery = false;
 	}
-
 
 	// if can't try to catch images inserted into post
 	if ( ! $post_gallery ) {
@@ -529,8 +781,8 @@ function cherry_get_the_post_format_gallery() {
 			'post_mime_type' => 'image',
 		) );
 
-		if ( $attachments && is_array($attachments) ) {
-			$post_gallery = array_keys($attachments);
+		if ( $attachments && is_array( $attachments ) ) {
+			$post_gallery = array_keys( $attachments );
 		}
 	}
 
@@ -538,23 +790,16 @@ function cherry_get_the_post_format_gallery() {
 		return false;
 	}
 
-	$result = cherry_get_gallery_html( $post_gallery );
+	$output = cherry_get_gallery_html( $post_gallery );
 
-	return $result;
-}
-
-/**
- * Display featured gallery for post format gallery.
- *
- * @since 4.0.0
- */
-function cherry_the_post_format_gallery() {
 	/**
 	 * Filter featured image for post format image.
 	 *
 	 * @since 4.0.0
 	 */
-	echo apply_filters( 'cherry_the_post_format_gallery', cherry_get_the_post_format_gallery() );
+	$output = apply_filters( 'cherry_get_the_post_gallery', $output );
+
+	return $output;
 }
 
 /**
@@ -562,7 +807,7 @@ function cherry_the_post_format_gallery() {
  * @param  array  $atts shortcode atts
  * @return string       gallery HTML
  */
-function cherry_gallery_shortcode( $result, $attr, $instance ) {
+function cherry_gallery_shortcode( $result, $attr ) {
 
 	$replace_allowed = cherry_get_option( 'blog-gallery-shortcode', 'true' );
 
@@ -574,8 +819,7 @@ function cherry_gallery_shortcode( $result, $attr, $instance ) {
 	 * Filter gallery output
 	 * @since  4.0.0
 	 */
-	$result = apply_filters( 'cherry_pre_get_gallery_shortcode', false, $attr, $instance );
-
+	$result = apply_filters( 'cherry_pre_get_gallery_shortcode', false, $attr );
 
 	$post = get_post();
 
@@ -636,7 +880,6 @@ function cherry_gallery_shortcode( $result, $attr, $instance ) {
 	$result = cherry_get_gallery_html( $attachments );
 
 	return $result;
-
 }
 
 /**
@@ -771,7 +1014,7 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 		$image_src = esc_url( $matches[1][$i] );
 		$image_src = preg_replace( '/^(.+)(-\d+x\d+)(\..+)$/', '$1$3', $image_src );
 
-		// try to get current iamge ID
+		// try to get current image ID
 		$query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
 		$id = $wpdb->get_var( $query );
 
@@ -784,27 +1027,26 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 	}
 
 	return $result;
-
 }
 
 /**
- * Get featured video for video post format from post content.
- * Returns first finded video, iframe, object or embed tag in content
+ * Show featured video.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_video() {
+	echo cherry_get_the_post_video();
+}
+
+/**
+ * Get featured video.
+ * Returns first finded video, iframe, object or embed tag in content.
  *
  * @since 4.0.0
  */
 function cherry_get_the_post_video() {
-
-	if ( 'video' !== get_post_format() ) {
-		return;
-	}
-
-	if ( is_single() ) {
-		return;
-	}
-
 	/**
-	 * Filter post format video output to rewrite video from child theme or plugins
+	 * Filter post format video output to rewrite video from child theme or plugins.
 	 * @since  4.0.0
 	 */
 	$result = apply_filters( 'cherry_pre_get_post_video', false );
@@ -813,82 +1055,51 @@ function cherry_get_the_post_video() {
 		return $result;
 	}
 
-	$content = get_the_content();
-
-	$embeds = get_media_embedded_in_content(
-		apply_filters( 'the_content', $content ),
-		array( 'video', 'object', 'embed', 'iframe' )
-	);
+	$content = apply_filters( 'the_content', get_the_content() );
+	$types   = array( 'video', 'object', 'embed', 'iframe' );
+	$embeds  = get_media_embedded_in_content( $content, $types );
 
 	if ( empty( $embeds ) ) {
 		return;
 	}
 
-	global $_wp_additional_image_sizes;
-
-	// get vdeo dimensions by equal image size
-	$embed_size = apply_filters( 'cherry_post_video_size', 'slider-post-thumbnail' );
-
-	if ( ! empty( $_wp_additional_image_sizes[$embed_size] ) ) {
-		$width  = $_wp_additional_image_sizes[$embed_size]['width'];
-		$height = $_wp_additional_image_sizes[$embed_size]['height'];
-	} elseif ( ! empty( $_wp_additional_image_sizes[$embed_size] ) ) {
-		$width  = $_wp_additional_image_sizes['slider-post-thumbnail']['width'];
-		$height = $_wp_additional_image_sizes['slider-post-thumbnail']['height'];
-	} else {
-		$width  = 1025;
-		$height = 500;
+	foreach ( $types as $tag ) {
+		if ( preg_match( "/<{$tag}[^>]*>(.*?)<\/{$tag}>/", $embeds[0], $matches ) ) {
+			$result = $matches[0];
+			break;
+		}
 	}
 
-	$embed_html = $embeds[0];
+	if ( false === $result ) {
+		return;
+	}
 
-	$reg = '';
-	$patterns = array(
-		'/width=[\'|"]\d+[\'|"]/i',
-		'/height=[\'|"]\d+[\'|"]/i'
-	);
+	$result = sprintf( '<div class="entry-video embed-responsive embed-responsive-16by9">%s</div>', $result );
 
-	$replacements = array(
-		'width="' . $width . '"',
-		'height="' . $height . '"'
-	);
-
-	$result = preg_replace( $patterns, $replacements, $embed_html );
-
-	return $result;
-
-}
-
-/**
- * Show featured video for video post format
- *
- * @since 4.0.0
- */
-function cherry_the_post_video() {
 	/**
-	 * Filter featured video for post format video.
+	 * Filter featured video.
 	 *
 	 * @since 4.0.0
 	 */
-	echo apply_filters( 'cherry_the_post_video', cherry_get_the_post_video() );
+	return apply_filters( 'cherry_get_the_post_video', $result );
 }
 
 /**
- * Get featured audio for audio post format from post content.
- * Returns first finded audio tag in page content
+ * Show featured audio.
+ *
+ * @since 4.0.0
+ */
+function cherry_the_post_audio() {
+	echo cherry_get_the_post_audio();
+}
+
+/**
+ * Get featured audio.
+ * Returns first finded audio tag in page content.
  *
  * @since 4.0.0
  */
 function cherry_get_the_post_audio() {
-
-	if ( 'audio' !== get_post_format() ) {
-		return;
-	}
-
-	if ( is_single() ) {
-		return;
-	}
-
 	/**
 	 * Filter post format audio output to rewrite audio from child theme or plugins
 	 * @since  4.0.0
@@ -900,25 +1111,20 @@ function cherry_get_the_post_audio() {
 	}
 
 	$content = get_the_content();
+	$embeds  = get_media_embedded_in_content( apply_filters( 'the_content', $content ), array( 'audio' ) );
 
-	$embeds = get_media_embedded_in_content( apply_filters( 'the_content', $content ), array( 'audio' ) );
-
-	if ( ! empty( $embeds ) ) {
-		return $embeds[0];
+	if ( empty( $embeds ) ) {
+		return;
 	}
 
-}
+	if ( false == preg_match( '/<audio[^>]*>(.*?)<\/audio>/', $embeds[0], $matches ) ) {
+		return;
+	}
 
-/**
- * Show featured audio for audio post format
- *
- * @since 4.0.0
- */
-function cherry_the_post_audio() {
 	/**
-	 * Filter featured audio for post format audio.
+	 * Filter featured audio.
 	 *
 	 * @since 4.0.0
 	 */
-	echo apply_filters( 'cherry_the_post_audio', cherry_get_the_post_audio() );
+	return apply_filters( 'cherry_get_the_post_audio', $matches[0] );
 }

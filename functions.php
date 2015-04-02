@@ -13,7 +13,7 @@ require_once( trailingslashit( get_template_directory() ) . 'lib/class-cherry-fr
 new Cherry_Framework();
 
 // Sets up theme defaults and registers support for various WordPress features.
-add_action( 'after_setup_theme', 'cherry_theme_setup' );
+add_action( 'after_setup_theme', 'cherry_theme_setup', 10 );
 function cherry_theme_setup() {
 
 	// Load files.
