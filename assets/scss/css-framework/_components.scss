@@ -51,11 +51,6 @@ th {
   > tbody + tbody {
     border-top: 2px solid $table-border-color;
   }
-
-  // Nesting
-  .table {
-    background-color: $body-bg;
-  }
 }
 
 

@@ -11,16 +11,15 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-add_action( 'cherry_post',             'cherry_get_content_template' );
-add_action( 'cherry_page',             'cherry_get_content_template' );
-add_action( 'cherry_content_template', 'cherry_content_template' );
+// Loads a post content template based.
+add_action( 'cherry_post', 'cherry_get_content_template' );
+add_action( 'cherry_page', 'cherry_get_content_template' );
 
-// add_action( 'cherry_get_sidebar',        'cherry_get_sidebar_template' );
-// add_action( 'cherry_get_footer_sidebar', 'cherry_get_sidebar_template' );
+// Loads template for comments.
+add_action( 'cherry_get_comments', 'cherry_get_comments_template' );
 
-add_action( 'cherry_get_comments',       'cherry_get_comments_template' );
-
-add_action( 'cherry_loop_empty',         'cherry_noposts' );
+// Loads template if no posts were found.
+add_action( 'cherry_loop_empty', 'cherry_noposts' );
 
 /**
  * This is a replacement function for the WordPress `get_header()` function.
@@ -79,7 +78,7 @@ function cherry_get_footer( $name = null ) {
  */
 function cherry_get_content() {
 	do_action( 'cherry_content_before' );
-	include cherry_template_path();
+	include apply_filters( 'cherry_get_content', cherry_template_path() );
 	do_action( 'cherry_content' );
 	do_action( 'cherry_content_after' );
 }
@@ -118,13 +117,13 @@ function cherry_get_content_template() {
 	// Allow devs to filter the content template hierarchy.
 	$templates = apply_filters( 'cherry_content_template_hierarchy', $templates );
 
-	do_action( 'cherry_content_template', $templates );
+	cherry_content_template( $templates );
 }
 
 function cherry_content_template( $templates ) {
 	ob_start();
 
-	include( locate_template( $templates, false, false ) );
+	include( apply_filters( 'cherry_content_template', locate_template( $templates, false, false ) ) );
 
 	$template = ob_get_contents();
 	ob_end_clean();
@@ -287,5 +286,5 @@ function cherry_get_comments_template() {
  * @since  4.0.0
  */
 function cherry_noposts() {
-	get_template_part( 'content/none' );
+	get_template_part( 'templates/none' );
 }

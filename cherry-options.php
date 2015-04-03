@@ -1201,9 +1201,9 @@ function cherry_defaults_settings() {
 
 	$styling_options = array();
 	//background image
-	$styling_options['styling-main-content-background'] = array(
+	$styling_options['styling-body-content-background'] = array(
 				'type'			=> 'background',
-				'title'			=> 'title background',
+				'title'			=> 'Body background',
 				'label'			=> 'set default background',
 				'hint'      	=>  array(
 					'type'		=> 'text',
@@ -1213,13 +1213,13 @@ function cherry_defaults_settings() {
 				'library_type'		=> 'image',
 				'value'				=> array(
 					'image'	=> '',
-					'color'	=> '#ff0000',
+					'color'	=> '#FFFFFF',
 					'repeat'	=> 'repeat',
 					'position'	=> 'left',
 					'attachment'=> 'fixed'
 				)
 	);
-	$styling_options['styling-main-background-full-scale'] = array(
+	$styling_options['styling-body-background-full-scale'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'Full scale background',
 				'label'			=> 'Enable / Disable',
@@ -1230,7 +1230,7 @@ function cherry_defaults_settings() {
 				'value'			=> 'true',
 				'default_value'	=> 'true'
 	);
-	$styling_options['styling-main-parallax-background'] = array(
+	$styling_options['styling-body-parallax-background'] = array(
 				'type'			=> 'switcher',
 				'title'			=> 'Parallax background',
 				'label'			=> 'Enable / Disable',
@@ -1242,7 +1242,7 @@ function cherry_defaults_settings() {
 				'value'			=> 'true',
 				'default_value'	=> 'true'
 	);
-	$styling_options['styling-main-background-pattern'] = array(
+	$styling_options['styling-body-background-pattern'] = array(
 				'type'			=> 'radio',
 				'title'			=> 'background pattern',
 				'label'			=> 'select one of them',
@@ -1353,8 +1353,8 @@ function cherry_defaults_settings() {
 				'type'		=> 'text',
 				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
 			),
-			'value'			=> '#286090',
-			'default_value'	=> '#286090'
+			'value'			=> '#f62e46',
+			'default_value'	=> '#f62e46'
 	);
 	$color_options['color-secondary'] = array(
 			'type'			=> 'colorpicker',
@@ -1553,10 +1553,10 @@ function cherry_defaults_settings() {
 			'label'			=> '',
 			'decsription'	=> 'decsription typography',
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> '343434',
-				'family'		=> 'Abril Fatface',
+				'size'			=> '14',
+				'lineheight'	=> '25',
+				'color'			=> '777777',
+				'family'		=> 'Roboto',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
 				'letterspacing' => '0',
@@ -1624,12 +1624,12 @@ function cherry_defaults_settings() {
 			'label'			=> '',
 			'decsription'	=> 'Font settings for H1',
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> 'grey',
+				'size'			=> '36',
+				'lineheight'	=> '40',
+				'color'			=> '333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
+				'style'			=> 'normal',
 				'letterspacing' => '0',
 				'align'			=> 'notdefined'
 			)
@@ -1640,14 +1640,14 @@ function cherry_defaults_settings() {
 			'label'			=> '',
 			'decsription'	=> 'Font settings for H1',
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> 'grey',
-				'family'		=> 'Abril Fatface',
+				'size'			=> '30',
+				'lineheight'	=> '33',
+				'color'			=> '333333',
+				'family'		=> 'Roboto',
 				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
+				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'notdefined'
+				'align'			=> 'right'
 			)
 	);
 	$typography_options['typography-h3'] = array(
@@ -1656,14 +1656,14 @@ function cherry_defaults_settings() {
 			'label'			=> '',
 			'decsription'	=> 'Font settings for H3',
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> 'grey',
+				'size'			=> '24',
+				'lineheight'	=> '26',
+				'color'			=> '333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
+				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'notdefined'
+				'align'			=> 'left'
 			)
 	);
 	$typography_options['typography-h4'] = array(
@@ -1672,14 +1672,14 @@ function cherry_defaults_settings() {
 			'label'			=> '',
 			'decsription'	=> 'Font settings for H4',
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> 'grey',
+				'size'			=> '18',
+				'lineheight'	=> '20',
+				'color'			=> '333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
+				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'notdefined'
+				'align'			=> 'right'
 			)
 	);
 	$typography_options['typography-h5'] = array(
@@ -1688,12 +1688,12 @@ function cherry_defaults_settings() {
 			'label'			=> '',
 			'decsription'	=> 'Font settings for H5',
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> 'grey',
+				'size'			=> '14',
+				'lineheight'	=> '16',
+				'color'			=> '333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
+				'style'			=> 'normal',
 				'letterspacing' => '0',
 				'align'			=> 'notdefined'
 			)
@@ -1704,12 +1704,12 @@ function cherry_defaults_settings() {
 			'label'			=> '',
 			'decsription'	=> 'Font settings for H6',
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> 'grey',
+				'size'			=> '12',
+				'lineheight'	=> '14',
+				'color'			=> '333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
+				'style'			=> 'normal',
 				'letterspacing' => '0',
 				'align'			=> 'notdefined'
 			)

@@ -92,7 +92,8 @@ function cherry_esc_value( $array, $key, $default = false ) {
 		return $default;
 	}
 
-	if ( ! empty( $array[$key] ) ) {
+	if ( isset( $array[$key] ) ) {
+
 		return $array[$key];
 	}
 

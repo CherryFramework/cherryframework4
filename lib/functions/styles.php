@@ -200,6 +200,7 @@ function cherry_get_css_varaibles() {
 		'color-warning',
 		'color-danger',
 		'color-gray-variations',
+		'styling-body-content-background',
 		'typography-body-text',
 		'typography-link',
 		'typography-input-text',

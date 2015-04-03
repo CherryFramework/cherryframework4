@@ -51,10 +51,9 @@ function cherry_has_post_thumbnail( $post_id = null ) {
 
 	if ( $thumbnail_support && has_post_thumbnail( $post_id ) ) {
 		return true;
-	} else {
-		return false;
 	}
 
+	return false;
 }
 
 /**
@@ -85,7 +84,9 @@ function cherry_get_the_post_thumbnail( $args ) {
 	 * Filter the default arguments used to display a post thumbnail.
 	 *
 	 * @since 4.0.0
-	 * @param array $args Array of arguments.
+	 * @param array  $args      Array of arguments.
+	 * @param int    $post_id   The post ID.
+	 * @param string $post_type The post type of the current post.
 	 */
 	$defaults = apply_filters( 'cherry_get_the_post_thumbnail_defaults', array(
 		'container'       => 'figure',
@@ -94,7 +95,7 @@ function cherry_get_the_post_thumbnail( $args ) {
 		'class'           => '',
 		'before'          => '',
 		'after'           => '',
-		'wrap'            => is_singular( $post_type ) ? '<%1$s class="%2$s">%3$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" title="%4$s">%5$s</a></%1$s>',
+		'wrap'            => is_singular( $post_type ) ? '<%1$s class="%2$s">%5$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" title="%4$s">%5$s</a></%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -110,27 +111,14 @@ function cherry_get_the_post_thumbnail( $args ) {
 	$thumbnail = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['class'] ) );
 	$thumbnail = $args['before'] . $thumbnail . $args['after'];
 
-	if ( is_singular( $post_type ) ) {
-
-		$output = sprintf(
-			$args['wrap'],
-			tag_escape( $args['container'] ),
-			esc_attr( $args['container_class'] ),
-			$thumbnail
-		);
-
-	} else {
-
-		$output = sprintf(
-			$args['wrap'],
-			tag_escape( $args['container'] ),
-			esc_attr( $args['container_class'] ),
-			esc_url( get_permalink( $post_id ) ),
-			esc_attr( the_title_attribute( 'echo=0' ) ),
-			$thumbnail
-		);
-
-	}
+	$output = sprintf(
+		$args['wrap'],
+		tag_escape( $args['container'] ),
+		esc_attr( $args['container_class'] ),
+		get_permalink( $post_id ),
+		esc_attr( the_title_attribute( 'echo=0' ) ),
+		$thumbnail
+	);
 
 	/**
 	 * Filter the retrieved post thumbnail.
@@ -141,60 +129,50 @@ function cherry_get_the_post_thumbnail( $args ) {
 }
 
 /**
- * Display the post header.
+ * Display the post title.
  *
  * @since 4.0.0
  */
-function cherry_the_post_header( $args ) {
-	echo cherry_get_the_post_header( $args );
+function cherry_the_post_title( $args ) {
+	echo cherry_get_the_post_title( $args );
 }
 
 /**
- * Retrieve the post header.
+ * Retrieve the post title.
  *
  * @since 4.0.0
  */
-function cherry_get_the_post_header( $args ) {
+function cherry_get_the_post_title( $args ) {
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
 	/**
-	 * Filter the default arguments used to display a post header.
+	 * Filter the default arguments used to display a post title.
 	 *
 	 * @since 4.0.0
 	 * @param array  $args      Array of arguments.
 	 * @param int    $post_id   The post ID.
 	 * @param string $post_type The post type of the current post.
 	 */
-	$defaults = apply_filters( 'cherry_get_the_post_header_defaults', array(
+	$defaults = apply_filters( 'cherry_get_the_post_title_defaults', array(
 		'tag'    => 'h2',
 		'class'  => '',
 		'url'    => 'permalink',
-		'before' => '',
-		'after'  => '',
-		'wrap'   => is_singular( $post_type ) ? '<header class="entry-header"><%1$s class="%2$s">%4$s</%1$s></header>' : '<header class="entry-header"><%1$s class="%2$s"><a href="%3$s" rel="bookmark">%4$s</a></%1$s></header>',
+		'before' => '<header class="entry-header">',
+		'after'  => '</header>',
+		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s">%4$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" rel="bookmark">%4$s</a></%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
-
 	$args['class'] .= ' entry-title';
 
-	if ( is_singular( $post_type ) ) :
-
-		$post_title = single_post_title( '', false );
-
-	else :
-
-		$post_title = the_title( '', '', false );
-
-	endif;
+	$post_title = is_singular( $post_type ) ? single_post_title( '', false ) :  the_title( '', '', false );
 
 	if ( empty( $post_title ) ) {
 		return;
 	}
 
-	$title = $args['before'] . $post_title . $args['after'];
-	$url   = ( $args['url'] ) ? $args['url'] : $defaults['url'];
+	$url = ( $args['url'] ) ? $args['url'] : $defaults['url'];
 
 	if ( 'permalink' == $url ) {
 		$url = get_permalink( $post_id );
@@ -205,21 +183,24 @@ function cherry_get_the_post_header( $args ) {
 		tag_escape( $args['tag'] ),
 		esc_attr( trim( $args['class'] ) ),
 		esc_url( $url ),
-		$title
+		$post_title
 	);
 
+	$output = $args['before'] . $output . $args['after'];
+
 	/**
-	 * Filter the displayed post header.
+	 * Filter the displayed post title.
 	 *
 	 * @since 4.0.0
 	 */
-	return apply_filters( 'cherry_get_the_post_header', $output, $args );
+	return apply_filters( 'cherry_get_the_post_title', $output, $args );
 }
 
 /**
  * Display the post content.
  *
  * @since 4.0.0
+ * @param array $args
  */
 function cherry_the_post_content( $args ) {
 	global $post;
@@ -231,31 +212,39 @@ function cherry_the_post_content( $args ) {
 	$post_id   = $post->ID;
 	$post_type = $post->post_type;
 
+	/**
+	 * Filter the default arguments used to display a post content.
+	 *
+	 * @since 4.0.0
+	 * @param array  $args      Array of arguments.
+	 * @param int    $post_id   The post ID.
+	 * @param string $post_type The post type of the current post.
+	 */
 	$defaults = apply_filters( 'cherry_the_post_content_defaults', array(
-		'type'            => 'full',
-		'container_class' => 'entry-content',
-		'before'          => '',
-		'after'           => '',
+		'type'   => 'full',
+		'class'  => 'entry-content',
+		'before' => '',
+		'after'  => '',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
 
-	printf( '<div class="%1$s">%2$s', esc_attr( $args['container_class'] ), $args['before'] );
+	printf( '<div class="%1$s">%2$s', esc_attr( $args['class'] ), $args['before'] );
 
-		if ( 'full' == $args['type'] ) {
-			the_content( '' );
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'cherry' ),
-				'after'  => '</div>',
-			) );
+	if ( 'full' == $args['type'] ) {
+		the_content( '' );
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . __( 'Pages:', 'cherry' ),
+			'after'  => '</div>',
+		) );
 
-		} elseif ( 'part' == $args['type'] ) {
-			$content = strip_shortcodes( get_the_content( '' ) );
-			$content = apply_filters( 'the_content', $content );
-			$content = str_replace( ']]>', ']]&gt;', $content );
-			$content = wp_trim_words( $content, 55, '' ); // need option.
-			echo $content;
-		}
+	} elseif ( 'part' == $args['type'] ) {
+		$content = strip_shortcodes( get_the_content( '' ) );
+		$content = apply_filters( 'the_content', $content );
+		$content = str_replace( ']]>', ']]&gt;', $content );
+		$content = wp_trim_words( $content, 55, '' ); // need option.
+		echo $content;
+	}
 
 	printf( '%s</div>', $args['after'] );
 }
@@ -264,6 +253,7 @@ function cherry_the_post_content( $args ) {
  * Retrieve the post content.
  *
  * @since 4.0.0
+ * @param array $args
  */
 function cherry_get_the_post_content( $args ) {
 	ob_start();
@@ -278,6 +268,7 @@ function cherry_get_the_post_content( $args ) {
  * Display the post excerpt.
  *
  * @since 4.0.0
+ * @param array $args
  */
 function cherry_the_post_excerpt( $args ) {
 	global $post;
@@ -289,15 +280,23 @@ function cherry_the_post_excerpt( $args ) {
 	$post_id   = $post->ID;
 	$post_type = $post->post_type;
 
+	/**
+	 * Filter the default arguments used to display a post excerpt.
+	 *
+	 * @since 4.0.0
+	 * @param array  $args      Array of arguments.
+	 * @param int    $post_id   The post ID.
+	 * @param string $post_type The post type of the current post.
+	 */
 	$defaults = apply_filters( 'cherry_the_post_excerpt_defaults', array(
-		'container_class' => 'entry-summary',
-		'before'          => '',
-		'after'           => '',
+		'class'  => 'entry-summary',
+		'before' => '',
+		'after'  => '',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
 
-	printf( '<div class="%1$s">%2$s', esc_attr( $args['container_class'] ), $args['before'] );
+	printf( '<div class="%1$s">%2$s', esc_attr( $args['class'] ), $args['before'] );
 		the_excerpt();  // need option `excerpt_length` (https://codex.wordpress.org/Function_Reference/the_excerpt)
 	printf( '%s</div>', $args['after'] );
 }
@@ -306,6 +305,7 @@ function cherry_the_post_excerpt( $args ) {
  * Retrieve the post excerpt.
  *
  * @since 4.0.0
+ * @param array $args
  */
 function cherry_get_the_post_excerpt( $args ) {
 	ob_start();
@@ -320,6 +320,7 @@ function cherry_get_the_post_excerpt( $args ) {
  * Display the post button.
  *
  * @since 4.0.0
+ * @param array $args
  */
 function cherry_the_post_button( $args ) {
 	echo cherry_get_the_post_button( $args );
@@ -329,23 +330,30 @@ function cherry_the_post_button( $args ) {
  * Retrieve the post button.
  *
  * @since 4.0.0
+ * @param array $args
  */
 function cherry_get_the_post_button( $args ) {
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
+	if ( is_singular( $post_type ) ) {
+		return;
+	}
+
 	/**
 	 * Filter the default arguments used to display a post button.
 	 *
 	 * @since 4.0.0
-	 * @param array $args Array of arguments.
+	 * @param array  $args      Array of arguments.
+	 * @param int    $post_id   The post ID.
+	 * @param string $post_type The post type of the current post.
 	 */
 	$defaults = apply_filters( 'cherry_get_the_post_button_defaults', array(
-		'before' => '',
-		'after'  => '',
-		'class'  => '',
+		'before' => '<div class="entry-permalink">',
+		'after'  => '</div>',
+		'class'  => 'btn btn-default',
 		'wrap'   => '<a href="%1$s" class="%2$s">%3$s</a>',
-		'text'   => '',
+		'text'   => 'read more', // need option
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -357,276 +365,32 @@ function cherry_get_the_post_button( $args ) {
 		esc_html( $args['text'] )
 	);
 
-	return $output;
-}
-
-/**
- * Display the post date.
- *
- * @since 4.0.0
- */
-function cherry_the_post_date( $args ) {
-	echo cherry_get_the_post_date( $args );
-}
-
-/**
- * Retrieve the post date.
- *
- * @since 4.0.0
- */
-function cherry_get_the_post_date( $args ) {
-	$post_id   = get_the_ID();
-	$post_type = get_post_type( $post_id );
-
-	/**
-	 * Filter the default arguments used to display a post date.
-	 *
-	 * @since 4.0.0
-	 * @param array $args Array of arguments.
-	 */
-	$defaults = apply_filters( 'cherry_get_the_post_date_defaults', array(
-		'before'     => '',
-		'after'      => '',
-		'format'     => get_option( 'date_format' ),
-		'human_time' => '', // `%s ago`
-	), $post_id, $post_type );
-
-	$args = wp_parse_args( $args, $defaults );
-
-	// If $human_time is passed in, allow for '%s ago' where '%s' is the return value of human_time_diff().
-	if ( !empty( $args['human_time'] ) ) :
-
-		$time = sprintf( $args['human_time'], human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
-
-	else : // Else, just grab the time based on the format.
-
-		$time = get_the_time( $args['format'] );
-
-	endif;
-
-	$output = '<span class="posted-on">' . $args['before'] . '<time class="entry-date published" datetime="' . get_the_time( 'Y-m-d\TH:i:sP' ) . '">' . $time . '</time>' . $args['after'] . '</span>';
-
-	return apply_filters( 'cherry_get_the_post_date', $output, $args );
-}
-
-/**
- * Display an individual post's author with a link to his or her archive.
- *
- * @since 4.0.0
- */
-function cherry_the_post_author( $args ) {
-	echo cherry_get_the_post_author( $args );
-}
-
-/**
- * Retrieve an individual post's author with a link to his or her archive.
- *
- * @since 4.0.0
- */
-function cherry_get_the_post_author( $args ) {
-	$post_id   = get_the_ID();
-	$post_type = get_post_type( $post_id );
-
-	/**
-	 * Filter the default arguments used to display a post author.
-	 *
-	 * @since 4.0.0
-	 * @param array $args Array of arguments.
-	 */
-	$defaults = apply_filters( 'cherry_get_the_post_author_args', array(
-		'before' => '',
-		'after'  => '',
-	), $post_id, $post_type );
-
-	$args = wp_parse_args( $args, $defaults );
-
-	$author = sprintf( '<a class="url fn n" rel="author" href="%1$s" title="%2$s">%3$s</a>',
-		esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-		esc_attr( get_the_author_meta( 'display_name' ) ),
-		get_the_author_meta( 'display_name' )
-	);
-
-	$output = '<span class="author vcard">' . $args['before'] . $author . $args['after'] . '</span>';
-
-	return apply_filters( 'cherry_get_the_post_author', $output, $args );
-}
-
-/**
- * Display a post's number of comments.
- *
- * @since 4.0.0
- */
-function cherry_the_post_comments( $args ) {
-	echo cherry_get_the_post_comments( $args );
-}
-
-/**
- * Retrieve a post's number of comments.
- *
- * @since 4.0.0
- */
-function cherry_get_the_post_comments( $args ) {
-	$post_id   = get_the_ID();
-	$post_type = get_post_type( $post_id );
-
-	if ( !post_type_supports( $post_type, 'comments' ) ) {
-		return;
-	}
-
-	/**
-	 * Filter the default arguments used to display a post author.
-	 *
-	 * @link https://codex.wordpress.org/Function_Reference/comments_number
-	 *
-	 * @since 4.0.0
-	 * @param array $args Array of arguments.
-	 */
-	$defaults = apply_filters( 'cherry_get_the_post_comments_defaults', array(
-		'zero'      => false,
-		'one'       => false,
-		'more'      => false,
-		'before'    => '',
-		'after'     => '',
-	), $post_id, $post_type );
-
-	$args = wp_parse_args( $args, $defaults );
-
-	if ( !comments_open() ) {
-		return;
-	}
-
-	if ( false === $args['zero'] ) {
-		return;
-	}
-
-	ob_start();
-	comments_number( $args['zero'], $args['one'], $args['more'] );
-	$comments = ob_get_clean();
-	$comments = sprintf( '<a href="%s">%s</a>', get_comments_link(), $comments );
-	$output   = '<span class="comments-link">' . $args['before'] . $comments . $args['after'] . '</span>';
-
-	return apply_filters( 'cherry_get_the_post_comments', $output, $args );
-}
-
-/**
- * Retrieve a post's taxonomy.
- *
- * @since 4.0.0
- */
-function cherry_the_post_taxonomy( $args ) {
-	echo cherry_get_the_post_taxonomy( $args );
-}
-
-/**
- * Retrieve a post's taxonomy.
- *
- * @since 4.0.0
- */
-function cherry_get_the_post_taxonomy( $args ) {
-	$post_id   = get_the_ID();
-	$post_type = get_post_type( $post_id );
-
-	/**
-	 * Filter the arguments used to display a post taxonomy.
-	 *
-	 * @since 4.0.0
-	 * @param array $args Array of arguments.
-	 */
-	$defaults = apply_filters( 'cherry_get_the_post_taxonomy_defaults', array(
-		'name'      => 'category',
-		'separator' => ', ',
-		'before'    => '',
-		'after'     => '',
-		'class'     => '',
-	), $post_id, $post_type );
-
-	$args     = wp_parse_args( $args, $defaults );
-	$taxonomy = explode( ' ', $args['name'] );
-
-	/**
-	 * Retrieve the terms for a post.
-	 *
-	 * @link https://codex.wordpress.org/Function_Reference/wp_get_post_terms
-	 */
-	$terms = wp_get_post_terms( $post_id, $taxonomy );
-
-	if ( is_wp_error( $terms ) ) {
-		return;
-	}
-
-	if ( empty( $terms ) ) {
-		return;
-	}
-
-	$output_data = array();
-	foreach ( $terms as $term ) {
-		$output_data[] = sprintf( '<a href="%1$s">%2$s</a>',
-			esc_url( get_term_link( $term->slug, $term->taxonomy ) ),
-			esc_attr( $term->name )
-		);
-	}
-
-	$output = sprintf( '<span class="post-tax post-tax-%1$s">%2$s</span>',
-		sanitize_html_class( $args['class'] ),
-		join( $args['separator'], $output_data )
-	);
-
 	$output = $args['before'] . $output . $args['after'];
 
-	return apply_filters( 'cherry_get_the_post_taxonomy', $output, $args );
+	return apply_filters( 'cherry_get_the_post_button', $output, $args );
 }
 
 /**
- * Gets the first URL from the content, even if it's not wrapped in an <a> tag.
- *
- * @since  4.0.0
- *
- * @param  string $content
- * @return string
- */
-function cherry_get_content_url( $content ) {
-
-	// Catch links that are not wrapped in an '<a>' tag.
-	preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', make_clickable( $content ), $matches );
-
-	return !empty( $matches[1] ) ? esc_url_raw( $matches[1] ) : '';
-}
-
-/**
- * If did not find a URL, check the post content for one. If nothing is found, return the post permalink.
- *
- * @since  4.0.0
- *
- * @param  object $post
- * @return string
- */
-function cherry_get_post_format_url( $post = null ) {
-	$post        = is_null( $post ) ? get_post() : $post;
-	$content_url = cherry_get_content_url( $post->post_content );
-	$url         = !empty( $content_url ) ? $content_url : get_permalink( $post->ID );
-
-	return esc_url( $url );
-}
-
-/**
- * Display featured image for post format image.
+ * Display featured image.
  *
  * @since 4.0.0
+ * @param array $args
  */
 function cherry_the_post_image( $args ) {
 	echo cherry_get_the_post_image( $args );
 }
 
 /**
- * Get featured image for post format image.
- * If has post thumbnail - will get post thumbnail, else - get first image from content
+ * Get featured image.
+ * If has post thumbnail - will get post thumbnail, else - get first image from content.
  *
  * @since  4.0.0
+ * @param  array  $args
  * @return string
  */
 function cherry_get_the_post_image( $args ) {
 	/**
-	 * Filter post format image output to rewrite image from child theme or plugins
+	 * Filter post format image output to rewrite image from child theme or plugins.
 	 * @since  4.0.0
 	 */
 	$result = apply_filters( 'cherry_pre_get_post_image', false );
@@ -642,7 +406,9 @@ function cherry_get_the_post_image( $args ) {
 	 * Filter the default arguments used to display a post image.
 	 *
 	 * @since 4.0.0
-	 * @param array $defaults Array of arguments.
+	 * @param array  $defaults  Array of arguments.
+	 * @param int    $post_id   The post ID.
+	 * @param string $post_type The post type of the current post.
 	 */
 	$defaults = apply_filters( 'cherry_get_the_post_image_defaults', array(
 		'container'       => 'figure',
@@ -727,11 +493,10 @@ function cherry_the_post_gallery() {
 }
 
 /**
- * Get featured gallery for post format gallery.
- * If has post thumbnail - will get post thumbnail, else - get first image from content
+ * Get featured gallery.
+ * If has post thumbnail - will get post thumbnail, else - get first image from content.
  *
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_the_post_gallery() {
@@ -793,7 +558,7 @@ function cherry_get_the_post_gallery() {
 	$output = cherry_get_gallery_html( $post_gallery );
 
 	/**
-	 * Filter featured image for post format image.
+	 * Filter a post gallery.
 	 *
 	 * @since 4.0.0
 	 */
@@ -803,9 +568,11 @@ function cherry_get_the_post_gallery() {
 }
 
 /**
- * Custom output for gallery shortcode
- * @param  array  $atts shortcode atts
- * @return string       gallery HTML
+ * Custom output for gallery shortcode.
+ *
+ * @since  4.0.0
+ * @param  array  $atts Shortcode atts
+ * @return string       Gallery HTML
  */
 function cherry_gallery_shortcode( $result, $attr ) {
 
@@ -816,7 +583,8 @@ function cherry_gallery_shortcode( $result, $attr ) {
 	}
 
 	/**
-	 * Filter gallery output
+	 * Filter gallery output.
+	 *
 	 * @since  4.0.0
 	 */
 	$result = apply_filters( 'cherry_pre_get_gallery_shortcode', false, $attr );
@@ -829,7 +597,7 @@ function cherry_gallery_shortcode( $result, $attr ) {
 		'id'         => $post ? $post->ID : 0,
 		'include'    => '',
 		'exclude'    => '',
-		'link'       => ''
+		'link'       => '',
 	), $attr, 'gallery' );
 
 	if ( false !== $result ) {
@@ -852,7 +620,7 @@ function cherry_gallery_shortcode( $result, $attr ) {
 				'post_type'      => 'attachment',
 				'post_mime_type' => 'image',
 				'order'          => $atts['order'],
-				'orderby'        => $atts['orderby']
+				'orderby'        => $atts['orderby'],
 			)
 		);
 		$attachments = array_keys( $attachments );
@@ -866,7 +634,7 @@ function cherry_gallery_shortcode( $result, $attr ) {
 				'post_type'      => 'attachment',
 				'post_mime_type' => 'image',
 				'order'          => $atts['order'],
-				'orderby'        => $atts['orderby']
+				'orderby'        => $atts['orderby'],
 			)
 		);
 
@@ -883,12 +651,11 @@ function cherry_gallery_shortcode( $result, $attr ) {
 }
 
 /**
- * Build default gallery HTML from images array
+ * Build default gallery HTML from images array.
  *
  * @since  4.0.0
- *
- * @param  array  $images images array can contain image IDs or URLs
- * @return string         gallery HTML markup
+ * @param  array  $images Images array can contain image IDs or URLs
+ * @return string         Gallery HTML markup
  */
 function cherry_get_gallery_html( $images ) {
 
@@ -896,11 +663,13 @@ function cherry_get_gallery_html( $images ) {
 		'container_class'  => 'post-gallery',
 		'size'             => 'slider-post-thumbnail',
 		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
-		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a></figure>'
+		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a></figure>',
 	);
 
 	/**
-	 * Filter default gallery arguments
+	 * Filter default gallery arguments.
+	 *
+	 * @since  4.0.0
 	 */
 	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
@@ -909,11 +678,13 @@ function cherry_get_gallery_html( $images ) {
 		'infinite' => true,
 		'speed'    => 300,
 		'fade'     => true,
-		'cssEase'  => 'linear'
+		'cssEase'  => 'linear',
 	);
 
 	/**
-	 * Filter default gallery slider inits
+	 * Filter default gallery slider inits.
+	 *
+	 * @since  4.0.0
 	 */
 	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_slider_init );
 	$init = wp_parse_args( $init, $default_slider_init );
@@ -928,7 +699,9 @@ function cherry_get_gallery_html( $images ) {
 	);
 
 	/**
-	 * Filter default gallery popup inits
+	 * Filter default gallery popup inits.
+	 *
+	 * @since  4.0.0
 	 */
 	$gall_init = apply_filters( 'cherry_get_the_post_gallery_popup_args', $default_gall_init );
 	$gall_init = wp_parse_args( $gall_init, $default_gall_init );
@@ -981,7 +754,7 @@ function cherry_get_gallery_html( $images ) {
 /**
  * Get images from post content.
  * Returns image ID's if can find this image in database,
- * returns image URL or bollen false in other case
+ * returns image URL or bollen false in other case.
  *
  * @since  4.0.0
  *
@@ -994,7 +767,7 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 	$content = get_the_content();
 
-	// get first image from content
+	// Gets first image from content.
 	preg_match_all( '/< *img[^>]*src *= *["\']?([^"\']*)/i', $content, $matches );
 
 	if ( !isset( $matches[1] ) ) {
@@ -1014,7 +787,7 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 		$image_src = esc_url( $matches[1][$i] );
 		$image_src = preg_replace( '/^(.+)(-\d+x\d+)(\..+)$/', '$1$3', $image_src );
 
-		// try to get current image ID
+		// Try to get current image ID.
 		$query = "SELECT ID FROM {$wpdb->posts} WHERE guid='$image_src'";
 		$id = $wpdb->get_var( $query );
 
@@ -1047,6 +820,7 @@ function cherry_the_post_video() {
 function cherry_get_the_post_video() {
 	/**
 	 * Filter post format video output to rewrite video from child theme or plugins.
+	 *
 	 * @since  4.0.0
 	 */
 	$result = apply_filters( 'cherry_pre_get_post_video', false );
@@ -1101,7 +875,8 @@ function cherry_the_post_audio() {
  */
 function cherry_get_the_post_audio() {
 	/**
-	 * Filter post format audio output to rewrite audio from child theme or plugins
+	 * Filter post format audio output to rewrite audio from child theme or plugins.
+	 *
 	 * @since  4.0.0
 	 */
 	$result = apply_filters( 'cherry_pre_get_post_audio', false );
@@ -1127,4 +902,94 @@ function cherry_get_the_post_audio() {
 	 * @since 4.0.0
 	 */
 	return apply_filters( 'cherry_get_the_post_audio', $matches[0] );
+}
+
+/**
+ * Display the post author avatar.
+ *
+ * @since  4.0.0
+ * @param  array $args
+ */
+function cherry_the_post_avatar( $args ) {
+	echo cherry_get_the_post_avatar( $args );
+}
+
+
+/**
+ * Retrieve the post author avatar.
+ *
+ * @since  4.0.0
+ * @param  array  $args
+ * @return string $output
+ */
+function cherry_get_the_post_avatar( $args ) {
+
+	// If avatars are enabled.
+	if ( !get_option( 'show_avatars' ) ) {
+		return false;
+	}
+
+	$post_id   = get_the_ID();
+	$post_type = get_post_type( $post_id );
+
+	/**
+	 * Filter the default arguments used to display a author avatar.
+	 *
+	 * @since 4.0.0
+	 * @param array  $args      Array of arguments.
+	 * @param int    $post_id   The post ID.
+	 * @param string $post_type The post type of the current post.
+	 */
+	$defaults = apply_filters( 'cherry_get_the_post_avatar_defaults', array(
+		'size'            => '96',
+		'container'       => 'figure',
+		'container_class' => 'entry-avatar',
+		'wrap'            => is_singular( $post_type ) ? '<%1$s class="%2$s">%5$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" title="%4$s">%5$s</a></%1$s>',
+	), $post_id, $post_type );
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$nickname   = get_the_author_meta( 'nickname' );
+	$avatar     = get_avatar( get_the_author_meta( 'user_email' ), $args['size'], '', esc_attr( $nickname ) );
+	$title_attr = the_title_attribute( 'echo=0' );
+
+	$output = sprintf( $args['wrap'],
+		$args['container'],
+		$args['container_class'],
+		get_permalink( $post_id ),
+		esc_attr( $title_attr ),
+		$avatar
+	);
+
+	return $output;
+}
+
+/**
+ * Gets the first URL from the content, even if it's not wrapped in an <a> tag.
+ *
+ * @since  4.0.0
+ * @param  string $content
+ * @return string
+ */
+function cherry_get_content_url( $content ) {
+
+	// Catch links that are not wrapped in an '<a>' tag.
+	preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', make_clickable( $content ), $matches );
+
+	return !empty( $matches[1] ) ? esc_url_raw( $matches[1] ) : '';
+}
+
+/**
+ * If did not find a URL, check the post content for one. If nothing is found, return the post permalink.
+ *
+ * @since  4.0.0
+ * @param  object $post
+ * @return string
+ */
+function cherry_get_post_format_url( $post = null ) {
+	$post        = is_null( $post ) ? get_post() : $post;
+	$content_url = cherry_get_content_url( $post->post_content );
+	$url         = !empty( $content_url ) ? $content_url : get_permalink( $post->ID );
+
+	return esc_url( $url );
 }

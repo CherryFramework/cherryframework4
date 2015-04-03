@@ -46,3 +46,20 @@ function cherry_typography_size( $size, $operation = ' ', $func = 'round', $perc
 
 	return $size;
 }
+
+function cherry_empty_value( $value, $rule) {
+
+	if ('' == $value or 'notdefined' == $value) {
+
+	return;
+	}
+
+	echo $rule.": ".$value;
+
+	if (is_numeric($value)) {
+		echo "px; ";
+	} else {
+		echo"; ";
+	}
+
+}
