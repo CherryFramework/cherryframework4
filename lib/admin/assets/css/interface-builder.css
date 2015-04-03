@@ -595,6 +595,7 @@
   border-radius: 6px;
   box-sizing: border-box;
   clear: both;
+  transition: background-color;
 }
 .cherry-section.cherry-info .cherry-col-1 {
   display: none;
