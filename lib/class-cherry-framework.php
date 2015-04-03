@@ -294,6 +294,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the post template functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-post.php' );
 
+			// Load the meta template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-meta.php' );
+
 			// Load the custom functions that act independently of the theme templates.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'extras.php' );
 
