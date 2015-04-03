@@ -157,32 +157,37 @@ function cherry_get_the_post_title( $args ) {
 	$defaults = apply_filters( 'cherry_get_the_post_title_defaults', array(
 		'tag'    => 'h2',
 		'class'  => '',
+		'linked' => is_singular( $post_type ) ? 'no' : 'yes',
 		'url'    => 'permalink',
 		'before' => '<header class="entry-header">',
 		'after'  => '</header>',
-		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s">%4$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" rel="bookmark">%4$s</a></%1$s>',
+		'wrap'   => '<%1$s class="%2$s">%3$s</%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
 	$args['class'] .= ' entry-title';
 
-	$post_title = is_singular( $post_type ) ? single_post_title( '', false ) :  the_title( '', '', false );
+	$post_title = the_title( '', '', false );
 
 	if ( empty( $post_title ) ) {
 		return;
 	}
 
-	$url = ( $args['url'] ) ? $args['url'] : $defaults['url'];
+	if ( 'yes' === $args['linked'] ) {
+		$url = ( $args['url'] ) ? $args['url'] : $defaults['url'];
 
-	if ( 'permalink' == $url ) {
-		$url = get_permalink( $post_id );
+		if ( 'permalink' == $url ) {
+			$url = get_permalink( $post_id );
+		}
+
+		$linked_wrap = '<a href="%1$s" rel="bookmark">%2$s</a>';
+		$post_title  = sprintf( $linked_wrap, $url, $post_title );
 	}
 
 	$output = sprintf(
 		$args['wrap'],
 		tag_escape( $args['tag'] ),
 		esc_attr( trim( $args['class'] ) ),
-		esc_url( $url ),
 		$post_title
 	);
 
