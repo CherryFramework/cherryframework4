@@ -31,7 +31,7 @@ function cherry_structured_post_formats() {
 
 	// Filter the entry-header of link posts.
 	if ( current_theme_supports( 'post-formats', 'link' ) ) {
-		add_filter( 'cherry_get_the_post_header_defaults', 'cherry_get_the_link_header', 10, 3 );
+		add_filter( 'cherry_get_the_post_title_defaults', 'cherry_get_the_link_title', 10, 3 );
 	}
 
 	// Wraps <blockquote> around quote posts.
@@ -62,32 +62,32 @@ function cherry_aside_infinity( $content ) {
 }
 
 /**
- * This function filters the post header when viewing a post with the `link` post format.
+ * This function filters the post title when viewing a post with the `link` post format.
  *
  * @since  4.0.0
  *
- * @param  array  $args The defaults arguments used to display a post header.
+ * @param  array  $args The defaults arguments used to display a post title.
  * @param  int    $post_id
  * @param  string $post_type
  * @return array
  */
-function cherry_get_the_link_header( $args, $post_id, $post_type ) {
+function cherry_get_the_link_title( $args, $post_id, $post_type ) {
 
 	if ( !has_post_format( 'link' ) ) {
 		return $args;
 	}
 
-	$args['url']   = apply_filters( 'cherry_link_header_url', cherry_get_post_format_url() );
+	$args['url']   = apply_filters( 'cherry_link_title_url', cherry_get_post_format_url() );
 
-	$args['after'] = apply_filters( 'cherry_link_header_after',
+	$args['after'] = apply_filters( 'cherry_link_title_after',
 		is_singular( $post_type ) ?
-		'' :
-		'<span class="format-link-marker">&rarr;</span>' );
+		'</header>' :
+		'<span class="format-link-marker">&rarr;</span></header>' );
 
-	$args['wrap']  = apply_filters( 'cherry_link_header_wrap',
+	$args['wrap']  = apply_filters( 'cherry_link_title_wrap',
 		is_singular( $post_type ) ?
-		'<header class="entry-header"><%1$s class="%2$s">%4$s</%1$s></header>' :
-		'<header class="entry-header"><%1$s class="%2$s"><a href="%3$s" rel="nofollow" target="_blank">%4$s</a></%1$s></header>'
+		'<%1$s class="%2$s">%4$s</%1$s>' :
+		'<%1$s class="%2$s"><a href="%3$s" rel="nofollow" target="_blank">%4$s</a></%1$s>'
 	);
 
 	return $args;

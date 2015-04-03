@@ -129,38 +129,38 @@ function cherry_get_the_post_thumbnail( $args ) {
 }
 
 /**
- * Display the post header.
+ * Display the post title.
  *
  * @since 4.0.0
  */
-function cherry_the_post_header( $args ) {
-	echo cherry_get_the_post_header( $args );
+function cherry_the_post_title( $args ) {
+	echo cherry_get_the_post_title( $args );
 }
 
 /**
- * Retrieve the post header.
+ * Retrieve the post title.
  *
  * @since 4.0.0
  */
-function cherry_get_the_post_header( $args ) {
+function cherry_get_the_post_title( $args ) {
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
 	/**
-	 * Filter the default arguments used to display a post header.
+	 * Filter the default arguments used to display a post title.
 	 *
 	 * @since 4.0.0
 	 * @param array  $args      Array of arguments.
 	 * @param int    $post_id   The post ID.
 	 * @param string $post_type The post type of the current post.
 	 */
-	$defaults = apply_filters( 'cherry_get_the_post_header_defaults', array(
+	$defaults = apply_filters( 'cherry_get_the_post_title_defaults', array(
 		'tag'    => 'h2',
 		'class'  => '',
 		'url'    => 'permalink',
-		'before' => '',
-		'after'  => '',
-		'wrap'   => is_singular( $post_type ) ? '<header class="entry-header"><%1$s class="%2$s">%4$s</%1$s></header>' : '<header class="entry-header"><%1$s class="%2$s"><a href="%3$s" rel="bookmark">%4$s</a></%1$s></header>',
+		'before' => '<header class="entry-header">',
+		'after'  => '</header>',
+		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s">%4$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" rel="bookmark">%4$s</a></%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -172,8 +172,7 @@ function cherry_get_the_post_header( $args ) {
 		return;
 	}
 
-	$title = $args['before'] . $post_title . $args['after'];
-	$url   = ( $args['url'] ) ? $args['url'] : $defaults['url'];
+	$url = ( $args['url'] ) ? $args['url'] : $defaults['url'];
 
 	if ( 'permalink' == $url ) {
 		$url = get_permalink( $post_id );
@@ -184,15 +183,17 @@ function cherry_get_the_post_header( $args ) {
 		tag_escape( $args['tag'] ),
 		esc_attr( trim( $args['class'] ) ),
 		esc_url( $url ),
-		$title
+		$post_title
 	);
 
+	$output = $args['before'] . $output . $args['after'];
+
 	/**
-	 * Filter the displayed post header.
+	 * Filter the displayed post title.
 	 *
 	 * @since 4.0.0
 	 */
-	return apply_filters( 'cherry_get_the_post_header', $output, $args );
+	return apply_filters( 'cherry_get_the_post_title', $output, $args );
 }
 
 /**
