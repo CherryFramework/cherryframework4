@@ -9,6 +9,9 @@
 
 // add breadcrumbs to template
 add_action( 'cherry_content_before', 'cherry_get_breadcrumbs', 5 );
+// add related posts output
+add_action( 'cherry_post',           'cherry_get_related_posts' );
+
 
 /**
  * Add breadcrumbs output to template
@@ -210,4 +213,281 @@ function cherry_get_attachment_id_from_url( $url ) {
 	$posts = $wpdb->get_col( $wpdb->prepare( "SELECT ID FROM " . $prefix . "posts" . " WHERE guid='%s';", $url ) );
 
 	return array_shift( $posts );
+}
+
+/**
+ * Get related posts data array
+ *
+ * @since 4.0.0
+ *
+ * @param array $args    arguments list
+ * @param int   $post_id post ID to get related for
+ */
+function cherry_get_related_post_list( $args = array(), $post_id = null ) {
+
+	$post_id   = ( null !== $post_id ) ? $post_id : get_the_id();
+	$post_type = get_post_type( $post_id );
+
+	$default_args = array(
+		'num'          => 4,
+		'get_by_tax'   => 'category,post_tag', // taxonomy name or false, may pass comma separated taxes
+		'relation'     => 'AND', // if multiplie taxonomies passed - relation between tax queries
+		'get_by_title' => false, // search related post by current post title or not (higher priority to tax)
+		'age'          => false, // false - search all, integer - search post not older than passed num months
+	);
+
+	$args = wp_parse_args( $args, $default_args );
+
+	/**
+	 * Early filter related query output to rewrite it from child theme or third party plugins.
+	 *
+	 * @since  4.0.0
+	 * @param  bool   false     false by default
+	 * @param  array  $args     arguments list
+	 * @param  int    $post_id  ost ID to get related for
+	 */
+	$related_query = apply_filters( 'cherry_pre_get_related_query', false, $args, $post_id );
+	if ( false !== $related_query ) {
+		return $related_query;
+	}
+
+	$default_query_args = array(
+		'post_type'           => $post_type,
+		'post__not_in'        => array( $post_id ),
+		'ignore_sticky_posts' => true,
+		'posts_per_page'      => $args['num']
+	);
+
+	$related_query_args = $default_query_args;
+	$search_query       = false;
+
+	// if passed taxonomies to search posts in - process post terms
+	if ( false !== $args['get_by_tax'] && true !== $args['get_by_title'] ) {
+
+		$taxes     = explode( ',', $args['get_by_tax'] );
+		$tax_query = array();
+		foreach ( $taxes as $tax ) {
+			$post_terms = wp_get_post_terms( $post_id, $tax );
+			if ( is_wp_error( $post_terms ) ) {
+				continue;
+			}
+			$terms = wp_list_pluck( $post_terms, 'term_id' );
+			$tax_query[] = array(
+				'taxonomy' => $tax,
+				'field'    => 'id',
+				'terms'    => $terms
+			);
+		}
+
+		if ( empty( $tax_query ) ) {
+			break;
+		}
+
+		if ( 1 < count( $tax_query ) ) {
+			$tax_query = array_merge( array( 'relation' => $args['relation'] ), $tax_query );
+		}
+
+		$related_query_args['tax_query'] = $tax_query;
+
+	}
+
+	$date_query = false;
+
+	// if limited posts age
+	if ( false !== $args['age'] && 0 != intval( $args['age'] ) ) {
+
+		$age = intval( $args['age'] );
+
+		$age_after = strtotime( date( 'F j, Y' ) . ' -' . $age . ' months' );
+
+		$date_query = array(
+			array(
+				'after' => date( 'F j, Y', $age_after )
+			)
+		);
+
+		$related_query_args['date_query'] = $date_query;
+	}
+
+	// if enabled search related by title
+	if ( false !== $args['get_by_title'] ) {
+
+		preg_match( '/^(\w+)\W+(\w+)/i', get_the_title( $post_id ), $matches );
+
+		if ( ! is_array( $matches ) ) {
+			break;
+		}
+
+		$search_request = '';
+
+		if ( isset( $matches[1] ) ) {
+			$search_request .= $matches[1];
+		}
+
+		if ( isset( $matches[2] ) ) {
+			$search_request .= ' ' . $matches[2];
+		}
+
+		$search_args = array_merge(
+			$default_query_args,
+			array( 's' => $search_request )
+		);
+
+		if ( $date_query ) {
+			$search_args['date_query'] = $date_query;
+		}
+
+		$search_query = new WP_Query( $search_args );
+
+	}
+
+	$related_query = new WP_Query( $related_query_args );
+
+	if ( $search_query ) {
+		return $search_query;
+	} else {
+		return $related_query;
+	}
+
+}
+
+/**
+ * Get related posts
+ *
+ * @since  4.0.0
+ */
+function cherry_get_related_posts() {
+
+	if ( ! is_single() ) {
+		return;
+	}
+
+	$related_query = cherry_get_related_post_list( array( 'num' => 4, 'relation' => 'OR' ) );
+
+	if ( ! $related_query->have_posts() ) {
+		return;
+	}
+
+	$default_args = array(
+		'format_block'  => '<div class="related-posts">%1$s%2$s</div>',
+		'format_list'   => '<%1$s class="related-posts_list">%2$s</%1$s>',
+		'format_title'  => '<h3 class="related-posts_title">%1$s</h3>',
+		'wrapper_list'  => 'ul',
+		'wrapper_item'  => 'li',
+		'template_item' => false
+	);
+
+	/**
+	 * Filter related posts output arguments
+	 */
+	$args = apply_filters( 'cherry_related_posts_output_args', $default_args );
+	$args = wp_parse_args( $args, $default_args );
+
+	$block_title = sprintf( $args['format_title'], __( 'Related Posts', 'cherry' ) );
+
+	$content = '';
+
+	while ( $related_query->have_posts() ) {
+
+		$related_query->the_post();
+
+		ob_start();
+
+		include( locate_template( array( 'content/related-post.tmpl' ), false, false ) );
+
+		$template = ob_get_contents();
+		ob_end_clean();
+
+		$item_body = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
+		$content  .= sprintf( '<%1$s class="related-posts_item">%2$s</%1$s>', $args['wrapper_item'], $item_body );
+	}
+
+	wp_reset_postdata();
+
+	$content = sprintf( $args['format_list'], $args['wrapper_list'], $content );
+
+	$result = sprintf(
+		$args['format_block'],
+		$block_title, $content
+	);
+
+	echo $result;
+}
+
+add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
+
+/**
+ * Maintenance mode
+ *
+ * @since 4.0.0
+ */
+function cherry_maintenance_mode() {
+
+	$enabled = cherry_get_option( 'general-maintenance-mode', false );
+
+	if ( 'true' !== $enabled ) {
+		return;
+	}
+
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	ob_start();
+
+	include( locate_template( array( 'content/maintenance.tmpl' ), false, false ) );
+
+	$template = ob_get_contents();
+	ob_end_clean();
+
+	$result = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
+
+	echo $result;
+
+	?>
+	<?php wp_footer(); ?>
+	</body>
+	</html>
+	<?php
+	die();
+}
+
+/**
+ * Get site logo and description to show it via template macros
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_logo() {
+
+	$result = '';
+
+	if ( cherry_get_site_logo() || cherry_get_site_description() ) {
+
+		$result = sprintf( '<div class="site-branding">%1$s %2$s</div>',
+			cherry_get_site_logo(),
+			cherry_get_site_description()
+		);
+
+	}
+
+	return $result;
+}
+
+/**
+ * Get maintenance page content to show it via template macros
+ *
+ * @since 4.0.0
+ */
+function cherry_get_the_post_maintenance_content() {
+
+	$page_id = cherry_get_option( 'general-maintenance-page', false );
+
+	if ( ! $page_id ) {
+		return;
+	}
+
+	$page = get_post( $page_id );
+
+	return $page->post_content;
+
 }
