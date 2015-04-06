@@ -19,6 +19,8 @@ add_filter( 'cherry_attr_sidebar', 'cherry_attr_sidebar', 9, 2 );
 add_filter( 'cherry_attr_menu',    'cherry_attr_menu',    9, 2 );
 add_filter( 'cherry_attr_post',    'cherry_attr_post',    9 );
 
+add_filter( 'cherry_attr_entry-terms', 'cherry_attr_entry_terms', 9, 2 );
+
 /**
  * Outputs an HTML element's attributes.
  *
@@ -176,6 +178,23 @@ function cherry_attr_post( $attr ) {
 
 		$attr['id']    = 'post-0';
 		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
+	}
+
+	return $attr;
+}
+
+/**
+ * Post terms (tags, categories, etc.) attributes.
+ *
+ * @since  4.0.0
+ * @param  array  $attr
+ * @param  string $context
+ * @return array
+ */
+function cherry_attr_entry_terms( $attr, $context ) {
+
+	if ( !empty( $context ) ) {
+		$attr['class'] = 'entry-terms ' . sanitize_html_class( $context );
 	}
 
 	return $attr;

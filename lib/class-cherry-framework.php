@@ -156,14 +156,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );
 
-			// Load the color control functions.
-			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'colors.php' );
-
-			// Load the typography control functions.
-			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'typography.php' );
-
 			// Utility functions.
-			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'utilities.php' );
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'utils.php' );
 
 			// Load the Cherry_Static class.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-statics.php' );
@@ -293,6 +287,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load the post template functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-post.php' );
+
+			// Load the meta template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-meta.php' );
 
 			// Load the custom functions that act independently of the theme templates.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'extras.php' );
