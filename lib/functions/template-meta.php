@@ -115,7 +115,7 @@ function cherry_get_the_post_author( $args ) {
 	$output .= sprintf( $args['text'], $author );
 	$output .= $args['after'];
 
-	$output = '<span class="author vcard">' . $author . '</span>';
+	$output = '<span class="author vcard">' . $output . '</span>';
 
 	return apply_filters( 'cherry_get_the_post_author', $output, $args );
 }

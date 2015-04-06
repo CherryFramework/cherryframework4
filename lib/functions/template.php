@@ -12,11 +12,10 @@
  */
 
 // Loads a post content template based.
-add_action( 'cherry_post', 'cherry_get_content_template' );
-add_action( 'cherry_page', 'cherry_get_content_template' );
+add_action( 'cherry_entry', 'cherry_get_content_template' );
 
 // Loads template for comments.
-add_action( 'cherry_get_comments', 'cherry_get_comments_template' );
+add_action( 'cherry_entry_after', 'cherry_get_comments_template', 20 );
 
 // Loads template if no posts were found.
 add_action( 'cherry_loop_empty', 'cherry_noposts' );
@@ -128,14 +127,10 @@ function cherry_content_template( $templates ) {
 	$template = ob_get_contents();
 	ob_end_clean();
 
-	printf( '<article %s>', cherry_get_attr( 'post' ) );
+	// Perform a regular expression.
+	$content = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
 
-		// Perform a regular expression.
-		$content = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
-
-		echo $content;
-
-	echo '</article>';
+	echo $content;
 }
 
 function cherry_do_content( $matches ) {
@@ -147,9 +142,9 @@ function cherry_do_content( $matches ) {
 		return '';
 	}
 
-	$item   = strtolower( trim( $matches[0], '%%' ) );
+	$item   = trim( $matches[0], '%%' );
 	$arr    = explode( ' ', $item, 2 );
-	$macros = $arr[0];
+	$macros = strtolower( $arr[0] );
 	$attr   = isset( $arr[1] ) ? shortcode_parse_atts( $arr[1] ) : array();
 
 	$function_name = "cherry_get_the_post_{$macros}";
@@ -158,7 +153,7 @@ function cherry_do_content( $matches ) {
 	 * Filter callback function's name for outputing post element.
 	 * @since 4.0.0
 	 */
-	$pre = apply_filters( "cherry_pre_get_the_post_{$macros}", false );
+	$pre = apply_filters( "cherry_pre_get_the_post_{$macros}", false, $attr );
 
 	if ( false !== $pre ) {
 		return $pre;
@@ -261,23 +256,22 @@ function cherry_get_menu_template( $name = '' ) {
  * @since  4.0.0
  */
 function cherry_get_comments_template() {
+	$post_type = get_post_type();
 
-	if ( !post_type_supports( get_post_type(), 'comments' ) ) {
+	if ( !post_type_supports( $post_type, 'comments' ) ) {
 		return;
 	}
 
-	// If viewing a single post/page/CPT.
-	if ( is_singular() ) :
+	if ( !is_singular( $post_type ) ) {
+		return;
+	}
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
+	// If comments are open or we have at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) {
 
-			// Loads the comments.php template.
-			comments_template( '/templates/comments.php', true );
-
-		endif;
-
-	endif;
+		// Loads the comments.php template.
+		comments_template( '/templates/comments.php', true );
+	}
 }
 
 /**
