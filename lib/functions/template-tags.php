@@ -10,7 +10,7 @@
 // add breadcrumbs to template
 add_action( 'cherry_content_before', 'cherry_get_breadcrumbs', 5 );
 // add related posts output
-add_action( 'cherry_post',           'cherry_get_related_posts' );
+add_action( 'cherry_entry_after',    'cherry_get_related_posts', 15 );
 
 
 /**
@@ -357,6 +357,10 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
  * @since  4.0.0
  */
 function cherry_get_related_posts() {
+
+	if ( 'false' == cherry_get_option( 'blog-related-posts' ) ) {
+		return;
+	}
 
 	if ( ! is_single() ) {
 		return;
