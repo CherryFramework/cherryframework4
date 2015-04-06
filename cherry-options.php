@@ -4,6 +4,14 @@ function cherry_defaults_settings() {
 	global $cherry_registered_statics, $cherry_registered_static_areas;
 	$all_statics = $cherry_registered_statics;
 
+	$all_pages     = array();
+	$all_pages_obj = get_pages( 'sort_column=post_parent,menu_order' );
+	$all_pages[''] = __( 'Select a page:', 'cherry' );
+
+	foreach ( $all_pages_obj as $page ) {
+		$all_pages[$page->ID] = $page->post_title;
+	}
+
 	//var_dump($all_statics);
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
@@ -463,26 +471,22 @@ function cherry_defaults_settings() {
 	);
 	$general_options['general-maintenance-mode'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'Maintenance mode',
-			'decsription'	=> 'Hide your site from regular visitors',
+			'title'			=> __( 'Maintenance mode', 'cherry' ),
+			'decsription'	=> __( 'Hide your site from regular visitors', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> 'Logged in administrator gets full access to the site, while regular visitors will
-				be redirected to the chosen page.'
+				'content'	=> __( 'Logged in administrator gets full access to the site, while regular visitors will
+				be redirected to the chosen page.', 'cherry' )
 			),
 			'value'			=> 'true',
 	);
 	$general_options['general-maintenance-page'] = array(
 				'type'			=> 'select',
-				'title'			=> 'maintenance page',
-				'decsription'	=> 'Select template of maintenance page, which you gonna used.',
-				'value'			=> 'select-1',
+				'title'			=> __( 'Maintenance page', 'cherry' ),
+				'decsription'	=> __( 'Use this page content as maintenance page content', 'cherry' ),
+				'value'			=> '',
 				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'page_template_1',
-					'select-2'	=> 'page_template_2',
-					'select-3'	=> 'page_template_3'
-				)
+				'options'		=> $all_pages
 	);
 	$general_options['general-smoothscroll'] = array(
 			'type'			=> 'switcher',
