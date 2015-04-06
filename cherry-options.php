@@ -15,6 +15,7 @@ function cherry_defaults_settings() {
 	//var_dump($all_statics);
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
+
 	$demo_options['typography-demo'] = array(
 				'type'			=> 'typography',
 				'title'			=> 'title typography',
@@ -298,16 +299,35 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'				=> '',
-				'display-image'		=> true,
 				'multi-upload'		=> true,
 				'library_type'		=> 'image'
+	);
+	$demo_options['background-demo'] = array(
+				'type'				=> 'background',
+				'title'				=> 'title background',
+				'label'				=> 'label background',
+				'decsription'		=> 'decsription background',
+				'hint'      		=>  array(
+					'type'			=> 'text',
+					'content'		=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'multi-upload'		=> true,
+				'library_type'		=> 'image',
+				'value'				=> array(
+					'image'			=> '',
+					'color'			=> '#ff0000',
+					'repeat'		=> 'repeat',
+					'position'		=> 'left',
+					'attachment'	=> 'fixed',
+					'origin'		=> 'padding-box'
+				)
 	);
 	$demo_options['colorpicker-demo'] = array(
 				'type'			=> 'colorpicker',
 				'title'			=> 'title colorpicker',
 				'label'			=> 'label colorpicker',
 				'decsription'	=> 'decsription colorpicker',
-				'hint'      	=>  array(
+				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
@@ -341,25 +361,7 @@ function cherry_defaults_settings() {
 				'value'			=> 'Lorem ipsum',
 				'default_value'	=> 'editor'
 	);
-	$demo_options['background-demo'] = array(
-				'type'				=> 'background',
-				'title'				=> 'title background',
-				'label'				=> 'label background',
-				'decsription'		=> 'decsription background',
-				'hint'      		=>  array(
-					'type'			=> 'text',
-					'content'		=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'return_data_type'	=> 'url',
-				'value'				=> array(
-					'image'			=> '',
-					'color'			=> '#ff0000',
-					'repeat'		=> 'repeat',
-					'position'		=> 'left',
-					'attachment'	=> 'fixed',
-					'origin'		=> 'padding-box'
-				)
-	);
+
 	$demo_options['info-demo'] = array(
 				'type'			=> 'info',
 				'title'			=> 'title info',
@@ -943,9 +945,7 @@ function cherry_defaults_settings() {
 				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
 				'value'				=> '',
 				'default_value'		=> '',
-				'display-image'		=> true,
 				'multi-upload'		=> true,
-				'return-data_type'	=> 'url'
 	);
 	$logo_options['logo-typography'] = array(
 				'type'			=> 'typography',
@@ -1817,12 +1817,7 @@ function cherry_defaults_settings() {
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$sections_array = array();
-	$sections_array['demo-options-section'] = array(
-		'name'			=> 'All interface elements',
-		'icon'			=> 'dashicons dashicons-carrot',
-		'priority'		=> 1,
-		'options-list'	=> apply_filters( 'cherry_demo_options_list', $demo_options )
-	);
+
 	$sections_array['general-options-section'] = array(
 		'name'			=> 'General',
 		'icon' 			=> 'dashicons dashicons-admin-generic',
@@ -1921,6 +1916,12 @@ function cherry_defaults_settings() {
 		'parent'       => '',
 		'priority'     => 90,
 		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options )
+	);
+	$sections_array['demo-options-section'] = array(
+		'name'			=> 'Demo interface elements',
+		'icon'			=> 'dashicons dashicons-editor-help',
+		'priority'		=> 100,
+		'options-list'	=> apply_filters( 'cherry_demo_options_list', $demo_options )
 	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
