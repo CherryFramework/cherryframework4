@@ -23,8 +23,6 @@ h1, h2, h3, h4, h5, h6,
 h1, .h1,
 h2, .h2,
 h3, .h3 {
-  margin-top: $line-height-computed;
-  margin-bottom: ($line-height-computed / 2);
 
   small,
   .small {
@@ -34,9 +32,6 @@ h3, .h3 {
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-  margin-top: ($line-height-computed / 2);
-  margin-bottom: ($line-height-computed / 2);
-
   small,
   .small {
     font-size: 75%;
@@ -46,12 +41,7 @@ h6, .h6 {
 // Body text
 // -------------------------
 
-p {
-  margin: 0 0 ($line-height-computed / 2);
-}
-
 .lead {
-  margin-bottom: $line-height-computed;
   font-weight: 300;
   line-height: 1.4;
 }
@@ -120,10 +110,6 @@ mark,
 // Page header
 // -------------------------
 
-.page-header {
-  padding-bottom: (($line-height-computed / 2) - 1);
-  margin: ($line-height-computed * 2) 0 $line-height-computed;
-}
 
 
 // Lists
@@ -133,7 +119,6 @@ mark,
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: ($line-height-computed / 2);
   ul,
   ol {
     margin-bottom: 0;
@@ -163,7 +148,6 @@ ol {
 // Description Lists
 dl {
   margin-top: 0; // Remove browser default
-  margin-bottom: $line-height-computed;
 }
 
 
@@ -215,10 +199,6 @@ abbr[data-original-title] {
 
 // Blockquotes
 blockquote {
-  padding: ($line-height-computed / 2) $line-height-computed;
-  margin: 0 0 $line-height-computed;
-  font-size: $blockquote-font-size;
-
   p,
   ul,
   ol {
@@ -270,6 +250,5 @@ blockquote:after {
 
 // Addresses
 address {
-  margin-bottom: $line-height-computed;
   font-style: normal;
 }

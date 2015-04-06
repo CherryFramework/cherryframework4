@@ -289,8 +289,6 @@ img {
 }
 
 hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
   border: 0;
 }
 
@@ -954,7 +952,6 @@ table th[class*="col-"] {
 @media (max-width: 767px) {
   .table-responsive {
     width: 100%;
-    margin-bottom: 15px;
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -1045,12 +1042,6 @@ h6 .small,
   line-height: 1;
 }
 
-h1, .h1,
-h2, .h2,
-h3, .h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
 h1 small,
 h1 .small, .h1 small,
 .h1 .small,
@@ -1063,12 +1054,6 @@ h3 .small, .h3 small,
   font-size: 65%;
 }
 
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
 h4 small,
 h4 .small, .h4 small,
 .h4 .small,
@@ -1081,12 +1066,7 @@ h6 .small, .h6 small,
   font-size: 75%;
 }
 
-p {
-  margin: 0 0 10px;
-}
-
 .lead {
-  margin-bottom: 20px;
   font-weight: 300;
   line-height: 1.4;
 }
@@ -1217,15 +1197,9 @@ a.bg-danger:hover {
   background-color: #e4b9b9;
 }
 
-.page-header {
-  padding-bottom: 9px;
-  margin: 40px 0 20px;
-}
-
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 10px;
 }
 ul ul,
 ul ol,
@@ -1250,7 +1224,6 @@ ol ol {
 
 dl {
   margin-top: 0;
-  margin-bottom: 20px;
 }
 
 dt {
@@ -1293,11 +1266,6 @@ abbr[data-original-title] {
   text-transform: uppercase;
 }
 
-blockquote {
-  padding: 10px 20px;
-  margin: 0 0 20px;
-  font-size: 17.5px;
-}
 blockquote p:last-child,
 blockquote ul:last-child,
 blockquote ol:last-child {
@@ -1345,7 +1313,6 @@ blockquote:after {
 }
 
 address {
-  margin-bottom: 20px;
   font-style: normal;
 }
 
