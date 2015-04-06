@@ -27,6 +27,7 @@ add_filter( 'cherry_pre_get_the_post_date',     'cherry_option_post_date',     1
 add_filter( 'cherry_pre_get_the_post_author',   'cherry_option_post_author',   10, 2 );
 add_filter( 'cherry_pre_get_the_post_comments', 'cherry_option_post_comments', 10, 2 );
 add_filter( 'cherry_pre_get_the_post_taxonomy', 'cherry_option_post_taxonomy', 10, 2 );
+add_filter( 'cherry_pre_get_the_post_content',  'cherry_option_post_content', 10, 2 );
 
 // Prints option styles.
 add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
@@ -155,6 +156,18 @@ function cherry_option_post_taxonomy( $display, $args ) {
 	if ( ( 'post_tag' == $args['name'] )
 		&& ( 'false' == cherry_get_option( 'blog-tags' ) )
 		) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_content( $display, $args ) {
+	if ( is_singular() ) {
+		return $display;
+	}
+
+	if ( 'none' == cherry_get_option( 'blog-content-type' ) ) {
 		return '';
 	}
 

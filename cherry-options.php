@@ -378,50 +378,13 @@ function cherry_defaults_settings() {
 	// 	)
 	// );
 
-	// $blog_options['blog-display-meta'] = array(
-	// 	'type'        => 'radio',
-	// 	'title'       => 'Display meta info block',
-	// 	'label'       => 'choose one of them',
-	// 	'decsription' => '',
-	// 	'hint'        => array(
-	// 		'type'    => 'text',
-	// 		'content' => 'Select where to display meta block.',
-	// 	),
-	// 	'value'         => 'radio-2',
-	// 	'default_value' => 'radio-1',
-	// 	'class'         => '',
-	// 	'display-input' => true,
-	// 	'options'       => array(
-	// 		'radio-1' => array(
-	// 			'label'   => 'Only blog.',
-	// 			'img_src' => '',
-	// 		),
-	// 		'radio-2' => array(
-	// 			'label'   => 'Only post.',
-	// 			'img_src' => '',
-	// 		),
-	// 		'radio-3' => array(
-	// 			'label'   => 'Blog and post.',
-	// 			'img_src' => '',
-	// 		),
-	// 		'radio-4' => array(
-	// 			'label'   => 'Do not show.',
-	// 			'img_src' => '',
-	// 		),
-	// 	)
-	// );
-
-	// Index
 	$blog_options['blog-content-type'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Part or Full Content', 'cherry' ),
-		'decsription' => __( 'Choose to display a part or full content', 'cherry' ),
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => __( 'Choose to display a part or full content', 'cherry' ),
-		),
-		'value'   => 'part',
-		'options' => array(
+		'title'       => __( 'Post content', 'cherry' ),
+		'decsription' => __( 'Choose to display or not post content', 'cherry' ),
+		'value'       => 'part',
+		'options'     => array(
+			'none' => __( 'None', 'cherry' ),
 			'part' => __( 'Part', 'cherry' ),
 			'full' => __( 'Full', 'cherry' ),
 		)
@@ -431,28 +394,26 @@ function cherry_defaults_settings() {
 		'type'        => 'slider',
 		'title'       => __( 'Part content length', 'cherry' ),
 		'decsription' => __( 'Type the number of words in an excerpt', 'cherry' ),
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => __( 'Type the number of words in an excerpt', 'cherry' ),
-		),
-		'max_value' => 500,
-		'min_value' => 0,
-		'value'     => 55
+		'max_value'   => 500,
+		'min_value'   => 1,
+		'value'       => 55,
+	);
+
+	$blog_options['blog-button'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'More button', 'cherry' ),
+		'decsription' => __( 'Show more button?', 'cherry' ),
+		'value'       => 'true',
 	);
 
 	$blog_options['blog-button-text'] = array(
-		'type'        => 'text',
-		'title'       => __( 'Button text', 'cherry' ),
-		'decsription' => __( 'Button text for posts', 'cherry' ),
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => __( 'Button text for posts', 'cherry' ),
-		),
+		'type'  => 'text',
+		'title' => __( 'More button text', 'cherry' ),
 		'value' => __( 'read more', 'cherry' ),
 	);
 
-	// Single
-	$blog_options['blog-related-posts'] = array(
+	// Post
+	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Related posts', 'cherry' ),
 		'decsription' => __( 'Show related posts?', 'cherry' ),
@@ -463,19 +424,30 @@ function cherry_defaults_settings() {
 		'value' => 'true',
 	);
 
-	$blog_options['blog-comments'] = array(
+	$post_single_options['blog-comment-status'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Allow comments', 'cherry' ),
-		'label'       => __( 'Enable / Disable', 'cherry' ),
 		'decsription' => __( 'Enabling this option will show comments', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enabling this option will show comments', 'cherry' ),
+			'content' => __( 'Enabling this option will show comments. <br> But remember that this can be overridden for individual articles.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
 
-	$blog_options['blog-post-date'] = array(
+	$post_single_options['blog-gallery-shortcode'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Replace default gallery with slider', 'cherry' ),
+		'decsription' => __( 'Enable this to replace default WP gallery with Slick slider', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Enable this to replace default WP gallery with Slick slider', 'cherry' ),
+		),
+		'value' => 'true',
+	);
+
+	// Meta
+	$post_meta_options['blog-post-date'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Date', 'cherry' ),
 		'label'       => __( 'Enable / Disable', 'cherry' ),
@@ -487,7 +459,7 @@ function cherry_defaults_settings() {
 		'value' => 'true',
 	);
 
-	$blog_options['blog-post-author'] = array(
+	$post_meta_options['blog-post-author'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Author', 'cherry' ),
 		'label'       => __( 'Enable / Disable', 'cherry' ),
@@ -499,7 +471,7 @@ function cherry_defaults_settings() {
 		'value' => 'true',
 	);
 
-	$blog_options['blog-post-comments'] = array(
+	$post_meta_options['blog-post-comments'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Comments', 'cherry' ),
 		'label'       => __( 'Enable / Disable', 'cherry' ),
@@ -511,7 +483,7 @@ function cherry_defaults_settings() {
 		'value' => 'true',
 	);
 
-	$blog_options['blog-categories'] = array(
+	$post_meta_options['blog-categories'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Categories', 'cherry' ),
 		'label'       => __( 'Enable / Disable', 'cherry' ),
@@ -523,7 +495,7 @@ function cherry_defaults_settings() {
 		'value' => 'true',
 	);
 
-	$blog_options['blog-tags'] = array(
+	$post_meta_options['blog-tags'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Tags', 'cherry' ),
 		'label'       => __( 'Enable / Disable', 'cherry' ),
@@ -533,14 +505,6 @@ function cherry_defaults_settings() {
 			'content' => __( 'Should the post tags be displayed?', 'cherry' ),
 		),
 		'value' => 'true',
-	);
-
-	$blog_options['blog-gallery-shortcode'] = array(
-		'type'          => 'switcher',
-		'title'         => __( 'Replace default gallery with slider', 'cherry' ),
-		'decsription'   => __( 'Enable this to replace default WP gallery with Slick slider', 'cherry' ),
-		'value'         => 'true',
-		'default_value' => 'true',
 	);
 
 	// $blog_options['blog-direct-link'] = array(
@@ -1827,112 +1791,131 @@ function cherry_defaults_settings() {
 
 	$sections_array = array();
 
-	$sections_array['general-options-section'] = array(
-		'name'			=> 'General',
-		'icon' 			=> 'dashicons dashicons-admin-generic',
-		'priority'		=> 10,
-		'options-list'	=> apply_filters( 'cherry_general_options_list', $general_options )
-	);
-	$sections_array['grid-options-section'] = array(
-		'name'			=> 'Grid',
-		'icon'			=> 'dashicons dashicons-admin-appearance',
-		'priority'		=> 20,
-		'options-list'	=> apply_filters( 'cherry_grid_options_list', $grid_options )
-	);
-	$sections_array['blog-options-section'] = array(
-		'name'			=> 'Blog layouts',
-		'icon' 			=> 'dashicons dashicons-arrow-right',
-		'parent'		=> 'grid-options-section',
-		'priority'		=> 1,
-		'options-list'	=> apply_filters( 'cherry_blog_options_list', $blog_options )
-	);
-	$sections_array['page-layout-options-section'] = array(
-		'name'			=> 'Page layouts',
-		'icon' 			=> 'dashicons dashicons-arrow-right',
-		'parent'		=> 'grid-options-section',
-		'priority'		=> 2,
-		'options-list'	=> apply_filters( 'cherry_page_layout_options_list', $page_layout_options )
-	);
-	$sections_array['styling-options-section'] = array(
-		'name' 			=> 'Styling',
-		'icon' 			=> 'dashicons dashicons-art',
-		'priority'		=> 30,
-		'options-list'	=> apply_filters( 'cherry_styling_options_list', $styling_options )
-	);
-	$sections_array['color-options-section'] = array(
-		'name'			=>'Color scheme',
-		'icon' 			=> 'dashicons dashicons-arrow-right',
-		'parent'		=> 'styling-options-section',
-		'priority'		=> 31,
-		'options-list'	=> apply_filters( 'cherry_color_options_list', $color_options )
+	$sections_array['general-section'] = array(
+		'name'         => __( 'General', 'cherry' ),
+		'icon'         => 'dashicons dashicons-admin-generic',
+		'priority'     => 10,
+		'options-list' => apply_filters( 'cherry_general_options_list', $general_options ),
 	);
 
-	$sections_array['navigation-options-section'] = array(
-		'name'			=> 'Navigation',
-		'icon' 			=> 'dashicons dashicons-menu',
-		'priority'		=> 40,
-		'options-list'	=> apply_filters( 'cherry_navigation_options_list', $navigation_options )
+	$sections_array['grid-section'] = array(
+		'name'         => __( 'Grid', 'cherry' ),
+		'icon'         => 'dashicons dashicons-admin-appearance',
+		'priority'     => 20,
+		'options-list' => apply_filters( 'cherry_grid_options_list', $grid_options ),
 	);
-	$sections_array['breadcrumbs-options-section'] = array(
-		'name'			=>'Breadcrumbs',
-		'icon' 			=> 'dashicons dashicons-arrow-right',
-		'parent'		=> 'navigation-options-section',
-		'priority'		=> 41,
-		'options-list'	=> apply_filters( 'cherry_breadcrumbs_options_list', $breadcrumbs_options )
+	$sections_array['page-layout-subsection'] = array(
+		'name'         => __( 'Page layouts', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'grid-section',
+		'priority'     => 1,
+		'options-list' => apply_filters( 'cherry_page_layout_options_list', $page_layout_options ),
 	);
-	$sections_array['pagination-options-section'] = array(
-		'name'			=> 'Pagination',
-		'icon'			=> 'dashicons dashicons-arrow-right',
-		'parent'		=> 'navigation-options-section',
-		'priority'		=> 42,
-		'options-list'	=> apply_filters( 'cherry_pagination_options_list', $pagination_option )
+
+	$sections_array['blog-section'] = array(
+		'name'         => __( 'Blog', 'cherry' ),
+		'icon'         => 'dashicons dashicons-admin-post',
+		'priority'     => 25,
+		'options-list' => apply_filters( 'cherry_blog_options_list', $blog_options ),
 	);
-	$sections_array['header-options-section'] = array(
-		'name'			=> 'Header',
-		'icon'			=> 'dashicons dashicons-admin-appearance',
-		'priority'		=> 50,
-		'options-list'	=> apply_filters( 'cherry_header_options_list', $header_options )
+	$sections_array['post-single-subsection'] = array(
+		'name'         => __( 'Post', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'blog-section',
+		'priority'     => 1,
+		'options-list' => apply_filters( 'cherry_post_single_options_list', $post_single_options ),
 	);
-	$sections_array['logo-options-section'] = array(
-		'name'			=> 'Logo',
-		'icon'			=> 'dashicons dashicons-arrow-right',
-		'parent'		=> 'header-options-section',
-		'priority'		=> 51,
-		'options-list'	=> apply_filters( 'cherry_logo_options_list', $logo_options )
+	$sections_array['post-meta-subsection'] = array(
+		'name'         => __( 'Meta', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'blog-section',
+		'priority'     => 2,
+		'options-list' => apply_filters( 'cherry_post_meta_options_list', $post_meta_options ),
 	);
-	$sections_array['footer-options-section'] = array(
-		'name' 			=> 'Footer',
-		'icon' 			=> 'dashicons dashicons-admin-appearance',
-		'priority'		=> 60,
-		'options-list'	=> apply_filters( 'cherry_footer_options_list', $footer_options )
+
+	$sections_array['styling-section'] = array(
+		'name'         => __( 'Styling', 'cherry' ),
+		'icon'         => 'dashicons dashicons-art',
+		'priority'     => 30,
+		'options-list' => apply_filters( 'cherry_styling_options_list', $styling_options ),
 	);
-	$sections_array['typography-options-section'] = array(
-		'name' => 'Typography',
-		'icon' => 'dashicons dashicons-admin-generic',
-		'priority' => 70,
-		'options-list' => apply_filters( 'cherry_typography_options_list', $typography_options )
+	$sections_array['color-subsection'] = array(
+		'name'         => __( 'Color scheme', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'styling-section',
+		'priority'     => 31,
+		'options-list' => apply_filters( 'cherry_color_options_list', $color_options ),
 	);
-	$sections_array['lists-options-section'] = array(
-		'name'			=>'Lists',
-		'icon' 			=> 'dashicons dashicons-arrow-right',
-		'parent'		=> 'typography-options-section',
-		'priority'		=> 71,
-		'options-list'	=> apply_filters( 'cherry_lists_options_list', $lists_options )
+
+	$sections_array['navigation-section'] = array(
+		'name'         => __( 'Navigation', 'cherry' ),
+		'icon'         => 'dashicons dashicons-menu',
+		'priority'     => 40,
+		'options-list' => apply_filters( 'cherry_navigation_options_list', $navigation_options ),
 	);
-	$sections_array['optimization-options-section'] = array(
-		'name'         => 'Optimization',
+	$sections_array['breadcrumbs-subsection'] = array(
+		'name'         => __( 'Breadcrumbs', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'navigation-section',
+		'priority'     => 41,
+		'options-list' => apply_filters( 'cherry_breadcrumbs_options_list', $breadcrumbs_options ),
+	);
+	$sections_array['pagination-section'] = array(
+		'name'         => __( 'Pagination', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'navigation-section',
+		'priority'     => 42,
+		'options-list' => apply_filters( 'cherry_pagination_options_list', $pagination_option ),
+	);
+
+	$sections_array['header-section'] = array(
+		'name'         => __( 'Header', 'cherry' ),
+		'icon'         => 'dashicons dashicons-admin-appearance',
+		'priority'     => 50,
+		'options-list' => apply_filters( 'cherry_header_options_list', $header_options ),
+	);
+	$sections_array['logo-subsection'] = array(
+		'name'         => __( 'Logo', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'header-section',
+		'priority'     => 51,
+		'options-list' => apply_filters( 'cherry_logo_options_list', $logo_options ),
+	);
+
+	$sections_array['footer-section'] = array(
+		'name'         => __( 'Footer', 'cherry' ),
+		'icon'         => 'dashicons dashicons-admin-appearance',
+		'priority'     => 60,
+		'options-list' => apply_filters( 'cherry_footer_options_list', $footer_options ),
+	);
+
+	$sections_array['typography-section'] = array(
+		'name'         => __( 'Typography', 'cherry' ),
+		'icon'         => 'dashicons dashicons-admin-generic',
+		'priority'     => 70,
+		'options-list' => apply_filters( 'cherry_typography_options_list', $typography_options ),
+	);
+	$sections_array['lists-subsection'] = array(
+		'name'         => __( 'Lists', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'typography-section',
+		'priority'     => 71,
+		'options-list' => apply_filters( 'cherry_lists_options_list', $lists_options ),
+	);
+
+	$sections_array['optimization-section'] = array(
+		'name'         => __( 'Optimization', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-tools',
-		'parent'       => '',
 		'priority'     => 90,
-		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options )
+		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options ),
 	);
-	$sections_array['demo-options-section'] = array(
-		'name'			=> 'Interface elements (for UI developers)',
-		'icon'			=> 'dashicons dashicons-editor-help',
-		'priority'		=> 100,
-		'options-list'	=> apply_filters( 'cherry_demo_options_list', $demo_options )
+
+	$sections_array['demo-section'] = array(
+		'name'         => __( 'Interface elements (for UI developers)', 'cherry' ),
+		'icon'         => 'dashicons dashicons-editor-help',
+		'priority'     => 100,
+		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
-	//return $sections_array;
 }

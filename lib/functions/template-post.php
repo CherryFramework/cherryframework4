@@ -347,6 +347,15 @@ function cherry_the_post_button( $args ) {
  * @param array $args
  */
 function cherry_get_the_post_button( $args ) {
+
+	if ( 'false' == cherry_get_option( 'blog-button' ) ) {
+		return;
+	}
+
+	if ( '' == cherry_get_option( 'blog-button-text' ) ) {
+		return;
+	}
+
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 

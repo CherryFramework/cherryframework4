@@ -84,7 +84,9 @@ function cherry_enqueue_scripts() {
 	$comments_supports = ( isset( $supports[0] ) && in_array( 'comment-reply', $supports[0] ) ) ? true : false;
 
 	// Load the comment reply script on singular posts with open comments if threaded comments are supported.
-	if ( is_singular() && get_option( 'thread_comments' ) && comments_open() && $comments_supports ) {
+	if ( is_singular() && get_option( 'thread_comments' ) && comments_open() && $comments_supports
+		&& ( 'true' == cherry_get_option( 'blog-comment-status' ) )
+		) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
