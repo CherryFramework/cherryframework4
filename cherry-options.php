@@ -280,280 +280,279 @@ function cherry_defaults_settings() {
 //////////////////////////////// Blog layout options ////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 	$blog_options = array();
-	$blog_options['blog-list-layout'] = array(
-		'type'          => 'radio',
-		'title'         => __( 'Blog list layout', 'cherry' ),
-		'label'         => __( 'Blog list layout', 'cherry' ),
-		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-		'value'         => 'masonry',
-		'display_input' => false,
-		'options'       => array(
-			'masonry' => array(
-				'label'   => 'Masonry',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-masonry.svg'
-			),
-			'grid' => array(
-				'label'   => 'Grid',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-grid.svg'
-			),
-			'list' => array(
-				'label'   => 'List',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-checkerlist.svg',
-			),
+
+	// Featured
+	// $blog_options['blog-list-layout'] = array(
+	// 	'type'          => 'radio',
+	// 	'title'         => __( 'Blog list layout', 'cherry' ),
+	// 	'label'         => __( 'Blog list layout', 'cherry' ),
+	// 	'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
+	// 	'value'         => 'masonry',
+	// 	'display_input' => false,
+	// 	'options'       => array(
+	// 		'masonry' => array(
+	// 			'label'   => 'Masonry',
+	// 			'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-masonry.svg'
+	// 		),
+	// 		'grid' => array(
+	// 			'label'   => 'Grid',
+	// 			'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-grid.svg'
+	// 		),
+	// 		'list' => array(
+	// 			'label'   => 'List',
+	// 			'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-checkerlist.svg',
+	// 		),
+	// 	)
+	// );
+
+	// $blog_options['blog-images-page-scroll'] = array(
+	// 	'type'        => 'switcher',
+	// 	'title'       => 'Should images be uploaded on page scroll?',
+	// 	'label'       => 'Enable / Disable',
+	// 	'decsription' => 'You can enable images load only as you scroll down the page. Otherwise images will load all at once.',
+	// 	'hint'        => array(
+	// 		'type'    => 'text',
+	// 		'content' => '',
+	// 	),
+	// 	'value'         => 'true',
+	// 	'default_value' => 'true',
+	// );
+
+	// $blog_options['blog-view-number'] = array(
+	// 	'type'        => 'switcher',
+	// 	'title'       => 'Number of view.',
+	// 	'label'       => 'Enable / Disable',
+	// 	'decsription' => 'Should the number of view be displayed?',
+	// 	'hint'        => array(
+	// 		'type'    => 'text',
+	// 		'content' => '',
+	// 	),
+	// 	'value'         => 'true',
+	// 	'default_value' => 'true',
+	// );
+
+	// $blog_options['blog-likes-number'] = array(
+	// 	'type'        => 'switcher',
+	// 	'title'       => 'Number of likes.',
+	// 	'label'       => 'Enable / Disable',
+	// 	'decsription' => 'Should the number of likes be displayed?',
+	// 	'hint'        => array(
+	// 		'type'    => 'text',
+	// 		'content' => '',
+	// 	),
+	// 	'value'         => 'true',
+	// 	'default_value' => 'true',
+	// );
+
+	// $blog_options['blog-dislikes-number'] = array(
+	// 	'type'        => 'switcher',
+	// 	'title'       => 'Number of dislikes.',
+	// 	'label'       => 'Enable / Disable',
+	// 	'decsription' => 'Should the number of dislikes be displayed?',
+	// 	'hint'        => array(
+	// 		'type'    => 'text',
+	// 		'content' => '',
+	// 	),
+	// 	'value'         => 'true',
+	// 	'default_value' => 'true',
+	// );
+	// $blog_options['blog-meta-type-view'] = array(
+	// 	'type'			=> 'radio',
+	// 	'title'			=> 'view meta of the blog.',
+	// 	'label'			=> 'choose one of them',
+	// 	'decsription'	=> '',
+	// 	'hint'      	=> array(
+	// 		'type'    => 'text',
+	// 		'content' => 'Select meta block type which will be displayed on blog and post pages.',
+	// 	),
+	// 	'value'         => 'blog-meta-type-view-line',
+	// 	'class'         => '',
+	// 	'display-input' => true,
+	// 	'options'       => array(
+	// 		'blog-meta-type-view-line' => array(
+	// 			'label'   => 'Do not show.',
+	// 		),
+	// 		'blog-meta-type-view-icon' => array(
+	// 			'label'   => 'Lines',
+	// 		),
+	// 	)
+	// );
+
+	// $blog_options['blog-display-meta'] = array(
+	// 	'type'        => 'radio',
+	// 	'title'       => 'Display meta info block',
+	// 	'label'       => 'choose one of them',
+	// 	'decsription' => '',
+	// 	'hint'        => array(
+	// 		'type'    => 'text',
+	// 		'content' => 'Select where to display meta block.',
+	// 	),
+	// 	'value'         => 'radio-2',
+	// 	'default_value' => 'radio-1',
+	// 	'class'         => '',
+	// 	'display-input' => true,
+	// 	'options'       => array(
+	// 		'radio-1' => array(
+	// 			'label'   => 'Only blog.',
+	// 			'img_src' => '',
+	// 		),
+	// 		'radio-2' => array(
+	// 			'label'   => 'Only post.',
+	// 			'img_src' => '',
+	// 		),
+	// 		'radio-3' => array(
+	// 			'label'   => 'Blog and post.',
+	// 			'img_src' => '',
+	// 		),
+	// 		'radio-4' => array(
+	// 			'label'   => 'Do not show.',
+	// 			'img_src' => '',
+	// 		),
+	// 	)
+	// );
+
+	// Index
+	$blog_options['blog-content-type'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Part or Full Content', 'cherry' ),
+		'decsription' => __( 'Choose to display a part or full content', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Choose to display a part or full content', 'cherry' ),
+		),
+		'value'   => 'part',
+		'options' => array(
+			'part' => __( 'Part', 'cherry' ),
+			'full' => __( 'Full', 'cherry' ),
 		)
+	);
+
+	$blog_options['blog-excerpt-length'] = array(
+		'type'        => 'text',
+		'title'       => __( 'Part content length', 'cherry' ),
+		'decsription' => __( 'Type the number of words in an excerpt', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Type the number of words in an excerpt', 'cherry' ),
+		),
+		'value' => __( '55', 'cherry' ),
 	);
 
 	$blog_options['blog-button-text'] = array(
 		'type'        => 'text',
-		'title'       => 'title text',
-		'label'       => '',
-		'decsription' => 'Button text for blog posts.',
-		'hint'        => array(
-			'type'    => 'image',
-			'content' => PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
-		),
-		'value' => 'Read more',
-	);
-	$blog_options['blog-social-sharing'] = array(
-		'type'        => 'switcher',
-		'title'       => 'Social networks sharing buttons',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Activate this to enable social sharing buttons on your blog posts',
+		'title'       => __( 'Button text', 'cherry' ),
+		'decsription' => __( 'Button text for posts', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => '',
+			'content' => __( 'Button text for posts', 'cherry' ),
 		),
-		'value'         => 'true',
-	);
-	$blog_options['blog-comments'] = array(
-		'type'        => 'switcher',
-		'title'       => 'Comment hide',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Enabling this option will hide comments on blog List',
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => '',
-		),
-		'value'         => 'false',
+		'value' => __( 'read more', 'cherry' ),
 	);
 
-///////////////////////////////////Blog image size
-	$blog_options['blog-images-page-scroll'] = array(
-		'type'        => 'switcher',
-		'title'       => 'Should images be uploaded on page scroll?',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'You can enable images load only as you scroll down the page. Otherwise images will load all at once.',
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => '',
-		),
-		'value'         => 'true',
-		'default_value' => 'true',
-	);
-
-	$blog_options['blog-button-text'] = array(
-		'type'        => 'text',
-		'title'       => 'title text',
-		'label'       => '',
-		'decsription' => 'Button text for blog posts.',
-		'hint'        => array(
-			'type'    => 'image',
-			'content' => PARENT_URI.'/lib/admin/assets/images/cherry-logo.png',
-		),
-		'value' => 'Read more',
-	);
-
-	$blog_options['blog-meta-type-view'] = array(
-		'type'			=> 'radio',
-		'title'			=> 'view meta of the blog.',
-		'label'			=> 'choose one of them',
-		'decsription'	=> '',
-		'hint'      	=> array(
-			'type'    => 'text',
-			'content' => 'Select meta block type which will be displayed on blog and post pages.',
-		),
-		'value'         => 'blog-meta-type-view-line',
-		'class'         => '',
-		'display-input' => true,
-		'options'       => array(
-			'blog-meta-type-view-line' => array(
-				'label'   => 'Do not show.',
-			),
-			'blog-meta-type-view-icon' => array(
-				'label'   => 'Lines',
-			),
-		)
-	);
-
-	$blog_options['blog-display-meta'] = array(
-		'type'        => 'radio',
-		'title'       => 'Display meta info block',
-		'label'       => 'choose one of them',
-		'decsription' => '',
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => 'Select where to display meta block.',
-		),
-		'value'         => 'radio-2',
-		'default_value' => 'radio-1',
-		'class'         => '',
-		'display-input' => true,
-		'options'       => array(
-			'radio-1' => array(
-				'label'   => 'Only blog.',
-				'img_src' => '',
-			),
-			'radio-2' => array(
-				'label'   => 'Only post.',
-				'img_src' => '',
-			),
-			'radio-3' => array(
-				'label'   => 'Blog and post.',
-				'img_src' => '',
-			),
-			'radio-4' => array(
-				'label'   => 'Do not show.',
-				'img_src' => '',
-			),
-		)
-	);
-
+	// Single
 	$blog_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
-		'title'       => 'Related posts',
-		'decsription' => 'Show related posts?',
+		'title'       => __( 'Related posts', 'cherry' ),
+		'decsription' => __( 'Show related posts?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => 'Show related posts?',
+			'content' => __( 'Show related posts?', 'cherry' ),
 		),
-		'value'         => 'true',
-		'default_value' => 'true',
+		'value' => 'true',
 	);
 
-	$blog_options['blog-post-publication-date'] = array(
+	$blog_options['blog-comments'] = array(
 		'type'        => 'switcher',
-		'title'       => 'Post publication date.',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Should the post publication date be displayed?',
+		'title'       => __( 'Allow comments', 'cherry' ),
+		'label'       => __( 'Enable / Disable', 'cherry' ),
+		'decsription' => __( 'Enabling this option will show comments', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => '',
+			'content' => __( 'Enabling this option will show comments', 'cherry' ),
 		),
-		'value'         => 'true',
-		'default_value' => 'true',
+		'value' => 'true',
+	);
+
+	$blog_options['blog-post-date'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Date', 'cherry' ),
+		'label'       => __( 'Enable / Disable', 'cherry' ),
+		'decsription' => __( 'Should the post publication date be displayed?', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Should the post publication date be displayed?', 'cherry' ),
+		),
+		'value' => 'true',
 	);
 
 	$blog_options['blog-post-author'] = array(
 		'type'        => 'switcher',
-		'title'       => 'Author of the post.',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Display the author of the post?',
+		'title'       => __( 'Author', 'cherry' ),
+		'label'       => __( 'Enable / Disable', 'cherry' ),
+		'decsription' => __( 'Should the post author be displayed?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => '',
+			'content' => __( 'Should the post author be displayed?', 'cherry' ),
 		),
-		'value'         => 'true',
-		'default_value' => 'true',
+		'value' => 'true',
 	);
 
-	$blog_options['blog-direct-link'] = array(
+	$blog_options['blog-post-comments'] = array(
 		'type'        => 'switcher',
-		'title'       => 'Direct link to the post.',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Should the direct link to the post be displayed?',
+		'title'       => __( 'Comments', 'cherry' ),
+		'label'       => __( 'Enable / Disable', 'cherry' ),
+		'decsription' => __( 'Should the number of comments be displayed?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => '',
+			'content' => __( 'Should the number of comments be displayed?', 'cherry' ),
 		),
-		'value'         => 'true',
-		'default_value' => 'true',
+		'value' => 'true',
+	);
+
+	$blog_options['blog-categories'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Categories', 'cherry' ),
+		'label'       => __( 'Enable / Disable', 'cherry' ),
+		'decsription' => __( 'Should the post categories be displayed?', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Should the post categories be displayed?', 'cherry' ),
+		),
+		'value' => 'true',
 	);
 
 	$blog_options['blog-tags'] = array(
 		'type'        => 'switcher',
-		'title'       => 'Tags be displayed',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Should the tags be displayed?',
+		'title'       => __( 'Tags', 'cherry' ),
+		'label'       => __( 'Enable / Disable', 'cherry' ),
+		'decsription' => __( 'Should the tags be displayed?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => '',
+			'content' => __( 'Should the post tags be displayed?', 'cherry' ),
 		),
-		'value'         => 'true',
-		'default_value' => 'true',
-	);
-
-	$blog_options['blog-post-categories'] = array(
-		'type'        => 'switcher',
-		'title'       => 'Post categories.',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Should the post categories be displayed?',
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => '',
-		),
-		'value'         => 'true',
-		'default_value' => 'true',
-	);
-
-	$blog_options['blog-comments-number'] = array(
-		'type'        => 'switcher',
-		'title'       => 'Number of comments.',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Should the number of comments be displayed?',
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => '',
-		),
-		'value'         => 'true',
-		'default_value' => 'true',
-	);
-
-	$blog_options['blog-view-number'] = array(
-		'type'        => 'switcher',
-		'title'       => 'Number of view.',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Should the number of view be displayed?',
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => '',
-		),
-		'value'         => 'true',
-		'default_value' => 'true',
-	);
-
-	$blog_options['blog-likes-number'] = array(
-		'type'        => 'switcher',
-		'title'       => 'Number of likes.',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Should the number of likes be displayed?',
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => '',
-		),
-		'value'         => 'true',
-		'default_value' => 'true',
-	);
-
-	$blog_options['blog-dislikes-number'] = array(
-		'type'        => 'switcher',
-		'title'       => 'Number of dislikes.',
-		'label'       => 'Enable / Disable',
-		'decsription' => 'Should the number of dislikes be displayed?',
-		'hint'        => array(
-			'type'    => 'text',
-			'content' => '',
-		),
-		'value'         => 'true',
-		'default_value' => 'true',
+		'value' => 'true',
 	);
 
 	$blog_options['blog-gallery-shortcode'] = array(
-		'type'        => 'switcher',
-		'title'       => __( 'Replace default gallery with slider', 'cherry' ),
-		'decsription'       => __( 'Enable this to replace default WP gallery with Slick slider', 'cherry' ),
+		'type'          => 'switcher',
+		'title'         => __( 'Replace default gallery with slider', 'cherry' ),
+		'decsription'   => __( 'Enable this to replace default WP gallery with Slick slider', 'cherry' ),
 		'value'         => 'true',
 		'default_value' => 'true',
 	);
+
+	// $blog_options['blog-direct-link'] = array(
+	// 	'type'        => 'switcher',
+	// 	'title'       => 'Direct link to the post.',
+	// 	'label'       => 'Enable / Disable',
+	// 	'decsription' => 'Should the direct link to the post be displayed?',
+	// 	'hint'        => array(
+	// 		'type'    => 'text',
+	// 		'content' => '',
+	// 	),
+	// 	'value'         => 'true',
+	// 	'default_value' => 'true',
+	// );
 
 ////////// Logo options ///////////////////////////////////////////////////////
 
