@@ -121,12 +121,16 @@ class Cherry_Admin {
 		$screen    = get_current_screen();
 		$post_type = $screen->post_type;
 
+		if ( !empty( $post_type ) && post_type_supports( $post_type, 'cherry-grid-type' ) ) {
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-grid-type.php' );
+		}
+
 		if ( !empty( $post_type ) && post_type_supports( $post_type, 'cherry-layouts' ) ) {
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-layouts.php' );
 		}
 
-		if ( !empty( $post_type ) && post_type_supports( $post_type, 'cherry-grid-type' ) ) {
-			require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-grid-type.php' );
+		if ( !empty( $post_type ) && post_type_supports( $post_type, 'cherry-post-style' ) ) {
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-post-style.php' );
 		}
 	}
 
