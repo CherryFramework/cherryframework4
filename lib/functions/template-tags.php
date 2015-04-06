@@ -43,8 +43,8 @@ function cherry_get_breadcrumbs() {
 	$user_args = apply_filters( 'cherry_breadcrumbs_custom_args', array() );
 
 	$wrapper_format = '<div class="row">
-		<div class="col-md-5">%s</div>
-		<div class="col-md-7">%s</div>
+		<div class="col-md-5 col-sm-12">%s</div>
+		<div class="col-md-7 col-sm-12">%s</div>
 	</div>';
 
 	$options_args = array(
@@ -429,13 +429,14 @@ add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
  */
 function cherry_maintenance_mode() {
 
-	$enabled = cherry_get_option( 'general-maintenance-mode', false );
+	$enabled      = cherry_get_option( 'general-maintenance-mode', false );
+	$preview_mode = isset( $_GET['maintenance-preview'] ) ? true : false;
 
-	if ( 'true' !== $enabled ) {
+	if ( 'true' !== $enabled && !$preview_mode ) {
 		return;
 	}
 
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && !$preview_mode ) {
 		return;
 	}
 
