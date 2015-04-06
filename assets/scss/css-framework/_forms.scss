@@ -21,7 +21,6 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: $line-height-computed;
   line-height: inherit;
   border: 0;
   border-bottom: 1px solid $legend-border-color;
@@ -82,7 +81,6 @@ input[type="checkbox"]:focus {
 output {
   display: block;
   padding-top: ($padding-base-vertical + 1);
-  line-height: $line-height-base;
 }
 
 
@@ -113,7 +111,6 @@ output {
   width: 100%;
   height: $input-height-base; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
   padding: $padding-base-vertical $padding-base-horizontal;
-  line-height: $line-height-base;
   background-color: $input-bg;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid $input-border;
@@ -211,7 +208,6 @@ input[type="search"] {
   margin-bottom: 10px;
 
   label {
-    min-height: $line-height-computed; // Ensure the input doesn't jump when there is no text
     padding-left: 20px;
     margin-bottom: 0;
     font-weight: normal;
@@ -361,9 +357,6 @@ input[type="checkbox"] {
 // Reposition feedback icon if input has visible label above
 .has-feedback label {
 
-  & ~ .form-control-feedback {
-     top: ($line-height-computed + 5); // Height of the `label` and its margin
-  }
   &.sr-only ~ .form-control-feedback {
      top: 0;
   }
@@ -493,7 +486,7 @@ input[type="checkbox"] {
   // and other content below items
   .radio,
   .checkbox {
-    min-height: ($line-height-computed + ($padding-base-vertical + 1));
+    min-height: ($line-height-computed + ($padding-base-vertical + 1)); //bootstrap default
   }
 
   // Make form groups behave like rows

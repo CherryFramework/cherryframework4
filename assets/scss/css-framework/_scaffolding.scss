@@ -26,7 +26,6 @@ html {
 
 body {
   font-family: $font-family-base;
-  line-height: $line-height-base;
 }
 
 // Reset fonts for relevant elements
@@ -91,8 +90,6 @@ img {
 // Horizontal rules
 
 hr {
-  margin-top:    $line-height-computed;
-  margin-bottom: $line-height-computed;
   border: 0;
 }
 

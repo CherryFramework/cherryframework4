@@ -42,13 +42,19 @@ function cherry_get_breadcrumbs() {
 
 	$user_args = apply_filters( 'cherry_breadcrumbs_custom_args', array() );
 
+	$wrapper_format = '<div class="row">
+		<div class="col-md-5">%s</div>
+		<div class="col-md-7">%s</div>
+	</div>';
+
 	$options_args = array(
-		'separator'     => cherry_get_option( 'breadcrumbs-separator', '&#47;' ),
-		'show_mobile'   => $show_mobile,
-		'show_tablet'   => $show_tablet,
-		'show_on_front' => $show_on_front,
-		'show_title'    => $show_title,
-		'labels'        => $browse_label
+		'separator'      => cherry_get_option( 'breadcrumbs-separator', '&#47;' ),
+		'show_mobile'    => $show_mobile,
+		'show_tablet'    => $show_tablet,
+		'show_on_front'  => $show_on_front,
+		'show_title'     => $show_title,
+		'labels'         => $browse_label,
+		'wrapper_format' => $wrapper_format
 	);
 
 	$args = array_merge( $options_args, $user_args );

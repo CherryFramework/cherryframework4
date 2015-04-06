@@ -13,367 +13,11 @@ function cherry_defaults_settings() {
 	}
 
 	//var_dump($all_statics);
-////////// Demo options ///////////////////////////////////////////////////////
-	$demo_options = array();
-	$demo_options['typography-demo'] = array(
-				'type'			=> 'typography',
-				'title'			=> 'title typography',
-				'label'			=> 'label typography',
-				'decsription'	=> 'decsription typography',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> array(
-					'size'			=> '20',
-					'lineheight'	=> '20',
-					'color'			=> '#222222',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
-	);
-	$demo_options['repeater-demo'] = array(
-				'type'			=> 'repeater',
-				'title'			=> 'repeater text',
-				'label'			=> 'repeater text',
-				'decsription'	=> 'repeater text',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> array(
-					array(
-						'external-link'	=> 'http://google.com',
-						'font-class'	=> 'dashicons-admin-site',
-						'link-label'	=> 'custom text',
-					),
-					array(
-						'external-link'	=> 'https://www.youtube.com/',
-						'font-class'	=> 'dashicons-admin-generic',
-						'link-label'	=> 'custom text',
-					),
-					array(
-						'external-link'	=> 'https://vimeo.com/',
-						'font-class'	=> 'dashicons-admin-media',
-						'link-label'	=> 'custom text',
-					),
-				)
-	);
-	$demo_options['text-demo'] = array(
-				'type'			=> 'text',
-				'title'			=> 'title text',
-				'label'			=> 'label text',
-				'decsription'	=> 'decsription text',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'value',
-				'default_value'	=> 'default_value'
-	);
-	$demo_options['textarea-demo'] = array(
-				'type'			=> 'textarea',
-				'title'			=> 'title textarea',
-				'label'			=> 'label textarea',
-				'decsription'	=> 'decsription textarea',
-				'hint'      	=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
-				),
-				'value'			=> 'value',
-				'default_value'	=> 'default_value'
-	);
-	$demo_options['select-demo'] = array(
-				'type'			=> 'select',
-				'title'			=> 'title select',
-				'label'			=> 'label select',
-				'decsription'	=> 'decsription select',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					//'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'
-				),
-				'value'			=> 'select-1',
-				'default_value'	=> 'select-1',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'select 1',
-					'select-2'	=> 'select 2',
-					'select-3'	=> 'select 3'
-				)
-	);
-	$demo_options['filterselect-demo'] = array(
-				'type'			=> 'filterselect',
-				'title'			=> 'title filterselect',
-				'label'			=> 'label filterselect',
-				'decsription'	=> 'decsription filterselect',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'
-				),
-				'value'			=> 'select_1',
-				'default_value'	=> 'select_1',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'select 1',
-					'select-2'	=> 'select 2',
-					'select-3'	=> 'select 3',
-					'select-4'	=> 'select 4',
-					'select-5'	=> 'select 5',
-					'select-6'	=> 'select 6',
-					'select-7'	=> 'select 2',
-					'select-8'	=> 'select 8'
-				)
-	);
-	$demo_options['multiselect-demo'] = array(
-				'type'			=> 'multiselect',
-				'title'			=> 'title multiselect',
-				'label'			=> 'label multiselect',
-				'decsription'	=> 'decsription multiselect',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'placeholder'	=> 'Select value',
-				'value'			=> array('select-1','select-8'),
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'Item 1',
-					'select-2'	=> 'Item 2',
-					'select-3'	=> 'Item 3',
-					'select-4'	=> 'Item 4',
-					'select-5'	=> 'Item 5',
-					'select-6'	=> 'Item 6',
-					'select-7'	=> 'Item 7',
-					'select-8'	=> 'Item 8'
-				)
-	);
-	$demo_options['checkbox-demo'] = array(
-				'type'			=> 'checkbox',
-				'title'			=> 'title checkbox',
-				'label'			=> 'label checkbox',
-				'decsription'	=> 'decsription checkbox',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'true',
-	);
-	$demo_options['switcher-demo'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'title switcher',
-				'label'			=> 'label switcher',
-				'decsription'	=> 'decsription switcher',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-	$demo_options['switcher-custom-toogle-demo'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'title custom switcher',
-				'label'			=> 'label custom switcher',
-				'decsription'	=> 'decsription custom switcher',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true',
-				'toggle'		=> array(
-					'true_toggle'	=> __( 'Enabled', 'cherry' ),
-					'false_toggle'	=> __( 'Disabled', 'cherry' )
-				)
-	);
-	$demo_options['slider-demo'] = array(
-				'type'			=> 'slider',
-				'title'			=> 'title Slider',
-				'label'			=> 'label Slider',
-				'decsription'	=> 'decsription Slider',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'max_value'		=> 1920,
-				'min_value'		=> 980,
-				'value'			=> 1000
-	);
-	$demo_options['rangeslider-demo'] = array(
-				'type'			=> 'rangeslider',
-				'title'			=> 'title Range Slider',
-				'label'			=> 'label Range Slider',
-				'decsription'	=> 'decsription Range Slider',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'max_value'		=> 100,
-				'min_value'		=> 20,
-				'value'			=> array(
-					'left-value'	=> 30,
-					'right-value'	=> 50,
-				)
-	);
-	$demo_options['multicheckbox-demo'] = array(
-				'type'			=> 'multicheckbox',
-				'title'			=> 'title multicheckbox',
-				'label'			=> 'label multicheckbox',
-				'decsription'	=> 'decsription multicheckbox',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'class'			=> '',
-				'value'			=> array( 'checkbox-2', 'checkbox-3' ),
-				'options'		=> array(
-					'checkbox-1'	=> 'checkbox 1',
-					'checkbox-2'	=> 'checkbox 2',
-					'checkbox-3'	=> 'checkbox 3'
-				)
-	);
-	$demo_options['radio-demo'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'title radio',
-				'label'			=> 'label radio',
-				'decsription'	=> 'decsription radio',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'radio-2',
-				'default_value'	=> 'radio-1',
-				'class'			=> '',
-				'display-input'	=> true,
-				'options'		=> array(
-					'radio-1' => array(
-						'label' => 'radio 1',
-					),
-					'radio-2' => array(
-						'label' => 'radio 2',
-					),
-					'radio-3' => array(
-						'label' => 'radio 3',
-					),
-				)
-	);
-	$demo_options['radio-image-demo'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'title radio',
-				'label'			=> 'label radio',
-				'decsription'	=> 'decsription radio',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'radio-1',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'radio-1' => array(
-						'label' => 'radio image 1',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-2' => array(
-						'label' => 'radio image 2',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-3' => array(
-						'label' => 'radio image 3',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-				)
-	);
-	$demo_options['image-demo'] = array(
-				'type'				=> 'media',
-				'title'				=> 'title image',
-				'label'				=> 'label image',
-				'decsription'		=> 'decsription image',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'				=> '',
-				'display-image'		=> true,
-				'multi-upload'		=> true,
-				'library_type'		=> 'image'
-	);
-	$demo_options['colorpicker-demo'] = array(
-				'type'			=> 'colorpicker',
-				'title'			=> 'title colorpicker',
-				'label'			=> 'label colorpicker',
-				'decsription'	=> 'decsription colorpicker',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> '#ff0000',
-				'default_value'	=> '#ff0000'
-	);
-	$demo_options['stepper-demo'] = array(
-				'type'			=> 'stepper',
-				'title'			=> 'title stepper',
-				'label'			=> 'label stepper',
-				'decsription'	=> 'decsription stepper',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> '0',
-				'default_value'	=> '0',
-				'value-step'	=> '1',
-				'max-value'		=> '50',
-				'min-value'		=> '-50'
-	);
-	$demo_options['editordemo'] = array(
-				'type'			=> 'editor',
-				'title'			=> 'title editor',
-				'label'			=> 'label editor',
-				'decsription'	=> 'decsription editor',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'Lorem ipsum',
-				'default_value'	=> 'editor'
-	);
-	$demo_options['background-demo'] = array(
-				'type'				=> 'background',
-				'title'				=> 'title background',
-				'label'				=> 'label background',
-				'decsription'		=> 'decsription background',
-				'hint'      		=>  array(
-					'type'			=> 'text',
-					'content'		=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'return_data_type'	=> 'url',
-				'value'				=> array(
-					'image'			=> '',
-					'color'			=> '#ff0000',
-					'repeat'		=> 'repeat',
-					'position'		=> 'left',
-					'attachment'	=> 'fixed',
-					'origin'		=> 'padding-box'
-				)
-	);
-	$demo_options['info-demo'] = array(
-				'type'			=> 'info',
-				'title'			=> 'title info',
-				'decsription'	=> 'decsription info',
-				'value'			=> 'info'
-	);
-	$demo_options['submit-demo'] = array(
-				'type'			=> 'submit',
-				'value'			=> 'get value'
-	);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////// General options //////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// General
+//////////////////////////////////////////////////////////////////////
+
 	$general_options = array();
 	$general_options['general-logo-type'] = array(
 			'type'				=> 'radio',
@@ -942,9 +586,7 @@ function cherry_defaults_settings() {
 				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
 				'value'				=> '',
 				'default_value'		=> '',
-				'display-image'		=> true,
 				'multi-upload'		=> true,
-				'return-data_type'	=> 'url'
 	);
 	$logo_options['logo-typography'] = array(
 				'type'			=> 'typography',
@@ -1559,7 +1201,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '14',
 				'lineheight'	=> '25',
-				'color'			=> '777777',
+				'color'			=> '#777777',
 				'family'		=> 'Roboto',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1576,7 +1218,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
-				'color'			=> 'dd7566',
+				'color'			=> '#dd7566',
 				'family'		=> 'Arial',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1594,7 +1236,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
-				'color'			=> 'dd3344',
+				'color'			=> '#dd3344',
 				'family'		=> 'Arial',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1611,7 +1253,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
-				'color'			=> 'dd3344',
+				'color'			=> '#dd3344',
 				'family'		=> 'Arial',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1630,7 +1272,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '36',
 				'lineheight'	=> '40',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
@@ -1646,12 +1288,12 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '30',
 				'lineheight'	=> '33',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Roboto',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'right'
+				'align'			=> 'notdefined'
 			)
 	);
 	$typography_options['typography-h3'] = array(
@@ -1662,12 +1304,12 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '24',
 				'lineheight'	=> '26',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'left'
+				'align'			=> 'notdefined'
 			)
 	);
 	$typography_options['typography-h4'] = array(
@@ -1678,12 +1320,12 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '18',
 				'lineheight'	=> '20',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'right'
+				'align'			=> 'notdefined'
 			)
 	);
 	$typography_options['typography-h5'] = array(
@@ -1694,7 +1336,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '14',
 				'lineheight'	=> '16',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
@@ -1710,7 +1352,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '12',
 				'lineheight'	=> '14',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
@@ -1720,7 +1362,7 @@ function cherry_defaults_settings() {
 	);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// Typography options /////////////////////////////////////////////////////
+///////////////////////// List options /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$lists_options = array();
@@ -1811,17 +1453,379 @@ function cherry_defaults_settings() {
 		)
 	);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+////////// Demo options /////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	$demo_options = array();
+
+	$demo_options['description-demo'] = array(
+				'title' 			=> __('Interface elements section contains Cherry Options interface elements. Interface developers can use these elements to build their own Cherry Framework based configuration pages.', 'cherry'),
+	);
+	$demo_options['typography-demo'] = array(
+				'type'			=> 'typography',
+				'title'			=> __('Typography'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+				),
+				'value'			=> array(
+					'size'			=> '20',
+					'lineheight'	=> '20',
+					'color'			=> '#222222',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
+				)
+	);
+	$demo_options['repeater-demo'] = array(
+				'type'			=> 'repeater',
+				'title'			=> __('Links repeater', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('This option allows you to create a custom links list. For each link you can define URL, class and label.', 'cherry'),
+				),
+				'value'			=> array(
+					array(
+						'external-link'	=> 'http://google.com',
+						'font-class'	=> 'dashicons-admin-site',
+						'link-label'	=> 'custom text',
+					),
+					array(
+						'external-link'	=> 'https://www.youtube.com/',
+						'font-class'	=> 'dashicons-admin-generic',
+						'link-label'	=> 'custom text',
+					),
+					array(
+						'external-link'	=> 'https://vimeo.com/',
+						'font-class'	=> 'dashicons-admin-media',
+						'link-label'	=> 'custom text',
+					),
+				)
+	);
+	$demo_options['text-demo'] = array(
+				'type'			=> 'text',
+				'title'			=> __('Text input', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Regular single line text input field.', 'cherry'),
+				),
+				'value'			=> 'value',
+				'default_value'	=> 'default_value'
+	);
+	$demo_options['textarea-demo'] = array(
+				'type'			=> 'textarea',
+				'title'			=> __('Textarea input', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Multiline text input field ( 16 rows x 20 cols ).', 'cherry'),
+				),
+				'value'			=> 'value',
+				'default_value'	=> 'default_value'
+	);
+	$demo_options['select-demo'] = array(
+				'type'			=> 'select',
+				'title'			=> __('Select box', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					//'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
+					'content'	=> __('Select box with single option.', 'cherry'),
+				),
+				'value'			=> 'select-1',
+				'default_value'	=> 'select-1',
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'select 1',
+					'select-2'	=> 'select 2',
+					'select-3'	=> 'select 3'
+				)
+	);
+	$demo_options['filterselect-demo'] = array(
+				'type'			=> 'filterselect',
+				'title'			=> __('Filtered select', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Select box with filter option.', 'cherry'),
+				),
+				'value'			=> 'select_1',
+				'default_value'	=> 'select_1',
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'select 1',
+					'select-2'	=> 'select 2',
+					'select-3'	=> 'select 3',
+					'select-4'	=> 'select 4',
+					'select-5'	=> 'select 5',
+					'select-6'	=> 'select 6',
+					'select-7'	=> 'select 2',
+					'select-8'	=> 'select 8'
+				)
+	);
+	$demo_options['multiselect-demo'] = array(
+				'type'			=> 'multiselect',
+				'title'			=> __('Mulli-select box', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Select box with multiple select capability.', 'cherry'),
+				),
+				'placeholder'	=> 'Select value',
+				'value'			=> array('select-1','select-8'),
+				'class'			=> 'width-full',
+				'options'		=> array(
+					'select-1'	=> 'Item 1',
+					'select-2'	=> 'Item 2',
+					'select-3'	=> 'Item 3',
+					'select-4'	=> 'Item 4',
+					'select-5'	=> 'Item 5',
+					'select-6'	=> 'Item 6',
+					'select-7'	=> 'Item 7',
+					'select-8'	=> 'Item 8'
+				)
+	);
+	$demo_options['checkbox-demo'] = array(
+				'type'			=> 'checkbox',
+				'title'			=> __('Checkbox', 'cherry'),
+				'label'			=> __('Checkbox label', 'cherry'),
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Regular HTML checkbox.', 'cherry'),
+				),
+				'value'			=> 'true',
+	);
+	$demo_options['switcher-demo'] = array(
+				'type'			=> 'switcher',
+				'title'			=> __('Switcher', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Analogue of the regular HTML radio buttons. ', 'cherry'),
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+	$demo_options['switcher-custom-toogle-demo'] = array(
+				'type'			=> 'switcher',
+				'title'			=> __('Switcher (alternative)', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Alternative switcher with custom labels.', 'cherry'),
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true',
+				'toggle'		=> array(
+					'true_toggle'	=> __( 'Enabled', 'cherry' ),
+					'false_toggle'	=> __( 'Disabled', 'cherry' )
+				)
+	);
+	$demo_options['slider-demo'] = array(
+				'type'			=> 'slider',
+				'title'			=> __('Slider', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Draggable slider with stepper. Used to define some numeric value.', 'cherry'),
+				),
+				'max_value'		=> 1920,
+				'min_value'		=> 980,
+				'value'			=> 1000
+	);
+	$demo_options['rangeslider-demo'] = array(
+				'type'			=> 'rangeslider',
+				'title'			=> __('Slider (ranged)', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Draggable slider with range capability. Used to define numeric range.', 'cherry'),
+				),
+				'max_value'		=> 100,
+				'min_value'		=> 20,
+				'value'			=> array(
+					'left-value'	=> 30,
+					'right-value'	=> 50,
+				)
+	);
+	$demo_options['multicheckbox-demo'] = array(
+				'type'			=> 'multicheckbox',
+				'title'			=> __('Multiple checkboxes', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Adds checkboxes group. Lets user to select several options from the list.', 'cherry'),
+				),
+				'class'			=> '',
+				'value'			=> array( 'checkbox-2', 'checkbox-3' ),
+				'options'		=> array(
+					'checkbox-1'	=> 'checkbox 1',
+					'checkbox-2'	=> 'checkbox 2',
+					'checkbox-3'	=> 'checkbox 3'
+				)
+	);
+	$demo_options['radio-demo'] = array(
+				'type'			=> 'radio',
+				'title'			=> __('Radio buttons', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Adds radio buttons group. Lets user to select one option from the list.', 'cherry'),
+				),
+				'value'			=> 'radio-2',
+				'default_value'	=> 'radio-1',
+				'class'			=> '',
+				'display-input'	=> true,
+				'options'		=> array(
+					'radio-1' => array(
+						'label' => 'radio 1',
+					),
+					'radio-2' => array(
+						'label' => 'radio 2',
+					),
+					'radio-3' => array(
+						'label' => 'radio 3',
+					),
+				)
+	);
+	$demo_options['radio-image-demo'] = array(
+				'type'			=> 'radio',
+				'title'			=> __('Radio buttons (image)', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Adds image based radio buttons group. Behaves as HTML radio buttons.', 'cherry'),
+				),
+				'value'			=> 'radio-1',
+				'class'			=> '',
+				'display_input'	=> false,
+				'options'		=> array(
+					'radio-1' => array(
+						'label' => 'radio image 1',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio-2' => array(
+						'label' => 'radio image 2',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio-3' => array(
+						'label' => 'radio image 3',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+				)
+	);
+	$demo_options['image-demo'] = array(
+				'type'				=> 'media',
+				'title'			=> __('Media library element', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Lets user to add content from Wordpress media library. ', 'cherry'),
+				),
+				'value'				=> '',
+				'multi-upload'		=> true,
+				'library_type'		=> 'image'
+	);
+	$demo_options['background-demo'] = array(
+				'type'				=> 'background',
+				'title'			=> __('Background image', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Lets user to add background image from the media library and define it\'s background settings like background repeat, position, attachment, origin.', 'cherry'),
+				),
+				'multi-upload'		=> true,
+				'library_type'		=> 'image',
+				'value'				=> array(
+					'image'			=> '',
+					'color'			=> '#ff0000',
+					'repeat'		=> 'repeat',
+					'position'		=> 'left',
+					'attachment'	=> 'fixed',
+					'origin'		=> 'padding-box'
+				)
+	);
+	$demo_options['colorpicker-demo'] = array(
+				'type'			=> 'colorpicker',
+				'title'			=> __('Colorpicker', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Adds a color picker.', 'cherry'),
+				),
+				'value'			=> '#ff0000',
+				'default_value'	=> '#ff0000'
+	);
+	$demo_options['stepper-demo'] = array(
+				'type'			=> 'stepper',
+				'title'			=> __('Stepper', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
+				),
+				'value'			=> '0',
+				'default_value'	=> '0',
+				'value-step'	=> '1',
+				'max-value'		=> '50',
+				'min-value'		=> '-50'
+	);
+	$demo_options['editordemo'] = array(
+				'type'			=> 'editor',
+				'title'			=> __('WYSIWYG editor', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
+				),
+				'value'			=> 'Lorem ipsum',
+				'default_value'	=> 'editor'
+	);
+
+	$demo_options['info-demo'] = array(
+				'type'			=> 'info',
+				'title'			=> __('Info panel', 'cherry'),
+				'decsription'	=> '',
+				'value'			=> '',
+	);
+	$demo_options['submit-demo'] = array(
+				'type'			=> 'submit',
+				'value'			=> 'get value'
+	);
+
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$sections_array = array();
-	$sections_array['demo-options-section'] = array(
-		'name'			=> 'All interface elements',
-		'icon'			=> 'dashicons dashicons-carrot',
-		'priority'		=> 1,
-		'options-list'	=> apply_filters( 'cherry_demo_options_list', $demo_options )
-	);
+
 	$sections_array['general-options-section'] = array(
 		'name'			=> 'General',
 		'icon' 			=> 'dashicons dashicons-admin-generic',
@@ -1920,6 +1924,12 @@ function cherry_defaults_settings() {
 		'parent'       => '',
 		'priority'     => 90,
 		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options )
+	);
+	$sections_array['demo-options-section'] = array(
+		'name'			=> 'Interface elements (for UI developers)',
+		'icon'			=> 'dashicons dashicons-editor-help',
+		'priority'		=> 100,
+		'options-list'	=> apply_filters( 'cherry_demo_options_list', $demo_options )
 	);
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );

@@ -42,6 +42,14 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		public $args = array();
 
 		/**
+		 * Page title
+		 *
+		 * @since 4.0.0
+		 * @var   array
+		 */
+		public $page_title = null;
+
+		/**
 		 * Breadcrumbs CSS
 		 *
 		 * @since  4.0.0
@@ -49,6 +57,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		 */
 		public $css = array(
 			'module'    => 'cherry-breadcrumbs',
+			'content'   => 'cherry-breadcrumbs_content',
 			'wrap'      => 'cherry-breadcrumbs_wrap',
 			'browse'    => 'cherry-breadcrumbs_browse',
 			'item'      => 'cherry-breadcrumbs_item',
@@ -61,22 +70,24 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		function __construct( $args = array() ) {
 
 			$defaults = array(
-				'separator'     => '&#47;',
-				'before'        => '',
-				'after'         => '',
-				'show_mobile'   => true,
-				'show_tablet'   => true,
-				'item_format'   => '<div class="%2$s">%1$s</div>',
-				'home_format'   => '<a href="%4$s" class="%2$s is-home" rel="home" title="%3$s">%1$s</a>',
-				'link_format'   => '<a href="%4$s" class="%2$s" rel="tag" title="%3$s">%1$s</a>',
-				'target_format' => '<span class="%2$s">%1$s</span>',
-				'show_on_front' => true,
-				'network'       => false,
-				'show_title'    => true,
-				'show_browse'   => true,
-				'echo'          => true,
-				'labels'        => array(),
-				'post_taxonomy' => apply_filters(
+				'separator'         => '&#47;',
+				'before'            => '',
+				'after'             => '',
+				'show_mobile'       => true,
+				'show_tablet'       => true,
+				'wrapper_format'    => '<div>%1$s</div><div>%1$s</div>',
+				'page_title_format' => '<h1 class="page-title">%s</h1>',
+				'item_format'       => '<div class="%2$s">%1$s</div>',
+				'home_format'       => '<a href="%4$s" class="%2$s is-home" rel="home" title="%3$s">%1$s</a>',
+				'link_format'       => '<a href="%4$s" class="%2$s" rel="tag" title="%3$s">%1$s</a>',
+				'target_format'     => '<span class="%2$s">%1$s</span>',
+				'show_on_front'     => true,
+				'network'           => false,
+				'show_title'        => true,
+				'show_browse'       => true,
+				'echo'              => true,
+				'labels'            => array(),
+				'post_taxonomy'     => apply_filters(
 					'cherry_breadcrumbs_trail_taxonomies',
 					array(
 						'post'      => 'category',
@@ -139,8 +150,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$wrapper_css = implode( ' ', $wrapper_classes );
 
 			/* Open the breadcrumb trail containers. */
-			$breadcrumb = "\n\t\t" . '<div class="' . $wrapper_css . '" itemprop="breadcrumb">';
-
+			$breadcrumb .= "\n\t\t" . '<div class="' . esc_attr( $this->css['content'] ) . '">';
 
 			/* Add 'browse' label if it should be shown. */
 			if ( true === $this->args['show_browse'] ) {
@@ -162,20 +172,31 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 			$breadcrumb .= "\n\t\t" . '</div>';
 
-			/* Close the breadcrumb trail containers. */
 			$breadcrumb .= "\n\t\t" . '</div>';
 
 			if ( $this->args['after'] ) {
 				$breadcrumb .= $this->args['after'];
 			}
 
-			/* Allow developers to filter the breadcrumb trail HTML. */
+			/* Allow developers to filter the breadcrumb trail HTML and page title. */
 			$breadcrumb = apply_filters( 'cherry_breadcrumbs_trail', $breadcrumb, $this->args );
+			$title      = apply_filters(
+				'cherry_page_title',
+				sprintf( $this->args['page_title_format'], $this->page_title ), $this->args
+			);
+
+			/* Open the breadcrumb trail containers. */
+			$result = "\n\t\t" . '<div class="' . $wrapper_css . '" itemprop="breadcrumb">';
+
+			$result .= sprintf( $this->args['wrapper_format'], $title, $breadcrumb );
+
+			/* Close the breadcrumb trail containers. */
+			$result .= "\n\t\t" . '</div>';
 
 			if ( true === $this->args['echo'] ) {
-				echo $breadcrumb;
+				echo $result;
 			} else {
-				return $breadcrumb;
+				return $result;
 			}
 
 		}
@@ -312,6 +333,10 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$item = sprintf( $this->args[$format], $label, $class, $title, $url );
 
 			$this->items[] = sprintf( $this->args['item_format'], $item, esc_attr( $this->css['item'] ) );
+
+			if ( 'target_format' == $format ) {
+				$this->page_title = $label;
+			}
 
 		}
 
