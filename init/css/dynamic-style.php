@@ -18,6 +18,7 @@ $cherry_css_vars = cherry_get_css_varaibles();
 
 $body_typography = $cherry_css_vars['typography-body-text'] ;
 $body_background = $cherry_css_vars['styling-body-content-background'] ;
+$header_background = $cherry_css_vars['header-background'] ;
 $typography_h1 =$cherry_css_vars['typography-h1'] ;
 $typography_h2 =$cherry_css_vars['typography-h2'] ;
 $typography_h3 =$cherry_css_vars['typography-h3'] ;
@@ -36,6 +37,8 @@ body {
 	background-position: <?php echo cherry_esc_value( $body_background, 'position' ); ?>;
 	background-attachment: <?php echo cherry_esc_value( $body_background, 'attachment' ); ?>;
 }
+
+<?php echo cherry_get_background_css('.site-header', $header_background); ?>;
 
 h1, .h1 {
 	font-size: <?php echo cherry_esc_value( $typography_h1, 'size' ); ?>px;

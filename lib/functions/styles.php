@@ -209,7 +209,9 @@ function cherry_get_css_varaibles() {
 		'typography-h3',
 		'typography-h4',
 		'typography-h5',
-		'typography-h6'
+		'typography-h6',
+		'header-background',
+		'footer-background'
 	);
 
 	$var_list = apply_filters( 'cherry_css_var_list', $var_list );
