@@ -1,6 +1,7 @@
 <?php
 /**
- * Functions for working with CSS colors
+ * Utils Functions
+ * Enqueue util scripts, CSS util functions
  *
  * @package    Cherry_Framework
  * @subpackage Functions
@@ -9,6 +10,30 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
+
+// Load Cherry Framework scripts.
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts' );
+
+/**
+ * Enqueue utility scripts
+ * @since  4.0.0
+ */
+function cherry_enqueue_utility_scripts() {
+	global $is_chrome;
+
+	$smooth_scroll = cherry_get_option('general-smoothscroll');
+
+	if( $smooth_scroll == "false"){
+		return false;
+	}
+
+	wp_register_script( 'jquery-mousewheel', esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.mousewheel.min.js' ), array( 'jquery' ), '3.0.6', true );
+	wp_register_script( 'jquery-smoothscroll', esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.simplr.smoothscroll.min.js' ), array( 'jquery', 'jquery-mousewheel' ), '3.0.6', true );
+
+	if( !wp_is_mobile() && $is_chrome ){
+		wp_enqueue_script( 'jquery-smoothscroll' );
+	}
+}
 
 /**
  * Make passed color darken
@@ -203,4 +228,156 @@ function cherry_prepare_color_mod( $color, $percent = 0 ) {
 	);
 
 	return $result;
+}
+
+/**
+ * Get background CSS by bg data from options and selector
+ * If passed multiplie images - returns retina ready CSS
+ *
+ * @since  4.0.0
+ *
+ * @param  string $selector CSS selector to apply bg for
+ * @param  array  $data     data-array from options
+ * @return string
+ */
+function cherry_get_background_css( $selector, $data ) {
+
+	if ( ! $selector ) {
+		return;
+	}
+
+	if ( ! is_array( $data ) ) {
+		return;
+	}
+
+	$standard_bg = cherry_prepare_background( $data );
+
+	if ( empty( $data['image'] ) ) {
+		return $selector . '{' . $standard_bg . '}';
+	}
+
+	$images = explode( ',', $data['image'] );
+
+	$property_format = "%s {background-image: url(%s);%s}";
+
+	if ( 1 == count( $images ) ) {
+		$img = wp_get_attachment_image_src( $images[0], 'full' );
+		$result = sprintf( $property_format, $selector, $img[0], $standard_bg );
+
+		return $result;
+	}
+
+	$img1x    = null;
+	$img2x    = null;
+	$width1x  = 0;
+	$count    = 2;
+
+	for ( $i = 0; $i < $count; $i++ ) {
+
+		$img = wp_get_attachment_image_src( $images[$i], 'full' );
+
+		if ( ! is_array( $img ) ) {
+			$count++;
+			continue;
+		}
+
+		$img_url    = $img[0];
+		$img_width  = intval( $img[1] );
+
+		if ( null == $img1x ) {
+			$img1x   = $img_url;
+			$img2x   = $img_url;
+			$width1x = $img_width;
+		} elseif ( $img_width > $width1x ) {
+			$img2x = $img_url;
+		} else {
+			$img1x = $img_url;
+		}
+
+	}
+
+	$bg1 = sprintf( $property_format, $selector, $img1x, $standard_bg );
+	$bg2 = sprintf( $property_format, $selector, $img2x, '' );
+	$result = $bg1 . ' @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {' . $bg2 . '}';
+
+	return $result;
+
+}
+
+/**
+ * Implode background properties array into CSS string
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $data  BG data array
+ * @return string
+ */
+function cherry_prepare_background( $data ) {
+	if ( ! is_array( $data ) ) {
+		return;
+	}
+
+	unset( $data['image'] );
+
+	$result = '';
+	$format = 'background-%s:%s;';
+
+	foreach ( $data as $prop => $value ) {
+		$result .= sprintf( $format, $prop, $value );
+	}
+
+	return $result;
+}
+
+/**
+ * Make float size
+ *
+ * @since  4.0.0
+ *
+ * @param
+ * @param
+ * @return
+ */
+
+function cherry_typography_size( $size, $operation = ' ', $func = 'round', $percent) {
+
+	if ( ! $size ) {
+		return false;
+	}
+
+	switch( $operation ) {
+		case 'multiple':
+			$size = (double)$size * (double)$percent;
+		case 'addition':
+			$size = (double)$size + (double)$percent;
+	}
+
+	switch( $func ) {
+		case 'floor':
+			$size = floor($size);
+		case 'ceil':
+			$size = ceil($size);
+		case 'round':
+			$size = round($size);
+		case 'abs':
+			$size = abs($size);
+	}
+
+	return $size;
+}
+
+function cherry_empty_value( $value, $rule) {
+
+	if ('' == $value or 'notdefined' == $value) {
+		return;
+	}
+
+	echo $rule . ": " . $value;
+
+	if ( is_numeric( $value ) ) {
+		echo "px; ";
+	} else {
+		echo"; ";
+	}
+
 }
