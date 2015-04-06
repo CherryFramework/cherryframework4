@@ -363,9 +363,10 @@ function cherry_defaults_settings() {
 				'value'			=> 'get value'
 	);
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////// General options //////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+// General
+//////////////////////////////////////////////////////////////////////
+
 	$general_options = array();
 	$general_options['general-logo-type'] = array(
 			'type'				=> 'radio',
@@ -1555,7 +1556,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '14',
 				'lineheight'	=> '25',
-				'color'			=> '777777',
+				'color'			=> '#777777',
 				'family'		=> 'Roboto',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1572,7 +1573,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
-				'color'			=> 'dd7566',
+				'color'			=> '#dd7566',
 				'family'		=> 'Arial',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1590,7 +1591,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
-				'color'			=> 'dd3344',
+				'color'			=> '#dd3344',
 				'family'		=> 'Arial',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1607,7 +1608,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
-				'color'			=> 'dd3344',
+				'color'			=> '#dd3344',
 				'family'		=> 'Arial',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1626,7 +1627,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '36',
 				'lineheight'	=> '40',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
@@ -1642,12 +1643,12 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '30',
 				'lineheight'	=> '33',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Roboto',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'right'
+				'align'			=> 'notdefined'
 			)
 	);
 	$typography_options['typography-h3'] = array(
@@ -1658,12 +1659,12 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '24',
 				'lineheight'	=> '26',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'left'
+				'align'			=> 'notdefined'
 			)
 	);
 	$typography_options['typography-h4'] = array(
@@ -1674,12 +1675,12 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '18',
 				'lineheight'	=> '20',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
-				'align'			=> 'right'
+				'align'			=> 'notdefined'
 			)
 	);
 	$typography_options['typography-h5'] = array(
@@ -1690,7 +1691,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '14',
 				'lineheight'	=> '16',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
@@ -1706,7 +1707,7 @@ function cherry_defaults_settings() {
 			'value' => array(
 				'size'			=> '12',
 				'lineheight'	=> '14',
-				'color'			=> '333333',
+				'color'			=> '#333333',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
@@ -1716,7 +1717,7 @@ function cherry_defaults_settings() {
 	);
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////// Typography options /////////////////////////////////////////////////////
+///////////////////////// List options /////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
 	$lists_options = array();
