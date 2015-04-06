@@ -180,8 +180,13 @@ function cherry_get_the_post_title( $args ) {
 			$url = get_permalink( $post_id );
 		}
 
-		$linked_wrap = '<a href="%1$s" rel="bookmark">%2$s</a>';
-		$post_title  = sprintf( $linked_wrap, $url, $post_title );
+		$linked_wrap = apply_filters(
+			'cherry_get_the_post_linked_wrap',
+			'<a href="%1$s" rel="bookmark">%2$s</a>',
+			$post_id,
+			$post_type
+		);
+		$post_title = sprintf( $linked_wrap, $url, $post_title );
 	}
 
 	$output = sprintf(
