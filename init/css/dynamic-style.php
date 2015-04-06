@@ -28,6 +28,7 @@ $typography_h6 =$cherry_css_vars['typography-h6'] ;
 
 ?>
 
+
 body {
 	color: <?php echo cherry_esc_value( $body_typography, 'color' ); ?>;
 	font-size: <?php echo cherry_esc_value( $body_typography, 'size' ); ?>px;
@@ -96,12 +97,39 @@ h6, .h6 {
 	<?php cherry_empty_value(cherry_esc_value( $typography_h6, 'align' ), 'text-align');?>
 }
 
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+	margin-top: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
+	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2; ?>px;
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	margin-top: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2; ?>px;
+	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2; ?>px;
+}
+
+p {
+	margin: 0 0 <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2; ?>px;
+}
+
 a {
 	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
 }
 
 a:hover, a:focus {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-primary' ), 15); ?>;
+}
+
+ul,
+ol {
+	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2; ?>px;
+}
+
+dl {
+	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
 .cherry-breadcrumbs {
@@ -325,17 +353,23 @@ small, .small {
 <!--Page header border color-->
 .page-header {
 	border-bottom: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+	padding-bottom: <?php echo (floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2) -1; ?>px;
+	margin: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) * 2; ?>px 0 <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
 <!--Blockquote-->
 blockquote {
 	border-left: 5px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
 	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'floor', 1.25); ?>px;
+	padding: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2 . 'px '. floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) ; ?>px;
+	margin: 0 0 <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
 <!--Horizontal line color-->
 hr {
 	border-top: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+	margin-top: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
+	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 	}
 
 .radio label,
@@ -352,6 +386,7 @@ hr {
 }
 .lead {
 	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'round', 1.15); ?>px;
+	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 .table {
 	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
@@ -384,14 +419,24 @@ blockquote .small {
 }
 address {
 	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
+	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
 .has-feedback label ~ .form-control-feedback {
 	top: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) + 5; ?>px;
 }
 
-@media (max-width: 767px) {
+.cherry-nav-divider {
+  height: 1px;
+  margin: <?php echo (floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2 )-1 ?>px 0;
+  overflow: hidden;
+  background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+}
 
+@media (max-width: 767px) {
+	.table-responsive {
+		margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) * 0.75; ?> px;
+	}
 }
 
 

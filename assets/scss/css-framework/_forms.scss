@@ -357,9 +357,6 @@ input[type="checkbox"] {
 // Reposition feedback icon if input has visible label above
 .has-feedback label {
 
-  & ~ .form-control-feedback {
-     //top: ($line-height-computed + 5); // Height of the `label` and its margin
-  }
   &.sr-only ~ .form-control-feedback {
      top: 0;
   }
@@ -489,7 +486,7 @@ input[type="checkbox"] {
   // and other content below items
   .radio,
   .checkbox {
-    min-height: ($line-height-computed + ($padding-base-vertical + 1));
+    min-height: ($line-height-computed + ($padding-base-vertical + 1)); //bootstrap default
   }
 
   // Make form groups behave like rows
