@@ -17,8 +17,3 @@ Text Domain: cherry
 .site-header { background: #aaa; border-bottom: 3px solid #000; }
 .site-footer { background: #aaa; border-top: 3px solid #000; }
 .widget-area { background: #999; }
-
-.hentry {
-	padding-bottom: 30px;
-	border-bottom: 1px solid blue;
-}

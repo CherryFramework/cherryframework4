@@ -428,14 +428,16 @@ function cherry_defaults_settings() {
 	);
 
 	$blog_options['blog-excerpt-length'] = array(
-		'type'        => 'text',
+		'type'        => 'slider',
 		'title'       => __( 'Part content length', 'cherry' ),
 		'decsription' => __( 'Type the number of words in an excerpt', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'Type the number of words in an excerpt', 'cherry' ),
 		),
-		'value' => __( '55', 'cherry' ),
+		'max_value' => 500,
+		'min_value' => 0,
+		'value'     => 55
 	);
 
 	$blog_options['blog-button-text'] = array(
