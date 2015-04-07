@@ -18,8 +18,9 @@ function cherry_register_image_sizes() {
 		return;
 	}
 	// Sets the 'post-thumbnail' size.
-	set_post_thumbnail_size( 200, 150, true );
+	// set_post_thumbnail_size( 200, 150, true );
 
 	// Adds the 'slider-post-thumbnail' image size.
-	add_image_size( 'slider-post-thumbnail', 1025, 500, true );
+	add_image_size( 'thumb-s', 200, 150, true );
+	add_image_size( 'thumb-l', 1170, 780, true );
 }

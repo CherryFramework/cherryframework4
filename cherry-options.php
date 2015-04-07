@@ -72,7 +72,7 @@ function cherry_defaults_settings() {
 	$general_options['general-maintenance-page'] = array(
 				'type'			=> 'select',
 				'title'			=> __( 'Maintenance page', 'cherry' ),
-				'value'			=> '',				
+				'value'			=> '',
 				'class'			=> 'width-full',
 				'options'		=> $all_pages,
 				'hint'      	=>  array(
@@ -93,7 +93,7 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Grid options
 //////////////////////////////////////////////////////////////////////
-	
+
 	$grid_options = array();
 	$grid_options['grid-responsive'] = array(
 				'type'			=> 'switcher',
@@ -129,7 +129,7 @@ function cherry_defaults_settings() {
 
 	// Page layout options
 	//////////////////////////////////////////////////////////////////////
-	
+
 	$page_layout_options = array();
 	$page_layout_options['page-layout-container-width'] = array(
 		'type' => 'slider',
@@ -182,7 +182,7 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Blog layout options
 //////////////////////////////////////////////////////////////////////
-	
+
 	$blog_options = array();
 
 	// Featured
@@ -282,6 +282,37 @@ function cherry_defaults_settings() {
 	// 	)
 	// );
 
+	$blog_options['blog-featured-images'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Featured Image / Gallery / Audio / Video', 'cherry' ),
+		'decsription' => __( 'Показывать Featured Image / Gallery / Audio / Video на странице Блог в зависимости от формата поста', 'cherry' ),
+		'value'       => 'true',
+	);
+
+	$blog_options['blog-featured-images-size'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Size for Featured Images', 'cherry' ),
+		'decsription' => __( 'Размер всех Featured Images на странице Блог ', 'cherry' ),
+		'value'       => 'thumb-l',
+		'options'     => array(
+			'thumb-s' => __( 'Small', 'cherry' ),
+			'thumb-l' => __( 'Large', 'cherry' ),
+		)
+	);
+
+	$blog_options['blog-featured-images-align'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Alignment for Featured Images', 'cherry' ),
+		'decsription' => __( 'Позиция всех Featured Images на странице Блог ', 'cherry' ),
+		'value'       => 'aligncenter',
+		'options'     => array(
+			'alignnone'   => __( 'None', 'cherry' ),
+			'alignleft'   => __( 'Left', 'cherry' ),
+			'alignright'  => __( 'Right', 'cherry' ),
+			'aligncenter' => __( 'Center', 'cherry' ),
+		)
+	);
+
 	$blog_options['blog-content-type'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Post content', 'cherry' ),
@@ -331,6 +362,37 @@ function cherry_defaults_settings() {
 
 	// Post
 	////////////////////////////////////////////////////////////////////////
+
+	$post_single_options['blog-post-featured-image'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Featured Image', 'cherry' ),
+		'decsription' => __( 'Показывать Featured Image на странице single поста', 'cherry' ),
+		'value'       => 'true',
+	);
+
+	$post_single_options['blog-post-featured-image-size'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Size for Featured Image', 'cherry' ),
+		'decsription' => __( 'Размер Featured Image на странице Поста', 'cherry' ),
+		'value'       => 'thumb-l',
+		'options'     => array(
+			'thumb-s' => __( 'Small', 'cherry' ),
+			'thumb-l' => __( 'Large', 'cherry' ),
+		)
+	);
+
+	$post_single_options['blog-post-featured-image-align'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Alignment for Featured Image', 'cherry' ),
+		'decsription' => __( 'Позиция Featured Image на странице Поста', 'cherry' ),
+		'value'       => 'aligncenter',
+		'options'     => array(
+			'alignnone'   => __( 'None', 'cherry' ),
+			'alignleft'   => __( 'Left', 'cherry' ),
+			'alignright'  => __( 'Right', 'cherry' ),
+			'aligncenter' => __( 'Center', 'cherry' ),
+		)
+	);
 
 	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
@@ -450,8 +512,8 @@ function cherry_defaults_settings() {
 					'position'	=> 'left',
 					'attachment'=> 'fixed'
 				)
-	);	
- 
+	);
+
 
 	// Color scheme options
 	//////////////////////////////////////////////////////////////////////
@@ -459,7 +521,7 @@ function cherry_defaults_settings() {
 	$color_options = array();
 	$color_options['color-primary'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> __('Primary color', 'cherry' ),			
+			'title'			=> __('Primary color', 'cherry' ),
 			'value'			=> '#f62e46',
 			'default_value'	=> '#f62e46'
 	);
@@ -477,19 +539,19 @@ function cherry_defaults_settings() {
 	);
 	$color_options['color-info'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> __('Info color', 'cherry' ),			
+			'title'			=> __('Info color', 'cherry' ),
 			'value'			=> '#D9EDF7',
 			'default_value'	=> '#D9EDF7'
 	);
 	$color_options['color-warning'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> __('Warning color', 'cherry' ),			
+			'title'			=> __('Warning color', 'cherry' ),
 			'value'			=> '#FCF8E3',
 			'default_value'	=> '#FCF8E3'
 	);
 	$color_options['color-danger'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> __('Danger color', 'cherry' ),			
+			'title'			=> __('Danger color', 'cherry' ),
 			'value'			=> '#F2DEDE',
 			'default_value'	=> '#F2DEDE'
 	);
@@ -596,7 +658,7 @@ function cherry_defaults_settings() {
 				'type'		=> 'text',
 				'content'	=> __( 'Breadcrumbs separator symbol.', 'cherry' )
 			),
-			
+
 			'value'			=> '&#47;',
 			'default_value'	=> '&#47;',
 			'class'			=> 'width-full'
@@ -781,9 +843,11 @@ function cherry_defaults_settings() {
 
 	$logo_options['logo-type'] = array(
 				'type'			=> 'radio',
-				'title'			=> 'Logo type',
-				'label'			=> 'What kind of logo?',
-				'decsription'	=> 'Select whether you want your main logo to be an image or text. If you select "image" you can put in the image url in the next option, and if you select "text" your Site Title will be shown instead.',
+				'title'			=> __( 'Logo type', 'cherry' ),
+				'hint'      	=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select \'image\' you can choose logo image from the media library in the next option, and if you select \'text\' your Wordpress Site Title will be shown instead.', 'cherry' )
+				),				
 				'value'			=> 'text',
 				'default_value'	=> 'text',
 				'class'			=> '',
@@ -801,18 +865,22 @@ function cherry_defaults_settings() {
 	);
 	$logo_options['logo-image-path'] = array(
 				'type'				=> 'media',
-				'title'				=> 'Logo Image Path',
-				'label'				=> 'Click Upload or Enter the direct path to your logo image.',
-				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
+				'title'				=> __( 'Logo image', 'cherry' ),
+				'hint'      	=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' )
+				),	
 				'value'				=> '',
 				'default_value'		=> '',
 				'multi-upload'		=> true,
 	);
 	$logo_options['logo-typography'] = array(
 				'type'			=> 'typography',
-				'title'			=> 'Logo Typography',
-				'label'			=> 'Logo Typography style',
-				'decsription'	=> 'Choose your prefered font for menu.',
+				'title'				=> __( 'Logo typography', 'cherry' ),
+				'hint'      	=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color etc.', 'cherry' )
+				),
 				'value'			=> array(
 					'size'			=> '14',
 					'lineheight'	=> '14',
@@ -833,9 +901,11 @@ function cherry_defaults_settings() {
 	$footer_options = array();
 	$footer_options['footer-background'] = array(
 			'type'			=> 'background',
-			'title'			=> 'Footer background',
-			'label'			=> 'Footer styling section',
-			'decsription'	=> 'Change the footer background',
+			'title'				=> __( 'Footer background', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Footer background settings. You can select background color, upload footer background image, set it\'s background position, attachment and repeat.', 'cherry' )
+			),
 			'return_data_type'	=> 'id',
 			'library_type'		=> 'image',
 			'value'			=> array(
@@ -855,9 +925,11 @@ function cherry_defaults_settings() {
 
 	$typography_options['typography-body-text'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Body text',
-			'label'			=> '',
-			'decsription'	=> 'decsription typography',
+			'title'			=> __( 'Body text', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Main website text typography options.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '14',
 				'lineheight'	=> '25',
@@ -872,9 +944,11 @@ function cherry_defaults_settings() {
 
 	$typography_options['typography-link'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Base link color',
-			'label'			=> '',
-			'decsription'	=> 'decsription typography',
+			'title'			=> __( 'Link color', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Color for links.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
@@ -890,9 +964,11 @@ function cherry_defaults_settings() {
 
 	$typography_options['typography-link-hover'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Base link hover color',
-			'label'			=> '',
-			'decsription'	=> 'decsription typography',
+			'title'			=> __( 'Link hover color', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Color for links on hover.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
@@ -907,9 +983,11 @@ function cherry_defaults_settings() {
 
 	$typography_options['typography-input-text'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Input text settings',
-			'label'			=> '',
-			'decsription'	=> 'Use this for setting default values of text input',
+			'title'			=> __( 'Input text', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Styling text in forms.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
@@ -928,9 +1006,11 @@ function cherry_defaults_settings() {
 
 	$typography_options['typography-h1'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Heading 1',
-			'label'			=> '',
-			'decsription'	=> 'Font settings for H1',
+			'title'			=> __( 'Heading 1', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'H1 heading font settings.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '36',
 				'lineheight'	=> '40',
@@ -944,9 +1024,11 @@ function cherry_defaults_settings() {
 	);
 	$typography_options['typography-h2'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Heading 2',
-			'label'			=> '',
-			'decsription'	=> 'Font settings for H1',
+			'title'			=> __( 'Heading 2', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'H2 heading font settings.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '30',
 				'lineheight'	=> '33',
@@ -960,9 +1042,11 @@ function cherry_defaults_settings() {
 	);
 	$typography_options['typography-h3'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Heading 3',
-			'label'			=> '',
-			'decsription'	=> 'Font settings for H3',
+			'title'			=> __( 'Heading 3', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'H3 heading font settings.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '24',
 				'lineheight'	=> '26',
@@ -976,9 +1060,11 @@ function cherry_defaults_settings() {
 	);
 	$typography_options['typography-h4'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Heading 4',
-			'label'			=> '',
-			'decsription'	=> 'Font settings for H4',
+			'title'			=> __( 'Heading 4', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'H4 heading font settings.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '18',
 				'lineheight'	=> '20',
@@ -992,9 +1078,11 @@ function cherry_defaults_settings() {
 	);
 	$typography_options['typography-h5'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Heading 5',
-			'label'			=> '',
-			'decsription'	=> 'Font settings for H5',
+			'title'			=> __( 'Heading 5', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'H5 heading font settings.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '14',
 				'lineheight'	=> '16',
@@ -1008,9 +1096,11 @@ function cherry_defaults_settings() {
 	);
 	$typography_options['typography-h6'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Heading 6',
-			'label'			=> '',
-			'decsription'	=> 'Font settings for H6',
+			'title'			=> __( 'Heading 6', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'H6 heading font settings.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '12',
 				'lineheight'	=> '14',
@@ -1031,9 +1121,11 @@ function cherry_defaults_settings() {
 
 	$lists_options['lists-text-color'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Lists text',
-			'label'			=> '',
-			'decsription'	=> 'decsription typography',
+			'title'			=> __( 'Lists text', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Text settings for unordered and ordered lists.', 'cherry' )
+			),
 			'value' => array(
 				'size'			=> '10',
 				'lineheight'	=> '10',
@@ -1048,22 +1140,22 @@ function cherry_defaults_settings() {
 
 	$lists_options['lists-mark-color'] = array(
 				'type'			=> 'colorpicker',
-				'title'			=> 'List mark color',
-				'label'			=> 'label colorpicker',
-				'decsription'	=> 'Choose color',
-				'hint'      	=>  array(
+				'title'			=> __( 'Marker color', 'cherry' ),
+				'hint'      	=> array(
 					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
+					'content'	=> __( 'Choose color for unordered lists.', 'cherry' )
+				),				
 				'value'			=> '#ff0000',
 				'default_value'	=> '#ff0000'
 	);
 
 	$lists_options['lists-mark-icon'] = array(
 				'type'			=> 'filterselect',
-				'title'			=> 'icon before list item',
-				'label'			=> 'List marker item',
-				'decsription'	=> 'decsription filterselect',
+				'title'			=> __( 'Marker icon', 'cherry' ),
+				'hint'      	=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Choose marker icon for unordered lists.', 'cherry' )
+				),	
 				'value'			=> 'icon_caret_down',
 				'default_value'	=> 'icon_caret_down',
 				'class'			=> 'width-full',
@@ -1083,13 +1175,11 @@ function cherry_defaults_settings() {
 
 	$optimization_options['concatenate-css'] = array(
 		'type'          => 'switcher',
-		'title'         => 'Concatenate CSS',
-		'label'         => 'Concatenate CSS',
-		'decsription'   => 'Concatenate and minify CSS files to perfomance optimization',
-		'hint'          =>  array(
-			'type'    => 'text',
-			'content' => 'Merge Cherry CSS into one file or not.'
-		),
+		'title'			=> __( 'Concatenate/minify CSS', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Select if you want to merge minify CSS files to performance optimization.', 'cherry' )
+		),		
 		'value'         => 'true',
 		'default_value' => 'true',
 		'toggle'        => array(
@@ -1100,12 +1190,10 @@ function cherry_defaults_settings() {
 
 	$optimization_options['dynamic-css'] = array(
 		'type'			=> 'select',
-		'title'			=> 'Dynamic CSS output',
-		'label'			=> 'Dynamic CSS output',
-		'decsription'	=> 'Output dynamic CSS into separate file or into style tag',
-		'hint'      	=>  array(
+		'title'			=> __( 'Dynamic CSS output', 'cherry' ),
+		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> 'Output dynamic CSS into separate file or into style tag'
+			'content'	=> __( 'Output dynamic CSS into separate file or into style tag.', 'cherry' )
 		),
 		'value'			=> 'file',
 		'class'			=> 'width-full',
