@@ -543,7 +543,6 @@ class Cherry_Interface_Builder {
 					)
 			*/
 			case 'radio':
-
 				if ( $options && !empty( $options ) && is_array( $options) ) {
 
 					$output .= '<div>';
@@ -565,7 +564,6 @@ class Cherry_Interface_Builder {
 					$output .= '<div class="clear"></div>';
 					$output .= '</div>';
 				}
-
 			break;
 			/*
 			arg:
@@ -679,6 +677,93 @@ class Cherry_Interface_Builder {
 				$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 				$output .= '</div>';
 			break;
+
+			/*
+			arg:
+				type: stepper
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				max_value: 100
+				min_value: 0
+				value_step: 1
+				default_value: ''
+				class: widefat
+				item_inline_style: ''
+			*/
+			case 'layouteditor':
+				$output .= '<div id="' . $id . '" class="cherry-layout-editor-wrap ' . $class . '">';
+					$output .= '<div class="cherry-layout-editor-inner">';
+						$output .= '<input class="layout-editor-input input-top" name="' . $name . '[position][top]" type="text" placeholder="-" value="' . esc_html( $value['position']['top'] ) . '">';
+						$output .= '<input class="layout-editor-input input-right" name="' . $name . '[position][right]" type="text" placeholder="-" value="' . esc_html( $value['position']['right'] ) . '">';
+						$output .= '<input class="layout-editor-input input-bottom" name="' . $name . '[position][bottom]" type="text" placeholder="-" value="' . esc_html( $value['position']['bottom'] ) . '">';
+						$output .= '<input class="layout-editor-input input-left" name="' . $name . '[position][left]" type="text" placeholder="-" value="' . esc_html( $value['position']['left'] ) . '">';
+						$output .= '<div class="position-inner">';
+							$output .= '<span class="hint-label">' . __( 'position', 'cherry' ) .'</span>';
+							$output .= '<div class="margin-inner">';
+								$output .= '<span class="hint-label">' . __( 'margin', 'cherry' ) .'</span>';
+								$output .= '<input class="layout-editor-input input-top" name="' . $name . '[margin][top]" type="text" placeholder="-" value="' . esc_html( $value['margin']['top'] ) . '">';
+								$output .= '<input class="layout-editor-input input-right" name="' . $name . '[margin][right]" type="text" placeholder="-" value="' . esc_html( $value['margin']['right'] ) . '">';
+								$output .= '<input class="layout-editor-input input-bottom" name="' . $name . '[margin][bottom]" type="text" placeholder="-" value="' . esc_html( $value['margin']['bottom'] ) . '">';
+								$output .= '<input class="layout-editor-input input-left" name="' . $name . '[margin][left]" type="text" placeholder="-" value="' . esc_html( $value['margin']['left'] ) . '">';
+								$output .= '<div class="border-inner">';
+									$output .= '<span class="hint-label">' . __( 'border', 'cherry' ) .'</span>';
+									$output .= '<input class="layout-editor-input input-top" name="' . $name . '[border][top]" type="text" placeholder="-" value="' . esc_html( $value['border']['top'] ) . '">';
+									$output .= '<input class="layout-editor-input input-right" name="' . $name . '[border][right]" type="text" placeholder="-" value="' . esc_html( $value['border']['right'] ) . '">';
+									$output .= '<input class="layout-editor-input input-bottom" name="' . $name . '[border][bottom]" type="text" placeholder="-" value="' . esc_html( $value['border']['bottom'] ) . '">';
+									$output .= '<input class="layout-editor-input input-left" name="' . $name . '[border][left]" type="text" placeholder="-" value="' . esc_html( $value['border']['left'] ) . '">';
+									$output .= '<div class="padding-inner">';
+										$output .= '<span class="hint-label">' . __( 'padding', 'cherry' ) .'</span>';
+										$output .= '<input class="layout-editor-input input-top" name="' . $name . '[padding][top]" type="text" placeholder="-" value="' . esc_html( $value['padding']['top'] ) . '">';
+										$output .= '<input class="layout-editor-input input-right" name="' . $name . '[padding][right]" type="text" placeholder="-" value="' . esc_html( $value['padding']['right'] ) . '">';
+										$output .= '<input class="layout-editor-input input-bottom" name="' . $name . '[padding][bottom]" type="text" placeholder="-" value="' . esc_html( $value['padding']['bottom'] ) . '">';
+										$output .= '<input class="layout-editor-input input-left" name="' . $name . '[padding][left]" type="text" placeholder="-" value="' . esc_html( $value['padding']['left'] ) . '">';
+										$output .= '<div class="container-inner">';
+											$output .= '<span class="hint-label">' . __( 'size', 'cherry' ) .'</span>';
+											$output .= '<input class="layout-editor-input input-width" name="' . $name . '[container][width]" type="text" placeholder="-" value="' . esc_html( $value['container']['width'] ) . '">';
+											$output .= '<input class="layout-editor-input input-height" name="' . $name . '[container][height]" type="text" placeholder="-" value="' . esc_html( $value['container']['height'] ) . '">';
+										$output .= '</div>';
+									$output .= '</div>';
+								$output .= '</div>';
+							$output .= '</div>';
+						$output .= '</div>';
+					$output .= '</div>';
+					$output .= '<div class="border-controls">';
+						$output .= '<div class="border-control border-control-style">';
+							$border_styles = array(
+								'solid'		=> __( 'solid', 'cherry' ),
+								'dashed'	=> __( 'dashed', 'cherry' ),
+								'dotted'	=> __( 'dotted', 'cherry' ),
+								'double'	=> __( 'double', 'cherry' ),
+								'groove'	=> __( 'groove', 'cherry' ),
+								'ridge'		=> __( 'ridge', 'cherry' ),
+								'inset'		=> __( 'inset', 'cherry' ),
+								'outset'	=> __( 'outset', 'cherry' ),
+								'none'		=> __( 'none', 'cherry' ),
+							);
+							$output .= $this -> add_label($id . '-border-style',  __( 'Border style', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<select id="'. $id .'-border-style" class="cherry-border-style" name="' . $name . '[border][style]">';
+							if($border_styles && !empty($border_styles) && is_array($border_styles)){
+								foreach ($border_styles as $style_key => $style_value) {
+									$output .= '<option value="' . $style_key . '" ' . selected( $style_key, esc_html( $value['border']['style'] ), false ) . '>'. esc_html( $style_value ) .'</option>';
+								}
+							}
+							$output .= '</select>';
+						$output .= '</div>';
+						$output .= '<div class="border-control border-control-color">';
+							$output .= $this -> add_label($id . '-border-radius',  __( 'Border radius', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<input id="' . $id . '-border-radius" class="widefat cherry-border-radius"  name="' . $name . '[border][radius]" type="text" value="' . esc_html( $value['border']['radius'] ) . '">';
+						$output .= '</div>';
+						$output .= '<div class="border-control border-control-color">';
+							$output .= $this -> add_label($id . '-border-color',  __( 'Border color', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= '<input id="' . $id . '-border-color" name="' . $name . '[border][color]" value="' . esc_html( $value['border']['color'] ) . '" class="cherry-color-picker cherry-border-color" type="text" />';
+						$output .= '</div>';
+					$output .= '</div>';
+					$output .= '<div class="clear"></div>';
+				$output .= '</div>';
+			break;
+
 			/*
 			arg:
 				type: editor
@@ -688,11 +773,13 @@ class Cherry_Interface_Builder {
 				default_value: ''
 			*/
 			case 'editor':
-				$wrap = false;
+				//$wrap = false;
 				ob_start();
 					$settings = array(
 						'textarea_name' => $name,
-						'media_buttons' => 2,
+						'media_buttons' => 1,
+						'teeny'         => 0,
+						'textarea_rows' => 10, //Wordpress default
 						'tinymce' => array(
 							'setup' => 'function(ed) {
 								ed.onChange.add(function(ed) {
@@ -702,7 +789,11 @@ class Cherry_Interface_Builder {
 						)
 					);
 					wp_editor( $value, $id, $settings );
+
 				$output .= ob_get_clean();
+
+				_WP_Editors::editor_js();
+				_WP_Editors::enqueue_scripts();
 			break;
 			/*
 			arg:
@@ -747,8 +838,8 @@ class Cherry_Interface_Builder {
 							'bottom-right' => __( 'Bottom Right', 'cherry' )
 					),
 					'attachment' => array(
-							'fixed' => __( 'Scroll Normally', 'cherry' ),
-							'scroll' => __( 'Fixed in Place', 'cherry' )
+							'scroll' => __( 'Scroll Normally', 'cherry' ),
+							'fixed' => __( 'Fixed in Place', 'cherry' )
 					),
 					'clip' => array(
 							'padding-box' => __( 'Padding box', 'cherry' ),

@@ -252,3 +252,126 @@ function cherry_get_site_description() {
 
 	return apply_filters( 'cherry_get_site_description', $desc );
 }
+
+// Add favicon tags to page
+add_action( 'wp_head', 'cherry_favicon_tags' );
+
+
+/**
+ * Get favicons from theme options
+ *
+ * @since 4.0.0
+ */
+function cherry_get_favicon_tags() {
+
+	$result = apply_filters( 'cherry_pre_get_favicon_tags', false );
+
+	if ( false != $result ) {
+		return $result;
+	}
+
+	$favicons = cherry_get_option( 'general-favicon' );
+
+	if ( ! $favicons ) {
+		return false;
+	}
+
+	$icons = array(
+		array(
+			'type'  => 'image/x-icon',
+			'rel'   => 'shortcut icon',
+			'sizes' => false
+		)
+	);
+
+	$favicons = explode( ',', $favicons );
+
+	if ( 1 <= count( $favicons ) ) {
+		$icons[] = array(
+			'type'  => false,
+			'rel'   => 'apple-touch-icon-precomposed',
+			'sizes' => 57
+		);
+		$icons[] = array(
+			'type'  => false,
+			'rel'   => 'apple-touch-icon-precomposed',
+			'sizes' => 72
+		);
+		$icons[] = array(
+			'type'  => false,
+			'rel'   => 'apple-touch-icon-precomposed',
+			'sizes' => 114
+		);
+		$icons[] = array(
+			'type'  => false,
+			'rel'   => 'apple-touch-icon-precomposed',
+			'sizes' => 144
+		);
+	}
+
+	$icon1x  = null;
+	$icon2x  = null;
+	$width1x = 0;
+	$width2x = 0;
+	$count   = 2;
+
+	for ( $i = 0; $i < $count; $i++ ) {
+
+		$icon = wp_get_attachment_image_src( $favicons[$i], 'full' );
+
+		if ( ! is_array( $icon ) ) {
+			$count++;
+			continue;
+		}
+
+		$icon_url   = $icon[0];
+		$icon_width = intval( $icon[1] );
+
+		if ( null == $icon1x ) {
+
+			$icon1x  = $icon_url;
+			$icon2x  = $icon_url;
+			$width1x = $icon_width;
+			$width2x = $icon_width;
+
+		} elseif ( $icon_width > $width1x ) {
+
+			$icon2x  = $icon_url;
+			$width2x = $icon_width;
+
+		} else {
+
+			$icon1x  = $icon_url;
+			$width1x = $icon_width;
+		}
+
+	}
+
+	$result = '';
+
+	$default_format = '<link type="%1$s" href="%3$s" rel="%2$s">';
+	$device_format  = '<link href="%3$s" sizes="%2$sx%2$s" rel="%1$s">';
+
+	foreach ( $icons as $icon_data ) {
+
+		if ( ! $icon_data['sizes'] ) {
+			$result .= sprintf( $default_format, $icon_data['type'], $icon_data['rel'], $icon1x );
+			continue;
+		}
+
+		$result .= sprintf( $device_format, $icon_data['rel'], $icon_data['sizes'], $icon2x );
+
+	}
+
+	return $result;
+
+}
+
+/**
+ * Print favicons tags
+ *
+ * @since 4.0.0
+ */
+function cherry_favicon_tags() {
+	echo cherry_get_favicon_tags();
+}
