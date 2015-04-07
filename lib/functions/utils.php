@@ -415,7 +415,7 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 		$result[] = 'color:' . $color;
 	}
 
-	$ext_families = !empty( $data['category'] ) ? ', ' . $data['category'] : '';
+	$ext_families = ! empty( $data['category'] ) ? ', ' . $data['category'] : ', sans-serif';
 
 	$font_style  = false;
 	$font_weight = false;
