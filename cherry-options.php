@@ -450,36 +450,7 @@ function cherry_defaults_settings() {
 					'position'	=> 'left',
 					'attachment'=> 'fixed'
 				)
-	);
-	$styling_options['styling-primary-field-background'] = array(
-			'type'			=> 'background',
-			'title'			=> 'Primary input field background',
-			'label'			=> 'Select background color',
-			'decsription'	=> 'Primary input field background',
-			'return_data_type'	=> 'id',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#a4cc3f',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-	);
-	$styling_options['styling-primary-invalid-field-background'] = array(
-			'type'			=> 'background',
-			'title'			=> 'Primary invalid field background',
-			'label'			=> 'Select invalid background color',
-			'decsription'	=> 'Primary input invalid field background ',
-			'return_data_type'	=> 'id',
-			'library_type'		=> 'image',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#FF7766',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-	);
+	);	
  
 
 	
