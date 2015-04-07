@@ -453,9 +453,8 @@ function cherry_defaults_settings() {
 	);	
  
 
-//////////////////////////////////////////////////////////////////////
-// Color scheme options
-//////////////////////////////////////////////////////////////////////
+	// Color scheme options
+	//////////////////////////////////////////////////////////////////////
 
 	$color_options = array();
 	$color_options['color-primary'] = array(
@@ -510,60 +509,7 @@ function cherry_defaults_settings() {
 			'default_value'	=> '#555555'
 	);
 
-	
 
-
-//////////////////////////////////////////////////////////////////////
-// Logo options
-//////////////////////////////////////////////////////////////////////
-
-	$logo_options = array();
-
-	$logo_options['logo-type'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'Logo type',
-				'label'			=> 'What kind of logo?',
-				'decsription'	=> 'Select whether you want your main logo to be an image or text. If you select "image" you can put in the image url in the next option, and if you select "text" your Site Title will be shown instead.',
-				'value'			=> 'text',
-				'default_value'	=> 'text',
-				'class'			=> '',
-				'display_input'	=> true,
-				'options'		=> array(
-					'image' => array(
-						'label' => 'Image logo',
-						'img_src' => ''
-					),
-					'text' => array(
-						'label' => 'Text logo',
-						'img_src' => ''
-					)
-				)
-	);
-	$logo_options['logo-image-path'] = array(
-				'type'				=> 'media',
-				'title'				=> 'Logo Image Path',
-				'label'				=> 'Click Upload or Enter the direct path to your logo image.',
-				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
-				'value'				=> '',
-				'default_value'		=> '',
-				'multi-upload'		=> true,
-	);
-	$logo_options['logo-typography'] = array(
-				'type'			=> 'typography',
-				'title'			=> 'Logo Typography',
-				'label'			=> 'Logo Typography style',
-				'decsription'	=> 'Choose your prefered font for menu.',
-				'value'			=> array(
-					'size'			=> '14',
-					'lineheight'	=> '14',
-					'color'			=> '#aa00aa',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
-	);
 
 //////////////////////////////////////////////////////////////////////
 // Navigation options
@@ -572,13 +518,15 @@ function cherry_defaults_settings() {
 	$navigation_options = array();
 	$navigation_options['navigation-menu-typography'] = array(
 			'type'			=> 'typography',
-			'title'			=> 'Menu Typography',
-			'label'			=> 'Menu Typography style',
-			'decsription'	=> 'Choose your prefered font for menu.',
+			'title'			=> __('Menu Typography', 'cherry' ),
+			'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Main navigation typography settings.', 'cherry' ),
+				),
 			'value'			=> array(
 				'size'			=> '14',
 				'lineheight'	=> '14',
-				'color'			=> '#aa00aa',
+				'color'			=> '#474747',
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -587,68 +535,24 @@ function cherry_defaults_settings() {
 			)
 	);
 
-	$navigation_options['navigation-smooth-scroll'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Smooth scroll',
-			'decsription'	=> 'Enable to use smooth scrolling on pages',
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
-	);
 
-	$navigation_options['navigation-scroll-effect'] = array(
-			'type'			=> 'radio',
-			'title'			=> 'Scroll effect',
-			'label'			=> 'label radio',
-			'decsription'	=> 'decsription radio',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> ''
-			),
-			'value'			=> 'radio-2',
-			'class'			=> '',
-			'display-input'	=> true,
-			'options'		=> array(
-				'radio-1' => array(
-					'label' => 'Linear',
-					'img_src' => ''
-				),
-				'radio-2' => array(
-					'label' => 'Ease-In',
-					'img_src' => ''
-				),
-				'radio-3' => array(
-					'label' => 'Ease-in-out',
-					'img_src' => ''
-				),
-				'radio-4' => array(
-					'label' => 'Ease-out',
-					'img_src' => ''
-				)
-			)
-	);
-
-
-
-//////////////////////////////////////////////////////////////////////
-// Breadcrumbs options
-//////////////////////////////////////////////////////////////////////
+	// Breadcrumbs options
+	//////////////////////////////////////////////////////////////////////
 	$breadcrumbs_options = array();
 
 	$breadcrumbs_options['breadcrumbs'] = array(
 			'type'			=> 'switcher',
 			'title'			=> __( 'Breadcrumbs', 'cherry' ),
-			'label'			=> __( 'Enable / Disable', 'cherry' ),
-			'decsription'	=> __( 'Enable or disable breadcrumb navigation', 'cherry' ),
+			'decsription'	=> __( 'Enable/disable breadcrumbs navigation.', 'cherry' ),
 			'value'			=> 'true',
 			'default_value'	=> 'true'
 	);
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 			'type'			=> 'multicheckbox',
-			'title'			=> __( 'Breadcrumb display', 'cherry' ),
-			'label'			=> __( 'Enable / Disable', 'cherry' ),
+			'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> __( 'Enable or disable displaying on mobile devices', 'cherry' )
+				'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
 			),
 			'class'			=> '',
 			'value'			=> array(
@@ -667,65 +571,59 @@ function cherry_defaults_settings() {
 
 	$breadcrumbs_options['breadcrumbs-show-on-front'] = array(
 			'type'			=> 'switcher',
-			'title' 		=> __( 'Show breadcrumbs on front page', 'cherry' ),
-			'decsription'	=> __( 'Show or hide breadcrumbs trail on front page', 'cherry' ),
+			'title' 		=> __( 'Home page breadcrumbs', 'cherry' ),
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> __( 'Enable/disable breadcrumbs on home page.', 'cherry' )
+			),
 			'value'			=> 'false'
 	);
 
 	$breadcrumbs_options['breadcrumbs-show-title'] = array(
 			'type'			=> 'switcher',
 			'title' 		=> __( 'Page title', 'cherry' ),
-			'decsription'	=> __( 'Show or hide page title in breadcrumbs trail', 'cherry' ),
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> __( 'Enable/disable page title in breadcrumbs.', 'cherry' )
+			),
 			'value'			=> 'true'
 	);
 
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
 			'type'			=> 'text',
 			'title'			=> __( 'Item separator', 'cherry' ),
-			'label'			=> __( 'Select separator type', 'cherry' ),
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> __( 'Breadcrumbs separator symbol.', 'cherry' )
+			),
+			
 			'value'			=> '&#47;',
 			'default_value'	=> '&#47;',
 			'class'			=> 'width-full'
 	);
 	$breadcrumbs_options['breadcrumbs-prefix-path'] = array(
 			'type'			=> 'text',
-			'title'			=> __( 'Breadcrumbs prefix path', 'cherry' ),
-			'decsription'	=> __( 'Title before breadcrumb navigation', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'image',
-				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			'title'			=> __( 'Breadcrumbs prefix', 'cherry' ),
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> __( 'Text displayed before breadcrumbs navigation.', 'cherry' )
 			),
 			'value'			=> __( 'You are here:', 'cherry' ),
 			'default_value'	=> __( 'You are here:', 'cherry' )
 	);
-	$breadcrumbs_options['breadcrumbs-title-length'] = array(
-			'type'			=> 'stepper',
-			'title'			=> __( 'Breadcrumb title length', 'cherry' ),
-			'label'			=> __( 'Max title length', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __( 'Limit the length of the breadcrumb title', 'cherry' )
-			),
-			'value'			=> '0',
-			'default_value'	=> '0',
-			'value-step'	=> '1',
-			'max-value'		=> '200',
-			'min-value'		=> '0'
-	);
 
-//////////////////////////////////////////////////////////////////////
-// Page navigation options
-//////////////////////////////////////////////////////////////////////
+
+	// Page navigation options
+	//////////////////////////////////////////////////////////////////////
 
 	$pagination_option = array();
 
 	$pagination_option['pagination-position'] = array(
 			'type'			=> 'select',
 			'title' 		=> __( 'Pagination position', 'cherry' ),
-			'decsription'	=> __( 'Select, where to display post pagination', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'Select, where to display post pagination', 'cherry' )
+				'content'	=> __( 'Select where you want to display pagination.', 'cherry' )
 			),
 			'value'			=> 'after',
 			'options'    	=> array(
@@ -737,35 +635,39 @@ function cherry_defaults_settings() {
 
 	$pagination_option['pagination-next-previous'] = array(
 			'type'			=> 'switcher',
-			'title' 		=> __( 'Previous and next page buttons', 'cherry' ),
-			'decsription'	=> __( 'Show or hide previous an next page buttons', 'cherry' ),
+			'title' 		=> __( 'Prev/next buttons', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Show/hide previous and next buttons in pagination.', 'cherry' )
+			),
 			'value'			=> 'true'
 	);
 	$pagination_option['pagination-label'] = array(
 			'type'			=> 'text',
 			'title'			=> __( 'Pagination label', 'cherry' ),
-			'decsription'	=> __( 'The text/HTML to display before the list of pages', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Pagination label. Displayed before pagination buttons. Text or HTML can be used.', 'cherry' )
+			),
 			'value'			=> __( 'Pages:', 'cherry' ),
 			'default_value'	=> __( 'Pages:', 'cherry' )
 	);
 	$pagination_option['pagination-previous-page'] = array(
 			'type'			=> 'text',
-			'title'			=> __( 'Previous page', 'cherry' ),
-			'decsription'	=> __( 'The text/HTML to display for the previous page link.', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'image',
-				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			'title'			=> __( 'Prev button label', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Previous button label text. Text or HTML can be used.', 'cherry' )
 			),
 			'value'			=> '&laquo;',
 			'default_value'	=> '&laquo;'
 	);
 	$pagination_option['pagination-next-page'] = array(
 			'type'			=> 'text',
-			'title'			=> __( 'Next page', 'cherry' ),
-			'decsription'	=> __( 'The text/HTML to display for the next page link.', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'image',
-				'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+			'title'			=> __( 'Next button label', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Next button label text. Text or HTML can be used.', 'cherry' )
 			),
 			'value'			=> '&raquo;',
 			'default_value'	=> '&raquo;'
@@ -773,13 +675,19 @@ function cherry_defaults_settings() {
 	$pagination_option['pagination-show-all'] = array(
 			'type'			=> 'switcher',
 			'title' 		=> __( 'Show all the pages', 'cherry' ),
-			'decsription'	=> __( 'If set to On, then it will show all of the pages instead of a short list of the pages near the current page.', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'If set to On, then it will show all of the pages instead of a short list of the pages near the current page.', 'cherry' )
+			),
 			'value'			=> 'false'
 	);
 	$pagination_option['pagination-end-size'] = array(
 			'type'			=> 'stepper',
 			'title'			=> __( 'End size', 'cherry' ),
-			'decsription'	=> __( 'How many numbers on either the start and the end list edges', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'How many numbers to display on either the start and the end list edges.', 'cherry' )
+			),
 			'value'			=> '1',
 			'default_value'	=> '1',
 			'value-step'	=> '1',
@@ -789,7 +697,10 @@ function cherry_defaults_settings() {
 	$pagination_option['pagination-mid-size'] = array(
 			'type'			=> 'stepper',
 			'title'			=> __( 'Mid size', 'cherry' ),
-			'decsription'	=> __( 'How many numbers to either side of current page, but not including current page', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'How many numbers to display to either side of current page, but not including current page.', 'cherry' )
+			),
 			'value'			=> '2',
 			'default_value'	=> '2',
 			'value-step'	=> '1',
@@ -865,6 +776,58 @@ function cherry_defaults_settings() {
 			'value'			=> 'false',
 			'default_value'	=> 'default_value'
 	);
+
+	// Logo options
+	//////////////////////////////////////////////////////////////////////
+
+	$logo_options = array();
+
+	$logo_options['logo-type'] = array(
+				'type'			=> 'radio',
+				'title'			=> 'Logo type',
+				'label'			=> 'What kind of logo?',
+				'decsription'	=> 'Select whether you want your main logo to be an image or text. If you select "image" you can put in the image url in the next option, and if you select "text" your Site Title will be shown instead.',
+				'value'			=> 'text',
+				'default_value'	=> 'text',
+				'class'			=> '',
+				'display_input'	=> true,
+				'options'		=> array(
+					'image' => array(
+						'label' => 'Image logo',
+						'img_src' => ''
+					),
+					'text' => array(
+						'label' => 'Text logo',
+						'img_src' => ''
+					)
+				)
+	);
+	$logo_options['logo-image-path'] = array(
+				'type'				=> 'media',
+				'title'				=> 'Logo Image Path',
+				'label'				=> 'Click Upload or Enter the direct path to your logo image.',
+				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
+				'value'				=> '',
+				'default_value'		=> '',
+				'multi-upload'		=> true,
+	);
+	$logo_options['logo-typography'] = array(
+				'type'			=> 'typography',
+				'title'			=> 'Logo Typography',
+				'label'			=> 'Logo Typography style',
+				'decsription'	=> 'Choose your prefered font for menu.',
+				'value'			=> array(
+					'size'			=> '14',
+					'lineheight'	=> '14',
+					'color'			=> '#aa00aa',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
+				)
+	);
+
 
 //////////////////////////////////////////////////////////////////////
 // Footer options
