@@ -47,15 +47,10 @@ body {
 <?php echo cherry_get_background_css('.site-header', $header_background); ?>
 
 h1, .h1 {
-	font-size: <?php echo cherry_esc_value( $typography_h1, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_h1, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_h1, 'color' ); ?>;
-	font-family: <?php echo cherry_esc_value( $typography_h1, 'family' ); ?>;
-	font-style: <?php echo cherry_esc_value( $typography_h1, 'style' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_h1, 'letterspacing' ), 'letter-spacing'); ?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_h1, 'align' ), 'text-align');?>
-
+	<?php echo cherry_get_typography_css($typography_h1); ?>
 }
+<?php // die;?>
+
 h2, .h2 {
 	font-size: <?php echo cherry_esc_value( $typography_h2, 'size' ); ?>px;
 	line-height: <?php echo cherry_esc_value( $typography_h2, 'lineheight' ); ?>px;
