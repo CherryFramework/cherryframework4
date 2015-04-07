@@ -427,10 +427,152 @@ function cherry_defaults_settings() {
 	// 	'value'         => 'true',
 	// 	'default_value' => 'true',
 	// );
+
+//////////////////////////////////////////////////////////////////////
+// Styling options
+//////////////////////////////////////////////////////////////////////
+
+	$styling_options = array();
+	//background image
+	$styling_options['styling-body-content-background'] = array(
+				'type'			=> 'background',
+				'title'			=> __('Body background', 'cherry' ),
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Set background for body container. You can specify background image or color, set background repeat, position and attachment. ', 'cherry' ),
+				),
+				'return_data_type'	=> 'url',
+				'library_type'		=> 'image',
+				'value'				=> array(
+					'image'	=> '',
+					'color'	=> '#FFFFFF',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+	);
+	$styling_options['styling-body-background-full-scale'] = array(
+				'type'			=> 'switcher',
+				'title'			=> __('Full scale background', 'cherry' ),
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('If enabled background will scale to fill browser window width and height.', 'cherry' ),
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+	$styling_options['styling-body-parallax-background'] = array(
+				'type'			=> 'switcher',
+				'title'			=> __('Parallax background', 'cherry' ),
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Enable/disable body background parallax effect.', 'cherry' )
+				),
+				'value'			=> 'true',
+				'default_value'	=> 'true'
+	);
+	$styling_options['styling-body-background-pattern'] = array(
+				'type'			=> 'radio',
+				'title'			=> __('Background pattern', 'cherry' ),
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Background pattern for main container', 'cherry' ),
+				),
+				'value'			=> 'background-pattern-radio-2',
+				'default_value'	=> 'background-pattern-radio-2',
+				'class'			=> '',
+				'display_input'	=> false,
+				'options'		=> array(
+					'background-pattern-radio-1' => array(
+						'label' => 'radio image 1',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'background-pattern-radio-2' => array(
+						'label' => 'radio image 2',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'background-pattern-radio-3' => array(
+						'label' => 'radio image 3',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'background-pattern-radio-4' => array(
+						'label' => 'radio image 4',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'background-pattern-radio-5' => array(
+						'label' => 'radio image 5',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'background-pattern-radio-6' => array(
+						'label' => 'radio image 6',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+				)
+	);
+	$styling_options['styling-color-scheme'] = array(
+				'type'			=> 'radio',
+				'title'			=> 'color scheme',
+				'label'			=> 'select one of them',
+				'decsription'	=> 'decsription radio',
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> 'radio-image-8',
+				'default_value'	=> 'radio-image-8',
+				'class'			=> '',
+				'display_input'	=> false,
+				'options'		=> array(
+					'radio-image-8' => array(
+						'label' => 'radio image 8',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio-image-9' => array(
+						'label' => 'radio image 2',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+					'radio-image-10' => array(
+						'label' => 'radio image 3',
+						'img_src' => PARENT_URI.'/screenshot.png'
+					),
+				)
+	);
+	$styling_options['styling-primary-field-background'] = array(
+			'type'			=> 'background',
+			'title'			=> 'Primary input field background',
+			'label'			=> 'Select background color',
+			'decsription'	=> 'Primary input field background',
+			'return_data_type'	=> 'id',
+			'value'			=> array(
+					'image'	=> '',
+					'color'	=> '#a4cc3f',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+	);
+	$styling_options['styling-primary-invalid-field-background'] = array(
+			'type'			=> 'background',
+			'title'			=> 'Primary invalid field background',
+			'label'			=> 'Select invalid background color',
+			'decsription'	=> 'Primary input invalid field background ',
+			'return_data_type'	=> 'id',
+			'library_type'		=> 'image',
+			'value'			=> array(
+					'image'	=> '',
+					'color'	=> '#FF7766',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+	);
+ 
+
 	
 //////////////////////////////////////////////////////////////////////
 // Footer options
 //////////////////////////////////////////////////////////////////////
+
 	$footer_options = array();
 	$footer_options['footer-background'] = array(
 			'type'			=> 'background',
@@ -767,151 +909,6 @@ function cherry_defaults_settings() {
 			'value-step'	=> '1',
 			'max-value'		=> '9999',
 			'min-value'		=> '1'
-	);
-
-//////////////////////////////////////////////////////////////////////
-// Styling options
-//////////////////////////////////////////////////////////////////////
-
-	$styling_options = array();
-	//background image
-	$styling_options['styling-body-content-background'] = array(
-				'type'			=> 'background',
-				'title'			=> 'Body background',
-				'label'			=> 'set default background',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Background for main container'
-				),
-				'return_data_type'	=> 'url',
-				'library_type'		=> 'image',
-				'value'				=> array(
-					'image'	=> '',
-					'color'	=> '#FFFFFF',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-	);
-	$styling_options['styling-body-background-full-scale'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Full scale background',
-				'label'			=> 'Enable / Disable',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Enable this option to have scale according to the browzer size. Background image display at 100% in width and height'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-	$styling_options['styling-body-parallax-background'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Parallax background',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Parallax background on main container',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'For using parallax effect on background press ON.'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-	$styling_options['styling-body-background-pattern'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'background pattern',
-				'label'			=> 'select one of them',
-				'decsription'	=> 'Background pattern for main container',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Background pattern for main container'
-				),
-				'value'			=> 'background-pattern-radio-2',
-				'default_value'	=> 'background-pattern-radio-2',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'background-pattern-radio-1' => array(
-						'label' => 'radio image 1',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-2' => array(
-						'label' => 'radio image 2',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-3' => array(
-						'label' => 'radio image 3',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-4' => array(
-						'label' => 'radio image 4',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-5' => array(
-						'label' => 'radio image 5',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-6' => array(
-						'label' => 'radio image 6',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-				)
-	);
-	$styling_options['styling-color-scheme'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'color scheme',
-				'label'			=> 'select one of them',
-				'decsription'	=> 'decsription radio',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'radio-image-8',
-				'default_value'	=> 'radio-image-8',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'radio-image-8' => array(
-						'label' => 'radio image 8',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-image-9' => array(
-						'label' => 'radio image 2',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-image-10' => array(
-						'label' => 'radio image 3',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-				)
-	);
-	$styling_options['styling-primary-field-background'] = array(
-			'type'			=> 'background',
-			'title'			=> 'Primary input field background',
-			'label'			=> 'Select background color',
-			'decsription'	=> 'Primary input field background',
-			'return_data_type'	=> 'id',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#a4cc3f',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-	);
-	$styling_options['styling-primary-invalid-field-background'] = array(
-			'type'			=> 'background',
-			'title'			=> 'Primary invalid field background',
-			'label'			=> 'Select invalid background color',
-			'decsription'	=> 'Primary input invalid field background ',
-			'return_data_type'	=> 'id',
-			'library_type'		=> 'image',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#FF7766',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
 	);
 
 //////////////////////////////////////////////////////////////////////
