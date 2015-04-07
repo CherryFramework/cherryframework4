@@ -44,7 +44,7 @@ body {
 	background-attachment: <?php echo cherry_esc_value( $body_background, 'attachment' ); ?>;
 }
 
-<?php echo cherry_get_background_css('.site-header', $header_background); ?>;
+<?php echo cherry_get_background_css('.site-header', $header_background); ?>
 
 h1, .h1 {
 	font-size: <?php echo cherry_esc_value( $typography_h1, 'size' ); ?>px;
