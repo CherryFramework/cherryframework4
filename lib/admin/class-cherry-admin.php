@@ -81,6 +81,7 @@ class Cherry_Admin {
 			// jQ select2.js plugin for custom select
 			wp_enqueue_media();
 
+			wp_enqueue_script( 'editor');
 			wp_enqueue_script( 'wp-color-picker');
 			wp_enqueue_script( 'select2' );
 			wp_enqueue_script( 'statics-areas-editor-plugin' );
