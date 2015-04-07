@@ -310,6 +310,36 @@ function cherry_get_background_css( $selector, $data ) {
 }
 
 /**
+ * Sanitizes a hex color. Always adds hash to color
+ * use sanitize_hex_color if exist
+ *
+ * @since  4.0.0
+ *
+ * @param  string  $color  maybe HEX color
+ * @return string|null     sanitized color
+ */
+function cherry_sanitize_hex_color( $color ) {
+
+	$color = ltrim( $color, '#' );
+	$color = '#' . $color;
+
+	if ( '' === $color ) {
+		return '';
+	}
+
+	if ( function_exists( 'sanitize_hex_color' ) ) {
+		return sanitize_hex_color( $color );
+	}
+
+	// 3 or 6 hex digits, or the empty string.
+	if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
+		return $color;
+	}
+
+	return null;
+}
+
+/**
  * Implode background properties array into CSS string
  *
  * @since  4.0.0
@@ -328,8 +358,90 @@ function cherry_prepare_background( $data ) {
 	$format = 'background-%s:%s;';
 
 	foreach ( $data as $prop => $value ) {
+		if ( 'color' == $prop ) {
+			$value = cherry_sanitize_hex_color( $value );
+		}
 		$result .= sprintf( $format, $prop, $value );
 	}
+
+	return $result;
+}
+
+/**
+ * Implode typography data array from options into CSS string
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $data  typography parameters array from options
+ * @param  array  $mod   optional parameter - pass function name and arg to modify values inside typography array
+ * @return string        font, letter-spacing, text-align, color CSS properties string
+ */
+function cherry_get_typography_css( $data, $mod = array() ) {
+
+	if ( ! is_array( $data ) || empty( $data ) ) {
+		return;
+	}
+
+	$defaults = array(
+		'family'        => '',
+		'style'         => '',
+		'color'         => '',
+		'size'          => '',
+		'lineheight'    => '',
+		'letterspacing' => '',
+		'align'         => ''
+	);
+
+	$data = wp_parse_args( $data, $defaults );
+
+	$result = array();
+
+	if ( '' !== $data['letterspacing'] ) {
+		$units = '0' != $data['letterspacing'] ? 'px' : '';
+		$result[] = 'letter-spacing:' . $data['letterspacing'] . $units;
+	}
+
+	if ( 'notdefined' != $data['align'] ) {
+		$result[] = 'text-align:' . $data['align'];
+	}
+
+	if ( '' != $data['color'] ) {
+		$color = cherry_sanitize_hex_color( $data['color'] );
+
+		if ( 1 < count( $mod ) && ( in_array( $mod[0], array( 'cherry_colors_lighten', 'cherry_colors_darken' ) ) ) ) {
+			$color = $mod[0]( $color, $mod[1] );
+		}
+
+		$result[] = 'color:' . $color;
+	}
+
+	$ext_families = ! empty( $data['category'] ) ? ', ' . $data['category'] : ', sans-serif';
+
+	$font_style  = false;
+	$font_weight = false;
+	$font_size   = $data['size'] . 'px';
+	$line_height = $data['lineheight'] . 'px';
+	$font_family = "'" . $data['family'] . "'" . $ext_families;
+
+	preg_match( '/^(\d*)(\w+)/i', $data['style'], $matches );
+
+	if ( is_array( $matches ) ) {
+		$font_style  = ( 'regular' != $matches[2] ) ? $matches[2] : false;
+		$font_weight = $matches[1];
+	}
+
+	$font = array(
+		$font_style,
+		$font_weight,
+		$font_size . '/' . $line_height,
+		$font_family
+	);
+
+	$font = implode( ' ', array_filter( $font ) );
+
+	$result[] = 'font:' . ltrim($font);
+
+	$result = implode( ';', $result ) . ';';
 
 	return $result;
 }

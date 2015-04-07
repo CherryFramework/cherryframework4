@@ -624,7 +624,9 @@ class Cherry_Interface_Builder {
 									$output .= '<div class="cherry-image-wrap">';
 										$output .= '<div class="inner">';
 											$output .= '<div class="preview-holder"  data-id-attr="' . $medias_value . '">';
-												$output .= $thumb;
+												$output .= '<div class="centered">';
+													$output .= $thumb;
+												$output .= '</div>';
 											$output .= '</div>';
 											$output .= '<span class="title">' . $media_title . '</span>';
 											$output .= '<a class="cherry-remove-image" href="#" title=""><i class="dashicons dashicons-no"></i></a>';
@@ -895,7 +897,9 @@ class Cherry_Interface_Builder {
 								$output .= '<div class="cherry-image-wrap">';
 									$output .= '<div class="inner">';
 										$output .= '<div class="preview-holder"  data-id-attr="' . $value['image'] . '">';
-											$output .= $thumb;
+											$output .= '<div class="centered">';
+												$output .= $thumb;
+											$output .= '</div>';
 										$output .= '</div>';
 										$output .= '<span class="title">' . $media_title . '</span>';
 										$output .= '<a class="cherry-remove-image" href="#" title=""><i class="dashicons dashicons-no"></i></a>';
@@ -966,6 +970,7 @@ class Cherry_Interface_Builder {
 				default_value: ''
 			*/
 			case 'typography':
+			//var_dump($value);
 				$text_align = array(
 					'notdefined' => __( 'Not defined', 'cherry' ),
 					'inherit'    => __( 'Inherit', 'cherry' ),
@@ -1168,7 +1173,7 @@ class Cherry_Interface_Builder {
 				$hint_content = '<div class="hint-video"  data-hint-video="">'. $embed_code .'</div>';
 				break;
 			default:
-				$hint_content = '<div class="hint-text" title="' . $hint['content'] .'"></div>';
+				$hint_content = '<div class="hint-text" title="' . esc_html( $hint['content'] ) .'"></div>';
 				break;
 		}
 

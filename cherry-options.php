@@ -24,7 +24,7 @@ function cherry_defaults_settings() {
 			'title'				=> __('Favicon image', 'cherry'),
 			'hint'				=>  array(
 				'type'			=> 'text',
-				'content'		=> __('Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry'),
+				'content'		=> __('Icon image"" that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry'),
 			),
 			'value'				=> '',
 			'display_image'		=> true,
@@ -847,7 +847,7 @@ function cherry_defaults_settings() {
 				'hint'      	=> array(
 					'type'		=> 'text',
 					'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select \'image\' you can choose logo image from the media library in the next option, and if you select \'text\' your Wordpress Site Title will be shown instead.', 'cherry' )
-				),				
+				),
 				'value'			=> 'text',
 				'default_value'	=> 'text',
 				'class'			=> '',
@@ -869,7 +869,7 @@ function cherry_defaults_settings() {
 				'hint'      	=> array(
 					'type'		=> 'text',
 					'content'	=> __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' )
-				),	
+				),
 				'value'				=> '',
 				'default_value'		=> '',
 				'multi-upload'		=> true,
@@ -1144,7 +1144,7 @@ function cherry_defaults_settings() {
 				'hint'      	=> array(
 					'type'		=> 'text',
 					'content'	=> __( 'Choose color for unordered lists.', 'cherry' )
-				),				
+				),
 				'value'			=> '#ff0000',
 				'default_value'	=> '#ff0000'
 	);
@@ -1155,7 +1155,7 @@ function cherry_defaults_settings() {
 				'hint'      	=> array(
 					'type'		=> 'text',
 					'content'	=> __( 'Choose marker icon for unordered lists.', 'cherry' )
-				),	
+				),
 				'value'			=> 'icon_caret_down',
 				'default_value'	=> 'icon_caret_down',
 				'class'			=> 'width-full',
@@ -1179,7 +1179,7 @@ function cherry_defaults_settings() {
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Select if you want to merge minify CSS files to performance optimization.', 'cherry' )
-		),		
+		),
 		'value'         => 'true',
 		'default_value' => 'true',
 		'toggle'        => array(
@@ -1190,8 +1190,10 @@ function cherry_defaults_settings() {
 
 	$optimization_options['dynamic-css'] = array(
 		'type'			=> 'select',
-		'title'			=> __( 'Dynamic CSS output', 'cherry' ),
-		'hint'      	=> array(
+		'title'			=> 'Dynamic CSS output',
+		'label'			=> 'Dynamic CSS output',
+		'decsription'	=> 'Output dynamic CSS into separate file or into style tag',
+		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Output dynamic CSS into separate file or into style tag.', 'cherry' )
 		),
@@ -1206,8 +1208,27 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Demo options
 //////////////////////////////////////////////////////////////////////
-
 	$demo_options = array();
+	$demo_options['typography-demo'] = array(
+				'type'			=> 'typography',
+				'title'			=> __('Typography'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+				),
+				'value'			=> array(
+					'size'			=> '20',
+					'lineheight'	=> '20',
+					'color'			=> '#222222',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
+				)
+	);
 	$demo_options['layout-editor-demo'] = array(
 				'type'			=> 'layouteditor',
 				'title'			=> __( 'title layout editor', 'cherry' ),
@@ -1219,15 +1240,15 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> array(
 					'position'	=> array(
-						'top'		=> '',
+						'top'		=> '10em',
 						'right'		=> '',
 						'bottom'	=> '',
-						'left'		=> '',
+						'left'		=> '10%',
 					),
 					'margin'	=> array(
 						'top'		=> '0px',
 						'right'		=> '0px',
-						'bottom'	=> '0px',
+						'bottom'	=> '0em',
 						'left'		=> '0px',
 					),
 					'border'	=> array(
@@ -1250,27 +1271,6 @@ function cherry_defaults_settings() {
 						'height'	=> '0px',
 					),
 				),
-	);
-
-	$demo_options['typography-demo'] = array(
-				'type'			=> 'typography',
-				'title'			=> __('Typography'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
-				),
-				'value'			=> array(
-					'size'			=> '20',
-					'lineheight'	=> '20',
-					'color'			=> '#222222',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
 	);
 	$demo_options['repeater-demo'] = array(
 				'type'			=> 'repeater',
@@ -1438,7 +1438,7 @@ function cherry_defaults_settings() {
 				),
 				'max_value'		=> 1920,
 				'min_value'		=> 980,
-				'value'			=> 1000
+				'value'			=> 1024
 	);
 	$demo_options['rangeslider-demo'] = array(
 				'type'			=> 'rangeslider',
@@ -1535,7 +1535,7 @@ function cherry_defaults_settings() {
 				),
 				'value'				=> '',
 				'multi-upload'		=> true,
-				'library_type'		=> 'image'
+				'library_type'		=> ''
 	);
 	$demo_options['background-demo'] = array(
 				'type'				=> 'background',
@@ -1573,12 +1573,11 @@ function cherry_defaults_settings() {
 				'title'			=> __('Stepper', 'cherry'),
 				'label'			=> '',
 				'decsription'	=> '',
-				'hint'      	=>  array(
+				'hint'			=> array(
 					'type'		=> 'text',
 					'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
 				),
 				'value'			=> '0',
-				'default_value'	=> '0',
 				'value-step'	=> '1',
 				'max-value'		=> '50',
 				'min-value'		=> '-50'
@@ -1595,12 +1594,11 @@ function cherry_defaults_settings() {
 				'value'			=> 'Lorem ipsum',
 				'default_value'	=> 'editor'
 	);
-
 	$demo_options['info-demo'] = array(
 				'type'			=> 'info',
 				'title'			=> __('Info panel', 'cherry'),
 				'decsription'	=> '',
-				'value'			=> '',
+				'value'			=> 'Demo',
 	);
 	$demo_options['submit-demo'] = array(
 				'type'			=> 'submit',
