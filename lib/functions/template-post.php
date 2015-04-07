@@ -91,11 +91,13 @@ function cherry_get_the_post_thumbnail( $args ) {
 	$defaults = apply_filters( 'cherry_get_the_post_thumbnail_defaults', array(
 		'container'       => 'figure',
 		'container_class' => 'entry-thumbnail',
-		'size'            => 'slider-post-thumbnail',
-		'class'           => '',
-		'before'          => '',
-		'after'           => '',
-		'wrap'            => is_singular( $post_type ) ? '<%1$s class="%2$s">%5$s</%1$s>' : '<%1$s class="%2$s"><a href="%3$s" title="%4$s">%5$s</a></%1$s>',
+		'size'            => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-size' ) : cherry_get_option( 'blog-featured-images-size' ),
+		// thumb-s or thumb-l - the custom image sizes;
+		// thumbnail, medium or large - the default image sizes.
+		'before' => '',
+		'after'  => '',
+		'class'  =>  is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-align' ) : cherry_get_option( 'blog-featured-images-align' ), // aligncenter, alignleft or alignright
+		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s %3$s">%6$s</%1$s>' : '<%1$s class="%2$s %3$s"><a href="%4$s" title="%5$s">%6$s</a></%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -115,6 +117,7 @@ function cherry_get_the_post_thumbnail( $args ) {
 		$args['wrap'],
 		tag_escape( $args['container'] ),
 		esc_attr( $args['container_class'] ),
+		sanitize_html_class( $args['size'] ),
 		get_permalink( $post_id ),
 		esc_attr( the_title_attribute( 'echo=0' ) ),
 		$thumbnail
@@ -245,7 +248,7 @@ function cherry_the_post_content( $args ) {
 
 	printf( '<div class="%1$s">%2$s', esc_attr( $args['class'] ), $args['before'] );
 
-	if ( 'full' == $args['type'] ) {
+	if ( 'full' == $args['type'] || post_password_required() ) {
 		the_content( '' );
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . __( 'Pages:', 'cherry' ),
@@ -347,19 +350,10 @@ function cherry_the_post_button( $args ) {
  * @param array $args
  */
 function cherry_get_the_post_button( $args ) {
-
-	if ( 'false' == cherry_get_option( 'blog-button' ) ) {
-		return;
-	}
-
-	if ( '' == cherry_get_option( 'blog-button-text' ) ) {
-		return;
-	}
-
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
-	if ( is_singular( $post_type ) ) {
+	if ( is_single( $post_id ) ) {
 		return;
 	}
 

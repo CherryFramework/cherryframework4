@@ -333,6 +333,37 @@ function cherry_defaults_settings() {
 	// 	)
 	// );
 
+	$blog_options['blog-featured-images'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Featured Image / Gallery / Audio / Video', 'cherry' ),
+		'decsription' => __( 'Показывать Featured Image / Gallery / Audio / Video на странице Блог в зависимости от формата поста', 'cherry' ),
+		'value'       => 'true',
+	);
+
+	$blog_options['blog-featured-images-size'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Size for Featured Images', 'cherry' ),
+		'decsription' => __( 'Размер всех Featured Images на странице Блог ', 'cherry' ),
+		'value'       => 'thumb-l',
+		'options'     => array(
+			'thumb-s' => __( 'Small', 'cherry' ),
+			'thumb-l' => __( 'Large', 'cherry' ),
+		)
+	);
+
+	$blog_options['blog-featured-images-align'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Alignment for Featured Images', 'cherry' ),
+		'decsription' => __( 'Позиция всех Featured Images на странице Блог ', 'cherry' ),
+		'value'       => 'aligncenter',
+		'options'     => array(
+			'alignnone'   => __( 'None', 'cherry' ),
+			'alignleft'   => __( 'Left', 'cherry' ),
+			'alignright'  => __( 'Right', 'cherry' ),
+			'aligncenter' => __( 'Center', 'cherry' ),
+		)
+	);
+
 	$blog_options['blog-content-type'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Post content', 'cherry' ),
@@ -368,6 +399,37 @@ function cherry_defaults_settings() {
 	);
 
 	// Post
+	$post_single_options['blog-post-featured-image'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Featured Image', 'cherry' ),
+		'decsription' => __( 'Показывать Featured Image на странице single поста', 'cherry' ),
+		'value'       => 'true',
+	);
+
+	$post_single_options['blog-post-featured-image-size'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Size for Featured Image', 'cherry' ),
+		'decsription' => __( 'Размер Featured Image на странице Поста', 'cherry' ),
+		'value'       => 'thumb-l',
+		'options'     => array(
+			'thumb-s' => __( 'Small', 'cherry' ),
+			'thumb-l' => __( 'Large', 'cherry' ),
+		)
+	);
+
+	$post_single_options['blog-post-featured-image-align'] = array(
+		'type'        => 'select',
+		'title'       => __( 'Alignment for Featured Image', 'cherry' ),
+		'decsription' => __( 'Позиция Featured Image на странице Поста', 'cherry' ),
+		'value'       => 'aligncenter',
+		'options'     => array(
+			'alignnone'   => __( 'None', 'cherry' ),
+			'alignleft'   => __( 'Left', 'cherry' ),
+			'alignright'  => __( 'Right', 'cherry' ),
+			'aligncenter' => __( 'Center', 'cherry' ),
+		)
+	);
+
 	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Related posts', 'cherry' ),

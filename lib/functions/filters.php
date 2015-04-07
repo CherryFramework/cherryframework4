@@ -28,6 +28,13 @@ add_filter( 'cherry_pre_get_the_post_author',   'cherry_option_post_author',   1
 add_filter( 'cherry_pre_get_the_post_comments', 'cherry_option_post_comments', 10, 2 );
 add_filter( 'cherry_pre_get_the_post_taxonomy', 'cherry_option_post_taxonomy', 10, 2 );
 add_filter( 'cherry_pre_get_the_post_content',  'cherry_option_post_content', 10, 2 );
+add_filter( 'cherry_pre_get_the_post_button',   'cherry_option_post_button', 10, 2 );
+
+add_filter( 'cherry_pre_get_the_post_thumbnail', 'cherry_option_post_thumbnail', 10, 2 );
+add_filter( 'cherry_pre_get_the_post_gallery',   'cherry_option_post_gallery',   10, 2 );
+add_filter( 'cherry_pre_get_the_post_audio',     'cherry_option_post_audio',     10, 2 );
+add_filter( 'cherry_pre_get_the_post_video',     'cherry_option_post_video',     10, 2 );
+add_filter( 'cherry_pre_get_the_post_avatar',    'cherry_option_post_avatar',    10, 2 );
 
 // Prints option styles.
 add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
@@ -74,8 +81,6 @@ function cherry_get_container_classes( $class ) {
 	$classes[] = $class;
 
 	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
-
-	// var_dump($grid_type);
 
 	if ( empty( $grid_type ) || ( 'default-grid-type' == $grid_type ) ) {
 		$grid_type = cherry_get_option( 'grid-type' );
@@ -163,11 +168,93 @@ function cherry_option_post_taxonomy( $display, $args ) {
 }
 
 function cherry_option_post_content( $display, $args ) {
-	if ( is_singular() ) {
-		return $display;
+	if ( !is_single() && ( 'none' == cherry_get_option( 'blog-content-type' ) ) ) {
+		return '';
 	}
 
-	if ( 'none' == cherry_get_option( 'blog-content-type' ) ) {
+	return $display;
+}
+
+function cherry_option_post_button( $display, $args ) {
+	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-button' ) ) ) {
+		return '';
+	}
+
+	if ( !is_single() && ( '' == cherry_get_option( 'blog-button-text' ) ) ) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_thumbnail( $display, $args ) {
+	$post_id = get_the_ID();
+
+	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
+		return '';
+	}
+
+	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
+		return '';
+	}
+
+	if ( !is_single() ) {
+		$args['size'] = cherry_get_option( 'blog-featured-images-size' );
+	}
+
+	return $display;
+}
+
+function cherry_option_post_gallery( $display, $args ) {
+	$post_id = get_the_ID();
+
+	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
+		return '';
+	}
+
+	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_audio( $display, $args ) {
+	$post_id = get_the_ID();
+
+	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
+		return '';
+	}
+
+	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_video( $display, $args ) {
+	$post_id = get_the_ID();
+
+	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
+		return '';
+	}
+
+	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_avatar( $display, $args ) {
+	$post_id = get_the_ID();
+
+	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
+		return '';
+	}
+
+	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
 		return '';
 	}
 

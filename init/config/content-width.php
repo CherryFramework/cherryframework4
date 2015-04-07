@@ -11,4 +11,4 @@
  */
 
 // Handle content width for embeds and images.
-cherry_set_content_width( 780 );
+cherry_set_content_width( 1170 );
