@@ -32,6 +32,9 @@ add_filter( 'cherry_pre_get_the_post_content',  'cherry_option_post_content', 10
 // Prints option styles.
 add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
 
+// Add favicon tags to page
+add_action( 'wp_head', 'cherry_favicon_tags' );
+
 
 // Add specific CSS class by filter.
 function cherry_add_control_classes( $classes ) {
