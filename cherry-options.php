@@ -781,9 +781,11 @@ function cherry_defaults_settings() {
 
 	$logo_options['logo-type'] = array(
 				'type'			=> 'radio',
-				'title'			=> 'Logo type',
-				'label'			=> 'What kind of logo?',
-				'decsription'	=> 'Select whether you want your main logo to be an image or text. If you select "image" you can put in the image url in the next option, and if you select "text" your Site Title will be shown instead.',
+				'title'			=> __( 'Logo type', 'cherry' ),
+				'hint'      	=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select \'image\' you can choose logo image from the media library in the next option, and if you select \'text\' your Wordpress Site Title will be shown instead.', 'cherry' )
+				),				
 				'value'			=> 'text',
 				'default_value'	=> 'text',
 				'class'			=> '',
@@ -801,18 +803,22 @@ function cherry_defaults_settings() {
 	);
 	$logo_options['logo-image-path'] = array(
 				'type'				=> 'media',
-				'title'				=> 'Logo Image Path',
-				'label'				=> 'Click Upload or Enter the direct path to your logo image.',
-				'decsription'		=> 'For example //your_website_url_here/wp-content/themes/themeXXXX/images/logo.png',
+				'title'				=> __( 'Logo image', 'cherry' ),
+				'hint'      	=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' )
+				),	
 				'value'				=> '',
 				'default_value'		=> '',
 				'multi-upload'		=> true,
 	);
 	$logo_options['logo-typography'] = array(
 				'type'			=> 'typography',
-				'title'			=> 'Logo Typography',
-				'label'			=> 'Logo Typography style',
-				'decsription'	=> 'Choose your prefered font for menu.',
+				'title'				=> __( 'Logo typography', 'cherry' ),
+				'hint'      	=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color etc.', 'cherry' )
+				),
 				'value'			=> array(
 					'size'			=> '14',
 					'lineheight'	=> '14',
