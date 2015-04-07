@@ -111,7 +111,7 @@
 		/*End text input size*/
 		/*Cherry stepper style*/
 		.cherry-stepper-input{
-			max-width: 80px;
+			max-width: 90px;
 		}
 
 		.cherry-stepper-controls{
@@ -408,6 +408,7 @@
 					position: absolute;
 					top: 2px;
 					left: 5px;
+					font-weight: bold;
 				}
 				.input-top{
 					top: 6px;
@@ -436,7 +437,8 @@
 				}
 				.input-height{
 					top: 50%;
-					right: -10px;
+					margin-top: -10px;
+					right: 0px;
 				}
 				.position-inner{
 					width: 100%;
@@ -601,15 +603,30 @@
 						position: relative;
 						background: #eee;
 						box-sizing: border-box;
-							img{
+							.centered{
+								position: absolute;
 								width: 100%;
+								height: 100%;
+								top: 0;
+								left: 0;
+								-webkit-transform: translate(50%,50%);
+								-ms-transform: translate(50%,50%);
+								transform: translate(50%,50%);
+							}
+							img{
+								max-width: 100%;
 								height: auto;
+								-webkit-transform: translate(-50%,-50%);
+								-ms-transform: translate(-50%,-50%);
+								transform: translate(-50%,-50%);
 							}
 							span{
 								width: auto;
 								height: auto;
 								font-size: 60px;
-								margin: 45px;
+								-webkit-transform: translate(-50%,-50%);
+								-ms-transform: translate(-50%,-50%);
+								transform: translate(-50%,-50%);
 							}
 					}
 					.title{
