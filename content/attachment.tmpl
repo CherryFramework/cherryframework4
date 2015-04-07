@@ -1,10 +1,10 @@
 %%THUMBNAIL%%
-
-%%TITLE%%
+%%TITLE where="loop"%%
 
 <div class="entry-meta">
-	<?php _e( 'Posted on', 'cherry' ); ?> %%DATE%%
-	<?php _e( 'by', 'cherry' );        ?> %%AUTHOR%% %%COMMENTS%%
+	%%DATE   before="<?php _e( 'Posted on ', 'cherry' ); ?>"%%
+	%%AUTHOR before="<?php _e( 'by ', 'cherry' ); ?>"%%
+	%%COMMENTS%%
 </div>
 
 %%CONTENT%%

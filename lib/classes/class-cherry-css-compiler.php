@@ -157,7 +157,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 
 			// print dynamic CSS directly into head tag if uploads dir not writable
 			if ( ! $this->is_writable || 'tag' == $this->settings['dynamic_css'] ) {
-				add_action( 'wp_enqueue_scripts', array( &$this, 'print_dynamic_css_inline' ), 999 );
+				add_action( 'wp_enqueue_scripts', array( &$this, 'print_dynamic_css_inline' ), 100 );
 			}
 		}
 

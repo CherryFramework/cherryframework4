@@ -37,9 +37,7 @@ function cherry_site_link() {
 function cherry_get_site_link() {
 
 	if ( $title = get_bloginfo( 'name' ) ) {
-
 		return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url() ), $title );
-
 	}
 
 }
@@ -68,7 +66,7 @@ function cherry_wp_link() {
  * @return string
  */
 function cherry_get_wp_link() {
-	return sprintf( '<a class="wp-link" href="http://wordpress.org/">%s</a>', 'WordPress' );
+	return sprintf( '<a class="wp-link" href="http://wordpress.org/" rel="nofollow">%s</a>', 'WordPress' );
 }
 
 /**
@@ -100,7 +98,7 @@ function cherry_get_theme_link() {
 	$name  = $theme->display( 'Name', false, true );
 	$title = sprintf( __( '%s WordPress Theme', 'cherry' ), $name );
 
-	return sprintf( '<a class="theme-link" href="%s" title="%s">%s</a>', esc_url( $uri ), esc_attr( $title ), $name );
+	return sprintf( '<a class="theme-link" href="%s" title="%s" rel="nofollow">%s</a>', esc_url( $uri ), esc_attr( $title ), $name );
 }
 
 /**

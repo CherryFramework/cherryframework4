@@ -7,11 +7,18 @@
  * @package Cherry Framework
  */
 
-// add breadcrumbs to template
+// Add breadcrumbs.
 add_action( 'cherry_content_before', 'cherry_get_breadcrumbs', 5 );
-// add related posts output
-add_action( 'cherry_post',           'cherry_get_related_posts' );
 
+// Add pagination to the blog loop.
+add_action( 'cherry_loop_before', 'cherry_paging_nav' );
+add_action( 'cherry_loop_after',  'cherry_paging_nav' );
+
+// Add post navigation.
+add_action( 'cherry_entry_after', 'cherry_post_nav' );
+
+// Add `Related Post` section.
+add_action( 'cherry_entry_after', 'cherry_get_related_posts', 15 );
 
 /**
  * Add breadcrumbs output to template
@@ -42,13 +49,19 @@ function cherry_get_breadcrumbs() {
 
 	$user_args = apply_filters( 'cherry_breadcrumbs_custom_args', array() );
 
+	$wrapper_format = '<div class="row">
+		<div class="col-md-5 col-sm-12">%s</div>
+		<div class="col-md-7 col-sm-12">%s</div>
+	</div>';
+
 	$options_args = array(
-		'separator'     => cherry_get_option( 'breadcrumbs-separator', '&#47;' ),
-		'show_mobile'   => $show_mobile,
-		'show_tablet'   => $show_tablet,
-		'show_on_front' => $show_on_front,
-		'show_title'    => $show_title,
-		'labels'        => $browse_label
+		'separator'      => cherry_get_option( 'breadcrumbs-separator', '&#47;' ),
+		'show_mobile'    => $show_mobile,
+		'show_tablet'    => $show_tablet,
+		'show_on_front'  => $show_on_front,
+		'show_title'     => $show_title,
+		'labels'         => $browse_label,
+		'wrapper_format' => $wrapper_format
 	);
 
 	$args = array_merge( $options_args, $user_args );
@@ -57,11 +70,6 @@ function cherry_get_breadcrumbs() {
 	$breadcrumbs->get_trail();
 }
 
-// add paginction to blog loop
-add_action( 'cherry_loop_before', 'cherry_paging_nav' );
-add_action( 'cherry_loop_after', 'cherry_paging_nav' );
-
-if ( !function_exists( 'cherry_paging_nav' ) ) :
 /**
  * Display pged navigation for posts loop when applicable.
  *
@@ -121,17 +129,16 @@ function cherry_paging_nav() {
 	}
 
 }
-endif;
 
-add_action( 'cherry_post_after', 'cherry_post_nav' );
-
-if ( !function_exists( 'cherry_post_nav' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
+ *
+ * @since 4.0.0
  */
 function cherry_post_nav() {
+	$post_type = get_post_type();
 
-	if ( !is_singular( get_post_type() ) || is_attachment() ) {
+	if ( 'page' == $post_type || !is_singular( $post_type ) || is_attachment() ) {
 		return;
 	}
 
@@ -155,7 +162,6 @@ function cherry_post_nav() {
 	</nav><!-- .navigation -->
 	<?php
 }
-endif;
 
 /**
  * Returns true if a blog has more than 1 category.
@@ -358,6 +364,10 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
  */
 function cherry_get_related_posts() {
 
+	if ( 'false' == cherry_get_option( 'blog-related-posts' ) ) {
+		return;
+	}
+
 	if ( ! is_single() ) {
 		return;
 	}
@@ -423,13 +433,14 @@ add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
  */
 function cherry_maintenance_mode() {
 
-	$enabled = cherry_get_option( 'general-maintenance-mode', false );
+	$enabled      = cherry_get_option( 'general-maintenance-mode', false );
+	$preview_mode = isset( $_GET['maintenance-preview'] ) ? true : false;
 
-	if ( 'true' !== $enabled ) {
+	if ( 'true' !== $enabled && !$preview_mode ) {
 		return;
 	}
 
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) ) {
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && !$preview_mode ) {
 		return;
 	}
 

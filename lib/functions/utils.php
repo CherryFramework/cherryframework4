@@ -250,9 +250,14 @@ function cherry_get_background_css( $selector, $data ) {
 		return;
 	}
 
+	if ( empty( $data['image'] ) && empty( $data['color'] ) ) {
+		return;
+	}
+
 	$standard_bg = cherry_prepare_background( $data );
 
 	if ( empty( $data['image'] ) ) {
+		$standard_bg .= 'background-image:none;';
 		return $selector . '{' . $standard_bg . '}';
 	}
 

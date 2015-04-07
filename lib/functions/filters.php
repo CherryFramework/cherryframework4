@@ -11,13 +11,23 @@
  */
 
 // Filters the body class.
-add_filter( 'body_class',                 'cherry_add_control_classes' );
+add_filter( 'body_class', 'cherry_add_control_classes' );
 
 // Filters the `.cherry-container` class.
 add_filter( 'cherry_get_container_class', 'cherry_get_container_classes' );
 
 // Filters a sidebar visibility.
-add_filter( 'cherry_display_sidebar',     'cherry_hide_sidebar', 9, 2 );
+add_filter( 'cherry_display_sidebar', 'cherry_hide_sidebar', 9, 2 );
+
+// Filters an excerpt params.
+add_filter( 'excerpt_length', 'cherry_excerpt_length', 999 );
+add_filter( 'excerpt_more',   '__return_empty_string', 999 );
+
+add_filter( 'cherry_pre_get_the_post_date',     'cherry_option_post_date',     10, 2 );
+add_filter( 'cherry_pre_get_the_post_author',   'cherry_option_post_author',   10, 2 );
+add_filter( 'cherry_pre_get_the_post_comments', 'cherry_option_post_comments', 10, 2 );
+add_filter( 'cherry_pre_get_the_post_taxonomy', 'cherry_option_post_taxonomy', 10, 2 );
+add_filter( 'cherry_pre_get_the_post_content',  'cherry_option_post_content', 10, 2 );
 
 // Prints option styles.
 add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
@@ -103,6 +113,62 @@ function cherry_hide_sidebar( $display, $id ) {
 
 	if ( ( ( '1-left' == $layout ) || ( '1-right' == $layout ) ) && ( 'sidebar-secondary' == $id ) ) {
 		return false;
+	}
+
+	return $display;
+}
+
+function cherry_excerpt_length( $length ) {
+	return cherry_get_option( 'blog-excerpt-length' );
+}
+
+function cherry_option_post_date( $display, $args ) {
+	if ( 'false' == cherry_get_option( 'blog-post-date' ) ) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_author( $display, $args ) {
+	if ( 'false' == cherry_get_option( 'blog-post-author' ) ) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_comments( $display, $args ) {
+	if ( 'false' == cherry_get_option( 'blog-post-comments' ) ) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_taxonomy( $display, $args ) {
+	if ( ( 'category' == $args['name'] )
+		&& ( 'false' == cherry_get_option( 'blog-categories' ) )
+		) {
+		return '';
+	}
+
+	if ( ( 'post_tag' == $args['name'] )
+		&& ( 'false' == cherry_get_option( 'blog-tags' ) )
+		) {
+		return '';
+	}
+
+	return $display;
+}
+
+function cherry_option_post_content( $display, $args ) {
+	if ( is_singular() ) {
+		return $display;
+	}
+
+	if ( 'none' == cherry_get_option( 'blog-content-type' ) ) {
+		return '';
 	}
 
 	return $display;

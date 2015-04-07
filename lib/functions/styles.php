@@ -209,7 +209,9 @@ function cherry_get_css_varaibles() {
 		'typography-h3',
 		'typography-h4',
 		'typography-h5',
-		'typography-h6'
+		'typography-h6',
+		'header-background',
+		'footer-background'
 	);
 
 	$var_list = apply_filters( 'cherry_css_var_list', $var_list );
@@ -225,4 +227,54 @@ function cherry_get_css_varaibles() {
 	}
 
 	return $result;
+}
+
+// add post specific inline CSS
+add_action( 'wp_enqueue_scripts', 'cherry_post_inline_styles', 101 );
+
+/**
+ * Get post specific CSS styles and paste it to head
+ *
+ * @since 4.0.0
+ */
+function cherry_post_inline_styles() {
+
+	$cherry_styles = cherry_get_styles();
+	$post_id       = get_the_id();
+	$post_type     = get_post_type( $post_id );
+
+	if ( ! $post_type || ! post_type_supports( $post_type, 'cherry-post-style' ) ) {
+		return;
+	}
+
+	if ( wp_style_is( CHERRY_DYNAMIC_CSS_HANDLE, 'enqueued' ) ) {
+		$handle = CHERRY_DYNAMIC_CSS_HANDLE;
+	} else {
+		$handle = isset( $cherry_styles['style'] ) ? $cherry_styles['style']['handle'] : false;
+	}
+
+	if ( ! $handle ) {
+		return;
+	}
+
+	$styles = get_post_meta( $post_id, 'cherry_style', true );
+
+	if ( ! $styles ) {
+		return;
+	}
+
+	$custom_bg = '';
+
+	if ( isset( $styles['header-background'] ) ) {
+		$custom_bg .= cherry_get_background_css( '.site-header', $styles['header-background'] );
+	}
+
+	$custom_bg = apply_filters( 'cherry_post_inline_styles', $custom_bg, $post_id );
+
+	if ( ! $custom_bg ) {
+		return;
+	}
+
+	wp_add_inline_style( $handle, sanitize_text_field( $custom_bg ) );
+
 }

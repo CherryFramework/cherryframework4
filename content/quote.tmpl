@@ -1,14 +1,14 @@
-%%TITLE%%
+%%TITLE where="loop"%%
 
 <div class="entry-meta">
-	<?php _e( 'Posted on', 'cherry' ); ?> %%DATE%%
-	<?php _e( 'by', 'cherry' );        ?> %%AUTHOR%% %%COMMENTS%%
+	%%DATE   before="<?php _e( 'Posted on ', 'cherry' ); ?>"%%
+	%%AUTHOR before="<?php _e( 'by ', 'cherry' ); ?>"%%
+	%%COMMENTS%%
 </div>
 
 %%CONTENT%%
-
 %%BUTTON%%
 
 <div class="entry-meta entry-meta-bottom">
-	<?php _e( 'Posted in', 'cherry' ); ?> %%TAXONOMY name="category"%% %%TAXONOMY name="post_tag"%%
+	%%TAXONOMY before="<?php _e( 'Posted in ', 'cherry' ); ?>" name="category"%% %%TAXONOMY name="post_tag"%%
 </div>

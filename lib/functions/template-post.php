@@ -239,6 +239,10 @@ function cherry_the_post_content( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
+	if ( !is_singular( $post_type ) ) {
+		$args['type'] = cherry_get_option( 'blog-content-type' );
+	}
+
 	printf( '<div class="%1$s">%2$s', esc_attr( $args['class'] ), $args['before'] );
 
 	if ( 'full' == $args['type'] ) {
@@ -249,11 +253,7 @@ function cherry_the_post_content( $args ) {
 		) );
 
 	} elseif ( 'part' == $args['type'] ) {
-		$content = strip_shortcodes( get_the_content( '' ) );
-		$content = apply_filters( 'the_content', $content );
-		$content = str_replace( ']]>', ']]&gt;', $content );
-		$content = wp_trim_words( $content, 55, '' ); // need option.
-		echo $content;
+		echo wp_trim_excerpt();
 	}
 
 	printf( '%s</div>', $args['after'] );
@@ -283,12 +283,16 @@ function cherry_get_the_post_content( $args ) {
 function cherry_the_post_excerpt( $args ) {
 	global $post;
 
-	if ( !post_type_supports( $post->post_type, 'excerpt' ) ) {
+	$post_id   = $post->ID;
+	$post_type = $post->post_type;
+
+	if ( !post_type_supports( $post_type, 'excerpt' ) ) {
 		return;
 	}
 
-	$post_id   = $post->ID;
-	$post_type = $post->post_type;
+	if ( !has_excerpt( $post_id ) ) {
+		return;
+	}
 
 	/**
 	 * Filter the default arguments used to display a post excerpt.
@@ -307,7 +311,7 @@ function cherry_the_post_excerpt( $args ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	printf( '<div class="%1$s">%2$s', esc_attr( $args['class'] ), $args['before'] );
-		the_excerpt();  // need option `excerpt_length` (https://codex.wordpress.org/Function_Reference/the_excerpt)
+		the_excerpt();
 	printf( '%s</div>', $args['after'] );
 }
 
@@ -343,6 +347,15 @@ function cherry_the_post_button( $args ) {
  * @param array $args
  */
 function cherry_get_the_post_button( $args ) {
+
+	if ( 'false' == cherry_get_option( 'blog-button' ) ) {
+		return;
+	}
+
+	if ( '' == cherry_get_option( 'blog-button-text' ) ) {
+		return;
+	}
+
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
@@ -363,7 +376,7 @@ function cherry_get_the_post_button( $args ) {
 		'after'  => '</div>',
 		'class'  => 'btn btn-default',
 		'wrap'   => '<a href="%1$s" class="%2$s">%3$s</a>',
-		'text'   => 'read more', // need option
+		'text'   => cherry_get_option( 'blog-button-text' ),
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
