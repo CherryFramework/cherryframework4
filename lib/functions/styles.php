@@ -210,6 +210,7 @@ function cherry_get_css_varaibles() {
 		'typography-h4',
 		'typography-h5',
 		'typography-h6',
+		'typography-link',
 		'header-background',
 		'footer-background'
 	);

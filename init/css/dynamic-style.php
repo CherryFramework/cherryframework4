@@ -15,6 +15,11 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 $cherry_css_vars = cherry_get_css_varaibles();
+$typography_link =$cherry_css_vars['typography-link'] ;
+$typography_link_hover =$cherry_css_vars['typography-link-hover'] ;
+
+//var_dump($typography_link); die;
+
 
 $body_typography = $cherry_css_vars['typography-body-text'] ;
 $body_background = $cherry_css_vars['styling-body-content-background'] ;
@@ -116,11 +121,20 @@ p {
 }
 
 a {
-	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
+	font-size: <?php echo cherry_esc_value( $typography_link, 'size' ); ?>px;
+	line-height: <?php echo cherry_esc_value( $typography_link, 'lineheight' ); ?>px;
+	color: <?php echo cherry_esc_value( $typography_link, 'color' ); ?>;
+	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'letterspacing' ), 'letter-spacing');?>
+	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'align' ), 'text-align');?>
 }
 
-a:hover, a:focus {
-	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-primary' ), 15); ?>;
+a:hover,
+a:focus {
+	font-size: <?php echo cherry_esc_value( $typography_link, 'size' ); ?>px;
+	line-height: <?php echo cherry_esc_value( $typography_link, 'lineheight' ); ?>px;
+	color: <?php echo cherry_esc_value( $typography_link, 'color' ); ?>;
+	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'letterspacing' ), 'letter-spacing');?>
+	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'align' ), 'text-align');?>
 }
 
 ul,
