@@ -115,36 +115,11 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
-	$footer_options['footer-background-full-scale'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Footer full scale background',
-			'label'			=> 'Enable / Disable',
-			'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Enable this option to have footer area scale according to the browzer size. Background image display at 100% in width and height'
-				),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$footer_options['footer-parallax-effect'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Parallax effect',
-			'label'			=> 'Parallax effect',
-			'decsription'	=> 'Enable/Disable footer parallax effect',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$footer_options['footer-sticky'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Footer sticky',
-			'label'			=> 'Enable/Disable',
-			'decsription'	=> 'Enable/Disable footer sticky',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
+
 //////////////////////////////////////////////////////////////////////
 // Grid options
 //////////////////////////////////////////////////////////////////////
+
 	$grid_options = array();
 	$grid_options['grid-responsive'] = array(
 				'type'			=> 'switcher',
@@ -532,14 +507,6 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 
 	$navigation_options = array();
-	$navigation_options['navigation-stickup-menu'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'StickUp menu',
-			'label'			=> 'Using stickUp menu',
-			'decsription'	=> 'Do you want to use stickUp menu?',
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
-	);
 	$navigation_options['navigation-menu-typography'] = array(
 			'type'			=> 'typography',
 			'title'			=> 'Menu Typography',
@@ -791,97 +758,6 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
-	$styling_options['styling-body-background-full-scale'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Full scale background',
-				'label'			=> 'Enable / Disable',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Enable this option to have scale according to the browzer size. Background image display at 100% in width and height'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-	$styling_options['styling-body-parallax-background'] = array(
-				'type'			=> 'switcher',
-				'title'			=> 'Parallax background',
-				'label'			=> 'Enable / Disable',
-				'decsription'	=> 'Parallax background on main container',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'For using parallax effect on background press ON.'
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-	$styling_options['styling-body-background-pattern'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'background pattern',
-				'label'			=> 'select one of them',
-				'decsription'	=> 'Background pattern for main container',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Background pattern for main container'
-				),
-				'value'			=> 'background-pattern-radio-2',
-				'default_value'	=> 'background-pattern-radio-2',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'background-pattern-radio-1' => array(
-						'label' => 'radio image 1',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-2' => array(
-						'label' => 'radio image 2',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-3' => array(
-						'label' => 'radio image 3',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-4' => array(
-						'label' => 'radio image 4',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-5' => array(
-						'label' => 'radio image 5',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-6' => array(
-						'label' => 'radio image 6',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-				)
-	);
-	$styling_options['styling-color-scheme'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'color scheme',
-				'label'			=> 'select one of them',
-				'decsription'	=> 'decsription radio',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'radio-image-8',
-				'default_value'	=> 'radio-image-8',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'radio-image-8' => array(
-						'label' => 'radio image 8',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-image-9' => array(
-						'label' => 'radio image 2',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-image-10' => array(
-						'label' => 'radio image 3',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-				)
-	);
 	$styling_options['styling-primary-field-background'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Primary input field background',
@@ -1018,36 +894,6 @@ function cherry_defaults_settings() {
 				'default_value'	=> 'default_value',
 				'options' => $all_statics
 	);
-	$header_options['header-layout'] = array(
-		'type'			=> 'radio',
-		'title'			=> __('Header type layout', 'cherry'),
-		'label'			=> __('Header type layout', 'cherry'),
-		'decsription'	=> __('Choose header type layout.', 'cherry'),
-		'value'			=> 'header-layout-type-1',
-		'display_input'	=> false,
-		'options'		=> array(
-			'type-1' => array(
-				'label' => 'Top static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-top-static.svg'
-			),
-			'type-2' => array(
-				'label' => 'Left static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-left-static.svg'
-			),
-			'type-3' => array(
-				'label' => 'Right static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-right-static.svg'
-			),
-			'type-4' => array(
-				'label' => 'Top toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-top-toggle.svg'
-			),
-			'type-5' => array(
-				'label' => 'Left toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-left-toggle.svg'
-			),
-		)
-	);
 	$header_options['header-background'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Header background',
@@ -1065,22 +911,6 @@ function cherry_defaults_settings() {
 					'position'	=> 'left',
 					'attachment'=> 'fixed'
 				)
-	);
-	$header_options['header-background-full-scale'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Header full scale background',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Enable/Disable header full scale background',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$header_options['header-parallax-effect'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Parallax effect',
-			'label'			=> 'Parallax effect',
-			'decsription'	=> 'Enable/Disable header parallax effect',
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
 	);
 	$header_options['header-sticky'] = array(
 			'type'			=> 'switcher',
