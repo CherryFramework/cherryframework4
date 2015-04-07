@@ -22,10 +22,9 @@ function cherry_defaults_settings() {
 	$general_options['general-favicon'] = array(
 			'type'				=> 'media',
 			'title'				=> __('Favicon image', 'cherry'),
-			'decsription'		=> __('Favicon image', 'cherry'),
 			'hint'				=>  array(
 				'type'			=> 'text',
-				'content'		=> __('Favicon image', 'cherry'),'Icon for Apple iPhone (57px * 57px) <br>Icon for Apple iPhone Retina (114px * 114px)<br>Icon for Apple iPad (72px * 72px)<br>Icon for Apple iPad Retina (144px * 144px )'
+				'content'		=> __('Icon image that is displayed in the browser address bar and browser tab heading. <br>You also upload favicon for retina displays. Recommended retina icon size: Apple iPhone 57x57px; Apple iPad 72x72px; Apple Retina displays 144x144px.', 'cherry'),
 			),
 			'value'				=> '',
 			'display_image'		=> true,
@@ -35,125 +34,73 @@ function cherry_defaults_settings() {
 	);
 	$general_options['general-page-comments'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'page comments',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Display comments on regular page',
+			'title'			=> __('Page comments', 'cherry'),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> "Disable or enable comments by default on new pages and custom post types. You can change the default for new posts or pages, as well as enable/disable comments on posts or pages you've already published."
+				'content'	=> __("Enable/disable comments by default for new pages and custom post types. You can also enable/disable comments for posts or pages you've already published.", 'cherry'),
 			),
 			'value'			=> 'true',
 	);
 	$general_options['general-featured-images'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'featured images',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Display featured images on page',
+			'title'			=> __('Featured images', 'cherry'),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> 'Disable or enable displaying of featured images'
+				'content'	=> __('Enable/disable displaying of featured images for posts.', 'cherry'),
 			),
 			'value'			=> 'true',
 	);
 	$general_options['general-user-css'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'User CSS',
-			'label'			=> 'ON / OFF',
-			'decsription'	=> 'Include user css file',
+			'title'			=> __('User CSS', 'cherry'),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> 'Disable or enable user css file'
+				'content'	=> __('Enable/disable custom user CSS styling.', 'cherry'),
 			),
 			'value'			=> 'true',
 	);
 	$general_options['general-maintenance-mode'] = array(
 			'type'			=> 'switcher',
 			'title'			=> __( 'Maintenance mode', 'cherry' ),
-			'decsription'	=> __( 'Hide your site from regular visitors', 'cherry' ),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> __( 'Logged in administrator gets full access to the site, while regular visitors will
-				be redirected to the chosen page.', 'cherry' )
+				'content'	=> __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
+				be redirected to the page chosen below.', 'cherry' )
 			),
 			'value'			=> 'true',
 	);
 	$general_options['general-maintenance-page'] = array(
 				'type'			=> 'select',
 				'title'			=> __( 'Maintenance page', 'cherry' ),
-				'decsription'	=> __( 'Use this page content as maintenance page content', 'cherry' ),
-				'value'			=> '',
+				'value'			=> '',				
 				'class'			=> 'width-full',
-				'options'		=> $all_pages
+				'options'		=> $all_pages,
+				'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __( 'Select page that regular visitors will see if maintenance mode is enabled.', 'cherry' )
+				),
 	);
 	$general_options['general-smoothscroll'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'Document smooth scroll',
-			'decsription'	=> 'Enable smooth scrolling',
+			'title'			=> __('Document smooth scroll', 'cherry' ),
 			'hint'			=>  array(
 				'type'		=> 'text',
-				'content'	=> 'Jquery vertical mousewheel smooth scrolling for desktop chrome version only.'
+				'content'	=> __('Enable/disable smooth vertical mousewheel scrolling (Chrome browser only).', 'cherry' ),
 			),
 			'value'			=> 'true',
 	);
 
 //////////////////////////////////////////////////////////////////////
-// Footer options
-//////////////////////////////////////////////////////////////////////
-	$footer_options = array();
-	$footer_options['footer-background'] = array(
-			'type'			=> 'background',
-			'title'			=> 'Footer background',
-			'label'			=> 'Footer styling section',
-			'decsription'	=> 'Change the footer background',
-			'return_data_type'	=> 'id',
-			'library_type'		=> 'image',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#a4cc3f',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
-	);
-	$footer_options['footer-background-full-scale'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Footer full scale background',
-			'label'			=> 'Enable / Disable',
-			'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Enable this option to have footer area scale according to the browzer size. Background image display at 100% in width and height'
-				),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$footer_options['footer-parallax-effect'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Parallax effect',
-			'label'			=> 'Parallax effect',
-			'decsription'	=> 'Enable/Disable footer parallax effect',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$footer_options['footer-sticky'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Footer sticky',
-			'label'			=> 'Enable/Disable',
-			'decsription'	=> 'Enable/Disable footer sticky',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-//////////////////////////////////////////////////////////////////////
 // Grid options
 //////////////////////////////////////////////////////////////////////
+	
 	$grid_options = array();
 	$grid_options['grid-responsive'] = array(
 				'type'			=> 'switcher',
-				'title'			=> 'Responsive grid',
-				'label'			=> 'Enable / Disable',
-				/*'decsription'	=> 'decsription switcher',*/
+				'title'			=> __('Responsive grid', 'cherry' ),
 				'hint'      	=>  array(
 					'type'		=> 'text',
-					'content'	=> 'If for any reason you want to disable responsive layout for your site, you are able to turn it off here.'
+					'content'	=> __('Enable/disable responsive grid. If for any reason you want to disable responsive layout for your site, you are able to turn it off here.', 'cherry' ),
 				),
 				'value'			=> 'true',
 				'default_value'	=> 'true'
@@ -161,11 +108,9 @@ function cherry_defaults_settings() {
 	$grid_options['grid-type'] = array(
 		'type'        => 'radio',
 		'title'       => __( 'Grid type', 'cherry' ),
-		'label'       => __( 'Select one of them', 'cherry' ),
-		'decsription' => __( 'Grid type for main container', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Background pattern for main container', 'cherry' ),
+			'content' => __( 'Select layout pattern for main website container. Wide layout will fit window width. Boxed layout will have fixed width and left/right indents. ', 'cherry' ),
 		),
 		'value'         => 'boxed',
 		'class'         => '',
@@ -181,17 +126,17 @@ function cherry_defaults_settings() {
 			),
 		),
 	);
-//////////////////////////////////////////////////////////////////////
-// Page layout options
-//////////////////////////////////////////////////////////////////////
+
+	// Page layout options
+	//////////////////////////////////////////////////////////////////////
+	
 	$page_layout_options = array();
 	$page_layout_options['page-layout-container-width'] = array(
 		'type' => 'slider',
 		'title' => __( 'Container width', 'cherry' ),
-		'decsription' => __( 'Width of main container (px)', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Width of main container (px)', 'cherry' ),
+			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
 		),
 		'max_value' => 1920, // Full HD
 		'min_value' => 970,
@@ -200,8 +145,10 @@ function cherry_defaults_settings() {
 	$page_layout_options['page-layout'] = array(
 		'type'          => 'radio',
 		'title'         => __( 'Blog page layout', 'cherry' ),
-		'label'         => __( 'Blog page layout', 'cherry' ),
-		'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Select blog page layout. You can choose if you want to display sidebars and how you want to display them.', 'cherry' ),
+		),
 		'value'         => '1-right',
 		'display_input' => false,
 		'options'       => array(
@@ -231,9 +178,11 @@ function cherry_defaults_settings() {
 			),
 		)
 	);
+
 //////////////////////////////////////////////////////////////////////
 // Blog layout options
 //////////////////////////////////////////////////////////////////////
+	
 	$blog_options = array();
 
 	// Featured
@@ -336,7 +285,10 @@ function cherry_defaults_settings() {
 	$blog_options['blog-content-type'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Post content', 'cherry' ),
-		'decsription' => __( 'Choose to display or not post content', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Select how you want to display post content in blog listing: full - display fill post content, part - display part of the post (you can specify post part size below), none - hide post content.', 'cherry' ),
+		),
 		'value'       => 'part',
 		'options'     => array(
 			'none' => __( 'None', 'cherry' ),
@@ -347,8 +299,11 @@ function cherry_defaults_settings() {
 
 	$blog_options['blog-excerpt-length'] = array(
 		'type'        => 'slider',
-		'title'       => __( 'Part content length', 'cherry' ),
-		'decsription' => __( 'Type the number of words in an excerpt', 'cherry' ),
+		'title'       => __( 'Post part length', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Specify number of words displayed as post part in blog listing.', 'cherry' ),
+		),
 		'max_value'   => 500,
 		'min_value'   => 1,
 		'value'       => 55,
@@ -357,17 +312,26 @@ function cherry_defaults_settings() {
 	$blog_options['blog-button'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'More button', 'cherry' ),
-		'decsription' => __( 'Show more button?', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Enable/Disable read more button in blog listing.', 'cherry' ),
+		),
 		'value'       => 'true',
 	);
 
 	$blog_options['blog-button-text'] = array(
 		'type'  => 'text',
-		'title' => __( 'More button text', 'cherry' ),
+		'title' => __( 'More button label', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Specify read more button label text. ', 'cherry' ),
+		),
 		'value' => __( 'read more', 'cherry' ),
 	);
 
 	// Post
+	////////////////////////////////////////////////////////////////////////
+
 	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Related posts', 'cherry' ),
@@ -402,6 +366,8 @@ function cherry_defaults_settings() {
 	);
 
 	// Meta
+	////////////////////////////////////////////////////////////////////////
+
 	$post_meta_options['blog-post-date'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Date', 'cherry' ),
@@ -474,6 +440,55 @@ function cherry_defaults_settings() {
 	// 	'value'         => 'true',
 	// 	'default_value' => 'true',
 	// );
+	
+//////////////////////////////////////////////////////////////////////
+// Footer options
+//////////////////////////////////////////////////////////////////////
+	$footer_options = array();
+	$footer_options['footer-background'] = array(
+			'type'			=> 'background',
+			'title'			=> 'Footer background',
+			'label'			=> 'Footer styling section',
+			'decsription'	=> 'Change the footer background',
+			'return_data_type'	=> 'id',
+			'library_type'		=> 'image',
+			'value'			=> array(
+					'image'	=> '',
+					'color'	=> '#a4cc3f',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
+	);
+	$footer_options['footer-background-full-scale'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Footer full scale background',
+			'label'			=> 'Enable / Disable',
+			'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Enable this option to have footer area scale according to the browzer size. Background image display at 100% in width and height'
+				),
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+	$footer_options['footer-parallax-effect'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Parallax effect',
+			'label'			=> 'Parallax effect',
+			'decsription'	=> 'Enable/Disable footer parallax effect',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+	$footer_options['footer-sticky'] = array(
+			'type'			=> 'switcher',
+			'title'			=> 'Footer sticky',
+			'label'			=> 'Enable/Disable',
+			'decsription'	=> 'Enable/Disable footer sticky',
+			'value'			=> 'false',
+			'default_value'	=> 'default_value'
+	);
+
+
 
 //////////////////////////////////////////////////////////////////////
 // Logo options
