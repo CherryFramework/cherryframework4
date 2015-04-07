@@ -37,7 +37,7 @@ function cherry_defaults_settings() {
 			'title'			=> __('Page comments', 'cherry'),
 			'hint'      	=>  array(
 				'type'		=> 'text',
-				'content'	=> __("Enable/disable comments by default for new pages and custom post types. You can also enable/disable comments for posts or pages you've already published.", 'cherry'),
+				'content'	=> __("Enable/disable comments by default for new pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry'),
 			),
 			'value'			=> 'true',
 	);
@@ -335,10 +335,9 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Related posts', 'cherry' ),
-		'decsription' => __( 'Show related posts?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Show related posts?', 'cherry' ),
+			'content' => __( 'Enable/disable related posts block. Related posts block is displayed at the post page.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -346,21 +345,19 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-comment-status'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Allow comments', 'cherry' ),
-		'decsription' => __( 'Enabling this option will show comments', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enabling this option will show comments. <br> But remember that this can be overridden for individual articles.', 'cherry' ),
+			'content' => __( 'Enable/disable comments for new blog posts. Make sure comments are enabled in Wordpress \'settings->discussion\'. For posts that have already been published you need to enable comments individually in post settings.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
 
 	$post_single_options['blog-gallery-shortcode'] = array(
 		'type'        => 'switcher',
-		'title'       => __( 'Replace default gallery with slider', 'cherry' ),
-		'decsription' => __( 'Enable this to replace default WP gallery with Slick slider', 'cherry' ),
+		'title'       => __( 'Gallery slider', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enable this to replace default WP gallery with Slick slider', 'cherry' ),
+			'content' => __( 'Replace default Wordpress gallery shortcode with enhanced jQuery carousel.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -371,11 +368,9 @@ function cherry_defaults_settings() {
 	$post_meta_options['blog-post-date'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Date', 'cherry' ),
-		'label'       => __( 'Enable / Disable', 'cherry' ),
-		'decsription' => __( 'Should the post publication date be displayed?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Should the post publication date be displayed?', 'cherry' ),
+			'content' => __( 'Show/Hide post publication date.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -383,11 +378,9 @@ function cherry_defaults_settings() {
 	$post_meta_options['blog-post-author'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Author', 'cherry' ),
-		'label'       => __( 'Enable / Disable', 'cherry' ),
-		'decsription' => __( 'Should the post author be displayed?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Should the post author be displayed?', 'cherry' ),
+			'content' => __( 'Show/Hide post author.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -395,11 +388,9 @@ function cherry_defaults_settings() {
 	$post_meta_options['blog-post-comments'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Comments', 'cherry' ),
-		'label'       => __( 'Enable / Disable', 'cherry' ),
-		'decsription' => __( 'Should the number of comments be displayed?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Should the number of comments be displayed?', 'cherry' ),
+			'content' => __( 'Show/Hide number of comments.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -407,11 +398,9 @@ function cherry_defaults_settings() {
 	$post_meta_options['blog-categories'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Categories', 'cherry' ),
-		'label'       => __( 'Enable / Disable', 'cherry' ),
-		'decsription' => __( 'Should the post categories be displayed?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Should the post categories be displayed?', 'cherry' ),
+			'content' => __( 'Show/Hide post categories.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -419,11 +408,9 @@ function cherry_defaults_settings() {
 	$post_meta_options['blog-tags'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Tags', 'cherry' ),
-		'label'       => __( 'Enable / Disable', 'cherry' ),
-		'decsription' => __( 'Should the tags be displayed?', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Should the post tags be displayed?', 'cherry' ),
+			'content' => __( 'Show/Hide post tags.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
