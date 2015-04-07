@@ -24,7 +24,7 @@ function cherry_defaults_settings() {
 			'title'				=> __('Favicon image', 'cherry'),
 			'hint'				=>  array(
 				'type'			=> 'text',
-				'content'		=> __('Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry'),
+				'content'		=> __('Icon image"" that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry'),
 			),
 			'value'				=> '',
 			'display_image'		=> true,
@@ -72,7 +72,7 @@ function cherry_defaults_settings() {
 	$general_options['general-maintenance-page'] = array(
 				'type'			=> 'select',
 				'title'			=> __( 'Maintenance page', 'cherry' ),
-				'value'			=> '',				
+				'value'			=> '',
 				'class'			=> 'width-full',
 				'options'		=> $all_pages,
 				'hint'      	=>  array(
@@ -93,7 +93,7 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Grid options
 //////////////////////////////////////////////////////////////////////
-	
+
 	$grid_options = array();
 	$grid_options['grid-responsive'] = array(
 				'type'			=> 'switcher',
@@ -129,7 +129,7 @@ function cherry_defaults_settings() {
 
 	// Page layout options
 	//////////////////////////////////////////////////////////////////////
-	
+
 	$page_layout_options = array();
 	$page_layout_options['page-layout-container-width'] = array(
 		'type' => 'slider',
@@ -182,7 +182,7 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Blog layout options
 //////////////////////////////////////////////////////////////////////
-	
+
 	$blog_options = array();
 
 	// Featured
@@ -450,8 +450,8 @@ function cherry_defaults_settings() {
 					'position'	=> 'left',
 					'attachment'=> 'fixed'
 				)
-	);	
- 
+	);
+
 
 	// Color scheme options
 	//////////////////////////////////////////////////////////////////////
@@ -459,7 +459,7 @@ function cherry_defaults_settings() {
 	$color_options = array();
 	$color_options['color-primary'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> __('Primary color', 'cherry' ),			
+			'title'			=> __('Primary color', 'cherry' ),
 			'value'			=> '#f62e46',
 			'default_value'	=> '#f62e46'
 	);
@@ -477,19 +477,19 @@ function cherry_defaults_settings() {
 	);
 	$color_options['color-info'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> __('Info color', 'cherry' ),			
+			'title'			=> __('Info color', 'cherry' ),
 			'value'			=> '#D9EDF7',
 			'default_value'	=> '#D9EDF7'
 	);
 	$color_options['color-warning'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> __('Warning color', 'cherry' ),			
+			'title'			=> __('Warning color', 'cherry' ),
 			'value'			=> '#FCF8E3',
 			'default_value'	=> '#FCF8E3'
 	);
 	$color_options['color-danger'] = array(
 			'type'			=> 'colorpicker',
-			'title'			=> __('Danger color', 'cherry' ),			
+			'title'			=> __('Danger color', 'cherry' ),
 			'value'			=> '#F2DEDE',
 			'default_value'	=> '#F2DEDE'
 	);
@@ -596,7 +596,7 @@ function cherry_defaults_settings() {
 				'type'		=> 'text',
 				'content'	=> __( 'Breadcrumbs separator symbol.', 'cherry' )
 			),
-			
+
 			'value'			=> '&#47;',
 			'default_value'	=> '&#47;',
 			'class'			=> 'width-full'
@@ -1106,7 +1106,7 @@ function cherry_defaults_settings() {
 		'title'			=> 'Dynamic CSS output',
 		'label'			=> 'Dynamic CSS output',
 		'decsription'	=> 'Output dynamic CSS into separate file or into style tag',
-		'hint'      	=>  array(
+		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> 'Output dynamic CSS into separate file or into style tag'
 		),
@@ -1121,8 +1121,27 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Demo options
 //////////////////////////////////////////////////////////////////////
-
 	$demo_options = array();
+	$demo_options['typography-demo'] = array(
+				'type'			=> 'typography',
+				'title'			=> __('Typography'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+				),
+				'value'			=> array(
+					'size'			=> '20',
+					'lineheight'	=> '20',
+					'color'			=> '#222222',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
+				)
+	);
 	$demo_options['layout-editor-demo'] = array(
 				'type'			=> 'layouteditor',
 				'title'			=> __( 'title layout editor', 'cherry' ),
@@ -1134,15 +1153,15 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> array(
 					'position'	=> array(
-						'top'		=> '',
+						'top'		=> '10em',
 						'right'		=> '',
 						'bottom'	=> '',
-						'left'		=> '',
+						'left'		=> '10%',
 					),
 					'margin'	=> array(
 						'top'		=> '0px',
 						'right'		=> '0px',
-						'bottom'	=> '0px',
+						'bottom'	=> '0em',
 						'left'		=> '0px',
 					),
 					'border'	=> array(
@@ -1165,27 +1184,6 @@ function cherry_defaults_settings() {
 						'height'	=> '0px',
 					),
 				),
-	);
-
-	$demo_options['typography-demo'] = array(
-				'type'			=> 'typography',
-				'title'			=> __('Typography'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
-				),
-				'value'			=> array(
-					'size'			=> '20',
-					'lineheight'	=> '20',
-					'color'			=> '#222222',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
 	);
 	$demo_options['repeater-demo'] = array(
 				'type'			=> 'repeater',
@@ -1353,7 +1351,7 @@ function cherry_defaults_settings() {
 				),
 				'max_value'		=> 1920,
 				'min_value'		=> 980,
-				'value'			=> 1000
+				'value'			=> 1024
 	);
 	$demo_options['rangeslider-demo'] = array(
 				'type'			=> 'rangeslider',
@@ -1450,7 +1448,7 @@ function cherry_defaults_settings() {
 				),
 				'value'				=> '',
 				'multi-upload'		=> true,
-				'library_type'		=> 'image'
+				'library_type'		=> ''
 	);
 	$demo_options['background-demo'] = array(
 				'type'				=> 'background',
@@ -1488,12 +1486,11 @@ function cherry_defaults_settings() {
 				'title'			=> __('Stepper', 'cherry'),
 				'label'			=> '',
 				'decsription'	=> '',
-				'hint'      	=>  array(
+				'hint'			=> array(
 					'type'		=> 'text',
 					'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
 				),
 				'value'			=> '0',
-				'default_value'	=> '0',
 				'value-step'	=> '1',
 				'max-value'		=> '50',
 				'min-value'		=> '-50'
@@ -1510,12 +1507,11 @@ function cherry_defaults_settings() {
 				'value'			=> 'Lorem ipsum',
 				'default_value'	=> 'editor'
 	);
-
 	$demo_options['info-demo'] = array(
 				'type'			=> 'info',
 				'title'			=> __('Info panel', 'cherry'),
 				'decsription'	=> '',
-				'value'			=> '',
+				'value'			=> 'Demo',
 	);
 	$demo_options['submit-demo'] = array(
 				'type'			=> 'submit',
