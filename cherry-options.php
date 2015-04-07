@@ -717,12 +717,10 @@ function cherry_defaults_settings() {
 
 	$header_options['header-static-area-editor'] = array(
 				'type'			=> 'static_area_editor',
-				'title'			=> 'header static area editor',
-				'label'			=> 'label static-area-editor',
-				'decsription'	=> 'decsription static-area-editor',
-				'hint'			=>  array(
-					'type'		=> 'image',
-					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
+				'title'			=>  __( 'Static area editor', 'cherry' ),
+				'hint'      	=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Use static area editor to arrange static blocks. You can drag-n-drop statick blocks, remove them or add new ones using \'Create new static\' field below. ', 'cherry' )
 				),
 				'value'			=> $all_statics,
 				'default_value'	=> 'default_value',
@@ -730,11 +728,10 @@ function cherry_defaults_settings() {
 	);
 	$header_options['header-background'] = array(
 			'type'			=> 'background',
-			'title'			=> 'Header background',
-			'label'			=> 'Header styling section',
+			'title'			=> __('Header background', 'cherry' ),
 			'hint'			=>  array(
 					'type'		=> 'text',
-					'content'	=> 'Рекомендуемый минимальный размер картинки при использовании на всю ширину окна 2560X1600. Загруженная фоновая картинка будет оптимизированная для отображения на мобильных и retina устройствах'
+					'content'	=>  __( 'Header background settings. You can select background color, upload header background image, set it\'s background position, attachment and repeat. ', 'cherry' )
 				),
 			'return_data_type'	=> 'id',
 			'library_type'		=> 'image',
@@ -748,31 +745,31 @@ function cherry_defaults_settings() {
 	);
 	$header_options['header-sticky'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'Header sticky',
-			'label'			=> 'Enable/Disable',
-			'decsription'	=> 'Enable/Disable header sticky',
+			'title'			=> __( 'Sticky header', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Enable\disable fixed stick to top header.', 'cherry' )
+			),
 			'value'			=> 'false',
 			'default_value'	=> 'default_value'
 	);
 	$header_options['header-sticky-tablets'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'Header sticky on tablets',
-			'label'			=> 'Enable/Disable',
-			'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'For enable a fixed header when scrolling on tablets select enable or unselect to disable'
-				),
+			'title'			=> __( 'Sticky header (tablet devices)', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Enable\disable sticky header on tablet devices.', 'cherry' )
+			),
 			'value'			=> 'true',
 			'default_value'	=> 'default_value'
 	);
 	$header_options['header-sticky-mobiles'] = array(
 			'type'			=> 'switcher',
-			'title'			=> 'Header sticky on mobiles',
-			'label'			=> 'Enable/Disable',
-			'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'For enable a fixed header when scrolling on mobiles select enable or unselect to disable'
-				),
+			'title'			=> __( 'Sticky header (mobile devices)', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Enable\disable sticky header on mobile devices.', 'cherry' )
+			),
 			'value'			=> 'false',
 			'default_value'	=> 'default_value'
 	);
