@@ -24,7 +24,7 @@ function cherry_defaults_settings() {
 			'title'				=> __('Favicon image', 'cherry'),
 			'hint'				=>  array(
 				'type'			=> 'text',
-				'content'		=> __('Icon image that is displayed in the browser address bar and browser tab heading. <br>You also upload favicon for retina displays. Recommended retina icon size: Apple iPhone 57x57px; Apple iPad 72x72px; Apple Retina displays 144x144px.', 'cherry'),
+				'content'		=> __('Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry'),
 			),
 			'value'				=> '',
 			'display_image'		=> true,
@@ -451,92 +451,6 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
-	$styling_options['styling-body-background-full-scale'] = array(
-				'type'			=> 'switcher',
-				'title'			=> __('Full scale background', 'cherry' ),
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('If enabled background will scale to fill browser window width and height.', 'cherry' ),
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-	$styling_options['styling-body-parallax-background'] = array(
-				'type'			=> 'switcher',
-				'title'			=> __('Parallax background', 'cherry' ),
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Enable/disable body background parallax effect.', 'cherry' )
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
-	);
-	$styling_options['styling-body-background-pattern'] = array(
-				'type'			=> 'radio',
-				'title'			=> __('Background pattern', 'cherry' ),
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Background pattern for main container', 'cherry' ),
-				),
-				'value'			=> 'background-pattern-radio-2',
-				'default_value'	=> 'background-pattern-radio-2',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'background-pattern-radio-1' => array(
-						'label' => 'radio image 1',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-2' => array(
-						'label' => 'radio image 2',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-3' => array(
-						'label' => 'radio image 3',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-4' => array(
-						'label' => 'radio image 4',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-5' => array(
-						'label' => 'radio image 5',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'background-pattern-radio-6' => array(
-						'label' => 'radio image 6',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-				)
-	);
-	$styling_options['styling-color-scheme'] = array(
-				'type'			=> 'radio',
-				'title'			=> 'color scheme',
-				'label'			=> 'select one of them',
-				'decsription'	=> 'decsription radio',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'radio-image-8',
-				'default_value'	=> 'radio-image-8',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'radio-image-8' => array(
-						'label' => 'radio image 8',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-image-9' => array(
-						'label' => 'radio image 2',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-image-10' => array(
-						'label' => 'radio image 3',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-				)
-	);
 	$styling_options['styling-primary-field-background'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Primary input field background',
@@ -589,34 +503,6 @@ function cherry_defaults_settings() {
 					'attachment'=> 'fixed'
 				)
 	);
-	$footer_options['footer-background-full-scale'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Footer full scale background',
-			'label'			=> 'Enable / Disable',
-			'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Enable this option to have footer area scale according to the browzer size. Background image display at 100% in width and height'
-				),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$footer_options['footer-parallax-effect'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Parallax effect',
-			'label'			=> 'Parallax effect',
-			'decsription'	=> 'Enable/Disable footer parallax effect',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$footer_options['footer-sticky'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Footer sticky',
-			'label'			=> 'Enable/Disable',
-			'decsription'	=> 'Enable/Disable footer sticky',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-
 
 
 //////////////////////////////////////////////////////////////////////
