@@ -676,14 +676,6 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 
 	$navigation_options = array();
-	$navigation_options['navigation-stickup-menu'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'StickUp menu',
-			'label'			=> 'Using stickUp menu',
-			'decsription'	=> 'Do you want to use stickUp menu?',
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
-	);
 	$navigation_options['navigation-menu-typography'] = array(
 			'type'			=> 'typography',
 			'title'			=> 'Menu Typography',
@@ -1017,36 +1009,6 @@ function cherry_defaults_settings() {
 				'default_value'	=> 'default_value',
 				'options' => $all_statics
 	);
-	$header_options['header-layout'] = array(
-		'type'			=> 'radio',
-		'title'			=> __('Header type layout', 'cherry'),
-		'label'			=> __('Header type layout', 'cherry'),
-		'decsription'	=> __('Choose header type layout.', 'cherry'),
-		'value'			=> 'header-layout-type-1',
-		'display_input'	=> false,
-		'options'		=> array(
-			'type-1' => array(
-				'label' => 'Top static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-top-static.svg'
-			),
-			'type-2' => array(
-				'label' => 'Left static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-left-static.svg'
-			),
-			'type-3' => array(
-				'label' => 'Right static',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-right-static.svg'
-			),
-			'type-4' => array(
-				'label' => 'Top toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-top-toggle.svg'
-			),
-			'type-5' => array(
-				'label' => 'Left toogle',
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/header-left-toggle.svg'
-			),
-		)
-	);
 	$header_options['header-background'] = array(
 			'type'			=> 'background',
 			'title'			=> 'Header background',
@@ -1064,22 +1026,6 @@ function cherry_defaults_settings() {
 					'position'	=> 'left',
 					'attachment'=> 'fixed'
 				)
-	);
-	$header_options['header-background-full-scale'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Header full scale background',
-			'label'			=> 'Enable / Disable',
-			'decsription'	=> 'Enable/Disable header full scale background',
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
-	);
-	$header_options['header-parallax-effect'] = array(
-			'type'			=> 'switcher',
-			'title'			=> 'Parallax effect',
-			'label'			=> 'Parallax effect',
-			'decsription'	=> 'Enable/Disable header parallax effect',
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
 	);
 	$header_options['header-sticky'] = array(
 			'type'			=> 'switcher',
@@ -1385,10 +1331,47 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 
 	$demo_options = array();
-
-	$demo_options['description-demo'] = array(
-				'title' 			=> __('Interface elements section contains Cherry Options interface elements. Interface developers can use these elements to build their own Cherry Framework based configuration pages.', 'cherry'),
+	$demo_options['layout-editor-demo'] = array(
+				'type'			=> 'layouteditor',
+				'title'			=> __( 'title customizer', 'cherry' ),
+				'label'			=> 'label customizer',
+				'decsription'	=> 'decsription customizer',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> array(
+					'position'	=> array(
+						'top'		=> '0%',
+						'right'		=> '0%',
+						'bottom'	=> '0%',
+						'left'		=> '0%',
+					),
+					'margin'	=> array(
+						'top'		=> '0px',
+						'right'		=> '0px',
+						'bottom'	=> '0px',
+						'left'		=> '0px',
+					),
+					'border'	=> array(
+						'top'		=> '0px',
+						'right'		=> '0px',
+						'bottom'	=> '0px',
+						'left'		=> '0px',
+					),
+					'padding'	=> array(
+						'top'		=> '0em',
+						'right'		=> '0em',
+						'bottom'	=> '0em',
+						'left'		=> '0em',
+					),
+					'size'	=> array(
+						'width'		=> '0px',
+						'height'	=> '0px',
+					),
+				),
 	);
+
 	$demo_options['typography-demo'] = array(
 				'type'			=> 'typography',
 				'title'			=> __('Typography'),
@@ -1620,7 +1603,6 @@ function cherry_defaults_settings() {
 					'content'	=> __('Adds radio buttons group. Lets user to select one option from the list.', 'cherry'),
 				),
 				'value'			=> 'radio-2',
-				'default_value'	=> 'radio-1',
 				'class'			=> '',
 				'display-input'	=> true,
 				'options'		=> array(
@@ -1705,7 +1687,6 @@ function cherry_defaults_settings() {
 					'content'	=> __('Adds a color picker.', 'cherry'),
 				),
 				'value'			=> '#ff0000',
-				'default_value'	=> '#ff0000'
 	);
 	$demo_options['stepper-demo'] = array(
 				'type'			=> 'stepper',
