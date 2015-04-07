@@ -373,9 +373,10 @@ function cherry_prepare_background( $data ) {
  * @since  4.0.0
  *
  * @param  array  $data  typography parameters array from options
+ * @param  array  $mod   optional parameter - pass function name and arg to modify values inside typography array
  * @return string        font, letter-spacing, text-align, color CSS properties string
  */
-function cherry_get_typography_css( $data ) {
+function cherry_get_typography_css( $data, $mod = array() ) {
 
 	if ( ! is_array( $data ) || empty( $data ) ) {
 		return;
@@ -406,6 +407,11 @@ function cherry_get_typography_css( $data ) {
 
 	if ( '' != $data['color'] ) {
 		$color = cherry_sanitize_hex_color( $data['color'] );
+
+		if ( 1 < count( $mod ) && ( in_array( $mod[0], array( 'cherry_colors_lighten', 'cherry_colors_darken' ) ) ) ) {
+			$color = $mod[0]( $color, $mod[1] );
+		}
+
 		$result[] = 'color:' . $color;
 	}
 
@@ -415,7 +421,7 @@ function cherry_get_typography_css( $data ) {
 	$font_weight = false;
 	$font_size   = $data['size'] . 'px';
 	$line_height = $data['lineheight'] . 'px';
-	$font_family = "'" . $data['family'] . "'";
+	$font_family = "'" . $data['family'] . "'" . $ext_families;
 
 	preg_match( '/^(\d*)(\w+)/i', $data['style'], $matches );
 
