@@ -15,6 +15,57 @@ function cherry_defaults_settings() {
 	//var_dump($all_statics);
 ////////// Demo options ///////////////////////////////////////////////////////
 	$demo_options = array();
+	$demo_options['layout-editor-demo'] = array(
+				'type'			=> 'layouteditor',
+				'title'			=> __( 'title customizer', 'cherry' ),
+				'label'			=> 'label customizer',
+				'decsription'	=> 'decsription customizer',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> array(
+					'position'	=> array(
+						'top'		=> '0%',
+						'right'		=> '0%',
+						'bottom'	=> '0%',
+						'left'		=> '0%',
+					),
+					'margin'	=> array(
+						'top'		=> '0px',
+						'right'		=> '0px',
+						'bottom'	=> '0px',
+						'left'		=> '0px',
+					),
+					'border'	=> array(
+						'top'		=> '0px',
+						'right'		=> '0px',
+						'bottom'	=> '0px',
+						'left'		=> '0px',
+					),
+					'padding'	=> array(
+						'top'		=> '0em',
+						'right'		=> '0em',
+						'bottom'	=> '0em',
+						'left'		=> '0em',
+					),
+					'size'	=> array(
+						'width'		=> '0px',
+						'height'	=> '0px',
+					),
+				),
+	);
+	$demo_options['editordemo'] = array(
+				'type'			=> 'editor',
+				'title'			=> 'title editor',
+				'label'			=> 'label editor',
+				'decsription'	=> 'decsription editor',
+				'hint'			=> array(
+					'type'		=> 'text',
+					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+				),
+				'value'			=> 'Lorem ipsum',
+	);
 
 	$demo_options['typography-demo'] = array(
 				'type'			=> 'typography',
@@ -73,7 +124,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'value',
-				'default_value'	=> 'default_value'
 	);
 	$demo_options['textarea-demo'] = array(
 				'type'			=> 'textarea',
@@ -85,7 +135,6 @@ function cherry_defaults_settings() {
 					'content'	=> PARENT_URI.'/lib/admin/assets/images/cherry-logo.png'
 				),
 				'value'			=> 'value',
-				'default_value'	=> 'default_value'
 	);
 	$demo_options['select-demo'] = array(
 				'type'			=> 'select',
@@ -98,7 +147,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'
 				),
 				'value'			=> 'select-1',
-				'default_value'	=> 'select-1',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'select 1',
@@ -116,7 +164,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor'
 				),
 				'value'			=> 'select_1',
-				'default_value'	=> 'select_1',
 				'class'			=> 'width-full',
 				'options'		=> array(
 					'select-1'	=> 'select 1',
@@ -173,7 +220,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'true',
-				'default_value'	=> 'true'
 	);
 	$demo_options['switcher-custom-toogle-demo'] = array(
 				'type'			=> 'switcher',
@@ -185,7 +231,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'true',
-				'default_value'	=> 'true',
 				'toggle'		=> array(
 					'true_toggle'	=> __( 'Enabled', 'cherry' ),
 					'false_toggle'	=> __( 'Disabled', 'cherry' )
@@ -247,7 +292,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> 'radio-2',
-				'default_value'	=> 'radio-1',
 				'class'			=> '',
 				'display-input'	=> true,
 				'options'		=> array(
@@ -332,7 +376,6 @@ function cherry_defaults_settings() {
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> '#ff0000',
-				'default_value'	=> '#ff0000'
 	);
 	$demo_options['stepper-demo'] = array(
 				'type'			=> 'stepper',
@@ -349,19 +392,6 @@ function cherry_defaults_settings() {
 				'max-value'		=> '50',
 				'min-value'		=> '-50'
 	);
-	$demo_options['editordemo'] = array(
-				'type'			=> 'editor',
-				'title'			=> 'title editor',
-				'label'			=> 'label editor',
-				'decsription'	=> 'decsription editor',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-				),
-				'value'			=> 'Lorem ipsum',
-				'default_value'	=> 'editor'
-	);
-
 	$demo_options['info-demo'] = array(
 				'type'			=> 'info',
 				'title'			=> 'title info',
