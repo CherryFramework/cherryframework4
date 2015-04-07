@@ -1122,19 +1122,19 @@ function cherry_defaults_settings() {
 	$demo_options = array();
 	$demo_options['layout-editor-demo'] = array(
 				'type'			=> 'layouteditor',
-				'title'			=> __( 'title customizer', 'cherry' ),
-				'label'			=> 'label customizer',
-				'decsription'	=> 'decsription customizer',
+				'title'			=> __( 'title layout editor', 'cherry' ),
+				'label'			=> 'label layout editor',
+				'decsription'	=> 'decsription layout editor',
 				'hint'			=>  array(
 					'type'		=> 'text',
 					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
 				),
 				'value'			=> array(
 					'position'	=> array(
-						'top'		=> '0%',
-						'right'		=> '0%',
-						'bottom'	=> '0%',
-						'left'		=> '0%',
+						'top'		=> '',
+						'right'		=> '',
+						'bottom'	=> '',
+						'left'		=> '',
 					),
 					'margin'	=> array(
 						'top'		=> '0px',
@@ -1147,6 +1147,9 @@ function cherry_defaults_settings() {
 						'right'		=> '0px',
 						'bottom'	=> '0px',
 						'left'		=> '0px',
+						'style'		=> 'solid',
+						'radius'	=> '10px',
+						'color'		=> '#ff0000'
 					),
 					'padding'	=> array(
 						'top'		=> '0em',
@@ -1154,7 +1157,7 @@ function cherry_defaults_settings() {
 						'bottom'	=> '0em',
 						'left'		=> '0em',
 					),
-					'size'	=> array(
+					'container'	=> array(
 						'width'		=> '0px',
 						'height'	=> '0px',
 					),
