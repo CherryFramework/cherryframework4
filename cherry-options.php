@@ -453,27 +453,64 @@ function cherry_defaults_settings() {
 	);	
  
 
-	
 //////////////////////////////////////////////////////////////////////
-// Footer options
+// Color scheme options
 //////////////////////////////////////////////////////////////////////
 
-	$footer_options = array();
-	$footer_options['footer-background'] = array(
-			'type'			=> 'background',
-			'title'			=> 'Footer background',
-			'label'			=> 'Footer styling section',
-			'decsription'	=> 'Change the footer background',
-			'return_data_type'	=> 'id',
-			'library_type'		=> 'image',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#a4cc3f',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
+	$color_options = array();
+	$color_options['color-primary'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> __('Primary color', 'cherry' ),			
+			'value'			=> '#f62e46',
+			'default_value'	=> '#f62e46'
 	);
+	$color_options['color-secondary'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> __('Secondary color', 'cherry' ),
+			'value'			=> '#333333',
+			'default_value'	=> '#333333'
+	);
+	$color_options['color-success'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> __('Success color', 'cherry' ),
+			'value'			=> '#DFF0D8',
+			'default_value'	=> '#DFF0D8'
+	);
+	$color_options['color-info'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> __('Info color', 'cherry' ),			
+			'value'			=> '#D9EDF7',
+			'default_value'	=> '#D9EDF7'
+	);
+	$color_options['color-warning'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> __('Warning color', 'cherry' ),			
+			'value'			=> '#FCF8E3',
+			'default_value'	=> '#FCF8E3'
+	);
+	$color_options['color-danger'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> __('Danger color', 'cherry' ),			
+			'value'			=> '#F2DEDE',
+			'default_value'	=> '#F2DEDE'
+	);
+	$color_options['color-gray-variations'] = array(
+			'type'			=> 'colorpicker',
+			'title'			=> 'Primary gray color',
+			'hint'      	=>  array(
+				'type'		=> 'text',
+				'content'	=> 'Gray color hues</br>
+								<hr>
+								gray-darker:           darken(20%)</br>
+								gray-dark:             darken(15%)</br>
+								gray-light:            lighten(15%)</br>
+								gray-lighter:          lighten(20%)</br>'
+							),
+			'value'			=> '#555555',
+			'default_value'	=> '#555555'
+	);
+
+	
 
 
 //////////////////////////////////////////////////////////////////////
@@ -760,93 +797,7 @@ function cherry_defaults_settings() {
 			'min-value'		=> '1'
 	);
 
-//////////////////////////////////////////////////////////////////////
-// Color scheme options
-//////////////////////////////////////////////////////////////////////
 
-	$color_options = array();
-	$color_options['color-primary'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'Primary color',
-			'decsription'	=> 'Primary color for text, backgrounds and etc.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-			),
-			'value'			=> '#f62e46',
-			'default_value'	=> '#f62e46'
-	);
-	$color_options['color-secondary'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'Secondary color',
-			'decsription'	=> 'Secondary color for text, backgrounds and etc.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Secondary color for text, backgrounds and etc.'
-			),
-			'value'			=> '#333333',
-			'default_value'	=> '#333333'
-	);
-	$color_options['color-success'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'Success color',
-			'decsription'	=> 'Success color for text, backgrounds and etc.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-			),
-			'value'			=> '#DFF0D8',
-			'default_value'	=> '#DFF0D8'
-	);
-	$color_options['color-info'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'Info color',
-			'decsription'	=> 'Info color for text, backgrounds and etc.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-			),
-			'value'			=> '#D9EDF7',
-			'default_value'	=> '#D9EDF7'
-	);
-	$color_options['color-warning'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'Warning color',
-			'decsription'	=> 'Warning color for text, backgrounds and etc.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-			),
-			'value'			=> '#FCF8E3',
-			'default_value'	=> '#FCF8E3'
-	);
-	$color_options['color-danger'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'Danger color',
-			'decsription'	=> 'Danger color for text, backgrounds and etc.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-			),
-			'value'			=> '#F2DEDE',
-			'default_value'	=> '#F2DEDE'
-	);
-	$color_options['color-gray-variations'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'Gray color variations',
-			'decsription'	=> 'Gray variations color for text, backgrounds and etc.',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Gray color variations </br>
-								<hr>
-								gray-darker:           darken(20%)</br>
-								gray-dark:             darken(15%)</br>
-								gray-light:            lighten(15%)</br>
-								gray-lighter:          lighten(20%)</br>'
-							),
-			'value'			=> '#555555',
-			'default_value'	=> '#555555'
-	);
 
 //////////////////////////////////////////////////////////////////////
 // Header options
@@ -913,6 +864,27 @@ function cherry_defaults_settings() {
 				),
 			'value'			=> 'false',
 			'default_value'	=> 'default_value'
+	);
+
+//////////////////////////////////////////////////////////////////////
+// Footer options
+//////////////////////////////////////////////////////////////////////
+
+	$footer_options = array();
+	$footer_options['footer-background'] = array(
+			'type'			=> 'background',
+			'title'			=> 'Footer background',
+			'label'			=> 'Footer styling section',
+			'decsription'	=> 'Change the footer background',
+			'return_data_type'	=> 'id',
+			'library_type'		=> 'image',
+			'value'			=> array(
+					'image'	=> '',
+					'color'	=> '#a4cc3f',
+					'repeat'	=> 'repeat',
+					'position'	=> 'left',
+					'attachment'=> 'fixed'
+				)
 	);
 
 //////////////////////////////////////////////////////////////////////
