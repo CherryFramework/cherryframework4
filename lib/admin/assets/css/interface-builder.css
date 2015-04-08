@@ -22,6 +22,7 @@
   /*Cherry rangeslider style*/
   /*Cherry rangeslider style*/
   /*Cherry repeater style*/
+  /*Cherry ace-editor style*/
   /*Cherry layout-editor style*/
   /*Cherry layout-editor style*/
   /*Cherry color picker style*/
@@ -386,6 +387,9 @@
   border-radius: 6px;
   background: rgba(139, 199, 53, 0.3);
   box-sizing: border-box;
+}
+.cherry-section .ace-editor-wrapper .ace-editor {
+  display: none;
 }
 .cherry-section input.layout-editor-input {
   position: absolute;

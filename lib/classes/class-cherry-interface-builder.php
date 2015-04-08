@@ -92,29 +92,31 @@ class Cherry_Interface_Builder {
 	 */
 	public function add_form_item( $args = array() ) {
 		$default = array(
-			'class'              => '',
-			'inline_style'       => '',
-			'type'               => '',
-			'value'              => '',
-			'max_value'          => '100',
-			'min_value'          => '0',
-			'value_step'         => '1',
-			'default_value'      => '',
-			'options'            => '',
-			'upload_button_text' => __( 'Choose Media', 'cherry' ),
-			'remove_button_text' => __( 'Remove Media', 'cherry' ),
-			'return_data_type'   => 'id',
-			'multi_upload'       => true,
-			'display_image'      => true,
-			'display_input'      => true,
-			'library_type'       => '',
-			'label'              => '',
-			'title'              => '',
-			'decsription'        => '',
-			'hint'               => '',
-			'toggle'             => array(
-				'true_toggle'	=> __( 'On', 'cherry' ),
-				'false_toggle'	=> __( 'Off', 'cherry' )
+			'class'					=> '',
+			'inline_style'			=> '',
+			'type'					=> '',
+			'value'					=> '',
+			'max_value'				=> '100',
+			'min_value'				=> '0',
+			'value_step'			=> '1',
+			'default_value'			=> '',
+			'options'				=> '',
+			'upload_button_text'	=> __( 'Choose Media', 'cherry' ),
+			'remove_button_text'	=> __( 'Remove Media', 'cherry' ),
+			'return_data_type'		=> 'id',
+			'multi_upload'			=> true,
+			'display_image'			=> true,
+			'display_input'			=> true,
+			'library_type'			=> '',
+			'editor_mode'			=> 'css',
+			'editor_theme'			=> 'monokai',
+			'label'					=> '',
+			'title'					=> '',
+			'decsription'			=> '',
+			'hint'					=> '',
+			'toggle'				=> array(
+				'true_toggle'		=> __( 'On', 'cherry' ),
+				'false_toggle'		=> __( 'Off', 'cherry' )
 			)
 		);
 		extract( array_merge( $default, $args ) );
@@ -682,16 +684,11 @@ class Cherry_Interface_Builder {
 
 			/*
 			arg:
-				type: stepper
+				type: layouteditor
 				title: ''
 				label: ''
 				decsription: ''
 				value: ''
-				max_value: 100
-				min_value: 0
-				value_step: 1
-				default_value: ''
-				class: widefat
 				item_inline_style: ''
 			*/
 			case 'layouteditor':
@@ -765,7 +762,25 @@ class Cherry_Interface_Builder {
 					$output .= '<div class="clear"></div>';
 				$output .= '</div>';
 			break;
-
+			/*
+			arg:
+				type: ace-editor
+				title: ''
+				decsription: ''
+				editor_mode: ''
+				editor_theme: ''
+				value: ''
+			*/
+			case 'ace-editor':
+				$output .= '<div class="ace-editor-wrapper ' . $class . '">';
+					$output .= '<textarea id="' . $id . '-textarea" class="ace-editor" name="' . $name . '" data-editor="' . $id . '-editor" data-editor-mode="'. $editor_mode .'" data-editor-theme="'. $editor_theme .'">';
+						$output .= $value;
+					$output .= '</textarea>';
+					$output .= '<pre id="' . $id . '-editor" class="ace-editor-area">';
+						$output .= htmlspecialchars( $value );
+					$output .= '</pre>';
+				$output .= '</div>';
+			break;
 			/*
 			arg:
 				type: editor
