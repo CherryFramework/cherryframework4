@@ -67,7 +67,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
 				be redirected to the page chosen below.', 'cherry' )
 			),
-			'value'			=> 'true',
+			'value'			=> 'false',
 	);
 	$general_options['general-maintenance-page'] = array(
 				'type'			=> 'select',
@@ -105,6 +105,17 @@ function cherry_defaults_settings() {
 				'value'			=> 'true',
 				'default_value'	=> 'true'
 	);
+	$grid_options['grid-page-layout-container-width'] = array(
+		'type' => 'slider',
+		'title' => __( 'Container width', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
+		),
+		'max_value' => 1920, // Full HD
+		'min_value' => 970,
+		'value' => 1170,
+	);
 	$grid_options['grid-type'] = array(
 		'type'        => 'radio',
 		'title'       => __( 'Grid type', 'cherry' ),
@@ -131,20 +142,9 @@ function cherry_defaults_settings() {
 	//////////////////////////////////////////////////////////////////////
 
 	$page_layout_options = array();
-	$page_layout_options['page-layout-container-width'] = array(
-		'type' => 'slider',
-		'title' => __( 'Container width', 'cherry' ),
-		'hint' => array(
-			'type' => 'text',
-			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
-		),
-		'max_value' => 1920, // Full HD
-		'min_value' => 970,
-		'value' => 1170,
-	);
 	$page_layout_options['page-layout'] = array(
 		'type'          => 'radio',
-		'title'         => __( 'Blog page layout', 'cherry' ),
+		'title'         => __( 'Page layout', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
 			'content' => __( 'Select blog page layout. You can choose if you want to display sidebars and how you want to display them.', 'cherry' ),
@@ -973,10 +973,10 @@ function cherry_defaults_settings() {
 
 	$typography_options['typography-link'] = array(
 			'type'			=> 'typography',
-			'title'			=> __( 'Link color', 'cherry' ),
+			'title'			=> __( 'Link typography', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'Color for links.', 'cherry' )
+				'content'	=> __( 'Typography for links.', 'cherry' )
 			),
 			'value' => array(
 				'size'			=> '10',
@@ -992,22 +992,14 @@ function cherry_defaults_settings() {
 
 
 	$typography_options['typography-link-hover'] = array(
-			'type'			=> 'typography',
+			'type'			=> 'colorpicker',
 			'title'			=> __( 'Link hover color', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
 				'content'	=> __( 'Color for links on hover.', 'cherry' )
 			),
-			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> '#dd3344',
-				'family'		=> 'Arial',
-				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+			'value'			=> '#f62e46',
+			'default_value'	=> '#f62e46'
 	);
 
 	$typography_options['typography-input-text'] = array(
