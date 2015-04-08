@@ -430,7 +430,7 @@ function cherry_get_the_post_image( $args ) {
 	$defaults = apply_filters( 'cherry_get_the_post_image_defaults', array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
-		'size'            => 'slider-post-thumbnail',
+		'size'            => 'thumb-l',
 		'before'          => '',
 		'after'           => '',
 		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s-link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
@@ -678,7 +678,7 @@ function cherry_get_gallery_html( $images ) {
 
 	$defaults = array(
 		'container_class'  => 'post-gallery',
-		'size'             => 'slider-post-thumbnail',
+		'size'             => 'thumb-l',
 		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
 		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a></figure>',
 	);

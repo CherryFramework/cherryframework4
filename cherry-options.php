@@ -394,6 +394,16 @@ function cherry_defaults_settings() {
 		)
 	);
 
+	$post_single_options['blog-post-author-bio'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Author bio', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Enable/disable author bio block. Author bio block is displayed at the post page.', 'cherry' ),
+		),
+		'value' => 'true',
+	);
+
 	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Related posts', 'cherry' ),

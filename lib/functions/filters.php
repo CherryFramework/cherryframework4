@@ -27,8 +27,8 @@ add_filter( 'cherry_pre_get_the_post_date',     'cherry_option_post_date',     1
 add_filter( 'cherry_pre_get_the_post_author',   'cherry_option_post_author',   10, 2 );
 add_filter( 'cherry_pre_get_the_post_comments', 'cherry_option_post_comments', 10, 2 );
 add_filter( 'cherry_pre_get_the_post_taxonomy', 'cherry_option_post_taxonomy', 10, 2 );
-add_filter( 'cherry_pre_get_the_post_content',  'cherry_option_post_content', 10, 2 );
-add_filter( 'cherry_pre_get_the_post_button',   'cherry_option_post_button', 10, 2 );
+add_filter( 'cherry_pre_get_the_post_content',  'cherry_option_post_content',  10, 2 );
+add_filter( 'cherry_pre_get_the_post_button',   'cherry_option_post_button',   10, 2 );
 
 add_filter( 'cherry_pre_get_the_post_thumbnail', 'cherry_option_post_thumbnail', 10, 2 );
 add_filter( 'cherry_pre_get_the_post_gallery',   'cherry_option_post_gallery',   10, 2 );
