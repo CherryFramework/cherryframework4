@@ -193,11 +193,18 @@ function cherry_option_post_button( $display, $args ) {
 function cherry_option_post_thumbnail( $display, $args ) {
 	$post_id = get_the_ID();
 
+	// On post.
 	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
 		return '';
 	}
 
+	// On blog.
 	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
+		return '';
+	}
+
+	// On page.
+	if ( is_page( $post_id ) && ( 'false' == cherry_get_option( 'general-page-featured-images' ) ) ) {
 		return '';
 	}
 

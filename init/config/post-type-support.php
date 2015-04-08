@@ -12,7 +12,6 @@
 
 // Add extra support for post types.
 add_action( 'init', 'cherry_add_post_type_support' );
-add_action( 'init', 'cherry_remove_post_type_support' );
 
 function cherry_add_post_type_support() {
 
@@ -57,10 +56,4 @@ function cherry_add_post_type_support() {
 	foreach ( $post_types as $type ) {
 		add_post_type_support( $type, 'cherry-post-style' );
 	}
-}
-
-function cherry_remove_post_type_support() {
-
-	// Disable support for thumbnails.
-	remove_post_type_support( 'page', 'thumbnail' );
 }
