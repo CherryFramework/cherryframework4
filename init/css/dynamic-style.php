@@ -16,7 +16,7 @@ if ( !defined( 'WPINC' ) ) {
 
 $cherry_css_vars = cherry_get_css_varaibles();
 $typography_link =$cherry_css_vars['typography-link'] ;
-$typography_link_hover =$cherry_css_vars['typography-link-hover'] ;
+//$typography_link_hover =$cherry_css_vars['typography-link-hover'] ;
 
 //var_dump($typography_link); die;
 
@@ -115,15 +115,6 @@ p {
 }
 
 a {
-	font-size: <?php echo cherry_esc_value( $typography_link, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_link, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_link, 'color' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'letterspacing' ), 'letter-spacing');?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'align' ), 'text-align');?>
-}
-
-a:hover,
-a:focus {
 	font-size: <?php echo cherry_esc_value( $typography_link, 'size' ); ?>px;
 	line-height: <?php echo cherry_esc_value( $typography_link, 'lineheight' ); ?>px;
 	color: <?php echo cherry_esc_value( $typography_link, 'color' ); ?>;
