@@ -24,7 +24,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Favicon image', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Icon image"" that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry' ),
+			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry' ),
 		),
 		'value'            => '',
 		'display_image'    => true,
@@ -284,15 +284,15 @@ $general_options['general-maintenance-mode'] = array(
 
 	$blog_options['blog-featured-images'] = array(
 		'type'        => 'switcher',
-		'title'       => __( 'Featured Image / Gallery / Audio / Video', 'cherry' ),
-		'decsription' => __( 'Показывать Featured Image / Gallery / Audio / Video на странице Блог в зависимости от формата поста', 'cherry' ),
+		'title'       => __( 'Featured Media', 'cherry' ),
+		'decsription' => __( 'Displays Featured Image, Gallery, Audio, Video in blog posts listing depending on post type.', 'cherry' ),
 		'value'       => 'true',
 	);
 
 	$blog_options['blog-featured-images-size'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Size for Featured Images', 'cherry' ),
-		'decsription' => __( 'Размер всех Featured Images на странице Блог ', 'cherry' ),
+		'title'       => __( 'Featured Image Size', 'cherry' ),
+		'decsription' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
 		'value'       => 'thumb-l',
 		'options'     => array(
 			'thumb-s' => __( 'Small', 'cherry' ),
