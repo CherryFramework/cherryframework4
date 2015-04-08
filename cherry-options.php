@@ -12,6 +12,8 @@ function cherry_defaults_settings() {
 		$all_pages[$page->ID] = $page->post_title;
 	}
 
+	$maintenance_preview = add_query_arg( array( 'maintenance-preview' => true ), home_url() );
+
 	//var_dump($all_statics);
 
 //////////////////////////////////////////////////////////////////////
@@ -61,7 +63,10 @@ function cherry_defaults_settings() {
 	);
 $general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
-		'title' => __( 'Maintenance mode', 'cherry' ),
+		'title' =>  sprintf(
+			__( 'Maintenance mode. <a href="%s" target="_blank">Preview</a>', 'cherry' ),
+			$maintenance_preview
+		),
 		'hint'  => array(
 			'type'    => 'text',
 			'content' => __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
@@ -1201,8 +1206,7 @@ $general_options['general-maintenance-mode'] = array(
 			'type'		=> 'text',
 			'content'	=> __( 'Select if you want to merge minify CSS files to performance optimization.', 'cherry' )
 		),
-		'value'         => 'true',
-		'default_value' => 'true',
+		'value'         => 'false',
 		'toggle'        => array(
 			'true_toggle'  => __( 'Yes', 'cherry' ),
 			'false_toggle' => __( 'No', 'cherry' )
@@ -1218,7 +1222,7 @@ $general_options['general-maintenance-mode'] = array(
 			'type'		=> 'text',
 			'content'	=> __( 'Output dynamic CSS into separate file or into style tag.', 'cherry' )
 		),
-		'value'			=> 'file',
+		'value'			=> 'tag',
 		'class'			=> 'width-full',
 		'options'		=> array(
 			'file'	=> 'Separate file',
