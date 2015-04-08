@@ -935,12 +935,12 @@ $general_options['general-maintenance-mode'] = array(
 				),
 				'value'			=> array(
 					'size'			=> '14',
-					'lineheight'	=> '14',
-					'color'			=> '#aa00aa',
-					'family'		=> 'Abril Fatface',
+					'lineheight'	=> '20',
+					'color'			=> '#777777',
+					'family'		=> 'Roboto',
 					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
+					'style'			=> 'inherit',
+					'letterspacing' => '',
 					'align'			=> 'notdefined'
 				)
 	);
@@ -984,12 +984,12 @@ $general_options['general-maintenance-mode'] = array(
 			),
 			'value' => array(
 				'size'			=> '14',
-				'lineheight'	=> '25',
+				'lineheight'	=> '20',
 				'color'			=> '#777777',
-				'family'		=> 'Roboto',
+				'family'		=> 'Raleway',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
-				'letterspacing' => '0',
+				'letterspacing' => '',
 				'align'			=> 'notdefined'
 			)
 	);
@@ -1002,17 +1002,16 @@ $general_options['general-maintenance-mode'] = array(
 				'content'	=> __( 'Typography for links.', 'cherry' )
 			),
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
+				'size'			=> '14',
+				'lineheight'	=> '20',
 				'color'			=> '#dd7566',
-				'family'		=> 'Arial',
+				'family'		=> 'Raleway',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
-				'letterspacing' => '0',
+				'letterspacing' => '',
 				'align'			=> 'notdefined'
 			)
 	);
-
 
 	$typography_options['typography-link-hover'] = array(
 			'type'			=> 'colorpicker',
@@ -1044,9 +1043,24 @@ $general_options['general-maintenance-mode'] = array(
 			)
 	);
 
-//////////////////////////////////////////////////////////////////////
-// CUSTOM FONTS UPLOAD
-//////////////////////////////////////////////////////////////////////
+	$typography_options['typography-breadcrumbs'] = array(
+			'type'			=> 'typography',
+			'title'			=> __( 'Breadcrumbs typography', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Styling text in breadcrumbs.', 'cherry' )
+			),
+			'value' => array(
+				'size'			=> '14',
+				'lineheight'	=> '20',
+				'color'			=> '#777777',
+				'family'		=> 'Arial',
+				'character'		=> 'latin-ext',
+				'style'			=> 'italic',
+				'letterspacing' => '',
+				'align'			=> 'notdefined'
+			)
+	);
 
 	$typography_options['typography-h1'] = array(
 			'type'			=> 'typography',
@@ -1062,7 +1076,7 @@ $general_options['general-maintenance-mode'] = array(
 				'family'		=> 'Abril Fatface',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
-				'letterspacing' => '0',
+				'letterspacing' => '',
 				'align'			=> 'notdefined'
 			)
 	);
@@ -1230,7 +1244,6 @@ $general_options['general-maintenance-mode'] = array(
 			'false_toggle' => __( 'No', 'cherry' )
 		)
 	);
-
 	$optimization_options['dynamic-css'] = array(
 		'type'			=> 'select',
 		'title'			=> 'Dynamic CSS output',

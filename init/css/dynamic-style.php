@@ -30,11 +30,16 @@ $typography_h3 =$cherry_css_vars['typography-h3'] ;
 $typography_h4 =$cherry_css_vars['typography-h4'] ;
 $typography_h5 =$cherry_css_vars['typography-h5'] ;
 $typography_h6 =$cherry_css_vars['typography-h6'] ;
+$typography_breadcrumbs =$cherry_css_vars['typography-breadcrumbs'] ;
 $header_menu_typography =$cherry_css_vars['navigation-header-menu-typography'] ;
 $footer_menu_typography =$cherry_css_vars['navigation-footer-menu-typography'] ;
 
 
 ?>
+.cherry-breadcrumbs_item_link, .cherry-breadcrumbs_item_target {
+	<?php echo cherry_get_typography_css($typography_breadcrumbs); ?>
+}
+<?php //die ?>
 
 body {
 	color: <?php echo cherry_esc_value( $body_typography, 'color' ); ?>;
@@ -131,11 +136,15 @@ dl {
 	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
-#menu-primary-items a{
+#menu-primary-items a {
 	<?php echo cherry_get_typography_css($header_menu_typography); ?>
 }
 #menu-secondary-items a{
 	<?php echo cherry_get_typography_css($footer_menu_typography); ?>
+}
+
+.site-title {
+
 }
 
 
@@ -301,7 +310,7 @@ dl {
 
 
 
-<!--Text muted color-->
+<?php // Text muted color ?>
 .text-muted {
 	color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
 }
@@ -319,7 +328,8 @@ legend {
 }
 
 
-<!--Abbreviations and acronyms border color-->
+<?php //Abbreviations and acronyms border color ?>
+
 abbr[title],
 abbr[data-original-title] {
 	border-bottom: 1px dotted <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
