@@ -18,6 +18,9 @@ add_action( 'wp_enqueue_scripts', 'cherry_register_scripts', 0 );
 // Load Cherry Framework scripts.
 add_action( 'wp_enqueue_scripts', 'cherry_enqueue_scripts', 5 );
 
+// Add arguments for sticky menu
+add_action( 'wp_enqueue_scripts', 'cherry_prepare_sticky_vars' );
+
 /**
  * Get cherry default scripts data
  *
@@ -98,4 +101,36 @@ function cherry_enqueue_scripts() {
 
 	wp_enqueue_script( 'cherry-script' );
 
+}
+
+/**
+ * Prepare JS variables for sticky header script
+ *
+ * @since 4.0.0
+ */
+function cherry_prepare_sticky_vars() {
+
+	$is_sticky = cherry_get_option( 'header-sticky', 'false' );
+
+	$defaults = array(
+		'correctionSelector' => '#wpadminbar',
+		'listenSelector'     => '.listenSelector',
+		'pseudo'             => true
+	);
+
+	$options_args = array(
+		'active' => ( 'true' == $is_sticky ) ? true : false
+	);
+
+	$args            = apply_filters( 'cherry_header_sticky_args', $defaults );
+	$sticky_selector = cherry_get_option( 'header-sticky-selector', '.site-header' );
+
+	$args = array_merge( $args, $options_args );
+
+	$data = array(
+		'selector' => $sticky_selector,
+		'args'     => $args
+	);
+
+	wp_localize_script( 'cherry-script', 'sticky_data', $data );
 }

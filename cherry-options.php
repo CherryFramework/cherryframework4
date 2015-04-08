@@ -14,6 +14,15 @@ function cherry_defaults_settings() {
 
 	$maintenance_preview = add_query_arg( array( 'maintenance-preview' => true ), home_url() );
 
+	$sticky_selectors = apply_filters( 'cherry_sticky_selectors', array(
+		'.site-header'            => __( 'Header', 'cherry' ),
+		'#menu-primary'           => __( 'Main menu', 'cherry' ),
+		'#static-area-header-top' => __( 'Header top static area', 'cherry' ),
+	) );
+
+	$default_selector = array_keys($sticky_selectors);
+	$default_selector = $default_selector[0];
+
 	//var_dump($all_statics);
 
 //////////////////////////////////////////////////////////////////////
@@ -846,9 +855,20 @@ $general_options['general-maintenance-mode'] = array(
 				'type'		=> 'text',
 				'content'	=> __( 'Enable\disable fixed stick to top header.', 'cherry' )
 			),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
+			'value'			=> 'false'
 	);
+
+	$header_options['header-sticky-selector'] = array(
+			'type'			=> 'select',
+			'title'			=> __( 'Sticky selector', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'What stick.', 'cherry' )
+			),
+			'value'			=> $sticky_selectors[$default_selector],
+			'options'		=> $sticky_selectors
+	);
+
 	$header_options['header-sticky-tablets'] = array(
 			'type'			=> 'switcher',
 			'title'			=> __( 'Sticky header (tablet devices)', 'cherry' ),
@@ -856,8 +876,7 @@ $general_options['general-maintenance-mode'] = array(
 				'type'		=> 'text',
 				'content'	=> __( 'Enable\disable sticky header on tablet devices.', 'cherry' )
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
+			'value'			=> 'false'
 	);
 	$header_options['header-sticky-mobiles'] = array(
 			'type'			=> 'switcher',
@@ -866,8 +885,7 @@ $general_options['general-maintenance-mode'] = array(
 				'type'		=> 'text',
 				'content'	=> __( 'Enable\disable sticky header on mobile devices.', 'cherry' )
 			),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
+			'value'			=> 'false'
 	);
 
 	// Logo options
