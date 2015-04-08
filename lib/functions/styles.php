@@ -202,6 +202,8 @@ function cherry_get_css_varaibles() {
 		'color-gray-variations',
 		'styling-body-content-background',
 		'typography-body-text',
+		'navigation-header-menu-typography',
+		'navigation-footer-menu-typography',
 		'typography-link',
 		'typography-input-text',
 		'typography-h1',
@@ -210,6 +212,7 @@ function cherry_get_css_varaibles() {
 		'typography-h4',
 		'typography-h5',
 		'typography-h6',
+		'typography-link',
 		'header-background',
 		'footer-background'
 	);
