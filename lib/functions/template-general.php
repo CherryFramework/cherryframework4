@@ -172,15 +172,17 @@ function cherry_get_retina_logo( $images ) {
 	$img2x    = null;
 	$width1x  = 0;
 	$height1x = 0;
-
 	$count    = 2;
 
 	for ( $i = 0; $i < $count; $i++ ) {
 
+		if ( ! wp_attachment_is_image( $images[$i] ) ) {
+			continue;
+		}
+
 		$img = wp_get_attachment_image_src( $images[$i], 'full' );
 
 		if ( ! is_array( $img ) ) {
-			$count++;
 			continue;
 		}
 
@@ -253,10 +255,6 @@ function cherry_get_site_description() {
 	return apply_filters( 'cherry_get_site_description', $desc );
 }
 
-// Add favicon tags to page
-add_action( 'wp_head', 'cherry_favicon_tags' );
-
-
 /**
  * Get favicons from theme options
  *
@@ -272,6 +270,9 @@ function cherry_get_favicon_tags() {
 
 	$favicons = cherry_get_option( 'general-favicon' );
 
+	$default_format = '<link type="%1$s" href="%3$s" rel="%2$s">';
+	$device_format  = '<link href="%3$s" sizes="%2$sx%2$s" rel="%1$s">';
+
 	if ( ! $favicons ) {
 		return false;
 	}
@@ -285,8 +286,9 @@ function cherry_get_favicon_tags() {
 	);
 
 	$favicons = explode( ',', $favicons );
+	$count    = count( $favicons );
 
-	if ( 1 <= count( $favicons ) ) {
+	if ( 1 <= $count ) {
 		$icons[] = array(
 			'type'  => false,
 			'rel'   => 'apple-touch-icon-precomposed',
@@ -313,14 +315,24 @@ function cherry_get_favicon_tags() {
 	$icon2x  = null;
 	$width1x = 0;
 	$width2x = 0;
-	$count   = 2;
+	$count   = ( 2 > $count ) ? $count : 2;
 
 	for ( $i = 0; $i < $count; $i++ ) {
 
-		$icon = wp_get_attachment_image_src( $favicons[$i], 'full' );
+		if ( ! wp_attachment_is_image( $favicons[$i] ) ) {
+			continue;
+		}
+
+		$type = get_post_mime_type( $favicons[$i] );
+
+		if ( 'image/x-icon' == $type ) {
+			$icon1x = $icon2x = wp_get_attachment_url( $favicons[$i] );
+			break;
+		}
+
+		$icon = wp_get_attachment_image_src( $favicons[$i] );
 
 		if ( ! is_array( $icon ) ) {
-			$count++;
 			continue;
 		}
 
@@ -348,9 +360,6 @@ function cherry_get_favicon_tags() {
 	}
 
 	$result = '';
-
-	$default_format = '<link type="%1$s" href="%3$s" rel="%2$s">';
-	$device_format  = '<link href="%3$s" sizes="%2$sx%2$s" rel="%1$s">';
 
 	foreach ( $icons as $icon_data ) {
 

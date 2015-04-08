@@ -283,8 +283,9 @@ function cherry_get_background_css( $selector, $data ) {
 
 	$property_format = "%s {background-image: url(%s);%s}";
 
-	if ( 1 == count( $images ) ) {
-		$img = wp_get_attachment_image_src( $images[0], 'full' );
+	if ( 1 == count( $images ) && wp_attachment_is_image( $images[0] ) ) {
+
+		$img    = wp_get_attachment_image_src( $images[0], 'full' );
 		$result = sprintf( $property_format, $selector, $img[0], $standard_bg );
 
 		return $result;
@@ -297,10 +298,13 @@ function cherry_get_background_css( $selector, $data ) {
 
 	for ( $i = 0; $i < $count; $i++ ) {
 
+		if ( ! wp_attachment_is_image( $images[$i] ) ) {
+			continue;
+		}
+
 		$img = wp_get_attachment_image_src( $images[$i], 'full' );
 
 		if ( ! is_array( $img ) ) {
-			$count++;
 			continue;
 		}
 
