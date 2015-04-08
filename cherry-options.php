@@ -865,7 +865,7 @@ $general_options['general-maintenance-mode'] = array(
 				'type'		=> 'text',
 				'content'	=> __( 'What stick.', 'cherry' )
 			),
-			'value'			=> $sticky_selectors[$default_selector],
+			'value'			=> $default_selector,
 			'options'		=> $sticky_selectors
 	);
 
