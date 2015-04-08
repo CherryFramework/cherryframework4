@@ -62,15 +62,17 @@ function cherry_defaults_settings() {
 		'value' => 'false',
 	);
 	$general_options['general-user-css'] = array(
-		'type'  => 'switcher',
-		'title' => __( 'User CSS', 'cherry' ),
-		'hint'  => array(
+		'type'         => 'ace-editor',
+		'title'        => __( 'User CSS', 'cherry' ),
+		'hint'         => array(
 			'type'    => 'text',
 			'content' => __( 'Enable/disable custom user CSS styling.', 'cherry' ),
 		),
-		'value' => 'true',
+		'editor_mode'  => 'css',
+		'editor_theme' => 'monokai',
+		'value'        => ''
 	);
-$general_options['general-maintenance-mode'] = array(
+	$general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
 		'title' =>  sprintf(
 			__( 'Maintenance mode. <a href="%s" target="_blank">Preview</a>', 'cherry' ),

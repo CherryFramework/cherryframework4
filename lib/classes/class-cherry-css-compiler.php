@@ -418,6 +418,12 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			get_template_part( 'init/css/dynamic-style' );
 			$data .= ob_get_clean();
 
+			$user_css = cherry_get_option( 'general-user-css' );
+
+			if ( $user_css ) {
+				$data .= str_replace( array( "\r","\n", " " ), "", $user_css );
+			}
+
 			return $data;
 		}
 
