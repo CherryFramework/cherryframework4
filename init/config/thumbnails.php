@@ -17,10 +17,8 @@ function cherry_register_image_sizes() {
 	if ( ! current_theme_supports( 'post-thumbnails' ) ) {
 		return;
 	}
-	// Sets the 'post-thumbnail' size.
-	// set_post_thumbnail_size( 200, 150, true );
 
-	// Adds the 'slider-post-thumbnail' image size.
+	// Registers a new image sizes.
 	add_image_size( 'thumb-s', 200, 150, true );
 	add_image_size( 'thumb-l', 1170, 780, true );
 }
