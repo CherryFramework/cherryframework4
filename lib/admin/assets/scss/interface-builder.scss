@@ -378,6 +378,12 @@
 				box-sizing:  border-box;
 			}
 		}
+		/*Cherry ace-editor style*/
+		.ace-editor-wrapper{
+			.ace-editor{
+				display: none;
+			}
+		}
 		/*Cherry layout-editor style*/
 		input.layout-editor-input{
 			position: absolute;

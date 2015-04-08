@@ -18,7 +18,6 @@ class cherry_footer_info_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
-
 		$output = '<div class="site-info">';
 		$output .= sprintf( __( 'Copyright &copy; %1$s %2$s. Powered by %3$s and %4$s.', 'cherry' ),
 						date_i18n( 'Y' ),
@@ -30,7 +29,6 @@ class cherry_footer_info_static extends cherry_register_static {
 
 		$output = apply_filters( 'cherry_footer_info', $output );
 		echo $output;
-
 	}
 }
 

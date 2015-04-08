@@ -51,6 +51,7 @@ class Cherry_Admin {
 	 * @since 4.0.0
 	 */
 	public function register_admin_scripts() {
+		wp_register_script( 'ace-editor', trailingslashit( CHERRY_URI ) . 'admin/assets/js/vendor/ace.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'select2', trailingslashit( CHERRY_URI ) . 'admin/assets/js/select2.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'statics-areas-editor-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/statics-areas-editor-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'repeater-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/cherry-repeater-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
@@ -65,6 +66,7 @@ class Cherry_Admin {
 	 * @since 4.0.0
 	 */
 	public function register_admin_styles() {
+		wp_register_style( 'cherry-ace-editor', trailingslashit( CHERRY_URI ) . 'admin/assets/css/cherry-ace-editor.css', array(), CHERRY_VERSION, 'all' );
 		wp_register_style( 'select2', trailingslashit( CHERRY_URI ) . 'admin/assets/css/select2.css', array(), CHERRY_VERSION, 'all' );
 		wp_register_style( 'jquery-ui', trailingslashit( CHERRY_URI ) . 'admin/assets/css/jquery-ui.css', array(), CHERRY_VERSION, 'all' );
 		wp_register_style( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/css/interface-builder.css', array(), CHERRY_VERSION, 'all' );
@@ -83,6 +85,7 @@ class Cherry_Admin {
 
 			wp_enqueue_script( 'editor');
 			wp_enqueue_script( 'wp-color-picker');
+			wp_enqueue_script( 'ace-editor');
 			wp_enqueue_script( 'select2' );
 			wp_enqueue_script( 'statics-areas-editor-plugin' );
 			wp_enqueue_script( 'repeater-plugin' );
@@ -105,6 +108,7 @@ class Cherry_Admin {
 	public function enqueue_admin_styles( $hook_suffix ) {
 		// if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
 			wp_enqueue_style( 'wp-color-picker' );
+			wp_enqueue_style( 'cherry-ace-editor' );
 			wp_enqueue_style( 'select2' );
 			wp_enqueue_style( 'jquery-ui' );
 			wp_enqueue_style( 'interface-builder' );

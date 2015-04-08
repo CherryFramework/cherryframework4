@@ -12,6 +12,8 @@ function cherry_defaults_settings() {
 		$all_pages[$page->ID] = $page->post_title;
 	}
 
+	$maintenance_preview = add_query_arg( array( 'maintenance-preview' => true ), home_url() );
+
 	//var_dump($all_statics);
 
 //////////////////////////////////////////////////////////////////////
@@ -61,7 +63,10 @@ function cherry_defaults_settings() {
 	);
 $general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
-		'title' => __( 'Maintenance mode', 'cherry' ),
+		'title' =>  sprintf(
+			__( 'Maintenance mode. <a href="%s" target="_blank">Preview</a>', 'cherry' ),
+			$maintenance_preview
+		),
 		'hint'  => array(
 			'type'    => 'text',
 			'content' => __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
@@ -1216,13 +1221,11 @@ $general_options['general-maintenance-mode'] = array(
 			'content'	=> __( 'Select if you want to merge minify CSS files to performance optimization.', 'cherry' )
 		),
 		'value'         => 'false',
-		'default_value' => 'false',
 		'toggle'        => array(
 			'true_toggle'  => __( 'Yes', 'cherry' ),
 			'false_toggle' => __( 'No', 'cherry' )
 		)
 	);
-
 	$optimization_options['dynamic-css'] = array(
 		'type'			=> 'select',
 		'title'			=> 'Dynamic CSS output',
@@ -1244,6 +1247,19 @@ $general_options['general-maintenance-mode'] = array(
 // Demo options
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
+	$demo_options['ace-editor-demo'] = array(
+				'type'			=> 'ace-editor',
+				'title'			=> __('Ace Editor Css', 'cherry'),
+				'label'			=> 'monokai theme',
+				'decsription'	=> 'CSS mode',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Regular single line text input field.', 'cherry'),
+				),
+				'editor_mode'	=> 'css',
+				'editor_theme'	=> 'monokai',
+				'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
+	);
 	$demo_options['typography-demo'] = array(
 				'type'			=> 'typography',
 				'title'			=> __('Typography'),
@@ -1344,7 +1360,6 @@ $general_options['general-maintenance-mode'] = array(
 					'content'	=> __('Regular single line text input field.', 'cherry'),
 				),
 				'value'			=> 'value',
-				'default_value'	=> 'default_value'
 	);
 	$demo_options['textarea-demo'] = array(
 				'type'			=> 'textarea',

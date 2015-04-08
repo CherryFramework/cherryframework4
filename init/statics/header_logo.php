@@ -57,7 +57,6 @@ class cherry_header_logo_static extends cherry_register_static {
 		}
 
 		set_transient( 'cherry_logo', $logo, DAY_IN_SECONDS );
-
 	}
 
 	/**
