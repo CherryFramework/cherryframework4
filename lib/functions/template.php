@@ -291,6 +291,12 @@ function cherry_get_comments_template() {
 		return;
 	}
 
+	if ( ( 'page' == $post_type )
+		&& ( 'false' == cherry_get_option( 'general-page-comments-status' ) )
+		) {
+		return;
+	}
+
 	// If comments are open or we have at least one comment, load up the comment template.
 	if ( comments_open() || get_comments_number() ) {
 
