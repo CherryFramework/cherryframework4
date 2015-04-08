@@ -578,12 +578,12 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 
 	$navigation_options = array();
-	$navigation_options['navigation-menu-typography'] = array(
+	$navigation_options['navigation-header-menu-typography'] = array(
 			'type'			=> 'typography',
-			'title'			=> __('Menu Typography', 'cherry' ),
+			'title'			=> __('Header Menu Typography', 'cherry' ),
 			'hint'      	=>  array(
 					'type'		=> 'text',
-					'content'	=> __('Main navigation typography settings.', 'cherry' ),
+					'content'	=> __('Main header navigation typography settings.', 'cherry' ),
 				),
 			'value'			=> array(
 				'size'			=> '14',
@@ -596,6 +596,25 @@ function cherry_defaults_settings() {
 				'align'			=> 'notdefined'
 			)
 	);
+	$navigation_options['navigation-footer-menu-typography'] = array(
+			'type'			=> 'typography',
+			'title'			=> __('Footer Menu Typography', 'cherry' ),
+			'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Main footer navigation typography settings.', 'cherry' ),
+				),
+			'value'			=> array(
+				'size'			=> '14',
+				'lineheight'	=> '14',
+				'color'			=> '#474747',
+				'family'		=> 'Abril Fatface',
+				'character'		=> 'latin-ext',
+				'style'			=> 'italic',
+				'letterspacing' => '0',
+				'align'			=> 'notdefined'
+			)
+	);
+
 
 
 	// Breadcrumbs options
