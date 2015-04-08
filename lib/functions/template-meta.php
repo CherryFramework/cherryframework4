@@ -103,9 +103,7 @@ function cherry_get_the_post_author( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
-	ob_start();
-	the_author_posts_link();
-	$author = ob_get_clean();
+	$author = cherry_get_the_post_author_posts_link();
 
 	if ( empty( $author ) ) {
 		return;
@@ -246,4 +244,71 @@ function cherry_get_the_post_taxonomy( $args ) {
 	$output .= $args['after'];
 
 	return apply_filters( 'cherry_get_the_post_taxonomy', $output, $args );
+}
+
+/**
+ * Retrieve a single meta data for a author (user).
+ *
+ * @since 4.0.0
+ * @param array $args
+ */
+function cherry_the_post_author_meta( $args ) {
+	echo cherry_get_the_post_author_meta( $args );
+}
+
+/**
+ * Display a single meta data for a author (user).
+ *
+ * @since 4.0.0
+ * @param array $args
+ */
+function cherry_get_the_post_author_meta( $args ) {
+	$post_id   = get_the_ID();
+	$post_type = get_post_type( $post_id );
+
+	/**
+	 * Filter the arguments used to display a post taxonomy.
+	 *
+	 * @since 4.0.0
+	 * @param array  $args      Array of arguments.
+	 * @param int    $post_id   The post ID.
+	 * @param string $post_type The post type of the current post.
+	 */
+	$defaults = apply_filters( 'cherry_get_the_post_author_meta_defaults', array(
+		'field'  => '',
+		'before' => '',
+		'after'  => '',
+		'wrap'   => '<div class="%1$s">%2$s</div>',
+	), $post_id, $post_type );
+
+	$args = wp_parse_args( $args, $defaults );
+
+	$meta   = $args['before'] . get_the_author_meta( $args['field'] ) . $args['after'];
+	$output = sprintf( $args['wrap'], sanitize_html_class( $args['field'] ), $meta );
+
+	return apply_filters( 'cherry_get_the_post_author_meta', $output, $args );
+}
+
+/**
+ * Retrieve a link to all posts by an author.
+ *
+ * @since 4.0.0
+ * @param array $args
+ */
+function cherry_the_author_posts_link() {
+	echo cherry_get_the_post_author_posts_link();
+}
+
+/**
+ * Display a link to all posts by an author.
+ *
+ * @since 4.0.0
+ * @param array $args
+ */
+function cherry_get_the_post_author_posts_link() {
+	ob_start();
+	the_author_posts_link();
+	$author = ob_get_clean();
+
+	return $author;
 }

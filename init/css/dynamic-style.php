@@ -15,6 +15,11 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 $cherry_css_vars = cherry_get_css_varaibles();
+$typography_link =$cherry_css_vars['typography-link'] ;
+//$typography_link_hover =$cherry_css_vars['typography-link-hover'] ;
+
+//var_dump($typography_link); die;
+
 
 $body_typography = $cherry_css_vars['typography-body-text'] ;
 $body_background = $cherry_css_vars['styling-body-content-background'] ;
@@ -25,32 +30,26 @@ $typography_h3 =$cherry_css_vars['typography-h3'] ;
 $typography_h4 =$cherry_css_vars['typography-h4'] ;
 $typography_h5 =$cherry_css_vars['typography-h5'] ;
 $typography_h6 =$cherry_css_vars['typography-h6'] ;
+$header_menu_typography =$cherry_css_vars['navigation-header-menu-typography'] ;
+$footer_menu_typography =$cherry_css_vars['navigation-footer-menu-typography'] ;
+
 
 ?>
-
 
 body {
 	color: <?php echo cherry_esc_value( $body_typography, 'color' ); ?>;
 	font-size: <?php echo cherry_esc_value( $body_typography, 'size' ); ?>px;
 	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
-	background-color: <?php echo cherry_esc_value( $body_background, 'color' ); ?>;
-	background-repeat: <?php echo cherry_esc_value( $body_background, 'repeat' ); ?>;
-	background-position: <?php echo cherry_esc_value( $body_background, 'position' ); ?>;
-	background-attachment: <?php echo cherry_esc_value( $body_background, 'attachment' ); ?>;
 }
+<?php echo cherry_get_background_css('body', $body_background); ?>
 
-<?php echo cherry_get_background_css('.site-header', $header_background); ?>;
+<?php echo cherry_get_background_css('.site-header', $header_background); ?>
 
 h1, .h1 {
-	font-size: <?php echo cherry_esc_value( $typography_h1, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_h1, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_h1, 'color' ); ?>;
-	font-family: <?php echo cherry_esc_value( $typography_h1, 'family' ); ?>;
-	font-style: <?php echo cherry_esc_value( $typography_h1, 'style' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_h1, 'letterspacing' ), 'letter-spacing'); ?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_h1, 'align' ), 'text-align');?>
-
+	<?php echo cherry_get_typography_css($typography_h1, array('cherry_colors_lighten', 40)); ?>
 }
+
+
 h2, .h2 {
 	font-size: <?php echo cherry_esc_value( $typography_h2, 'size' ); ?>px;
 	line-height: <?php echo cherry_esc_value( $typography_h2, 'lineheight' ); ?>px;
@@ -116,11 +115,11 @@ p {
 }
 
 a {
-	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
-}
-
-a:hover, a:focus {
-	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-primary' ), 15); ?>;
+	font-size: <?php echo cherry_esc_value( $typography_link, 'size' ); ?>px;
+	line-height: <?php echo cherry_esc_value( $typography_link, 'lineheight' ); ?>px;
+	color: <?php echo cherry_esc_value( $typography_link, 'color' ); ?>;
+	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'letterspacing' ), 'letter-spacing');?>
+	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'align' ), 'text-align');?>
 }
 
 ul,
@@ -131,6 +130,14 @@ ol {
 dl {
 	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
+
+#menu-primary-items a{
+	<?php echo cherry_get_typography_css($header_menu_typography); ?>
+}
+#menu-secondary-items a{
+	<?php echo cherry_get_typography_css($footer_menu_typography); ?>
+}
+
 
 .cherry-breadcrumbs {
 	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 60.8); ?>;

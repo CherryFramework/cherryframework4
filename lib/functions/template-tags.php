@@ -17,8 +17,11 @@ add_action( 'cherry_loop_after',  'cherry_paging_nav' );
 // Add post navigation.
 add_action( 'cherry_entry_after', 'cherry_post_nav' );
 
+// Add `About Author` section.
+add_action( 'cherry_entry_after', 'cherry_get_author_bio', 15 );
+
 // Add `Related Post` section.
-add_action( 'cherry_entry_after', 'cherry_get_related_posts', 15 );
+add_action( 'cherry_entry_after', 'cherry_get_related_posts', 20 );
 
 /**
  * Add breadcrumbs output to template
@@ -384,7 +387,6 @@ function cherry_get_related_posts() {
 		'format_title'  => '<h3 class="related-posts_title">%1$s</h3>',
 		'wrapper_list'  => 'ul',
 		'wrapper_item'  => 'li',
-		'template_item' => false
 	);
 
 	/**
@@ -397,18 +399,19 @@ function cherry_get_related_posts() {
 
 	$content = '';
 
+	$template = cherry_load_tmpl(
+		apply_filters(
+			'cherry_related_post_template_hierarchy',
+			array( 'content/related-post.tmpl' )
+		)
+	);
+
 	while ( $related_query->have_posts() ) {
 
 		$related_query->the_post();
 
-		ob_start();
-
-		include( locate_template( array( 'content/related-post.tmpl' ), false, false ) );
-
-		$template = ob_get_contents();
-		ob_end_clean();
-
-		$item_body = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
+		$temp      = $template;
+		$item_body = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $temp );
 		$content  .= sprintf( '<%1$s class="related-posts_item">%2$s</%1$s>', $args['wrapper_item'], $item_body );
 	}
 
@@ -422,6 +425,33 @@ function cherry_get_related_posts() {
 	);
 
 	echo $result;
+}
+
+function cherry_get_author_bio() {
+
+	if ( 'false' == cherry_get_option( 'blog-post-author-bio' ) ) {
+		return;
+	}
+
+	if ( !is_single() ) {
+		return;
+	}
+
+	$defaults = array(
+		'wrap' => '<div class="author-bio clearfix">%s</div>',
+	);
+
+	$args = apply_filters( 'cherry_get_author_bio_defaults', $defaults );
+	$args = wp_parse_args( $args, $defaults );
+
+	$output = cherry_parse_tmpl(
+		apply_filters(
+			'cherry_author_bio_template_hierarchy',
+			array( 'content/author-bio.tmpl' )
+		)
+	);
+
+	printf( $args['wrap'], $output );
 }
 
 add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
@@ -444,19 +474,16 @@ function cherry_maintenance_mode() {
 		return;
 	}
 
-	ob_start();
-
-	include( locate_template( array( 'content/maintenance.tmpl' ), false, false ) );
-
-	$template = ob_get_contents();
-	ob_end_clean();
-
-	$result = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
+	$result = cherry_parse_tmpl(
+		apply_filters(
+			'cherry_maintenance_mode_template_hierarchy',
+			array( 'content/maintenance.tmpl' )
+		)
+	);
 
 	echo $result;
 
-	?>
-	<?php wp_footer(); ?>
+	wp_footer(); ?>
 	</body>
 	</html>
 	<?php

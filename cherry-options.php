@@ -20,74 +20,74 @@ function cherry_defaults_settings() {
 
 	$general_options = array();
 	$general_options['general-favicon'] = array(
-			'type'				=> 'media',
-			'title'				=> __('Favicon image', 'cherry'),
-			'hint'				=>  array(
-				'type'			=> 'text',
-				'content'		=> __('Icon image"" that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry'),
-			),
-			'value'				=> '',
-			'display_image'		=> true,
-			'multi_upload'		=> true,
-			'return_data_type'	=> 'url',
-			'library_type'	=> 'image'
+		'type'  => 'media',
+		'title' => __( 'Favicon image', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Icon image"" that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry' ),
+		),
+		'value'            => '',
+		'display_image'    => true,
+		'multi_upload'     => true,
+		'return_data_type' => 'url',
+		'library_type'     => 'image',
 	);
-	$general_options['general-page-comments'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __('Page comments', 'cherry'),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __("Enable/disable comments by default for new pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry'),
-			),
-			'value'			=> 'true',
+	$general_options['general-page-comments-status'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Page comments', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
+		),
+		'value' => 'false',
 	);
-	$general_options['general-featured-images'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __('Featured images', 'cherry'),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __('Enable/disable displaying of featured images for posts.', 'cherry'),
-			),
-			'value'			=> 'true',
+	$general_options['general-page-featured-images'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Featured images', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Enable/disable displaying of featured images for pages.', 'cherry' ),
+		),
+		'value' => 'false',
 	);
 	$general_options['general-user-css'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __('User CSS', 'cherry'),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __('Enable/disable custom user CSS styling.', 'cherry'),
-			),
-			'value'			=> 'true',
+		'type'  => 'switcher',
+		'title' => __( 'User CSS', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Enable/disable custom user CSS styling.', 'cherry' ),
+		),
+		'value' => 'true',
 	);
-	$general_options['general-maintenance-mode'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Maintenance mode', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
-				be redirected to the page chosen below.', 'cherry' )
-			),
-			'value'			=> 'true',
+$general_options['general-maintenance-mode'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Maintenance mode', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
+			be redirected to the page chosen below.', 'cherry' )
+		),
+		'value' => 'false',
 	);
 	$general_options['general-maintenance-page'] = array(
-				'type'			=> 'select',
-				'title'			=> __( 'Maintenance page', 'cherry' ),
-				'value'			=> '',
-				'class'			=> 'width-full',
-				'options'		=> $all_pages,
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __( 'Select page that regular visitors will see if maintenance mode is enabled.', 'cherry' )
-				),
+		'type'    => 'select',
+		'title'   => __( 'Maintenance page', 'cherry' ),
+		'value'   => '',
+		'class'   => 'width-full',
+		'options' => $all_pages,
+		'hint'    => array(
+			'type'    => 'text',
+			'content' => __( 'Select page that regular visitors will see if maintenance mode is enabled.', 'cherry' ),
+		),
 	);
 	$general_options['general-smoothscroll'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __('Document smooth scroll', 'cherry' ),
-			'hint'			=>  array(
-				'type'		=> 'text',
-				'content'	=> __('Enable/disable smooth vertical mousewheel scrolling (Chrome browser only).', 'cherry' ),
-			),
-			'value'			=> 'true',
+		'type'  => 'switcher',
+		'title' => __( 'Document smooth scroll', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Enable/disable smooth vertical mousewheel scrolling (Chrome browser only).', 'cherry' ),
+		),
+		'value' => 'true',
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -104,6 +104,17 @@ function cherry_defaults_settings() {
 				),
 				'value'			=> 'true',
 				'default_value'	=> 'true'
+	);
+	$grid_options['grid-page-layout-container-width'] = array(
+		'type' => 'slider',
+		'title' => __( 'Container width', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
+		),
+		'max_value' => 1920, // Full HD
+		'min_value' => 970,
+		'value' => 1170,
 	);
 	$grid_options['grid-type'] = array(
 		'type'        => 'radio',
@@ -131,20 +142,9 @@ function cherry_defaults_settings() {
 	//////////////////////////////////////////////////////////////////////
 
 	$page_layout_options = array();
-	$page_layout_options['page-layout-container-width'] = array(
-		'type' => 'slider',
-		'title' => __( 'Container width', 'cherry' ),
-		'hint' => array(
-			'type' => 'text',
-			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
-		),
-		'max_value' => 1920, // Full HD
-		'min_value' => 970,
-		'value' => 1170,
-	);
 	$page_layout_options['page-layout'] = array(
 		'type'          => 'radio',
-		'title'         => __( 'Blog page layout', 'cherry' ),
+		'title'         => __( 'Page layout', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
 			'content' => __( 'Select blog page layout. You can choose if you want to display sidebars and how you want to display them.', 'cherry' ),
@@ -394,6 +394,16 @@ function cherry_defaults_settings() {
 		)
 	);
 
+	$post_single_options['blog-post-author-bio'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Author bio', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Enable/disable author bio block. Author bio block is displayed at the post page.', 'cherry' ),
+		),
+		'value' => 'true',
+	);
+
 	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Related posts', 'cherry' ),
@@ -409,7 +419,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Allow comments', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable comments for new blog posts. Make sure comments are enabled in Wordpress \'settings->discussion\'. For posts that have already been published you need to enable comments individually in post settings.', 'cherry' ),
+			'content' => __( 'Enable/disable comments for blog posts. Make sure comments are enabled in Wordpress \'settings->discussion\'. For posts that have already been published you need to enable comments individually in post settings.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -578,12 +588,12 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 
 	$navigation_options = array();
-	$navigation_options['navigation-menu-typography'] = array(
+	$navigation_options['navigation-header-menu-typography'] = array(
 			'type'			=> 'typography',
-			'title'			=> __('Menu Typography', 'cherry' ),
+			'title'			=> __('Header Menu Typography', 'cherry' ),
 			'hint'      	=>  array(
 					'type'		=> 'text',
-					'content'	=> __('Main navigation typography settings.', 'cherry' ),
+					'content'	=> __('Main header navigation typography settings.', 'cherry' ),
 				),
 			'value'			=> array(
 				'size'			=> '14',
@@ -596,6 +606,25 @@ function cherry_defaults_settings() {
 				'align'			=> 'notdefined'
 			)
 	);
+	$navigation_options['navigation-footer-menu-typography'] = array(
+			'type'			=> 'typography',
+			'title'			=> __('Footer Menu Typography', 'cherry' ),
+			'hint'      	=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Main footer navigation typography settings.', 'cherry' ),
+				),
+			'value'			=> array(
+				'size'			=> '14',
+				'lineheight'	=> '14',
+				'color'			=> '#474747',
+				'family'		=> 'Abril Fatface',
+				'character'		=> 'latin-ext',
+				'style'			=> 'italic',
+				'letterspacing' => '0',
+				'align'			=> 'notdefined'
+			)
+	);
+
 
 
 	// Breadcrumbs options
@@ -944,10 +973,10 @@ function cherry_defaults_settings() {
 
 	$typography_options['typography-link'] = array(
 			'type'			=> 'typography',
-			'title'			=> __( 'Link color', 'cherry' ),
+			'title'			=> __( 'Link typography', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'Color for links.', 'cherry' )
+				'content'	=> __( 'Typography for links.', 'cherry' )
 			),
 			'value' => array(
 				'size'			=> '10',
@@ -963,22 +992,14 @@ function cherry_defaults_settings() {
 
 
 	$typography_options['typography-link-hover'] = array(
-			'type'			=> 'typography',
+			'type'			=> 'colorpicker',
 			'title'			=> __( 'Link hover color', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
 				'content'	=> __( 'Color for links on hover.', 'cherry' )
 			),
-			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> '#dd3344',
-				'family'		=> 'Arial',
-				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+			'value'			=> '#f62e46',
+			'default_value'	=> '#f62e46'
 	);
 
 	$typography_options['typography-input-text'] = array(

@@ -15,7 +15,7 @@
 add_action( 'cherry_entry', 'cherry_get_content_template' );
 
 // Loads template for comments.
-add_action( 'cherry_entry_after', 'cherry_get_comments_template', 20 );
+add_action( 'cherry_entry_after', 'cherry_get_comments_template', 25 );
 
 // Loads template if no posts were found.
 add_action( 'cherry_loop_empty', 'cherry_noposts' );
@@ -120,17 +120,27 @@ function cherry_get_content_template() {
 }
 
 function cherry_content_template( $templates ) {
+	printf( '%s', cherry_parse_tmpl( $templates ) );
+}
+
+function cherry_load_tmpl( $template_names ) {
 	ob_start();
 
-	include( apply_filters( 'cherry_content_template', locate_template( $templates, false, false ) ) );
+	include( locate_template( $template_names, false, false ) );
 
 	$template = ob_get_contents();
 	ob_end_clean();
 
-	// Perform a regular expression.
-	$content = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
+	return $template;
+}
 
-	echo $content;
+function cherry_parse_tmpl( $template_names ) {
+	$template = cherry_load_tmpl( $template_names );
+
+	// Perform a regular expression.
+	$output = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
+
+	return $output;
 }
 
 function cherry_do_content( $matches ) {
@@ -147,6 +157,15 @@ function cherry_do_content( $matches ) {
 	$macros = strtolower( $arr[0] );
 	$attr   = isset( $arr[1] ) ? shortcode_parse_atts( $arr[1] ) : array();
 
+	if ( isset( $attr['location'] )
+		&& ( 'core' == $attr['location'] )
+		&& function_exists( $macros )
+		&& is_callable( $macros )
+		) {
+		// Call a WordPress function.
+		return call_user_func( $macros, $attr );
+	}
+
 	$function_name = "cherry_get_the_post_{$macros}";
 
 	/**
@@ -159,7 +178,7 @@ function cherry_do_content( $matches ) {
 		return $pre;
 	}
 
-	if ( !function_exists( $function_name ) ) {
+	if ( !function_exists( $function_name ) || !is_callable( $function_name ) ) {
 		return '';
 	}
 
@@ -268,6 +287,12 @@ function cherry_get_comments_template() {
 
 	if ( ( 'post' == $post_type )
 		&& ( 'false' == cherry_get_option( 'blog-comment-status' ) )
+		) {
+		return;
+	}
+
+	if ( ( 'page' == $post_type )
+		&& ( 'false' == cherry_get_option( 'general-page-comments-status' ) )
 		) {
 		return;
 	}
