@@ -37,7 +37,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Page comments', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( "Enable/disable comments by default for new pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
+			'content' => __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
 		),
 		'value' => 'false',
 	);
@@ -46,7 +46,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Featured images', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable displaying of featured images for posts.', 'cherry' ),
+			'content' => __( 'Enable/disable displaying of featured images for pages.', 'cherry' ),
 		),
 		'value' => 'false',
 	);
@@ -419,7 +419,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Allow comments', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable comments for new blog posts. Make sure comments are enabled in Wordpress \'settings->discussion\'. For posts that have already been published you need to enable comments individually in post settings.', 'cherry' ),
+			'content' => __( 'Enable/disable comments for blog posts. Make sure comments are enabled in Wordpress \'settings->discussion\'. For posts that have already been published you need to enable comments individually in post settings.', 'cherry' ),
 		),
 		'value' => 'true',
 	);

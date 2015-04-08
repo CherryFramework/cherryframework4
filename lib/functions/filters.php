@@ -151,6 +151,10 @@ function cherry_option_post_comments( $display, $args ) {
 		return '';
 	}
 
+	if ( 'false' == cherry_get_option( 'blog-comment-status' ) ) {
+		return '';
+	}
+
 	return $display;
 }
 
@@ -192,23 +196,30 @@ function cherry_option_post_button( $display, $args ) {
 
 function cherry_option_post_thumbnail( $display, $args ) {
 	$post_id = get_the_ID();
+	$post_type = get_post_type( $post_id );
 
-	// On post.
-	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
-		return '';
+	if ( is_singular() ) {
+
+		// On post.
+		if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
+			return '';
+		}
+
+		// On page.
+		if ( is_page( $post_id ) && ( 'false' == cherry_get_option( 'general-page-featured-images' ) ) ) {
+			return '';
+		}
+
+	} else {
+
+		// On blog.
+		if ( 'false' == cherry_get_option( 'blog-featured-images' ) ) {
+			return '';
+		}
+
 	}
 
-	// On blog.
-	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
-		return '';
-	}
-
-	// On page.
-	if ( is_page( $post_id ) && ( 'false' == cherry_get_option( 'general-page-featured-images' ) ) ) {
-		return '';
-	}
-
-	if ( !is_single() ) {
+	if ( !is_singular() ) {
 		$args['size'] = cherry_get_option( 'blog-featured-images-size' );
 	}
 
