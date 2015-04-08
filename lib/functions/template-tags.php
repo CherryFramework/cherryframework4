@@ -429,6 +429,10 @@ function cherry_get_related_posts() {
 
 function cherry_get_author_bio() {
 
+	if ( 'false' == cherry_get_option( 'blog-post-author-bio' ) ) {
+		return;
+	}
+
 	if ( !is_single() ) {
 		return;
 	}

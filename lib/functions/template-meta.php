@@ -103,9 +103,7 @@ function cherry_get_the_post_author( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
-	ob_start();
-	the_author_posts_link();
-	$author = ob_get_clean();
+	$author = cherry_get_the_post_author_posts_link();
 
 	if ( empty( $author ) ) {
 		return;
@@ -248,6 +246,22 @@ function cherry_get_the_post_taxonomy( $args ) {
 	return apply_filters( 'cherry_get_the_post_taxonomy', $output, $args );
 }
 
+/**
+ * Retrieve a single meta data for a author (user).
+ *
+ * @since 4.0.0
+ * @param array $args
+ */
+function cherry_the_post_author_meta( $args ) {
+	echo cherry_get_the_post_author_meta( $args );
+}
+
+/**
+ * Display a single meta data for a author (user).
+ *
+ * @since 4.0.0
+ * @param array $args
+ */
 function cherry_get_the_post_author_meta( $args ) {
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
@@ -273,4 +287,28 @@ function cherry_get_the_post_author_meta( $args ) {
 	$output = sprintf( $args['wrap'], sanitize_html_class( $args['field'] ), $meta );
 
 	return apply_filters( 'cherry_get_the_post_author_meta', $output, $args );
+}
+
+/**
+ * Retrieve a link to all posts by an author.
+ *
+ * @since 4.0.0
+ * @param array $args
+ */
+function cherry_the_author_posts_link() {
+	echo cherry_get_the_post_author_posts_link();
+}
+
+/**
+ * Display a link to all posts by an author.
+ *
+ * @since 4.0.0
+ * @param array $args
+ */
+function cherry_get_the_post_author_posts_link() {
+	ob_start();
+	the_author_posts_link();
+	$author = ob_get_clean();
+
+	return $author;
 }
