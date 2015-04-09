@@ -284,7 +284,7 @@ function cherry_option_post_avatar( $display, $args ) {
 
 function cherry_add_extra_styles() {
 	$responsive        = cherry_get_option('grid-responsive');
-	$container_width   = intval( cherry_get_option('page-layout-container-width') );
+	$container_width   = intval( cherry_get_option('grid-container-width') );
 	$grid_gutter_width = intval( apply_filters( 'cherry_grid_gutter_width', 30 ) );
 	$grid_type         = false;
 	$output            = '';

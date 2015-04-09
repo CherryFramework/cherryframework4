@@ -126,46 +126,44 @@ function cherry_defaults_settings() {
 	//////////////////////////////////////////////////////////////////////
 	$grid_options = array();
 	$grid_options['grid-responsive'] = array(
-				'type'			=> 'switcher',
-				'title'			=> __('Responsive grid', 'cherry' ),
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Enable/disable responsive grid. If for any reason you want to disable responsive layout for your site, you are able to turn it off here.', 'cherry' ),
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+		'type'  => 'switcher',
+		'title' => __( 'Responsive grid', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Enable/disable responsive grid. If for any reason you want to disable responsive layout for your site, you are able to turn it off here.', 'cherry' ),
+		),
+		'value' => 'true',
 	);
-	$grid_options['grid-page-layout-container-width'] = array(
-		'type' => 'slider',
+	$grid_options['grid-container-width'] = array(
+		'type'  => 'slider',
 		'title' => __( 'Container width', 'cherry' ),
-		'hint' => array(
-			'type' => 'text',
+		'hint'  => array(
+			'type'    => 'text',
 			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
 		),
 		'max_value' => 1920, // Full HD
 		'min_value' => 970,
-		'value' => 1170,
+		'value'     => 1170,
 	);
 	$grid_options['grid-type'] = array(
-		'type'        => 'radio',
-		'title'       => __( 'Grid type', 'cherry' ),
-		'hint'        => array(
+		'type'  => 'radio',
+		'title' => __( 'Grid type', 'cherry' ),
+		'hint'  => array(
 			'type'    => 'text',
 			'content' => __( 'Select layout pattern for main website container. Wide layout will fit window width. Boxed layout will have fixed width and left/right indents. ', 'cherry' ),
 		),
-		'value'         => 'boxed',
-		'class'         => '',
 		'display_input' => false,
 		'options'       => array(
 			'wide' => array(
 				'label'   => __( 'Wide', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
 			),
 			'boxed' => array(
 				'label'   => __( 'Boxed', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/grid-type-container.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
 			),
 		),
+		'value' => 'boxed',
 	);
 
 	// Page layout options
