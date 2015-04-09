@@ -233,15 +233,11 @@ function cherry_get_sidebar( $name = null ) {
 
 	printf( '<div %s>', cherry_get_attr( 'sidebar', $name ) );
 
-	do_action( 'cherry_sidebar_start', $name );
-
 	if ( is_active_sidebar( "sidebar-{$name}" ) ) {
 		dynamic_sidebar( "sidebar-{$name}" );
 	} else {
 		do_action( 'cherry_sidebar_empty', $name );
 	}
-
-	do_action( 'cherry_sidebar_end', $name );
 
 	echo '</div>';
 
