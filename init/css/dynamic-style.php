@@ -15,31 +15,55 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 $cherry_css_vars = cherry_get_css_varaibles();
+
 $typography_link =$cherry_css_vars['typography-link'] ;
-//$typography_link_hover =$cherry_css_vars['typography-link-hover'] ;
-
-//var_dump($typography_link); die;
-
-
 $body_typography = $cherry_css_vars['typography-body-text'] ;
 $body_background = $cherry_css_vars['styling-body-content-background'] ;
 $header_background = $cherry_css_vars['header-background'] ;
-$typography_h1 =$cherry_css_vars['typography-h1'] ;
-$typography_h2 =$cherry_css_vars['typography-h2'] ;
-$typography_h3 =$cherry_css_vars['typography-h3'] ;
-$typography_h4 =$cherry_css_vars['typography-h4'] ;
-$typography_h5 =$cherry_css_vars['typography-h5'] ;
-$typography_h6 =$cherry_css_vars['typography-h6'] ;
-$typography_breadcrumbs =$cherry_css_vars['typography-breadcrumbs'] ;
-$header_menu_typography =$cherry_css_vars['navigation-header-menu-typography'] ;
-$footer_menu_typography =$cherry_css_vars['navigation-footer-menu-typography'] ;
+$footer_background = $cherry_css_vars['footer-background'] ;
+$footer_typography = $cherry_css_vars['footer-typography'] ;
+$logo_typography = $cherry_css_vars['logo-typography'] ;
+$input_typography = $cherry_css_vars['typography-input-text'] ;
+$typography_h1 = $cherry_css_vars['typography-h1'] ;
+$typography_h2 = $cherry_css_vars['typography-h2'] ;
+$typography_h3 = $cherry_css_vars['typography-h3'] ;
+$typography_h4 = $cherry_css_vars['typography-h4'] ;
+$typography_h5 = $cherry_css_vars['typography-h5'] ;
+$typography_h6 = $cherry_css_vars['typography-h6'] ;
+$lists_typography =$cherry_css_vars['lists-typography'] ;
+$typography_breadcrumbs = $cherry_css_vars['typography-breadcrumbs'] ;
+$header_menu_typography = $cherry_css_vars['navigation-header-menu-typography'] ;
+$footer_menu_typography = $cherry_css_vars['navigation-footer-menu-typography'] ;
 
 
 ?>
-.cherry-breadcrumbs_item_link, .cherry-breadcrumbs_item_target {
-	<?php echo cherry_get_typography_css($typography_breadcrumbs); ?>
+
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="email"] {
+	<?php echo cherry_get_typography_css($input_typography); ?>
 }
+
 <?php //die ?>
+footer {
+	<?php echo cherry_get_typography_css($footer_typography); ?>
+}
+
+
+ul li {
+	<?php echo cherry_get_typography_css($lists_typography); ?>
+}
+
+
+<?php echo cherry_get_background_css('footer', $footer_background); ?>
+
+.site-title > a{
+	<?php echo cherry_get_typography_css($logo_typography); ?>
+}
+
 
 body {
 	color: <?php echo cherry_esc_value( $body_typography, 'color' ); ?>;
@@ -143,10 +167,9 @@ dl {
 	<?php echo cherry_get_typography_css($footer_menu_typography); ?>
 }
 
-.site-title {
-
+.cherry-breadcrumbs_item_link, .cherry-breadcrumbs_item_target {
+	<?php echo cherry_get_typography_css($typography_breadcrumbs); ?>
 }
-
 
 .cherry-breadcrumbs {
 	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 60.8); ?>;
@@ -342,7 +365,7 @@ output {
 }
 
 <!--Headings small color-->
-footer, small, .small {
+small, .small {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
 }
 small, .small {

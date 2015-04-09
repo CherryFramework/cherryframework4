@@ -934,12 +934,12 @@ $general_options['general-maintenance-mode'] = array(
 					'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color etc.', 'cherry' )
 				),
 				'value'			=> array(
-					'size'			=> '14',
-					'lineheight'	=> '20',
+					'size'			=> '60',
+					'lineheight'	=> '80',
 					'color'			=> '#777777',
-					'family'		=> 'Roboto',
+					'family'		=> 'Lobster',
 					'character'		=> 'latin-ext',
-					'style'			=> 'inherit',
+					'style'			=> '',
 					'letterspacing' => '',
 					'align'			=> 'notdefined'
 				)
@@ -967,6 +967,24 @@ $general_options['general-maintenance-mode'] = array(
 					'position'	=> 'left',
 					'attachment'=> 'fixed'
 				)
+	);
+	$footer_options['footer-typography'] = array(
+			'type'			=> 'typography',
+			'title'			=> __( 'Footer typography', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Typography settings for footer texts.', 'cherry' )
+			),
+			'value' => array(
+				'size'			=> '14',
+				'lineheight'	=> '30',
+				'color'			=> '#333333',
+				'family'		=> 'Roboto',
+				'character'		=> 'latin-ext',
+				'style'			=> '',
+				'letterspacing' => '',
+				'align'			=> 'notdefined'
+			)
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -1004,7 +1022,7 @@ $general_options['general-maintenance-mode'] = array(
 			'value' => array(
 				'size'			=> '14',
 				'lineheight'	=> '20',
-				'color'			=> '#dd7566',
+				'color'			=> '#f62e46',
 				'family'		=> 'Raleway',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
@@ -1020,8 +1038,8 @@ $general_options['general-maintenance-mode'] = array(
 				'type'		=> 'text',
 				'content'	=> __( 'Color for links on hover.', 'cherry' )
 			),
-			'value'			=> '#f62e46',
-			'default_value'	=> '#f62e46'
+			'value'			=> '#f4001c',
+			'default_value'	=> '#f4001c'
 	);
 
 	$typography_options['typography-input-text'] = array(
@@ -1032,13 +1050,13 @@ $general_options['general-maintenance-mode'] = array(
 				'content'	=> __( 'Styling text in forms.', 'cherry' )
 			),
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> '#dd3344',
+				'size'			=> '14',
+				'lineheight'	=> '20',
+				'color'			=> '#333333',
 				'family'		=> 'Arial',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
-				'letterspacing' => '0',
+				'letterspacing' => '',
 				'align'			=> 'notdefined'
 			)
 	);
@@ -1177,21 +1195,21 @@ $general_options['general-maintenance-mode'] = array(
 
 	$lists_options = array();
 
-	$lists_options['lists-text-color'] = array(
+	$lists_options['lists-typography'] = array(
 			'type'			=> 'typography',
-			'title'			=> __( 'Lists text', 'cherry' ),
+			'title'			=> __( 'Lists typography', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'Text settings for unordered and ordered lists.', 'cherry' )
+				'content'	=> __( 'Typography settings for unordered and ordered lists.', 'cherry' )
 			),
 			'value' => array(
-				'size'			=> '10',
-				'lineheight'	=> '10',
-				'color'			=> '343434',
-				'family'		=> 'Abril Fatface',
+				'size'			=> '14',
+				'lineheight'	=> '30',
+				'color'			=> '#333333',
+				'family'		=> 'Roboto',
 				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '0',
+				'style'			=> '',
+				'letterspacing' => '',
 				'align'			=> 'notdefined'
 			)
 	);

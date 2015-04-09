@@ -30,13 +30,13 @@ new cherry_searchform_static(
 		'id'      => 'searchform',
 		'name'    => __( 'Search Form', 'cherry' ),
 		'options' => array(
-			'col-lg'   => 'col-lg-12',
-			'col-md'   => 'col-md-12',
+			'col-lg'   => 'col-lg-3',
+			'col-md'   => 'col-md-3',
 			'col-sm'   => 'col-sm-12',
 			'col-xs'   => 'col-xs-12',
 			'class'    => 'custom-searchform',
-			'priority' => 1,
-			'area'     => 'header-right',
+			'priority' => 3,
+			'area'     => 'header-top',
 		)
 	)
 );
