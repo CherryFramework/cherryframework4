@@ -66,7 +66,7 @@ function cherry_defaults_settings() {
 		'title'        => __( 'User CSS', 'cherry' ),
 		'hint'         => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable custom user CSS styling.', 'cherry' ),
+			'content' => __( 'Define custom CSS styling.', 'cherry' ),
 		),
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
@@ -332,8 +332,8 @@ function cherry_defaults_settings() {
 
 	$blog_options['blog-featured-images-align'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Alignment for Featured Images', 'cherry' ),
-		'decsription' => __( 'Позиция всех Featured Images на странице Блог ', 'cherry' ),
+		'title'       => __( 'Featured Image Alignment', 'cherry' ),
+		'decsription' => __( 'Set alignment for post featured images.', 'cherry' ),
 		'value'       => 'aligncenter',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
@@ -871,34 +871,16 @@ function cherry_defaults_settings() {
 			'title'			=> __( 'Sticky selector', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'What stick.', 'cherry' )
+				'content'	=> __( 'Select what block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
 			),
 			'value'			=> $default_selector,
 			'options'		=> $sticky_selectors
 	);
 
-	$header_options['header-sticky-tablets'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Sticky header (tablet devices)', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable\disable sticky header on tablet devices.', 'cherry' )
-			),
-			'value'			=> 'false'
-	);
-	$header_options['header-sticky-mobiles'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Sticky header (mobile devices)', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable\disable sticky header on mobile devices.', 'cherry' )
-			),
-			'value'			=> 'false'
-	);
-
 	// Logo options
 	//////////////////////////////////////////////////////////////////////
 	$logo_options = array();
+
 	$logo_options['logo-type'] = array(
 				'type'			=> 'radio',
 				'title'			=> __( 'Logo type', 'cherry' ),
@@ -1265,8 +1247,6 @@ function cherry_defaults_settings() {
 	$optimization_options['dynamic-css'] = array(
 		'type'			=> 'select',
 		'title'			=> 'Dynamic CSS output',
-		'label'			=> 'Dynamic CSS output',
-		'decsription'	=> 'Output dynamic CSS into separate file or into style tag',
 		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Output dynamic CSS into separate file or into style tag.', 'cherry' )
@@ -1284,27 +1264,6 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
 	$demo_options['typography-demo'] = array(
-				'type'			=> 'typography',
-				'title'			=> __('Typography'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
-				),
-				'value'			=> array(
-					'fonttype'		=> 'web',
-					'size'			=> '20',
-					'lineheight'	=> '20',
-					'color'			=> '#222222',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
-	);
-	$demo_options['typography-demo-2'] = array(
 				'type'			=> 'typography',
 				'title'			=> __('Typography'),
 				'label'			=> '',
@@ -1345,7 +1304,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription layout editor',
 				'hint'			=>  array(
 					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+					'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '
 				),
 				'value'			=> array(
 					'position'	=> array(

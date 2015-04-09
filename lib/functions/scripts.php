@@ -110,7 +110,7 @@ function cherry_enqueue_scripts() {
  */
 function cherry_prepare_sticky_vars() {
 
-	$is_sticky = cherry_get_option( 'header-sticky', 'false' );
+	$is_sticky     = cherry_get_option( 'header-sticky', 'false' );
 
 	$defaults = array(
 		'correctionSelector' => '#wpadminbar',
