@@ -66,7 +66,7 @@ function cherry_defaults_settings() {
 		'title'        => __( 'User CSS', 'cherry' ),
 		'hint'         => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable custom user CSS styling.', 'cherry' ),
+			'content' => __( 'Define custom CSS styling.', 'cherry' ),
 		),
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
