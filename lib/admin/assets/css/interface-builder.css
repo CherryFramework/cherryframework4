@@ -706,6 +706,7 @@
 }
 .cherry-section.cherry-typography .field-font-size:last-child, .cherry-section.cherry-typography .field-font-lineheight:last-child, .cherry-section.cherry-typography .field-font-letter-spacing:last-child, .cherry-section.cherry-typography .field-font-color:last-child {
   margin-right: 0;
+  margin-bottom: 0;
 }
 .cherry-section.cherry-typography .cherry-type-wrap {
   width: 48%;

@@ -11,8 +11,10 @@
  */
 class Cherry_Interface_Builder {
 
-	private $google_font_url = null;
-	private $google_font     = array();
+	private $google_font_url	= null;
+	private $standart_font_url	= null;
+	private $google_font		= array();
+	private $standart_font		= array();
 
 	/**
 	 * Default class options.
@@ -53,6 +55,7 @@ class Cherry_Interface_Builder {
 	public function __construct( $args = array() ) {
 		$this->options = $this->processed_input_data( $this->options, $args );
 		$this->google_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/google-fonts.json';
+		$this->standart_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/standart-fonts.json';
 
 		// add_action( 'admin_footer', array( $this, 'enqueue_style' ) );
 	}
@@ -795,7 +798,7 @@ class Cherry_Interface_Builder {
 					$settings = array(
 						'textarea_name' => $name,
 						'media_buttons' => 1,
-						'teeny'         => 0,
+						'teeny'			=> 0,
 						'textarea_rows' => 10, //Wordpress default
 						'tinymce' => array(
 							'setup' => 'function(ed) {
@@ -994,41 +997,55 @@ class Cherry_Interface_Builder {
 					'center'     => __( 'Center', 'cherry' ),
 					'justify'    => __( 'Justify', 'cherry' )
 				);
-
 				$output .= '<div>';
 				$output .= '<div class="cherry-type-wrap">';
 					//Font Family
-					$font_array = $this->get_google_font();
+					$google_fonts_array = $this->get_google_font();
+					$standart_fonts_array = $this->get_standart_font();
 					$character_array = array();
 					$style_array = array();
+						$output .= '<input class="font-type" name="' . $name . '[fonttype]" type="hidden" value="' . esc_html( $value['fonttype'] ) . '">';
 						$output .= '<div class="field-font-family">';
 						$output .= $this -> add_label($id . '[family]',  __( 'Font Family', 'cherry' ), $this->options['class']['label'].' cherry-block');
 							$output .= '<select class="cherry-font-family" id="' . $id . '[family]" name="' . $name . '[family]">';
-								if($font_array && !empty($font_array) && is_array($font_array)){
-									foreach ($font_array as $font_key => $font_value) {
-										$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
-										$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
-										$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
+								if($standart_fonts_array && !empty($standart_fonts_array) && is_array($standart_fonts_array)){
+									$output .= '<optgroup label="' . __( 'Standart Webfonts', 'cherry' ) . '" data-font-type="standart">';
+										foreach ($standart_fonts_array as $font_key => $font_value) {
+											$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
+											$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
+											$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
 
-										foreach ($font_value['subsets'] as $character_key => $character_value) {
-											if(!array_key_exists ($character_value, $character_array)){
-												$value_text = str_replace('-ext', ' Extended', $character_value);
-												$value_text = ucwords($value_text);
-												$character_array[$character_value] = $value_text;
-											}
+											$output .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" data-style="' . $style . '" data-character="' . $character . '" ' . selected( $value['family'], $font_value['family'], false ) . '>'. esc_html( $font_value['family'] ) .'</option>';
 										}
+									$output .= '</optgroup>';
+								}
+								if($google_fonts_array && !empty($google_fonts_array) && is_array($google_fonts_array)){
+									$output .= '<optgroup label="' . __( 'Google Webfonts', 'cherry' ) . '" data-font-type="web">';
+										foreach ($google_fonts_array as $font_key => $font_value) {
+											$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
+											$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
+											$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
 
-										foreach ($font_value['variants'] as $style_key => $style_value) {
-											if(!array_key_exists ($style_value, $style_array)){
-												$text_piece_1 = preg_replace ('/[0-9]/s', '', $style_value);
-												$text_piece_2 = preg_replace ('/[A-Za-z]/s', ' ', $style_value);
-												$value_text = ucwords($text_piece_2 . ' ' . $text_piece_1);
-												$style_array[$style_value] = $value_text;
+											foreach ($font_value['variants'] as $style_key => $style_value) {
+												if(!array_key_exists ($style_value, $style_array)){
+													$text_piece_1 = preg_replace ('/[0-9]/s', '', $style_value);
+													$text_piece_2 = preg_replace ('/[A-Za-z]/s', ' ', $style_value);
+													$value_text = ucwords($text_piece_2 . ' ' . $text_piece_1);
+													$style_array[$style_value] = $value_text;
+												}
 											}
-										}
 
-										$output .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" data-style="' . $style . '" data-character="' . $character . '" ' . selected( $value['family'], $font_value['family'], false ) . '>'. esc_html( $font_value['family'] ) .'</option>';
-									}
+											foreach ($font_value['subsets'] as $character_key => $character_value) {
+												if(!array_key_exists ($character_value, $character_array)){
+													$value_text = str_replace('-ext', ' Extended', $character_value);
+													$value_text = ucwords($value_text);
+													$character_array[$character_value] = $value_text;
+												}
+											}
+
+											$output .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" data-style="' . $style . '" data-character="' . $character . '" ' . selected( $value['family'], $font_value['family'], false ) . '>'. esc_html( $font_value['family'] ) .'</option>';
+										}
+									$output .= '</optgroup>';
 								}
 							$output .= '</select>';
 						$output .= '</div>';
@@ -1253,6 +1270,50 @@ class Cherry_Interface_Builder {
 		return $output;
 	}
 
+	/**
+	 * Retrieve a list of available Standart fonts.
+	 *
+	 * @since  4.0.0
+	 * @return array
+	 */
+	private function get_standart_font() {
+
+		if ( empty( $this->standart_font ) ) {
+			// Get cache.
+
+			$fonts = get_transient( 'cherry_standart_fonts' );
+
+			if ( false === $fonts ) {
+
+				if ( !function_exists( 'WP_Filesystem' ) ) {
+					include_once( ABSPATH . '/wp-admin/includes/file.php' );
+				}
+
+				WP_Filesystem();
+				global $wp_filesystem;
+
+				if ( !$wp_filesystem->exists( $this->standart_font_url ) ) { // Check for existence.
+					return false;
+				}
+
+				// Read the file.
+				$json = $wp_filesystem->get_contents( $this->standart_font_url );
+
+				if ( !$json ) {
+					return new WP_Error( 'reading_error', 'Error when reading file' ); // Return error object.
+				}
+
+				$content = json_decode( $json, true );
+				$fonts   = $content['items'];
+
+				// Set cache.
+				set_transient( 'cherry_standart_fonts', $fonts, 1 );
+			}
+			$this->standart_font = $fonts;
+		}
+
+		return $this->standart_font;
+	}
 	/**
 	 * Retrieve a list of available Google web fonts.
 	 *
