@@ -12,6 +12,17 @@ function cherry_defaults_settings() {
 		$all_pages[$page->ID] = $page->post_title;
 	}
 
+	$maintenance_preview = add_query_arg( array( 'maintenance-preview' => true ), home_url() );
+
+	$sticky_selectors = apply_filters( 'cherry_sticky_selectors', array(
+		'.site-header'            => __( 'Header', 'cherry' ),
+		'#menu-primary'           => __( 'Main menu', 'cherry' ),
+		'#static-area-header-top' => __( 'Header top static area', 'cherry' ),
+	) );
+
+	$default_selector = array_keys($sticky_selectors);
+	$default_selector = $default_selector[0];
+
 	//var_dump($all_statics);
 
 //////////////////////////////////////////////////////////////////////
@@ -24,7 +35,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Favicon image', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Icon image"" that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry' ),
+			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry' ),
 		),
 		'value'            => '',
 		'display_image'    => true,
@@ -51,17 +62,22 @@ function cherry_defaults_settings() {
 		'value' => 'false',
 	);
 	$general_options['general-user-css'] = array(
-		'type'  => 'switcher',
-		'title' => __( 'User CSS', 'cherry' ),
-		'hint'  => array(
+		'type'         => 'ace-editor',
+		'title'        => __( 'User CSS', 'cherry' ),
+		'hint'         => array(
 			'type'    => 'text',
 			'content' => __( 'Enable/disable custom user CSS styling.', 'cherry' ),
 		),
-		'value' => 'true',
+		'editor_mode'  => 'css',
+		'editor_theme' => 'monokai',
+		'value'        => ''
 	);
-$general_options['general-maintenance-mode'] = array(
+	$general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
-		'title' => __( 'Maintenance mode', 'cherry' ),
+		'title' =>  sprintf(
+			__( 'Maintenance mode. <a href="%s" target="_blank">Preview</a>', 'cherry' ),
+			$maintenance_preview
+		),
 		'hint'  => array(
 			'type'    => 'text',
 			'content' => __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
@@ -298,15 +314,15 @@ $general_options['general-maintenance-mode'] = array(
 
 	$blog_options['blog-featured-images'] = array(
 		'type'        => 'switcher',
-		'title'       => __( 'Featured Image / Gallery / Audio / Video', 'cherry' ),
-		'decsription' => __( 'Показывать Featured Image / Gallery / Audio / Video на странице Блог в зависимости от формата поста', 'cherry' ),
+		'title'       => __( 'Featured Media', 'cherry' ),
+		'decsription' => __( 'Displays Featured Image, Gallery, Audio, Video in blog posts listing depending on post type.', 'cherry' ),
 		'value'       => 'true',
 	);
 
 	$blog_options['blog-featured-images-size'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Size for Featured Images', 'cherry' ),
-		'decsription' => __( 'Размер всех Featured Images на странице Блог ', 'cherry' ),
+		'title'       => __( 'Featured Image Size', 'cherry' ),
+		'decsription' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
 		'value'       => 'thumb-l',
 		'options'     => array(
 			'thumb-s' => __( 'Small', 'cherry' ),
@@ -847,9 +863,20 @@ $general_options['general-maintenance-mode'] = array(
 				'type'		=> 'text',
 				'content'	=> __( 'Enable\disable fixed stick to top header.', 'cherry' )
 			),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
+			'value'			=> 'false'
 	);
+
+	$header_options['header-sticky-selector'] = array(
+			'type'			=> 'select',
+			'title'			=> __( 'Sticky selector', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'What stick.', 'cherry' )
+			),
+			'value'			=> $default_selector,
+			'options'		=> $sticky_selectors
+	);
+
 	$header_options['header-sticky-tablets'] = array(
 			'type'			=> 'switcher',
 			'title'			=> __( 'Sticky header (tablet devices)', 'cherry' ),
@@ -857,8 +884,7 @@ $general_options['general-maintenance-mode'] = array(
 				'type'		=> 'text',
 				'content'	=> __( 'Enable\disable sticky header on tablet devices.', 'cherry' )
 			),
-			'value'			=> 'true',
-			'default_value'	=> 'default_value'
+			'value'			=> 'false'
 	);
 	$header_options['header-sticky-mobiles'] = array(
 			'type'			=> 'switcher',
@@ -867,8 +893,7 @@ $general_options['general-maintenance-mode'] = array(
 				'type'		=> 'text',
 				'content'	=> __( 'Enable\disable sticky header on mobile devices.', 'cherry' )
 			),
-			'value'			=> 'false',
-			'default_value'	=> 'default_value'
+			'value'			=> 'false'
 	);
 
 	// Logo options
@@ -917,12 +942,12 @@ $general_options['general-maintenance-mode'] = array(
 				'value'			=> array(
 					'fonttype'		=> 'web',
 					'size'			=> '14',
-					'lineheight'	=> '14',
-					'color'			=> '#aa00aa',
-					'family'		=> 'Abril Fatface',
+					'lineheight'	=> '20',
+					'color'			=> '#777777',
+					'family'		=> 'Roboto',
 					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
+					'style'			=> 'inherit',
+					'letterspacing' => '',
 					'align'			=> 'notdefined'
 				)
 	);
@@ -967,12 +992,12 @@ $general_options['general-maintenance-mode'] = array(
 			'value' => array(
 				'fonttype'		=> 'web',
 				'size'			=> '14',
-				'lineheight'	=> '25',
+				'lineheight'	=> '20',
 				'color'			=> '#777777',
-				'family'		=> 'Roboto',
+				'family'		=> 'Raleway',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
-				'letterspacing' => '0',
+				'letterspacing' => '',
 				'align'			=> 'notdefined'
 			)
 	);
@@ -986,17 +1011,16 @@ $general_options['general-maintenance-mode'] = array(
 			),
 			'value' => array(
 				'fonttype'		=> 'web',
-				'size'			=> '10',
-				'lineheight'	=> '10',
+				'size'			=> '14',
+				'lineheight'	=> '20',
 				'color'			=> '#dd7566',
-				'family'		=> 'Arial',
+				'family'		=> 'Raleway',
 				'character'		=> 'latin-ext',
 				'style'			=> 'italic',
-				'letterspacing' => '0',
+				'letterspacing' => '',
 				'align'			=> 'notdefined'
 			)
 	);
-
 
 	$typography_options['typography-link-hover'] = array(
 			'type'			=> 'colorpicker',
@@ -1029,9 +1053,24 @@ $general_options['general-maintenance-mode'] = array(
 			)
 	);
 
-//////////////////////////////////////////////////////////////////////
-// CUSTOM FONTS UPLOAD
-//////////////////////////////////////////////////////////////////////
+	$typography_options['typography-breadcrumbs'] = array(
+			'type'			=> 'typography',
+			'title'			=> __( 'Breadcrumbs typography', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Styling text in breadcrumbs.', 'cherry' )
+			),
+			'value' => array(
+				'size'			=> '14',
+				'lineheight'	=> '20',
+				'color'			=> '#777777',
+				'family'		=> 'Arial',
+				'character'		=> 'latin-ext',
+				'style'			=> 'italic',
+				'letterspacing' => '',
+				'align'			=> 'notdefined'
+			)
+	);
 
 	$typography_options['typography-h1'] = array(
 			'type'			=> 'typography',
@@ -1048,7 +1087,7 @@ $general_options['general-maintenance-mode'] = array(
 				'family'		=> 'ABeeZee',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
-				'letterspacing' => '0',
+				'letterspacing' => '',
 				'align'			=> 'notdefined'
 			)
 	);
@@ -1216,14 +1255,12 @@ $general_options['general-maintenance-mode'] = array(
 			'type'		=> 'text',
 			'content'	=> __( 'Select if you want to merge minify CSS files to performance optimization.', 'cherry' )
 		),
-		'value'         => 'true',
-		'default_value' => 'true',
+		'value'         => 'false',
 		'toggle'        => array(
 			'true_toggle'  => __( 'Yes', 'cherry' ),
 			'false_toggle' => __( 'No', 'cherry' )
 		)
 	);
-
 	$optimization_options['dynamic-css'] = array(
 		'type'			=> 'select',
 		'title'			=> 'Dynamic CSS output',
@@ -1233,7 +1270,7 @@ $general_options['general-maintenance-mode'] = array(
 			'type'		=> 'text',
 			'content'	=> __( 'Output dynamic CSS into separate file or into style tag.', 'cherry' )
 		),
-		'value'			=> 'file',
+		'value'			=> 'tag',
 		'class'			=> 'width-full',
 		'options'		=> array(
 			'file'	=> 'Separate file',
