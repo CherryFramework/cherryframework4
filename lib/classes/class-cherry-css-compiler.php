@@ -371,8 +371,10 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			}
 
 			// Minify CSS
-			require_once( CHERRY_EXTENSIONS . '/class-cssmin.php' );
-			$compiled_style = CssMin::minify( $compiled_style );
+			if ( ! class_exists( 'CssMin' ) ) {
+				require_once( CHERRY_EXTENSIONS . '/class-cssmin.php' );
+				$compiled_style = CssMin::minify( $compiled_style );
+			}
 
 			$this->css_file_path = str_replace( ABSPATH, $wp_filesystem->abspath(), $this->css_file_path );
 

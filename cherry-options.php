@@ -106,10 +106,24 @@ function cherry_defaults_settings() {
 		'value' => 'true',
 	);
 
-//////////////////////////////////////////////////////////////////////
-// Grid options
-//////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////
+	// Static Area Editor
+	///////////////////////////////////////////////////////////////////
+	$static_area_editor_options = array();
+	$static_area_editor_options['header-static-area-editor'] = array(
+				'type'			=> 'static_area_editor',
+				'title'			=>  __( 'Static area editor', 'cherry' ),
+				'hint'			=> array(
+					'type'		=> 'text',
+					'content'	=> __( 'Use static area editor to arrange static blocks. You can drag-n-drop statick blocks, remove them or add new ones using \'Create new static\' field below. ', 'cherry' )
+				),
+				'value'			=> $all_statics,
+				'options'		=> $all_statics
+	);
 
+	//////////////////////////////////////////////////////////////////////
+	// Grid options
+	//////////////////////////////////////////////////////////////////////
 	$grid_options = array();
 	$grid_options['grid-responsive'] = array(
 				'type'			=> 'switcher',
@@ -318,8 +332,8 @@ function cherry_defaults_settings() {
 
 	$blog_options['blog-featured-images-align'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Alignment for Featured Images', 'cherry' ),
-		'decsription' => __( 'Позиция всех Featured Images на странице Блог ', 'cherry' ),
+		'title'       => __( 'Featured Image Alignment', 'cherry' ),
+		'decsription' => __( 'Set alignment for post featured images.', 'cherry' ),
 		'value'       => 'aligncenter',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
@@ -612,6 +626,7 @@ function cherry_defaults_settings() {
 					'content'	=> __('Main header navigation typography settings.', 'cherry' ),
 				),
 			'value'			=> array(
+				'fonttype'		=> 'web',
 				'size'			=> '14',
 				'lineheight'	=> '14',
 				'color'			=> '#474747',
@@ -630,6 +645,7 @@ function cherry_defaults_settings() {
 					'content'	=> __('Main footer navigation typography settings.', 'cherry' ),
 				),
 			'value'			=> array(
+				'fonttype'		=> 'web',
 				'size'			=> '14',
 				'lineheight'	=> '14',
 				'color'			=> '#474747',
@@ -822,17 +838,7 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 	$header_options = array();
 
-	$header_options['header-static-area-editor'] = array(
-				'type'			=> 'static_area_editor',
-				'title'			=>  __( 'Static area editor', 'cherry' ),
-				'hint'      	=> array(
-					'type'		=> 'text',
-					'content'	=> __( 'Use static area editor to arrange static blocks. You can drag-n-drop statick blocks, remove them or add new ones using \'Create new static\' field below. ', 'cherry' )
-				),
-				'value'			=> $all_statics,
-				'default_value'	=> 'default_value',
-				'options' => $all_statics
-	);
+
 	$header_options['header-background'] = array(
 			'type'			=> 'background',
 			'title'			=> __('Header background', 'cherry' ),
@@ -865,34 +871,14 @@ function cherry_defaults_settings() {
 			'title'			=> __( 'Sticky selector', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'What stick.', 'cherry' )
+				'content'	=> __( 'Select what block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
 			),
 			'value'			=> $default_selector,
 			'options'		=> $sticky_selectors
 	);
 
-	$header_options['header-sticky-tablets'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Sticky header (tablet devices)', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable\disable sticky header on tablet devices.', 'cherry' )
-			),
-			'value'			=> 'false'
-	);
-	$header_options['header-sticky-mobiles'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Sticky header (mobile devices)', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable\disable sticky header on mobile devices.', 'cherry' )
-			),
-			'value'			=> 'false'
-	);
-
 	// Logo options
 	//////////////////////////////////////////////////////////////////////
-
 	$logo_options = array();
 
 	$logo_options['logo-type'] = array(
@@ -936,6 +922,7 @@ function cherry_defaults_settings() {
 					'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color etc.', 'cherry' )
 				),
 				'value'			=> array(
+					'fonttype'		=> 'web',
 					'size'			=> '14',
 					'lineheight'	=> '20',
 					'color'			=> '#777777',
@@ -985,6 +972,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Main website text typography options.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '14',
 				'lineheight'	=> '20',
 				'color'			=> '#777777',
@@ -1004,6 +992,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Typography for links.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '14',
 				'lineheight'	=> '20',
 				'color'			=> '#dd7566',
@@ -1034,6 +1023,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Styling text in forms.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '10',
 				'lineheight'	=> '10',
 				'color'			=> '#dd3344',
@@ -1072,10 +1062,11 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'H1 heading font settings.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '36',
 				'lineheight'	=> '40',
 				'color'			=> '#333333',
-				'family'		=> 'Abril Fatface',
+				'family'		=> 'ABeeZee',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '',
@@ -1090,10 +1081,11 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'H2 heading font settings.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '30',
 				'lineheight'	=> '33',
 				'color'			=> '#333333',
-				'family'		=> 'Roboto',
+				'family'		=> 'ABeeZee',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
@@ -1108,10 +1100,11 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'H3 heading font settings.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '24',
 				'lineheight'	=> '26',
 				'color'			=> '#333333',
-				'family'		=> 'Abril Fatface',
+				'family'		=> 'ABeeZee',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
@@ -1121,15 +1114,16 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h4'] = array(
 			'type'			=> 'typography',
 			'title'			=> __( 'Heading 4', 'cherry' ),
-			'hint'      	=> array(
+			'hint'			=> array(
 				'type'		=> 'text',
 				'content'	=> __( 'H4 heading font settings.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '18',
 				'lineheight'	=> '20',
 				'color'			=> '#333333',
-				'family'		=> 'Abril Fatface',
+				'family'		=> 'ABeeZee',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
@@ -1144,10 +1138,11 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'H5 heading font settings.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '14',
 				'lineheight'	=> '16',
 				'color'			=> '#333333',
-				'family'		=> 'Abril Fatface',
+				'family'		=> 'ABeeZee',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
@@ -1162,10 +1157,11 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'H6 heading font settings.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '12',
 				'lineheight'	=> '14',
 				'color'			=> '#333333',
-				'family'		=> 'Abril Fatface',
+				'family'		=> 'ABeeZee',
 				'character'		=> 'latin-ext',
 				'style'			=> 'normal',
 				'letterspacing' => '0',
@@ -1187,6 +1183,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Text settings for unordered and ordered lists.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '10',
 				'lineheight'	=> '10',
 				'color'			=> '343434',
@@ -1249,8 +1246,6 @@ function cherry_defaults_settings() {
 	$optimization_options['dynamic-css'] = array(
 		'type'			=> 'select',
 		'title'			=> 'Dynamic CSS output',
-		'label'			=> 'Dynamic CSS output',
-		'decsription'	=> 'Output dynamic CSS into separate file or into style tag',
 		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Output dynamic CSS into separate file or into style tag.', 'cherry' )
@@ -1269,12 +1264,12 @@ function cherry_defaults_settings() {
 	$demo_options = array();
 	$demo_options['ace-editor-demo'] = array(
 				'type'			=> 'ace-editor',
-				'title'			=> __('Ace Editor Css', 'cherry'),
-				'label'			=> 'monokai theme',
-				'decsription'	=> 'CSS mode',
+				'title'			=> __('CSS Editor', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
 				'hint'			=>  array(
 					'type'		=> 'text',
-					'content'	=> __('Regular single line text input field.', 'cherry'),
+					'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
 				),
 				'editor_mode'	=> 'css',
 				'editor_theme'	=> 'monokai',
@@ -1290,6 +1285,7 @@ function cherry_defaults_settings() {
 					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
 				),
 				'value'			=> array(
+					'fonttype'		=> 'web',
 					'size'			=> '20',
 					'lineheight'	=> '20',
 					'color'			=> '#222222',
@@ -1307,7 +1303,7 @@ function cherry_defaults_settings() {
 				'decsription'	=> 'decsription layout editor',
 				'hint'			=>  array(
 					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+					'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '
 				),
 				'value'			=> array(
 					'position'	=> array(
@@ -1688,11 +1684,16 @@ function cherry_defaults_settings() {
 		'priority'     => 10,
 		'options-list' => apply_filters( 'cherry_general_options_list', $general_options ),
 	);
-
+	$sections_array['static-area-editor-section'] = array(
+		'name'         => __( 'Static area editor', 'cherry' ),
+		'icon'         => 'dashicons dashicons-menu',
+		'priority'     => 20,
+		'options-list' => apply_filters( 'cherry_static_area_editor_list', $static_area_editor_options ),
+	);
 	$sections_array['grid-section'] = array(
 		'name'         => __( 'Grid', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-appearance',
-		'priority'     => 20,
+		'priority'     => 30,
 		'options-list' => apply_filters( 'cherry_grid_options_list', $grid_options ),
 	);
 	$sections_array['page-layout-subsection'] = array(
@@ -1702,11 +1703,10 @@ function cherry_defaults_settings() {
 		'priority'     => 1,
 		'options-list' => apply_filters( 'cherry_page_layout_options_list', $page_layout_options ),
 	);
-
 	$sections_array['blog-section'] = array(
 		'name'         => __( 'Blog', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-post',
-		'priority'     => 25,
+		'priority'     => 40,
 		'options-list' => apply_filters( 'cherry_blog_options_list', $blog_options ),
 	);
 	$sections_array['post-single-subsection'] = array(
@@ -1723,88 +1723,81 @@ function cherry_defaults_settings() {
 		'priority'     => 2,
 		'options-list' => apply_filters( 'cherry_post_meta_options_list', $post_meta_options ),
 	);
-
 	$sections_array['styling-section'] = array(
 		'name'         => __( 'Styling', 'cherry' ),
 		'icon'         => 'dashicons dashicons-art',
-		'priority'     => 30,
+		'priority'     => 50,
 		'options-list' => apply_filters( 'cherry_styling_options_list', $styling_options ),
 	);
 	$sections_array['color-subsection'] = array(
 		'name'         => __( 'Color scheme', 'cherry' ),
 		'icon'         => 'dashicons dashicons-arrow-right',
 		'parent'       => 'styling-section',
-		'priority'     => 31,
+		'priority'     => 1,
 		'options-list' => apply_filters( 'cherry_color_options_list', $color_options ),
 	);
-
 	$sections_array['navigation-section'] = array(
 		'name'         => __( 'Navigation', 'cherry' ),
 		'icon'         => 'dashicons dashicons-menu',
-		'priority'     => 40,
+		'priority'     => 60,
 		'options-list' => apply_filters( 'cherry_navigation_options_list', $navigation_options ),
 	);
 	$sections_array['breadcrumbs-subsection'] = array(
 		'name'         => __( 'Breadcrumbs', 'cherry' ),
 		'icon'         => 'dashicons dashicons-arrow-right',
 		'parent'       => 'navigation-section',
-		'priority'     => 41,
+		'priority'     => 1,
 		'options-list' => apply_filters( 'cherry_breadcrumbs_options_list', $breadcrumbs_options ),
 	);
 	$sections_array['pagination-section'] = array(
 		'name'         => __( 'Pagination', 'cherry' ),
 		'icon'         => 'dashicons dashicons-arrow-right',
 		'parent'       => 'navigation-section',
-		'priority'     => 42,
+		'priority'     => 2,
 		'options-list' => apply_filters( 'cherry_pagination_options_list', $pagination_option ),
 	);
-
 	$sections_array['header-section'] = array(
 		'name'         => __( 'Header', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-appearance',
-		'priority'     => 50,
+		'priority'     => 70,
 		'options-list' => apply_filters( 'cherry_header_options_list', $header_options ),
 	);
 	$sections_array['logo-subsection'] = array(
 		'name'         => __( 'Logo', 'cherry' ),
 		'icon'         => 'dashicons dashicons-arrow-right',
 		'parent'       => 'header-section',
-		'priority'     => 51,
+		'priority'     => 1,
 		'options-list' => apply_filters( 'cherry_logo_options_list', $logo_options ),
 	);
-
 	$sections_array['footer-section'] = array(
 		'name'         => __( 'Footer', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-appearance',
-		'priority'     => 60,
+		'priority'     => 80,
 		'options-list' => apply_filters( 'cherry_footer_options_list', $footer_options ),
 	);
-
 	$sections_array['typography-section'] = array(
 		'name'         => __( 'Typography', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-generic',
-		'priority'     => 70,
+		'priority'     => 90,
 		'options-list' => apply_filters( 'cherry_typography_options_list', $typography_options ),
 	);
 	$sections_array['lists-subsection'] = array(
 		'name'         => __( 'Lists', 'cherry' ),
 		'icon'         => 'dashicons dashicons-arrow-right',
 		'parent'       => 'typography-section',
-		'priority'     => 71,
+		'priority'     => 1,
 		'options-list' => apply_filters( 'cherry_lists_options_list', $lists_options ),
 	);
-
 	$sections_array['optimization-section'] = array(
 		'name'         => __( 'Optimization', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-tools',
-		'priority'     => 90,
+		'priority'     => 100,
 		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options ),
 	);
-
 	$sections_array['demo-section'] = array(
 		'name'         => __( 'Interface elements (for UI developers)', 'cherry' ),
 		'icon'         => 'dashicons dashicons-editor-help',
-		'priority'     => 100,
+		'priority'     => 110,
 		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
 
