@@ -103,17 +103,11 @@ function cherry_get_container_classes( $class ) {
 }
 
 function cherry_hide_sidebar( $display, $id ) {
-	$layout = false;
+	$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
 
-	if ( is_singular() ) {
-		$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
-	}
-
-	if ( !$layout || ( 'default-layout' == $layout ) ) :
-
+	if ( !$layout || ( 'default-layout' == $layout ) ) {
 		$layout = cherry_get_option('page-layout');
-
-	endif;
+	}
 
 	if ( 'no-sidebar' == $layout ) {
 		return false;
