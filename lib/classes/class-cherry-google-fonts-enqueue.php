@@ -243,7 +243,7 @@ class cherry_enqueue_fonts {
 			'character' => ''
 		) );
 
-		if ( ! $this->is_google_font( $font_data['family'] ) ) {
+		if ( ! $this->is_google_font( $font_data ) ) {
 			return;
 		}
 

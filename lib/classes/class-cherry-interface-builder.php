@@ -53,6 +53,14 @@ class Cherry_Interface_Builder {
 	 * @param array $args
 	 */
 	public function __construct( $args = array() ) {
+		// Register admin javascript and stylesheet.
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_builder_scripts' ), 1 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'register_builder_styles' ), 1 );
+
+		// Load admin javascript and stylesheet.
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_builder_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_builder_styles' ) );
+
 		$this->options = $this->processed_input_data( $this->options, $args );
 		$this->google_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/google-fonts.json';
 		$this->standart_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/standart-fonts.json';
@@ -367,7 +375,7 @@ class Cherry_Interface_Builder {
 			case 'slider':
 				$output .= '<div class="cherry-slider-wrap">';
 					$output .= '<div class="cherry-slider-input">';
-						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input' . $class . '" name="' . $name . '" value="' . esc_html( $value ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
+						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input' . $class . '" name="' . $name . '" placeholder="inherit" value="' . esc_html( $value ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
 						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 					$output .= '</div>';
 					$output .= '<div class="cherry-slider-holder">';
@@ -393,14 +401,14 @@ class Cherry_Interface_Builder {
 				$output .= '<div class="cherry-rangeslider-wrap">';
 					$output .= '<input type="hidden" class="cherry-input range-hidden-input' . $class . '" name="' . $name . '" value="" >';
 					$output .= '<div class="cherry-rangeslider-left-input">';
-						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-left' . $class . '" name="' . $name . '[left-value]" value="' . esc_html( $value['left-value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
+						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-left' . $class . '" name="' . $name . '[left-value]" placeholder="inherit" value="' . esc_html( $value['left-value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
 						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 					$output .= '</div>';
 					$output .= '<div class="cherry-range-slider-holder">';
 						$output .= '<div class="cherry-range-slider-unit" data-left-limit="' . $min_value . '" data-right-limit="' . $max_value . '" data-left-value="' . $value['left-value'] . '" data-right-value="' . $value['right-value'] . '"></div>';
 					$output .= '</div>';
 					$output .= '<div class="cherry-rangeslider-right-input">';
-						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-right' . $class . '" name="' . $name . '[right-value]" value="' . esc_html( $value['right-value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
+						$output .= '<input type="text" ' . $item_inline_style . ' class="cherry-stepper-input cherry-input slider-input-right' . $class . '" name="' . $name . '[right-value]" placeholder="inherit" value="' . esc_html( $value['right-value'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="1">';
 						$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 					$output .= '</div>';
 					$output .= '<div class="clear"></div>';
@@ -680,7 +688,7 @@ class Cherry_Interface_Builder {
 			*/
 			case 'stepper':
 				$output .= '<div>';
-				$output .= '<input id="' . $id . '" name="' . $name . '" ' . $item_inline_style . ' class="cherry-stepper-input '.$class.'" type="text" value="' . esc_html( $value ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="' . esc_html( $value_step ) . '">';
+				$output .= '<input id="' . $id . '" name="' . $name . '" ' . $item_inline_style . ' class="cherry-stepper-input '.$class.'" type="text" placeholder="inherit" value="' . esc_html( $value ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="' . esc_html( $min_value ) . '" data-value-step="' . esc_html( $value_step ) . '">';
 				$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span>';
 				$output .= '</div>';
 			break;
@@ -1077,19 +1085,19 @@ class Cherry_Interface_Builder {
 						//size
 						$output .= '<div class="field-font-size">';
 							$output .= $this -> add_label($id . '[size]',  __( 'Font Size', 'cherry' ), $this->options['class']['label'].' cherry-block');
-							$output .= '<input id="' . $id . '[size]" name="' . $name . '[size]" class="cherry-stepper-input font-size" type="text" value="' . esc_html(  $value['size'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
+							$output .= '<input id="' . $id . '[size]" name="' . $name . '[size]" class="cherry-stepper-input font-size" placeholder="inherit" type="text" value="' . esc_html(  $value['size'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
 							$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span> px';
 						$output .= '</div>';
 						//lineheight
 						$output .= '<div class="field-font-lineheight">';
 							$output .= $this -> add_label($id . '[lineheight]',  __( 'Lineheight', 'cherry' ), $this->options['class']['label'].' cherry-block');
-							$output .= '<input id="' . $id . '[lineheight]" name="' . $name . '[lineheight]" class="cherry-stepper-input font-lineheight" type="text" value="' . esc_html( $value['lineheight'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
+							$output .= '<input id="' . $id . '[lineheight]" name="' . $name . '[lineheight]" class="cherry-stepper-input font-lineheight" placeholder="inherit" type="text" value="' . esc_html( $value['lineheight'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-value-step="1">';
 							$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span> px';
 						$output .= '</div>';
 						//letterspacing
 						$output .= '<div class="field-font-letter-spacing">';
 							$output .= $this -> add_label($id . '[letter-spacing]',  __( 'Letter-spacing', 'cherry' ), $this->options['class']['label'].' cherry-block');
-							$output .= '<input id="' . $id . '[letterspacing]" name="' . $name . '[letterspacing]" class="cherry-stepper-input font-letterspacing" type="text" value="' . esc_html( $value['letterspacing'] ) . '" data-max-value="100" data-min-value="-100" data-value-step="1">';
+							$output .= '<input id="' . $id . '[letterspacing]" name="' . $name . '[letterspacing]" class="cherry-stepper-input font-letterspacing" placeholder="inherit" type="text" value="' . esc_html( $value['letterspacing'] ) . '" data-max-value="100" data-min-value="-100" data-value-step="1">';
 							$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span> px';
 						$output .= '</div>';
 						// text align
@@ -1359,6 +1367,64 @@ class Cherry_Interface_Builder {
 
 		return $this->google_font;
 	}
+
+	/**
+	 * Register admin-specific javascript.
+	 *
+	 * @since 4.0.0
+	 */
+	public function register_builder_scripts() {
+		wp_register_script( 'ace-editor', trailingslashit( CHERRY_URI ) . 'admin/assets/js/vendor/ace.js', array( 'jquery' ), CHERRY_VERSION, true );
+		wp_register_script( 'select2', trailingslashit( CHERRY_URI ) . 'admin/assets/js/select2.js', array( 'jquery' ), CHERRY_VERSION, true );
+		wp_register_script( 'statics-areas-editor-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/statics-areas-editor-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
+		wp_register_script( 'repeater-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/cherry-repeater-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
+		wp_register_script( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/js/interface-builder.js', array( 'jquery' ), CHERRY_VERSION, true );
+	}
+
+	/**
+	 * Register admin-specific stylesheet.
+	 *
+	 * @since 4.0.0
+	 */
+	public function register_builder_styles() {
+		wp_register_style( 'cherry-ace-editor', trailingslashit( CHERRY_URI ) . 'admin/assets/css/cherry-ace-editor.css', array(), CHERRY_VERSION, 'all' );
+		wp_register_style( 'select2', trailingslashit( CHERRY_URI ) . 'admin/assets/css/select2.css', array(), CHERRY_VERSION, 'all' );
+		wp_register_style( 'jquery-ui', trailingslashit( CHERRY_URI ) . 'admin/assets/css/jquery-ui.css', array(), CHERRY_VERSION, 'all' );
+		wp_register_style( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/css/interface-builder.css', array(), CHERRY_VERSION, 'all' );
+	}
+
+	/**
+	 * Enqueue admin-specific javascript.
+	 *
+	 * @since 4.0.0
+	 */
+	public function enqueue_builder_scripts( $hook_suffix ) {
+			wp_enqueue_media();
+			wp_enqueue_script( 'editor');
+			wp_enqueue_script( 'wp-color-picker');
+			wp_enqueue_script( 'ace-editor');
+			wp_enqueue_script( 'select2' );
+			wp_enqueue_script( 'statics-areas-editor-plugin' );
+			wp_enqueue_script( 'repeater-plugin' );
+			wp_enqueue_script( 'jquery-ui-tooltip' );
+			wp_enqueue_script( 'jquery-ui-slider' );
+			wp_enqueue_script( 'jquery-ui-accordion' );
+			wp_enqueue_script( 'jquery-ui-sortable' );
+			wp_enqueue_script( 'interface-builder' );
+	}
+
+	/**
+	 * Enqueue admin-specific stylesheet.
+	 *
+	 * @since 4.0.0
+	 */
+	public function enqueue_builder_styles( $hook_suffix ) {
+		wp_enqueue_style( 'wp-color-picker' );
+		wp_enqueue_style( 'cherry-ace-editor' );
+		wp_enqueue_style( 'select2' );
+		wp_enqueue_style( 'jquery-ui' );
+		wp_enqueue_style( 'interface-builder' );
+	}
 }
 
 add_action( 'wp_ajax_get_google_font_link', 'get_google_font_link' );
@@ -1371,7 +1437,8 @@ function get_google_font_link() {
 		$font_character = (string)$font_data['character'];
 
 		$google_fonts = cherry_enqueue_fonts::get_instance();
-		$google_font_url = $google_fonts->get_single_font_url( array( 'family' => $font_family, 'style' => $font_style, 'character' => $font_character ) );
+
+		$google_font_url = $google_fonts->get_single_font_url( array( 'family' => $font_family, 'style' => $font_style, 'character' => $font_character, 'fonttype' => 'web' ) );
 		echo $google_font_url;
 		exit;
 	}

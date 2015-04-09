@@ -70,7 +70,7 @@ function cherry_defaults_settings() {
 		),
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
-		'value'        => ''
+		'value'        => "/* your CSS here */"
 	);
 	$general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
@@ -1041,6 +1041,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Styling text in breadcrumbs.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '14',
 				'lineheight'	=> '20',
 				'color'			=> '#777777',
@@ -1260,19 +1261,6 @@ function cherry_defaults_settings() {
 // Demo options
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
-	$demo_options['ace-editor-demo'] = array(
-				'type'			=> 'ace-editor',
-				'title'			=> __('CSS Editor', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
-				),
-				'editor_mode'	=> 'css',
-				'editor_theme'	=> 'monokai',
-				'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
-	);
 	$demo_options['typography-demo'] = array(
 				'type'			=> 'typography',
 				'title'			=> __('Typography'),
@@ -1293,6 +1281,19 @@ function cherry_defaults_settings() {
 					'letterspacing' => '0',
 					'align'			=> 'notdefined'
 				)
+	);
+	$demo_options['ace-editor-demo'] = array(
+				'type'			=> 'ace-editor',
+				'title'			=> __('Ace Editor Css', 'cherry'),
+				'label'			=> 'monokai theme',
+				'decsription'	=> 'CSS mode',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Regular single line text input field.', 'cherry'),
+				),
+				'editor_mode'	=> 'css',
+				'editor_theme'	=> 'monokai',
+				'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
 	);
 	$demo_options['layout-editor-demo'] = array(
 				'type'			=> 'layouteditor',
