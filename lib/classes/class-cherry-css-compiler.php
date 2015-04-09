@@ -115,6 +115,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			add_action( 'cherry-options-restored', array( &$this, 'reset_compiled_css' ) );
 			add_action( 'cherry_plugin_activate', array( &$this, 'reset_compiled_css' ) );
 			add_action( 'cherry_plugin_deactivate', array( &$this, 'reset_compiled_css' ) );
+			add_action( 'switch_theme', array( &$this, 'clear_dir' ) );
 		}
 
 		/**
@@ -140,7 +141,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			}
 
 			// print dynamic CSS directly into head tag if uploads dir not writable
-			if ( ! $this->is_writable || 'tag' == $this->settings['dynamic_css'] ) {
+			if ( ! $this->is_writable || ! $this->already_compiled || 'tag' == $this->settings['dynamic_css'] ) {
 				add_action( 'wp_enqueue_scripts', array( &$this, 'print_dynamic_css_inline' ), 100 );
 			}
 		}
@@ -254,8 +255,8 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 */
 		public function wp_enqueue_dynamic_style() {
 
-			// do nothing if uploads dir not writable
-			if ( ! $this->is_writable ) {
+			// do nothing if uploads dir not writable or file not compiled
+			if ( ! $this->is_writable || ! $this->already_compiled ) {
 				return;
 			}
 
@@ -295,6 +296,23 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			if ( ! file_exists( $this->css_dir_path ) && ! is_dir( $this->css_dir_path ) ) {
 				wp_mkdir_p( $this->css_dir_path );
 			}
+		}
+
+		/**
+		 * Remove Cherry CSS directory and dynamic CSS file
+		 *
+		 * @since 4.0.0
+		 */
+		public function clear_dir() {
+
+			if ( file_exists( $this->css_file_path ) ) {
+				unlink( $this->css_file_path );
+			}
+
+			if ( file_exists( $this->css_dir_path ) && is_dir( $this->css_dir_path ) ) {
+				rmdir( $this->css_dir_path );
+			}
+
 		}
 
 		/**
@@ -353,8 +371,10 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			}
 
 			// Minify CSS
-			require_once( CHERRY_EXTENSIONS . '/class-cssmin.php' );
-			$compiled_style = CssMin::minify( $compiled_style );
+			if ( ! class_exists( 'CssMin' ) ) {
+				require_once( CHERRY_EXTENSIONS . '/class-cssmin.php' );
+				$compiled_style = CssMin::minify( $compiled_style );
+			}
 
 			$this->css_file_path = str_replace( ABSPATH, $wp_filesystem->abspath(), $this->css_file_path );
 
@@ -417,6 +437,12 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			ob_start();
 			get_template_part( 'init/css/dynamic-style' );
 			$data .= ob_get_clean();
+
+			$user_css = cherry_get_option( 'general-user-css' );
+
+			if ( $user_css ) {
+				$data .= str_replace( array( "\r","\n", " " ), "", $user_css );
+			}
 
 			return $data;
 		}

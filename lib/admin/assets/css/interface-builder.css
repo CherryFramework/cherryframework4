@@ -698,6 +698,9 @@
 .cherry-section.cherry-typography .field-font-family .cherry-filter-select, .cherry-section.cherry-typography .field-font-style .cherry-filter-select, .cherry-section.cherry-typography .field-font-character .cherry-filter-select, .cherry-section.cherry-typography .field-font-align .cherry-filter-select {
   width: 100%;
 }
+.cherry-section.cherry-typography .field-font-family:last-child, .cherry-section.cherry-typography .field-font-style:last-child, .cherry-section.cherry-typography .field-font-character:last-child, .cherry-section.cherry-typography .field-font-align:last-child {
+  margin-bottom: 0;
+}
 .cherry-section.cherry-typography .field-font-size, .cherry-section.cherry-typography .field-font-lineheight, .cherry-section.cherry-typography .field-font-letter-spacing, .cherry-section.cherry-typography .field-font-color {
   float: left;
   overflow: hidden;
@@ -706,6 +709,7 @@
 }
 .cherry-section.cherry-typography .field-font-size:last-child, .cherry-section.cherry-typography .field-font-lineheight:last-child, .cherry-section.cherry-typography .field-font-letter-spacing:last-child, .cherry-section.cherry-typography .field-font-color:last-child {
   margin-right: 0;
+  margin-bottom: 0;
 }
 .cherry-section.cherry-typography .cherry-type-wrap {
   width: 48%;

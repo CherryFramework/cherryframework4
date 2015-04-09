@@ -42,15 +42,17 @@ class cherry_enqueue_fonts {
 	 * JSON string with google fonts data parsed from font file
 	 * @var null
 	 */
-	public static $google_fonts = null;
+	public $google_fonts = null;
 
 	/**
 	 * Define fonts server URL
 	 * @var string
 	 */
-	public static $fonts_host = '//fonts.googleapis.com/css';
+	public $fonts_host = '//fonts.googleapis.com/css';
 
 	function __construct() {
+
+		$this->fonts_host = apply_filters( 'cherry_google_fonts_cdn', $this->fonts_host );
 
 		add_action( 'cherry-options-updated', array( $this, 'reset_fonts_cache' ) );
 		add_action( 'cherry-section-restored', array( $this, 'reset_fonts_cache' ) );
@@ -85,6 +87,10 @@ class cherry_enqueue_fonts {
 
 			$font_url = $this->build_fonts_url();
 
+			if ( false == $font_url ) {
+				return;
+			}
+
 			set_transient( 'cherry_google_fonts_url', $font_url, WEEK_IN_SECONDS );
 		}
 
@@ -101,6 +107,10 @@ class cherry_enqueue_fonts {
 		$font_families = array();
 		$subsets       = array();
 
+		if ( empty( $this->fonts_data ) ) {
+			return false;
+		}
+
 		foreach ( $this->fonts_data as $family => $data ) {
 			$styles = implode( ',', array_unique( $data['style'] ) );
 			$font_families[] = $family . ':' . $styles;
@@ -114,7 +124,7 @@ class cherry_enqueue_fonts {
 			'subset' => urlencode( implode( ',', $subsets ) ),
 		);
 
-		$fonts_url = add_query_arg( $query_args, self::$fonts_host );
+		$fonts_url = add_query_arg( $query_args, $this->fonts_host );
 
 		return $fonts_url;
 	}
@@ -134,7 +144,7 @@ class cherry_enqueue_fonts {
 			return;
 		}
 
-		if ( ! self::is_google_font( $option_val['family'] ) ) {
+		if ( ! $this->is_google_font( $option_val ) ) {
 			return;
 		}
 
@@ -158,21 +168,16 @@ class cherry_enqueue_fonts {
 	 *
 	 * @since  4.0.0
 	 *
-	 * @param  string  $family  font family name to chack
+	 * @param  array   $data  font data from option
 	 * @return boolean
 	 */
-	public static function is_google_font( $family ) {
+	public function is_google_font( $data ) {
 
-		if ( null == self::$google_fonts ) {
-			$fonts_path = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/google-fonts.json';
-			self::$google_fonts = file_get_contents( $fonts_path );
-		}
-
-		if ( false === strpos( self::$google_fonts, $family ) ) {
+		if ( ! isset( $data['fonttype'] ) ) {
 			return false;
-		} else {
-			return true;
 		}
+
+		return ( 'web' == $data['fonttype'] );
 
 	}
 
@@ -230,7 +235,7 @@ class cherry_enqueue_fonts {
 	 *
 	 * @since  4.0.0
 	 */
-	public static function get_single_font_url( $font_data ) {
+	public function get_single_font_url( $font_data ) {
 
 		$font_data = wp_parse_args( $font_data, array(
 			'family'    => '',
@@ -238,7 +243,7 @@ class cherry_enqueue_fonts {
 			'character' => ''
 		) );
 
-		if ( ! self::is_google_font( $font_data['family'] ) ) {
+		if ( ! $this->is_google_font( $font_data ) ) {
 			return;
 		}
 
@@ -250,7 +255,7 @@ class cherry_enqueue_fonts {
 			'subset' => urlencode( $subsets )
 		);
 
-		$fonts_url = add_query_arg( $query_args, self::$fonts_host );
+		$fonts_url = add_query_arg( $query_args, $this->fonts_host );
 
 		return $fonts_url;
 

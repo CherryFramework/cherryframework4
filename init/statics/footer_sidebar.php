@@ -18,7 +18,10 @@ class cherry_footer_sidebar_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
-		cherry_get_sidebar( 'footer' );
+		cherry_get_sidebar( 'footer-1' );
+		cherry_get_sidebar( 'footer-2' );
+		cherry_get_sidebar( 'footer-3' );
+		cherry_get_sidebar( 'footer-4' );
 	}
 }
 
@@ -27,8 +30,8 @@ class cherry_footer_sidebar_static extends cherry_register_static {
  */
 new cherry_footer_sidebar_static(
 	array(
-		'name'    => __( 'Footer Sidebar', 'cherry' ),
-		'id'      => 'footer_sidebar',
+		'name'    => __( 'Footer Sidebars', 'cherry' ),
+		'id'      => 'footer_sidebars',
 		'options' => array(
 			'priority' => 1,
 			'area'     => 'footer-top',

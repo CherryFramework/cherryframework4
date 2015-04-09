@@ -714,6 +714,9 @@
 				.cherry-filter-select{
 					width: 100%;
 				}
+				&:last-child{
+					margin-bottom: 0;
+				}
 			}
 			.field-font-size, .field-font-lineheight, .field-font-letter-spacing, .field-font-color{
 				float: left;
@@ -722,6 +725,7 @@
 				margin-bottom: 5px;
 					&:last-child{
 						margin-right: 0;
+						margin-bottom: 0;
 					}
 			}
 			.cherry-type-wrap{
