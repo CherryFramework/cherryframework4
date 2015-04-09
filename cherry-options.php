@@ -70,7 +70,7 @@ function cherry_defaults_settings() {
 		),
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
-		'value'        => ''
+		'value'        => "/* your CSS here */"
 	);
 	$general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
@@ -1061,6 +1061,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Styling text in breadcrumbs.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'web',
 				'size'			=> '14',
 				'lineheight'	=> '20',
 				'color'			=> '#777777',
@@ -1283,6 +1284,27 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
 	$demo_options['typography-demo'] = array(
+				'type'			=> 'typography',
+				'title'			=> __('Typography'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+				),
+				'value'			=> array(
+					'fonttype'		=> 'web',
+					'size'			=> '20',
+					'lineheight'	=> '20',
+					'color'			=> '#222222',
+					'family'		=> 'Abril Fatface',
+					'character'		=> 'latin-ext',
+					'style'			=> 'italic',
+					'letterspacing' => '0',
+					'align'			=> 'notdefined'
+				)
+	);
+	$demo_options['typography-demo-2'] = array(
 				'type'			=> 'typography',
 				'title'			=> __('Typography'),
 				'label'			=> '',

@@ -258,14 +258,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load Cherry_Sidebar class.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-sidebar.php' );
 
-			// Load Cherry_Interface_Builder class.
-			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-interface-builder.php' );
 
-			// Load Cherry_Options_Framework class.
-			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework.php' );
-
-			// Load Cherry_Options_Framework_Admin class.
-			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
 
 			// Load the HTML attributes functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'attr.php' );
@@ -324,6 +317,14 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Check if in the WordPress admin.
 			if ( is_admin() ) {
+				// Load Cherry_Interface_Builder class.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-interface-builder.php' );
+
+				// Load Cherry_Options_Framework class.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework.php' );
+
+				// Load Cherry_Options_Framework_Admin class.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
 
 				// Load the main admin file.
 				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );

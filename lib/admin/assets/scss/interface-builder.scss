@@ -714,6 +714,9 @@
 				.cherry-filter-select{
 					width: 100%;
 				}
+				&:last-child{
+					margin-bottom: 0;
+				}
 			}
 			.field-font-size, .field-font-lineheight, .field-font-letter-spacing, .field-font-color{
 				float: left;
