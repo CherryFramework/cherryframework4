@@ -477,7 +477,6 @@ function cherry_get_typography_css( $data, $mod = array() ) {
  * @param
  * @return
  */
-
 function cherry_typography_size( $size, $operation = ' ', $func = 'round', $percent) {
 
 	if ( ! $size ) {
