@@ -93,8 +93,8 @@ new cherry_header_logo_static(
 		'options' => array(
 			'col-xs'   => 'col-xs-12',
 			'col-sm'   => 'col-sm-12',
-			'col-md'   => 'col-md-4',
-			'col-lg'   => 'col-lg-4',
+			'col-md'   => 'col-md-3',
+			'col-lg'   => 'col-lg-3',
 			'class'    => 'custom-logo',
 			'area'     => 'header-top',
 			'priority' => 1,

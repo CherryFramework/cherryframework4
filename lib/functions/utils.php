@@ -12,7 +12,7 @@
  */
 
 // Load Cherry Framework scripts.
-add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts' );
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts', 1 );
 
 /**
  * Enqueue utility scripts

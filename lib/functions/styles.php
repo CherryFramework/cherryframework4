@@ -193,6 +193,7 @@ function cherry_get_styles() {
 function cherry_get_css_varaibles() {
 
 	$var_list = array(
+		'logo-typography',
 		'color-primary',
 		'color-secondary',
 		'color-success',
@@ -214,7 +215,9 @@ function cherry_get_css_varaibles() {
 		'typography-h6',
 		'typography-breadcrumbs',
 		'typography-link',
+		'lists-typography',
 		'header-background',
+		'footer-typography',
 		'footer-background'
 	);
 
