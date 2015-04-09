@@ -318,8 +318,8 @@ function cherry_defaults_settings() {
 
 	$blog_options['blog-featured-images-align'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Alignment for Featured Images', 'cherry' ),
-		'decsription' => __( 'Позиция всех Featured Images на странице Блог ', 'cherry' ),
+		'title'       => __( 'Featured Image Alignment', 'cherry' ),
+		'decsription' => __( 'Set alignment for post featured images.', 'cherry' ),
 		'value'       => 'aligncenter',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
@@ -865,7 +865,7 @@ function cherry_defaults_settings() {
 			'title'			=> __( 'Sticky selector', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'What stick.', 'cherry' )
+				'content'	=> __( 'Select what block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
 			),
 			'value'			=> $default_selector,
 			'options'		=> $sticky_selectors
@@ -1249,8 +1249,6 @@ function cherry_defaults_settings() {
 	$optimization_options['dynamic-css'] = array(
 		'type'			=> 'select',
 		'title'			=> 'Dynamic CSS output',
-		'label'			=> 'Dynamic CSS output',
-		'decsription'	=> 'Output dynamic CSS into separate file or into style tag',
 		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Output dynamic CSS into separate file or into style tag.', 'cherry' )
@@ -1269,12 +1267,12 @@ function cherry_defaults_settings() {
 	$demo_options = array();
 	$demo_options['ace-editor-demo'] = array(
 				'type'			=> 'ace-editor',
-				'title'			=> __('Ace Editor Css', 'cherry'),
-				'label'			=> 'monokai theme',
-				'decsription'	=> 'CSS mode',
+				'title'			=> __('CSS Editor', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
 				'hint'			=>  array(
 					'type'		=> 'text',
-					'content'	=> __('Regular single line text input field.', 'cherry'),
+					'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
 				),
 				'editor_mode'	=> 'css',
 				'editor_theme'	=> 'monokai',
@@ -1302,12 +1300,12 @@ function cherry_defaults_settings() {
 	);
 	$demo_options['layout-editor-demo'] = array(
 				'type'			=> 'layouteditor',
-				'title'			=> __( 'title layout editor', 'cherry' ),
-				'label'			=> 'label layout editor',
-				'decsription'	=> 'decsription layout editor',
+				'title'			=> __( 'Layout editor', 'cherry' ),
+				'label'			=> '',
+				'decsription'	=> '',
 				'hint'			=>  array(
 					'type'		=> 'text',
-					'content'	=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+					'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '
 				),
 				'value'			=> array(
 					'position'	=> array(
