@@ -1370,7 +1370,8 @@ function get_google_font_link() {
 		$font_style = (string)$font_data['style'];
 		$font_character = (string)$font_data['character'];
 
-		$google_font_url = cherry_enqueue_fonts::get_single_font_url( array( 'family' => $font_family, 'style' => $font_style, 'character' => $font_character ) );
+		$google_fonts = cherry_enqueue_fonts::get_instance();
+		$google_font_url = $google_fonts->get_single_font_url( array( 'family' => $font_family, 'style' => $font_style, 'character' => $font_character ) );
 		echo $google_font_url;
 		exit;
 	}

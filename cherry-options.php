@@ -877,25 +877,6 @@ function cherry_defaults_settings() {
 			'options'		=> $sticky_selectors
 	);
 
-	$header_options['header-sticky-tablets'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Sticky header (tablet devices)', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable\disable sticky header on tablet devices.', 'cherry' )
-			),
-			'value'			=> 'false'
-	);
-	$header_options['header-sticky-mobiles'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Sticky header (mobile devices)', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable\disable sticky header on mobile devices.', 'cherry' )
-			),
-			'value'			=> 'false'
-	);
-
 	// Logo options
 	//////////////////////////////////////////////////////////////////////
 	$logo_options = array();
