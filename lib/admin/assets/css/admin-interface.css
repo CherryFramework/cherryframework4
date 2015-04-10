@@ -29,13 +29,12 @@
   line-height: 35px;
 }
 .options-page-wrapper .current-theme .ajax-section-spinner {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
   display: none;
   position: absolute;
-  top: 13px;
-  right: 13px;
-  background: url("../images/ajax-spinner.gif") 50% 50% no-repeat;
+  top: 11px;
+  right: 15px;
 }
 
 .cherry-submit-wrapper {
@@ -137,4 +136,67 @@
 }
 .fixed-control-holder .marker:hover {
   color: #7ad03a;
+}
+
+.cherry-spinner-chasing-dots.cherry-spinner {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  text-align: center;
+  -webkit-animation: cherry-chasingDotsRotate 2s infinite linear;
+  animation: cherry-chasingDotsRotate 2s infinite linear;
+}
+
+.cherry-spinner-chasing-dots .cherry-dot {
+  width: 60%;
+  height: 60%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  background-color: #f62e46;
+  border-radius: 100%;
+  -webkit-animation: cherry-chasingDotsBounce 2s infinite ease-in-out;
+  animation: cherry-chasingDotsBounce 2s infinite ease-in-out;
+}
+
+.cherry-spinner-chasing-dots .cherry-dot2 {
+  top: auto;
+  bottom: 0px;
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+@-webkit-keyframes cherry-chasingDotsRotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes cherry-chasingDotsRotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes cherry-chasingDotsBounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes cherry-chasingDotsBounce {
+  0%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+
+  50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }

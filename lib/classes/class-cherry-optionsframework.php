@@ -290,7 +290,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			foreach ( $default_settings as $key => $value ) {
 				$section_name = $key;
 				$option_list = $value['options-list'];
-
 					foreach ($option_list as $optname => $value) {
 						if(array_key_exists($section_name, $loaded_settings)){
 							$default_settings[$section_name]['options-list'][$optname]['value'] = $loaded_settings[$section_name]['options-list'][$optname];

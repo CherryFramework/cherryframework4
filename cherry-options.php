@@ -101,7 +101,7 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Enable/disable smooth vertical mousewheel scrolling (Chrome browser only).', 'cherry' ),
 		),
-		'value' => 'true',
+		'value' => 'false',
 	);
 
 	///////////////////////////////////////////////////////////////////
