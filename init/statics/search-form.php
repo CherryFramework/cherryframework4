@@ -9,29 +9,34 @@
  */
 
 /**
- * Header sidebar static
+ * Search form static
  */
-class cherry_header_sidebar_static extends cherry_register_static {
+class cherry_search_form_static extends cherry_register_static {
 
 	/**
 	 * Callbck method for registered static
 	 * @since 4.0.0
 	 */
 	public function callback() {
-		cherry_get_sidebar( 'header' );
+		get_search_form( true );
 	}
 }
 
 /**
- * Call Header sidebar static registration
+ * Call search form static registration
  */
-new cherry_header_sidebar_static(
+new cherry_search_form_static(
 	array(
-		'name'    => __( 'Header Sidebar', 'cherry' ),
-		'id'      => 'header_sidebar',
+		'id'      => 'search-form',
+		'name'    => __( 'Search Form', 'cherry' ),
 		'options' => array(
+			'col-lg'   => 'col-lg-3',
+			'col-md'   => 'col-md-3',
+			'col-sm'   => 'col-sm-12',
+			'col-xs'   => 'col-xs-12',
+			'class'    => 'custom-searchform',
 			'priority' => 3,
-			'area'     => 'header-bottom',
+			'area'     => 'header-top',
 		)
 	)
 );
