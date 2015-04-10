@@ -234,6 +234,11 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 						<div class="current-theme">
 							<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
 						</div>
+						<div class="info-box">
+							<div class="documentation-link">
+								<?php  echo __( 'For full documentation visit: ', 'cherry' ) ?><a href="http://google.com"><?php  echo __( 'google.com :)', 'cherry' ) ?></a>
+							</div>
+						</div>
 						<?php settings_errors( 'cherry-options-group' ); ?>
 							<form id="cherry-options" class="cherry-ui-core" method="post">
 								<?php settings_fields( 'cherry-options-group' ); ?>
