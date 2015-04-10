@@ -35,11 +35,13 @@ function cherry_site_link() {
  * @return string
  */
 function cherry_get_site_link() {
+	$title = get_bloginfo( 'name' );
 
-	if ( $title = get_bloginfo( 'name' ) ) {
-		return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url() ), $title );
+	if ( !$title ) {
+		return false;
 	}
 
+	return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url() ), $title );
 }
 
 /**
@@ -153,7 +155,7 @@ function cherry_get_site_logo() {
 
 	$tag = is_front_page() ? 'h1' : 'h2';
 
-	$logo = sprintf( '<%3$s class="%1$s">%2$s</%3$s>', 'site-title', $logo_content, $tag );
+	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', 'site-title', $logo_content, $tag ) : '';
 
 	return apply_filters( 'cherry_get_site_logo', $logo );
 }
