@@ -12,5 +12,5 @@
 
 // Loads styles.
 add_theme_support( 'cherry-styles', array(
-	'grid-base', 'slick', 'magnific-popup', 'grid-responsive', 'drop-downs', 'main', 'add-ons'
+	'grid-base', 'grid-responsive', 'slick', 'magnific-popup', 'drop-downs', 'main', 'add-ons'
 ) );
