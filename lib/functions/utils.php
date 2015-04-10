@@ -519,3 +519,24 @@ function cherry_empty_value( $value, $rule) {
 	}
 
 }
+/*
+function cherry_text_emphasis( $parent, $color ) {
+
+	echo $parent." {color: $color;} ";
+	echo "a$parent:hover {color: ".cherry_colors_darken($color, 10).";}";
+
+}
+*/
+function cherry_element_emphasis( $parent, $color, $property ) {
+
+	echo $parent." {".$property. ": $color;} ";
+	echo "a$parent:hover {"."$property: ".cherry_colors_darken($color, 10).";}";
+
+}
+
+function cherry_box_shadow( $shadow ) {
+
+	echo "-webkit-box-shadow: $shadow;";
+	echo "box-shadow: $shadow;";
+}
+
