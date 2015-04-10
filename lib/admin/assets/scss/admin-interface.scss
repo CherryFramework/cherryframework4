@@ -75,6 +75,39 @@
 			margin: 0 5px;
 		}
 }
+
+.cherry-options-export-import {
+	float: left;
+	padding: 0 0 0 180px;
+}
+
+.wrap-cherry-export-options,
+.wrap-cherry-import-options {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 5px 0 0;
+}
+
+.cherry-options-import {
+	padding: 20px 20px 20px 200px;
+	background: #fff;
+	display: none;
+	div.error,
+	div.updated {
+		margin: 15px 0 0 4px;
+		background: #fafafa;
+	}
+}
+.cherry-import-file-name {
+	display: inline-block;
+	vertical-align: middle;
+	font-weight: bold;
+	span {
+		display: inline-block;
+		margin: 0 15px 0 0;
+	}
+}
+
 #cherry-options{
 	.cherry-sections-wrapper{
 		background: #2a445d;
