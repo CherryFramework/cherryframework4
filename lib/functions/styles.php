@@ -7,7 +7,7 @@
  * @package    Cherry_Framework
  * @subpackage Functions
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -193,6 +193,7 @@ function cherry_get_styles() {
 function cherry_get_css_varaibles() {
 
 	$var_list = array(
+		'logo-typography',
 		'color-primary',
 		'color-secondary',
 		'color-success',
@@ -214,7 +215,9 @@ function cherry_get_css_varaibles() {
 		'typography-h6',
 		'typography-breadcrumbs',
 		'typography-link',
+		'lists-typography',
 		'header-background',
+		'footer-typography',
 		'footer-background'
 	);
 

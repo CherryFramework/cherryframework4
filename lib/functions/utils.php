@@ -6,13 +6,13 @@
  * @package    Cherry_Framework
  * @subpackage Functions
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
 // Load Cherry Framework scripts.
-add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts' );
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts', 1 );
 
 /**
  * Enqueue utility scripts
