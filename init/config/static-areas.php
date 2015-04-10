@@ -15,42 +15,19 @@ add_action( 'init', 'cherry_register_static_areas' );
 function cherry_register_static_areas() {
 
 	cherry_register_static_area( array(
-		'id'             => 'header-top',
-		'name'           => __( 'Header Top', 'cherry' ),
-		'before'         => '',
-		'after'          => '',
-		'before_static'  => '<div class="static clearfix">',
-		'after_static'   => '</div>',
-		'container_wrap' => true,
-		'row_wrap'       => true,
+		'id'   => 'header-top',
+		'name' => __( 'Header Top', 'cherry' ),
 	) );
 
 	cherry_register_static_area( array(
-		'id'             => 'header-left',
-		'name'           => __( 'Header Left', 'cherry' ),
-		'before'         => '<div class="col-md-7">',
-		'after'          => '</div>',
-		'container_wrap' => false,
-	) );
-
-	cherry_register_static_area( array(
-		'id'             => 'header-right',
-		'name'           => __( 'Header Right', 'cherry' ),
-		'before'         => '<div class="col-md-5">',
-		'after'          => '</div>',
-		'container_wrap' => false,
-	) );
-
-	cherry_register_static_area( array(
-		'id'             => 'header-bottom',
-		'name'           => __( 'Header Bottom', 'cherry' ),
-		'container_wrap' => false,
+		'id'   => 'header-bottom',
+		'name' => __( 'Header Bottom', 'cherry' ),
 		)
 	);
 
 	cherry_register_static_area( array(
-		'id'             => 'slider',
-		'name'           => __( 'Slider Area', 'cherry' ),
+		'id'             => 'showcase-area',
+		'name'           => __( 'Showcase Area', 'cherry' ),
 		'container_wrap' => false,
 		'row_wrap'       => false,
 	) );
