@@ -35,10 +35,6 @@ remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 // Removes injected CSS from recent comments widget.
 add_filter( 'wp_head', 'cherry_remove_recent_comments_style', 1 );
 
-// Removes WordPress version from stylesheets and scripts.
-add_filter( 'style_loader_src',  'cherry_remove_wp_ver_css_js', 9999 );
-add_filter( 'script_loader_src', 'cherry_remove_wp_ver_css_js', 9999 );
-
 /**
  * Adds the meta charset to the header.
  *
@@ -63,7 +59,7 @@ function cherry_doctitle() {
  * @since  4.0.0
  */
 function cherry_meta_viewport() {
-	$is_responsive = cherry_get_option('grid-responsive');
+	$is_responsive = cherry_get_option( 'grid-responsive' );
 
 	if ( 'true' == $is_responsive ) {
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
@@ -125,18 +121,4 @@ function cherry_remove_recent_comments_style() {
 	if ( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
 		remove_action( 'wp_head', array( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style' ) );
 	}
-}
-
-/**
- * Remove WordPress version.
- *
- * @since  4.0.0
- * @param  string $src URL to the file
- * @return string      URL to the file
- */
-function cherry_remove_wp_ver_css_js( $src ) {
-	if ( strpos( $src, 'ver=' ) ) {
-		$src = remove_query_arg( 'ver', $src );
-	}
-	return $src;
 }
