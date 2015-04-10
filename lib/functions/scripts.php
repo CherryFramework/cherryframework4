@@ -7,7 +7,7 @@
  * @package    Cherry_Framework
  * @subpackage Functions
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -60,17 +60,25 @@ function cherry_register_scripts() {
 	// Supported JavaScript.
 	$supports = get_theme_support( 'cherry-scripts' );
 
+	// Gets a defaults framework scripts.
 	$default_scripts = cherry_default_scripts();
 
-	foreach ( $default_scripts as $id => $data ) {
-		if ( isset( $supports[0] ) && is_array( $supports[0] ) && in_array( $id, $supports[0] ) ) {
-			wp_register_script( $id, $data['src'], $data['deps'], $data['ver'], $data['in_footer'] );
+	if ( isset( $supports[0] ) && is_array( $supports[0] ) ) {
+
+		foreach ( $default_scripts as $id => $data ) {
+			if ( in_array( $id, $supports[0] ) ) {
+				wp_register_script( $id, $data['src'], $data['deps'], $data['ver'], $data['in_footer'] );
+			}
 		}
+
 	}
 
 	wp_register_script(
 		'cherry-script',
-		esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/script.js' ), array( 'jquery' ), CHERRY_VERSION, true
+		esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/script.js' ),
+		array( 'jquery' ),
+		CHERRY_VERSION,
+		true
 	);
 }
 
@@ -87,20 +95,22 @@ function cherry_enqueue_scripts() {
 	$comments_supports = ( isset( $supports[0] ) && in_array( 'comment-reply', $supports[0] ) ) ? true : false;
 
 	// Load the comment reply script on singular posts with open comments if threaded comments are supported.
-	if ( is_singular() && get_option( 'thread_comments' ) && comments_open() && $comments_supports
-		&& ( 'true' == cherry_get_option( 'blog-comment-status' ) )
+	if ( is_singular()
+		&& get_option( 'thread_comments' )
+		&& comments_open()
+		&& $comments_supports
 		) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	$default_scripts = cherry_default_scripts();
+	// Gets a defaults framework scripts.
+	// $default_scripts = cherry_default_scripts();
 
-	foreach ( $default_scripts as $id => $data ) {
-		wp_enqueue_script( $id );
-	}
+	// foreach ( $default_scripts as $id => $data ) {
+	// 	wp_enqueue_script( $id );
+	// }
 
 	wp_enqueue_script( 'cherry-script' );
-
 }
 
 /**
@@ -109,13 +119,12 @@ function cherry_enqueue_scripts() {
  * @since 4.0.0
  */
 function cherry_prepare_sticky_vars() {
-
-	$is_sticky     = cherry_get_option( 'header-sticky', 'false' );
+	$is_sticky = cherry_get_option( 'header-sticky', 'false' );
 
 	$defaults = array(
 		'correctionSelector' => '#wpadminbar',
 		'listenSelector'     => '.listenSelector',
-		'pseudo'             => true
+		'pseudo'             => true,
 	);
 
 	$options_args = array(
@@ -129,7 +138,7 @@ function cherry_prepare_sticky_vars() {
 
 	$data = array(
 		'selector' => $sticky_selector,
-		'args'     => $args
+		'args'     => $args,
 	);
 
 	wp_localize_script( 'cherry-script', 'sticky_data', $data );

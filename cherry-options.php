@@ -23,10 +23,9 @@ function cherry_defaults_settings() {
 	$default_selector = array_keys($sticky_selectors);
 	$default_selector = $default_selector[0];
 
-//////////////////////////////////////////////////////////////////////
-// General
-//////////////////////////////////////////////////////////////////////
-
+	//////////////////////////////////////////////////////////////////////
+	// General
+	//////////////////////////////////////////////////////////////////////
 	$general_options = array();
 	$general_options['general-favicon'] = array(
 		'type'  => 'media',
@@ -52,7 +51,7 @@ function cherry_defaults_settings() {
 	);
 	$general_options['general-page-featured-images'] = array(
 		'type'  => 'switcher',
-		'title' => __( 'Featured images', 'cherry' ),
+		'title' => __( 'Featured Images', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
 			'content' => __( 'Enable/disable displaying of featured images for pages.', 'cherry' ),
@@ -60,19 +59,19 @@ function cherry_defaults_settings() {
 		'value' => 'false',
 	);
 	$general_options['general-user-css'] = array(
-		'type'         => 'ace-editor',
-		'title'        => __( 'User CSS', 'cherry' ),
-		'hint'         => array(
+		'type'  => 'ace-editor',
+		'title' => __( 'User CSS', 'cherry' ),
+		'hint'  => array(
 			'type'    => 'text',
 			'content' => __( 'Define custom CSS styling.', 'cherry' ),
 		),
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
-		'value'        => "/* your CSS here */"
+		'value'        => ''
 	);
 	$general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
-		'title' =>  sprintf(
+		'title' => sprintf(
 			__( 'Maintenance mode. <a href="%s" target="_blank">Preview</a>', 'cherry' ),
 			$maintenance_preview
 		),
@@ -101,7 +100,7 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Enable/disable smooth vertical mousewheel scrolling (Chrome browser only).', 'cherry' ),
 		),
-		'value' => 'true',
+		'value' => 'false',
 	);
 
 	///////////////////////////////////////////////////////////////////
@@ -109,14 +108,14 @@ function cherry_defaults_settings() {
 	///////////////////////////////////////////////////////////////////
 	$static_area_editor_options = array();
 	$static_area_editor_options['header-static-area-editor'] = array(
-				'type'			=> 'static_area_editor',
-				'title'			=>  __( 'Static area editor', 'cherry' ),
-				'hint'			=> array(
-					'type'		=> 'text',
-					'content'	=> __( 'Use static area editor to arrange static blocks. You can drag-n-drop statick blocks, remove them or add new ones using \'Create new static\' field below. ', 'cherry' )
-				),
-				'value'			=> $all_statics,
-				'options'		=> $all_statics
+		'type'  => 'static_area_editor',
+		'title' => __( 'Static areas', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Use static area editor to arrange static blocks. You can drag-n-drop statick blocks, remove them or add new ones using \'Create new static\' field below. ', 'cherry' ),
+		),
+		'value'   => $all_statics,
+		'options' => $all_statics,
 	);
 
 	//////////////////////////////////////////////////////////////////////
@@ -128,51 +127,15 @@ function cherry_defaults_settings() {
 		'title' => __( 'Responsive grid', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable responsive grid. If for any reason you want to disable responsive layout for your site, you are able to turn it off here.', 'cherry' ),
+			'content' => __('Enable/disable responsive grid. If for any reason you want to disable responsive layout for your site, you are able to turn it off here.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
-	$grid_options['grid-container-width'] = array(
-		'type'  => 'slider',
-		'title' => __( 'Container width', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
-		),
-		'max_value' => 1920, // Full HD
-		'min_value' => 970,
-		'value'     => 1170,
-	);
-	$grid_options['grid-type'] = array(
+	$grid_options['page-layout'] = array(
 		'type'  => 'radio',
-		'title' => __( 'Grid type', 'cherry' ),
+		'title' => __( 'Layout', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Select layout pattern for main website container. Wide layout will fit window width. Boxed layout will have fixed width and left/right indents. ', 'cherry' ),
-		),
-		'display_input' => false,
-		'options'       => array(
-			'wide' => array(
-				'label'   => __( 'Wide', 'cherry' ),
-				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
-			),
-			'boxed' => array(
-				'label'   => __( 'Boxed', 'cherry' ),
-				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
-			),
-		),
-		'value' => 'boxed',
-	);
-
-	// Page layout options
-	//////////////////////////////////////////////////////////////////////
-
-	$page_layout_options = array();
-	$page_layout_options['page-layout'] = array(
-		'type'          => 'radio',
-		'title'         => __( 'Page layout', 'cherry' ),
-		'hint' => array(
-			'type' => 'text',
 			'content' => __( 'Select blog page layout. You can choose if you want to display sidebars and how you want to display them.', 'cherry' ),
 		),
 		'value'         => '1-right',
@@ -203,6 +166,37 @@ function cherry_defaults_settings() {
 				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-fullwidth.svg',
 			),
 		)
+	);
+	$grid_options['grid-container-width'] = array(
+		'type'  => 'slider',
+		'title' => __( 'Container width', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
+		),
+		'max_value' => 1920, // Full HD
+		'min_value' => 970,
+		'value'     => 1170,
+	);
+	$grid_options['grid-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Grid type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select layout pattern for main website container. Wide layout will fit window width. Boxed layout will have fixed width and left/right indents. ', 'cherry' ),
+		),
+		'value'         => 'boxed',
+		'display_input' => false,
+		'options'       => array(
+			'wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+			),
+			'boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
+			),
+		),
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -1058,7 +1052,6 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Styling text in breadcrumbs.', 'cherry' )
 			),
 			'value' => array(
-				'fonttype'		=> 'web',
 				'size'			=> '14',
 				'lineheight'	=> '20',
 				'color'			=> '#777777',
@@ -1278,6 +1271,19 @@ function cherry_defaults_settings() {
 // Demo options
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
+	$demo_options['ace-editor-demo'] = array(
+				'type'			=> 'ace-editor',
+				'title'			=> __('CSS Editor', 'cherry'),
+				'label'			=> '',
+				'decsription'	=> '',
+				'hint'			=>  array(
+					'type'		=> 'text',
+					'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
+				),
+				'editor_mode'	=> 'css',
+				'editor_theme'	=> 'monokai',
+				'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
+	);
 	$demo_options['typography-demo'] = array(
 				'type'			=> 'typography',
 				'title'			=> __('Typography'),
@@ -1298,19 +1304,6 @@ function cherry_defaults_settings() {
 					'letterspacing' => '0',
 					'align'			=> 'notdefined'
 				)
-	);
-	$demo_options['ace-editor-demo'] = array(
-				'type'			=> 'ace-editor',
-				'title'			=> __('Ace Editor Css', 'cherry'),
-				'label'			=> 'monokai theme',
-				'decsription'	=> 'CSS mode',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Regular single line text input field.', 'cherry'),
-				),
-				'editor_mode'	=> 'css',
-				'editor_theme'	=> 'monokai',
-				'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
 	);
 	$demo_options['layout-editor-demo'] = array(
 				'type'			=> 'layouteditor',
@@ -1701,7 +1694,7 @@ function cherry_defaults_settings() {
 		'options-list' => apply_filters( 'cherry_general_options_list', $general_options ),
 	);
 	$sections_array['static-area-editor-section'] = array(
-		'name'         => __( 'Static area editor', 'cherry' ),
+		'name'         => __( 'Static areas', 'cherry' ),
 		'icon'         => 'dashicons dashicons-menu',
 		'priority'     => 20,
 		'options-list' => apply_filters( 'cherry_static_area_editor_list', $static_area_editor_options ),
@@ -1711,13 +1704,6 @@ function cherry_defaults_settings() {
 		'icon'         => 'dashicons dashicons-admin-appearance',
 		'priority'     => 30,
 		'options-list' => apply_filters( 'cherry_grid_options_list', $grid_options ),
-	);
-	$sections_array['page-layout-subsection'] = array(
-		'name'         => __( 'Page layouts', 'cherry' ),
-		'icon'         => 'dashicons dashicons-arrow-right',
-		'parent'       => 'grid-section',
-		'priority'     => 1,
-		'options-list' => apply_filters( 'cherry_page_layout_options_list', $page_layout_options ),
 	);
 	$sections_array['blog-section'] = array(
 		'name'         => __( 'Blog', 'cherry' ),

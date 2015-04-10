@@ -54,11 +54,11 @@ function cherry_footer_wrap() {
 }
 
 function cherry_header_load_template() {
-	get_template_part( 'templates/wrapper-header' );
+	get_template_part( 'templates/wrapper-header', cherry_template_base() );
 }
 
 function cherry_footer_load_template() {
-	get_template_part( 'templates/wrapper-footer' );
+	get_template_part( 'templates/wrapper-footer', cherry_template_base() );
 }
 
 /**

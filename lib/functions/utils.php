@@ -6,7 +6,7 @@
  * @package    Cherry_Framework
  * @subpackage Functions
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -29,12 +29,12 @@ function cherry_enqueue_utility_scripts() {
 	if( "false" != $smooth_scroll ) {
 
 		wp_register_script(
-			'jquery-mousewheel',
-			esc_url( $cherry_url . 'assets/js/jquery.mousewheel.min.js' ), array( 'jquery' ), '3.0.6', true
+			'jquery-easing',
+			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.js' ), array( 'jquery' ), '3.1.0', true
 		);
 		wp_register_script(
 			'jquery-smoothscroll',
-			esc_url( $cherry_url . 'assets/js/jquery.simplr.smoothscroll.min.js' ), array( 'jquery', 'jquery-mousewheel' ), '3.0.6', true
+			esc_url( $cherry_url . 'assets/js/jquery.smoothscroll.js' ), array( 'jquery', 'jquery-easing' ), '3.0.6', true
 		);
 
 		if( !wp_is_mobile() && $is_chrome ){

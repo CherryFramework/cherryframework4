@@ -4,7 +4,7 @@
  * @package    Cherry_Framework
  * @subpackage Class
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -290,7 +290,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			foreach ( $default_settings as $key => $value ) {
 				$section_name = $key;
 				$option_list = $value['options-list'];
-
 					foreach ($option_list as $optname => $value) {
 						if(array_key_exists($section_name, $loaded_settings)){
 							$default_settings[$section_name]['options-list'][$optname]['value'] = $loaded_settings[$section_name]['options-list'][$optname];

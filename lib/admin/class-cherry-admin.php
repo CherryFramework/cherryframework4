@@ -10,7 +10,7 @@ if ( !defined( 'WPINC' ) ) {
  * @package   Cherry_Framework
  * @version   4.0.0
  * @author    Cherry Team <support@cherryframework.com>
- * @copyright Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright Copyright (c) 2012 - 2015, Cherry Team
  * @link      http://www.cherryframework.com/
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -71,7 +71,16 @@ class Cherry_Admin {
 	 */
 	public function enqueue_admin_scripts( $hook_suffix ) {
 		if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
+			wp_enqueue_media();
 			wp_enqueue_script( 'admin-interface' );
+
+			$messages = array(
+				'no_file'      => __( 'Please, select import file', 'cherry' ),
+				'invalid_type' => __( 'Invalid file type', 'cherry' ),
+				'success'      => __( 'Cherry Options have been imported. Page will be refreshed to apply changes...', 'cherry' )
+			);
+
+			wp_localize_script( 'admin-interface', 'cherry_import_messages', $messages );
 		}
 	}
 
