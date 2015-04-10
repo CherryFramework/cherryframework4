@@ -236,7 +236,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 						</div>
 						<div class="info-box">
 							<div class="documentation-link">
-								<?php  echo __( 'For full documentation visit: ', 'cherry' ) ?><a href="http://google.com"><?php  echo __( 'google.com :)', 'cherry' ) ?></a>
+								<?php  echo __( 'Feel free to view detailed ', 'cherry' ) ?><a href="http://cherryframework.com/documentation/cf4/index_en.html"><?php  echo __( 'Cherry Framework 4 documentation', 'cherry' ) ?></a>
 							</div>
 						</div>
 						<?php settings_errors( 'cherry-options-group' ); ?>
