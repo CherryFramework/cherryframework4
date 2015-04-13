@@ -57,7 +57,22 @@ function cherry_display_sidebar( $id ) {
 				'is_front_page',
 			)
 		),
-		'sidebar-footer' => new Cherry_Sidebar(
+		'sidebar-footer-1' => new Cherry_Sidebar(
+			array(
+				'is_404',
+			)
+		),
+		'sidebar-footer-2' => new Cherry_Sidebar(
+			array(
+				'is_404',
+			)
+		),
+		'sidebar-footer-3' => new Cherry_Sidebar(
+			array(
+				'is_404',
+			)
+		),
+		'sidebar-footer-4' => new Cherry_Sidebar(
 			array(
 				'is_404',
 			)
