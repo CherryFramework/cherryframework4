@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Adds common theme items to <head>.
 add_action( 'wp_head', 'cherry_meta_charset',  0 );
 add_action( 'wp_head', 'cherry_doctitle',      0 );

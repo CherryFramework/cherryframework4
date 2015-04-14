@@ -11,6 +11,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Loads a post content template based.
 add_action( 'cherry_entry', 'cherry_get_content_template' );
 

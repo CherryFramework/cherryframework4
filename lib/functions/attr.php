@@ -11,6 +11,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 add_filter( 'cherry_attr_body',    'cherry_attr_body',    9 );
 add_filter( 'cherry_attr_header',  'cherry_attr_header',  9 );
 add_filter( 'cherry_attr_footer',  'cherry_attr_footer',  9 );

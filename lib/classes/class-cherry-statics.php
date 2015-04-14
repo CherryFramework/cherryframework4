@@ -1,4 +1,9 @@
 <?php
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Builds the definition for a single static area and returns the ID.
  *

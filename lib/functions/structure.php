@@ -1,4 +1,8 @@
 <?php
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
 
 // Header structure.
 add_action( 'cherry_header_before', 'cherry_header_wrap', 999 );

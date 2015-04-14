@@ -12,6 +12,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 add_action( 'cherry_comments_list', 'cherry_comments_default_list' );
 add_action( 'cherry_comments_nav',  'cherry_comments_nav' );
 

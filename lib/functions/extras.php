@@ -7,6 +7,11 @@
  * @package Cherry Framework
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
  *

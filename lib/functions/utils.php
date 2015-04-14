@@ -11,6 +11,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Load Cherry Framework scripts.
 add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts', 1 );
 
