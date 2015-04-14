@@ -32,7 +32,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Favicon image', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry' ),
+			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 32x32 px <br>You also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
 		),
 		'value'            => '',
 		'display_image'    => true,
@@ -1682,7 +1682,7 @@ function cherry_defaults_settings() {
 
 
 //////////////////////////////////////////////////////////////////////
-// SECTIONS
+// Sections
 //////////////////////////////////////////////////////////////////////
 
 	$sections_array = array();
