@@ -52,7 +52,7 @@ $footer_menu_typography = $cherry_css_vars['navigation-footer-menu-typography'] 
 
 
 
-<?php die ?>
+<?php //die ?>
 
 input[type="text"],
 input[type="search"],
