@@ -23,9 +23,9 @@ class Cherry_Interface_Builder {
 	 * @var   array
 	 */
 	private $options = array(
-		'name_prefix'   => 'cherry',
-		'pattern'       => 'inline',
-		'class'         => array(
+		'name_prefix'	=> 'cherry',
+		'pattern'		=> 'inline',
+		'class'			=> array(
 								'submit'  => '',
 								'text'    => 'widefat',
 								'label'   => '',
@@ -39,7 +39,7 @@ class Cherry_Interface_Builder {
 								'before_decsription' => '<small %1s>',
 								'after_decsription'  => '</small>',
 							),
-		'widget'        => array(
+		'widget'		=> array(
 								'id_base' => '',
 								'number'  => '',
 							),
@@ -149,11 +149,9 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: button button-primary
 				item_inline_style: ''
 			*/
-
 			case 'submit':
 				// $output .= '<input ' . $item_inline_style . ' class="' . $class . ' '.$this->options['class']['submit'].'" id="' . $id . '" name="' . $name . '" type="'.$type.'" value="' . esc_html( $value ) . '" >';
 				$type .= ' ' . $class;
@@ -168,7 +166,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: button button-primary
 				item_inline_style: ''
 			*/
@@ -182,7 +179,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
 			*/
@@ -197,7 +193,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
 			*/
@@ -211,7 +206,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
 				options:
@@ -233,7 +227,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
 				options:
@@ -256,7 +249,6 @@ class Cherry_Interface_Builder {
 				decsription: ''
 				placeholder: ''
 				value: ''
-				default_value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
 				options:
@@ -285,13 +277,14 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 			*/
 			case 'checkbox':
 				$output .= '<div class="cherry-fegr">';
-				$output .= '<input type="'.$type.'" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $id . '" name="' . $name . '" ' . checked( $default_value, $value, false ) . ' value="' . esc_html( $value ) . '" >';
+				$checked = ($value == 'true')?'checked':'';
+				$output .= '<div class="cherry-checkbox-item '. $checked .'"><span class="marker dashicons dashicons-yes"></span></div>';
+				$output .= '<input type="'.$type.'" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $id . '" name="' . $name . '" ' . checked( 'true', $value, false ) . ' value="' . esc_html( $value ) . '" >';
 				$output .= $this -> add_label($id, $label);
 				$output .= '</div>';
 			break;
@@ -302,7 +295,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 			*/
@@ -320,7 +312,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 			*/
@@ -368,7 +359,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 			*/
@@ -391,7 +381,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 			*/
@@ -421,7 +410,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 			*/
@@ -506,7 +494,6 @@ class Cherry_Interface_Builder {
 					$output .= '</div>';
 				$output .= '</div>';
 			break;
-
 			/*
 			arg:
 				type: multicheckbox
@@ -514,11 +501,10 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 				options:
-					key => ''
+				key => ''
 			*/
 			case 'multicheckbox':
 				if($options && !empty($options) && is_array($options)){
@@ -532,6 +518,8 @@ class Cherry_Interface_Builder {
 							$option_checked = '';
 						}
 						$output .= '<div class="cherry-fegr">';
+						$checked = ($option_checked !== '')?'checked':'';
+						$output .= '<div class="cherry-checkbox-item ' . $checked . '"><span class="marker dashicons dashicons-yes"></span></div>';
 						$output .= '<input type="checkbox" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $checkbox_id . '" name="' . $name . '" ' . checked( $option_checked, $option, false ) . ' value="' . esc_html( $option ) . '" >';
 						$output .= $this -> add_label($checkbox_id, $option_value);
 						$output .= '</div>';
@@ -545,7 +533,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 				display_input: true/false
@@ -566,8 +553,8 @@ class Cherry_Interface_Builder {
 						$concat_id         = $id . '-' . $option;
 						$radio_id          = $this->generate_field_id( $concat_id, false );
 						$item_inline_style = $display_input ? $item_inline_style : 'style="' . $inline_style . ' display:none;"';
-						$img               = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? '<img src="' . esc_url( $option_value['img_src'] ) . '" alt="' . esc_html( $option_value['label'] ) . '"><span class="check"><i class="dashicons dashicons-yes"></i></span>' : '';
-						$class_box         = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? ' cherry-radio-img' . $checked : '';
+						$img               = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? '<img src="' . esc_url( $option_value['img_src'] ) . '" alt="' . esc_html( $option_value['label'] ) . '"><span class="check"><i class="dashicons dashicons-yes"></i></span>' : '<span class="cherry-radio-item"><i></i></span>';
+						$class_box         = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? ' cherry-radio-img' . $checked : ' cherry-radio-item' . $checked;
 
 						$output .= '<div class="cherry-fegr' . $class_box . '">';
 						$output .= '<input type="' . $type . '" ' . $item_inline_style . ' class="cherry-input ' . sanitize_html_class( $class ) . '" id="' . esc_attr( $radio_id ) . '" name="' . esc_attr( $name ) . '" ' . checked( $option, $value, false ) . ' value="' . esc_attr( $option ) . '">';
@@ -585,7 +572,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				item_inline_style: ''
 				upload_button_text:Choose Image
 				remove_button_text:Remove Image
@@ -665,7 +651,6 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 				class: ''
 				item_inline_style: ''
 			*/
@@ -682,7 +667,6 @@ class Cherry_Interface_Builder {
 				max_value: 100
 				min_value: 0
 				value_step: 1
-				default_value: ''
 				class: widefat
 				item_inline_style: ''
 			*/
@@ -798,7 +782,6 @@ class Cherry_Interface_Builder {
 				title: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 			*/
 			case 'editor':
 				//$wrap = false;
@@ -836,7 +819,6 @@ class Cherry_Interface_Builder {
 							'position'	=> '',
 							'attachment'=> ''
 							)
-				default_value: ''
 				display_image: true/false
 			*/
 			case 'background':
@@ -974,7 +956,6 @@ class Cherry_Interface_Builder {
 				title: ''
 				decsription: ''
 				value: ''
-				default_value: ''
 			*/
 			case 'info':
 				$output .= '<div class="main-title_">' . $this->add_title( $value ) . '</div>';
@@ -986,17 +967,15 @@ class Cherry_Interface_Builder {
 				label: ''
 				decsription: ''
 				value: array(
-							'size'		=> '',
-							'lineheight'=> '',
-							'family'		=> '',
-							'style'	=> '',
-							'character'	=> '',
-							'color'	=> ''
-							)
-				default_value: ''
+					'size'		=> '',
+					'lineheight'=> '',
+					'family'		=> '',
+					'style'	=> '',
+					'character'	=> '',
+					'color'	=> ''
+					)
 			*/
 			case 'typography':
-			//var_dump($value);
 				$text_align = array(
 					'notdefined' => __( 'Not defined', 'cherry' ),
 					'inherit'    => __( 'Inherit', 'cherry' ),
