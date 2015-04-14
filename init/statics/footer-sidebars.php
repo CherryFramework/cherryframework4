@@ -9,9 +9,9 @@
  */
 
 /**
- * Footer sidebar static
+ * Footer sidebars static
  */
-class cherry_footer_sidebar_static extends cherry_register_static {
+class cherry_footer_sidebars_static extends cherry_register_static {
 
 	/**
 	 * Callbck method for registered static
@@ -28,7 +28,7 @@ class cherry_footer_sidebar_static extends cherry_register_static {
 /**
  * Call footer sidebar static registration
  */
-new cherry_footer_sidebar_static(
+new cherry_footer_sidebars_static(
 	array(
 		'name'    => __( 'Footer Sidebars', 'cherry' ),
 		'id'      => 'footer_sidebars',

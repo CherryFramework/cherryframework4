@@ -438,6 +438,8 @@ function cherry_get_the_post_image( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
+	wp_enqueue_script( 'cherry-magnific-popup' );
+
 	$default_init = array(
 		'type' => 'image'
 	);
@@ -690,6 +692,8 @@ function cherry_get_gallery_html( $images ) {
 	 */
 	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
+
+	wp_enqueue_script( 'cherry-slick' );
 
 	$default_slider_init = array(
 		'infinite' => true,

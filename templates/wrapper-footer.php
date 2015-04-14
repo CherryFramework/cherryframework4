@@ -1,3 +1,4 @@
-<?php cherry_static_area('footer-top'); ?>
-
-<?php cherry_static_area('footer-bottom'); ?>
+<?php
+	cherry_static_area( 'footer-top' );
+	cherry_static_area( 'footer-bottom' );
+?>

@@ -24,15 +24,36 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		private $option_inteface_builder = null;
 
 		/**
+		 * URL to get exported options file download
+		 * @since 4.0.0
+		 * @var   string
+		 */
+		public $options_export_url = null;
+
+
+		/**
 		* Cherry_Options_Framework_Admin constructor
 		*
 		* @since 4.0.0
 		*/
 
 		function __construct() {
+
+			// attach import/export options handlers
+			add_action( 'wp_ajax_cherry_export_options', array( $this, 'export_options' ) );
+			add_action( 'wp_ajax_cherry_import_options', array( $this, 'import_options' ) );
+
+			// add options to allowed MIME types
+			add_filter( 'upload_mimes', array( $this, 'add_options_mime' ) );
+
 			$this->init();
 
+			$url = add_query_arg(
+				array( 'action' => 'cherry_export_options' ),
+				admin_url( 'admin-ajax.php' )
+			);
 
+			$this->options_export_url = wp_nonce_url( $url, 'cherry_export' );
 		}
 
 		private function init(){
@@ -83,20 +104,155 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
+		 * Add options to allowed MIME types
+		 *
+		 * @since  4.0.0
+		 */
+		function add_options_mime( $mime_types ){
+			$mime_types['options'] = 'cherry/options';
+			return $mime_types;
+		}
+
+		/**
+		 * Process options export
+		 *
+		 * @since 4.0.0
+		 */
+		public function export_options() {
+
+			if ( ! isset( $_GET['_wpnonce'] ) || ! wp_verify_nonce( $_GET['_wpnonce'], 'cherry_export' ) ) {
+				wp_die( __( 'Invalid request', 'cherry' ), __( 'Error. Invalid request', 'cherry' ) );
+			}
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_die( __( 'Invalid request', 'cherry' ), __( 'Error. Invalid request', 'cherry' ) );
+			}
+
+			$settings = get_option( 'cherry-options' );
+			$options  = get_option( $settings['id'] );
+
+			$options = json_encode( $options );
+
+			$filename = 'options-export-' . gmdate( "d-m-Y-His" ) . '.options';
+			$now      = gmdate( "D, d M Y H:i:s" );
+			// disable caching
+			header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
+			header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
+			header("Last-Modified: {$now} GMT");
+
+			// force download
+			header("Content-Type: application/force-download");
+			header("Content-Type: application/octet-stream");
+			header("Content-Type: application/download");
+
+			// disposition / encoding on response body
+			header("Content-Disposition: attachment;filename={$filename}");
+			header("Content-Transfer-Encoding: binary");
+
+			echo $options;
+
+			exit();
+
+		}
+
+		/**
+		 * Ajax import options
+		 *
+		 * @since 4.0.0
+		 */
+		function import_options() {
+
+			$validate = check_ajax_referer( 'cherry_import_options', 'nonce', false );
+			if ( ! $validate ) {
+				wp_send_json( array( 'type' => 'error' ) );
+			}
+
+			if ( ! isset( $_REQUEST['file'] ) || ! isset( $_REQUEST['type'] ) ) {
+				wp_send_json( array( 'type' => 'error' ) );
+			}
+
+			if ( 'cherry/options' != $_REQUEST['type'] ) {
+				wp_send_json( array( 'type' => 'error' ) );
+			}
+
+			// init WP filesystem
+			global $wp_filesystem;
+
+			$url = admin_url();
+
+			// First attempt to get credentials.
+			if ( false === ( $creds = request_filesystem_credentials( $url, '', true, false, null ) ) ) {
+				/**
+				 * If we comes here - we don't have credentials
+				 * so the request for them is displaying
+				 * no need for further processing.
+				 **/
+				wp_send_json( array( 'type' => 'error' ) );
+			}
+
+			// Now we got some credentials - try to use them.
+			if ( ! WP_Filesystem( $creds ) ) {
+
+				// Incorrect connection data - ask for credentials again, now with error message.
+				request_filesystem_credentials( $url, '', true, false );
+
+				wp_send_json( array( 'type' => 'error' ) );
+			}
+
+			// get export file content
+			$import_file = get_attached_file( $_REQUEST['file'] );
+
+			if ( ! $import_file ) {
+				wp_send_json( array( 'type' => 'error' ) );
+			}
+
+			$import_file = str_replace( ABSPATH, $wp_filesystem->abspath(), $import_file );
+			$import_data = $wp_filesystem->get_contents( $import_file );
+
+			$import_options = json_decode( $import_data, true );
+			$this->options_import_array = $import_options;
+
+			if ( ! is_array( $import_options ) || empty( $import_options ) ) {
+				wp_send_json( array( 'type' => 'error' ) );
+			}
+
+			// get current options array
+			$settings        = get_option( 'cherry-options' );
+			$current_options = get_option( $settings['id'] );
+
+			$result = array();
+
+			foreach ( $current_options as $section => $data ) {
+				foreach ( $data['options-list'] as $opt => $val ) {
+
+					if ( isset( $import_options[$section]['options-list'][$opt] ) ) {
+						$result[$section]['options-list'][$opt] = $import_options[$section]['options-list'][$opt];
+					} else {
+						$result[$section]['options-list'][$opt] = $current_options[$section]['options-list'][$opt];
+					}
+
+				}
+			}
+
+			update_option( $settings['id'], $result );
+
+			wp_send_json( array( 'type' => 'success' ) );
+		}
+
+		/**
 		 * Registers the settings
 		 *
 		 * @since 4.0.0
 		 */
 		function settings_init() {
 			// Load Options Framework Settings
-		$cherry_options_settings = get_option( 'cherry-options' );
-			register_setting( 'cherry-options-group', $cherry_options_settings['id'],  array ( $this, 'validate_options' ) );
+			$cherry_options_settings = get_option( 'cherry-options' );
+			register_setting( 'cherry-options-group', $cherry_options_settings['id'], array( $this, 'validate_options' ) );
 		}
 
 		/**
 		 * Display message when options have been saved
 		 */
-
 		function save_options_notice() {
 			add_settings_error( 'cherry-options-group', 'save-options', __( 'Options saved', 'cherry-options' ), 'updated slide_up' );
 		}
@@ -104,7 +260,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		/**
 		 * Display message when section have been restored
 		 */
-
 		function restore_section_notice() {
 			$tmp_active_section = apply_filters( 'cherry_set_active_section', '' );
 			$message            = sprintf( __( 'Section %s restored', 'cherry-options' ), $tmp_active_section );
@@ -237,7 +392,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 						</div>
 						<div class="info-box">
 							<div class="documentation-link">
-								<?php  echo __( 'For full documentation visit: ', 'cherry' ) ?><a href="http://cherryframework.com/documentation/cf4/index_en.html#getting_started"><?php  echo __( 'Cherry Framework 4 documentation ', 'cherry' ) ?></a>
+								<?php  echo __( 'Feel free to view detailed ', 'cherry' ) ?><a href="http://cherryframework.com/documentation/cf4/index_en.html"><?php  echo __( 'Cherry Framework 4 documentation', 'cherry' ) ?></a>
 							</div>
 						</div>
 						<?php settings_errors( 'cherry-options-group' ); ?>
@@ -275,6 +430,18 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 										);
 										//echo $this->option_inteface_builder->multi_output_items( $submitSection );
 									?>
+									<div class="cherry-options-export-import">
+										<div class="wrap-cherry-export-options">
+											<a href="<?php echo esc_url( $this->options_export_url ) ?>" id="cherry-export-options" class="button button-default_">
+												<?php _e( 'Export', 'cherry' ); ?>
+											</a>
+										</div>
+										<div class="wrap-cherry-import-options">
+											<a href="#" id="cherry-import-options" class="button button-default_">
+												<?php _e( 'Import', 'cherry' ); ?>
+											</a>
+										</div>
+									</div>
 									<div id="wrap-cherry-save-options">
 										<?php echo get_submit_button( $submitSection['save-options']['value'], 'button-primary_', 'cherry[save-options]', false ); ?>
 									</div>
@@ -286,6 +453,21 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 									</div>
 								</div>
 							</form>
+							<div class="cherry-ui-core">
+								<div class="cherry-options-import">
+									<div class="cherry-import-file-name"></div>
+									<?php wp_nonce_field( 'cherry_import_options', 'import-options-nonce', false ); ?>
+									<input type="hidden" autocomplete="off" id="cherry-import-options-file-id" value="">
+									<input type="hidden" autocomplete="off" id="cherry-import-options-file-type" value="">
+									<a href="#" id="cherry-import-options-file" class="button button-default_">
+										<?php _e( 'Select file', 'cherry' ); ?>
+									</a>
+									<a href="#" id="cherry-import-options-start" class="button button-primary_">
+										<?php _e( 'Start import', 'cherry' ); ?>
+									</a>
+									<span class="spinner"></span>
+								</div>
+							</div>
 					</div>
 				<?php
 		}
@@ -383,5 +565,4 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 	}//end  Cherry_Options_Framework_Admin class
 }//endif class exist
-
 ?>

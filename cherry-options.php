@@ -32,7 +32,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Favicon image', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 64x64 px <br>You also upload favicon for retina displays. Max retina icon size: 144x144 px', 'cherry' ),
+			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 32x32 px <br>You also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
 		),
 		'value'            => '',
 		'display_image'    => true,
@@ -204,111 +204,12 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 
 	$blog_options = array();
-
-	// Featured
-	// $blog_options['blog-list-layout'] = array(
-	// 	'type'          => 'radio',
-	// 	'title'         => __( 'Blog list layout', 'cherry' ),
-	// 	'label'         => __( 'Blog list layout', 'cherry' ),
-	// 	'decsription'   => __( 'Choose blog page layout.', 'cherry' ),
-	// 	'value'         => 'masonry',
-	// 	'display_input' => false,
-	// 	'options'       => array(
-	// 		'masonry' => array(
-	// 			'label'   => 'Masonry',
-	// 			'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-masonry.svg'
-	// 		),
-	// 		'grid' => array(
-	// 			'label'   => 'Grid',
-	// 			'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-grid.svg'
-	// 		),
-	// 		'list' => array(
-	// 			'label'   => 'List',
-	// 			'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/list-layout-checkerlist.svg',
-	// 		),
-	// 	)
-	// );
-
-	// $blog_options['blog-images-page-scroll'] = array(
-	// 	'type'        => 'switcher',
-	// 	'title'       => 'Should images be uploaded on page scroll?',
-	// 	'label'       => 'Enable / Disable',
-	// 	'decsription' => 'You can enable images load only as you scroll down the page. Otherwise images will load all at once.',
-	// 	'hint'        => array(
-	// 		'type'    => 'text',
-	// 		'content' => '',
-	// 	),
-	// 	'value'         => 'true',
-	// 	'default_value' => 'true',
-	// );
-
-	// $blog_options['blog-view-number'] = array(
-	// 	'type'        => 'switcher',
-	// 	'title'       => 'Number of view.',
-	// 	'label'       => 'Enable / Disable',
-	// 	'decsription' => 'Should the number of view be displayed?',
-	// 	'hint'        => array(
-	// 		'type'    => 'text',
-	// 		'content' => '',
-	// 	),
-	// 	'value'         => 'true',
-	// 	'default_value' => 'true',
-	// );
-
-	// $blog_options['blog-likes-number'] = array(
-	// 	'type'        => 'switcher',
-	// 	'title'       => 'Number of likes.',
-	// 	'label'       => 'Enable / Disable',
-	// 	'decsription' => 'Should the number of likes be displayed?',
-	// 	'hint'        => array(
-	// 		'type'    => 'text',
-	// 		'content' => '',
-	// 	),
-	// 	'value'         => 'true',
-	// 	'default_value' => 'true',
-	// );
-
-	// $blog_options['blog-dislikes-number'] = array(
-	// 	'type'        => 'switcher',
-	// 	'title'       => 'Number of dislikes.',
-	// 	'label'       => 'Enable / Disable',
-	// 	'decsription' => 'Should the number of dislikes be displayed?',
-	// 	'hint'        => array(
-	// 		'type'    => 'text',
-	// 		'content' => '',
-	// 	),
-	// 	'value'         => 'true',
-	// 	'default_value' => 'true',
-	// );
-	// $blog_options['blog-meta-type-view'] = array(
-	// 	'type'			=> 'radio',
-	// 	'title'			=> 'view meta of the blog.',
-	// 	'label'			=> 'choose one of them',
-	// 	'decsription'	=> '',
-	// 	'hint'      	=> array(
-	// 		'type'    => 'text',
-	// 		'content' => 'Select meta block type which will be displayed on blog and post pages.',
-	// 	),
-	// 	'value'         => 'blog-meta-type-view-line',
-	// 	'class'         => '',
-	// 	'display-input' => true,
-	// 	'options'       => array(
-	// 		'blog-meta-type-view-line' => array(
-	// 			'label'   => 'Do not show.',
-	// 		),
-	// 		'blog-meta-type-view-icon' => array(
-	// 			'label'   => 'Lines',
-	// 		),
-	// 	)
-	// );
-
 	$blog_options['blog-featured-images'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Featured Media', 'cherry' ),
 		'decsription' => __( 'Displays Featured Image, Gallery, Audio, Video in blog posts listing depending on post type.', 'cherry' ),
 		'value'       => 'true',
 	);
-
 	$blog_options['blog-featured-images-size'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Featured Image Size', 'cherry' ),
@@ -319,7 +220,6 @@ function cherry_defaults_settings() {
 			'thumb-l' => __( 'Large', 'cherry' ),
 		)
 	);
-
 	$blog_options['blog-featured-images-align'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Featured Image Alignment', 'cherry' ),
@@ -332,7 +232,6 @@ function cherry_defaults_settings() {
 			'aligncenter' => __( 'Center', 'cherry' ),
 		)
 	);
-
 	$blog_options['blog-content-type'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Post content', 'cherry' ),
@@ -347,7 +246,6 @@ function cherry_defaults_settings() {
 			'full' => __( 'Full', 'cherry' ),
 		)
 	);
-
 	$blog_options['blog-excerpt-length'] = array(
 		'type'        => 'slider',
 		'title'       => __( 'Post part length', 'cherry' ),
@@ -359,7 +257,6 @@ function cherry_defaults_settings() {
 		'min_value'   => 1,
 		'value'       => 55,
 	);
-
 	$blog_options['blog-button'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'More button', 'cherry' ),
@@ -369,7 +266,6 @@ function cherry_defaults_settings() {
 		),
 		'value'       => 'true',
 	);
-
 	$blog_options['blog-button-text'] = array(
 		'type'  => 'text',
 		'title' => __( 'More button label', 'cherry' ),
@@ -382,14 +278,12 @@ function cherry_defaults_settings() {
 
 	// Post
 	////////////////////////////////////////////////////////////////////////
-
 	$post_single_options['blog-post-featured-image'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Featured Image', 'cherry' ),
 		'decsription' => __( 'Показывать Featured Image на странице single поста', 'cherry' ),
 		'value'       => 'true',
 	);
-
 	$post_single_options['blog-post-featured-image-size'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Size for Featured Image', 'cherry' ),
@@ -400,7 +294,6 @@ function cherry_defaults_settings() {
 			'thumb-l' => __( 'Large', 'cherry' ),
 		)
 	);
-
 	$post_single_options['blog-post-featured-image-align'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Alignment for Featured Image', 'cherry' ),
@@ -413,7 +306,6 @@ function cherry_defaults_settings() {
 			'aligncenter' => __( 'Center', 'cherry' ),
 		)
 	);
-
 	$post_single_options['blog-post-author-bio'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Author bio', 'cherry' ),
@@ -423,7 +315,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-
 	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Related posts', 'cherry' ),
@@ -433,7 +324,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-
 	$post_single_options['blog-comment-status'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Allow comments', 'cherry' ),
@@ -443,7 +333,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-
 	$post_single_options['blog-gallery-shortcode'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Gallery slider', 'cherry' ),
@@ -456,7 +345,6 @@ function cherry_defaults_settings() {
 
 	// Meta
 	////////////////////////////////////////////////////////////////////////
-
 	$post_meta_options['blog-post-date'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Date', 'cherry' ),
@@ -466,7 +354,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-
 	$post_meta_options['blog-post-author'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Author', 'cherry' ),
@@ -476,7 +363,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-
 	$post_meta_options['blog-post-comments'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Comments', 'cherry' ),
@@ -486,7 +372,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-
 	$post_meta_options['blog-categories'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Categories', 'cherry' ),
@@ -496,7 +381,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-
 	$post_meta_options['blog-tags'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Tags', 'cherry' ),
@@ -506,19 +390,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-
-	// $blog_options['blog-direct-link'] = array(
-	// 	'type'        => 'switcher',
-	// 	'title'       => 'Direct link to the post.',
-	// 	'label'       => 'Enable / Disable',
-	// 	'decsription' => 'Should the direct link to the post be displayed?',
-	// 	'hint'        => array(
-	// 		'type'    => 'text',
-	// 		'content' => '',
-	// 	),
-	// 	'value'         => 'true',
-	// 	'default_value' => 'true',
-	// );
 
 //////////////////////////////////////////////////////////////////////
 // Styling options
@@ -1681,7 +1552,7 @@ function cherry_defaults_settings() {
 
 
 //////////////////////////////////////////////////////////////////////
-// SECTIONS
+// Sections
 //////////////////////////////////////////////////////////////////////
 
 	$sections_array = array();

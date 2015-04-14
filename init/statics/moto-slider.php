@@ -42,12 +42,12 @@ class cherry_moto_slider_static extends cherry_register_static {
 		$select_options = $this->get_sliders_list();
 
 		$options['moto_slider_alias'] = array(
-			'type'			=> 'select',
-			'label'			=> __( 'Select MotoSlider to show in header', 'cherry' ),
-			'decsription'	=> __( 'Select main theme slider', 'cherry' ),
-			'value'			=> '',
-			'class'			=> 'width-full',
-			'options'		=> $select_options
+			'type'        => 'select',
+			'label'       => __( 'Select MotoSlider to show in header', 'cherry' ),
+			'decsription' => __( 'Select main theme slider', 'cherry' ),
+			'value'       => '',
+			'class'       => 'width-full',
+			'options'     => $select_options,
 		);
 
 		return $options;
@@ -99,7 +99,7 @@ if ( in_array(
 				'col-xs'   => 'col-xs-12',
 				'class'    => 'moto-slider',
 				'priority' => 1,
-				'area'     => 'header-bottom',
+				'area'     => 'showcase-area',
 			)
 		)
 	);
