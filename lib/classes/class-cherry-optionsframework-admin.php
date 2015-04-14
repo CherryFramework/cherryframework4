@@ -206,11 +206,12 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				$section_index = 0;
 				//save options
 				if(isset($_POST['cherry']['save-options'])){
-					$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
-					do_action('cherry-options-updated');
 					//$location = add_query_arg( array( 'saved' => 'true' ), menu_page_url( 'cherry-options', 0 ) );
 					//wp_redirect( $location );
 					//exit;
+
+					$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
+					do_action('cherry-options-updated');
 				}
 				//restore section
 				if(isset($_POST['cherry']['restore-section'])){
@@ -236,7 +237,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 						</div>
 						<div class="info-box">
 							<div class="documentation-link">
-								<?php  echo __( 'For full documentation visit: ', 'cherry' ) ?><a href="http://google.com"><?php  echo __( 'google.com :)', 'cherry' ) ?></a>
+								<?php  echo __( 'For full documentation visit: ', 'cherry' ) ?><a href="http://cherryframework.com/documentation/cf4/index_en.html#getting_started"><?php  echo __( 'Cherry Framework 4 documentation ', 'cherry' ) ?></a>
 							</div>
 						</div>
 						<?php settings_errors( 'cherry-options-group' ); ?>
