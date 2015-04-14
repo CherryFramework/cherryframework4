@@ -89,8 +89,15 @@
 		textarea{
 			width: 100%
 		}
-		input[type=checkbox], input[type=radio]{
-			display: inline-block;
+		input[type=checkbox]{
+			display: none;
+			& + label{
+				display: inline-block;
+				margin: 2px 0 7px 0;
+			}
+		}
+		input[type=radio]{
+			display: none;
 			& + label{
 				display: inline-block;
 			}
@@ -109,6 +116,29 @@
 			width: 100%;
 		}
 		/*End text input size*/
+		.cherry-checkbox-item{
+			width: 21px;
+			height: 21px;
+			//zdasdisplay: inline-block;
+			float: left;
+			border-radius: 3px;
+			margin-right: 5px;
+			cursor: pointer;
+			position: relative;
+			background-color: #fff;
+			border: 1px solid #dddcdc;
+				&.checked{
+					.marker{
+						display: block;
+					}
+				}
+				.marker{
+					position: absolute;
+					top: 0;
+					left: 0;
+					display: none;
+				}
+		}
 		/*Cherry stepper style*/
 		.cherry-stepper-input{
 			max-width: 90px;
@@ -533,6 +563,35 @@
 		}
 		/*End cherry color picker style*/
 		/*Cherry radio buttons style*/
+		.cherry-radio-item{
+			span{
+				width: 17px;
+				height: 17px;
+				border-radius: 20px;
+				margin-right: 5px;
+				cursor: pointer;
+				position: relative;
+				background-color: #fff;
+				border: 1px solid #dddcdc;
+				display: inline-block;
+				float: left;
+					i{
+						width: 9px;
+						height: 9px;
+						background-color: #444444;
+						margin: 4px;
+						border-radius: 20px;
+						display: none;
+					}
+			}
+		}
+		.cherry-radio-item.checked{
+			span{
+				i{
+					display: inline-block;
+				}
+			}
+		}
 		.cherry-radio-img {
 			float: left;
 			margin: 10px 10px 0 5px;
@@ -545,37 +604,37 @@
 				margin: 0 0 5px 0;
 				pointer-events: none;
 			}
-				.check {
-					display: none;
-					background-color: #fff;
-					box-shadow: 0 0 0 0px #FFF,0 0 0 2px #8bc735;
-					height: 28px;
+			.check {
+				display: none;
+				background-color: #fff;
+				box-shadow: 0 0 0 0px #FFF,0 0 0 2px #8bc735;
+				height: 28px;
+				width: 28px;
+				position: absolute;
+				top: -8px;
+				right: -8px;
+				outline: 0;
+				border-radius: 15px;
+				box-sizing: content-box;
+				i{
+					color: #8bc735;
+					font-size: 36px;
 					width: 28px;
-					position: absolute;
-					top: -8px;
-					right: -8px;
-					outline: 0;
-					border-radius: 15px;
-					box-sizing: content-box;
-					i{
-						color: #8bc735;
-						font-size: 36px;
-						width: 28px;
-						height: 28px;
-						&:before{
-							position: relative;
-							top: -3px;
-							left: -5px;
-						}
+					height: 28px;
+					&:before{
+						position: relative;
+						top: -3px;
+						left: -5px;
 					}
-						.media-modal-icon{
-							background-position: -21px 0;
-							height: 15px;
-							width: 15px;
-							margin: 5px;
-							display: block;
-						}
 				}
+					.media-modal-icon{
+						background-position: -21px 0;
+						height: 15px;
+						width: 15px;
+						margin: 5px;
+						display: block;
+					}
+			}
 		}
 		.cherry-radio-img.checked{
 			font-weight: 600;
