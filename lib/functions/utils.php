@@ -35,7 +35,7 @@ function cherry_enqueue_utility_scripts() {
 
 		wp_register_script(
 			'jquery-easing',
-			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.js' ), array( 'jquery' ), '3.1.0', true
+			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.min.js' ), array( 'jquery' ), '3.1.0', true
 		);
 		wp_register_script(
 			'jquery-smoothscroll',
@@ -51,7 +51,7 @@ function cherry_enqueue_utility_scripts() {
 
 		wp_enqueue_script(
 			'cherry-stick-up',
-			esc_url( $cherry_url . 'assets/js/jquery.cherry.stickup.js' ), array( 'jquery' ), '1.0.0', true
+			esc_url( $cherry_url . 'assets/js/jquery.cherry.stickup.min.js' ), array( 'jquery' ), '1.0.0', true
 		);
 
 	}
