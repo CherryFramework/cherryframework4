@@ -1,0 +1,548 @@
+<?php
+/**
+ * Utils Functions
+ * Enqueue util scripts, CSS util functions
+ *
+ * @package    Cherry_Framework
+ * @subpackage Functions
+ * @author     Cherry Team <support@cherryframework.com>
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
+ * @link       http://www.cherryframework.com/
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
+
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
+// Load Cherry Framework scripts.
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts', 1 );
+
+/**
+ * Enqueue utility scripts
+ * @since  4.0.0
+ */
+function cherry_enqueue_utility_scripts() {
+
+	global $is_chrome;
+
+	$smooth_scroll = cherry_get_option( 'general-smoothscroll' );
+	$header_sticky = cherry_get_option( 'header-sticky' );
+	$cherry_url    = trailingslashit( CHERRY_URI );
+
+	if( "false" != $smooth_scroll ) {
+
+		wp_register_script(
+			'jquery-easing',
+			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.min.js' ), array( 'jquery' ), '3.1.0', true
+		);
+		wp_register_script(
+			'jquery-smoothscroll',
+			esc_url( $cherry_url . 'assets/js/jquery.smoothscroll.js' ), array( 'jquery', 'jquery-easing' ), '3.0.6', true
+		);
+
+		if( !wp_is_mobile() && $is_chrome ){
+			wp_enqueue_script( 'jquery-smoothscroll' );
+		}
+	}
+
+	if( "false" != $header_sticky ) {
+
+		wp_enqueue_script(
+			'cherry-stick-up',
+			esc_url( $cherry_url . 'assets/js/jquery.cherry.stickup.min.js' ), array( 'jquery' ), '1.0.0', true
+		);
+
+	}
+
+}
+
+/**
+ * Make passed color darken
+ *
+ * @since  4.0.0
+ *
+ * @param  string  $color  HEX or RGB(A) color value
+ * @param  float   $darken darken percent (0-100)
+ * @return string          processed color
+ */
+function cherry_colors_darken( $color, $darken = 0 ) {
+
+	if ( ! $color ) {
+		return false;
+	}
+
+	$prepared_data = cherry_prepare_color_mod( $color, $darken );
+
+	if ( ! $prepared_data || ! is_array( $prepared_data ) ) {
+		return false;
+	}
+
+	$r       = $prepared_data['r'];
+	$g       = $prepared_data['g'];
+	$b       = $prepared_data['b'];
+	$a       = $prepared_data['a'];
+	$percent = $prepared_data['percent'];
+
+	// Calc darken vals
+	$r = round( $r - 255*$percent, 0 );
+	$g = round( $g - 255*$percent, 0 );
+	$b = round( $b - 255*$percent, 0 );
+
+	$r = $r < 0 ? 0 : $r;
+	$g = $g < 0 ? 0 : $g;
+	$b = $b < 0 ? 0 : $b;
+
+	if ( false !== $a ) {
+		return sprintf( 'rgba(%s,%s,%s,%s)', $r, $g, $b, $a );
+	} else {
+		return sprintf( 'rgb(%s,%s,%s)', $r, $g, $b );
+	}
+
+}
+
+/**
+ * Make passed color lighten
+ *
+ * @since  4.0.0
+ *
+ * @param  string  $color   HEX or RGB(A) color value
+ * @param  float   $lighten lighten percent (0-100)
+ * @return string           processed color
+ */
+function cherry_colors_lighten( $color, $lighten = 0 ) {
+
+	if ( ! $color ) {
+		return false;
+	}
+
+	$prepared_data = cherry_prepare_color_mod( $color, $lighten );
+
+	if ( ! $prepared_data || ! is_array( $prepared_data ) ) {
+		return false;
+	}
+
+	$r       = $prepared_data['r'];
+	$g       = $prepared_data['g'];
+	$b       = $prepared_data['b'];
+	$a       = $prepared_data['a'];
+	$percent = $prepared_data['percent'];
+
+	// Calc lighten vals
+	$r = round( $r + 255*$percent, 0 );
+	$g = round( $g + 255*$percent, 0 );
+	$b = round( $b + 255*$percent, 0 );
+
+	$r = $r > 255 ? 255 : $r;
+	$g = $g > 255 ? 255 : $g;
+	$b = $b > 255 ? 255 : $b;
+
+	if ( false !== $a ) {
+		return sprintf( 'rgba(%s,%s,%s,%s)', $r, $g, $b, $a );
+	} else {
+		return sprintf( 'rgb(%s,%s,%s)', $r, $g, $b );
+	}
+
+}
+
+/**
+ * Select contast color for passed from 2 proposed.
+ * 1st proposed color must be light - it will selected if passed color is dark,
+ * 2nd selected if passed is light, so it must be darken
+ *
+ * @since  4.0.0
+ *
+ * @param  string $color     color to get contrast for
+ * @param  string $if_dark   return this if we had dark color
+ * @param  string $if_light  return this if we had light color
+ * @return string
+ */
+function cherry_contrast_color( $color, $if_dark = '#ffffff', $if_light = '#000000' ) {
+
+	if ( ! $color ) {
+		return false;
+	}
+
+	$prepared_data = cherry_prepare_color_mod( $color, 100 );
+
+	if ( ! $prepared_data || ! is_array( $prepared_data ) ) {
+		return false;
+	}
+
+	$r = $prepared_data['r'];
+	$g = $prepared_data['g'];
+	$b = $prepared_data['b'];
+
+	$luminance = 0.299 * $r + 0.587 * $g + 0.114 * $b;
+
+	if ( $luminance >= 127 ) {
+		return $if_light;
+	} else {
+		return $if_dark;
+	}
+}
+
+/**
+ * Prepare color to modify.
+ * Bring passed color and change percent to array
+ * with R, G, B color values, opacity (if provided)
+ * and change percentage
+ *
+ * @since  4.0.0
+ *
+ * @param  string  $color   HEX or RGB(A) color value
+ * @param  float   $percent modify percent (0-100)
+ * @return array            prepared color and modify percent
+ */
+function cherry_prepare_color_mod( $color, $percent = 0 ) {
+
+	$is_rgba = ( false !== strpos( $color, 'rgba' ) ) ? true : false;
+	$is_rgb  = ( false !== strpos( $color, 'rgb' ) && false === $is_rgba ) ? true : false;
+	$is_hex  = ( false === $is_rgba && false === $is_rgb ) ? true : false;
+
+	$percent = round( (double)$percent / 100, 4 );
+
+	if ( $is_hex && '#' == $color[0] ) {
+		$color = substr( $color, 1 );
+	}
+
+	// prepare hex color
+	if ( $is_hex && strlen( $color ) == 6 ) {
+		list( $r, $g, $b ) = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+	} elseif ( $is_hex && strlen( $color ) == 3 ) {
+		list( $r, $g, $b ) = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+	} elseif ( $is_hex ) {
+		return false;
+	}
+
+	if ( $is_hex ) {
+		$r = hexdec( $r );
+		$g = hexdec( $g );
+		$b = hexdec( $b );
+	}
+
+	$color = str_replace( ' ', '', $color );
+
+	// prepare RGBA
+	if ( $is_rgba ) {
+		preg_match( '/rgba\((.*)\)/', $color, $matches );
+		if ( ! is_array( $matches ) || empty( $matches[1] ) ) {
+			return false;
+		}
+		list( $r, $g, $b, $a ) = explode( ',', $matches[1] );
+	}
+
+	// prepare RGB
+	if ( $is_rgb ) {
+		preg_match( '/rgb\((.*)\)/', $color, $matches );
+		if ( ! is_array( $matches ) || empty( $matches[1] ) ) {
+			return false;
+		}
+		list( $r, $g, $b ) = explode( ',', $matches[1] );
+	}
+
+	$result = array(
+		'r'       => $r,
+		'g'       => $g,
+		'b'       => $b,
+		'a'       => isset( $a ) ? $a : false,
+		'percent' => $percent,
+	);
+
+	return $result;
+}
+
+/**
+ * Get background CSS by bg data from options and selector
+ * If passed multiplie images - returns retina ready CSS
+ *
+ * @since  4.0.0
+ *
+ * @param  string $selector CSS selector to apply bg for
+ * @param  array  $data     data-array from options
+ * @return string
+ */
+function cherry_get_background_css( $selector, $data ) {
+
+	if ( ! $selector ) {
+		return;
+	}
+
+	if ( ! is_array( $data ) ) {
+		return;
+	}
+
+	if ( empty( $data['image'] ) && empty( $data['color'] ) ) {
+		return;
+	}
+
+	$standard_bg = cherry_prepare_background( $data );
+
+	if ( empty( $data['image'] ) ) {
+		$standard_bg .= 'background-image:none;';
+		return $selector . '{' . $standard_bg . '}';
+	}
+
+	$images = explode( ',', $data['image'] );
+
+	$property_format = "%s {background-image: url(%s);%s}";
+
+	if ( 1 == count( $images ) && wp_attachment_is_image( $images[0] ) ) {
+
+		$img    = wp_get_attachment_image_src( $images[0], 'full' );
+		$result = sprintf( $property_format, $selector, $img[0], $standard_bg );
+
+		return $result;
+	}
+
+	$img1x    = null;
+	$img2x    = null;
+	$width1x  = 0;
+	$count    = 2;
+
+	for ( $i = 0; $i < $count; $i++ ) {
+
+		if ( ! wp_attachment_is_image( $images[$i] ) ) {
+			continue;
+		}
+
+		$img = wp_get_attachment_image_src( $images[$i], 'full' );
+
+		if ( ! is_array( $img ) ) {
+			continue;
+		}
+
+		$img_url    = $img[0];
+		$img_width  = intval( $img[1] );
+
+		if ( null == $img1x ) {
+			$img1x   = $img_url;
+			$img2x   = $img_url;
+			$width1x = $img_width;
+		} elseif ( $img_width > $width1x ) {
+			$img2x = $img_url;
+		} else {
+			$img1x = $img_url;
+		}
+
+	}
+
+	$bg1 = sprintf( $property_format, $selector, $img1x, $standard_bg );
+	$bg2 = sprintf( $property_format, $selector, $img2x, '' );
+	$result = $bg1 . ' @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {' . $bg2 . '}';
+
+	return $result;
+
+}
+
+/**
+ * Sanitizes a hex color. Always adds hash to color
+ * use sanitize_hex_color if exist
+ *
+ * @since  4.0.0
+ *
+ * @param  string  $color  maybe HEX color
+ * @return string|null     sanitized color
+ */
+function cherry_sanitize_hex_color( $color ) {
+
+	$color = ltrim( $color, '#' );
+	$color = '#' . $color;
+
+	if ( '' === $color ) {
+		return '';
+	}
+
+	if ( function_exists( 'sanitize_hex_color' ) ) {
+		return sanitize_hex_color( $color );
+	}
+
+	// 3 or 6 hex digits, or the empty string.
+	if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
+		return $color;
+	}
+
+	return null;
+}
+
+/**
+ * Implode background properties array into CSS string
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $data  BG data array
+ * @return string
+ */
+function cherry_prepare_background( $data ) {
+	if ( ! is_array( $data ) ) {
+		return;
+	}
+
+	unset( $data['image'] );
+
+	$result = '';
+	$format = 'background-%s:%s;';
+
+	foreach ( $data as $prop => $value ) {
+		if ( 'color' == $prop ) {
+			$value = cherry_sanitize_hex_color( $value );
+		}
+		$result .= sprintf( $format, $prop, $value );
+	}
+
+	return $result;
+}
+
+/**
+ * Implode typography data array from options into CSS string
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $data  typography parameters array from options
+ * @param  array  $mod   optional parameter - pass function name and arg to modify values inside typography array
+ * @return string        font, letter-spacing, text-align, color CSS properties string
+ */
+function cherry_get_typography_css( $data, $mod = array() ) {
+
+	if ( ! is_array( $data ) || empty( $data ) ) {
+		return;
+	}
+
+	$defaults = array(
+		'family'        => '',
+		'style'         => '',
+		'color'         => '',
+		'size'          => '',
+		'lineheight'    => '',
+		'letterspacing' => '',
+		'align'         => ''
+	);
+
+	$data = wp_parse_args( $data, $defaults );
+
+	$result = array();
+
+	if ( '' !== $data['letterspacing'] ) {
+		$units = '0' != $data['letterspacing'] ? 'px' : '';
+		$result[] = 'letter-spacing:' . $data['letterspacing'] . $units;
+	}
+
+	if ( 'notdefined' != $data['align'] ) {
+		$result[] = 'text-align:' . $data['align'];
+	}
+
+	if ( '' != $data['color'] ) {
+		$color = cherry_sanitize_hex_color( $data['color'] );
+
+		if ( 1 < count( $mod ) && ( in_array( $mod[0], array( 'cherry_colors_lighten', 'cherry_colors_darken' ) ) ) ) {
+			$color = $mod[0]( $color, $mod[1] );
+		}
+
+		$result[] = 'color:' . $color;
+	}
+
+	$ext_families = ! empty( $data['category'] ) ? ', ' . $data['category'] : ', sans-serif';
+
+	$font_style  = false;
+	$font_weight = false;
+	$font_size   = $data['size'] . 'px';
+	$line_height = $data['lineheight'] . 'px';
+	$font_family = "'" . $data['family'] . "'" . $ext_families;
+
+	preg_match( '/^(\d*)(\w*)/i', $data['style'], $matches );
+
+	if ( is_array( $matches ) ) {
+		$font_style  = ( 'regular' != $matches[2] ) ? $matches[2] : false;
+		$font_weight = $matches[1];
+	}
+
+	$font = array(
+		$font_style,
+		$font_weight,
+		$font_size . '/' . $line_height,
+		$font_family
+	);
+
+	$font = implode( ' ', array_filter( $font ) );
+
+	$result[] = 'font:' . ltrim($font);
+
+	$result = implode( ';', $result ) . ';';
+
+	return $result;
+}
+
+/**
+ * Make float size
+ *
+ * @since  4.0.0
+ *
+ * @param
+ * @param
+ * @return
+ */
+function cherry_typography_size( $size, $operation = ' ', $func = 'round', $percent) {
+
+	if ( ! $size ) {
+		return false;
+	}
+
+	switch( $operation ) {
+		case 'multiple':
+			$size = (double)$size * (double)$percent;
+		case 'addition':
+			$size = (double)$size + (double)$percent;
+	}
+
+	switch( $func ) {
+		case 'floor':
+			$size = floor($size);
+		case 'ceil':
+			$size = ceil($size);
+		case 'round':
+			$size = round($size);
+		case 'abs':
+			$size = abs($size);
+	}
+
+	return $size;
+}
+
+function cherry_empty_value( $value, $rule) {
+
+	if ('' == $value or 'notdefined' == $value) {
+		return;
+	}
+
+	echo $rule . ": " . $value;
+
+	if ( is_numeric( $value ) ) {
+		echo "px; ";
+	} else {
+		echo"; ";
+	}
+
+}
+/*
+function cherry_text_emphasis( $parent, $color ) {
+
+	echo $parent." {color: $color;} ";
+	echo "a$parent:hover {color: ".cherry_colors_darken($color, 10).";}";
+
+}
+*/
+function cherry_element_emphasis( $parent, $color, $property ) {
+
+	echo $parent." {".$property. ": $color;} ";
+	echo "a$parent:hover {"."$property: ".cherry_colors_darken($color, 10).";}";
+
+}
+
+function cherry_box_shadow( $shadow ) {
+
+	echo "-webkit-box-shadow: $shadow;";
+	echo "box-shadow: $shadow;";
+}
+
+

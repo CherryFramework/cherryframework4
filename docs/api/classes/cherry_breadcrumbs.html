@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">485</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-517225564"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-517225564" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/aCssAtBlockEndToken.html">aCssAtBlockEndToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssAtBlockStartToken.html">aCssAtBlockStartToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssDeclarationToken.html">aCssDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssFormatter.html">aCssFormatter</a></li>
+                                                    <li class="class"><a href="../classes/aCssMinifierFilter.html">aCssMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/aCssMinifierPlugin.html">aCssMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/aCssParserPlugin.html">aCssParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/aCssRulesetEndToken.html">aCssRulesetEndToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssRulesetStartToken.html">aCssRulesetStartToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssToken.html">aCssToken</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Admin.html">Cherry_Admin</a></li>
+                                                    <li class="class"><a href="../classes/cherry_breadcrumbs.html">cherry_breadcrumbs</a></li>
+                                                    <li class="class"><a href="../classes/cherry_css_compiler.html">cherry_css_compiler</a></li>
+                                                    <li class="class"><a href="../classes/cherry_enqueue_fonts.html">cherry_enqueue_fonts</a></li>
+                                                    <li class="class"><a href="../classes/cherry_example_static.html">cherry_example_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_footer_info_static.html">cherry_footer_info_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_footer_menu_static.html">cherry_footer_menu_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_footer_sidebars_static.html">cherry_footer_sidebars_static</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Framework.html">Cherry_Framework</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Grid_Type.html">Cherry_Grid_Type</a></li>
+                                                    <li class="class"><a href="../classes/cherry_header_logo_static.html">cherry_header_logo_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_header_menu_static.html">cherry_header_menu_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_header_sidebar_static.html">cherry_header_sidebar_static</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Interface_Builder.html">Cherry_Interface_Builder</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Layouts.html">Cherry_Layouts</a></li>
+                                                    <li class="class"><a href="../classes/cherry_moto_slider_static.html">cherry_moto_slider_static</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Options_Framework.html">Cherry_Options_Framework</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Options_Framework_Admin.html">Cherry_Options_Framework_Admin</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Post_Style.html">Cherry_Post_Style</a></li>
+                                                    <li class="class"><a href="../classes/cherry_register_static.html">cherry_register_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_search_form_static.html">cherry_search_form_static</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Sidebar.html">Cherry_Sidebar</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Statics.html">Cherry_Statics</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Wrapping.html">Cherry_Wrapping</a></li>
+                                                    <li class="class"><a href="../classes/CssAtCharsetParserPlugin.html">CssAtCharsetParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtCharsetToken.html">CssAtCharsetToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtFontFaceDeclarationToken.html">CssAtFontFaceDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtFontFaceEndToken.html">CssAtFontFaceEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtFontFaceParserPlugin.html">CssAtFontFaceParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtFontFaceStartToken.html">CssAtFontFaceStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtImportParserPlugin.html">CssAtImportParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtImportToken.html">CssAtImportToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesEndToken.html">CssAtKeyframesEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesParserPlugin.html">CssAtKeyframesParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesRulesetDeclarationToken.html">CssAtKeyframesRulesetDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesRulesetEndToken.html">CssAtKeyframesRulesetEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesRulesetStartToken.html">CssAtKeyframesRulesetStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesStartToken.html">CssAtKeyframesStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtMediaEndToken.html">CssAtMediaEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtMediaParserPlugin.html">CssAtMediaParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtMediaStartToken.html">CssAtMediaStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtPageDeclarationToken.html">CssAtPageDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtPageEndToken.html">CssAtPageEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtPageParserPlugin.html">CssAtPageParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtPageStartToken.html">CssAtPageStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtVariablesDeclarationToken.html">CssAtVariablesDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtVariablesEndToken.html">CssAtVariablesEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtVariablesParserPlugin.html">CssAtVariablesParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtVariablesStartToken.html">CssAtVariablesStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssCommentParserPlugin.html">CssCommentParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssCommentToken.html">CssCommentToken</a></li>
+                                                    <li class="class"><a href="../classes/CssCompressColorValuesMinifierPlugin.html">CssCompressColorValuesMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssCompressExpressionValuesMinifierPlugin.html">CssCompressExpressionValuesMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssCompressUnitValuesMinifierPlugin.html">CssCompressUnitValuesMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertFontWeightMinifierPlugin.html">CssConvertFontWeightMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertHslColorsMinifierPlugin.html">CssConvertHslColorsMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertLevel3AtKeyframesMinifierFilter.html">CssConvertLevel3AtKeyframesMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertLevel3PropertiesMinifierFilter.html">CssConvertLevel3PropertiesMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertNamedColorsMinifierPlugin.html">CssConvertNamedColorsMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertRgbColorsMinifierPlugin.html">CssConvertRgbColorsMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssError.html">CssError</a></li>
+                                                    <li class="class"><a href="../classes/CssExpressionParserPlugin.html">CssExpressionParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssMin.html">CssMin</a></li>
+                                                    <li class="class"><a href="../classes/CssMinifier.html">CssMinifier</a></li>
+                                                    <li class="class"><a href="../classes/CssNullToken.html">CssNullToken</a></li>
+                                                    <li class="class"><a href="../classes/CssOtbsFormatter.html">CssOtbsFormatter</a></li>
+                                                    <li class="class"><a href="../classes/CssParser.html">CssParser</a></li>
+                                                    <li class="class"><a href="../classes/CssRemoveCommentsMinifierFilter.html">CssRemoveCommentsMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssRemoveEmptyAtBlocksMinifierFilter.html">CssRemoveEmptyAtBlocksMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssRemoveEmptyRulesetsMinifierFilter.html">CssRemoveEmptyRulesetsMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssRemoveLastDelarationSemiColonMinifierFilter.html">CssRemoveLastDelarationSemiColonMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssRulesetDeclarationToken.html">CssRulesetDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssRulesetEndToken.html">CssRulesetEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssRulesetParserPlugin.html">CssRulesetParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssRulesetStartToken.html">CssRulesetStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssSortRulesetPropertiesMinifierFilter.html">CssSortRulesetPropertiesMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssStringParserPlugin.html">CssStringParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssUrlParserPlugin.html">CssUrlParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssVariablesMinifierFilter.html">CssVariablesMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssVariablesMinifierPlugin.html">CssVariablesMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssWhitesmithsFormatter.html">CssWhitesmithsFormatter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>cherry_breadcrumbs</h1>
+                    <p><em>Breadcrumbs builder class</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_get_trail" class="">get_trail()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_default_labels" class="">default_labels()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_build_trail" class="">build_trail()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method__add_item" class="">_add_item()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_rewrite_front_items" class="">add_rewrite_front_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_paged_items" class="">add_paged_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_path_parents" class="">add_path_parents()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_front_page" class="">add_front_page()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_network_home_link" class="">add_network_home_link()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_site_home_link" class="">add_site_home_link()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_blog_page" class="">add_blog_page()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_singular_items" class="">add_singular_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_post_terms" class="">add_post_terms()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_get_post_types_by_slug" class="">get_post_types_by_slug()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_term_archive_items" class="">add_term_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_post_type_archive_items" class="">add_post_type_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_user_archive_items" class="">add_user_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_minute_hour_archive_items" class="">add_minute_hour_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_minute_archive_items" class="">add_minute_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_hour_archive_items" class="">add_hour_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_day_archive_items" class="">add_day_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_week_archive_items" class="">add_week_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_month_archive_items" class="">add_month_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_year_archive_items" class="">add_year_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_default_archive_items" class="">add_default_archive_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_search_items" class="">add_search_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_404_items" class="">add_404_items()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_post_parents" class="">add_post_parents()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_post_hierarchy" class="">add_post_hierarchy()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_add_term_parents" class="">add_term_parents()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method__process_single_tag" class="">_process_single_tag()</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#method_map_rewrite_tags" class="">map_rewrite_tags()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/cherry_breadcrumbs.html#property_items" class="">$items</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#property_args" class="">$args</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#property_page_title" class="">$page_title</a><br />
+                                                                    <a href="../classes/cherry_breadcrumbs.html#property_css" class="">$css</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/lib.classes.class-cherry-breadcrumbs.html"><div class="path-wrapper">lib\classes\class-cherry-breadcrumbs.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Cherry_Framework</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\cherry_breadcrumbs</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                since
+                            </th>
+                            <td>
+                                                                    
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_items" name="property_items" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$items</h3>
+                <pre class="signature">$items : array</pre>
+                <p><em>Indexed array of breadcrumb trail items</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_args" name="property_args" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$args</h3>
+                <pre class="signature">$args : array</pre>
+                <p><em>Breadcrumb arguments</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_page_title" name="property_page_title" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$page_title</h3>
+                <pre class="signature">$page_title : array</pre>
+                <p><em>Page title</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_css" name="property_css" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$css</h3>
+                <pre class="signature">$css : array</pre>
+                <p><em>Breadcrumbs CSS</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(  <span class="argument">$args = array()</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$args </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_trail" name="method_get_trail" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_trail()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_trail() </pre>
+                <p><em>Formats and outputs the breadcrumb trail.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_default_labels" name="method_default_labels" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">default_labels()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">default_labels() </pre>
+                <p><em>Returns an array of the default labels.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_build_trail" name="method_build_trail" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">build_trail()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">build_trail() </pre>
+                <p><em>Build breadcrumbs trail items array</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__add_item" name="method__add_item" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">_add_item()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_add_item(  <span class="argument">$format = &#039;link_format&#039;</span>,   <span class="argument">$label</span>,   <span class="argument">$url = &#039;&#039;</span>,   <span class="argument">$class = &#039;&#039;</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$format </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$label </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$url </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td></td>
+                                <td>$class </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_rewrite_front_items" name="method_add_rewrite_front_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_rewrite_front_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_rewrite_front_items() </pre>
+                <p><em>Add front items based on $wp_rewrite-&gt;front.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_paged_items" name="method_add_paged_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_paged_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_paged_items() : void</pre>
+                <p><em>Adds the page/paged number to the items array.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            0.6.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_path_parents" name="method_add_path_parents" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_path_parents()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_path_parents(string  <span class="argument">$path</span>) </pre>
+                <p><em>Get parent posts by path. Currently, this method only supports getting parents of the &#039;page&#039;
+post type.  The goal of this function is to create a clear path back to home given what would
+normally be a &quot;ghost&quot; directory.  If any page matches the given path, it&#039;ll be added.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$path </td>
+                                <td><p>The path (slug) to search for posts by.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_front_page" name="method_add_front_page" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_front_page()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_front_page() </pre>
+                <p><em>Build front page breadcrumb items</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_network_home_link" name="method_add_network_home_link" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_network_home_link()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_network_home_link() </pre>
+                <p><em>Add network home link for multisite
+Check if is multisite and add link to parent site to breadcrumb items</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_site_home_link" name="method_add_site_home_link" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_site_home_link()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_site_home_link() </pre>
+                <p><em>Add site home link
+Add site home link if is paged front page</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_blog_page" name="method_add_blog_page" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_blog_page()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_blog_page() </pre>
+                <p><em>Add blog page breadcrumbs item</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_singular_items" name="method_add_singular_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_singular_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_singular_items() </pre>
+                <p><em>Adds singular post items to the items array.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_post_terms" name="method_add_post_terms" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_post_terms()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_post_terms(integer  <span class="argument">$post_id</span>) </pre>
+                <p><em>Adds a post&#039;s terms from a specific taxonomy to the items array.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$post_id </td>
+                                <td><p>The ID of the post to get the terms for.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get_post_types_by_slug" name="method_get_post_types_by_slug" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get_post_types_by_slug()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get_post_types_by_slug(integer  <span class="argument">$slug</span>) </pre>
+                <p><em>Gets post types by slug.  This is needed because the get_post_types() function doesn&#039;t exactly
+match the &#039;has_archive&#039; argument when it&#039;s set as a string instead of a boolean.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$slug </td>
+                                <td><p>The post type archive slug to search for.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_term_archive_items" name="method_add_term_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_term_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_term_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for taxonomy term archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_post_type_archive_items" name="method_add_post_type_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_post_type_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_post_type_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for post type archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_user_archive_items" name="method_add_user_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_user_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_user_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for user (author) archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_minute_hour_archive_items" name="method_add_minute_hour_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_minute_hour_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_minute_hour_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for minute + hour archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_minute_archive_items" name="method_add_minute_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_minute_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_minute_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for minute archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_hour_archive_items" name="method_add_hour_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_hour_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_hour_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for hour archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_day_archive_items" name="method_add_day_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_day_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_day_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for day archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_week_archive_items" name="method_add_week_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_week_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_week_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for week archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_month_archive_items" name="method_add_month_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_month_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_month_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for month archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_year_archive_items" name="method_add_year_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_year_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_year_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for year archives.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_default_archive_items" name="method_add_default_archive_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_default_archive_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_default_archive_items() </pre>
+                <p><em>Adds the items to the trail items array for archives that don&#039;t have a more specific method
+defined in this class.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_search_items" name="method_add_search_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_search_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_search_items() </pre>
+                <p><em>Adds the items to the trail items array for search results.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_404_items" name="method_add_404_items" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_404_items()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_404_items() : void</pre>
+                <p><em>Adds the items to the trail items array for 404 pages.</em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            0.6.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_post_parents" name="method_add_post_parents" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_post_parents()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_post_parents(integer  <span class="argument">$post_id</span>) </pre>
+                <p><em>Add post parents link to breadcrumbs items</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$post_id </td>
+                                <td><p>first parent post ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_post_hierarchy" name="method_add_post_hierarchy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_post_hierarchy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_post_hierarchy(integer  <span class="argument">$post_id</span>) : void</pre>
+                <p><em>Adds a specific post&#039;s hierarchy to the items array.</em></p>
+                <p>The hierarchy is determined by post type's
+rewrite arguments and whether it has an archive page.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$post_id </td>
+                                <td><p>The ID of the post to get the hierarchy for.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_add_term_parents" name="method_add_term_parents" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">add_term_parents()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">add_term_parents(integer  <span class="argument">$term_id</span>, string  <span class="argument">$taxonomy</span>) </pre>
+                <p><em>Searches for term parents of hierarchical taxonomies.</em></p>
+                <p>This function is similar to the WordPress function get_category_parents() but handles any type of taxonomy.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$term_id </td>
+                                <td><p>ID of the term to get the parents of.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$taxonomy </td>
+                                <td><p>Name of the taxonomy for the given term.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method__process_single_tag" name="method__process_single_tag" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">_process_single_tag()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">_process_single_tag(string  <span class="argument">$tag</span>, integer  <span class="argument">$post_id</span>) </pre>
+                <p><em>Service function to process single tag item</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$tag </td>
+                                <td><p>single tag</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$post_id </td>
+                                <td><p>processed post ID</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_map_rewrite_tags" name="method_map_rewrite_tags" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">map_rewrite_tags()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">map_rewrite_tags(integer  <span class="argument">$post_id</span>, string  <span class="argument">$path</span>) </pre>
+                <p><em>Turns %tag% from permalink structures into usable links for the breadcrumb trail.</em></p>
+                <p>This feels kind of hackish for now because we're checking for specific %tag% examples and only doing
+it for the 'post' post type. In the future, maybe it'll handle a wider variety of possibilities,
+especially for custom post types.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$post_id </td>
+                                <td><p>ID of the post whose parents we want.</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$path </td>
+                                <td><p>Path of a potential parent page.</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            since
+                        </th>
+                        <td>
+                                                            4.0.0                                
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">class-cherry-breadcrumbs.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/lib\classes\class-cherry-breadcrumbs.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 14th, 2015 at 22:05.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
