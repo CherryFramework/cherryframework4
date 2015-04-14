@@ -63,7 +63,7 @@ input[type="email"] {
 	<?php echo cherry_get_typography_css($input_typography); ?>
 }
 
-footer {
+.site-footer {
 	<?php echo cherry_get_typography_css($footer_typography); ?>
 }
 
@@ -73,7 +73,7 @@ ul li {
 }
 
 
-<?php echo cherry_get_background_css('footer', $footer_background); ?>
+<?php echo cherry_get_background_css('.site-footer', $footer_background); ?>
 
 .site-title > a{
 	<?php echo cherry_get_typography_css($logo_typography); ?>
