@@ -153,10 +153,12 @@ function cherry_attr_sidebar( $attr, $context ) {
 function cherry_attr_menu( $attr, $context ) {
 
 	if ( !empty( $context ) ) {
-		$attr['id'] = "menu-{$context}";
+		$attr['id']    = "menu-{$context}";
+		$attr['class'] = "menu-{$context} menu";
+	} else {
+		$attr['class'] = 'menu';
 	}
 
-	$attr['class'] = 'menu';
 	$attr['role']  = 'navigation';
 
 	return $attr;

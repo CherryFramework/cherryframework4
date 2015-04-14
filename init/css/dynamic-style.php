@@ -175,10 +175,10 @@ dl {
 	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
-#menu-primary-items a {
+.menu-primary a {
 	<?php echo cherry_get_typography_css($header_menu_typography); ?>
 }
-#menu-secondary-items a{
+.menu-secondary a {
 	<?php echo cherry_get_typography_css($footer_menu_typography); ?>
 }
 

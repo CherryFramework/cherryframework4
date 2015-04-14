@@ -1,45 +1,108 @@
-/* Small menu */
-.menu-toggle {
-	display: none;
-}
-
-// @media screen and (max-width: 600px) {
-// 	.menu-toggle,
-// 	.menu.toggled .nav-menu {
-// 		display: block;
-// 	}
-
-// 	.menu ul {
-// 		display: none;
-// 	}
-// }
-
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
-	margin: 0 0 1.5em;
-	overflow: hidden;
-}
-
-.comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
-.post-navigation .nav-previous {
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+.menu-primary {
+	clear: both;
+	display: block;
 	float: left;
-	width: 50%;
+	width: 100%;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+		ul {
+			float: left;
+			position: absolute;
+			top: 100%;
+			left: -999em;
+			z-index: 99999;
+			opacity: 0;
+			@include transition(opacity .4s ease-in-out);
+
+			ul {
+				left: -999em;
+				top: 0;
+			}
+			li {
+				&:hover > ul,
+				&.focus > ul {
+					left: 100%;
+				}
+			}
+			a {
+				width: 200px;
+			}
+			:hover > a,
+			.focus > a {
+			}
+			a:hover,
+			a.focus {
+			}
+		}
+
+		li:hover > ul,
+		li.focus > ul {
+			left: auto;
+			opacity: 1;
+		}
+	}
+	li {
+		float: left;
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+		}
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
+
+	.current_page_item > a,
+	.current-menu-item > a,
+	.current_page_ancestor > a {
+	}
+
+	/* Skin */
+	padding: 20px 0;
+	> ul {
+		> li {
+			margin-left: 15px;
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+	.sub-menu {
+		background: rgba(0,0,0,.2);
+	}
 }
 
-.comment-navigation .nav-next,
-.paging-navigation .nav-next,
-.post-navigation .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	& .nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	& .nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
 }
 
 /*--------------------------------------------------------------
-2.0 Accessibility
+# Accessibility
 --------------------------------------------------------------*/
-/* Text meant only for screen readers */
 .screen-reader-text {
 	clip: rect(1px, 1px, 1px, 1px);
 	position: absolute !important;
@@ -65,12 +128,12 @@
 		text-decoration: none;
 		top: 5px;
 		width: auto;
-		z-index: 100000; /* Above WP toolbar */
+		z-index: 100000; /* Above WP toolbar. */
 	}
 }
 
 /*--------------------------------------------------------------
-3.0 Alignments
+# Alignments
 --------------------------------------------------------------*/
 .alignleft {
 	display: inline;
@@ -89,35 +152,19 @@
 }
 
 /*--------------------------------------------------------------
-4.0 Clearings
+# Clearings
 --------------------------------------------------------------*/
-.clear:before,
-.clear:after,
-.entry-content:before,
-.entry-content:after,
-.comment-content:before,
-.comment-content:after,
-.site-header:before,
-.site-header:after,
-.site-content:before,
-.site-content:after,
-.site-footer:before,
-.site-footer:after {
-	display: table;
-	content: '';
-}
-
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after {
-	clear: both;
+.clear,
+.entry-content,
+.comment-content,
+.site-header,
+.site-content,
+.site-footer {
+	@include clearfix;
 }
 
 /*--------------------------------------------------------------
-5.0 Widgets
+# Widgets
 --------------------------------------------------------------*/
 .widget {
 	margin: 0 0 1.5em;
@@ -134,11 +181,7 @@
 }
 
 /*--------------------------------------------------------------
-6.0 Content
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-6.1 Posts and pages
+# Content
 --------------------------------------------------------------*/
 .sticky {
 	display: block;
@@ -175,7 +218,7 @@
 }
 
 /*--------------------------------------------------------------
-6.2 Asides
+# Asides
 --------------------------------------------------------------*/
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
@@ -183,7 +226,7 @@
 }
 
 /*--------------------------------------------------------------
-6.3 Comments
+# Comments
 --------------------------------------------------------------*/
 .comment-content a {
 	word-wrap: break-word;
@@ -193,32 +236,18 @@
 }
 
 /*--------------------------------------------------------------
-7.0 Infinite scroll
+# Media
 --------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
-
-/*--------------------------------------------------------------
-8.0 Media
---------------------------------------------------------------*/
-.page-content img.wp-smiley,
-.entry-content img.wp-smiley,
-.comment-content img.wp-smiley {
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
 	border: none;
 	margin-bottom: 0;
 	margin-top: 0;
 	padding: 0;
 }
 
-/* Make sure embeds and iframes fit their containers */
+/* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
 object {
@@ -226,7 +255,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-8.1 Captions
+# Captions
 --------------------------------------------------------------*/
 .wp-caption {
 	margin-bottom: 1.5em;
@@ -246,7 +275,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-8.2 Galleries
+# Galleries
 --------------------------------------------------------------*/
 .gallery {
 	margin-bottom: 1.5em;
@@ -257,38 +286,38 @@ object {
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
-}
 
-.gallery-columns-2 .gallery-item {
-	max-width: 50%;
-}
+	.gallery-columns-2 & {
+		max-width: 50%;
+	}
 
-.gallery-columns-3 .gallery-item {
-	max-width: 33.33%;
-}
+	.gallery-columns-3 & {
+		max-width: 33.33%;
+	}
 
-.gallery-columns-4 .gallery-item {
-	max-width: 25%;
-}
+	.gallery-columns-4 & {
+		max-width: 25%;
+	}
 
-.gallery-columns-5 .gallery-item {
-	max-width: 20%;
-}
+	.gallery-columns-5 & {
+		max-width: 20%;
+	}
 
-.gallery-columns-6 .gallery-item {
-	max-width: 16.66%;
-}
+	.gallery-columns-6 & {
+		max-width: 16.66%;
+	}
 
-.gallery-columns-7 .gallery-item {
-	max-width: 14.28%;
-}
+	.gallery-columns-7 & {
+		max-width: 14.28%;
+	}
 
-.gallery-columns-8 .gallery-item {
-	max-width: 12.5%;
-}
+	.gallery-columns-8 & {
+		max-width: 12.5%;
+	}
 
-.gallery-columns-9 .gallery-item {
-	max-width: 11.11%;
+	.gallery-columns-9 & {
+		max-width: 11.11%;
+	}
 }
 
 .gallery-caption {

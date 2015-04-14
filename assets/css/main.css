@@ -1260,27 +1260,80 @@ address {
   font-style: normal;
 }
 
-/* Small menu */
-.menu-toggle {
-  display: none;
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+.menu-primary {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%;
+  /* Skin */
+  padding: 20px 0;
+}
+.menu-primary ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.menu-primary ul ul {
+  float: left;
+  position: absolute;
+  top: 100%;
+  left: -999em;
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+.menu-primary ul ul ul {
+  left: -999em;
+  top: 0;
+}
+.menu-primary ul ul li:hover > ul, .menu-primary ul ul li.focus > ul {
+  left: 100%;
+}
+.menu-primary ul ul a {
+  width: 200px;
+}
+.menu-primary ul li:hover > ul,
+.menu-primary ul li.focus > ul {
+  left: auto;
+  opacity: 1;
+}
+.menu-primary li {
+  float: left;
+  position: relative;
+}
+.menu-primary a {
+  display: block;
+  text-decoration: none;
+}
+.menu-primary > ul > li {
+  margin-left: 15px;
+}
+.menu-primary > ul > li:first-child {
+  margin-left: 0;
+}
+.menu-primary .sub-menu {
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.site-main .comment-navigation,
-.site-main .paging-navigation,
-.site-main .post-navigation {
+.site-main .comment-navigation, .site-main
+.posts-navigation, .site-main
+.post-navigation {
   margin: 0 0 1.5em;
   overflow: hidden;
 }
-
 .comment-navigation .nav-previous,
-.paging-navigation .nav-previous,
+.posts-navigation .nav-previous,
 .post-navigation .nav-previous {
   float: left;
   width: 50%;
 }
-
 .comment-navigation .nav-next,
-.paging-navigation .nav-next,
+.posts-navigation .nav-next,
 .post-navigation .nav-next {
   float: right;
   text-align: right;
@@ -1288,9 +1341,8 @@ address {
 }
 
 /*--------------------------------------------------------------
-2.0 Accessibility
+# Accessibility
 --------------------------------------------------------------*/
-/* Text meant only for screen readers */
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
@@ -1315,11 +1367,11 @@ address {
   top: 5px;
   width: auto;
   z-index: 100000;
-  /* Above WP toolbar */
+  /* Above WP toolbar. */
 }
 
 /*--------------------------------------------------------------
-3.0 Alignments
+# Alignments
 --------------------------------------------------------------*/
 .alignleft {
   display: inline;
@@ -1340,10 +1392,9 @@ address {
 }
 
 /*--------------------------------------------------------------
-4.0 Clearings
+# Clearings
 --------------------------------------------------------------*/
-.clear:before,
-.clear:after,
+.clear:before, .clear:after,
 .entry-content:before,
 .entry-content:after,
 .comment-content:before,
@@ -1354,10 +1405,9 @@ address {
 .site-content:after,
 .site-footer:before,
 .site-footer:after {
+  content: " ";
   display: table;
-  content: '';
 }
-
 .clear:after,
 .entry-content:after,
 .comment-content:after,
@@ -1368,7 +1418,7 @@ address {
 }
 
 /*--------------------------------------------------------------
-5.0 Widgets
+# Widgets
 --------------------------------------------------------------*/
 .widget {
   margin: 0 0 1.5em;
@@ -1384,10 +1434,7 @@ address {
 }
 
 /*--------------------------------------------------------------
-6.0 Content
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-6.1 Posts and pages
+# Content
 --------------------------------------------------------------*/
 .sticky {
   display: block;
@@ -1424,7 +1471,7 @@ address {
 }
 
 /*--------------------------------------------------------------
-6.2 Asides
+# Asides
 --------------------------------------------------------------*/
 .blog .format-aside .entry-title,
 .archive .format-aside .entry-title {
@@ -1432,7 +1479,7 @@ address {
 }
 
 /*--------------------------------------------------------------
-6.3 Comments
+# Comments
 --------------------------------------------------------------*/
 .comment-content a {
   word-wrap: break-word;
@@ -1443,33 +1490,18 @@ address {
 }
 
 /*--------------------------------------------------------------
-7.0 Infinite scroll
+# Media
 --------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .paging-navigation,
-.infinite-scroll.neverending .site-footer {
-  /* Theme Footer (when set to scrolling) */
-  display: none;
-}
-
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
-.infinity-end.neverending .site-footer {
-  display: block;
-}
-
-/*--------------------------------------------------------------
-8.0 Media
---------------------------------------------------------------*/
-.page-content img.wp-smiley,
-.entry-content img.wp-smiley,
-.comment-content img.wp-smiley {
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
   border: none;
   margin-bottom: 0;
   margin-top: 0;
   padding: 0;
 }
 
-/* Make sure embeds and iframes fit their containers */
+/* Make sure embeds and iframes fit their containers. */
 embed,
 iframe,
 object {
@@ -1477,7 +1509,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-8.1 Captions
+# Captions
 --------------------------------------------------------------*/
 .wp-caption {
   margin-bottom: 1.5em;
@@ -1497,7 +1529,7 @@ object {
 }
 
 /*--------------------------------------------------------------
-8.2 Galleries
+# Galleries
 --------------------------------------------------------------*/
 .gallery {
   margin-bottom: 1.5em;
@@ -1509,35 +1541,27 @@ object {
   vertical-align: top;
   width: 100%;
 }
-
 .gallery-columns-2 .gallery-item {
   max-width: 50%;
 }
-
 .gallery-columns-3 .gallery-item {
   max-width: 33.33%;
 }
-
 .gallery-columns-4 .gallery-item {
   max-width: 25%;
 }
-
 .gallery-columns-5 .gallery-item {
   max-width: 20%;
 }
-
 .gallery-columns-6 .gallery-item {
   max-width: 16.66%;
 }
-
 .gallery-columns-7 .gallery-item {
   max-width: 14.28%;
 }
-
 .gallery-columns-8 .gallery-item {
   max-width: 12.5%;
 }
-
 .gallery-columns-9 .gallery-item {
   max-width: 11.11%;
 }
