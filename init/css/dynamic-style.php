@@ -38,6 +38,13 @@ $footer_menu_typography = $cherry_css_vars['navigation-footer-menu-typography'] 
 
 ?>
 
+<?php cherry_element_emphasis('.text-primary', cherry_esc_value( $cherry_css_vars, 'color-primary' ), 'color');?>
+
+<?php //cherry_text_emphasis('.text-primary', cherry_esc_value( $cherry_css_vars, 'color-primary' ));?>
+
+
+<?php //die ?>
+
 input[type="text"],
 input[type="search"],
 input[type="password"],
@@ -47,7 +54,6 @@ input[type="email"] {
 	<?php echo cherry_get_typography_css($input_typography); ?>
 }
 
-<?php //die ?>
 footer {
 	<?php echo cherry_get_typography_css($footer_typography); ?>
 }
@@ -174,6 +180,12 @@ dl {
 .cherry-breadcrumbs {
 	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 60.8); ?>;
 }
+
+<?php cherry_element_emphasis('.text-primary', cherry_esc_value( $cherry_css_vars, 'color-primary' ));?>
+<?php cherry_element_emphasis('.text-success', cherry_esc_value( $cherry_css_vars, 'color-success' ));?>
+<?php cherry_element_emphasis('.text-info', cherry_esc_value( $cherry_css_vars, 'color-info' ));?>
+<?php cherry_element_emphasis('.text-warning', cherry_esc_value( $cherry_css_vars, 'color-warning' ));?>
+<?php cherry_element_emphasis('.text-danger', cherry_esc_value( $cherry_css_vars, 'color-danger' ));?>
 
 .cherry-mega-menu-sub.level-0 {
 	border-top: 3px solid <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
@@ -441,11 +453,13 @@ hr {
 .table > tbody > tr > td,
 .table > tfoot > tr > th,
 .table > tfoot > tr > td {
-  padding: 8px;
+	padding: 8px;
 	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
-  vertical-align: top;
-  border-top: 1px solid #dddddd;
+	vertical-align: top;
+	border-top: 1px solid #dddddd;
 }
+
+
 
 dt,
 dd {
