@@ -9,12 +9,12 @@
  */
 
 /**
- * Footer sidebars static
+ * Footer Sidebars static.
  */
 class cherry_footer_sidebars_static extends cherry_register_static {
 
 	/**
-	 * Callbck method for registered static
+	 * Callback-method for registered static.
 	 * @since 4.0.0
 	 */
 	public function callback() {
@@ -26,14 +26,14 @@ class cherry_footer_sidebars_static extends cherry_register_static {
 }
 
 /**
- * Call footer sidebar static registration
+ * Registration for Footer Sidebars static.
  */
 new cherry_footer_sidebars_static(
 	array(
 		'name'    => __( 'Footer Sidebars', 'cherry' ),
 		'id'      => 'footer_sidebars',
 		'options' => array(
-			'priority' => 1,
+			'position' => 1,
 			'area'     => 'footer-top',
 		)
 	)

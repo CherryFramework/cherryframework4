@@ -9,12 +9,12 @@
  */
 
 /**
- * Register footer menu static
+ * Footer Menu static.
  */
 class cherry_footer_menu_static extends cherry_register_static {
 
 	/**
-	 * Callbck method for registered static
+	 * Callback-method for registered static.
 	 * @since 4.0.0
 	 */
 	public function callback() {
@@ -23,7 +23,7 @@ class cherry_footer_menu_static extends cherry_register_static {
 }
 
 /**
- * Call footer menu static registration
+ * Registration for Footer Menu static.
  */
 new cherry_footer_menu_static(
 	array(
@@ -34,7 +34,7 @@ new cherry_footer_menu_static(
 			'col-md'   => 'col-md-8',
 			'col-sm'   => 'col-sm-12',
 			'col-xs'   => 'col-xs-12',
-			'priority' => 2,
+			'position' => 1,
 			'area'     => 'footer-bottom',
 		)
 	)

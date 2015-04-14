@@ -9,12 +9,12 @@
  */
 
 /**
- * Footer info static
+ * Footer Info static.
  */
 class cherry_footer_info_static extends cherry_register_static {
 
 	/**
-	 * Callbck method for registered static
+	 * Callback-method for registered static.
 	 * @since 4.0.0
 	 */
 	public function callback() {
@@ -33,7 +33,7 @@ class cherry_footer_info_static extends cherry_register_static {
 }
 
 /**
- * Call footer info static registration
+ * Registration for Footer Info static.
  */
 new cherry_footer_info_static(
 	array(
@@ -44,7 +44,7 @@ new cherry_footer_info_static(
 			'col-md'   => 'col-md-4',
 			'col-sm'   => 'col-sm-12',
 			'col-xs'   => 'col-xs-12',
-			'priority' => 3,
+			'position' => 2,
 			'area'     => 'footer-bottom',
 		)
 	)

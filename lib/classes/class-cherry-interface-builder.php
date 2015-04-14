@@ -484,7 +484,7 @@ class Cherry_Interface_Builder {
 											$output .= '</div>';
 											$output .= '<input type="hidden" class="key-item-name" name="' . $name . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
 											$output .= '<input type="hidden" class="key-area" name="' . $name . '[' . $handle . '][options][area]" value="' . $handleArray['options']['area'] . '">';
-											$output .= '<input type="hidden" class="key-priority" name="' . $name . '[' . $handle . '][options][priority]" value="' . $handleArray['options']['priority'] . '">';
+											$output .= '<input type="hidden" class="key-position" name="' . $name . '[' . $handle . '][options][position]" value="' . $handleArray['options']['position'] . '">';
 										$output .= '</div>';
 									$output .= '</div>';
 									}
@@ -498,7 +498,7 @@ class Cherry_Interface_Builder {
 						$output .= '<div class="field-static">';
 							$output .= '<select ' . $item_inline_style . ' class="static-selector width-full">';
 								foreach ($options as $static => $staticSettings) {
-									$output .= '<option data-priority="'. $staticSettings['options']['priority'] .'" value="' . $static . '" ' . selected( $staticSettings['name'], $handleArray['name'], false ) . '>'. esc_html( $staticSettings['name'] ) .'</option>';
+									$output .= '<option data-position="'. $staticSettings['options']['position'] .'" value="' . $static . '" ' . selected( $staticSettings['name'], $handleArray['name'], false ) . '>'. esc_html( $staticSettings['name'] ) .'</option>';
 								}
 							$output .= '</select>';
 						$output .= '</div>';

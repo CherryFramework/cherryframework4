@@ -9,12 +9,13 @@
  */
 
 /**
- * Header menu static
+ * Header Menu static.
  */
 class cherry_header_menu_static extends cherry_register_static {
 
 	/**
-	 * Callbck method for registered static
+	 * Callback-method for registered static.
+	 *
 	 * @since 4.0.0
 	 */
 	public function callback() {
@@ -24,7 +25,7 @@ class cherry_header_menu_static extends cherry_register_static {
 }
 
 /**
- * Call Header menu static registration
+ * Registration for Header Menu static.
  */
 new cherry_header_menu_static(
 	array(
@@ -35,8 +36,7 @@ new cherry_header_menu_static(
 			'col-md'   => 'col-md-6',
 			'col-sm'   => 'col-sm-12',
 			'col-xs'   => 'col-xs-12',
-			'class'    => 'custom-mainmenu',
-			'priority' => 2,
+			'position' => 2,
 			'area'     => 'header-top',
 		)
 	)
