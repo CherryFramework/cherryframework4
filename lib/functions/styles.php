@@ -12,6 +12,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Register Cherry Framework styles.
 add_action( 'wp_enqueue_scripts', 'cherry_register_styles', 2 );
 

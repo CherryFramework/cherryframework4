@@ -499,7 +499,26 @@ address {
 }
 
 
-
-
-
-
+<?php // Post gallery ?>
+.post-gallery_prev,
+.post-gallery_next {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ) ?>;
+	color: <?php echo cherry_contrast_color( cherry_esc_value( $cherry_css_vars, 'color-primary' ) ) ?>;
+}
+.post-gallery_prev:hover,
+.post-gallery_next:hover {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ?>;
+	color: <?php echo cherry_contrast_color( cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ) ?>;
+}
+.post-gallery_item_caption {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ?>;
+	color: <?php echo cherry_contrast_color( cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ) ?>;
+}
+.post-gallery_paging_item {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ?>;
+}
+.slick-active > .post-gallery_paging_item,
+.post-gallery_paging_item:hover {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ) ?>;
+}
+<?php // Post gallery ?>

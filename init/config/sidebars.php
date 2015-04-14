@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Register sidebars.
 add_action( 'widgets_init', 'cherry_register_sidebars' );
 function cherry_register_sidebars() {

@@ -12,6 +12,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Check if post has an image attached.
  *
@@ -682,7 +687,7 @@ function cherry_get_gallery_html( $images ) {
 		'container_class'  => 'post-gallery',
 		'size'             => 'thumb-l',
 		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
-		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a></figure>',
+		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a>%4$s</figure>',
 	);
 
 	/**
@@ -696,10 +701,16 @@ function cherry_get_gallery_html( $images ) {
 	wp_enqueue_script( 'cherry-slick' );
 
 	$default_slider_init = array(
-		'infinite' => true,
-		'speed'    => 300,
-		'fade'     => true,
-		'cssEase'  => 'linear',
+		'infinite'       => true,
+		'speed'          => 400,
+		'fade'           => true,
+		'cssEase'        => 'linear',
+		'adaptiveHeight' => true,
+		'dots'           => false,
+		'dotsClass'      => 'post-gallery_paging',
+		'dotsFormat'     => '<span class="post-gallery_paging_item"></span>',
+		'prevArrow'      => '<span class="post-gallery_prev"></span>',
+		'nextArrow'      => '<span class="post-gallery_next"></span>'
 	);
 
 	/**
@@ -728,9 +739,19 @@ function cherry_get_gallery_html( $images ) {
 	$gall_init = wp_parse_args( $gall_init, $default_gall_init );
 	$gall_init = json_encode( $gall_init );
 
-	$items = array();
+	$items   = array();
+	$counter = 0;
 
 	foreach ( $images as $img ) {
+
+		$caption = '';
+
+		if ( 0 === $counter ) {
+			$nth_class = '';
+			$counter++;
+		} else {
+			$nth_class = ' nth-child';
+		}
 
 		if ( 0 < intval( $img ) ) {
 			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $args['container_class'] . '_item_img' ) );
@@ -739,7 +760,9 @@ function cherry_get_gallery_html( $images ) {
 			$attachment = get_post( $img );
 
 			if ( ! empty( $attachment->post_excerpt ) ) {
-				$image .= '<figcaption>' . wptexturize( $attachment->post_excerpt ) . '</figcaption>';
+				$caption_class = $args['container_class'] . '_item_caption';
+				$caption_text  = wptexturize( $attachment->post_excerpt );
+				$caption       = '<figcaption class="' . $caption_class . '">' . $caption_text . '</figcaption>';
 			}
 
 		} else {
@@ -758,7 +781,7 @@ function cherry_get_gallery_html( $images ) {
 
 		$items[] = sprintf(
 			$args['item_format'],
-			$image, $url, $args['container_class'] . '_item'
+			$image, $url, $args['container_class'] . '_item' . $nth_class, $caption
 		);
 	}
 

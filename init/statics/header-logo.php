@@ -9,12 +9,12 @@
  */
 
 /**
- * Header logo static
+ * Header Logo static.
  */
 class cherry_header_logo_static extends cherry_register_static {
 
 	function __construct( $args ) {
-		add_action( 'cherry-options-updated', array( $this, 'clear_cache' ) );
+		add_action( 'cherry-options-updated',  array( $this, 'clear_cache' ) );
 		add_action( 'cherry-section-restored', array( $this, 'clear_cache' ) );
 		add_action( 'cherry-options-restored', array( $this, 'clear_cache' ) );
 		add_action( 'update_option', array( $this, 'clear_cache_options' ) );
@@ -22,11 +22,11 @@ class cherry_header_logo_static extends cherry_register_static {
 	}
 
 	/**
-	 * Callbck method for registered static
+	 * Callback-method for registered static.
+	 *
 	 * @since 4.0.0
 	 */
 	public function callback() {
-
 		$logo = get_transient( 'cherry_logo' );
 		$page = is_front_page() ? 'home' : 'page';
 
@@ -60,7 +60,7 @@ class cherry_header_logo_static extends cherry_register_static {
 	}
 
 	/**
-	 * Clearc logo cache
+	 * Clear logo cache.
 	 *
 	 * @since 4.0.0
 	 */
@@ -69,9 +69,9 @@ class cherry_header_logo_static extends cherry_register_static {
 	}
 
 	/**
-	 * Clear cahe on optionsupdate
+	 * Clear cache on options update.
 	 *
-	 * @since  4.0.0
+	 * @since 4.0.0
 	 */
 	function clear_cache_options( $option ) {
 
@@ -84,7 +84,7 @@ class cherry_header_logo_static extends cherry_register_static {
 }
 
 /**
- * Call Header logostatic registration
+ * Registration for Header Logo static.
  */
 new cherry_header_logo_static(
 	array(
@@ -95,9 +95,8 @@ new cherry_header_logo_static(
 			'col-sm'   => 'col-sm-12',
 			'col-md'   => 'col-md-3',
 			'col-lg'   => 'col-lg-3',
-			'class'    => 'custom-logo',
+			'position' => 1,
 			'area'     => 'header-top',
-			'priority' => 1,
 		)
 	)
 );

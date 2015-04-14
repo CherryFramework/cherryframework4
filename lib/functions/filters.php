@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Filters the body class.
 add_filter( 'body_class', 'cherry_add_control_classes' );
 
@@ -308,7 +313,7 @@ function cherry_add_extra_styles() {
 		$output .= ".cherry-grid-boxed .site-header .container,\n";
 		$output .= ".cherry-grid-boxed .site-footer .container,\n";
 		$output .= ".cherry-no-responsive .site-header .container,\n";
-		$output .= ".cherry-no-responsive .site-footer .container { max-width : {$container_width}px; width : auto; }\n";
+		$output .= ".cherry-no-responsive .site-footer .container { max-width : {$container_width}px; }\n";
 	// }
 
 	$output .= ".cherry-no-responsive .cherry-container .container { max-width : " . ( $container_width - $grid_gutter_width ) . "px; }\n";

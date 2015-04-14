@@ -120,10 +120,17 @@
 .cherry-section textarea {
   width: 100%;
 }
-.cherry-section input[type=checkbox], .cherry-section input[type=radio] {
-  display: inline-block;
+.cherry-section input[type=checkbox] {
+  display: none;
 }
-.cherry-section input[type=checkbox] + label, .cherry-section input[type=radio] + label {
+.cherry-section input[type=checkbox] + label {
+  display: inline-block;
+  margin: 2px 0 7px 0;
+}
+.cherry-section input[type=radio] {
+  display: none;
+}
+.cherry-section input[type=radio] + label {
   display: inline-block;
 }
 .cherry-section .width-small {
@@ -136,6 +143,26 @@
 }
 .cherry-section .width-full {
   width: 100%;
+}
+.cherry-section .cherry-checkbox-item {
+  width: 21px;
+  height: 21px;
+  float: left;
+  border-radius: 3px;
+  margin-right: 5px;
+  cursor: pointer;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #dddcdc;
+}
+.cherry-section .cherry-checkbox-item.checked .marker {
+  display: block;
+}
+.cherry-section .cherry-checkbox-item .marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
 }
 .cherry-section .cherry-stepper-input {
   max-width: 90px;
@@ -530,6 +557,29 @@
 }
 .cherry-section .wp-picker-container .wp-picker-input-wrap input[type="text"] {
   padding: 7px 4px;
+}
+.cherry-section .cherry-radio-item span {
+  width: 17px;
+  height: 17px;
+  border-radius: 20px;
+  margin-right: 5px;
+  cursor: pointer;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #dddcdc;
+  display: inline-block;
+  float: left;
+}
+.cherry-section .cherry-radio-item span i {
+  width: 9px;
+  height: 9px;
+  background-color: #444444;
+  margin: 4px;
+  border-radius: 20px;
+  display: none;
+}
+.cherry-section .cherry-radio-item.checked span i {
+  display: inline-block;
 }
 .cherry-section .cherry-radio-img {
   float: left;

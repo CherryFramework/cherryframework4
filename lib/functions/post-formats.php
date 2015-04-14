@@ -14,6 +14,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Add support for structured post formats.
 add_action( 'wp_loaded', 'cherry_structured_post_formats', 1 );
 

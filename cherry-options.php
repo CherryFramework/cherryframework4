@@ -903,7 +903,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Styling text in forms.', 'cherry' )
 			),
 			'value' => array(
-				'fonttype'		=> 'web',
+				'fonttype'		=> 'standart',
 				'size'			=> '14',
 				'lineheight'	=> '20',
 				'color'			=> '#333333',
@@ -923,6 +923,7 @@ function cherry_defaults_settings() {
 				'content'	=> __( 'Styling text in breadcrumbs.', 'cherry' )
 			),
 			'value' => array(
+				'fonttype'		=> 'standart',
 				'size'			=> '14',
 				'lineheight'	=> '20',
 				'color'			=> '#777777',
@@ -1151,8 +1152,6 @@ function cherry_defaults_settings() {
 					'type'		=> 'text',
 					'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
 				),
-				'editor_mode'	=> 'css',
-				'editor_theme'	=> 'monokai',
 				'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
 	);
 	$demo_options['typography-demo'] = array(

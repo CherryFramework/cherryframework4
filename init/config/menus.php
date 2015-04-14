@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Register custom menus.
 add_action( 'init', 'cherry_register_menus' );
 function cherry_register_menus() {

@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Gets the parent theme textdomain. This allows the framework to recognize the proper textdomain of the
  * parent theme.

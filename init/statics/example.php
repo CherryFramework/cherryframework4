@@ -14,7 +14,8 @@
 class cherry_example_static extends cherry_register_static {
 
 	/**
-	 * Callback method for registered static.
+	 * Callback-method for registered static.
+	 *
 	 * @since 4.0.0
 	 */
 	public function callback() {}
@@ -25,16 +26,16 @@ class cherry_example_static extends cherry_register_static {
  */
 new cherry_example_static(
 	array(
-		'id'       => 'example', // Static ID
-		'name'     => __( 'Example', 'cherry' ), // Static name
-		'options'  => array(
-			'col-lg'   => 'col-lg-6',  // Large devices Desktops (≥1200px)
-			'col-md'   => 'col-md-6',  // Medium devices Desktops (≥992px)
-			'col-sm'   => 'col-sm-12', // Small devices Tablets (≥768px)
-			'col-xs'   => 'col-xs-12', // Extra small devices Phones (<768px)
-			'class'    => 'example-css-class', // Extra CSS class
-			'priority' => 1,
-			'area'     => 'static-area-id', // ID for static area
+		'id'      => 'example', // Static ID
+		'name'    => __( 'Example', 'cherry' ), // Static name
+		'options' => array(
+			'col-lg'   => 'col-lg-6',  // (optional) Column class for a large devices (≥1200px)
+			'col-md'   => 'col-md-6',  // (optional) Column class for a medium devices (≥992px)
+			'col-sm'   => 'col-sm-12', // (optional) Column class for a tablets (≥768px)
+			'col-xs'   => 'col-xs-12', // (optional) Column class for a phones (<768px)
+			'class'    => 'example-css-class', // (optional) Extra CSS class
+			'position' => 1, // (optional) Position in static area (1 - first static, 2 - second static, etc.)
+			'area'     => 'static-area-id', // (required) ID for static area
 		)
 	)
 );

@@ -7,6 +7,11 @@
  * @package Cherry Framework
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Add breadcrumbs.
 add_action( 'cherry_content_before', 'cherry_get_breadcrumbs', 5 );
 

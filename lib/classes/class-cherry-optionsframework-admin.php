@@ -361,11 +361,12 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				$section_index = 0;
 				//save options
 				if(isset($_POST['cherry']['save-options'])){
-					$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
-					do_action('cherry-options-updated');
 					//$location = add_query_arg( array( 'saved' => 'true' ), menu_page_url( 'cherry-options', 0 ) );
 					//wp_redirect( $location );
 					//exit;
+
+					$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
+					do_action('cherry-options-updated');
 				}
 				//restore section
 				if(isset($_POST['cherry']['restore-section'])){

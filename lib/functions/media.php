@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Add all image sizes to the image editor to insert into post.
 add_filter( 'image_size_names_choose', 'cherry_image_size_names_choose' );
 

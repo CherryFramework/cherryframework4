@@ -12,6 +12,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Allows theme developers to set a definite prefix for their theme. If this isn't set, the framework
  * will assume the prefix is the value of 'get_template()'. This should be called early, such as in
