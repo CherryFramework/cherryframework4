@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Loads styles.
 add_theme_support( 'cherry-styles', array(
 	'grid-base', 'grid-responsive', 'slick', 'magnific-popup', 'drop-downs', 'main', 'add-ons'

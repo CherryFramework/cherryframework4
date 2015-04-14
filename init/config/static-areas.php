@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Register a static areas.
 add_action( 'init', 'cherry_register_static_areas' );
 function cherry_register_static_areas() {

@@ -10,6 +10,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Registers custom image sizes for the theme.
 add_action( 'init', 'cherry_register_image_sizes' );
 function cherry_register_image_sizes() {
