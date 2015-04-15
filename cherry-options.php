@@ -207,13 +207,19 @@ function cherry_defaults_settings() {
 	$blog_options['blog-featured-images'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Featured Media', 'cherry' ),
-		'decsription' => __( 'Displays Featured Image, Gallery, Audio, Video in blog posts listing depending on post type.', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Displays Featured Image, Gallery, Audio, Video in blog posts listing depending on post type.', 'cherry' ),
+		),
 		'value'       => 'true',
 	);
 	$blog_options['blog-featured-images-size'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Featured Image Size', 'cherry' ),
-		'decsription' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
+		),
 		'value'       => 'thumb-l',
 		'options'     => array(
 			'thumb-s' => __( 'Small', 'cherry' ),
@@ -223,7 +229,10 @@ function cherry_defaults_settings() {
 	$blog_options['blog-featured-images-align'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Featured Image Alignment', 'cherry' ),
-		'decsription' => __( 'Set alignment for post featured images.', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Set alignment for post featured images.', 'cherry' ),
+		),
 		'value'       => 'aligncenter',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
@@ -281,13 +290,19 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-post-featured-image'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Featured Image', 'cherry' ),
-		'decsription' => __( 'Показывать Featured Image на странице single поста', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Display featured image at the single post page.', 'cherry' ),
+		),
 		'value'       => 'true',
 	);
 	$post_single_options['blog-post-featured-image-size'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Size for Featured Image', 'cherry' ),
-		'decsription' => __( 'Размер Featured Image на странице Поста', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Set dimensions for single post featured images in pixels.', 'cherry' ),
+		),
 		'value'       => 'thumb-l',
 		'options'     => array(
 			'thumb-s' => __( 'Small', 'cherry' ),
@@ -297,7 +312,10 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-post-featured-image-align'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Alignment for Featured Image', 'cherry' ),
-		'decsription' => __( 'Позиция Featured Image на странице Поста', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Set alignment for single post featured images.', 'cherry' ),
+		),
 		'value'       => 'aligncenter',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
@@ -519,7 +537,10 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options['breadcrumbs'] = array(
 			'type'			=> 'switcher',
 			'title'			=> __( 'Breadcrumbs', 'cherry' ),
-			'decsription'	=> __( 'Enable/disable breadcrumbs navigation.', 'cherry' ),
+			'hint'  => array(
+				'type'    => 'text',
+				'content' => __('Enable/disable breadcrumbs navigation.', 'cherry' ),
+			),
 			'value'			=> 'true',
 			'default_value'	=> 'true'
 	);
