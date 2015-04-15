@@ -58,17 +58,6 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'false',
 	);
-	$general_options['general-user-css'] = array(
-		'type'  => 'ace-editor',
-		'title' => __( 'User CSS', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( 'Define custom CSS styling.', 'cherry' ),
-		),
-		'editor_mode'  => 'css',
-		'editor_theme' => 'monokai',
-		'value'        => ''
-	);
 	$general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
 		'title' => sprintf(
@@ -102,7 +91,17 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'false',
 	);
-
+	$general_options['general-user-css'] = array(
+		'type'  => 'ace-editor',
+		'title' => __( 'User CSS', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Define custom CSS styling.', 'cherry' ),
+		),
+		'editor_mode'  => 'css',
+		'editor_theme' => 'monokai',
+		'value'        => ''
+	);
 	///////////////////////////////////////////////////////////////////
 	// Static Area Editor
 	///////////////////////////////////////////////////////////////////
@@ -202,7 +201,6 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Blog layout options
 //////////////////////////////////////////////////////////////////////
-
 	$blog_options = array();
 	$blog_options['blog-featured-images'] = array(
 		'type'        => 'switcher',
@@ -398,24 +396,22 @@ function cherry_defaults_settings() {
 	$styling_options = array();
 	//background image
 	$styling_options['styling-body-content-background'] = array(
-				'type'			=> 'background',
-				'title'			=> __('Body background', 'cherry' ),
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Set background for body container. You can specify background image or color, set background repeat, position and attachment. ', 'cherry' ),
-				),
-				'return_data_type'	=> 'url',
-				'library_type'		=> 'image',
-				'value'				=> array(
-					'image'	=> '',
-					'color'	=> '#FFFFFF',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
+		'type'			=> 'background',
+		'title'			=> __('Body background', 'cherry' ),
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Set background for body container. You can specify background image or color, set background repeat, position and attachment. ', 'cherry' ),
+		),
+		'return_data_type'	=> 'url',
+		'library_type'		=> 'image',
+		'value'				=> array(
+			'image'	=> '',
+			'color'	=> '#FFFFFF',
+			'repeat'	=> 'repeat',
+			'position'	=> 'left',
+			'attachment'=> 'fixed'
+		)
 	);
-
-
 	// Color scheme options
 	//////////////////////////////////////////////////////////////////////
 
@@ -517,77 +513,73 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options = array();
 
 	$breadcrumbs_options['breadcrumbs'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Breadcrumbs', 'cherry' ),
-			'decsription'	=> __( 'Enable/disable breadcrumbs navigation.', 'cherry' ),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+		'type'			=> 'switcher',
+		'title'			=> __( 'Breadcrumbs', 'cherry' ),
+		'decsription'	=> __( 'Enable/disable breadcrumbs navigation.', 'cherry' ),
+		'value'			=> 'true',
+		'default_value'	=> 'true'
 	);
 	$breadcrumbs_options['breadcrumbs-display'] = array(
-			'type'			=> 'multicheckbox',
-			'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
-			),
-			'class'			=> '',
-			'value'			=> array(
-				'tablet'	=> true,
-				'mobile'	=> true,
-			),
-			'default_value'	=> array(
-				'tablet'	=> true,
-				'mobile'	=> true,
-			),
-			'options'		=> array(
-				'tablet'	=> __( 'Tablet', 'cherry' ),
-				'mobile'	=> __( 'Mobile', 'cherry' ),
-			)
+		'type'			=> 'multicheckbox',
+		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
+		),
+		'class'			=> '',
+		'value'			=> array(
+			'tablet'	=> true,
+			'mobile'	=> true,
+		),
+		'default_value'	=> array(
+			'tablet'	=> true,
+			'mobile'	=> true,
+		),
+		'options'		=> array(
+			'tablet'	=> __( 'Tablet', 'cherry' ),
+			'mobile'	=> __( 'Mobile', 'cherry' ),
+		)
 	);
-
 	$breadcrumbs_options['breadcrumbs-show-on-front'] = array(
-			'type'			=> 'switcher',
-			'title' 		=> __( 'Home page breadcrumbs', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable/disable breadcrumbs on home page.', 'cherry' )
-			),
-			'value'			=> 'false'
+		'type'			=> 'switcher',
+		'title' 		=> __( 'Home page breadcrumbs', 'cherry' ),
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __( 'Enable/disable breadcrumbs on home page.', 'cherry' )
+		),
+		'value'			=> 'false'
 	);
-
 	$breadcrumbs_options['breadcrumbs-show-title'] = array(
-			'type'			=> 'switcher',
-			'title' 		=> __( 'Page title', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable/disable page title in breadcrumbs.', 'cherry' )
-			),
-			'value'			=> 'true'
+		'type'			=> 'switcher',
+		'title' 		=> __( 'Page title', 'cherry' ),
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __( 'Enable/disable page title in breadcrumbs.', 'cherry' )
+		),
+		'value'			=> 'true'
 	);
 
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
-			'type'			=> 'text',
-			'title'			=> __( 'Item separator', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __( 'Breadcrumbs separator symbol.', 'cherry' )
-			),
+		'type'			=> 'text',
+		'title'			=> __( 'Item separator', 'cherry' ),
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __( 'Breadcrumbs separator symbol.', 'cherry' )
+		),
 
-			'value'			=> '&#47;',
-			'default_value'	=> '&#47;',
-			'class'			=> 'width-full'
+		'value'			=> '&#47;',
+		'default_value'	=> '&#47;',
+		'class'			=> 'width-full'
 	);
 	$breadcrumbs_options['breadcrumbs-prefix-path'] = array(
-			'type'			=> 'text',
-			'title'			=> __( 'Breadcrumbs prefix', 'cherry' ),
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> __( 'Text displayed before breadcrumbs navigation.', 'cherry' )
-			),
-			'value'			=> __( 'You are here:', 'cherry' ),
-			'default_value'	=> __( 'You are here:', 'cherry' )
+		'type'			=> 'text',
+		'title'			=> __( 'Breadcrumbs prefix', 'cherry' ),
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __( 'Text displayed before breadcrumbs navigation.', 'cherry' )
+		),
+		'value'			=> __( 'You are here:', 'cherry' ),
 	);
-
 
 	// Page navigation options
 	//////////////////////////////////////////////////////////////////////
@@ -595,198 +587,184 @@ function cherry_defaults_settings() {
 	$pagination_option = array();
 
 	$pagination_option['pagination-position'] = array(
-			'type'			=> 'select',
-			'title' 		=> __( 'Pagination position', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Select where you want to display pagination.', 'cherry' )
-			),
-			'value'			=> 'after',
-			'options'    	=> array(
-				'after'  => __( 'After posts loop', 'cherry' ),
-				'before' => __( 'Before posts loop', 'cherry' ),
-				'both'   => __( 'Both', 'cherry' )
-			)
+		'type'			=> 'select',
+		'title' 		=> __( 'Pagination position', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Select where you want to display pagination.', 'cherry' )
+		),
+		'value'			=> 'after',
+		'options'    	=> array(
+			'after'  => __( 'After posts loop', 'cherry' ),
+			'before' => __( 'Before posts loop', 'cherry' ),
+			'both'   => __( 'Both', 'cherry' )
+		)
 	);
 
 	$pagination_option['pagination-next-previous'] = array(
-			'type'			=> 'switcher',
-			'title' 		=> __( 'Prev/next buttons', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Show/hide previous and next buttons in pagination.', 'cherry' )
-			),
-			'value'			=> 'true'
+		'type'			=> 'switcher',
+		'title' 		=> __( 'Prev/next buttons', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Show/hide previous and next buttons in pagination.', 'cherry' )
+		),
+		'value'			=> 'true'
 	);
 	$pagination_option['pagination-label'] = array(
-			'type'			=> 'text',
-			'title'			=> __( 'Pagination label', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Pagination label. Displayed before pagination buttons. Text or HTML can be used.', 'cherry' )
-			),
-			'value'			=> __( 'Pages:', 'cherry' ),
-			'default_value'	=> __( 'Pages:', 'cherry' )
+		'type'			=> 'text',
+		'title'			=> __( 'Pagination label', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Pagination label. Displayed before pagination buttons. Text or HTML can be used.', 'cherry' )
+		),
+		'value'			=> __( 'Pages:', 'cherry' ),
 	);
 	$pagination_option['pagination-previous-page'] = array(
-			'type'			=> 'text',
-			'title'			=> __( 'Prev button label', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Previous button label text. Text or HTML can be used.', 'cherry' )
-			),
-			'value'			=> '&laquo;',
-			'default_value'	=> '&laquo;'
+		'type'			=> 'text',
+		'title'			=> __( 'Prev button label', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Previous button label text. Text or HTML can be used.', 'cherry' )
+		),
+		'value'			=> '&laquo;',
 	);
 	$pagination_option['pagination-next-page'] = array(
-			'type'			=> 'text',
-			'title'			=> __( 'Next button label', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Next button label text. Text or HTML can be used.', 'cherry' )
-			),
-			'value'			=> '&raquo;',
-			'default_value'	=> '&raquo;'
+		'type'			=> 'text',
+		'title'			=> __( 'Next button label', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Next button label text. Text or HTML can be used.', 'cherry' )
+		),
+		'value'			=> '&raquo;',
 	);
 	$pagination_option['pagination-show-all'] = array(
-			'type'			=> 'switcher',
-			'title' 		=> __( 'Show all the pages', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'If set to On, then it will show all of the pages instead of a short list of the pages near the current page.', 'cherry' )
-			),
-			'value'			=> 'false'
+		'type'			=> 'switcher',
+		'title' 		=> __( 'Show all the pages', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'If set to On, then it will show all of the pages instead of a short list of the pages near the current page.', 'cherry' )
+		),
+		'value'			=> 'false'
 	);
 	$pagination_option['pagination-end-size'] = array(
-			'type'			=> 'stepper',
-			'title'			=> __( 'End size', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'How many numbers to display on either the start and the end list edges.', 'cherry' )
-			),
-			'value'			=> '1',
-			'default_value'	=> '1',
-			'value-step'	=> '1',
-			'max-value'		=> '99',
-			'min-value'		=> '1'
-			);
-	$pagination_option['pagination-mid-size'] = array(
-			'type'			=> 'stepper',
-			'title'			=> __( 'Mid size', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'How many numbers to display to either side of current page, but not including current page.', 'cherry' )
-			),
-			'value'			=> '2',
-			'default_value'	=> '2',
-			'value-step'	=> '1',
-			'max-value'		=> '9999',
-			'min-value'		=> '1'
+		'type'			=> 'stepper',
+		'title'			=> __( 'End size', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'How many numbers to display on either the start and the end list edges.', 'cherry' )
+		),
+		'value'			=> '1',
+		'value-step'	=> '1',
+		'max-value'		=> '99',
+		'min-value'		=> '1'
 	);
-
-
-
+	$pagination_option['pagination-mid-size'] = array(
+		'type'			=> 'stepper',
+		'title'			=> __( 'Mid size', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'How many numbers to display to either side of current page, but not including current page.', 'cherry' )
+		),
+		'value'			=> '2',
+		'value-step'	=> '1',
+		'max-value'		=> '9999',
+		'min-value'		=> '1'
+	);
 //////////////////////////////////////////////////////////////////////
 // Header options
 //////////////////////////////////////////////////////////////////////
 	$header_options = array();
 
-
 	$header_options['header-background'] = array(
-			'type'			=> 'background',
-			'title'			=> __('Header background', 'cherry' ),
-			'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=>  __( 'Header background settings. You can select background color, upload header background image, set it\'s background position, attachment and repeat. ', 'cherry' )
-				),
-			'return_data_type'	=> 'id',
-			'library_type'		=> 'image',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#a4cc3f',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
+		'type'			=> 'background',
+		'title'			=> __('Header background', 'cherry' ),
+		'hint'			=>  array(
+				'type'		=> 'text',
+				'content'	=>  __( 'Header background settings. You can select background color, upload header background image, set it\'s background position, attachment and repeat. ', 'cherry' )
+			),
+		'return_data_type'	=> 'id',
+		'library_type'		=> 'image',
+		'value'			=> array(
+				'image'	=> '',
+				'color'	=> '#a4cc3f',
+				'repeat'	=> 'repeat',
+				'position'	=> 'left',
+				'attachment'=> 'fixed'
+			)
 	);
 	$header_options['header-sticky'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Sticky header', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Enable\disable fixed stick to top header.', 'cherry' )
-			),
-			'value'			=> 'false'
+		'type'			=> 'switcher',
+		'title'			=> __( 'Sticky header', 'cherry' ),
+		'hint'			=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Enable\disable fixed stick to top header.', 'cherry' )
+		),
+		'value'			=> 'false'
 	);
-
 	$header_options['header-sticky-selector'] = array(
-			'type'			=> 'select',
-			'title'			=> __( 'Sticky selector', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Select what block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
-			),
-			'value'			=> $default_selector,
-			'options'		=> $sticky_selectors
+		'type'			=> 'select',
+		'title'			=> __( 'Sticky selector', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Select what block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
+		),
+		'value'			=> $default_selector,
+		'options'		=> $sticky_selectors
 	);
-
 	// Logo options
 	//////////////////////////////////////////////////////////////////////
 	$logo_options = array();
-
 	$logo_options['logo-type'] = array(
-				'type'			=> 'radio',
-				'title'			=> __( 'Logo type', 'cherry' ),
-				'hint'      	=> array(
-					'type'		=> 'text',
-					'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select \'image\' you can choose logo image from the media library in the next option, and if you select \'text\' your Wordpress Site Title will be shown instead.', 'cherry' )
-				),
-				'value'			=> 'text',
-				'default_value'	=> 'text',
-				'class'			=> '',
-				'display_input'	=> true,
-				'options'		=> array(
-					'image' => array(
-						'label' => 'Image logo',
-						'img_src' => ''
-					),
-					'text' => array(
-						'label' => 'Text logo',
-						'img_src' => ''
-					)
-				)
+		'type'			=> 'radio',
+		'title'			=> __( 'Logo type', 'cherry' ),
+		'hint'			=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select \'image\' you can choose logo image from the media library in the next option, and if you select \'text\' your Wordpress Site Title will be shown instead.', 'cherry' )
+		),
+		'value'			=> 'text',
+		'default_value'	=> 'text',
+		'class'			=> '',
+		'display_input'	=> true,
+		'options'		=> array(
+			'image' => array(
+				'label' => 'Image logo',
+				'img_src' => ''
+			),
+			'text' => array(
+				'label' => 'Text logo',
+				'img_src' => ''
+			)
+		)
 	);
 	$logo_options['logo-image-path'] = array(
-				'type'				=> 'media',
-				'title'				=> __( 'Logo image', 'cherry' ),
-				'hint'      	=> array(
-					'type'		=> 'text',
-					'content'	=> __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' )
-				),
-				'value'				=> '',
-				'default_value'		=> '',
-				'multi-upload'		=> true,
+		'type'				=> 'media',
+		'title'				=> __( 'Logo image', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' )
+		),
+		'value'				=> '',
+		'multi-upload'		=> true,
 	);
 	$logo_options['logo-typography'] = array(
-				'type'			=> 'typography',
-				'title'				=> __( 'Logo typography', 'cherry' ),
-				'hint'      	=> array(
-					'type'		=> 'text',
-					'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color etc.', 'cherry' )
-				),
-				'value'			=> array(
-					'fonttype'		=> 'web',
-					'size'			=> '60',
-					'lineheight'	=> '80',
-					'color'			=> '#777777',
-					'family'		=> 'Lobster',
-					'character'		=> 'latin-ext',
-					'style'			=> '',
-					'letterspacing' => '',
-					'align'			=> 'notdefined'
-				)
+		'type'			=> 'typography',
+		'title'				=> __( 'Logo typography', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color etc.', 'cherry' )
+		),
+		'value'			=> array(
+			'fonttype'		=> 'web',
+			'size'			=> '60',
+			'lineheight'	=> '80',
+			'color'			=> '#777777',
+			'family'		=> 'Lobster',
+			'character'		=> 'latin-ext',
+			'style'			=> '',
+			'letterspacing' => '',
+			'align'			=> 'notdefined'
+		)
 	);
-
 
 //////////////////////////////////////////////////////////////////////
 // Footer options
@@ -794,42 +772,41 @@ function cherry_defaults_settings() {
 
 	$footer_options = array();
 	$footer_options['footer-background'] = array(
-			'type'			=> 'background',
-			'title'				=> __( 'Footer background', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Footer background settings. You can select background color, upload footer background image, set it\'s background position, attachment and repeat.', 'cherry' )
-			),
-			'return_data_type'	=> 'id',
-			'library_type'		=> 'image',
-			'value'			=> array(
-					'image'	=> '',
-					'color'	=> '#a4cc3f',
-					'repeat'	=> 'repeat',
-					'position'	=> 'left',
-					'attachment'=> 'fixed'
-				)
+		'type'			=> 'background',
+		'title'				=> __( 'Footer background', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Footer background settings. You can select background color, upload footer background image, set it\'s background position, attachment and repeat.', 'cherry' )
+		),
+		'return_data_type'	=> 'id',
+		'library_type'		=> 'image',
+		'value'			=> array(
+			'image'	=> '',
+			'color'	=> '#a4cc3f',
+			'repeat'	=> 'repeat',
+			'position'	=> 'left',
+			'attachment'=> 'fixed'
+		)
 	);
 	$footer_options['footer-typography'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Footer typography', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Typography settings for footer texts.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '14',
-				'lineheight'	=> '30',
-				'color'			=> '#333333',
-				'family'		=> 'Roboto',
-				'character'		=> 'latin-ext',
-				'style'			=> '',
-				'letterspacing' => '',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Footer typography', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Typography settings for footer texts.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '14',
+			'lineheight'	=> '30',
+			'color'			=> '#333333',
+			'family'		=> 'Roboto',
+			'character'		=> 'latin-ext',
+			'style'			=> '',
+			'letterspacing' => '',
+			'align'			=> 'notdefined'
+		)
 	);
-
 //////////////////////////////////////////////////////////////////////
 // Typography options
 //////////////////////////////////////////////////////////////////////
@@ -837,266 +814,204 @@ function cherry_defaults_settings() {
 	$typography_options = array();
 
 	$typography_options['typography-body-text'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Body text', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Main website text typography options.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '14',
-				'lineheight'	=> '20',
-				'color'			=> '#777777',
-				'family'		=> 'Raleway',
-				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Body text', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Main website text typography options.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '14',
+			'lineheight'	=> '20',
+			'color'			=> '#777777',
+			'family'		=> 'Raleway',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'letterspacing' => '',
+			'align'			=> 'notdefined'
+		)
 	);
-
 	$typography_options['typography-link'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Link typography', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Typography for links.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '14',
-				'lineheight'	=> '20',
-				'color'			=> '#f62e46',
-				'family'		=> 'Raleway',
-				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Link typography', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Typography for links.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '14',
+			'lineheight'	=> '20',
+			'color'			=> '#f62e46',
+			'family'		=> 'Raleway',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'letterspacing' => '',
+			'align'			=> 'notdefined'
+		)
 	);
-
 	$typography_options['typography-link-hover'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> __( 'Link hover color', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Color for links on hover.', 'cherry' )
-			),
-			'value'			=> '#f4001c',
-			'default_value'	=> '#f4001c'
+		'type'			=> 'colorpicker',
+		'title'			=> __( 'Link hover color', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Color for links on hover.', 'cherry' )
+		),
+		'value'			=> '#f4001c',
 	);
-
 	$typography_options['typography-input-text'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Input text', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Styling text in forms.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'standart',
-				'size'			=> '14',
-				'lineheight'	=> '20',
-				'color'			=> '#333333',
-				'family'		=> 'Arial',
-				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Input text', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Styling text in forms.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'standart',
+			'size'			=> '14',
+			'lineheight'	=> '20',
+			'color'			=> '#333333',
+			'family'		=> 'Arial',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'letterspacing' => '',
+			'align'			=> 'notdefined'
+		)
 	);
-
 	$typography_options['typography-breadcrumbs'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Breadcrumbs typography', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Styling text in breadcrumbs.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'standart',
-				'size'			=> '14',
-				'lineheight'	=> '20',
-				'color'			=> '#777777',
-				'family'		=> 'Arial',
-				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Breadcrumbs typography', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Styling text in breadcrumbs.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'standart',
+			'size'			=> '14',
+			'lineheight'	=> '20',
+			'color'			=> '#777777',
+			'family'		=> 'Arial',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'letterspacing' => '',
+			'align'			=> 'notdefined'
+		)
 	);
-
 	$typography_options['typography-h1'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Heading 1', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'H1 heading font settings.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '36',
-				'lineheight'	=> '40',
-				'color'			=> '#333333',
-				'family'		=> 'ABeeZee',
-				'character'		=> 'latin-ext',
-				'style'			=> 'normal',
-				'letterspacing' => '',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Heading 1', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'H1 heading font settings.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '36',
+			'lineheight'	=> '40',
+			'color'			=> '#333333',
+			'family'		=> 'ABeeZee',
+			'character'		=> 'latin-ext',
+			'style'			=> 'normal',
+			'letterspacing' => '',
+			'align'			=> 'notdefined'
+		)
 	);
 	$typography_options['typography-h2'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Heading 2', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'H2 heading font settings.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '30',
-				'lineheight'	=> '33',
-				'color'			=> '#333333',
-				'family'		=> 'ABeeZee',
-				'character'		=> 'latin-ext',
-				'style'			=> 'normal',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Heading 2', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'H2 heading font settings.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '30',
+			'lineheight'	=> '33',
+			'color'			=> '#333333',
+			'family'		=> 'ABeeZee',
+			'character'		=> 'latin-ext',
+			'style'			=> 'normal',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined'
+		)
 	);
 	$typography_options['typography-h3'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Heading 3', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'H3 heading font settings.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '24',
-				'lineheight'	=> '26',
-				'color'			=> '#333333',
-				'family'		=> 'ABeeZee',
-				'character'		=> 'latin-ext',
-				'style'			=> 'normal',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Heading 3', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'H3 heading font settings.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '24',
+			'lineheight'	=> '26',
+			'color'			=> '#333333',
+			'family'		=> 'ABeeZee',
+			'character'		=> 'latin-ext',
+			'style'			=> 'normal',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined'
+		)
 	);
 	$typography_options['typography-h4'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Heading 4', 'cherry' ),
-			'hint'			=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'H4 heading font settings.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '18',
-				'lineheight'	=> '20',
-				'color'			=> '#333333',
-				'family'		=> 'ABeeZee',
-				'character'		=> 'latin-ext',
-				'style'			=> 'normal',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Heading 4', 'cherry' ),
+		'hint'			=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'H4 heading font settings.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '18',
+			'lineheight'	=> '20',
+			'color'			=> '#333333',
+			'family'		=> 'ABeeZee',
+			'character'		=> 'latin-ext',
+			'style'			=> 'normal',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined'
+		)
 	);
 	$typography_options['typography-h5'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Heading 5', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'H5 heading font settings.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '14',
-				'lineheight'	=> '16',
-				'color'			=> '#333333',
-				'family'		=> 'ABeeZee',
-				'character'		=> 'latin-ext',
-				'style'			=> 'normal',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Heading 5', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'H5 heading font settings.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '14',
+			'lineheight'	=> '16',
+			'color'			=> '#333333',
+			'family'		=> 'ABeeZee',
+			'character'		=> 'latin-ext',
+			'style'			=> 'normal',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined'
+		)
 	);
 	$typography_options['typography-h6'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Heading 6', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'H6 heading font settings.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '12',
-				'lineheight'	=> '14',
-				'color'			=> '#333333',
-				'family'		=> 'ABeeZee',
-				'character'		=> 'latin-ext',
-				'style'			=> 'normal',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+		'type'			=> 'typography',
+		'title'			=> __( 'Heading 6', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'H6 heading font settings.', 'cherry' )
+		),
+		'value' => array(
+			'fonttype'		=> 'web',
+			'size'			=> '12',
+			'lineheight'	=> '14',
+			'color'			=> '#333333',
+			'family'		=> 'ABeeZee',
+			'character'		=> 'latin-ext',
+			'style'			=> 'normal',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined'
+		)
 	);
-
-//////////////////////////////////////////////////////////////////////
-// List options
-//////////////////////////////////////////////////////////////////////
-
-	$lists_options = array();
-
-	$lists_options['lists-typography'] = array(
-			'type'			=> 'typography',
-			'title'			=> __( 'Lists typography', 'cherry' ),
-			'hint'      	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Typography settings for unordered and ordered lists.', 'cherry' )
-			),
-			'value' => array(
-				'fonttype'		=> 'web',
-				'size'			=> '14',
-				'lineheight'	=> '30',
-				'color'			=> '#333333',
-				'family'		=> 'Roboto',
-				'character'		=> 'latin-ext',
-				'style'			=> '',
-				'letterspacing' => '',
-				'align'			=> 'notdefined'
-			)
-	);
-
-	$lists_options['lists-mark-color'] = array(
-				'type'			=> 'colorpicker',
-				'title'			=> __( 'Marker color', 'cherry' ),
-				'hint'      	=> array(
-					'type'		=> 'text',
-					'content'	=> __( 'Choose color for unordered lists.', 'cherry' )
-				),
-				'value'			=> '#ff0000',
-				'default_value'	=> '#ff0000'
-	);
-
-	$lists_options['lists-mark-icon'] = array(
-				'type'			=> 'filterselect',
-				'title'			=> __( 'Marker icon', 'cherry' ),
-				'hint'      	=> array(
-					'type'		=> 'text',
-					'content'	=> __( 'Choose marker icon for unordered lists.', 'cherry' )
-				),
-				'value'			=> 'icon_caret_down',
-				'default_value'	=> 'icon_caret_down',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'icon_caret_down',
-					'select-2'	=> 'icon_caret_up',
-					'select-3'	=> 'icon_caret_right',
-					'select-4'	=> 'icon_caret_left'
-				)
-	);
-
 //////////////////////////////////////////////////////////////////////
 // Optimization options
 //////////////////////////////////////////////////////////////////////
@@ -1136,412 +1051,404 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
 	$demo_options['ace-editor-demo'] = array(
-				'type'			=> 'ace-editor',
-				'title'			=> __('CSS Editor', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
-				),
-				'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
+		'type'			=> 'ace-editor',
+		'title'			=> __('CSS Editor', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
+		),
+		'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
 	);
 	$demo_options['typography-demo'] = array(
-				'type'			=> 'typography',
-				'title'			=> __('Typography'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
-				),
-				'value'			=> array(
-					'fonttype'		=> 'web',
-					'size'			=> '20',
-					'lineheight'	=> '20',
-					'color'			=> '#222222',
-					'family'		=> 'Abril Fatface',
-					'character'		=> 'latin-ext',
-					'style'			=> 'italic',
-					'letterspacing' => '0',
-					'align'			=> 'notdefined'
-				)
+		'type'			=> 'typography',
+		'title'			=> __('Typography'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+		),
+		'value'			=> array(
+			'fonttype'		=> 'web',
+			'size'			=> '20',
+			'lineheight'	=> '20',
+			'color'			=> '#222222',
+			'family'		=> 'Abril Fatface',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined'
+		)
 	);
 	$demo_options['layout-editor-demo'] = array(
-				'type'			=> 'layouteditor',
-				'title'			=> __( 'title layout editor', 'cherry' ),
-				'label'			=> 'label layout editor',
-				'decsription'	=> 'decsription layout editor',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '
-				),
-				'value'			=> array(
-					'position'	=> array(
-						'top'		=> '10em',
-						'right'		=> '',
-						'bottom'	=> '',
-						'left'		=> '10%',
-					),
-					'margin'	=> array(
-						'top'		=> '0px',
-						'right'		=> '0px',
-						'bottom'	=> '0em',
-						'left'		=> '0px',
-					),
-					'border'	=> array(
-						'top'		=> '0px',
-						'right'		=> '0px',
-						'bottom'	=> '0px',
-						'left'		=> '0px',
-						'style'		=> 'solid',
-						'radius'	=> '10px',
-						'color'		=> '#ff0000'
-					),
-					'padding'	=> array(
-						'top'		=> '0em',
-						'right'		=> '0em',
-						'bottom'	=> '0em',
-						'left'		=> '0em',
-					),
-					'container'	=> array(
-						'width'		=> '0px',
-						'height'	=> '0px',
-					),
-				),
+		'type'			=> 'layouteditor',
+		'title'			=> __( 'title layout editor', 'cherry' ),
+		'label'			=> 'label layout editor',
+		'decsription'	=> 'decsription layout editor',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '
+		),
+		'value'			=> array(
+			'position'	=> array(
+				'top'		=> '10em',
+				'right'		=> '',
+				'bottom'	=> '',
+				'left'		=> '10%',
+			),
+			'margin'	=> array(
+				'top'		=> '0px',
+				'right'		=> '0px',
+				'bottom'	=> '0em',
+				'left'		=> '0px',
+			),
+			'border'	=> array(
+				'top'		=> '0px',
+				'right'		=> '0px',
+				'bottom'	=> '0px',
+				'left'		=> '0px',
+				'style'		=> 'solid',
+				'radius'	=> '10px',
+				'color'		=> '#ff0000'
+			),
+			'padding'	=> array(
+				'top'		=> '0em',
+				'right'		=> '0em',
+				'bottom'	=> '0em',
+				'left'		=> '0em',
+			),
+			'container'	=> array(
+				'width'		=> '0px',
+				'height'	=> '0px',
+			),
+		),
 	);
 	$demo_options['repeater-demo'] = array(
-				'type'			=> 'repeater',
-				'title'			=> __('Links repeater', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('This option allows you to create a custom links list. For each link you can define URL, class and label.', 'cherry'),
-				),
-				'value'			=> array(
-					array(
-						'external-link'	=> 'http://google.com',
-						'font-class'	=> 'dashicons-admin-site',
-						'link-label'	=> 'custom text',
-					),
-					array(
-						'external-link'	=> 'https://www.youtube.com/',
-						'font-class'	=> 'dashicons-admin-generic',
-						'link-label'	=> 'custom text',
-					),
-					array(
-						'external-link'	=> 'https://vimeo.com/',
-						'font-class'	=> 'dashicons-admin-media',
-						'link-label'	=> 'custom text',
-					),
-				)
+		'type'			=> 'repeater',
+		'title'			=> __('Links repeater', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('This option allows you to create a custom links list. For each link you can define URL, class and label.', 'cherry'),
+		),
+		'value'			=> array(
+			array(
+				'external-link'	=> 'http://google.com',
+				'font-class'	=> 'dashicons-admin-site',
+				'link-label'	=> 'custom text',
+			),
+			array(
+				'external-link'	=> 'https://www.youtube.com/',
+				'font-class'	=> 'dashicons-admin-generic',
+				'link-label'	=> 'custom text',
+			),
+			array(
+				'external-link'	=> 'https://vimeo.com/',
+				'font-class'	=> 'dashicons-admin-media',
+				'link-label'	=> 'custom text',
+			),
+		)
 	);
 	$demo_options['text-demo'] = array(
-				'type'			=> 'text',
-				'title'			=> __('Text input', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Regular single line text input field.', 'cherry'),
-				),
-				'value'			=> 'value',
+		'type'			=> 'text',
+		'title'			=> __('Text input', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
 	);
 	$demo_options['textarea-demo'] = array(
-				'type'			=> 'textarea',
-				'title'			=> __('Textarea input', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Multiline text input field ( 16 rows x 20 cols ).', 'cherry'),
-				),
-				'value'			=> 'value',
-				'default_value'	=> 'default_value'
+		'type'			=> 'textarea',
+		'title'			=> __('Textarea input', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Multiline text input field ( 16 rows x 20 cols ).', 'cherry'),
+		),
+		'value'			=> 'value',
 	);
 	$demo_options['select-demo'] = array(
-				'type'			=> 'select',
-				'title'			=> __('Select box', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					//'content'	=> 'https://www.youtube.com/watch?v=2kodXWejuy0'
-					'content'	=> __('Select box with single option.', 'cherry'),
-				),
-				'value'			=> 'select-1',
-				'default_value'	=> 'select-1',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'select 1',
-					'select-2'	=> 'select 2',
-					'select-3'	=> 'select 3'
-				)
+		'type'			=> 'select',
+		'title'			=> __('Select box', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with single option.', 'cherry'),
+		),
+		'value'			=> 'select-1',
+		'class'			=> 'width-full',
+		'options'		=> array(
+			'select-1'	=> 'select 1',
+			'select-2'	=> 'select 2',
+			'select-3'	=> 'select 3'
+		)
 	);
 	$demo_options['filterselect-demo'] = array(
-				'type'			=> 'filterselect',
-				'title'			=> __('Filtered select', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Select box with filter option.', 'cherry'),
-				),
-				'value'			=> 'select_1',
-				'default_value'	=> 'select_1',
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'select 1',
-					'select-2'	=> 'select 2',
-					'select-3'	=> 'select 3',
-					'select-4'	=> 'select 4',
-					'select-5'	=> 'select 5',
-					'select-6'	=> 'select 6',
-					'select-7'	=> 'select 2',
-					'select-8'	=> 'select 8'
-				)
+		'type'			=> 'filterselect',
+		'title'			=> __('Filtered select', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with filter option.', 'cherry'),
+		),
+		'value'			=> 'select_1',
+		'class'			=> 'width-full',
+		'options'		=> array(
+			'select-1'	=> 'select 1',
+			'select-2'	=> 'select 2',
+			'select-3'	=> 'select 3',
+			'select-4'	=> 'select 4',
+			'select-5'	=> 'select 5',
+			'select-6'	=> 'select 6',
+			'select-7'	=> 'select 2',
+			'select-8'	=> 'select 8'
+		)
 	);
 	$demo_options['multiselect-demo'] = array(
-				'type'			=> 'multiselect',
-				'title'			=> __('Mulli-select box', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Select box with multiple select capability.', 'cherry'),
-				),
-				'placeholder'	=> 'Select value',
-				'value'			=> array('select-1','select-8'),
-				'class'			=> 'width-full',
-				'options'		=> array(
-					'select-1'	=> 'Item 1',
-					'select-2'	=> 'Item 2',
-					'select-3'	=> 'Item 3',
-					'select-4'	=> 'Item 4',
-					'select-5'	=> 'Item 5',
-					'select-6'	=> 'Item 6',
-					'select-7'	=> 'Item 7',
-					'select-8'	=> 'Item 8'
-				)
+		'type'			=> 'multiselect',
+		'title'			=> __('Mulli-select box', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with multiple select capability.', 'cherry'),
+		),
+		'placeholder'	=> 'Select value',
+		'value'			=> array('select-1','select-8'),
+		'class'			=> 'width-full',
+		'options'		=> array(
+			'select-1'	=> 'Item 1',
+			'select-2'	=> 'Item 2',
+			'select-3'	=> 'Item 3',
+			'select-4'	=> 'Item 4',
+			'select-5'	=> 'Item 5',
+			'select-6'	=> 'Item 6',
+			'select-7'	=> 'Item 7',
+			'select-8'	=> 'Item 8'
+		)
 	);
 	$demo_options['checkbox-demo'] = array(
-				'type'			=> 'checkbox',
-				'title'			=> __('Checkbox', 'cherry'),
-				'label'			=> __('Checkbox label', 'cherry'),
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Regular HTML checkbox.', 'cherry'),
-				),
-				'value'			=> 'true',
+		'type'			=> 'checkbox',
+		'title'			=> __('Checkbox', 'cherry'),
+		'label'			=> __('Checkbox label', 'cherry'),
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular HTML checkbox.', 'cherry'),
+		),
+		'value'			=> 'true',
 	);
 	$demo_options['switcher-demo'] = array(
-				'type'			=> 'switcher',
-				'title'			=> __('Switcher', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Analogue of the regular HTML radio buttons. ', 'cherry'),
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true'
+		'type'			=> 'switcher',
+		'title'			=> __('Switcher', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Analogue of the regular HTML radio buttons. ', 'cherry'),
+		),
+		'value'			=> 'true',
 	);
 	$demo_options['switcher-custom-toogle-demo'] = array(
-				'type'			=> 'switcher',
-				'title'			=> __('Switcher (alternative)', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Alternative switcher with custom labels.', 'cherry'),
-				),
-				'value'			=> 'true',
-				'default_value'	=> 'true',
-				'toggle'		=> array(
-					'true_toggle'	=> __( 'Enabled', 'cherry' ),
-					'false_toggle'	=> __( 'Disabled', 'cherry' )
-				)
+		'type'			=> 'switcher',
+		'title'			=> __('Switcher (alternative)', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Alternative switcher with custom labels.', 'cherry'),
+		),
+		'value'			=> 'true',
+		'toggle'		=> array(
+			'true_toggle'	=> __( 'Enabled', 'cherry' ),
+			'false_toggle'	=> __( 'Disabled', 'cherry' )
+		)
 	);
 	$demo_options['slider-demo'] = array(
-				'type'			=> 'slider',
-				'title'			=> __('Slider', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Draggable slider with stepper. Used to define some numeric value.', 'cherry'),
-				),
-				'max_value'		=> 1920,
-				'min_value'		=> 980,
-				'value'			=> 1024
+		'type'			=> 'slider',
+		'title'			=> __('Slider', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Draggable slider with stepper. Used to define some numeric value.', 'cherry'),
+		),
+		'max_value'		=> 1920,
+		'min_value'		=> 980,
+		'value'			=> 1024
 	);
 	$demo_options['rangeslider-demo'] = array(
-				'type'			=> 'rangeslider',
-				'title'			=> __('Slider (ranged)', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Draggable slider with range capability. Used to define numeric range.', 'cherry'),
-				),
-				'max_value'		=> 100,
-				'min_value'		=> 20,
-				'value'			=> array(
-					'left-value'	=> 30,
-					'right-value'	=> 50,
-				)
+		'type'			=> 'rangeslider',
+		'title'			=> __('Slider (ranged)', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Draggable slider with range capability. Used to define numeric range.', 'cherry'),
+		),
+		'max_value'		=> 100,
+		'min_value'		=> 20,
+		'value'			=> array(
+			'left-value'	=> 30,
+			'right-value'	=> 50,
+		)
 	);
 	$demo_options['multicheckbox-demo'] = array(
-				'type'			=> 'multicheckbox',
-				'title'			=> __('Multiple checkboxes', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Adds checkboxes group. Lets user to select several options from the list.', 'cherry'),
-				),
-				'class'			=> '',
-				'value'			=> array( 'checkbox-2', 'checkbox-3' ),
-				'options'		=> array(
-					'checkbox-1'	=> 'checkbox 1',
-					'checkbox-2'	=> 'checkbox 2',
-					'checkbox-3'	=> 'checkbox 3'
-				)
+		'type'			=> 'multicheckbox',
+		'title'			=> __('Multiple checkboxes', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds checkboxes group. Lets user to select several options from the list.', 'cherry'),
+		),
+		'class'			=> '',
+		'value'			=> array( 'checkbox-2', 'checkbox-3' ),
+		'options'		=> array(
+			'checkbox-1'	=> 'checkbox 1',
+			'checkbox-2'	=> 'checkbox 2',
+			'checkbox-3'	=> 'checkbox 3'
+		)
 	);
 	$demo_options['radio-demo'] = array(
-				'type'			=> 'radio',
-				'title'			=> __('Radio buttons', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Adds radio buttons group. Lets user to select one option from the list.', 'cherry'),
-				),
-				'value'			=> 'radio-2',
-				'class'			=> '',
-				'display-input'	=> true,
-				'options'		=> array(
-					'radio-1' => array(
-						'label' => 'radio 1',
-					),
-					'radio-2' => array(
-						'label' => 'radio 2',
-					),
-					'radio-3' => array(
-						'label' => 'radio 3',
-					),
-				)
+		'type'			=> 'radio',
+		'title'			=> __('Radio buttons', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds radio buttons group. Lets user to select one option from the list.', 'cherry'),
+		),
+		'value'			=> 'radio-2',
+		'class'			=> '',
+		'display-input'	=> true,
+		'options'		=> array(
+			'radio-1' => array(
+				'label' => 'radio 1',
+			),
+			'radio-2' => array(
+				'label' => 'radio 2',
+			),
+			'radio-3' => array(
+				'label' => 'radio 3',
+			),
+		)
 	);
 	$demo_options['radio-image-demo'] = array(
-				'type'			=> 'radio',
-				'title'			=> __('Radio buttons (image)', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Adds image based radio buttons group. Behaves as HTML radio buttons.', 'cherry'),
-				),
-				'value'			=> 'radio-1',
-				'class'			=> '',
-				'display_input'	=> false,
-				'options'		=> array(
-					'radio-1' => array(
-						'label' => 'radio image 1',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-2' => array(
-						'label' => 'radio image 2',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-					'radio-3' => array(
-						'label' => 'radio image 3',
-						'img_src' => PARENT_URI.'/screenshot.png'
-					),
-				)
+		'type'			=> 'radio',
+		'title'			=> __('Radio buttons (image)', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds image based radio buttons group. Behaves as HTML radio buttons.', 'cherry'),
+		),
+		'value'			=> 'radio-1',
+		'class'			=> '',
+		'display_input'	=> false,
+		'options'		=> array(
+			'radio-1' => array(
+				'label' => 'radio image 1',
+				'img_src' => PARENT_URI.'/screenshot.png'
+			),
+			'radio-2' => array(
+				'label' => 'radio image 2',
+				'img_src' => PARENT_URI.'/screenshot.png'
+			),
+			'radio-3' => array(
+				'label' => 'radio image 3',
+				'img_src' => PARENT_URI.'/screenshot.png'
+			),
+		)
 	);
 	$demo_options['image-demo'] = array(
-				'type'				=> 'media',
-				'title'			=> __('Media library element', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Lets user to add content from Wordpress media library. ', 'cherry'),
-				),
-				'value'				=> '',
-				'multi-upload'		=> true,
-				'library_type'		=> ''
+		'type'				=> 'media',
+		'title'			=> __('Media library element', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Lets user to add content from Wordpress media library. ', 'cherry'),
+		),
+		'value'				=> '',
+		'multi-upload'		=> true,
+		'library_type'		=> ''
 	);
 	$demo_options['background-demo'] = array(
-				'type'				=> 'background',
-				'title'			=> __('Background image', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Lets user to add background image from the media library and define it\'s background settings like background repeat, position, attachment, origin.', 'cherry'),
-				),
-				'multi-upload'		=> true,
-				'library_type'		=> 'image',
-				'value'				=> array(
-					'image'			=> '',
-					'color'			=> '#ff0000',
-					'repeat'		=> 'repeat',
-					'position'		=> 'left',
-					'attachment'	=> 'fixed',
-					'origin'		=> 'padding-box'
-				)
+		'type'				=> 'background',
+		'title'			=> __('Background image', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Lets user to add background image from the media library and define it\'s background settings like background repeat, position, attachment, origin.', 'cherry'),
+		),
+		'multi-upload'		=> true,
+		'library_type'		=> 'image',
+		'value'				=> array(
+			'image'			=> '',
+			'color'			=> '#ff0000',
+			'repeat'		=> 'repeat',
+			'position'		=> 'left',
+			'attachment'	=> 'fixed',
+			'origin'		=> 'padding-box'
+		)
 	);
 	$demo_options['colorpicker-demo'] = array(
-				'type'			=> 'colorpicker',
-				'title'			=> __('Colorpicker', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Adds a color picker.', 'cherry'),
-				),
-				'value'			=> '#ff0000',
+		'type'			=> 'colorpicker',
+		'title'			=> __('Colorpicker', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds a color picker.', 'cherry'),
+		),
+		'value'			=> '#ff0000',
 	);
 	$demo_options['stepper-demo'] = array(
-				'type'			=> 'stepper',
-				'title'			=> __('Stepper', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'			=> array(
-					'type'		=> 'text',
-					'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
-				),
-				'value'			=> '0',
-				'value-step'	=> '1',
-				'max-value'		=> '50',
-				'min-value'		=> '-50'
+		'type'			=> 'stepper',
+		'title'			=> __('Stepper', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=> array(
+			'type'		=> 'text',
+			'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
+		),
+		'value'			=> '0',
+		'value-step'	=> '1',
+		'max-value'		=> '50',
+		'min-value'		=> '-50'
 	);
 	$demo_options['editordemo'] = array(
-				'type'			=> 'editor',
-				'title'			=> __('WYSIWYG editor', 'cherry'),
-				'label'			=> '',
-				'decsription'	=> '',
-				'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
-				),
-				'value'			=> 'Lorem ipsum',
-				'default_value'	=> 'editor'
+		'type'			=> 'editor',
+		'title'			=> __('WYSIWYG editor', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
+		),
+		'value'			=> 'Lorem ipsum',
 	);
 	$demo_options['info-demo'] = array(
-				'type'			=> 'info',
-				'title'			=> __('Info panel', 'cherry'),
-				'decsription'	=> '',
-				'value'			=> 'Demo',
+		'type'			=> 'info',
+		'title'			=> __('Info panel', 'cherry'),
+		'decsription'	=> '',
+		'value'			=> 'Demo',
 	);
 	$demo_options['submit-demo'] = array(
-				'type'			=> 'submit',
-				'value'			=> 'get value'
+		'type'			=> 'submit',
+		'value'			=> 'get value'
 	);
-
 
 //////////////////////////////////////////////////////////////////////
 // Sections
@@ -1644,13 +1551,6 @@ function cherry_defaults_settings() {
 		'icon'         => 'dashicons dashicons-admin-generic',
 		'priority'     => 90,
 		'options-list' => apply_filters( 'cherry_typography_options_list', $typography_options ),
-	);
-	$sections_array['lists-subsection'] = array(
-		'name'         => __( 'Lists', 'cherry' ),
-		'icon'         => 'dashicons dashicons-arrow-right',
-		'parent'       => 'typography-section',
-		'priority'     => 1,
-		'options-list' => apply_filters( 'cherry_lists_options_list', $lists_options ),
 	);
 	$sections_array['optimization-section'] = array(
 		'name'         => __( 'Optimization', 'cherry' ),
