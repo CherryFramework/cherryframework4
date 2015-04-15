@@ -25,14 +25,12 @@ th {
       > td {
         padding: $table-cell-padding;
         vertical-align: top;
-        border-top: 1px solid $table-border-color;
       }
     }
   }
   // Bottom align for column headings
   > thead > tr > th {
     vertical-align: bottom;
-    border-bottom: 2px solid $table-border-color;
   }
   // Remove top border from thead by default
   > caption + thead,
@@ -46,9 +44,6 @@ th {
     }
   }
   // Account for multiple tbody instances
-  > tbody + tbody {
-    border-top: 2px solid $table-border-color;
-  }
 }
 
 
@@ -73,14 +68,12 @@ th {
 // Add borders all around the table and between all the columns.
 
 .table-bordered {
-  border: 1px solid $table-border-color;
   > thead,
   > tbody,
   > tfoot {
     > tr {
       > th,
       > td {
-        border: 1px solid $table-border-color;
       }
     }
   }
@@ -153,7 +146,6 @@ table {
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid $table-border-color;
     -webkit-overflow-scrolling: touch;
 
     // Tighten up spacing
