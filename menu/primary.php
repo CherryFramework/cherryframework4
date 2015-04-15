@@ -7,7 +7,7 @@
 			'theme_location' => 'primary',
 			'container'      => '',
 			'menu_id'        => 'menu-primary-items',
-			'menu_class'     => '_sf-menu',
+			'menu_class'     => 'menu-items',
 			'fallback_cb'    => '',
 			'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
 		) ); ?>
