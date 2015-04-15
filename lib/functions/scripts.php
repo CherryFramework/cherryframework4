@@ -108,13 +108,6 @@ function cherry_enqueue_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	// Gets a defaults framework scripts.
-	// $default_scripts = cherry_default_scripts();
-
-	// foreach ( $default_scripts as $id => $data ) {
-	// 	wp_enqueue_script( $id );
-	// }
-
 	wp_enqueue_script( 'cherry-script' );
 }
 
