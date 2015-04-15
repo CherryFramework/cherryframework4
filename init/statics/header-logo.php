@@ -93,9 +93,9 @@ new cherry_header_logo_static(
 		'options' => array(
 			'col-xs'   => 'col-xs-12',
 			'col-sm'   => 'col-sm-12',
-			'col-md'   => 'col-md-3',
-			'col-lg'   => 'col-lg-3',
-			'position' => 1,
+			'col-md'   => 'col-md-6',
+			'col-lg'   => 'col-lg-6',
+			'position' => 2,
 			'area'     => 'header-top',
 		)
 	)

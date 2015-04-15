@@ -247,14 +247,15 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function settings_init() {
 			// Load Options Framework Settings
 			$cherry_options_settings = get_option( 'cherry-options' );
-			register_setting( 'cherry-options-group', $cherry_options_settings['id'], array( $this, 'validate_options' ) );
+
+			register_setting( 'cherry-options', $cherry_options_settings['id'], array( $this, 'validate_options' ) );
 		}
 
 		/**
 		 * Display message when options have been saved
 		 */
 		function save_options_notice() {
-			add_settings_error( 'cherry-options-group', 'save-options', __( 'Options saved', 'cherry-options' ), 'updated slide_up' );
+			add_settings_error( 'cherry-options', 'save-options', __( 'Options saved', 'cherry-options' ), 'updated slide_up' );
 		}
 
 		/**
@@ -263,14 +264,14 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function restore_section_notice() {
 			$tmp_active_section = apply_filters( 'cherry_set_active_section', '' );
 			$message            = sprintf( __( 'Section %s restored', 'cherry-options' ), $tmp_active_section );
-			add_settings_error( 'cherry-options-group', 'restore-section', $message, 'updated slide_up' );
+			add_settings_error( 'cherry-options', 'restore-section', $message, 'updated slide_up' );
 		}
 
 		/**
 		 * Display message when options have been restored
 		 */
 		function restore_options_notice() {
-			add_settings_error( 'cherry-options-group', 'restore-options', __( 'All options restored', 'cherry-options' ), 'updated slide_up' );
+			add_settings_error( 'cherry-options', 'restore-options', __( 'All options restored', 'cherry-options' ), 'updated slide_up' );
 		}
 
 		/**
@@ -302,6 +303,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		function validate_options( $option_value ) {
 			global $cherry_options_framework;
+
 			foreach ($option_value as $sectionName => $sectionOptionsList) {
 				foreach ($sectionOptionsList['options-list'] as $optionId => $optionValue) {
 					$optionType = $cherry_options_framework->get_type_by_option_id($optionId);
@@ -364,7 +366,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 					//$location = add_query_arg( array( 'saved' => 'true' ), menu_page_url( 'cherry-options', 0 ) );
 					//wp_redirect( $location );
 					//exit;
-
 					$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
 					do_action('cherry-options-updated');
 				}
@@ -395,9 +396,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 								<?php  echo __( 'Feel free to view detailed ', 'cherry' ) ?><a href="http://cherryframework.com/documentation/cf4/index_en.html"><?php  echo __( 'Cherry Framework 4 documentation', 'cherry' ) ?></a>
 							</div>
 						</div>
-						<?php settings_errors( 'cherry-options-group' ); ?>
+						<?php settings_errors( 'cherry-options' ); ?>
 							<form id="cherry-options" class="cherry-ui-core" method="post">
-								<?php settings_fields( 'cherry-options-group' ); ?>
+								<?php settings_fields( 'cherry-options' ); ?>
 								<input class="active-section-field" type="hidden" name="active_section" value="">
 								<div class="cherry-sections-wrapper">
 									<ul class="cherry-option-section-tab vertical-tabs_ vertical-tabs_width_mid_">

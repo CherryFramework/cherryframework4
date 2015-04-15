@@ -282,45 +282,24 @@ function cherry_option_post_avatar( $display, $args ) {
 }
 
 function cherry_add_extra_styles() {
-	$responsive        = cherry_get_option('grid-responsive');
-	$container_width   = intval( cherry_get_option('grid-container-width') );
+	$responsive        = cherry_get_option( 'grid-responsive' );
+	$container_width   = intval( cherry_get_option( 'grid-container-width' ) );
 	$grid_gutter_width = intval( apply_filters( 'cherry_grid_gutter_width', 30 ) );
-	$grid_type         = false;
+	$grid_type         = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
 	$output            = '';
 
-	if ( is_singular() ) {
-		$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
-	}
-
-	if ( !$grid_type || ( 'default-grid-type' == $grid_type ) ) :
-
+	if ( !$grid_type || ( 'default-grid-type' == $grid_type ) ) {
 		$grid_type = cherry_get_option( 'grid-type' );
-
-	endif;
-
-	if ( !$container_width ) {
-		$container_width = 1170; // get default value
 	}
-
-	// Check a layout type option.
-	if ( 'grid-boxed' == $grid_type || 'false' == $responsive ) {
-		$output .= ".cherry-container.container { max-width : {$container_width}px; }\n";
-	}
-
-	// Check a container width option.
-	// if ( $container_width < 1170 ) {
-		$output .= ".cherry-container.container,\n";
-		$output .= ".cherry-grid-boxed .site-header .container,\n";
-		$output .= ".cherry-grid-boxed .site-footer .container,\n";
-		$output .= ".cherry-no-responsive .site-header .container,\n";
-		$output .= ".cherry-no-responsive .site-footer .container { max-width : {$container_width}px; }\n";
-	// }
-
-	$output .= ".cherry-no-responsive .cherry-container .container { max-width : " . ( $container_width - $grid_gutter_width ) . "px; }\n";
 
 	if ( 'false' == $responsive ) {
-		$output .= "body { min-width : {$container_width}px; }\n";
+		$output .= "body { min-width: {$container_width}px; }\n";
+		$output .= ".cherry-no-responsive .cherry-container .container { max-width: " . ( $container_width - $grid_gutter_width ) . "px; }\n";
 	}
+
+	$output .= ".cherry-container.container,\n";
+	$output .= ".cherry-boxed .site-header .container,\n";
+	$output .= ".cherry-boxed .site-footer .container { max-width: {$container_width}px; width: auto; }\n";
 
 	// Prepare a string with a styles.
 	$output = trim( $output );

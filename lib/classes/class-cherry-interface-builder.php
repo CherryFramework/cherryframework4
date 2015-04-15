@@ -613,6 +613,9 @@ class Cherry_Interface_Builder {
 											$img_src = $img_src[0];
 											$thumb = '<img  src="' . esc_html( $img_src ) . '" alt="">';
 											break;
+										case 'image/x-icon':
+											$thumb = '<span class="dashicons dashicons-format-image"></span>';
+											break;
 										case 'video/mpeg':
 										case 'video/mp4':
 										case 'video/quicktime':

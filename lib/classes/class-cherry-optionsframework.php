@@ -325,12 +325,20 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 1.0.0
 		 */
 		public function get_option_value( $name, $default = false ) {
+
+			$cached = wp_cache_get( $name, 'cherry-options' );
+
+			if ( $cached ) {
+				return $cached;
+			}
+
 			$setting = get_option( 'cherry-options' );
 			if(self::is_db_options_exist()){
 				$options_array = get_option( $setting['id'] );
 				if ( $options_array ) {
 					foreach ( $options_array as $sections_name => $section_value ) {
 						if(array_key_exists($name, $section_value['options-list'])){
+							wp_cache_set( $name, $section_value['options-list'][$name], 'cherry-options' );
 							return $section_value['options-list'][$name];
 						}
 					}
@@ -340,11 +348,13 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				if ( $settings_array ) {
 					foreach ( $settings_array as $sections_name => $section_value ) {
 						if(array_key_exists($name, $section_value['options-list'])){
+							wp_cache_set( $name, $section_value['options-list'][$name], 'cherry-options' );
 							return $section_value['options-list'][$name]['value'];
 						}
 					}
 				}
 			}
+			wp_cache_set( $name, $default, 'cherry-options' );
 			return $default;
 		}
 

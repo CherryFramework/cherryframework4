@@ -38,10 +38,6 @@ $footer_menu_typography = $cherry_css_vars['navigation-footer-menu-typography'] 
 
 ?>
 
-
-<?php //die ?>
-
-
 body {
 	<?php echo cherry_get_typography_css($body_typography); ?>;
 }
@@ -113,9 +109,20 @@ hr {
 	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
+<?php echo cherry_get_background_css('.site-footer', $footer_background); ?>
+
 .site-title > a{
 	<?php echo cherry_get_typography_css($logo_typography); ?>
 }
+
+<?php echo cherry_get_background_css('.site-header', $header_background); ?>
+
+.site-footer {
+	<?php echo cherry_get_typography_css($footer_typography); ?>
+}
+
+<?php echo cherry_get_background_css('footer', $footer_background); ?>
+
 
 input[type="text"],
 input[type="search"],
@@ -125,19 +132,10 @@ input[type="tel"],
 input[type="email"] {
 	<?php echo cherry_get_typography_css($input_typography); ?>
 }
-
-<?php echo cherry_get_background_css('.site-header', $header_background); ?>
-
-footer {
-	<?php echo cherry_get_typography_css($footer_typography); ?>
-}
-
-<?php echo cherry_get_background_css('footer', $footer_background); ?>
-
-#menu-primary-items a {
+.menu-primary a {
 	<?php echo cherry_get_typography_css($header_menu_typography); ?>
 }
-#menu-secondary-items a{
+.menu-secondary a {
 	<?php echo cherry_get_typography_css($footer_menu_typography); ?>
 }
 
