@@ -46,7 +46,6 @@ function cherry_display_sidebar( $id ) {
 			 */
 			array(
 				'is_404',
-				'is_front_page',
 			),
 			/**
 			 * Page template checks (via is_page_template()).
@@ -59,7 +58,6 @@ function cherry_display_sidebar( $id ) {
 		'sidebar-secondary' => new Cherry_Sidebar(
 			array(
 				'is_404',
-				'is_front_page',
 			)
 		),
 		'sidebar-footer-1' => new Cherry_Sidebar(

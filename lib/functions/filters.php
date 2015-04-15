@@ -108,10 +108,21 @@ function cherry_get_container_classes( $class ) {
 }
 
 function cherry_hide_sidebar( $display, $id ) {
+	$skip_sidebars = apply_filters( 'cherry_skip_hidden_sidebars', array(
+		'sidebar-footer-1',
+		'sidebar-footer-2',
+		'sidebar-footer-3',
+		'sidebar-footer-4',
+	), $display, $id );
+
+	if ( in_array( $id, $skip_sidebars ) ) {
+		return $display;
+	}
+
 	$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
 
 	if ( !$layout || ( 'default-layout' == $layout ) ) {
-		$layout = cherry_get_option('page-layout');
+		$layout = cherry_get_option( 'page-layout' );
 	}
 
 	if ( 'no-sidebar' == $layout ) {
