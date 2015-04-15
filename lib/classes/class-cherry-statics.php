@@ -1,4 +1,9 @@
 <?php
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Builds the definition for a single static area and returns the ID.
  *
@@ -146,7 +151,7 @@ class Cherry_Statics {
 		 * @param array Passed arguments.
 		 * @param int   Counter.
 		 */
-		$defaults = apply_filters( 'cherry_register_static_default_args', array(
+		$defaults = apply_filters( 'cherry_register_static_defaults', array(
 			'id'      => "static-$i",
 			'name'    => sprintf( __( 'Static %d', 'cherry' ), $i ),
 			'options' => array(
@@ -163,8 +168,8 @@ class Cherry_Statics {
 		$static['options'] = $options;
 		$id                = strtolower( $static['id'] );
 
-		if ( !isset( $static['options']['priority'] )) {
-			$static['options'] = wp_parse_args( $static['options'], array( 'priority' => $i ) );
+		if ( !isset( $static['options']['position'] )) {
+			$static['options'] = wp_parse_args( $static['options'], array( 'position' => $i ) );
 		}
 
 		if ( isset( $static['callback'] ) && is_callable( $static['callback'] ) ) {
@@ -187,9 +192,6 @@ class Cherry_Statics {
 			 */
 			do_action( 'cherry_register_static', $static );
 			$cherry_registered_statics[ $id ] = $static;
-
-			// Sort an array with a user-defined comparison function and maintain index association.
-			// uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
 		}
 	}
 
@@ -399,7 +401,7 @@ class Cherry_Statics {
 				// Prepare a custom CSS class.
 				$extra_class = str_replace( '_', '-', $id );
 				$extra_class = sanitize_html_class( 'static-' . $extra_class );
-				$extra_class = ( isset( $options['class'] ) ) ? $extra_class . ' ' . sanitize_html_class( $options['class'] ) : $extra_class;
+				$extra_class = ( empty( $options['class'] ) ) ? $extra_class : $extra_class . ' ' . sanitize_html_class( $options['class'] );
 				$extra_class = ( empty( $cols_class ) ) ? $extra_class : $cols_class . ' ' . $extra_class;
 
 				/**
@@ -506,11 +508,11 @@ class Cherry_Statics {
 	 */
 	public static function compare( $a, $b ) {
 
-		if ( intval( $a['options']['priority'] ) == intval( $b['options']['priority'] ) ) {
+		if ( intval( $a['options']['position'] ) == intval( $b['options']['position'] ) ) {
 			return 0;
 		}
 
-		return ( $a['options']['priority'] < $b['options']['priority'] ) ? -1 : 1;
+		return ( $a['options']['position'] < $b['options']['position'] ) ? -1 : 1;
 	}
 
 }

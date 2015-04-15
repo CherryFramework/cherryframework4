@@ -9,12 +9,13 @@
  */
 
 /**
- * Header sidebar static
+ * Header Sidebar static.
  */
 class cherry_header_sidebar_static extends cherry_register_static {
 
 	/**
-	 * Callbck method for registered static
+	 * Callback-method for registered static.
+	 *
 	 * @since 4.0.0
 	 */
 	public function callback() {
@@ -23,19 +24,19 @@ class cherry_header_sidebar_static extends cherry_register_static {
 }
 
 /**
- * Call Header sidebar static registration
+ * Registration for Header Sidebar static.
  */
 new cherry_header_sidebar_static(
 	array(
 		'id'      => 'header_sidebar',
 		'name'    => __( 'Header Sidebar', 'cherry' ),
 		'options' => array(
-			'priority' => 3,
-			'area'     => 'header-bottom',
-			// 'col-lg'   => 'col-lg-6',
+			'col-lg'   => 'col-lg-12',
 			'col-md'   => 'col-md-12',
-			// 'col-sm'   => 'col-sm-6',
-			// 'col-xs'   => 'col-xs-6',
+			'col-sm'   => 'col-sm-12',
+			'col-xs'   => 'col-xs-12',
+			'position' => 2,
+			'area'     => 'header-bottom',
 		)
 	)
 );

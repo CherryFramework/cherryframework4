@@ -63,7 +63,7 @@ input[type="email"] {
 	<?php echo cherry_get_typography_css($input_typography); ?>
 }
 
-footer {
+.site-footer {
 	<?php echo cherry_get_typography_css($footer_typography); ?>
 }
 
@@ -73,7 +73,7 @@ ul li {
 }
 
 
-<?php echo cherry_get_background_css('footer', $footer_background); ?>
+<?php echo cherry_get_background_css('.site-footer', $footer_background); ?>
 
 .site-title > a{
 	<?php echo cherry_get_typography_css($logo_typography); ?>
@@ -175,10 +175,10 @@ dl {
 	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
-#menu-primary-items a {
+.menu-primary a {
 	<?php echo cherry_get_typography_css($header_menu_typography); ?>
 }
-#menu-secondary-items a{
+.menu-secondary a {
 	<?php echo cherry_get_typography_css($footer_menu_typography); ?>
 }
 
@@ -361,7 +361,7 @@ legend {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 20); ?>;
 	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'round', 1.5); ?>px;
 	line-height: <?php echo floor(cherry_esc_value( $body_typography, 'size' ) * 1.428571429); ?>px;
-
+	border-bottom: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 54); ?>;
 }
 .cherry-highlight-grey {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
@@ -499,7 +499,26 @@ address {
 }
 
 
-
-
-
-
+<?php // Post gallery ?>
+.post-gallery_prev,
+.post-gallery_next {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ) ?>;
+	color: <?php echo cherry_contrast_color( cherry_esc_value( $cherry_css_vars, 'color-primary' ) ) ?>;
+}
+.post-gallery_prev:hover,
+.post-gallery_next:hover {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ?>;
+	color: <?php echo cherry_contrast_color( cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ) ?>;
+}
+.post-gallery_item_caption {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ?>;
+	color: <?php echo cherry_contrast_color( cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ) ?>;
+}
+.post-gallery_paging_item {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ) ?>;
+}
+.slick-active > .post-gallery_paging_item,
+.post-gallery_paging_item:hover {
+	background-color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ) ?>;
+}
+<?php // Post gallery ?>

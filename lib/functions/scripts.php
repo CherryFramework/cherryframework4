@@ -12,6 +12,11 @@
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Register Cherry Framework scripts.
 add_action( 'wp_enqueue_scripts', 'cherry_register_scripts', 0 );
 
@@ -32,13 +37,13 @@ function cherry_default_scripts() {
 
 	$default_scripts = array(
 		'cherry-slick' => array(
-			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.slick.js' ),
+			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.slick.min.js' ),
 			'deps'      => array( 'jquery' ),
 			'ver'       => CHERRY_VERSION,
 			'in_footer' => true
 		),
 		'cherry-magnific-popup' => array(
-			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.magnific-popup.js' ),
+			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.magnific-popup.min.js' ),
 			'deps'      => array( 'jquery' ),
 			'ver'       => CHERRY_VERSION,
 			'in_footer' => true

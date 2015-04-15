@@ -12,6 +12,11 @@
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 if ( !class_exists( 'Cherry_Framework' ) ) {
 	/**
 	 * The Cherry_Framework class launches the framework.

@@ -7,6 +7,11 @@
  * @package Cherry Framework
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 // Add breadcrumbs.
 add_action( 'cherry_content_before', 'cherry_get_breadcrumbs', 5 );
 
@@ -154,7 +159,6 @@ function cherry_post_nav() {
 	} ?>
 	<nav class="navigation post-navigation" role="navigation">
 		<div class="paging-navigation">
-			<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'cherry' ); ?></h1>
 			<div class="nav-links">
 				<?php
 					previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'cherry' ) );

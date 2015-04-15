@@ -9,7 +9,7 @@
  */
 
 /**
- * Moto slider static
+ * MotoPress Slider static.
  */
 class cherry_moto_slider_static extends cherry_register_static {
 
@@ -19,26 +19,26 @@ class cherry_moto_slider_static extends cherry_register_static {
 	}
 
 	/**
-	 * Callbck method for registered static
+	 * Callback-method for registered static.
+	 *
 	 * @since 4.0.0
 	 */
 	public function callback() {
-
 		$alias = cherry_get_option( 'moto_slider_alias' );
 
 		if ( ! $alias ) {
 			return;
 		}
-		motoPressSlider($alias);
 
+		motoPressSlider($alias);
 	}
 
 	/**
-	 * Define slider options
+	 * Define a slider options.
+	 *
 	 * @since 4.0.0
 	 */
 	public function set_slider_options( $options ) {
-
 		$select_options = $this->get_sliders_list();
 
 		$options['moto_slider_alias'] = array(
@@ -55,11 +55,11 @@ class cherry_moto_slider_static extends cherry_register_static {
 
 
 	/**
-	 * Get avaliable motopress sliders list
-	 * @since  4.0.0
+	 * Get avaliable MotoPress sliders list.
+	 *
+	 * @since 4.0.0
 	 */
 	public function get_sliders_list() {
-
 		global $wpdb;
 
 		$table = $wpdb->prefix . 'mpsl_sliders';
@@ -82,7 +82,7 @@ class cherry_moto_slider_static extends cherry_register_static {
 }
 
 /**
- * Call Moto slider static registration (only if mot slider plugin is active)
+ * Registration for MotoPress Slider static (only if MotoPress Slider plugin is active).
  */
 if ( in_array(
 	'motopress-slider/motopress-slider.php',
@@ -91,14 +91,14 @@ if ( in_array(
 	new cherry_moto_slider_static(
 		array(
 			'id'       => 'moto-slider',
-			'name'     => __( 'Moto Slider', 'cherry' ),
+			'name'     => __( 'MotoPress Slider', 'cherry' ),
 			'options'  => array(
 				'col-lg'   => 'col-lg-12',
 				'col-md'   => 'col-md-12',
 				'col-sm'   => 'col-sm-12',
 				'col-xs'   => 'col-xs-12',
 				'class'    => 'moto-slider',
-				'priority' => 1,
+				'position' => 1,
 				'area'     => 'showcase-area',
 			)
 		)

@@ -421,55 +421,48 @@ function cherry_defaults_settings() {
 
 	$color_options = array();
 	$color_options['color-primary'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> __('Primary color', 'cherry' ),
-			'value'			=> '#f62e46',
-			'default_value'	=> '#f62e46'
+		'type'  => 'colorpicker',
+		'title' => __( 'Primary color', 'cherry' ),
+		'value' => '#f62e46',
 	);
 	$color_options['color-secondary'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> __('Secondary color', 'cherry' ),
-			'value'			=> '#333333',
-			'default_value'	=> '#333333'
+		'type'  => 'colorpicker',
+		'title' => __( 'Secondary color', 'cherry' ),
+		'value' => '#333333',
 	);
 	$color_options['color-success'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> __('Success color', 'cherry' ),
-			'value'			=> '#DFF0D8',
-			'default_value'	=> '#DFF0D8'
+		'type'  => 'colorpicker',
+		'title' => __( 'Success color', 'cherry' ),
+		'value' => '#dff0d8',
 	);
 	$color_options['color-info'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> __('Info color', 'cherry' ),
-			'value'			=> '#D9EDF7',
-			'default_value'	=> '#D9EDF7'
+		'type'  => 'colorpicker',
+		'title' => __( 'Info color', 'cherry' ),
+		'value' => '#d9edf7',
 	);
 	$color_options['color-warning'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> __('Warning color', 'cherry' ),
-			'value'			=> '#FCF8E3',
-			'default_value'	=> '#FCF8E3'
+		'type'  => 'colorpicker',
+		'title' => __( 'Warning color', 'cherry' ),
+		'value' => '#fcf8e3',
 	);
 	$color_options['color-danger'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> __('Danger color', 'cherry' ),
-			'value'			=> '#F2DEDE',
-			'default_value'	=> '#F2DEDE'
+		'type'  => 'colorpicker',
+		'title' => __( 'Danger color', 'cherry' ),
+		'value' => '#f2dede',
 	);
 	$color_options['color-gray-variations'] = array(
-			'type'			=> 'colorpicker',
-			'title'			=> 'Primary gray color',
-			'hint'      	=>  array(
-				'type'		=> 'text',
-				'content'	=> 'Gray color hues</br>
-								<hr>
-								gray-darker:           darken(20%)</br>
-								gray-dark:             darken(15%)</br>
-								gray-light:            lighten(15%)</br>
-								gray-lighter:          lighten(20%)</br>'
-							),
-			'value'			=> '#555555',
-			'default_value'	=> '#555555'
+		'type'  => 'colorpicker',
+		'title' => __( 'Primary gray color', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => 'Gray color hues</br>
+							<hr>
+							gray-darker:           darken(20%)</br>
+							gray-dark:             darken(15%)</br>
+							gray-light:            lighten(15%)</br>
+							gray-lighter:          lighten(20%)</br>'
+						),
+		'value' => '#555555',
 	);
 
 
@@ -480,44 +473,43 @@ function cherry_defaults_settings() {
 
 	$navigation_options = array();
 	$navigation_options['navigation-header-menu-typography'] = array(
-			'type'			=> 'typography',
-			'title'			=> __('Header Menu Typography', 'cherry' ),
-			'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Main header navigation typography settings.', 'cherry' ),
-				),
-			'value'			=> array(
-				'fonttype'		=> 'web',
-				'size'			=> '14',
-				'lineheight'	=> '14',
-				'color'			=> '#474747',
-				'family'		=> 'Abril Fatface',
-				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+		'type'  => 'typography',
+		'title' => __('Header Menu Typography', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __('Main header navigation typography settings.', 'cherry' ),
+		),
+		'value' => array(
+			'fonttype'      => 'web',
+			'size'          => '14',
+			'lineheight'    => '14',
+			'color'         => '#474747',
+			'family'        => 'Abril Fatface',
+			'character'     => 'latin-ext',
+			'style'         => '',
+			'letterspacing' => '',
+			'align'         => 'notdefined',
+		)
 	);
 	$navigation_options['navigation-footer-menu-typography'] = array(
-			'type'			=> 'typography',
-			'title'			=> __('Footer Menu Typography', 'cherry' ),
-			'hint'      	=>  array(
-					'type'		=> 'text',
-					'content'	=> __('Main footer navigation typography settings.', 'cherry' ),
-				),
-			'value'			=> array(
-				'fonttype'		=> 'web',
-				'size'			=> '14',
-				'lineheight'	=> '14',
-				'color'			=> '#474747',
-				'family'		=> 'Abril Fatface',
-				'character'		=> 'latin-ext',
-				'style'			=> 'italic',
-				'letterspacing' => '0',
-				'align'			=> 'notdefined'
-			)
+		'type'  => 'typography',
+		'title' => __('Footer Menu Typography', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __('Main footer navigation typography settings.', 'cherry' ),
+		),
+		'value' => array(
+			'fonttype'      => 'web',
+			'size'          => '14',
+			'lineheight'    => '14',
+			'color'         => '#474747',
+			'family'        => 'Abril Fatface',
+			'character'     => 'latin-ext',
+			'style'         => '',
+			'letterspacing' => '',
+			'align'         => 'notdefined',
+		)
 	);
-
 
 
 	// Breadcrumbs options

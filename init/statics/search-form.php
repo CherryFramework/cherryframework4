@@ -9,12 +9,13 @@
  */
 
 /**
- * Search form static
+ * Search Form static.
  */
 class cherry_search_form_static extends cherry_register_static {
 
 	/**
-	 * Callbck method for registered static
+	 * Callback-method for registered static.
+	 *
 	 * @since 4.0.0
 	 */
 	public function callback() {
@@ -23,19 +24,19 @@ class cherry_search_form_static extends cherry_register_static {
 }
 
 /**
- * Call search form static registration
+ * Registration for Search Form static.
  */
 new cherry_search_form_static(
 	array(
 		'id'      => 'search-form',
 		'name'    => __( 'Search Form', 'cherry' ),
 		'options' => array(
-			'col-lg'   => 'col-lg-3',
-			'col-md'   => 'col-md-3',
+			'col-lg'   => 'col-lg-6',
+			'col-md'   => 'col-md-6',
 			'col-sm'   => 'col-sm-12',
 			'col-xs'   => 'col-xs-12',
-			'class'    => 'custom-searchform',
-			'priority' => 3,
+			'class'    => 'pull-right',
+			'position' => 1,
 			'area'     => 'header-top',
 		)
 	)

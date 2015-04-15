@@ -4,6 +4,11 @@
  * and lots of other awesome stuff that WordPress themes do.
  */
 
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
+
 /**
  * Load necessary config parts.
  *
