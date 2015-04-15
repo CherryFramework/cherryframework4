@@ -1,0 +1,31 @@
+/*
+<<<<<<< HEAD
+Theme Name: Cherry Framework
+Theme URI: http://www.cherryframework.com/
+Author: Cherry Team
+Author URI: http://www.cherryframework.com/
+Description: A theme for Wordpress 3.9.x
+Version: 4.0.0
+License: GNU General Public License
+License URI: license.txt
+Text Domain: cherry
+Tags: dark, light, white, black, gray, left-sidebar, right-sidebar, fluid-layout, fixed-layout, responsive-layout, custom-menu, editor-style, featured-images, full-width-template, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+@import "assets/css/style-main.css";
+=======
+Theme Name:  Cherry Framework
+Theme URI:   http://www.cherryframework.com/
+Author:      Cherry Team
+Author URI:  http://www.cherryframework.com/
+Description: Cherry Framework parent theme based on _s started theme for WordPress with enhanced functionality and extended possibilities.
+Version:     4.0.0
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags:        fixed-layout, fluid-layout, responsive-layout, left-sidebar, right-sidebar, custom-menu, featured-images, full-width-template, post-formats, sticky-post, theme-options, translation-ready
+Text Domain: cherry
+*/
+>>>>>>> develop

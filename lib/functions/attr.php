@@ -6,10 +6,15 @@
  * @package    Cherry_Framework
  * @subpackage Functions
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
+
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
 
 add_filter( 'cherry_attr_body',    'cherry_attr_body',    9 );
 add_filter( 'cherry_attr_header',  'cherry_attr_header',  9 );
@@ -17,7 +22,9 @@ add_filter( 'cherry_attr_footer',  'cherry_attr_footer',  9 );
 add_filter( 'cherry_attr_content', 'cherry_attr_content', 9 );
 add_filter( 'cherry_attr_sidebar', 'cherry_attr_sidebar', 9, 2 );
 add_filter( 'cherry_attr_menu',    'cherry_attr_menu',    9, 2 );
-add_filter( 'cherry_attr_post',    'cherry_attr_post',    9);
+add_filter( 'cherry_attr_post',    'cherry_attr_post',    9 );
+
+add_filter( 'cherry_attr_entry-terms', 'cherry_attr_entry_terms', 9, 2 );
 
 /**
  * Outputs an HTML element's attributes.
@@ -50,9 +57,7 @@ function cherry_get_attr( $slug, $context = '' ) {
 	}
 
 	foreach ( $attr as $name => $value ) {
-
 		$output .= !empty( $value ) ? sprintf( ' %s="%s"', esc_html( $name ), esc_attr( $value ) ) : esc_html( " {$name}" );
-
 	}
 
 	return trim( $output );
@@ -128,9 +133,7 @@ function cherry_attr_content( $attr ) {
 function cherry_attr_sidebar( $attr, $context ) {
 
 	if ( !empty( $context ) ) {
-
-		$attr['id'] = "$context";
-
+		$attr['id'] = "sidebar-$context";
 	}
 
 	$attr['class'] = 'widget-area';
@@ -150,10 +153,12 @@ function cherry_attr_sidebar( $attr, $context ) {
 function cherry_attr_menu( $attr, $context ) {
 
 	if ( !empty( $context ) ) {
-		$attr['id'] = "menu-{$context}";
+		$attr['id']    = "menu-{$context}";
+		$attr['class'] = "menu-{$context} menu";
+	} else {
+		$attr['class'] = 'menu';
 	}
 
-	$attr['class'] = 'menu';
 	$attr['role']  = 'navigation';
 
 	return $attr;
@@ -180,6 +185,23 @@ function cherry_attr_post( $attr ) {
 
 		$attr['id']    = 'post-0';
 		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
+	}
+
+	return $attr;
+}
+
+/**
+ * Post terms (tags, categories, etc.) attributes.
+ *
+ * @since  4.0.0
+ * @param  array  $attr
+ * @param  string $context
+ * @return array
+ */
+function cherry_attr_entry_terms( $attr, $context ) {
+
+	if ( !empty( $context ) ) {
+		$attr['class'] = 'entry-terms ' . sanitize_html_class( $context );
 	}
 
 	return $attr;

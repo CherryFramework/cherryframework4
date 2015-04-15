@@ -8,28 +8,41 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Cherry Framework
  */
 
-if ( have_posts() ) : ?>
+if ( have_posts() ) :
 
-	<?php /* Start the Loop */ ?>
-	<?php while ( have_posts() ) : the_post(); ?>
+	/**
+	 * Hook fires immediately before posts loop output start
+	 * @since  4.0.0
+	 * @hooked 10  cherry_paging_nav  lib/functions/template-tags.php
+	 */
+	do_action( 'cherry_loop_before' );
 
-		<?php
-			/* Include the Post-Format-specific template for the content.
-			 * If you want to override this in a child theme, then include a file
-			 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-			 */
-			get_template_part( 'templates/content', get_post_format() );
-		?>
+	while ( have_posts() ) : the_post();
 
-	<?php endwhile; ?>
+		do_action( 'cherry_entry_before' );
 
-	<?php cherry_paging_nav(); ?>
+		do_action( 'cherry_entry' );
 
-<?php else : ?>
+		do_action( 'cherry_entry_after' );
 
-	<?php get_template_part( 'templates/content', 'none' ); ?>
+	endwhile;
 
-<?php endif; ?>
+	/**
+	 * Hook fires immediately after posts loop output end
+	 * @since  4.0.0
+	 * @hooked 10  cherry_paging_nav  lib/functions/template-tags.php
+	 */
+	do_action( 'cherry_loop_after' );
+
+else :
+
+	/**
+	 * Hook fires if main loop haven't any posts
+	 * @since  4.0.0
+	 * @hooked 10  cherry_noposts  lib/functions/template.php
+	 */
+	do_action( 'cherry_loop_empty' );
+
+endif; ?>

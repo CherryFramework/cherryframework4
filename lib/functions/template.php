@@ -6,36 +6,37 @@
  * @package    Cherry_Framework
  * @subpackage Functions
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
-add_action( 'cherry_get_header',         'cherry_get_header_template' );
-add_action( 'cherry_get_footer',         'cherry_get_footer_template' );
-// add_action( 'cherry_content',            'cherry_get_page_template' );
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
 
-add_action( 'cherry_post',               'cherry_get_content_template' );
-add_action( 'cherry_page',               'cherry_get_content_template' );
+// Loads a post content template based.
+add_action( 'cherry_entry', 'cherry_get_content_template' );
 
-add_action( 'cherry_get_sidebar',        'cherry_get_sidebar_template' );
-add_action( 'cherry_get_footer_sidebar', 'cherry_get_sidebar_template' );
+// Loads template for comments.
+add_action( 'cherry_entry_after', 'cherry_get_comments_template', 25 );
 
-add_action( 'cherry_get_comments',       'cherry_get_comments_template' );
-
-add_action( 'cherry_loop_else',          'cherry_noposts' );
+// Loads template if no posts were found.
+add_action( 'cherry_loop_empty', 'cherry_noposts' );
 
 /**
  * This is a replacement function for the WordPress `get_header()` function.
  *
- * @since  4.0.0
- * @param  string $name
+ * @since 4.0.0
+ * @param string $name The name of the specialised header.
  */
-function cherry_get_header_template( $name = null ) {
+function cherry_get_header( $name = null ) {
 
-	do_action( 'get_header', $name ); // Core WordPress hook
+	do_action( 'get_header', $name ); // Core WordPress hook.
 
 	$templates = array();
+	$name      = (string) $name;
 
 	if ( '' === $name ) {
 		$name = cherry_template_base();
@@ -55,11 +56,12 @@ function cherry_get_header_template( $name = null ) {
  * @since  4.0.0
  * @param  string $name
  */
-function cherry_get_footer_template( $name = null ) {
+function cherry_get_footer( $name = null ) {
 
-	do_action( 'get_footer', $name ); // Core WordPress hook
+	do_action( 'get_footer', $name ); // Core WordPress hook.
 
 	$templates = array();
+	$name      = (string) $name;
 
 	if ( '' !== $name ) {
 		$name = cherry_template_base();
@@ -78,8 +80,11 @@ function cherry_get_footer_template( $name = null ) {
  *
  * @since 4.0.0
  */
-function cherry_get_page_template() {
-	include cherry_template_path();
+function cherry_get_content() {
+	do_action( 'cherry_content_before' );
+	include apply_filters( 'cherry_get_content', cherry_template_path() );
+	do_action( 'cherry_content' );
+	do_action( 'cherry_content_after' );
 }
 
 /**
@@ -101,27 +106,98 @@ function cherry_get_content_template() {
 		$post_format = get_post_format() ? get_post_format() : 'standard';
 
 		// Template based on post type and post format.
-		$templates[] = "content-{$post_type}-{$post_format}.php";
-		$templates[] = "content/{$post_type}-{$post_format}.php";
+		$templates[] = "content/{$post_type}-{$post_format}.tmpl";
 
 		// Template based on the post format.
-		$templates[] = "content-{$post_format}.php";
-		$templates[] = "content/{$post_format}.php";
+		$templates[] = "content/{$post_format}.tmpl";
 	}
 
 	// Template based on the post type.
-	$templates[] = "content-{$post_type}.php";
-	$templates[] = "content/{$post_type}.php";
+	$templates[] = "content/{$post_type}.tmpl";
 
-	// Fallback 'content.php' template.
-	$templates[] = 'content.php';
-	$templates[] = 'content/content.php';
+	// Fallback 'content.tmpl' template.
+	$templates[] = 'content/content.tmpl';
 
 	// Allow devs to filter the content template hierarchy.
 	$templates = apply_filters( 'cherry_content_template_hierarchy', $templates );
 
-	// Apply filters and return the found content template.
-	include( apply_filters( 'cherry_content_template', locate_template( $templates, false, false ) ) );
+	cherry_content_template( $templates );
+}
+
+function cherry_content_template( $templates ) {
+	printf( '%s', cherry_parse_tmpl( $templates ) );
+}
+
+function cherry_load_tmpl( $template_names ) {
+	ob_start();
+
+	include( locate_template( $template_names, false, false ) );
+
+	$template = ob_get_contents();
+	ob_end_clean();
+
+	return $template;
+}
+
+function cherry_parse_tmpl( $template_names ) {
+	$template = cherry_load_tmpl( $template_names );
+
+	// Perform a regular expression.
+	$output = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
+
+	return $output;
+}
+
+function cherry_do_content( $matches ) {
+	if ( !is_array( $matches ) ) {
+		return '';
+	}
+
+	if ( empty( $matches ) ) {
+		return '';
+	}
+
+	$item   = trim( $matches[0], '%%' );
+	$arr    = explode( ' ', $item, 2 );
+	$macros = strtolower( $arr[0] );
+	$attr   = isset( $arr[1] ) ? shortcode_parse_atts( $arr[1] ) : array();
+
+	if ( isset( $attr['location'] )
+		&& ( 'core' == $attr['location'] )
+		&& function_exists( $macros )
+		&& is_callable( $macros )
+		) {
+		// Call a WordPress function.
+		return call_user_func( $macros, $attr );
+	}
+
+	$function_name = "cherry_get_the_post_{$macros}";
+
+	/**
+	 * Filter callback function's name for outputing post element.
+	 * @since 4.0.0
+	 */
+	$pre = apply_filters( "cherry_pre_get_the_post_{$macros}", false, $attr );
+
+	if ( false !== $pre ) {
+		return $pre;
+	}
+
+	if ( !function_exists( $function_name ) || !is_callable( $function_name ) ) {
+		return '';
+	}
+
+	if ( !isset( $attr['where'] ) ) {
+		return call_user_func( $function_name, $attr );
+	}
+
+	if ( ( ( 'loop' === $attr['where'] ) && is_singular() )
+		|| ( ( 'single' === $attr['where'] ) && !is_singular() )
+		) {
+		return '';
+	}
+
+	return call_user_func( $function_name, $attr );
 }
 
 /**
@@ -130,13 +206,47 @@ function cherry_get_content_template() {
  * @since  4.0.0
  * @param  string $name
  */
-function cherry_get_sidebar_template( $name = null ) {
-	if ( false === cherry_display_sidebar( $name ) )
+function cherry_get_sidebar( $name = null ) {
+
+	do_action( 'get_sidebar', $name ); // Core WordPress hook.
+
+	$name = (string) $name;
+
+	if ( false === cherry_display_sidebar( 'sidebar-' . $name ) ) {
 		return;
+	}
 
-	do_action( 'get_sidebar', $name ); // Core WordPress hook
+	$_name = $name . '-' . cherry_template_base();
 
-	include cherry_sidebar_path( $name );
+	$templates   = array();
+	$templates[] = "sidebar-{$_name}.php";
+	$templates[] = "sidebar/{$_name}.php";
+	$templates[] = "sidebar-{$name}.php";
+	$templates[] = "sidebar/{$name}.php";
+	$templates[] = 'sidebar.php';
+	$templates[] = 'sidebar/sidebar.php';
+
+	$template_path = locate_template( $templates );
+
+	if ( '' !== $template_path ) {
+		load_template( $template_path );
+		return;
+	}
+
+	// Backward compat (when template not found).
+	do_action( 'cherry_sidebar_before', $name );
+
+	printf( '<div %s>', cherry_get_attr( 'sidebar', $name ) );
+
+	if ( is_active_sidebar( "sidebar-{$name}" ) ) {
+		dynamic_sidebar( "sidebar-{$name}" );
+	} else {
+		do_action( 'cherry_sidebar_empty', $name );
+	}
+
+	echo '</div>';
+
+	do_action( 'cherry_sidebar_after', $name );
 }
 
 /**
@@ -166,23 +276,34 @@ function cherry_get_menu_template( $name = '' ) {
  * @since  4.0.0
  */
 function cherry_get_comments_template() {
+	$post_type = get_post_type();
 
-	if ( !post_type_supports( get_post_type(), 'comments' ) ) {
+	if ( !post_type_supports( $post_type, 'comments' ) ) {
 		return;
 	}
 
-	// If viewing a single post/page/CPT.
-	if ( is_singular() ) :
+	if ( !is_singular( $post_type ) ) {
+		return;
+	}
 
-		// If comments are open or we have at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) :
+	if ( ( 'post' == $post_type )
+		&& ( 'false' == cherry_get_option( 'blog-comment-status' ) )
+		) {
+		return;
+	}
 
-			// Loads the comments.php template.
-			comments_template( '/templates/comments.php', true );
+	if ( ( 'page' == $post_type )
+		&& ( 'false' == cherry_get_option( 'general-page-comments-status' ) )
+		) {
+		return;
+	}
 
-		endif;
+	// If comments are open or we have at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) {
 
-	endif;
+		// Loads the comments.php template.
+		comments_template( '/templates/comments.php', true );
+	}
 }
 
 /**
@@ -191,5 +312,5 @@ function cherry_get_comments_template() {
  * @since  4.0.0
  */
 function cherry_noposts() {
-	get_template_part( 'content/none' );
+	get_template_part( 'templates/none' );
 }

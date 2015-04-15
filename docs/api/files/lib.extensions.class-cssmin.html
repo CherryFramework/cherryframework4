@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">485</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1783059657"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1783059657" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/aCssAtBlockEndToken.html">aCssAtBlockEndToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssAtBlockStartToken.html">aCssAtBlockStartToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssDeclarationToken.html">aCssDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssFormatter.html">aCssFormatter</a></li>
+                                                    <li class="class"><a href="../classes/aCssMinifierFilter.html">aCssMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/aCssMinifierPlugin.html">aCssMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/aCssParserPlugin.html">aCssParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/aCssRulesetEndToken.html">aCssRulesetEndToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssRulesetStartToken.html">aCssRulesetStartToken</a></li>
+                                                    <li class="class"><a href="../classes/aCssToken.html">aCssToken</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Admin.html">Cherry_Admin</a></li>
+                                                    <li class="class"><a href="../classes/cherry_breadcrumbs.html">cherry_breadcrumbs</a></li>
+                                                    <li class="class"><a href="../classes/cherry_css_compiler.html">cherry_css_compiler</a></li>
+                                                    <li class="class"><a href="../classes/cherry_enqueue_fonts.html">cherry_enqueue_fonts</a></li>
+                                                    <li class="class"><a href="../classes/cherry_example_static.html">cherry_example_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_footer_info_static.html">cherry_footer_info_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_footer_menu_static.html">cherry_footer_menu_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_footer_sidebars_static.html">cherry_footer_sidebars_static</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Framework.html">Cherry_Framework</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Grid_Type.html">Cherry_Grid_Type</a></li>
+                                                    <li class="class"><a href="../classes/cherry_header_logo_static.html">cherry_header_logo_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_header_menu_static.html">cherry_header_menu_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_header_sidebar_static.html">cherry_header_sidebar_static</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Interface_Builder.html">Cherry_Interface_Builder</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Layouts.html">Cherry_Layouts</a></li>
+                                                    <li class="class"><a href="../classes/cherry_moto_slider_static.html">cherry_moto_slider_static</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Options_Framework.html">Cherry_Options_Framework</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Options_Framework_Admin.html">Cherry_Options_Framework_Admin</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Post_Style.html">Cherry_Post_Style</a></li>
+                                                    <li class="class"><a href="../classes/cherry_register_static.html">cherry_register_static</a></li>
+                                                    <li class="class"><a href="../classes/cherry_search_form_static.html">cherry_search_form_static</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Sidebar.html">Cherry_Sidebar</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Statics.html">Cherry_Statics</a></li>
+                                                    <li class="class"><a href="../classes/Cherry_Wrapping.html">Cherry_Wrapping</a></li>
+                                                    <li class="class"><a href="../classes/CssAtCharsetParserPlugin.html">CssAtCharsetParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtCharsetToken.html">CssAtCharsetToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtFontFaceDeclarationToken.html">CssAtFontFaceDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtFontFaceEndToken.html">CssAtFontFaceEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtFontFaceParserPlugin.html">CssAtFontFaceParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtFontFaceStartToken.html">CssAtFontFaceStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtImportParserPlugin.html">CssAtImportParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtImportToken.html">CssAtImportToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesEndToken.html">CssAtKeyframesEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesParserPlugin.html">CssAtKeyframesParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesRulesetDeclarationToken.html">CssAtKeyframesRulesetDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesRulesetEndToken.html">CssAtKeyframesRulesetEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesRulesetStartToken.html">CssAtKeyframesRulesetStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtKeyframesStartToken.html">CssAtKeyframesStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtMediaEndToken.html">CssAtMediaEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtMediaParserPlugin.html">CssAtMediaParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtMediaStartToken.html">CssAtMediaStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtPageDeclarationToken.html">CssAtPageDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtPageEndToken.html">CssAtPageEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtPageParserPlugin.html">CssAtPageParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtPageStartToken.html">CssAtPageStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtVariablesDeclarationToken.html">CssAtVariablesDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtVariablesEndToken.html">CssAtVariablesEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssAtVariablesParserPlugin.html">CssAtVariablesParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssAtVariablesStartToken.html">CssAtVariablesStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssCommentParserPlugin.html">CssCommentParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssCommentToken.html">CssCommentToken</a></li>
+                                                    <li class="class"><a href="../classes/CssCompressColorValuesMinifierPlugin.html">CssCompressColorValuesMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssCompressExpressionValuesMinifierPlugin.html">CssCompressExpressionValuesMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssCompressUnitValuesMinifierPlugin.html">CssCompressUnitValuesMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertFontWeightMinifierPlugin.html">CssConvertFontWeightMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertHslColorsMinifierPlugin.html">CssConvertHslColorsMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertLevel3AtKeyframesMinifierFilter.html">CssConvertLevel3AtKeyframesMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertLevel3PropertiesMinifierFilter.html">CssConvertLevel3PropertiesMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertNamedColorsMinifierPlugin.html">CssConvertNamedColorsMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssConvertRgbColorsMinifierPlugin.html">CssConvertRgbColorsMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssError.html">CssError</a></li>
+                                                    <li class="class"><a href="../classes/CssExpressionParserPlugin.html">CssExpressionParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssMin.html">CssMin</a></li>
+                                                    <li class="class"><a href="../classes/CssMinifier.html">CssMinifier</a></li>
+                                                    <li class="class"><a href="../classes/CssNullToken.html">CssNullToken</a></li>
+                                                    <li class="class"><a href="../classes/CssOtbsFormatter.html">CssOtbsFormatter</a></li>
+                                                    <li class="class"><a href="../classes/CssParser.html">CssParser</a></li>
+                                                    <li class="class"><a href="../classes/CssRemoveCommentsMinifierFilter.html">CssRemoveCommentsMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssRemoveEmptyAtBlocksMinifierFilter.html">CssRemoveEmptyAtBlocksMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssRemoveEmptyRulesetsMinifierFilter.html">CssRemoveEmptyRulesetsMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssRemoveLastDelarationSemiColonMinifierFilter.html">CssRemoveLastDelarationSemiColonMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssRulesetDeclarationToken.html">CssRulesetDeclarationToken</a></li>
+                                                    <li class="class"><a href="../classes/CssRulesetEndToken.html">CssRulesetEndToken</a></li>
+                                                    <li class="class"><a href="../classes/CssRulesetParserPlugin.html">CssRulesetParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssRulesetStartToken.html">CssRulesetStartToken</a></li>
+                                                    <li class="class"><a href="../classes/CssSortRulesetPropertiesMinifierFilter.html">CssSortRulesetPropertiesMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssStringParserPlugin.html">CssStringParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssUrlParserPlugin.html">CssUrlParserPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssVariablesMinifierFilter.html">CssVariablesMinifierFilter</a></li>
+                                                    <li class="class"><a href="../classes/CssVariablesMinifierPlugin.html">CssVariablesMinifierPlugin</a></li>
+                                                    <li class="class"><a href="../classes/CssWhitesmithsFormatter.html">CssWhitesmithsFormatter</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content file">
+                    <nav>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small></small>class-cssmin.php</h1>
+                    <p><em>CssMin - A (simple) css minifier with benefits</em></p>
+                    <p>--
+Copyright (c) 2011 Joe Scylla <a href="mailto:joe.scylla@gmail.com">joe.scylla@gmail.com</a></p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+<h2>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</h2>
+
+                    
+                    
+                                        <h2>Classes</h2>
+                    <table class="table table-hover">
+                                            <tr>
+                            <td><a href="../classes/aCssToken.html">aCssToken</a></td>
+                            <td><em>Abstract definition of a CSS token class.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssRulesetStartToken.html">aCssRulesetStartToken</a></td>
+                            <td><em>Abstract definition of a for a ruleset start token.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssRulesetEndToken.html">aCssRulesetEndToken</a></td>
+                            <td><em>Abstract definition of a for ruleset end token.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssParserPlugin.html">aCssParserPlugin</a></td>
+                            <td><em>Abstract definition of a parser plugin.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssMinifierPlugin.html">aCssMinifierPlugin</a></td>
+                            <td><em>Abstract definition of a minifier plugin class.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssMinifierFilter.html">aCssMinifierFilter</a></td>
+                            <td><em>Abstract definition of a minifier filter class.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssFormatter.html">aCssFormatter</a></td>
+                            <td><em>Abstract formatter definition.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssDeclarationToken.html">aCssDeclarationToken</a></td>
+                            <td><em>Abstract definition of a ruleset declaration token.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssAtBlockStartToken.html">aCssAtBlockStartToken</a></td>
+                            <td><em>Abstract definition of a for at-rule block start token.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/aCssAtBlockEndToken.html">aCssAtBlockEndToken</a></td>
+                            <td><em>Abstract definition of a for at-rule block end token.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssWhitesmithsFormatter.html">CssWhitesmithsFormatter</a></td>
+                            <td><em>{@link aCssFromatter Formatter} returning the CSS source in {@link http://goo.gl/etzLs Whitesmiths indent style}.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssVariablesMinifierPlugin.html">CssVariablesMinifierPlugin</a></td>
+                            <td><em>This {@link aCssMinifierPlugin} will process var-statement and sets the declaration value to the variable value.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssVariablesMinifierFilter.html">CssVariablesMinifierFilter</a></td>
+                            <td><em>This {@link aCssMinifierFilter minifier filter} will parse the variable declarations out of @variables at-rule
+blocks. The variables will get store in the {@link CssVariablesMinifierPlugin} that will apply the variables to
+declaration.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssUrlParserPlugin.html">CssUrlParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for preserve parsing url() values.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssStringParserPlugin.html">CssStringParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for preserve parsing string values.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssSortRulesetPropertiesMinifierFilter.html">CssSortRulesetPropertiesMinifierFilter</a></td>
+                            <td><em>This {@link aCssMinifierFilter minifier filter} sorts the ruleset declarations of a ruleset by name.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssRulesetStartToken.html">CssRulesetStartToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the start of a ruleset.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssRulesetParserPlugin.html">CssRulesetParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing ruleset block with including declarations.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssRulesetEndToken.html">CssRulesetEndToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the end of a ruleset.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssRulesetDeclarationToken.html">CssRulesetDeclarationToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents a ruleset declaration.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssRemoveLastDelarationSemiColonMinifierFilter.html">CssRemoveLastDelarationSemiColonMinifierFilter</a></td>
+                            <td><em>This {@link aCssMinifierFilter minifier filter} sets the IsLast property of any last declaration in a ruleset,</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssRemoveEmptyRulesetsMinifierFilter.html">CssRemoveEmptyRulesetsMinifierFilter</a></td>
+                            <td><em>This {@link aCssMinifierFilter minifier filter} will remove any empty rulesets (including @keyframes at-rule block
+rulesets).</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssRemoveEmptyAtBlocksMinifierFilter.html">CssRemoveEmptyAtBlocksMinifierFilter</a></td>
+                            <td><em>This {@link aCssMinifierFilter minifier filter} will remove any empty @font-face, @keyframes, @media and @page
+at-rule blocks.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssRemoveCommentsMinifierFilter.html">CssRemoveCommentsMinifierFilter</a></td>
+                            <td><em>This {@link aCssMinifierFilter minifier filter} will remove any comments from the array of parsed tokens.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssParser.html">CssParser</a></td>
+                            <td><em>CSS Parser.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssOtbsFormatter.html">CssOtbsFormatter</a></td>
+                            <td><em>{@link aCssFromatter Formatter} returning the CSS source in {@link http://goo.gl/j4XdU OTBS indent style} (The One True Brace Style).</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssNullToken.html">CssNullToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} is a utility token that extends {@link aNullToken} and returns only a empty string.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssMinifier.html">CssMinifier</a></td>
+                            <td><em>CSS Minifier.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssMin.html">CssMin</a></td>
+                            <td><em>CssMin - A (simple) css minifier with benefits</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssExpressionParserPlugin.html">CssExpressionParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for preserve parsing expression() declaration values.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssError.html">CssError</a></td>
+                            <td><em>CSS Error.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssConvertRgbColorsMinifierPlugin.html">CssConvertRgbColorsMinifierPlugin</a></td>
+                            <td><em>This {@link aCssMinifierPlugin} will convert a color value in rgb notation to hexadecimal notation.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssConvertNamedColorsMinifierPlugin.html">CssConvertNamedColorsMinifierPlugin</a></td>
+                            <td><em>This {@link aCssMinifierPlugin} will convert named color values to hexadecimal notation.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssConvertLevel3PropertiesMinifierFilter.html">CssConvertLevel3PropertiesMinifierFilter</a></td>
+                            <td><em>This {@link aCssMinifierFilter minifier filter} triggers on CSS Level 3 properties and will add declaration tokens
+with browser-specific properties.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssConvertLevel3AtKeyframesMinifierFilter.html">CssConvertLevel3AtKeyframesMinifierFilter</a></td>
+                            <td><em>This {@link aCssMinifierFilter minifier filter} will convert @keyframes at-rule block to browser specific counterparts.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssConvertHslColorsMinifierPlugin.html">CssConvertHslColorsMinifierPlugin</a></td>
+                            <td><em>This {@link aCssMinifierPlugin} will convert a color value in hsl notation to hexadecimal notation.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssConvertFontWeightMinifierPlugin.html">CssConvertFontWeightMinifierPlugin</a></td>
+                            <td><em>This {@link aCssMinifierPlugin} will convert the font-weight values normal and bold to their numeric notation.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssCompressUnitValuesMinifierPlugin.html">CssCompressUnitValuesMinifierPlugin</a></td>
+                            <td><em>This {@link aCssMinifierPlugin} will compress several unit values to their short notations. Examples:</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssCompressExpressionValuesMinifierPlugin.html">CssCompressExpressionValuesMinifierPlugin</a></td>
+                            <td><em>This {@link aCssMinifierPlugin} compress the content of expresssion() declaration values.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssCompressColorValuesMinifierPlugin.html">CssCompressColorValuesMinifierPlugin</a></td>
+                            <td><em>This {@link aCssMinifierPlugin} will convert hexadecimal color value with 6 chars to their 3 char hexadecimal
+notation (if possible).</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssCommentToken.html">CssCommentToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents a CSS comment.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssCommentParserPlugin.html">CssCommentParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing comments.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtVariablesStartToken.html">CssAtVariablesStartToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the start of a @variables at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtVariablesParserPlugin.html">CssAtVariablesParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing @variables at-rule block with including declarations.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtVariablesEndToken.html">CssAtVariablesEndToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the end of a @variables at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtVariablesDeclarationToken.html">CssAtVariablesDeclarationToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents a declaration of a @variables at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtPageStartToken.html">CssAtPageStartToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the start of a @page at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtPageParserPlugin.html">CssAtPageParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing @page at-rule block with including declarations.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtPageEndToken.html">CssAtPageEndToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the end of a @page at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtPageDeclarationToken.html">CssAtPageDeclarationToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents a declaration of a @page at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtMediaStartToken.html">CssAtMediaStartToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the start of a @media at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtMediaParserPlugin.html">CssAtMediaParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing @media at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtMediaEndToken.html">CssAtMediaEndToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the end of a @media at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtKeyframesStartToken.html">CssAtKeyframesStartToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the start of a @keyframes at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtKeyframesRulesetStartToken.html">CssAtKeyframesRulesetStartToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the start of a ruleset of a @keyframes at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtKeyframesRulesetEndToken.html">CssAtKeyframesRulesetEndToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the end of a ruleset of a @keyframes at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtKeyframesRulesetDeclarationToken.html">CssAtKeyframesRulesetDeclarationToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents a ruleset declaration of a @keyframes at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtKeyframesParserPlugin.html">CssAtKeyframesParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing @keyframes at-rule blocks, rulesets and declarations.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtKeyframesEndToken.html">CssAtKeyframesEndToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the end of a @keyframes at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtImportToken.html">CssAtImportToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents a @import at-rule.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtImportParserPlugin.html">CssAtImportParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing @import at-rule.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtFontFaceStartToken.html">CssAtFontFaceStartToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the start of a @font-face at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtFontFaceParserPlugin.html">CssAtFontFaceParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing @font-face at-rule block with including declarations.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtFontFaceEndToken.html">CssAtFontFaceEndToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents the end of a @font-face at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtFontFaceDeclarationToken.html">CssAtFontFaceDeclarationToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents a declaration of a @font-face at-rule block.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtCharsetToken.html">CssAtCharsetToken</a></td>
+                            <td><em>This {@link aCssToken CSS token} represents a @charset at-rule.</em></td>
+                        </tr>
+                                            <tr>
+                            <td><a href="../classes/CssAtCharsetParserPlugin.html">CssAtCharsetParserPlugin</a></td>
+                            <td><em>{@link aCssParserPlugin Parser plugin} for parsing @charset at-rule.</em></td>
+                        </tr>
+                                        </table>
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\CssMin</div></dd>
+                        
+                                                                                    <dt>See also</dt>
+                                                                                        <dd><a href="http://code.google.com/p/cssmin/"><div class="namespace-wrapper">http://code.google.com/p/cssmin/</div></a></dd>
+                                                    
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr>
+                                <th>
+                                    author
+                                </th>
+                                <td>
+                                                                            <p>Joe Scylla <a href="mailto:joe.scylla@gmail.com">joe.scylla@gmail.com</a></p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    copyright
+                                </th>
+                                <td>
+                                                                            <p>2008 - 2011 Joe Scylla <a href="mailto:joe.scylla@gmail.com">joe.scylla@gmail.com</a></p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    license
+                                </th>
+                                <td>
+                                                                            <p><a href="http://opensource.org/licenses/mit-license.php">http://opensource.org/licenses/mit-license.php</a> MIT License</p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    version
+                                </th>
+                                <td>
+                                                                            
+                                                                    </td>
+                            </tr>
+                                            </table>
+
+                </aside>
+            </div>
+
+            
+            
+        </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/lib\extensions\class-cssmin.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 14th, 2015 at 22:06.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

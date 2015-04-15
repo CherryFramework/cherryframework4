@@ -13,13 +13,11 @@ if ( have_posts() ) :
 
 	while ( have_posts() ) : the_post();
 
-		do_action( 'cherry_page_before' );
+		do_action( 'cherry_entry_before' );
 
-		do_action( 'cherry_page' );
+		do_action( 'cherry_entry' );
 
-		do_action( 'cherry_page_after' );
-
-		do_action( 'cherry_get_comments' );
+		do_action( 'cherry_entry_after' );
 
 	endwhile;
 

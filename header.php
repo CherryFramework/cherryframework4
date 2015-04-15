@@ -17,7 +17,7 @@
 
 	<?php do_action( 'cherry_body_start' ); ?>
 
-	<div id="site_wrapper" class="hfeed site">
+	<div id="site-wrapper" class="hfeed site">
 
 		<?php do_action( 'cherry_header_before' ); ?>
 

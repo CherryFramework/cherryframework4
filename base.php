@@ -1,20 +1,14 @@
-<?php do_action( 'cherry_get_header' ); ?>
+<?php cherry_get_header(); ?>
 
 <div id="content" class="site-content">
-	<div class="container">
-		<div class="row">
+	<div class="<?php echo apply_filters( 'cherry_get_container_class', 'cherry-container' ); ?>">
 
-			<?php
-				do_action( 'cherry_content_before' );
-				include cherry_template_path();
-				do_action( 'cherry_content' );
-				do_action( 'cherry_content_after' );
-			?>
+		<?php cherry_get_content(); ?>
 
-			<?php do_action( 'cherry_get_sidebar', 'sidebar-main' ); ?>
+		<?php cherry_get_sidebar( 'main' ); ?>
+		<?php cherry_get_sidebar( 'secondary' ); ?>
 
-		</div>
 	</div>
 </div>
 
-<?php do_action( 'cherry_get_footer' ); ?>
+<?php cherry_get_footer(); ?>

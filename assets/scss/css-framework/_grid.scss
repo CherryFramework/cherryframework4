@@ -1,0 +1,37 @@
+//
+// Grid system
+// --------------------------------------------------
+
+.container {
+  @include container-fixed();
+}
+
+// Fluid container
+//
+// Utilizes the mixin meant for fixed width containers, but without any defined
+// width for fluid, full width layouts.
+
+.container-fluid {
+  @include container-fixed();
+}
+
+// Row
+//
+// Rows contain and clear the floats of your columns.
+
+.row {
+  @include make-row();
+}
+
+// Columns
+//
+// Common styles for small and large grid columns
+
+@include make-grid-columns();
+
+// Columns, offsets, pushes, and pulls.
+
+@include make-grid(xs);
+@include make-grid(sm);
+@include make-grid(md);
+@include make-grid(lg);

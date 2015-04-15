@@ -7,10 +7,15 @@
  * @package   Cherry_Framework
  * @version   4.0.0
  * @author    Cherry Team <support@cherryframework.com>
- * @copyright Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright Copyright (c) 2012 - 2015, Cherry Team
  * @link      http://www.cherryframework.com/
  * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
+
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
 
 if ( !class_exists( 'Cherry_Framework' ) ) {
 	/**
@@ -31,10 +36,17 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * @since  4.0.0
 		 */
 		function __construct() {
-			global $cherry;
+			// Global variables.
+			global $cherry, $cherry_registered_static_areas, $cherry_registered_statics;
 
 			// Set up an empty class for the global $cherry object.
 			$cherry = new stdClass;
+
+			// Set up a stores the static areas.
+			$cherry_registered_static_areas = array();
+
+			// Set up a stores the registered static elements.
+			$cherry_registered_statics = array();
 
 			// Define framework, parent theme, and child theme constants.
 			add_action( 'after_setup_theme', array( $this, 'constants' ), 1 );
@@ -97,6 +109,21 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			/** Sets the path to the core framework functions directory. */
 			define( 'CHERRY_FUNCTIONS', trailingslashit( CHERRY_DIR ) . 'functions' );
+
+			/** Sets the path to the core framework classes directory. */
+			define( 'CHERRY_CLASSES', trailingslashit( CHERRY_DIR ) . 'classes' );
+
+			/** Sets the path to the core framework admin directory. */
+			define( 'CHERRY_ADMIN', trailingslashit( CHERRY_DIR ) . 'admin' );
+
+			/** Sets the path to the core framework extensions directory. */
+			define( 'CHERRY_EXTENSIONS', trailingslashit( CHERRY_DIR ) . 'extensions' );
+
+			/** Sets the path to the theme config folder. */
+			define( 'PARENT_CONFIG_DIR', '/init/config/' );
+
+			/** Sets relative path to the theme statics folder. */
+			define( 'PARENT_STATICS_DIR', '/init/statics/' );
 		}
 
 		/**
@@ -133,6 +160,24 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );
+
+			// Utility functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'utils.php' );
+
+			// Load the Cherry_Static class.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-statics.php' );
+
+			// Load CSS compiler.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-css-compiler.php' );
+
+			// Load Breadcrumbs builder.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-breadcrumbs.php' );
+
+			// Load Google fonts enqueuer.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-google-fonts-enqueue.php' );
+
+			// Load abstract class for static registration.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
 		}
 
 		/**
@@ -148,10 +193,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_filter( 'term_description', 'do_shortcode' );
 			add_filter( 'comment_text',     'do_shortcode' );
 
-			add_filter( 'cherry_the_post_meta',       'do_shortcode', 20 );
-			add_filter( 'cherry_the_post_footer',     'do_shortcode', 20 );
-			add_filter( 'cherry_get_the_post_meta',   'do_shortcode', 20 );
-			add_filter( 'cherry_get_the_post_footer', 'do_shortcode', 20 );
+			// Load the core filters.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'filters.php' );
 		}
 
 		/**
@@ -215,19 +258,10 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		function includes() {
 
 			// Load Cherry_Wrapping class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-wrapping.php' );
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-wrapping.php' );
 
 			// Load Cherry_Sidebar class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-sidebar.php' );
-
-			// Load Cherry_Interface_Bilder class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-interface-builder.php' );
-
-			// Load Cherry_Options_Framework class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework.php' );
-
-			// Load Cherry_Options_Framework_Admin class.
-			require_once( trailingslashit( CHERRY_DIR ) . 'classes/class-cherry-optionsframework-admin.php' );
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-sidebar.php' );
 
 			// Load the HTML attributes functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'attr.php' );
@@ -250,14 +284,17 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the post template functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-post.php' );
 
+			// Load the meta template functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'template-meta.php' );
+
 			// Load the custom functions that act independently of the theme templates.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'extras.php' );
 
 			// Load the structure functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'structure.php' );
 
-			// Load the shortcodes if supported.
-			require_if_theme_supports( 'cherry-shortcodes', trailingslashit( CHERRY_FUNCTIONS ) . 'shortcodes.php' );
+			// Load Cherry_Options_Framework class.
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework.php' );
 
 			// Load the post format functionality if post formats are supported.
 			require_if_theme_supports( 'post-formats', trailingslashit( CHERRY_FUNCTIONS ) . 'post-formats.php' );
@@ -273,8 +310,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 */
 		function extensions() {
 
-			// Load the SCSS compiler library if supported.
-			require_if_theme_supports( 'cherry-scss-compiler', trailingslashit( CHERRY_DIR ) . 'extensions/class-scss-compiler.php' );
+			// Load if supported.
+			// require_if_theme_supports();
 		}
 
 		/**
@@ -286,9 +323,14 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Check if in the WordPress admin.
 			if ( is_admin() ) {
+				// Load Cherry_Interface_Builder class.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-interface-builder.php' );
+
+				// Load Cherry_Options_Framework_Admin class.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
 
 				// Load the main admin file.
-				require_once( trailingslashit( CHERRY_DIR ) . 'admin/admin.php' );
+				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );
 			}
 		}
 

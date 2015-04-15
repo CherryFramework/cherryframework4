@@ -1,0 +1,178 @@
+/*
+Description: The stylesheet with a main style.
+Author:      Cherry Team
+Version:     1.0.0
+*/
+@import "css-framework/base";
+
+img {
+	@include img-responsive();
+}
+
+.site {
+	@include hyphens(auto);
+}
+
+.container {
+	.cherry-container & {
+		.cherry-grid-boxed & {
+			width: auto;
+		}
+		.cherry-no-responsive & {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+// Fix for static-area without .container
+.static-area {
+	&.no-container {
+		&.with-row {
+			@include container-fixed();
+		}
+		.container & {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+}
+
+.site-header.isStick {
+	left:0;
+	right:0;
+}
+
+// .cherry-with-sidebar {
+// 	&.cherry-no-responsive {
+// 		&.cherry-blog-layout-1-left {
+// 			#primary {
+// 				float: right;
+// 				width: 75%;
+// 			}
+// 		}
+// 		&.cherry-blog-layout-1-left-2-left {
+// 			#primary {
+// 				float: right;
+// 				width: 65%;
+// 			}
+// 		}
+// 		&.cherry-blog-layout-1-right {
+// 			#primary {
+// 				float: left;
+// 				width: 75%;
+// 			}
+// 		}
+// 		&.cherry-blog-layout-1-right-2-right {
+// 			#primary {
+// 				float: left;
+// 				width: 65%;
+// 			}
+// 		}
+// 	}
+// }
+
+// .cherry-no-responsive {
+// 	&.cherry-blog-layout-1-left {
+// 		#secondary {
+// 			float: left;
+// 			width: 23%;
+// 		}
+// 	}
+// 	&.cherry-blog-layout-1-left-2-left {
+// 		#secondary {
+// 			float: left;
+// 			width: 15%;
+// 		}
+// 		#tertiary {
+// 			float: left;
+// 			width: 15%;
+// 		}
+// 	}
+// 	&.cherry-blog-layout-1-right {
+// 		#secondary {
+// 			float: right;
+// 			width: 23%;
+// 		}
+// 	}
+// 	&.cherry-blog-layout-1-right-2-right {
+// 		#secondary {
+// 			float: right;
+// 			width: 15%;
+// 		}
+// 		#tertiary {
+// 			float: right;
+// 			width: 15%;
+// 		}
+// 	}
+// }
+
+@media (min-width: 992px) {
+	.cherry-with-sidebar {
+		#primary {
+			width: 75%;
+		}
+		&.cherry-blog-layout-1-left,
+		&.cherry-blog-layout-1-left-2-left {
+			#primary {
+				float: right;
+			}
+		}
+		&.cherry-blog-layout-1-right,
+		&.cherry-blog-layout-1-right-2-right,
+		&.cherry-blog-layout-1-left-2-right {
+			#primary {
+				float: left;
+			}
+		}
+
+		&.cherry-blog-layout-1-left-2-left,
+		&.cherry-blog-layout-1-left-2-right,
+		&.cherry-blog-layout-1-right-2-right {
+			.content-sidebar-wrapper {
+				width: 80%;
+			}
+		}
+		// &.cherry-blog-layout-1-right,
+		&.cherry-blog-layout-1-right-2-right {
+			.content-sidebar-wrapper {
+				float: left;
+			}
+		}
+		// &.cherry-blog-layout-1-left,
+		&.cherry-blog-layout-1-left-2-right,
+		&.cherry-blog-layout-1-left-2-left {
+			.content-sidebar-wrapper {
+				float: right;
+			}
+		}
+	}
+	#sidebar-main {
+		width: 23%;
+		.cherry-blog-layout-1-left &,
+		.cherry-blog-layout-1-left-2-left & {
+			float: left;
+		}
+		.cherry-blog-layout-1-right &,
+		.cherry-blog-layout-1-right-2-right &,
+		.cherry-blog-layout-1-left-2-right & {
+			float: right;
+		}
+	}
+	#sidebar-secondary {
+		width: 18%;
+		.cherry-blog-layout-1-left-2-left &,
+		.cherry-blog-layout-1-left-2-right & {
+			float: left;
+		}
+		.cherry-blog-layout-1-right-2-right & {
+			float: right;
+		}
+	}
+	.cherry-with-sidebar .entry-header .container,
+	.cherry-with-sidebar .entry-content .container,
+	.cherry-with-sidebar .comments-area .container,
+	.cherry-with-sidebar .entry-footer .container {
+		width: 80%; /* fix */
+	}
+}

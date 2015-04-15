@@ -7,10 +7,15 @@
  * @package    Cherry_Framework
  * @subpackage Classes
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
+
+// If this file is called directly, abort.
+if ( !defined( 'WPINC' ) ) {
+	die;
+}
 
 /**
  * Class for determines whether or not to display the sidebar.
@@ -70,18 +75,14 @@ class Cherry_Sidebar {
 	 * @return boolean
 	 */
 	private function check_conditional_tag( $conditional_tag ) {
+		$conditional_arg = is_array( $conditional_tag ) ? $conditional_tag[1] : false;
+		$conditional_tag = $conditional_arg ? $conditional_tag[0] : $conditional_tag;
 
-		// Used the concept of variable functions (http://www.php.net/manual/en/functions.variable-functions.php)
-		if ( is_array( $conditional_tag ) ) {
-			return $conditional_tag[0]( $conditional_tag[1] );
+		if ( !function_exists( $conditional_tag ) ) {
+			return false;
 		}
 
-		// Ensure that funcitons exist.
-		if ( function_exists( $conditional_tag ) ) {
-			return $conditional_tag();
-		}
-
-		return false;
+		return $conditional_arg ? call_user_func( $conditional_tag, $conditional_arg ) : call_user_func( $conditional_tag );
 	}
 
 	/**

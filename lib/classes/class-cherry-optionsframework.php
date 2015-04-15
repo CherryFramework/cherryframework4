@@ -4,7 +4,7 @@
  * @package    Cherry_Framework
  * @subpackage Class
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2014, Cherry Team
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -14,17 +14,32 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
+//add_action( 'after_setup_theme', array( 'Cherry_Options_Framework', 'get_instance' ) );
+
 if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	class Cherry_Options_Framework {
 
+		public $current_section_name = '';
+		public $loaded_settings;
+		public static $is_db_options_exist = null;
+		private static $instance = null;
+
 		/**
 		* Cherry_Options_Framework constructor
-		* 
+		*
 		* @since 1.0.0
 		*/
-
 		function __construct() {
 			add_action( 'admin_init', array( $this, 'create_themename_option' ) );
+		}
+
+		public static function get_instance() {
+
+			// If the single instance hasn't been set, set it now.
+			if ( null == self::$instance )
+				self::$instance = new self;
+
+			return self::$instance;
 		}
 
 		/**
@@ -39,10 +54,17 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			$cherry_options_settings = get_option('cherry-options');
 			$cherry_options_settings['id'] = $themename;
 			update_option('cherry-options', $cherry_options_settings);
+
+			$this->loaded_settings = $this->load_settings();
+
+			if( !self::is_db_options_exist() ){
+				$options = $this->create_options_array( $this->loaded_settings );
+				$this->save_options( $options );
+			}
 		}
 
 		/**
-		 * 
+		 *
 		 * Save options to DB
 		 *
 		 * @since 1.0.0
@@ -52,9 +74,8 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			update_option($settings['id'], $options_array);
 		}
 
-
 		/**
-		 * 
+		 *
 		 * Load options from DB
 		 *
 		 * @since 1.0.0
@@ -67,51 +88,69 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * Get default set of options
+		 *
 		 *
 		 * @since 1.0.0
 		 */
-		public function load_settings() {
-			$result_settings = null;
+		public static function is_db_options_exist() {
 
-			if ( !$result_settings ) {
-		        // Load options from options.php file (if it exists)
-		        $location = apply_filters( 'default_set_file_location', array('cherry-options.php') );
-		        if ( $optionsfile = locate_template( $location, true ) ) {
-		            if ( function_exists( 'cherry_options_sets' ) ) {
-						$result_settings = cherry_options_sets();
-					}
-		        }
+			if ( null !== self::$is_db_options_exist ) {
+				return self::$is_db_options_exist;
 			}
-			return $result_settings;
-		}
 
-		/**
-		 * 
-		 *
-		 * @since 1.0.0
-		 */
-		public function is_options_exist() {
 			$cherry_options_settings = get_option( 'cherry-options' );
-			(get_option($cherry_options_settings['id']) == false)? $is_options=false : $is_options = true;
+			( false == get_option($cherry_options_settings['id']) ) ? $is_options = false : $is_options = true;
+
+			self::$is_db_options_exist = $is_options;
+
 			return $is_options;
 		}
-		
+
 		/**
-		 * 
-		 * Create 
+		 *
+		 *
+		 * @since 1.0.0
+		 */
+		public function get_section_name_by_id($section_id) {
+			$default_settings = $this->loaded_settings;
+			$result = $default_settings[$section_id]['name'];
+			return $result;
+		}
+
+		/**
+		 *
+		 *
+		 * @since 1.0.0
+		 */
+		public function get_type_by_option_id($option_id) {
+			$default_settings = $this->loaded_settings;
+			foreach ($default_settings as $sectionName => $sectionSettings) {
+				foreach ($sectionSettings['options-list'] as $optionId => $optionSettings) {
+					if($option_id == $optionId){
+						$result = $optionSettings['type'];
+					}
+				}
+			}
+			return $result;
+		}
+
+		/**
+		 *
+		 * Create
 		 *
 		 * @since 1.0.0
 		 */
 		public function create_options_array() {
-			$default_set = $this->load_settings();
+			$default_set = $this->loaded_settings;
 
 			foreach ( $default_set as $key => $value ) {
 				$setname = $key;
 				$set = array();
 					foreach ( $value['options-list'] as $key => $value ) {
-						$set[$key] = $value['value'];
-					}	
+						if( isset( $value['value'] ) ){
+							$set[$key] = $value['value'];
+						}
+					}
 				$options_parsed_array[$setname] = array('options-list'=>$set);
 			}
 
@@ -119,36 +158,88 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * 
+		 *
 		 * Create and save updated options
 		 *
 		 * @since 1.0.0
 		 */
-		public function create_updated_options_array($post_array) {
-			if($this->is_options_exist()){
-				$options = $this->load_options();
-				//var_dump('options exist');
-			}else{
-				$options = $this->create_options_array();
-				//var_dump('options no exist');
-			}
-			
-			if(isset($options)){				
+		public function create_updated_options_array( $post_array ) {
+			$options = $this->load_options();
+			$default_settings = $this->loaded_settings;
+			//var_dump($options);
+			if(isset($options)){
 				foreach ( $options as $section_key => $value ) {
 					$section_name = $section_key;
 					$option_list = $value['options-list'];
-						foreach ($post_array as $key => $value) {
-							$options[$section_name]['options-list'][$key] = $post_array[$key];
+						foreach ($option_list as $key => $value) {
+							$type = $this->get_type_by_option_id($key);
+							switch ($type) {
+								case 'info':
+									# code...
+									break;
+								case 'checkbox':
+									if(isset($post_array[$key])){
+										$options[$section_name]['options-list'][$key] = 'true';
+									}else{
+										$options[$section_name]['options-list'][$key] = 'false';
+									}
+									break;
+								case 'multicheckbox':
+									$value = array();
+									$optionArray = $default_settings[ $section_key ][ 'options-list' ][$key]['options'];
+									foreach ( $optionArray as $k => $val ) {
+										if ( isset( $post_array[ $k ] ) ) {
+											$value[] = $k;
+										}
+									}
+									$options[$section_name]['options-list'][$key] = $value;
+									break;
+								case 'multiselect':
+										if( isset( $post_array[$key] ) ){
+											$options[$section_name]['options-list'][$key] = $post_array[$key];
+										}
+									break;
+								default:
+									if (isset($post_array[$key])) {
+										$options[$section_name]['options-list'][$key] = $post_array[$key];
+									}
+									break;
+							}
 						}
 				}
-
 				$this->save_options($options);
 			}
 		}
 
 		/**
-		 * 
-		 * Create and save updated options
+		 *
+		 * Restore section and save options
+		 *
+		 * @since 1.0.0
+		 */
+		public function restore_section_settings_array($activeSection) {
+			$activeSectionName = $activeSection;
+
+			$loaded_settings = $this->load_options();
+			$default_settings = $this->create_options_array();
+
+			if(isset($loaded_settings)){
+				foreach ( $loaded_settings as $section_key => $value ) {
+					$section_name = $section_key;
+					$option_list = $value['options-list'];
+					if( $section_name == $activeSectionName ){
+						foreach ($option_list as $key => $value) {
+							$loaded_settings[$section_name]['options-list'][$key] = $default_settings[$section_name]['options-list'][$key];
+						}
+					}
+				}
+				$this->save_options($loaded_settings);
+			}
+		}
+
+		/**
+		 *
+		 * Restore and save options
 		 *
 		 * @since 1.0.0
 		 */
@@ -160,6 +251,32 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
+		 *
+		 * Export options
+		 *
+		 * @since 1.0.0
+		 */
+		public function json_export_options( $post_array ) {
+
+		}
+
+		/**
+		 * Get default set of options
+		 *
+		 * @since 1.0.0
+		 */
+		static function load_settings() {
+			$result_settings = null;
+				// Load options from options.php file (if it exists)
+				$location = apply_filters( 'default_set_file_location', array('cherry-options.php') );
+				if ( $optionsfile = locate_template( $location, true ) ) {
+					if ( function_exists( 'cherry_defaults_settings' ) ) {
+						$result_settings = cherry_defaults_settings();
+					}
+				}
+			return $result_settings;
+		}
+		/**
 		 * Merge default set with seved options
 		 *
 		 * @since 1.0.0
@@ -167,48 +284,36 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		public function merged_settings() {
 			$result_settings = null;
 
-			$default_settings = $this->load_settings();
-			$loaded_settings = $this->load_options();			
+			$default_settings = $this->loaded_settings;
+			$loaded_settings = $this->load_options();
 
 			foreach ( $default_settings as $key => $value ) {
 				$section_name = $key;
 				$option_list = $value['options-list'];
 					foreach ($option_list as $optname => $value) {
-						$default_settings[$section_name]['options-list'][$optname]['value'] = $loaded_settings[$section_name]['options-list'][$optname];
+						if(array_key_exists($section_name, $loaded_settings)){
+							$default_settings[$section_name]['options-list'][$optname]['value'] = $loaded_settings[$section_name]['options-list'][$optname];
+						}
 					}
 			}
-
 			$result_settings = $default_settings;
 			return $result_settings;
 		}
-
-		/**
-		 *
-		 * @since 1.0.0
-		 */
-		public function update_option_key_value($sections_name='', $option_name='', $new_value='') {
-			$result_array = $this->load_options();
-				$result_array[$sections_name]['options-list'][$option_name] = $new_value;
-			return $result_array;	
-		}
-		
 
 		/**
 		 * Check for the existence of an option in the database
 		 *
 		 * @since 1.0.0
 		 */
-		public function get_settings() {
+		public function get_current_settings() {
 			$result_settings = array();
 
-			$cherry_options_settings = get_option( 'cherry-options' );
-
-			if($this->is_options_exist()){
+			if( self::$is_db_options_exist ){
 				//var_dump('merged_settings');
 				$result_settings = $this->merged_settings();
 			}else{
 				//var_dump('default_settings');
-				$result_settings = $this->load_settings();
+				$result_settings = $this->loaded_settings;
 			}
 
 			return $result_settings;
@@ -219,22 +324,74 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		static function get_option_value( $name, $default = false ) {
-			$setting = get_option( 'cherry-options' );
-			if ( ! isset( $setting['id'] ) ) {
-				return $default;
+		public function get_option_value( $name, $default = false ) {
+
+			$cached = wp_cache_get( $name, 'cherry-options' );
+
+			if ( $cached ) {
+				return $cached;
 			}
-			$options_array = get_option( $setting['id'] );
-			if ( isset( $options_array ) ) {
-				foreach ( $options_array as $sections_name => $value ) {
-					if(array_key_exists($name, $value['options-list'])){
-						return $value['options-list'][$name];
+
+			$setting = get_option( 'cherry-options' );
+			if(self::is_db_options_exist()){
+				$options_array = get_option( $setting['id'] );
+				if ( $options_array ) {
+					foreach ( $options_array as $sections_name => $section_value ) {
+						if(array_key_exists($name, $section_value['options-list'])){
+							wp_cache_set( $name, $section_value['options-list'][$name], 'cherry-options' );
+							return $section_value['options-list'][$name];
+						}
+					}
+				}
+			}else{
+				$settings_array = self::load_settings();
+				if ( $settings_array ) {
+					foreach ( $settings_array as $sections_name => $section_value ) {
+						if(array_key_exists($name, $section_value['options-list'])){
+							wp_cache_set( $name, $section_value['options-list'][$name], 'cherry-options' );
+							return $section_value['options-list'][$name]['value'];
+						}
 					}
 				}
 			}
+			wp_cache_set( $name, $default, 'cherry-options' );
 			return $default;
 		}
+
+		public function get_option_values( $name ) {
+			$settings_array = self::load_settings();
+
+			if ( !$settings_array ) {
+				return false;
+			}
+
+			foreach ( $settings_array as $sections_name => $section_value ) :
+
+				if ( isset( $section_value['options-list'][ $name ]['options'] ) ) {
+					return $section_value['options-list'][ $name ]['options'];
+				}
+
+			endforeach;
+
+			return false;
+		}
 	}
+}
+
+
+/**
+ * Get cherry option value
+ *
+ * @since 1.0.0
+ */
+function cherry_get_option( $name, $default = false ) {
+	$options_framework = Cherry_Options_Framework::get_instance();
+	return $options_framework->get_option_value( $name, $default );
+}
+
+function cherry_get_options( $name ) {
+	$options_framework = Cherry_Options_Framework::get_instance();
+	return $options_framework->get_option_values( $name );
 }
 
 ?>

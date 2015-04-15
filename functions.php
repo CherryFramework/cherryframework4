@@ -16,32 +16,11 @@ new Cherry_Framework();
 add_action( 'after_setup_theme', 'cherry_theme_setup' );
 function cherry_theme_setup() {
 
-	// Load files.
-	require_once( trailingslashit( get_template_directory() ) . 'inc/init.php' );
+	// Load the initialization file.
+	require_once( trailingslashit( PARENT_DIR ) . 'init/init.php' );
 
-	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array(
-		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video',
-	) );
-
-	// Loads scripts.
-	add_theme_support( 'cherry-scripts', array(
-		'comment-reply', 'drop-downs',
-	) );
-
-	// Loads styles.
-	add_theme_support( 'cherry-styles', array(
-		'drop-downs', 'parent', 'style',
-	) );
-
-	// Loads shortcodes.
-	add_theme_support( 'cherry-shortcodes' );
-
-	// Enable support SCSS compiler.
-	add_theme_support( 'cherry-scss-compiler' );
-
-	// Handle content width for embeds and images.
-	cherry_set_content_width( 780 );
+	// Load necessary config parts.
+	cherry_theme_config();
 
 	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
 	function cherry_wrap_base_cpts( $templates ) {
