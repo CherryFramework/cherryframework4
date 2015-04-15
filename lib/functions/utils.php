@@ -474,6 +474,177 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 }
 
 /**
+ * Get box model CSS from layout editor option
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $data  layout parameters array from options
+ * @param  array  $mod   optional parameter - pass function name and arg to modify values inside layout array
+ * @return string        indents, border etc.
+ */
+function cherry_get_box_model_css( $data, $mod = array() ) {
+
+	if ( ! is_array( $data ) || empty( $data ) ) {
+		return;
+	}
+
+	$defaults = array(
+		'position'  => array(),
+		'margin'    => array(),
+		'border'    => array(),
+		'padding'   => array(),
+		'container' => array()
+	);
+
+	$box_defaults = array(
+		'top'    => '',
+		'right'  => '',
+		'bottom' => '',
+		'left'   => ''
+	);
+
+	$data = wp_parse_args( $data, $defaults );
+
+	$result = '';
+
+	// Prepare postion
+	if ( ! empty( $data['position'] ) ) {
+
+		$data['position'] = array_intersect_key( $data['position'], $box_defaults );
+
+		$parser_data = array(
+			'prefix'  => '',
+			'allowed' => $box_defaults
+		);
+
+		array_walk( $data['position'], 'cherry_prepare_box_item', $parser_data );
+
+		$result .= implode( ';', array_filter( $data['position'] ) ) . ';';
+
+	}
+
+	// Prepare indents
+	$result .= cherry_prepare_css_indents( $data['margin'], 'margin' );
+	$result .= cherry_prepare_css_indents( $data['padding'], 'padding' );
+
+	// Prepare borders
+	if ( ! empty( $data['border'] ) ) {
+
+		$border_style  = ! empty( $data['border']['style'] ) ? $data['border']['style'] : '';
+		$border_color  = ! empty( $data['border']['color'] ) ? $data['border']['color'] : '';
+		$border_radius = ! empty( $data['border']['radius'] ) ? $data['border']['radius'] : '';
+
+		if ( '' != $border_radius ) {
+			$result .= 'border-radius:' . $border_radius . ';';
+		}
+
+		$border_format = 'border-%1$s:%2$s %3$s %4$s;';
+
+		foreach ( $data['border'] as $property => $value ) {
+
+			if ( ! array_key_exists( $property, $box_defaults ) ) {
+				continue;
+			}
+
+			if ( empty( $value ) ) {
+				continue;
+			}
+
+			$result .= sprintf(
+				$border_format,
+				$property, $value, $border_style, $border_color
+			);
+
+		}
+
+	}
+
+	// Prepare dimensions
+	if ( ! empty( $data['container']['width'] ) ) {
+		$result .= 'width:' . $data['container']['width'] . ';';
+	}
+	if ( ! empty( $data['container']['height'] ) ) {
+		$result .= 'height:' . $data['container']['height'] . ';';
+	}
+
+	return $result;
+}
+
+/**
+ * Service function to grab CSS indents from data array into string
+ *
+ * @since  4.0.0
+ *
+ * @param  array        $data      data array
+ * @param  CSS property $property  CSS property
+ * @return string
+ */
+function cherry_prepare_css_indents( $data, $property ) {
+
+	if ( empty( $data ) ) {
+		return;
+	}
+
+	$box_defaults = array(
+		'top'    => '',
+		'right'  => '',
+		'bottom' => '',
+		'left'   => ''
+	);
+
+	$data = array_intersect_key( $data, $box_defaults );
+	$data = array_filter( $data );
+
+	if ( 4 == count( $data ) ) {
+		$result = $property . ':' . implode( ' ', $data );
+		return $result . ';';
+	}
+
+	$parser_data = array(
+		'prefix'  => $property,
+		'allowed' => $box_defaults
+	);
+
+	array_walk( $data, 'cherry_prepare_box_item', $parser_data );
+
+	$result = implode( ';', array_filter( $data ) ) . ';';
+
+	return $result;
+}
+
+/**
+ * Service callback function for
+ *
+ * @since  4.0.0
+ *
+ * @param  string  $item  position value
+ * @param  string  $key   position key
+ * @param  array   $data  array of allowed positions and property prefix
+ * @return bool
+ */
+function cherry_prepare_box_item( &$item, $key, $data ) {
+
+	if ( ! array_key_exists( $key, $data['allowed'] ) ) {
+		$item = false;
+		return;
+	}
+
+	if ( empty( $item ) ) {
+		$item = false;
+		return;
+	}
+
+	$prefix = '';
+
+	if ( ! empty( $data['prefix'] ) ) {
+		$prefix = $data['prefix'] . '-';
+	}
+
+	$item = $prefix . $key . ':' . $item;
+
+}
+
+/**
  * Make float size
  *
  * @since  4.0.0
