@@ -38,106 +38,32 @@ $footer_menu_typography = $cherry_css_vars['navigation-footer-menu-typography'] 
 
 ?>
 
-<?php cherry_element_emphasis('.text-primary', cherry_esc_value( $cherry_css_vars, 'color-primary' ), 'color');?>
-<?php cherry_element_emphasis('.text-success', cherry_esc_value( $cherry_css_vars, 'color-success' ), 'color');?>
-<?php cherry_element_emphasis('.text-info', cherry_esc_value( $cherry_css_vars, 'color-info' ), 'color');?>
-<?php cherry_element_emphasis('.text-warning', cherry_esc_value( $cherry_css_vars, 'color-warning' ), 'color');?>
-<?php cherry_element_emphasis('.text-danger', cherry_esc_value( $cherry_css_vars, 'color-danger' ), 'color');?>
-
-<?php cherry_element_emphasis('.bg-primary', cherry_esc_value( $cherry_css_vars, 'color-primary' ), 'background-color');?>
-<?php cherry_element_emphasis('.bg-success', cherry_esc_value( $cherry_css_vars, 'color-success' ), 'background-color');?>
-<?php cherry_element_emphasis('.bg-info', cherry_esc_value( $cherry_css_vars, 'color-info' ), 'background-color');?>
-<?php cherry_element_emphasis('.bg-warning', cherry_esc_value( $cherry_css_vars, 'color-warning' ), 'background-color');?>
-<?php cherry_element_emphasis('.bg-danger', cherry_esc_value( $cherry_css_vars, 'color-danger' ), 'background-color');?>
-
-
 
 <?php //die ?>
 
-input[type="text"],
-input[type="search"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="email"] {
-	<?php echo cherry_get_typography_css($input_typography); ?>
-}
-
-footer {
-	<?php echo cherry_get_typography_css($footer_typography); ?>
-}
-
-
-ul li {
-	<?php echo cherry_get_typography_css($lists_typography); ?>
-}
-
-
-<?php echo cherry_get_background_css('footer', $footer_background); ?>
-
-.site-title > a{
-	<?php echo cherry_get_typography_css($logo_typography); ?>
-}
-
 
 body {
-	color: <?php echo cherry_esc_value( $body_typography, 'color' ); ?>;
-	font-size: <?php echo cherry_esc_value( $body_typography, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
+	<?php echo cherry_get_typography_css($body_typography); ?>;
 }
 <?php echo cherry_get_background_css('body', $body_background); ?>
 
-<?php echo cherry_get_background_css('.site-header', $header_background); ?>
-
 h1, .h1 {
-	<?php echo cherry_get_typography_css($typography_h1, array('cherry_colors_lighten', 40)); ?>
+	<?php echo cherry_get_typography_css($typography_h1); ?>
 }
-
-
 h2, .h2 {
-	font-size: <?php echo cherry_esc_value( $typography_h2, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_h2, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_h2, 'color' ); ?>;
-	font-family: <?php echo cherry_esc_value( $typography_h2, 'family' ); ?>;
-	font-style: <?php echo cherry_esc_value( $typography_h2, 'style' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_h2, 'letterspacing' ), 'letter-spacing');?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_h2, 'align' ), 'text-align');?>
+	<?php echo cherry_get_typography_css($typography_h2); ?>
 }
 h3, .h3 {
-	font-size: <?php echo cherry_esc_value( $typography_h3, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_h3, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_h3, 'color' ); ?>;
-	font-family: <?php echo cherry_esc_value( $typography_h3, 'family' ); ?>;
-	font-style: <?php echo cherry_esc_value( $typography_h3, 'style' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_h3, 'letterspacing' ), 'letter-spacing');?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_h3, 'align' ), 'text-align');?>
+	<?php echo cherry_get_typography_css($typography_h3); ?>
 }
 h4, .h4 {
-	font-size: <?php echo cherry_esc_value( $typography_h4, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_h4, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_h4, 'color' ); ?>;
-	font-family: <?php echo cherry_esc_value( $typography_h4, 'family' ); ?>;
-	font-style: <?php echo cherry_esc_value( $typography_h4, 'style' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_h4, 'letterspacing' ), 'letter-spacing');?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_h4, 'align' ), 'text-align');?>
+	<?php echo cherry_get_typography_css($typography_h4); ?>
 }
 h5, .h5 {
-	font-size: <?php echo cherry_esc_value( $typography_h5, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_h5, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_h5, 'color' ); ?>;
-	font-family: <?php echo cherry_esc_value( $typography_h5, 'family' ); ?>;
-	font-style: <?php echo cherry_esc_value( $typography_h5, 'style' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_h5, 'letterspacing' ), 'letter-spacing');?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_h5, 'align' ), 'text-align');?>
+	<?php echo cherry_get_typography_css($typography_h5); ?>
 }
 h6, .h6 {
-	font-size: <?php echo cherry_esc_value( $typography_h6, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_h6, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_h6, 'color' ); ?>;
-	font-family: <?php echo cherry_esc_value( $typography_h6, 'family' ); ?>;
-	font-style: <?php echo cherry_esc_value( $typography_h6, 'style' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_h6, 'letterspacing' ), 'letter-spacing');?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_h6, 'align' ), 'text-align');?>
+	<?php echo cherry_get_typography_css($typography_h6); ?>
 }
 
 h1, .h1,
@@ -159,11 +85,11 @@ p {
 }
 
 a {
-	font-size: <?php echo cherry_esc_value( $typography_link, 'size' ); ?>px;
-	line-height: <?php echo cherry_esc_value( $typography_link, 'lineheight' ); ?>px;
-	color: <?php echo cherry_esc_value( $typography_link, 'color' ); ?>;
-	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'letterspacing' ), 'letter-spacing');?>
-	<?php cherry_empty_value(cherry_esc_value( $typography_link, 'align' ), 'text-align');?>
+	<?php echo cherry_get_typography_css($typography_link); ?>
+}
+
+ul li {
+	<?php echo cherry_get_typography_css($lists_typography); ?>
 }
 
 ul,
@@ -175,6 +101,39 @@ dl {
 	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
+dt,
+dd {
+	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
+}
+
+<?php //Horizontal line color ?>
+hr {
+	border-top: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+	margin-top: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
+	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
+}
+
+.site-title > a{
+	<?php echo cherry_get_typography_css($logo_typography); ?>
+}
+
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="email"] {
+	<?php echo cherry_get_typography_css($input_typography); ?>
+}
+
+<?php echo cherry_get_background_css('.site-header', $header_background); ?>
+
+footer {
+	<?php echo cherry_get_typography_css($footer_typography); ?>
+}
+
+<?php echo cherry_get_background_css('footer', $footer_background); ?>
+
 #menu-primary-items a {
 	<?php echo cherry_get_typography_css($header_menu_typography); ?>
 }
@@ -182,16 +141,25 @@ dl {
 	<?php echo cherry_get_typography_css($footer_menu_typography); ?>
 }
 
-.cherry-breadcrumbs_item_link, .cherry-breadcrumbs_item_target {
+<?php cherry_element_emphasis('.text-primary', cherry_esc_value( $cherry_css_vars, 'color-primary' ), 'color');?>
+<?php cherry_element_emphasis('.text-success', cherry_esc_value( $cherry_css_vars, 'color-success' ), 'color');?>
+<?php cherry_element_emphasis('.text-info', cherry_esc_value( $cherry_css_vars, 'color-info' ), 'color');?>
+<?php cherry_element_emphasis('.text-warning', cherry_esc_value( $cherry_css_vars, 'color-warning' ), 'color');?>
+<?php cherry_element_emphasis('.text-danger', cherry_esc_value( $cherry_css_vars, 'color-danger' ), 'color');?>
+
+<?php cherry_element_emphasis('.bg-primary', cherry_esc_value( $cherry_css_vars, 'color-primary' ), 'background-color')  ;?>
+<?php cherry_element_emphasis('.bg-success', cherry_esc_value( $cherry_css_vars, 'color-success' ), 'background-color');?>
+<?php cherry_element_emphasis('.bg-info', cherry_esc_value( $cherry_css_vars, 'color-info' ), 'background-color');?>
+<?php cherry_element_emphasis('.bg-warning', cherry_esc_value( $cherry_css_vars, 'color-warning' ), 'background-color');?>
+<?php cherry_element_emphasis('.bg-danger', cherry_esc_value( $cherry_css_vars, 'color-danger' ), 'background-color');?>
+
+.cherry-breadcrumbs_item_link,
+.cherry-breadcrumbs_item_target {
 	<?php echo cherry_get_typography_css($typography_breadcrumbs); ?>
 }
-
 .cherry-breadcrumbs {
 	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 60.8); ?>;
 }
-
-
-
 .cherry-mega-menu-sub.level-0 {
 	border-top: 3px solid <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
 }
@@ -236,7 +204,9 @@ dl {
 	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ); ?>;
 }
 
-.cherry-list-numbered-circle > li, .cherry-list-numbered-slash > li, .cherry-list-icons > li {
+.cherry-list-numbered-circle > li,
+.cherry-list-numbered-slash > li,
+.cherry-list-icons > li {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
 }
 
@@ -310,7 +280,8 @@ dl {
 }
 
 
-.cherry-blockquote, .cherry-blockquote:before{
+.cherry-blockquote,
+.cherry-blockquote:before{
 	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-primary' ); ?>;
 	}
 .cherry-highlight {
@@ -325,7 +296,7 @@ dl {
 	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ); ?>;
 }
 
-<!---->
+<?php // ?>
 .cherry-tabs .cherry-tabs-nav span {
 	color: <?php echo cherry_esc_value( $cherry_css_vars, 'color-secondary' ); ?>;
 }
@@ -381,7 +352,7 @@ output {
 	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
 }
 
-<!--Headings small color-->
+<?php //Headings small color ?>
 small, .small {
 	color: <?php echo cherry_colors_darken( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 13.2); ?>;
 }
@@ -389,9 +360,11 @@ small, .small {
 	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'ceil', 0.85); ?>px;
 }
 
-<!--input disabled  background color-->
+<?php //Input disabled  background color ?>
 
-.form-control[disabled], .form-control[readonly], .form-control fieldset[disabled] {
+.form-control[disabled],
+.form-control[readonly],
+.form-control fieldset[disabled] {
 	background-color: <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
 }
 .form-control {
@@ -400,34 +373,25 @@ small, .small {
 	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
 }
 
-<!--Blockquote border color-->
-
-
+<?php //Blockquote border color ?>
 .blockquote-reverse, blockquote.pull-right {
 	border-right: 5px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
 	}
 
-<!--Page header border color-->
+<?php //Page header border color ?>
 .page-header {
 	border-bottom: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
 	padding-bottom: <?php echo (floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2) -1; ?>px;
 	margin: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) * 2; ?>px 0 <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
 
-<!--Blockquote-->
+<?php //Blockquote ?>
 blockquote {
 	border-left: 5px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
 	font-size: <?php echo cherry_typography_size(cherry_esc_value( $body_typography, 'size' ), 'multiple', 'floor', 1.25); ?>px;
 	padding: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) / 2 . 'px '. floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) ; ?>px;
 	margin: 0 0 <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
 }
-
-<!--Horizontal line color-->
-hr {
-	border-top: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
-	margin-top: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
-	margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )); ?>px;
-	}
 
 .radio label,
 .checkbox label {
@@ -458,18 +422,28 @@ hr {
 .table > tbody > tr > td,
 .table > tfoot > tr > th,
 .table > tfoot > tr > td {
-	padding: 8px;
 	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
-	vertical-align: top;
-	border-top: 1px solid #dddddd;
+	border-top: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+}
+.table > thead > tr > th {
+	border-bottom: 2px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+}
+.table > tbody + tbody {
+	border-top: 2px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+}
+.table-bordered {
+	border: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
+}
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > th,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > th,
+.table-bordered > tfoot > tr > td {
+	border: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
 }
 
 
-
-dt,
-dd {
-	line-height: <?php echo cherry_esc_value( $body_typography, 'lineheight' ); ?>px;
-}
 
 blockquote footer,
 blockquote small,
@@ -495,6 +469,7 @@ address {
 @media (max-width: 767px) {
 	.table-responsive {
 		margin-bottom: <?php echo floor(1.428571429 * cherry_esc_value( $body_typography, 'size' )) * 0.75; ?> px;
+		border: 1px solid <?php echo cherry_colors_lighten( cherry_esc_value( $cherry_css_vars, 'color-gray-variations' ), 53.2); ?>;
 	}
 }
 

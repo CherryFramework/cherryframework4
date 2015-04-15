@@ -788,11 +788,9 @@ th {
 .table > tfoot > tr > td {
   padding: 8px;
   vertical-align: top;
-  border-top: 1px solid #dddddd;
 }
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #dddddd;
 }
 .table > caption + thead > tr:first-child > th,
 .table > caption + thead > tr:first-child > td,
@@ -801,9 +799,6 @@ th {
 .table > thead:first-child > tr:first-child > th,
 .table > thead:first-child > tr:first-child > td {
   border-top: 0;
-}
-.table > tbody + tbody {
-  border-top: 2px solid #dddddd;
 }
 
 .table-condensed > thead > tr > th,
@@ -815,17 +810,6 @@ th {
   padding: 5px;
 }
 
-.table-bordered {
-  border: 1px solid #dddddd;
-}
-.table-bordered > thead > tr > th,
-.table-bordered > thead > tr > td,
-.table-bordered > tbody > tr > th,
-.table-bordered > tbody > tr > td,
-.table-bordered > tfoot > tr > th,
-.table-bordered > tfoot > tr > td {
-  border: 1px solid #dddddd;
-}
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px;
@@ -945,7 +929,6 @@ table th[class*="col-"] {
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #dddddd;
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive > .table {
