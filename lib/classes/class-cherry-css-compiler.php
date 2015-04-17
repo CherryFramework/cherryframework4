@@ -430,19 +430,29 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 */
 		function prepare_dynamic_css() {
 
-			// First of all grab dynamic CSS from plugins
-			$data = apply_filters( 'cherry_compiler_dynamic_css', '' );
-
 			// Then get theme CSS (child theme if exist, or from framework)
 			ob_start();
-			get_template_part( 'init/css/dynamic-style' );
-			$data .= ob_get_clean();
+
+			cherry_require( 'init/css/dynamic-style.css' );
+
+			/**
+			 * Allow 3rd party plugins and child themes pass own CSS to parser
+			 *
+			 * @since  4.0.0
+			 */
+			do_action( 'cherry_dynamic_styles' );
+
+			$data = ob_get_clean();
 
 			$user_css = cherry_get_option( 'general-user-css' );
 
 			if ( $user_css ) {
-				$data .= str_replace( array( "\r","\n", " " ), "", $user_css );
+				$data .= $user_css;
 			}
+
+			require_once( CHERRY_CLASSES . '/class-cherry-css-parser.php' );
+			$css_parser = new cherry_css_parser();
+			$data = $css_parser->parse($data);
 
 			return $data;
 		}
