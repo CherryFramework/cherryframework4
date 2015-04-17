@@ -508,6 +508,7 @@ function cherry_get_box_model_css( $data, $mod = array() ) {
 	$result = '';
 
 	// Prepare postion
+	$data['position'] = array_filter( $data['position'] );
 	if ( ! empty( $data['position'] ) ) {
 
 		$data['position'] = array_intersect_key( $data['position'], $box_defaults );
@@ -596,8 +597,8 @@ function cherry_prepare_css_indents( $data, $property ) {
 	$data = array_filter( $data );
 
 	if ( 4 == count( $data ) ) {
-		$result = $property . ':' . implode( ' ', $data );
-		return $result . ';';
+		$result = $property . ':' . implode( ' ', $data ) . ';';
+		return $result;
 	}
 
 	$parser_data = array(
@@ -695,24 +696,20 @@ function cherry_empty_value( $value, $rule) {
 	}
 
 }
-/*
-function cherry_text_emphasis( $parent, $color ) {
 
-	echo $parent." {color: $color;} ";
-	echo "a$parent:hover {color: ".cherry_colors_darken($color, 10).";}";
-
-}
-*/
+/**
+ * Set element emphasis
+ *
+ * @since  4.0.0
+ *
+ * @param  string $parent   parent selector
+ * @param  string $color    color
+ * @param  string $property to define
+ */
 function cherry_element_emphasis( $parent, $color, $property ) {
 
-	echo $parent." {".$property. ": $color;} ";
-	echo "a$parent:hover {"."$property: ".cherry_colors_darken($color, 10).";}";
+	$result  = $parent . ' {' . $property . ':' . $color . ';}';
+	$result .= $parent . ':hover {' . $property . ':' . cherry_colors_darken( $color, 10 ) . ';}';
 
+	return $result;
 }
-
-function cherry_box_shadow( $shadow ) {
-
-	echo "-webkit-box-shadow: $shadow;";
-	echo "box-shadow: $shadow;";
-}
-
