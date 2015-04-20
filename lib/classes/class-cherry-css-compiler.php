@@ -430,7 +430,6 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 */
 		function prepare_dynamic_css() {
 
-			// Then get theme CSS (child theme if exist, or from framework)
 			ob_start();
 
 			cherry_require( 'init/css/dynamic-style.css' );
@@ -443,6 +442,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			do_action( 'cherry_dynamic_styles' );
 
 			$data = ob_get_clean();
+			ob_end_flush();
 
 			$user_css = cherry_get_option( 'general-user-css' );
 
