@@ -1050,108 +1050,7 @@ function cherry_defaults_settings() {
 // Demo options
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
-	$demo_options['ace-editor-demo'] = array(
-		'type'			=> 'ace-editor',
-		'title'			=> __('CSS Editor', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
-		),
-		'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
-	);
-	$demo_options['typography-demo'] = array(
-		'type'			=> 'typography',
-		'title'			=> __('Typography'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
-		),
-		'value'			=> array(
-			'fonttype'		=> 'web',
-			'size'			=> '20',
-			'lineheight'	=> '20',
-			'color'			=> '#222222',
-			'family'		=> 'Abril Fatface',
-			'character'		=> 'latin-ext',
-			'style'			=> 'italic',
-			'letterspacing' => '0',
-			'align'			=> 'notdefined'
-		)
-	);
-	$demo_options['layout-editor-demo'] = array(
-		'type'			=> 'layouteditor',
-		'title'			=> __( 'title layout editor', 'cherry' ),
-		'label'			=> 'label layout editor',
-		'decsription'	=> 'decsription layout editor',
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '
-		),
-		'value'			=> array(
-			'position'	=> array(
-				'top'		=> '10em',
-				'right'		=> '',
-				'bottom'	=> '',
-				'left'		=> '10%',
-			),
-			'margin'	=> array(
-				'top'		=> '0px',
-				'right'		=> '0px',
-				'bottom'	=> '0em',
-				'left'		=> '0px',
-			),
-			'border'	=> array(
-				'top'		=> '0px',
-				'right'		=> '0px',
-				'bottom'	=> '0px',
-				'left'		=> '0px',
-				'style'		=> 'solid',
-				'radius'	=> '10px',
-				'color'		=> '#ff0000'
-			),
-			'padding'	=> array(
-				'top'		=> '0em',
-				'right'		=> '0em',
-				'bottom'	=> '0em',
-				'left'		=> '0em',
-			),
-			'container'	=> array(
-				'width'		=> '0px',
-				'height'	=> '0px',
-			),
-		),
-	);
-	$demo_options['repeater-demo'] = array(
-		'type'			=> 'repeater',
-		'title'			=> __('Links repeater', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('This option allows you to create a custom links list. For each link you can define URL, class and label.', 'cherry'),
-		),
-		'value'			=> array(
-			array(
-				'external-link'	=> 'http://google.com',
-				'font-class'	=> 'dashicons-admin-site',
-				'link-label'	=> 'custom text',
-			),
-			array(
-				'external-link'	=> 'https://www.youtube.com/',
-				'font-class'	=> 'dashicons-admin-generic',
-				'link-label'	=> 'custom text',
-			),
-			array(
-				'external-link'	=> 'https://vimeo.com/',
-				'font-class'	=> 'dashicons-admin-media',
-				'link-label'	=> 'custom text',
-			),
-		)
-	);
+
 	$demo_options['text-demo'] = array(
 		'type'			=> 'text',
 		'title'			=> __('Text input', 'cherry'),
@@ -1257,6 +1156,20 @@ function cherry_defaults_settings() {
 			'content'	=> __('Analogue of the regular HTML radio buttons. ', 'cherry'),
 		),
 		'value'			=> 'true',
+	);
+	$demo_options['stepper-demo'] = array(
+		'type'			=> 'stepper',
+		'title'			=> __('Stepper', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=> array(
+			'type'		=> 'text',
+			'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
+		),
+		'value'			=> '0',
+		'step_value'	=> '1',
+		'max-value'		=> '50',
+		'min-value'		=> '-50'
 	);
 	$demo_options['switcher-custom-toogle-demo'] = array(
 		'type'			=> 'switcher',
@@ -1414,20 +1327,7 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> '#ff0000',
 	);
-	$demo_options['stepper-demo'] = array(
-		'type'			=> 'stepper',
-		'title'			=> __('Stepper', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'			=> array(
-			'type'		=> 'text',
-			'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
-		),
-		'value'			=> '0',
-		'value-step'	=> '1',
-		'max-value'		=> '50',
-		'min-value'		=> '-50'
-	);
+
 	$demo_options['editordemo'] = array(
 		'type'			=> 'editor',
 		'title'			=> __('WYSIWYG editor', 'cherry'),
@@ -1438,6 +1338,108 @@ function cherry_defaults_settings() {
 			'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
 		),
 		'value'			=> 'Lorem ipsum',
+	);
+	$demo_options['ace-editor-demo'] = array(
+		'type'			=> 'ace-editor',
+		'title'			=> __('CSS Editor', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
+		),
+		'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
+	);
+	$demo_options['typography-demo'] = array(
+		'type'			=> 'typography',
+		'title'			=> __('Typography'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+		),
+		'value'			=> array(
+			'fonttype'		=> 'web',
+			'size'			=> '20',
+			'lineheight'	=> '20',
+			'color'			=> '#222222',
+			'family'		=> 'Abril Fatface',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined'
+		)
+	);
+	$demo_options['layout-editor-demo'] = array(
+		'type'			=> 'layouteditor',
+		'title'			=> __( 'title layout editor', 'cherry' ),
+		'label'			=> 'label layout editor',
+		'decsription'	=> 'decsription layout editor',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '
+		),
+		'value'			=> array(
+			'position'	=> array(
+				'top'		=> '10em',
+				'right'		=> '',
+				'bottom'	=> '',
+				'left'		=> '10%',
+			),
+			'margin'	=> array(
+				'top'		=> '0px',
+				'right'		=> '0px',
+				'bottom'	=> '0em',
+				'left'		=> '0px',
+			),
+			'border'	=> array(
+				'top'		=> '0px',
+				'right'		=> '0px',
+				'bottom'	=> '0px',
+				'left'		=> '0px',
+				'style'		=> 'solid',
+				'radius'	=> '10px',
+				'color'		=> '#ff0000'
+			),
+			'padding'	=> array(
+				'top'		=> '0em',
+				'right'		=> '0em',
+				'bottom'	=> '0em',
+				'left'		=> '0em',
+			),
+			'container'	=> array(
+				'width'		=> '0px',
+				'height'	=> '0px',
+			),
+		),
+	);
+	$demo_options['repeater-demo'] = array(
+		'type'			=> 'repeater',
+		'title'			=> __('Links repeater', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('This option allows you to create a custom links list. For each link you can define URL, class and label.', 'cherry'),
+		),
+		'value'			=> array(
+			array(
+				'external-link'	=> 'http://google.com',
+				'font-class'	=> 'dashicons-admin-site',
+				'link-label'	=> 'custom text',
+			),
+			array(
+				'external-link'	=> 'https://www.youtube.com/',
+				'font-class'	=> 'dashicons-admin-generic',
+				'link-label'	=> 'custom text',
+			),
+			array(
+				'external-link'	=> 'https://vimeo.com/',
+				'font-class'	=> 'dashicons-admin-media',
+				'link-label'	=> 'custom text',
+			),
+		)
 	);
 	$demo_options['info-demo'] = array(
 		'type'			=> 'info',
