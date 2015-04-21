@@ -178,6 +178,15 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load abstract class for static registration.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
+
+			// Load Icons gateway for shortcodes ultimate ( only if SU active )
+			if ( in_array(
+				'shortcodes-ultimate/shortcodes-ultimate.php',
+				apply_filters( 'active_plugins', get_option( 'active_plugins' ) )
+			) ) {
+				require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-icons-gateway.php' );
+			}
+
 		}
 
 		/**

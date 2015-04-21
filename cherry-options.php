@@ -201,17 +201,24 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Blog layout options
 //////////////////////////////////////////////////////////////////////
+
 	$blog_options = array();
 	$blog_options['blog-featured-images'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Featured Media', 'cherry' ),
-		'decsription' => __( 'Displays Featured Image, Gallery, Audio, Video in blog posts listing depending on post type.', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Displays Featured Image, Gallery, Audio, Video in blog posts listing depending on post type.', 'cherry' ),
+		),
 		'value'       => 'true',
 	);
 	$blog_options['blog-featured-images-size'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Featured Image Size', 'cherry' ),
-		'decsription' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
+		),
 		'value'       => 'thumb-l',
 		'options'     => array(
 			'thumb-s' => __( 'Small', 'cherry' ),
@@ -221,7 +228,10 @@ function cherry_defaults_settings() {
 	$blog_options['blog-featured-images-align'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Featured Image Alignment', 'cherry' ),
-		'decsription' => __( 'Set alignment for post featured images.', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Set alignment for post featured images.', 'cherry' ),
+		),
 		'value'       => 'aligncenter',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
@@ -279,13 +289,19 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-post-featured-image'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Featured Image', 'cherry' ),
-		'decsription' => __( 'Показывать Featured Image на странице single поста', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Display featured image at the single post page.', 'cherry' ),
+		),
 		'value'       => 'true',
 	);
 	$post_single_options['blog-post-featured-image-size'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Size for Featured Image', 'cherry' ),
-		'decsription' => __( 'Размер Featured Image на странице Поста', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Set dimensions for single post featured images in pixels.', 'cherry' ),
+		),
 		'value'       => 'thumb-l',
 		'options'     => array(
 			'thumb-s' => __( 'Small', 'cherry' ),
@@ -295,7 +311,10 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-post-featured-image-align'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Alignment for Featured Image', 'cherry' ),
-		'decsription' => __( 'Позиция Featured Image на странице Поста', 'cherry' ),
+		'hint' => array(
+			'type' => 'text',
+			'content' => __( 'Set alignment for single post featured images.', 'cherry' ),
+		),
 		'value'       => 'aligncenter',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
@@ -395,7 +414,7 @@ function cherry_defaults_settings() {
 
 	$styling_options = array();
 	//background image
-	$styling_options['styling-body-content-background'] = array(
+	$styling_options['body-background'] = array(
 		'type'			=> 'background',
 		'title'			=> __('Body background', 'cherry' ),
 		'hint'      	=>  array(
@@ -468,7 +487,7 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 
 	$navigation_options = array();
-	$navigation_options['navigation-header-menu-typography'] = array(
+	$navigation_options['typography-header-menu'] = array(
 		'type'  => 'typography',
 		'title' => __('Header Menu Typography', 'cherry' ),
 		'hint'  => array(
@@ -487,7 +506,7 @@ function cherry_defaults_settings() {
 			'align'         => 'notdefined',
 		)
 	);
-	$navigation_options['navigation-footer-menu-typography'] = array(
+	$navigation_options['typography-footer-menu'] = array(
 		'type'  => 'typography',
 		'title' => __('Footer Menu Typography', 'cherry' ),
 		'hint'  => array(
@@ -513,11 +532,14 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options = array();
 
 	$breadcrumbs_options['breadcrumbs'] = array(
-		'type'			=> 'switcher',
-		'title'			=> __( 'Breadcrumbs', 'cherry' ),
-		'decsription'	=> __( 'Enable/disable breadcrumbs navigation.', 'cherry' ),
-		'value'			=> 'true',
-		'default_value'	=> 'true'
+			'type'			=> 'switcher',
+			'title'			=> __( 'Breadcrumbs', 'cherry' ),
+			'hint'  => array(
+				'type'    => 'text',
+				'content' => __('Enable/disable breadcrumbs navigation.', 'cherry' ),
+			),
+			'value'			=> 'true',
+			'default_value'	=> 'true'
 	);
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'multicheckbox',
@@ -686,7 +708,7 @@ function cherry_defaults_settings() {
 		'library_type'		=> 'image',
 		'value'			=> array(
 				'image'	=> '',
-				'color'	=> '#a4cc3f',
+				'color'	=> '#ddd',
 				'repeat'	=> 'repeat',
 				'position'	=> 'left',
 				'attachment'=> 'fixed'
@@ -746,7 +768,7 @@ function cherry_defaults_settings() {
 		'value'				=> '',
 		'multi-upload'		=> true,
 	);
-	$logo_options['logo-typography'] = array(
+	$logo_options['typography-logo'] = array(
 		'type'			=> 'typography',
 		'title'				=> __( 'Logo typography', 'cherry' ),
 		'hint'      	=> array(
@@ -782,13 +804,13 @@ function cherry_defaults_settings() {
 		'library_type'		=> 'image',
 		'value'			=> array(
 			'image'	=> '',
-			'color'	=> '#a4cc3f',
+			'color'	=> '#ddd',
 			'repeat'	=> 'repeat',
 			'position'	=> 'left',
 			'attachment'=> 'fixed'
 		)
 	);
-	$footer_options['footer-typography'] = array(
+	$footer_options['typography-footer'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Footer typography', 'cherry' ),
 		'hint'      	=> array(
@@ -813,7 +835,7 @@ function cherry_defaults_settings() {
 
 	$typography_options = array();
 
-	$typography_options['typography-body-text'] = array(
+	$typography_options['typography-body'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Body text', 'cherry' ),
 		'hint'      	=> array(
@@ -832,33 +854,23 @@ function cherry_defaults_settings() {
 			'align'			=> 'notdefined'
 		)
 	);
-	$typography_options['typography-link'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Link typography', 'cherry' ),
-		'hint'      	=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Typography for links.', 'cherry' )
-		),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '14',
-			'lineheight'	=> '20',
-			'color'			=> '#f62e46',
-			'family'		=> 'Raleway',
-			'character'		=> 'latin-ext',
-			'style'			=> 'italic',
-			'letterspacing' => '',
-			'align'			=> 'notdefined'
-		)
+	$typography_options['color-link'] = array(
+		'type'			=> 'colorpicker',
+			'title'			=> __( 'Link color', 'cherry' ),
+			'hint'      	=> array(
+				'type'		=> 'text',
+				'content'	=> __( 'Color for links.', 'cherry' )
+			),
+			'value'			=> '#f62e46'
 	);
-	$typography_options['typography-link-hover'] = array(
+	$typography_options['color-link-hover'] = array(
 		'type'			=> 'colorpicker',
 		'title'			=> __( 'Link hover color', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Color for links on hover.', 'cherry' )
 		),
-		'value'			=> '#f4001c',
+		'value'			=> '#333333'
 	);
 	$typography_options['typography-input-text'] = array(
 		'type'			=> 'typography',

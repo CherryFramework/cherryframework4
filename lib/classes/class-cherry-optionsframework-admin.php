@@ -291,9 +291,14 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 * @since 4.0.0
 		 */
 		function cherry_admin_menu_add_item() {
-			$cherry_options_menu_item = 'cherry-options';
-			//add_menu_page( __( 'Cherry page', 'cherry' ), __( 'Cherry Options', 'cherry' ), 'edit_theme_options', $cherry_options_menu_item, array( $this, 'cherry_options_page_build' ), 'dashicons-clipboard', 62 );
-			add_menu_page( __( 'Cherry page', 'cherry' ), __( 'Cherry Options', 'cherry' ), 'edit_theme_options', $cherry_options_menu_item, array( $this, 'cherry_options_page_build' ), PARENT_URI.'/lib/admin/assets/images/svg/cherry-icon.svg', 62 );
+			add_menu_page(
+				__( 'Cherry page', 'cherry' ),
+				__( 'Cherry Options', 'cherry' ),
+				'edit_theme_options',
+				'cherry-options',
+				array( $this, 'cherry_options_page_build' ),
+				PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.svg', 62
+			);
 		}
 
 		/**
