@@ -17,6 +17,10 @@ Version:     1.0.0
   clear: both;
 }
 
+.collapse-col {
+  padding: 0 !important;
+}
+
 .container-fluid {
   margin-right: auto;
   margin-left: auto;

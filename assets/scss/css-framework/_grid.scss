@@ -6,6 +6,10 @@
   @include container-fixed();
 }
 
+.collapse-col {
+  padding: 0 !important;
+}
+
 // Fluid container
 //
 // Utilizes the mixin meant for fixed width containers, but without any defined
