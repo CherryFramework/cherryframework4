@@ -45,41 +45,33 @@ function cherry_register_sidebars() {
 
 	cherry_register_sidebar(
 		array(
-			'id'            => 'sidebar-footer-1',
-			'name'          => __( 'Footer Sidebar 1', 'cherry' ),
-			'description'   => __( 'A sidebar located in the footer of the site.', 'cherry' ),
-			'before_widget' => '<aside id="%1$s" class="col-xs-12 col-sm-3 widget %2$s">',
-			'after_widget'  => '</aside>',
+			'id'          => 'sidebar-footer-1',
+			'name'        => __( 'Footer Sidebar 1', 'cherry' ),
+			'description' => __( 'A sidebar located in the footer of the site.', 'cherry' ),
 		)
 	);
 
 	cherry_register_sidebar(
 		array(
-			'id'            => 'sidebar-footer-2',
-			'name'          => __( 'Footer Sidebar 2', 'cherry' ),
-			'description'   => __( 'A sidebar located in the footer of the site.', 'cherry' ),
-			'before_widget' => '<aside id="%1$s" class="col-xs-12 col-sm-3 widget %2$s">',
-			'after_widget'  => '</aside>',
+			'id'          => 'sidebar-footer-2',
+			'name'        => __( 'Footer Sidebar 2', 'cherry' ),
+			'description' => __( 'A sidebar located in the footer of the site.', 'cherry' ),
 		)
 	);
 
 	cherry_register_sidebar(
 		array(
-			'id'            => 'sidebar-footer-3',
-			'name'          => __( 'Footer Sidebar 3', 'cherry' ),
-			'description'   => __( 'A sidebar located in the footer of the site.', 'cherry' ),
-			'before_widget' => '<aside id="%1$s" class="col-xs-12 col-sm-3 widget %2$s">',
-			'after_widget'  => '</aside>',
+			'id'          => 'sidebar-footer-3',
+			'name'        => __( 'Footer Sidebar 3', 'cherry' ),
+			'description' => __( 'A sidebar located in the footer of the site.', 'cherry' ),
 		)
 	);
 
 	cherry_register_sidebar(
 		array(
-			'id'            => 'sidebar-footer-4',
-			'name'          => __( 'Footer Sidebar 4', 'cherry' ),
-			'description'   => __( 'A sidebar located in the footer of the site.', 'cherry' ),
-			'before_widget' => '<aside id="%1$s" class="col-xs-12 col-sm-3 widget %2$s">',
-			'after_widget'  => '</aside>',
+			'id'          => 'sidebar-footer-4',
+			'name'        => __( 'Footer Sidebar 4', 'cherry' ),
+			'description' => __( 'A sidebar located in the footer of the site.', 'cherry' ),
 		)
 	);
 }
