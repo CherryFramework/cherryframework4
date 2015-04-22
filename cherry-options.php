@@ -2,7 +2,6 @@
 
 function cherry_defaults_settings() {
 	global $cherry_registered_statics, $cherry_registered_static_areas;
-	$all_statics = $cherry_registered_statics;
 
 	$all_pages     = array();
 	$all_pages_obj = get_pages( 'sort_column=post_parent,menu_order' );
@@ -113,8 +112,8 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Use static area editor to arrange static blocks. You can drag-n-drop statick blocks, remove them or add new ones using \'Create new static\' field below. ', 'cherry' ),
 		),
-		'value'   => $all_statics,
-		'options' => $all_statics,
+		'value'   => $cherry_registered_statics,
+		'options' => $cherry_registered_statics,
 	);
 
 	//////////////////////////////////////////////////////////////////////

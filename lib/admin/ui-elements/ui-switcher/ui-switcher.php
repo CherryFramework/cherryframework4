@@ -58,7 +58,7 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 			$html = '';
 			$html .= '<div class="cherry-switcher-wrap ' . $this->settings['class'] . '">';
 				$html .= '<label class="sw-enable"><span>' . $this->settings['toggle']['true_toggle'] . '</span></label>';
-				$html .= '<label class="sw-disable"><span>' . $this->settings['toggle']['true_toggle']  . '</span></label>';
+				$html .= '<label class="sw-disable"><span>' . $this->settings['toggle']['false_toggle']  . '</span></label>';
 				$html .= '<input id="' . $this->settings['id'] . '" type="hidden" class="cherry-input-switcher" name="' . $this->settings['name'] . '" ' . checked( 'true', $this->settings['value'], false ) . ' value="' . esc_html( $this->settings['value'] ) . '" >';
 			$html .= '</div>';
 

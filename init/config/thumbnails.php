@@ -26,4 +26,5 @@ function cherry_register_image_sizes() {
 	// Registers a new image sizes.
 	add_image_size( 'thumb-s', 200, 150, true );
 	add_image_size( 'thumb-l', 1170, 780, true );
+	add_image_size( 'thumb-xl', 1920, 1080, true );
 }

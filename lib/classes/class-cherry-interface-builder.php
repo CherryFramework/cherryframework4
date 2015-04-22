@@ -296,6 +296,38 @@ class Cherry_Interface_Builder {
 				$output .= $this -> add_label($id, $label);
 				$output .= '</div>';
 			break;
+			/*
+			arg:
+				type: multicheckbox
+				title: ''
+				label: ''
+				decsription: ''
+				value: ''
+				class: ''
+				item_inline_style: ''
+				options:
+				key => ''
+			*/
+			case 'multicheckbox':
+				if($options && !empty($options) && is_array($options)){
+
+					foreach ($options as $option => $option_value) {
+						//$name = $this -> generate_field_name($option);
+						$checkbox_id = $this -> generate_field_id($option);
+						if( '' !== $value ){
+							$option_checked = in_array($option, $value) ? $option : '' ;
+						}else{
+							$option_checked = '';
+						}
+						$output .= '<div class="cherry-fegr">';
+						$checked = ($option_checked !== '')?'checked':'';
+						$output .= '<div class="cherry-checkbox-item ' . $checked . '"><span class="marker dashicons dashicons-yes"></span></div>';
+						$output .= '<input type="checkbox" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $checkbox_id . '" name="' . $name . '['. $option .']" ' . checked( $option_checked, $option, false ) . ' value="' . esc_html( $option ) . '" >';
+						$output .= $this -> add_label($checkbox_id, $option_value);
+						$output .= '</div>';
+					}
+				}
+			break;
 
 			case 'switcher':
 				$ui_switcher = new UI_Switcher(
@@ -513,38 +545,6 @@ class Cherry_Interface_Builder {
 					$output .= '<div class="clear"></div>';
 					$output .= '</div>';
 				$output .= '</div>';
-			break;
-			/*
-			arg:
-				type: multicheckbox
-				title: ''
-				label: ''
-				decsription: ''
-				value: ''
-				class: ''
-				item_inline_style: ''
-				options:
-				key => ''
-			*/
-			case 'multicheckbox':
-				if($options && !empty($options) && is_array($options)){
-
-					foreach ($options as $option => $option_value) {
-						$name = $this -> generate_field_name($option);
-						$checkbox_id = $this -> generate_field_id($option);
-						if( '' !== $value ){
-							$option_checked = in_array($option, $value) ? $option : '' ;
-						}else{
-							$option_checked = '';
-						}
-						$output .= '<div class="cherry-fegr">';
-						$checked = ($option_checked !== '')?'checked':'';
-						$output .= '<div class="cherry-checkbox-item ' . $checked . '"><span class="marker dashicons dashicons-yes"></span></div>';
-						$output .= '<input type="checkbox" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $checkbox_id . '" name="' . $name . '" ' . checked( $option_checked, $option, false ) . ' value="' . esc_html( $option ) . '" >';
-						$output .= $this -> add_label($checkbox_id, $option_value);
-						$output .= '</div>';
-					}
-				}
 			break;
 			/*
 			arg:
