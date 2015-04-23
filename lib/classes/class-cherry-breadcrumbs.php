@@ -78,8 +78,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				'wrapper_format'    => '<div>%1$s</div><div>%1$s</div>',
 				'page_title_format' => '<h1 class="page-title">%s</h1>',
 				'item_format'       => '<div class="%2$s">%1$s</div>',
-				'home_format'       => '<a href="%4$s" class="%2$s is-home" rel="home" title="%3$s">%1$s</a>',
-				'link_format'       => '<a href="%4$s" class="%2$s" rel="tag" title="%3$s">%1$s</a>',
+				'home_format'       => '<a href="%4$s" class="%2$s is-home" title="%3$s">%1$s</a>',
+				'link_format'       => '<a href="%4$s" class="%2$s" title="%3$s">%1$s</a>',
 				'target_format'     => '<span class="%2$s">%1$s</span>',
 				'show_on_front'     => true,
 				'network'           => false,
@@ -186,7 +186,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			);
 
 			/* Open the breadcrumb trail containers. */
-			$result = "\n\t\t" . '<div class="' . $wrapper_css . '" itemprop="breadcrumb">';
+			$result = "\n\t\t" . '<div class="' . $wrapper_css . '">';
 
 			$result .= sprintf( $this->args['wrapper_format'], $title, $breadcrumb );
 
