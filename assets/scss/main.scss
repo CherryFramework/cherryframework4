@@ -25,11 +25,14 @@ img {
 	}
 }
 
-// Fix for static-area without .container
+/* Static areas */
 .static-area {
-	&.no-container {
-		&.with-row {
+	&[data-container='false'] {
+		&[data-row='true'] {
 			@include container-fixed();
+		}
+		&[data-row='false']{
+			@include clearfix();
 		}
 		.container & {
 			padding-left: 0;
@@ -39,74 +42,14 @@ img {
 }
 
 .site-header.isStick {
-	left:0;
-	right:0;
+	left: 0;
+	right: 0;
 }
 
-// .cherry-with-sidebar {
-// 	&.cherry-no-responsive {
-// 		&.cherry-blog-layout-1-left {
-// 			#primary {
-// 				float: right;
-// 				width: 75%;
-// 			}
-// 		}
-// 		&.cherry-blog-layout-1-left-2-left {
-// 			#primary {
-// 				float: right;
-// 				width: 65%;
-// 			}
-// 		}
-// 		&.cherry-blog-layout-1-right {
-// 			#primary {
-// 				float: left;
-// 				width: 75%;
-// 			}
-// 		}
-// 		&.cherry-blog-layout-1-right-2-right {
-// 			#primary {
-// 				float: left;
-// 				width: 65%;
-// 			}
-// 		}
-// 	}
-// }
 
-// .cherry-no-responsive {
-// 	&.cherry-blog-layout-1-left {
-// 		#secondary {
-// 			float: left;
-// 			width: 23%;
-// 		}
-// 	}
-// 	&.cherry-blog-layout-1-left-2-left {
-// 		#secondary {
-// 			float: left;
-// 			width: 15%;
-// 		}
-// 		#tertiary {
-// 			float: left;
-// 			width: 15%;
-// 		}
-// 	}
-// 	&.cherry-blog-layout-1-right {
-// 		#secondary {
-// 			float: right;
-// 			width: 23%;
-// 		}
-// 	}
-// 	&.cherry-blog-layout-1-right-2-right {
-// 		#secondary {
-// 			float: right;
-// 			width: 15%;
-// 		}
-// 		#tertiary {
-// 			float: right;
-// 			width: 15%;
-// 		}
-// 	}
-// }
-
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
 @media (min-width: 992px) {
 	.cherry-with-sidebar {
 		#primary {

@@ -27,14 +27,13 @@ function cherry_register_static_areas() {
 	cherry_register_static_area( array(
 		'id'   => 'header-bottom',
 		'name' => __( 'Header Bottom', 'cherry' ),
-		)
-	);
+	) );
 
 	cherry_register_static_area( array(
-		'id'             => 'showcase-area',
-		'name'           => __( 'Showcase Area', 'cherry' ),
-		'container_wrap' => false,
-		'row_wrap'       => false,
+		'id'        => 'showcase-area',
+		'name'      => __( 'Showcase Area', 'cherry' ),
+		'container' => false,
+		'row'       => false,
 	) );
 
 	cherry_register_static_area( array(

@@ -1,7 +1,7 @@
 <?php
 
 function cherry_defaults_settings() {
-	global $cherry_registered_statics, $cherry_registered_static_areas;
+	global $cherry_registered_statics;
 
 	$all_pages     = array();
 	$all_pages_obj = get_pages( 'sort_column=post_parent,menu_order' );
@@ -105,7 +105,7 @@ function cherry_defaults_settings() {
 	// Static Area Editor
 	///////////////////////////////////////////////////////////////////
 	$static_area_editor_options = array();
-	$static_area_editor_options['header-static-area-editor'] = array(
+	$static_area_editor_options['static-area-editor'] = array(
 		'type'  => 'static_area_editor',
 		'title' => __( 'Static areas', 'cherry' ),
 		'hint'  => array(
