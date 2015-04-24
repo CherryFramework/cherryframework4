@@ -5,9 +5,11 @@
  *
  * @package    Cherry_Framework
  * @subpackage Class
+ * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2015, Cherry Team
- * @link       http://themehybrid.com/plugins/breadcrumb-trail, http://www.cherryframework.com/
+ * @copyright  Copyright (c) 2008 - 2013, Justin Tadlock
+ * @link       http://themehybrid.com/plugins/breadcrumb-trail
+ * @link       http://www.cherryframework.com
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -21,7 +23,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 	/**
 	 * Breadcrumbs builder class
 	 *
-	 * @since 4.0.0
+	 * @since     4.0.0
+	 * @copyright Copyright (c) 2008 - 2013, Justin Tadlock
 	 */
 	class cherry_breadcrumbs {
 
@@ -319,6 +322,16 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$this->items = apply_filters( 'cherry_breadcrumbs_items', $this->items, $this->args );
 		}
 
+		/**
+		 * Add trail item int array
+		 *
+		 * @since 4.0.0
+		 *
+		 * @param string $format item format to add
+		 * @param string $label  item label
+		 * @param string $url    item URL
+		 * @param string $class  item CSS class
+		 */
 		public function _add_item( $format = 'link_format', $label, $url = '', $class = '' ) {
 
 			$title = esc_attr( $label );
