@@ -58,18 +58,18 @@ class Cherry_Statics {
 	 * Builds the definition for a single static area and returns the ID.
 	 *
 	 * Arguments:
-	 *     name           - The name or title of the static area displayed in the admin dashboard.
-	 *     id             - The unique identifier by which the static area will be called.
-	 *     before         - HTML content that will be prepended to each widget's HTML output
-	 *                      when assigned to this static area.
-	 *     after          - HTML content that will be appended to each widget's HTML output
-	 *                      when assigned to this static area.
-	 *     before_static  - HTML content that will be prepended to each static's HTML output
-	 *                      when assigned to this static area.
-	 *     after_static   - HTML content that will be appended to each static's HTML output
-	 *                      when assigned to this static area.
-	 *     container_wrap - Add or not a container wrapper?
-	 *     row_wrap       - Add or not a row wrapper?
+	 *     name          - The name or title of the static area displayed in the admin dashboard.
+	 *     id            - The unique identifier by which the static area will be called.
+	 *     before        - HTML content that will be prepended to each widget's HTML output
+	 *                     when assigned to this static area.
+	 *     after         - HTML content that will be appended to each widget's HTML output
+	 *                     when assigned to this static area.
+	 *     before_static - HTML content that will be prepended to each static's HTML output
+	 *                     when assigned to this static area.
+	 *     after_static  - HTML content that will be appended to each static's HTML output
+	 *                     when assigned to this static area.
+	 *     container     - Add or not a container wrapper?
+	 *     row           - Add or not a row wrapper?
 	 *
 	 * @since  4.0.0
 	 * @param  string|array $args Arguments for the static area being registered.
@@ -89,14 +89,14 @@ class Cherry_Statics {
 		 * @param int   Counter.
 		 */
 		$defaults = apply_filters( 'cherry_register_static_area_default_args', array(
-			'id'             => "static-area-$i",
-			'name'           => sprintf( __( 'Static Area %d', 'cherry' ), $i ),
-			'before'         => '',
-			'after'          => '',
-			'before_static'  => '<div class="static clearfix">',
-			'after_static'   => '</div>',
-			'container_wrap' => true,
-			'row_wrap'       => true,
+			'id'            => "static-area-$i",
+			'name'          => sprintf( __( 'Static Area %d', 'cherry' ), $i ),
+			'before'        => '',
+			'after'         => '',
+			'before_static' => '',
+			'after_static'  => '',
+			'container'     => true,
+			'row'           => true,
 		), $args, $i );
 
 		$static_area = wp_parse_args( $args, $defaults );
@@ -192,6 +192,9 @@ class Cherry_Statics {
 			 */
 			do_action( 'cherry_register_static', $static );
 			$cherry_registered_statics[ $id ] = $static;
+
+			// Sort an array with a user-defined comparison function and maintain index association.
+			uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
 		}
 	}
 
@@ -254,6 +257,27 @@ class Cherry_Statics {
 			return apply_filters( 'cherry_is_active_static_area', false, $index );
 		}
 
+		// Get statics from options.
+		$option_name = apply_filters( 'cherry_statics_option_name', 'static-area-editor', $index );
+		$args        = cherry_get_option( $option_name );
+
+		if ( !$args ) {
+			return false;
+		}
+
+		foreach ( $args as $id => $data ) :
+
+			if ( empty( $cherry_registered_statics[ $id ] ) ) {
+				continue;
+			}
+
+			$args[ $id ]['options'] = wp_parse_args(
+				$args[ $id ]['options'],
+				$cherry_registered_statics[ $id ]['options']
+			);
+
+		endforeach;
+
 		/**
 		 * Fires before statics are rendered in a static area.
 		 *
@@ -263,25 +287,25 @@ class Cherry_Statics {
 		do_action( 'cherry_static_area_before', $index );
 
 		$static_area = $cherry_registered_static_areas[ $index ];
-		$wrap_class  = '';
 		$container   = false;
 		$row         = false;
+		$data_attr   = array();
 
 		// 'Before' wrap open.
 		echo $static_area['before'];
 
-		if ( isset( $static_area['container_wrap'] ) ) {
-			$container  = (bool) $static_area['container_wrap'];
-			$wrap_class = ( $container ) ? $wrap_class . ' with-container' : $wrap_class . ' no-container';
+		if ( isset( $static_area['container'] ) ) {
+			$container   = (bool) $static_area['container'];
+			$data_attr[] = ( $container ) ? 'data-container="true"' : 'data-container="false"';
 		}
 
-		if ( isset( $static_area['row_wrap'] ) ) {
-			$row        = (bool) $static_area['row_wrap'];
-			$wrap_class = ( $row ) ? $wrap_class . ' with-row' : $wrap_class . ' no-row';
+		if ( isset( $static_area['row'] ) ) {
+			$row         = (bool) $static_area['row'];
+			$data_attr[] = ( $row ) ? 'data-row="true"' : 'data-row="false"';
 		}
 
 		// Wrap open (default).
-		printf( '<div id="static-area-%1$s" class="static-area%2$s">', $index, $wrap_class );
+		printf( '<div id="static-area-%1$s" class="%1$s static-area" %2$s>', $index, join( ' ', $data_attr ) );
 
 		if ( $container ) {
 			/**
@@ -290,7 +314,7 @@ class Cherry_Statics {
 			 * @since 4.0.0
 			 * @param int   $index Index, name, or ID of the static area.
 			 */
-			$container_open  = apply_filters( 'cherry_static_area_container_open', '<div class="%1$s">', $index );
+			$container_open = apply_filters( 'cherry_static_area_container_open', '<div class="%1$s">', $index );
 
 			/**
 			 * Filters a CSS-class for container.
@@ -311,7 +335,7 @@ class Cherry_Statics {
 			 * @since 4.0.0
 			 * @param int   $index Index, name, or ID of the static area.
 			 */
-			$row_open  = apply_filters( 'cherry_static_area_row_open', '<div class="%1$s">', $index );
+			$row_open = apply_filters( 'cherry_static_area_row_open', '<div class="%1$s">', $index );
 
 			/**
 			 * Filters a CSS-class for row.
@@ -325,97 +349,62 @@ class Cherry_Statics {
 			printf( $row_open, $row_class );
 		}
 
-		// Get statics from options.
-		$option_name = apply_filters( 'cherry_statics_option_name', 'header-static-area-editor', $index );
-		$args        = cherry_get_option( $option_name, false );
-
-		// Statics were saved.
-		$cherry_saved_statics = false;
-
-		if ( $args ) {
-
-			$cherry_saved_statics = array();
-
-			foreach ( $args as $id => $data ) :
-
-				if ( empty( $cherry_registered_statics[ $id ] ) ) {
-					continue;
-				}
-
-				$cherry_registered_statics[ $id ]['options'] = wp_parse_args(
-					$args[ $id ]['options'],
-					$cherry_registered_statics[ $id ]['options']
-				);
-				array_push( $cherry_saved_statics, $id );
-
-			endforeach;
-
-		}
-
-		// Sort an array with a user-defined comparison function and maintain index association.
-		uasort( $cherry_registered_statics, array( 'self', 'compare' ) );
-
-		foreach ( $cherry_registered_statics as $id => $data ) :
-
-			if ( is_array( $cherry_saved_statics )
-				&& !in_array( $id, $cherry_saved_statics )
-				) {
-				continue;
-			}
+		foreach ( $args as $id => $data ) :
 
 			if ( !isset( $data['options']['area'] ) ) {
 				continue;
 			}
 
-			if ( !is_callable( $data['callback'] ) ) {
+			if ( $index != $data['options']['area'] ) {
 				continue;
 			}
 
-			if ( $index === $data['options']['area'] ) {
+			if ( !is_callable( $cherry_registered_statics[ $id ]['callback'] ) ) {
+				continue;
+			}
 
-				$options = $data['options'];
-				$cols    = apply_filters( 'cherry_static_options_cols', array(
-					'col-lg' => '',
-					'col-md' => '',
-					'col-sm' => '',
-					'col-xs' => '',
-				), $id );
+			$options = $data['options'];
+			$cols    = apply_filters( 'cherry_static_options_cols', array(
+				'col-xs' => '',
+				'col-sm' => '',
+				'col-md' => '',
+				'col-lg' => '',
+			), $id );
 
-				foreach ( (array) $cols as $key => $col ) {
+			foreach ( (array) $cols as $key => $col ) {
 
-					if ( !isset( $options[ $key ] ) ) {
-						continue;
-					}
-
-					if ( $options[ $key ] == 'none' ) {
-						continue;
-					}
-
-					$cols[ $key ] = $options[ $key ];
+				if ( empty( $options[ $key ] ) ) {
+					continue;
 				}
 
-				// Prepare a column CSS classes.
-				$cols_class = join( ' ', $cols );
-				$cols_class = trim( $cols_class );
+				if ( 'none' == $options[ $key ] ) {
+					continue;
+				}
 
-				// Prepare a custom CSS class.
-				$extra_class = str_replace( '_', '-', $id );
-				$extra_class = sanitize_html_class( 'static-' . $extra_class );
-				$extra_class = ( empty( $options['class'] ) ) ? $extra_class : $extra_class . ' ' . sanitize_html_class( $options['class'] );
-				$extra_class = ( empty( $cols_class ) ) ? $extra_class : $cols_class . ' ' . $extra_class;
-
-				/**
-				 * Fires before a static's display callback is called.
-				 *
-				 * @since 4.0.0
-				 * @param array $static An associative array of static arguments.
-				 */
-				do_action( 'cherry_static_area', $cherry_registered_statics[ $id ] );
-
-				printf( '<div class="%1$s">%2$s', $extra_class, $static_area['before_static'] );
-					call_user_func( $data['callback'], $options );
-				printf( '%s</div>', $static_area['after_static'] );
+				$cols[ $key ] = $key . '-' . preg_replace( '/[^0-9]/', '', $options[ $key ] );
 			}
+
+			// Prepare a column CSS classes.
+			$cols_class = join( ' ', $cols );
+			$cols_class = trim( $cols_class );
+
+			// Prepare a custom CSS class.
+			$extra_class = str_replace( '_', '-', $id );
+			$extra_class = sanitize_html_class( 'static-' . $extra_class );
+			$extra_class = ( empty( $options['class'] ) ) ? $extra_class : $extra_class . ' ' . sanitize_html_class( $options['class'] );
+			$extra_class = ( empty( $cols_class ) ) ? $extra_class : $cols_class . ' ' . $extra_class;
+
+			/**
+			 * Fires before a static's display callback is called.
+			 *
+			 * @since 4.0.0
+			 * @param array $static An associative array of static arguments.
+			 */
+			do_action( 'cherry_static_area', $index );
+
+			printf( '<div class="%1$s">%2$s', $extra_class, $static_area['before_static'] );
+				call_user_func( $cherry_registered_statics[ $id ]['callback'], $options );
+			printf( '%s</div>', $static_area['after_static'] );
 
 		endforeach;
 
@@ -473,10 +462,10 @@ class Cherry_Statics {
 	public static function is_active_static_area( $index ) {
 		global $cherry_registered_statics;
 
-		$option_name   = apply_filters( 'cherry_statics_option_name', 'header-static-area-editor', $index );
+		$option_name   = apply_filters( 'cherry_statics_option_name', 'static-area-editor', $index );
 		$saved_statics = cherry_get_option( $option_name, false );
 
-		if ( false === $saved_statics ) {
+		if ( !$saved_statics ) {
 			$saved_statics = $cherry_registered_statics;
 		}
 
@@ -487,7 +476,7 @@ class Cherry_Statics {
 		foreach ( $saved_statics as $id => $static ) :
 
 			if ( !isset( $static['options']['area'] ) ) {
-				return false;
+				continue;
 			}
 
 			if ( $index === $static['options']['area'] ) {

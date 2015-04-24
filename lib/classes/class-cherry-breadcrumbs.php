@@ -5,9 +5,11 @@
  *
  * @package    Cherry_Framework
  * @subpackage Class
+ * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2015, Cherry Team
- * @link       http://themehybrid.com/plugins/breadcrumb-trail, http://www.cherryframework.com/
+ * @copyright  Copyright (c) 2008 - 2013, Justin Tadlock
+ * @link       http://themehybrid.com/plugins/breadcrumb-trail
+ * @link       http://www.cherryframework.com
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -21,7 +23,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 	/**
 	 * Breadcrumbs builder class
 	 *
-	 * @since 4.0.0
+	 * @since     4.0.0
+	 * @copyright Copyright (c) 2008 - 2013, Justin Tadlock
 	 */
 	class cherry_breadcrumbs {
 
@@ -78,8 +81,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				'wrapper_format'    => '<div>%1$s</div><div>%1$s</div>',
 				'page_title_format' => '<h1 class="page-title">%s</h1>',
 				'item_format'       => '<div class="%2$s">%1$s</div>',
-				'home_format'       => '<a href="%4$s" class="%2$s is-home" rel="home" title="%3$s">%1$s</a>',
-				'link_format'       => '<a href="%4$s" class="%2$s" rel="tag" title="%3$s">%1$s</a>',
+				'home_format'       => '<a href="%4$s" class="%2$s is-home" title="%3$s">%1$s</a>',
+				'link_format'       => '<a href="%4$s" class="%2$s" title="%3$s">%1$s</a>',
 				'target_format'     => '<span class="%2$s">%1$s</span>',
 				'show_on_front'     => true,
 				'network'           => false,
@@ -186,7 +189,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			);
 
 			/* Open the breadcrumb trail containers. */
-			$result = "\n\t\t" . '<div class="' . $wrapper_css . '" itemprop="breadcrumb">';
+			$result = "\n\t\t" . '<div class="' . $wrapper_css . '">';
 
 			$result .= sprintf( $this->args['wrapper_format'], $title, $breadcrumb );
 
@@ -319,6 +322,16 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$this->items = apply_filters( 'cherry_breadcrumbs_items', $this->items, $this->args );
 		}
 
+		/**
+		 * Add trail item int array
+		 *
+		 * @since 4.0.0
+		 *
+		 * @param string $format item format to add
+		 * @param string $label  item label
+		 * @param string $url    item URL
+		 * @param string $class  item CSS class
+		 */
 		public function _add_item( $format = 'link_format', $label, $url = '', $class = '' ) {
 
 			$title = esc_attr( $label );

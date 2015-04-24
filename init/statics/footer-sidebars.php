@@ -18,10 +18,11 @@ class cherry_footer_sidebars_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
-		cherry_get_sidebar( 'footer-1' );
-		cherry_get_sidebar( 'footer-2' );
-		cherry_get_sidebar( 'footer-3' );
-		cherry_get_sidebar( 'footer-4' );
+		for ( $i = 1; $i <= 4; $i++ ) {
+			echo '<div class="col-xs-12 col-sm-3">';
+				cherry_get_sidebar( "footer-{$i}" );
+			echo '</div>';
+		}
 	}
 }
 

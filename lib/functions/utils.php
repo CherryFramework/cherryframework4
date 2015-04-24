@@ -303,7 +303,7 @@ function cherry_get_background_css( $selector, $data ) {
 
 	for ( $i = 0; $i < $count; $i++ ) {
 
-		if ( ! wp_attachment_is_image( $images[$i] ) ) {
+		if ( ( !isset($images[$i]) ) || ( ! wp_attachment_is_image( $images[$i] ) ) ) {
 			continue;
 		}
 

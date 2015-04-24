@@ -226,7 +226,7 @@ legend {
 	border-bottom: 1px solid @lighten( $color-gray-variations, 54 );
 }
 .cherry-highlight-grey {
-	color: @darken( $color-gray-variation, 13.2 );
+	color: @darken( $color-gray-variations, 13.2 );
 }
 abbr[title],
 abbr[data-original-title] {
@@ -298,6 +298,26 @@ address {
 }
 .cherry-nav-divider {
 	background-color: @lighten( $color-gray-variations, 53.2 );
+}
+.cherry-box.box-primary {
+	background-color: $color-primary;
+	color: @contrast( $color-primary );
+}
+.cherry-box.box-secondary {
+	background-color: $color-secondary;
+	color: @contrast( $color-secondary );
+}
+.cherry-box.box-gray {
+	background-color: $color-gray-variations;
+}
+.cherry-box.box-primary-border {
+	border-color: $color-primary;
+}
+.cherry-box.box-secondary-border {
+	border-color: $color-secondary;
+}
+.cherry-box.box-gray-border {
+	border-color: $color-gray-variations;
 }
 
 @emph( .text-primary, $color-primary, color )

@@ -123,6 +123,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 1.0.0
 		 */
 		public function get_type_by_option_id($option_id) {
+			$result = '';
 			$default_settings = $this->loaded_settings;
 			foreach ($default_settings as $sectionName => $sectionSettings) {
 				foreach ($sectionSettings['options-list'] as $optionId => $optionSettings) {
@@ -165,8 +166,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 */
 		public function create_updated_options_array( $post_array ) {
 			$options = $this->load_options();
-			$default_settings = $this->loaded_settings;
-			//var_dump($options);
+
 			if(isset($options)){
 				foreach ( $options as $section_key => $value ) {
 					$section_name = $section_key;
@@ -174,9 +174,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 						foreach ($option_list as $key => $value) {
 							$type = $this->get_type_by_option_id($key);
 							switch ($type) {
-								case 'info':
-									# code...
-									break;
 								case 'checkbox':
 									if(isset($post_array[$key])){
 										$options[$section_name]['options-list'][$key] = 'true';
@@ -185,19 +182,10 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 									}
 									break;
 								case 'multicheckbox':
-									$value = array();
-									$optionArray = $default_settings[ $section_key ][ 'options-list' ][$key]['options'];
-									foreach ( $optionArray as $k => $val ) {
-										if ( isset( $post_array[ $k ] ) ) {
-											$value[] = $k;
-										}
+									if (isset($post_array[$key])) {
+										$value = array_keys( $post_array[$key] );
 									}
 									$options[$section_name]['options-list'][$key] = $value;
-									break;
-								case 'multiselect':
-										if( isset( $post_array[$key] ) ){
-											$options[$section_name]['options-list'][$key] = $post_array[$key];
-										}
 									break;
 								default:
 									if (isset($post_array[$key])) {
@@ -348,7 +336,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				if ( $settings_array ) {
 					foreach ( $settings_array as $sections_name => $section_value ) {
 						if(array_key_exists($name, $section_value['options-list'])){
-							wp_cache_set( $name, $section_value['options-list'][$name], 'cherry-options' );
+							wp_cache_set( $name, $section_value['options-list'][$name]['value'], 'cherry-options' );
 							return $section_value['options-list'][$name]['value'];
 						}
 					}

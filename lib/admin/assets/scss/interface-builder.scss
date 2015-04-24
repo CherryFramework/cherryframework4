@@ -119,7 +119,6 @@
 		.cherry-checkbox-item{
 			width: 21px;
 			height: 21px;
-			//zdasdisplay: inline-block;
 			float: left;
 			border-radius: 3px;
 			margin-right: 5px;
@@ -139,106 +138,7 @@
 					display: none;
 				}
 		}
-		/*Cherry stepper style*/
-		.cherry-stepper-input{
-			max-width: 90px;
-		}
 
-		.cherry-stepper-controls{
-			display: inline-block;
-			vertical-align: top;
-			margin: 3px 0 0 -24px;
-			.step-up{
-				border-radius: 0 3px 0 0;
-				border-bottom: 0;
-				height: 17px;
-				@media screen and (max-width: 782px){
-					border-bottom: 1px solid #CCC;
-				}
-			}
-			.step-down{
-				border-radius: 0 0 3px 0;
-			}
-			em{
-				background-color: #eeeded;
-				border: 1px solid #cccccc;
-				color: #444444;
-				cursor: pointer;
-				display: block;
-				font-size: 16px;
-				height: 16px;
-				line-height: 12px;
-				margin: 0 0 0 -1px;
-				position: relative;
-				text-align: center;
-				text-decoration: none;
-				width: 20px;
-				-webkit-user-select: none;
-					-moz-user-select: none;
-					-ms-user-select: none;
-					 -o-user-select: none;
-						user-select: none;
-
-
-				@media screen and (max-width: 782px){
-					line-height: 16px;
-					height: 16px;
-				}
-			}
-		}
-		/*End cherry stepper style*/
-		/*Cherry switcher style*/
-		.cherry-switcher-wrap{
-				border: 2px solid #dddcdc;
-				border-radius: 6px;
-				display: inline-block;
-				overflow: hidden;
-				padding: 4px;
-				-webkit-user-select: none;
-				   -moz-user-select: none;
-					-ms-user-select: none;
-					 -o-user-select: none;
-						user-select: none;
-				.sw-enable{
-					padding: 6px 10px;
-					background-color: #F5F5F5;
-					//border: 1px solid #ccc;
-					border-right: none;
-					border-radius: 3px 0 0 3px;
-					display: block;
-					float: left;
-						span{
-							font-weight: bold;
-						}
-						&.selected{
-							background-color: #8bc735;
-							//border: 1px solid #0074A2;
-							border-right: none;
-								span{
-									color: #fff;
-								}
-						}
-				}
-				.sw-disable{
-					background-color: #eeeded;
-					border-left: medium none;
-					border-radius: 0 3px 3px 0;
-					display: block;
-					float: left;
-					padding: 6px 10px;
-						span{
-							font-weight: bold;
-						}
-						&.selected{
-							background-color: #646464;
-							border-left: none;
-								span{
-									color: #fff;
-								}
-						}
-				}
-		}
-		/*End cherry switcher style*/
 		/*Cherry rangeslider style*/
 		.cherry-rangeslider-wrap{
 				.cherry-rangeslider-left-input{
