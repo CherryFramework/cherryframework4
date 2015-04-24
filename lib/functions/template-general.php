@@ -19,8 +19,9 @@ if ( !defined( 'WPINC' ) ) {
 /**
  * Outputs the link back to the site.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return void
  */
 function cherry_site_link() {
@@ -35,8 +36,9 @@ function cherry_site_link() {
 /**
  * Returns a link back to the site.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_site_link() {
@@ -52,8 +54,9 @@ function cherry_get_site_link() {
 /**
  * Displays a link to WordPress.org.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return void
  */
 function cherry_wp_link() {
@@ -68,8 +71,9 @@ function cherry_wp_link() {
 /**
  * Returns a link to WordPress.org.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_wp_link() {
@@ -79,8 +83,9 @@ function cherry_get_wp_link() {
 /**
  * Displays a link to the parent theme URI.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return void
  */
 function cherry_theme_link() {
@@ -95,8 +100,9 @@ function cherry_theme_link() {
 /**
  * Returns a link to the parent theme URI.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_theme_link() {
@@ -111,8 +117,9 @@ function cherry_get_theme_link() {
 /**
  * Outputs the site logo.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return void
  */
 function cherry_site_logo() {
@@ -128,7 +135,6 @@ function cherry_site_logo() {
  * Returns the linked site logo wrapped in an '<h1>' tag.
  *
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_site_logo() {
@@ -234,6 +240,8 @@ function cherry_get_retina_logo( $images ) {
 /**
  * Outputs the site description.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @return void
  */
@@ -249,8 +257,9 @@ function cherry_site_description() {
 /**
  * Returns the site description wrapped in an '<div>' tag.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_site_description() {

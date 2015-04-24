@@ -1011,6 +1011,8 @@ function cherry_get_the_post_avatar( $args ) {
 /**
  * Gets the first URL from the content, even if it's not wrapped in an <a> tag.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string $content
  * @return string
@@ -1026,6 +1028,8 @@ function cherry_get_content_url( $content ) {
 /**
  * If did not find a URL, check the post content for one. If nothing is found, return the post permalink.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  object $post
  * @return string

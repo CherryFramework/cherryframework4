@@ -43,6 +43,8 @@ add_filter( 'wp_head', 'cherry_remove_recent_comments_style', 1 );
 /**
  * Adds the meta charset to the header.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_meta_charset() {
@@ -52,6 +54,8 @@ function cherry_meta_charset() {
 /**
  * Adds the title to the header.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_doctitle() {
@@ -61,7 +65,7 @@ function cherry_doctitle() {
 /**
  * Adds the meta viewport to the header.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_meta_viewport() {
 	$is_responsive = cherry_get_option( 'grid-responsive' );
@@ -74,6 +78,8 @@ function cherry_meta_viewport() {
 /**
  * Adds the pingback meta tag to the head so that other sites can know how to send a pingback to our site.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_link_pingback() {
@@ -86,7 +92,6 @@ function cherry_link_pingback() {
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
  *
  * @since  4.0.0
- *
  * @param  string $title Default title text for current view.
  * @param  string $sep   Optional separator.
  * @return string        The filtered title.
@@ -118,7 +123,7 @@ function cherry_wp_title( $title, $sep ) {
 /**
  * Remove inline CSS used by Recent Comments widget.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_remove_recent_comments_style() {
 	global $wp_widget_factory;

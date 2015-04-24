@@ -19,8 +19,9 @@ if ( !defined( 'WPINC' ) ) {
 /**
  * Check if the attachment is an 'audio'.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @param  int   $post_id Attachment ID.
  * @return bool
  */
@@ -36,8 +37,9 @@ function cherry_attachment_is_audio( $post_id = null ) {
 /**
  * Check if the attachment is a 'video'.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @param  int   $post_id Attachment ID.
  * @return bool
  */
@@ -53,8 +55,9 @@ function cherry_attachment_is_video( $post_id = null ) {
 /**
  * Retrieve formatted audio metadata.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @param  int   $post_id  Attachment ID.
  * @param  array $metadata The attachment metadata.
  * @return array
@@ -100,8 +103,9 @@ function cherry_audio_meta( $post_id, $metadata ) {
 /**
  * Retrieve formatted video metadata.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @param  int   $post_id  Attachment ID.
  * @param  array $metadata The attachment metadata.
  * @return array
@@ -136,8 +140,9 @@ function cherry_video_meta( $post_id, $metadata ) {
 /**
  * Retrieve formatted image metadata.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @param  int   $post_id  Attachment ID.
  * @param  array $metadata The attachment metadata.
  * @return array

@@ -2,8 +2,6 @@
 /**
  * Cherry Framework - The most delicious WordPress framework.
  *
- * CHERRY_FRAMEWORK_DESCRIPTION_TYPE_HERE
- *
  * @package   Cherry_Framework
  * @version   4.0.0
  * @author    Cherry Team <support@cherryframework.com>
@@ -34,6 +32,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * It controls the load order of the required files for running the framework.
 		 *
 		 * @since  4.0.0
+		 * @author Justin Tadlock <justin@justintadlock.com>
+		 * @author Cherry Team <support@cherryframework.com>
 		 */
 		function __construct() {
 			// Global variables.
@@ -76,13 +76,13 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		/**
 		 * Defines the constant paths for use within the core framework, parent theme, and child theme.
 		 *
-		 * @since  4.0.0
+		 * @since 4.0.0
 		 */
 		function constants() {
 			/**
 			 * Fires before definitions the constant.
 			 *
-			 * @since  4.0.0
+			 * @since 4.0.0
 			 */
 			do_action( 'cherry_constants_before' );
 

@@ -28,6 +28,8 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 10 );
  * the wp_register_style() function. It does not load any stylesheets on the site. If a theme wants to
  * register its own custom styles, it should do so on the 'wp_enqueue_scripts' hook.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_register_styles() {

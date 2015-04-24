@@ -1,14 +1,11 @@
 <?php
 /**
  * Cherry breadcrumbs class.
- * Based on Breadcrumb Trail plugin by Justin Tadlock (http://themehybrid.com/plugins/breadcrumb-trail)
  *
  * @package    Cherry_Framework
  * @subpackage Class
- * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2008 - 2013, Justin Tadlock
- * @link       http://themehybrid.com/plugins/breadcrumb-trail
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -21,10 +18,15 @@ if ( !defined( 'WPINC' ) ) {
 if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 	/**
-	 * Breadcrumbs builder class
+	 * Breadcrumbs builder class.
+	 * Class is based on Breadcrumb Trail plugin by Justin Tadlock.
 	 *
+	 * @author    Justin Tadlock <justin@justintadlock.com>
+	 * @author    Cherry Team <support@cherryframework.com>
+	 * @copyright Copyright (c) 2008 - 2014, Justin Tadlock
+	 * @link      http://themehybrid.com/plugins/breadcrumb-trail
+	 * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 	 * @since     4.0.0
-	 * @copyright Copyright (c) 2008 - 2013, Justin Tadlock
 	 */
 	class cherry_breadcrumbs {
 

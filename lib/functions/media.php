@@ -31,17 +31,17 @@ add_filter( 'shortcode_atts_video', 'cherry_video_atts' );
  * Adds theme "post-thumbnail" size plus an internationalized version of the image size name to the
  * "add media" modal.  This allows users to insert the image within their post content editor.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @param  array   $sizes  Selectable image sizes.
+ * @param  array  $sizes Selectable image sizes.
  * @return array
  */
 function cherry_image_size_names_choose( $sizes ) {
 
 	// If the theme as set a custom post thumbnail size, give it a nice name.
 	if ( has_image_size( 'post-thumbnail' ) ) {
-
 		$sizes['post-thumbnail'] = __( 'Post Thumbnail', 'cherry' );
-
 	}
 
 	return $sizes;
@@ -51,6 +51,8 @@ function cherry_image_size_names_choose( $sizes ) {
  * Creates custom labels for ID3 tags that are used on the front end of the site when displaying
  * media within the theme, typically on attachment pages.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array   $fields
  * @param  object  $attachment

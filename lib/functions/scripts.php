@@ -30,7 +30,6 @@ add_action( 'wp_enqueue_scripts', 'cherry_prepare_sticky_vars' );
  * Get cherry default scripts data
  *
  * @since  4.0.0
- *
  * @return array  cherry default scripts data
  */
 function cherry_default_scripts() {
@@ -58,6 +57,8 @@ function cherry_default_scripts() {
  * the wp_register_script() function.  It does not load any script files on the site.  If a theme wants to register
  * its own custom scripts, it should do so on the 'wp_enqueue_scripts' hook.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_register_scripts() {
@@ -90,7 +91,9 @@ function cherry_register_scripts() {
 /**
  * Tells WordPress to load the scripts needed for the framework using the wp_enqueue_script() function.
  *
- * @since 4.0.0
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
+ * @since  4.0.0
  */
 function cherry_enqueue_scripts() {
 

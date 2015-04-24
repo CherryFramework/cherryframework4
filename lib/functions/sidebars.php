@@ -22,6 +22,8 @@ if ( !defined( 'WPINC' ) ) {
  * over and over. Theme authors are also expected to pass in the ID, name, and description of the sidebar.
  * This function can handle the rest at that point.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array   $args
  * @return string  Sidebar ID.
