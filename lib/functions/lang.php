@@ -33,8 +33,7 @@ function cherry_get_parent_textdomain() {
 	// If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain.
 	if ( empty( $cherry->parent_textdomain ) ) {
 
-		$theme = wp_get_theme( get_template() );
-
+		$theme      = wp_get_theme( get_template() );
 		$textdomain = $theme->get( 'TextDomain' ) ? $theme->get( 'TextDomain' ) : get_template();
 
 		$cherry->parent_textdomain = sanitize_key( apply_filters( 'cherry_parent_textdomain', $textdomain ) );
@@ -66,8 +65,7 @@ function cherry_get_child_textdomain() {
 	// If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain.
 	if ( empty( $cherry->child_textdomain ) ) {
 
-		$theme = wp_get_theme();
-
+		$theme      = wp_get_theme();
 		$textdomain = $theme->get( 'TextDomain' ) ? $theme->get( 'TextDomain' ) : get_stylesheet();
 
 		$cherry->child_textdomain = sanitize_key( apply_filters( 'cherry_child_textdomain', $textdomain ) );
