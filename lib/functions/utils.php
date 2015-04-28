@@ -385,9 +385,21 @@ function cherry_prepare_background( $data ) {
 	$format = 'background-%s:%s;';
 
 	foreach ( $data as $prop => $value ) {
-		if ( 'color' == $prop ) {
-			$value = cherry_sanitize_hex_color( $value );
+
+		if ( ! $value ) {
+			continue;
 		}
+
+		switch ( $prop ) {
+			case 'color':
+				$value = cherry_sanitize_hex_color( $value );
+				break;
+
+			case 'position':
+				$value = str_replace( '-', ' ', $value );
+				break;
+		}
+
 		$result .= sprintf( $format, $prop, $value );
 	}
 
