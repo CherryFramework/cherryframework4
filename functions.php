@@ -1,14 +1,11 @@
 <?php
 /**
- * The functions file is used to initialize everything in the theme. It controls how the theme is loaded and
- * sets up the supported features, default actions, and default filters. If making customizations, users
- * should create a child theme and make changes to its functions.php file (not this one).
- *
- * Child themes should do their setup on the 'after_setup_theme' hook with a priority of 11 if they want to
- * override parent theme features. Use a priority of 9 if wanting to run before the parent theme.
+ * Set up the theme and provides some helper functions, which are used in the
+ * theme as custom template tags. Others are attached to action and filter
+ * hooks in WordPress to change core functionality.
  */
 
-// Load the core Cherry Framework.
+// Load the Cherry Framework.
 require_once( trailingslashit( get_template_directory() ) . 'lib/class-cherry-framework.php' );
 new Cherry_Framework();
 

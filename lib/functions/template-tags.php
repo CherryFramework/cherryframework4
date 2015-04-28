@@ -161,8 +161,8 @@ function cherry_post_nav() {
 		<div class="paging-navigation">
 			<div class="nav-links">
 				<?php
-					previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'cherry' ) );
-					next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'cherry' ) );
+					previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
+					next_post_link( '<div class="nav-next">%link</div>', '%title' );
 				?>
 			</div><!-- .nav-links -->
 		</div>

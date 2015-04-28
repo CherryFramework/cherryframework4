@@ -1,4 +1,15 @@
 <?php
+/**
+ * Class for template hierarchy.
+ *
+ * @package    Cherry_Framework
+ * @subpackage Class
+ * @author     Cherry Team <support@cherryframework.com>
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
+ * @link       http://www.cherryframework.com
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
+
 // If this file is called directly, abort.
 if ( !defined( 'WPINC' ) ) {
 	die;
@@ -24,6 +35,17 @@ function cherry_template_base() {
 	return Cherry_Wrapping::$base;
 }
 
+/**
+ * Class for template hierarchy.
+ * Based on Sage Starter Theme by Roots.
+ *
+ * @author  Cristi Burcă <mail@scribu.net>
+ * @author  Roots
+ * @author  Cherry Team <support@cherryframework.com>
+ * @link    https://roots.io/sage/
+ * @license http://opensource.org/licenses/MIT
+ * @since   4.0.0
+ */
 class Cherry_Wrapping {
 
 	/**
