@@ -24,7 +24,7 @@ class cherry_moto_slider_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
-		$alias = cherry_get_option( 'moto_slider_alias' );
+		$alias = cherry_get_option( 'moto-slider-alias' );
 
 		if ( ! $alias ) {
 			return;
@@ -41,7 +41,7 @@ class cherry_moto_slider_static extends cherry_register_static {
 	public function set_slider_options( $options ) {
 		$select_options = $this->get_sliders_list();
 
-		$options['moto_slider_alias'] = array(
+		$options['moto-slider-alias'] = array(
 			'type'        => 'select',
 			'label'       => __( 'Select MotoSlider to show in header', 'cherry' ),
 			'decsription' => __( 'Select main theme slider', 'cherry' ),
