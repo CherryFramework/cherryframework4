@@ -1,5 +1,8 @@
 <?php
 	cherry_static_area( 'header-top' );
 	cherry_static_area( 'header-bottom' );
-	cherry_static_area( 'showcase-area' );
+
+	if ( is_front_page() ) {
+		cherry_static_area( 'showcase-area' );
+	}
 ?>
