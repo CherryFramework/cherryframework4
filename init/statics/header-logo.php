@@ -17,6 +17,7 @@ class cherry_header_logo_static extends cherry_register_static {
 		add_action( 'cherry-options-updated',  array( $this, 'clear_cache' ) );
 		add_action( 'cherry-section-restored', array( $this, 'clear_cache' ) );
 		add_action( 'cherry-options-restored', array( $this, 'clear_cache' ) );
+		add_action( 'customize_save_after', array( $this, 'clear_cache' ) );
 		add_action( 'update_option', array( $this, 'clear_cache_options' ) );
 		parent::__construct( $args );
 	}
@@ -27,8 +28,27 @@ class cherry_header_logo_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
+
 		$logo = get_transient( 'cherry_logo' );
 		$page = is_front_page() ? 'home' : 'page';
+
+		global $wp_customize;
+
+		if ( isset( $wp_customize ) ) {
+
+			if ( cherry_get_site_logo() || cherry_get_site_description() ) {
+
+				$result = sprintf( '<div class="site-branding">%1$s %2$s</div>',
+					cherry_get_site_logo(),
+					cherry_get_site_description()
+				);
+
+			}
+
+			echo $result;
+
+			return;
+		}
 
 		if ( is_array( $logo ) && ! empty( $logo[$page] ) ) {
 			echo $logo[$page];
