@@ -95,8 +95,8 @@ class Cherry_Statics {
 			'after'         => '',
 			'before_static' => '',
 			'after_static'  => '',
-			'container'     => true,
-			'row'           => true,
+			'fluid'         => false,
+			// 'row'           => true,
 		), $args, $i );
 
 		$static_area = wp_parse_args( $args, $defaults );
@@ -155,12 +155,13 @@ class Cherry_Statics {
 			'id'      => "static-$i",
 			'name'    => sprintf( __( 'Static %d', 'cherry' ), $i ),
 			'options' => array(
-				'col-xs' => '',
-				'col-sm' => '',
-				'col-md' => '',
-				'col-lg' => '',
-				'class'  => '',
-			)
+				'col-xs'   => '',
+				'col-sm'   => '',
+				'col-md'   => '',
+				'col-lg'   => '',
+				'class'    => '',
+				'collapse' => false,
+			),
 		), $args, $i );
 
 		$options           = wp_parse_args( $args['options'], $defaults['options'] );
@@ -287,67 +288,56 @@ class Cherry_Statics {
 		do_action( 'cherry_static_area_before', $index );
 
 		$static_area = $cherry_registered_static_areas[ $index ];
-		$container   = false;
-		$row         = false;
-		$data_attr   = array();
+		$fluid       = false;
 
 		// 'Before' wrap open.
 		echo $static_area['before'];
 
-		if ( isset( $static_area['container'] ) ) {
-			$container   = (bool) $static_area['container'];
-			$data_attr[] = ( $container ) ? 'data-container="true"' : 'data-container="false"';
-		}
-
-		if ( isset( $static_area['row'] ) ) {
-			$row         = (bool) $static_area['row'];
-			$data_attr[] = ( $row ) ? 'data-row="true"' : 'data-row="false"';
+		if ( isset( $static_area['fluid'] ) ) {
+			$fluid = (bool) $static_area['fluid'];
 		}
 
 		// Wrap open (default).
-		printf( '<div id="static-area-%1$s" class="%1$s static-area" %2$s>', $index, join( ' ', $data_attr ) );
+		printf( '<div id="static-area-%1$s" class="%s static-area row">', $index );
 
-		if ( $container ) {
-			/**
-			 * Filters a HTML tag (open) for container.
-			 *
-			 * @since 4.0.0
-			 * @param int   $index Index, name, or ID of the static area.
-			 */
-			$container_open = apply_filters( 'cherry_static_area_container_open', '<div class="%1$s">', $index );
+		/**
+		 * Filters a HTML tag (open) for container.
+		 *
+		 * @since 4.0.0
+		 * @param int   $index Index, name, or ID of the static area.
+		 */
+		$container_open  = apply_filters( 'cherry_static_area_container_open', '<div class="%1$s">', $index );
+		$container_class = ( true === $fluid ) ? 'container-fluid' : 'container';
 
-			/**
-			 * Filters a CSS-class for container.
-			 *
-			 * @since 4.0.0
-			 * @param int   $index Index, name, or ID of the static area.
-			 */
-			$container_class = apply_filters( 'cherry_static_area_container_class', 'container', $index );
+		/**
+		 * Filters a CSS-class for container.
+		 *
+		 * @since 4.0.0
+		 * @param int   $index Index, name, or ID of the static area.
+		 */
+		$container_class = apply_filters( 'cherry_static_area_container_class', $container_class, $index );
 
-			// 'Container' wrap open.
-			printf( $container_open, $container_class );
-		}
+		// 'Container' wrap open.
+		printf( $container_open, $container_class );
 
-		if ( $row ) {
-			/**
-			 * Filters a HTML tag (open) for row.
-			 *
-			 * @since 4.0.0
-			 * @param int   $index Index, name, or ID of the static area.
-			 */
-			$row_open = apply_filters( 'cherry_static_area_row_open', '<div class="%1$s">', $index );
+		/**
+		 * Filters a HTML tag (open) for row.
+		 *
+		 * @since 4.0.0
+		 * @param int   $index Index, name, or ID of the static area.
+		 */
+		$row_open = apply_filters( 'cherry_static_area_row_open', '<div class="%1$s">', $index );
 
-			/**
-			 * Filters a CSS-class for row.
-			 *
-			 * @since 4.0.0
-			 * @param int   $index Index, name, or ID of the static area.
-			 */
-			$row_class = apply_filters( 'cherry_static_area_row_class', 'row', $index );
+		/**
+		 * Filters a CSS-class for row.
+		 *
+		 * @since 4.0.0
+		 * @param int   $index Index, name, or ID of the static area.
+		 */
+		$row_class = apply_filters( 'cherry_static_area_row_class', 'row', $index );
 
-			// 'Row' wrap open.
-			printf( $row_open, $row_class );
-		}
+		// 'Row' wrap open.
+		printf( $row_open, $row_class );
 
 		foreach ( $args as $id => $data ) :
 
@@ -392,6 +382,7 @@ class Cherry_Statics {
 			$extra_class = str_replace( '_', '-', $id );
 			$extra_class = sanitize_html_class( 'static-' . $extra_class );
 			$extra_class = ( empty( $options['class'] ) ) ? $extra_class : $extra_class . ' ' . sanitize_html_class( $options['class'] );
+			$extra_class = ( false == $options['collapse'] ) ? $extra_class : 'collapse-col ' . $extra_class;
 			$extra_class = ( empty( $cols_class ) ) ? $extra_class : $cols_class . ' ' . $extra_class;
 
 			/**
@@ -408,31 +399,27 @@ class Cherry_Statics {
 
 		endforeach;
 
-		if ( $row ) {
-			/**
-			 * Filters a HTML tag (close) for row.
-			 *
-			 * @since 4.0.0
-			 * @param int   $index Index, name, or ID of the static area.
-			 */
-			$row_close = apply_filters( 'cherry_static_area_row_close', '</div>', $index );
+		/**
+		 * Filters a HTML tag (close) for row.
+		 *
+		 * @since 4.0.0
+		 * @param int   $index Index, name, or ID of the static area.
+		 */
+		$row_close = apply_filters( 'cherry_static_area_row_close', '</div>', $index );
 
-			// 'Row' wrap close.
-			echo $row_close;
-		}
+		// 'Row' wrap close.
+		echo $row_close;
 
-		if ( $container ) {
-			/**
-			 * Filters a HTML tag (close) for container.
-			 *
-			 * @since 4.0.0
-			 * @param int   $index Index, name, or ID of the static area.
-			 */
-			$container_close = apply_filters( 'cherry_static_area_container_close', '</div>', $index );
+		/**
+		 * Filters a HTML tag (close) for container.
+		 *
+		 * @since 4.0.0
+		 * @param int   $index Index, name, or ID of the static area.
+		 */
+		$container_close = apply_filters( 'cherry_static_area_container_close', '</div>', $index );
 
-			// 'Container' wrap close.
-			echo $container_close;
-		}
+		// 'Container' wrap close.
+		echo $container_close;
 
 		// Wrap close (default).
 		echo '</div>';

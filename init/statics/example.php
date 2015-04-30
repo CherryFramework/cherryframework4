@@ -36,6 +36,7 @@ new cherry_example_static(
 			'class'    => 'example-css-class', // (optional) Extra CSS class
 			'position' => 1, // (optional) Position in static area (1 - first static, 2 - second static, etc.)
 			'area'     => 'static-area-id', // (required) ID for static area
+			'collapse' => false, // (required) Collapse column paddings?
 		)
 	)
 );
