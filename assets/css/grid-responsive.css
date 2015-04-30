@@ -18,25 +18,6 @@ Version:     1.0.0
     width: 1170px;
   }
 }
-.cherry-container .container {
-  padding-left: 0;
-  padding-right: 0;
-}
-@media (min-width: 768px) {
-  .cherry-container .container {
-    width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .cherry-container .container {
-    width: 940px;
-  }
-}
-@media (min-width: 1200px) {
-  .cherry-container .container {
-    width: 1140px;
-  }
-}
 
 .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;

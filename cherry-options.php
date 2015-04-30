@@ -141,27 +141,27 @@ function cherry_defaults_settings() {
 		'options'       => array(
 			'1-left' => array(
 				'label'   => __( 'Left sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-left-sidebar.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-left-sidebar.svg',
 			),
 			'1-right' => array(
 				'label'   => __( 'Right sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-right-sidebar.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-right-sidebar.svg',
 			),
 			'1-left-2-right' => array(
 				'label'   => __( 'Left and right sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
 			),
 			'1-left-2-left' => array(
 				'label'   => __( 'Sameside left sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
 			),
 			'1-right-2-right' => array(
 				'label'   => __( 'Sameside right sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
 			),
 			'no-sidebar' => array(
 				'label'   => __( 'No sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-fullwidth.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-fullwidth.svg',
 			),
 		)
 	);
@@ -176,14 +176,54 @@ function cherry_defaults_settings() {
 		'min_value' => 970,
 		'value'     => 1170,
 	);
-	$grid_options['grid-type'] = array(
+	$grid_options['header-grid-type'] = array(
 		'type'  => 'radio',
-		'title' => __( 'Grid type', 'cherry' ),
+		'title' => __( 'Header grid type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select layout pattern for header website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
+		),
+		'value'         => 'wide',
+		'display_input' => false,
+		'options'       => array(
+			'wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+			),
+			'boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
+			),
+		),
+	);
+	$grid_options['content-grid-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Content grid type', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
 			'content' => __( 'Select layout pattern for main website container. Wide layout will fit window width. Boxed layout will have fixed width and left/right indents. ', 'cherry' ),
 		),
 		'value'         => 'boxed',
+		'display_input' => false,
+		'options'       => array(
+			'wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+			),
+			'boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
+			),
+		),
+	);
+	$grid_options['footer-grid-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Footer grid type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select layout pattern for footer website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
+		),
+		'value'         => 'wide',
 		'display_input' => false,
 		'options'       => array(
 			'wide' => array(

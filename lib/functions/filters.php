@@ -18,8 +18,10 @@ if ( !defined( 'WPINC' ) ) {
 // Filters the body class.
 add_filter( 'body_class', 'cherry_add_control_classes' );
 
-// Filters the `.cherry-container` class.
-add_filter( 'cherry_get_container_class', 'cherry_get_container_classes' );
+// Filters the containers class.
+add_filter( 'cherry_get_header_class',    'cherry_get_header_classes' );
+add_filter( 'cherry_get_content_class', 'cherry_get_content_classes' );
+add_filter( 'cherry_get_footer_class',    'cherry_get_footer_classes' );
 
 // Filters a sidebar visibility.
 add_filter( 'cherry_display_sidebar', 'cherry_hide_sidebar', 9, 2 );
@@ -50,15 +52,20 @@ add_action( 'wp_head', 'cherry_favicon_tags' );
 
 // Add specific CSS class by filter.
 function cherry_add_control_classes( $classes ) {
-	$layout    = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
-	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
 
 	if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
 		$layout = cherry_get_option( 'page-layout' );
 	}
 
-	if ( empty( $grid_type ) || ( 'default-grid-type' == $grid_type ) ) {
-		$grid_type = cherry_get_option( 'grid-type' );
+	$defaults   = array( 'header' => '', 'content' => '', 'footer' => '' );
+	$grid_types = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	$grid_types = wp_parse_args( $grid_types, $defaults );
+
+	foreach ( $grid_types as $key => $grid_type ) {
+		if ( empty( $grid_type ) || ( 'default-grid-type' == $grid_type ) ) {
+			$grid_types[ $key ] = cherry_get_option( "{$key}-grid-type" );
+		}
 	}
 
 	// Responsive.
@@ -72,7 +79,9 @@ function cherry_add_control_classes( $classes ) {
 	$classes[] = sanitize_html_class( 'cherry-blog-layout-' . $layout );
 
 	// Grid type.
-	$classes[] = sanitize_html_class( 'cherry-' . $grid_type );
+	foreach ( $grid_types as $key => $grid_type ) {
+		$classes[] = sanitize_html_class( "cherry-{$key}-{$grid_type}" );
+	}
 
 	// Sidebar.
 	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
@@ -84,24 +93,67 @@ function cherry_add_control_classes( $classes ) {
 	return $classes;
 }
 
-function cherry_get_container_classes( $class ) {
+function cherry_get_header_classes( $class ) {
 	$classes   = array();
 	$classes[] = $class;
 
 	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
 
-	if ( empty( $grid_type ) || ( 'default-grid-type' == $grid_type ) ) {
-		$grid_type = cherry_get_option( 'grid-type' );
+	if ( empty( $grid_type['header'] ) || ( 'default-grid-type' == $grid_type['header'] ) ) {
+		$grid_type['header'] = cherry_get_option( 'header-grid-type' );
 	}
 
-	if ( 'wide' == $grid_type ) {
+	if ( 'wide' == $grid_type['header'] ) {
 		$classes[] = 'container-fluid';
-	} elseif ( 'boxed' == $grid_type ) {
+	} elseif ( 'boxed' == $grid_type['header'] ) {
 		$classes[] = 'container';
 	}
-	$classes[] = 'clearfix';
 
-	$classes = apply_filters( 'cherry_get_container_classes', $classes, $class );
+	$classes = apply_filters( 'cherry_get_header_classes', $classes, $class );
+	$classes = array_unique( $classes );
+
+	return join( ' ', $classes );
+}
+
+function cherry_get_content_classes( $class ) {
+	$classes   = array();
+	$classes[] = $class;
+
+	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+
+	if ( empty( $grid_type['content'] ) || ( 'default-grid-type' == $grid_type['content'] ) ) {
+		$grid_type['content'] = cherry_get_option( 'content-grid-type' );
+	}
+
+	if ( 'wide' == $grid_type['content'] ) {
+		$classes[] = 'container-fluid';
+	} elseif ( 'boxed' == $grid_type['content'] ) {
+		$classes[] = 'container';
+	}
+
+	$classes = apply_filters( 'cherry_get_content_classes', $classes, $class );
+	$classes = array_unique( $classes );
+
+	return join( ' ', $classes );
+}
+
+function cherry_get_footer_classes( $class ) {
+	$classes   = array();
+	$classes[] = $class;
+
+	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+
+	if ( empty( $grid_type['footer'] ) || ( 'default-grid-type' == $grid_type['footer'] ) ) {
+		$grid_type['footer'] = cherry_get_option( 'footer-grid-type' );
+	}
+
+	if ( 'wide' == $grid_type['footer'] ) {
+		$classes[] = 'container-fluid';
+	} elseif ( 'boxed' == $grid_type['footer'] ) {
+		$classes[] = 'container';
+	}
+
+	$classes = apply_filters( 'cherry_get_footer_classes', $classes, $class );
 	$classes = array_unique( $classes );
 
 	return join( ' ', $classes );
@@ -296,21 +348,21 @@ function cherry_add_extra_styles() {
 	$responsive        = cherry_get_option( 'grid-responsive' );
 	$container_width   = intval( cherry_get_option( 'grid-container-width' ) );
 	$grid_gutter_width = intval( apply_filters( 'cherry_grid_gutter_width', 30 ) );
-	$grid_type         = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
 	$output            = '';
-
-	if ( !$grid_type || ( 'default-grid-type' == $grid_type ) ) {
-		$grid_type = cherry_get_option( 'grid-type' );
-	}
 
 	if ( 'false' == $responsive ) {
 		$output .= "body { min-width: {$container_width}px; }\n";
-		$output .= ".cherry-no-responsive .cherry-container .container { max-width: " . ( $container_width - $grid_gutter_width ) . "px; }\n";
+		$output .= ".site-content .container { max-width: {$container_width}px; }\n";
+	} else {
+		$output .= "@media (min-width: 992px) {\n";
+			$output .= ".cherry-header-wide .site-header .container,\n";
+			$output .= ".cherry-content-wide .site-content .container,\n";
+			$output .= ".cherry-footer-wide .site-footer .container,\n";
+			$output .= ".cherry-header-boxed .site-header,\n";
+			$output .= ".cherry-content-boxed .site-content,\n";
+			$output .= ".cherry-footer-boxed .site-footer { max-width: {$container_width}px; }\n";
+		$output .= "}\n";
 	}
-
-	$output .= ".cherry-container.container,\n";
-	$output .= ".cherry-boxed .site-header .container,\n";
-	$output .= ".cherry-boxed .site-footer .container { max-width: {$container_width}px; width: auto; }\n";
 
 	// Prepare a string with a styles.
 	$output = trim( $output );

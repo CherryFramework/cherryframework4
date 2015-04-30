@@ -20,7 +20,7 @@ class cherry_footer_sidebars_static extends cherry_register_static {
 	public function callback() {
 		for ( $i = 1; $i <= 4; $i++ ) {
 			echo '<div class="col-xs-12 col-sm-3">';
-				cherry_get_sidebar( "footer-{$i}" );
+				cherry_get_sidebar( "sidebar-footer-{$i}" );
 			echo '</div>';
 		}
 	}

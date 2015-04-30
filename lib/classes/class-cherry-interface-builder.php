@@ -467,7 +467,6 @@ class Cherry_Interface_Builder {
 			*/
 			case 'static_area_editor':
 				global $cherry_registered_static_areas;
-				$foo = cherry_get_option( 'static-area-editor' );
 				$output .= '<div id="' . $id . '" class="cherry-static-area-editor-wrap" data-name="' . $name . '">';
 					foreach ( $cherry_registered_static_areas as $area => $area_settings ) {
 						$output .= '<div class="area-unit" data-area="' . $area . '">';
