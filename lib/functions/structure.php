@@ -96,7 +96,7 @@ function cherry_content_wrap() {
  */
 function cherry_content_sidebar_wrap_close( $sidebar ) {
 
-	if ( 'main' != $sidebar ) {
+	if ( 'sidebar-main' != $sidebar ) {
 		return;
 	}
 

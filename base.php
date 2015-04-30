@@ -5,8 +5,8 @@
 
 		<?php cherry_get_content(); ?>
 
-		<?php cherry_get_sidebar( 'main' ); ?>
-		<?php cherry_get_sidebar( 'secondary' ); ?>
+		<?php cherry_get_sidebar( 'sidebar-main' ); ?>
+		<?php cherry_get_sidebar( 'sidebar-secondary' ); ?>
 
 	</div>
 </div>
