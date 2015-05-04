@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: blank\n"
-"POT-Creation-Date: 2015-04-27 15:41+0200\n"
-"PO-Revision-Date: 2015-04-27 15:41+0200\n"
+"POT-Creation-Date: 2015-05-04 15:16+0200\n"
+"PO-Revision-Date: 2015-05-04 15:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: en\n"
@@ -24,7 +24,7 @@ msgstr ""
 #: ../404.php:18
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
-"below or a search?"
+"below or use search."
 msgstr ""
 
 #: ../404.php:28
@@ -41,7 +41,8 @@ msgstr ""
 msgid "Select a page:"
 msgstr ""
 
-#: ../cherry-options.php:17 ../cherry-options.php:1544
+#: ../cherry-options.php:17 ../cherry-options.php:1583
+#: ../lib/admin/class-cherry-grid-type.php:43
 msgid "Header"
 msgstr ""
 
@@ -60,7 +61,7 @@ msgstr ""
 #: ../cherry-options.php:34
 msgid ""
 "Icon image that is displayed in the browser address bar and browser tab "
-"heading. Max icon size 32x32 px <br>You also upload favicon for retina "
+"heading. Max icon size: 32x32 px <br>You can also upload favicon for retina "
 "displays. Max retina icon size: 152x152 px"
 msgstr ""
 
@@ -79,7 +80,7 @@ msgid "Featured Images"
 msgstr ""
 
 #: ../cherry-options.php:56
-msgid "Enable/disable displaying of featured images for pages."
+msgid "Enable/disable featured images for pages."
 msgstr ""
 
 #: ../cherry-options.php:63
@@ -90,954 +91,977 @@ msgstr ""
 #: ../cherry-options.php:68
 msgid ""
 "Enable/disable maintenance mode. Logged in administrator gets full access to "
-"the site, while regular visitors will\n"
-"\t\t\tbe redirected to the page chosen below."
+"the site, while regular visitors will\\won't be redirected to the page "
+"chosen below."
 msgstr ""
 
-#: ../cherry-options.php:75
+#: ../cherry-options.php:74
 msgid "Maintenance page"
 msgstr ""
 
-#: ../cherry-options.php:81
+#: ../cherry-options.php:80
 msgid ""
 "Select page that regular visitors will see if maintenance mode is enabled."
 msgstr ""
 
-#: ../cherry-options.php:86
+#: ../cherry-options.php:85
 msgid "Document smooth scroll"
 msgstr ""
 
-#: ../cherry-options.php:89
+#: ../cherry-options.php:88
 msgid ""
 "Enable/disable smooth vertical mousewheel scrolling (Chrome browser only)."
 msgstr ""
 
-#: ../cherry-options.php:95
+#: ../cherry-options.php:94
 msgid "User CSS"
 msgstr ""
 
-#: ../cherry-options.php:98
+#: ../cherry-options.php:97
 msgid "Define custom CSS styling."
 msgstr ""
 
-#: ../cherry-options.php:110 ../cherry-options.php:1479
+#: ../cherry-options.php:109 ../cherry-options.php:1518
 msgid "Static areas"
 msgstr ""
 
-#: ../cherry-options.php:113
+#: ../cherry-options.php:112
 msgid ""
-"Use static area editor to arrange static blocks. You can drag-n-drop statick "
-"blocks, remove them or add new ones using 'Create new static' field below. "
+"Use static area editor to arrange static blocks. You can drag-n-drop static "
+"blocks, remove them or add new ones using 'Create new static' field below."
 msgstr ""
 
-#: ../cherry-options.php:125
+#: ../cherry-options.php:124
 msgid "Responsive grid"
 msgstr ""
 
-#: ../cherry-options.php:128
+#: ../cherry-options.php:127
 msgid ""
 "Enable/disable responsive grid. If for any reason you want to disable "
 "responsive layout for your site, you are able to turn it off here."
 msgstr ""
 
-#: ../cherry-options.php:134 ../lib/admin/class-cherry-layouts.php:66
+#: ../cherry-options.php:133 ../lib/admin/class-cherry-layouts.php:66
 msgid "Layout"
 msgstr ""
 
-#: ../cherry-options.php:137
+#: ../cherry-options.php:136
 msgid ""
 "Select blog page layout. You can choose if you want to display sidebars and "
 "how you want to display them."
 msgstr ""
 
-#: ../cherry-options.php:143
+#: ../cherry-options.php:142
 msgid "Left sidebar"
 msgstr ""
 
-#: ../cherry-options.php:147
+#: ../cherry-options.php:146
 msgid "Right sidebar"
 msgstr ""
 
-#: ../cherry-options.php:151
+#: ../cherry-options.php:150
 msgid "Left and right sidebar"
 msgstr ""
 
-#: ../cherry-options.php:155
-msgid "Sameside left sidebar"
+#: ../cherry-options.php:154
+msgid "Two sidebars on the left"
 msgstr ""
 
-#: ../cherry-options.php:159
-msgid "Sameside right sidebar"
+#: ../cherry-options.php:158
+msgid "Two sidebars on the right"
 msgstr ""
 
-#: ../cherry-options.php:163
+#: ../cherry-options.php:162
 msgid "No sidebar"
 msgstr ""
 
-#: ../cherry-options.php:170
+#: ../cherry-options.php:169
 msgid "Container width"
 msgstr ""
 
-#: ../cherry-options.php:173
+#: ../cherry-options.php:172
 msgid "Width of main website container in pixels."
 msgstr ""
 
-#: ../cherry-options.php:181
-msgid "Grid type"
+#: ../cherry-options.php:180
+msgid "Header grid type"
 msgstr ""
 
-#: ../cherry-options.php:184
+#: ../cherry-options.php:183
+msgid ""
+"Select layout pattern for header website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: ../cherry-options.php:189 ../cherry-options.php:209
+#: ../cherry-options.php:229
+msgid "Wide"
+msgstr ""
+
+#: ../cherry-options.php:193 ../cherry-options.php:213
+#: ../cherry-options.php:233
+msgid "Boxed"
+msgstr ""
+
+#: ../cherry-options.php:200
+msgid "Content grid type"
+msgstr ""
+
+#: ../cherry-options.php:203
 msgid ""
 "Select layout pattern for main website container. Wide layout will fit "
 "window width. Boxed layout will have fixed width and left/right indents. "
 msgstr ""
 
-#: ../cherry-options.php:190
-msgid "Wide"
+#: ../cherry-options.php:220
+msgid "Footer grid type"
 msgstr ""
 
-#: ../cherry-options.php:194
-msgid "Boxed"
+#: ../cherry-options.php:223
+msgid ""
+"Select layout pattern for footer website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
 msgstr ""
 
-#: ../cherry-options.php:207
+#: ../cherry-options.php:246
 msgid "Featured Media"
 msgstr ""
 
-#: ../cherry-options.php:210
+#: ../cherry-options.php:249
 msgid ""
 "Displays Featured Image, Gallery, Audio, Video in blog posts listing "
 "depending on post type."
 msgstr ""
 
-#: ../cherry-options.php:216
+#: ../cherry-options.php:255
 msgid "Featured Image Size"
 msgstr ""
 
-#: ../cherry-options.php:219
+#: ../cherry-options.php:258
 msgid "Set dimensions for post featured images in pixels."
 msgstr ""
 
-#: ../cherry-options.php:223 ../cherry-options.php:306
+#: ../cherry-options.php:262 ../cherry-options.php:345
 msgid "Small"
 msgstr ""
 
-#: ../cherry-options.php:224 ../cherry-options.php:307
+#: ../cherry-options.php:263 ../cherry-options.php:346
 msgid "Large"
 msgstr ""
 
-#: ../cherry-options.php:229
+#: ../cherry-options.php:268
 msgid "Featured Image Alignment"
 msgstr ""
 
-#: ../cherry-options.php:232
+#: ../cherry-options.php:271
 msgid "Set alignment for post featured images."
 msgstr ""
 
-#: ../cherry-options.php:236 ../cherry-options.php:251
-#: ../cherry-options.php:319
+#: ../cherry-options.php:275 ../cherry-options.php:290
+#: ../cherry-options.php:358
 msgid "None"
 msgstr ""
 
-#: ../cherry-options.php:237 ../cherry-options.php:320
-#: ../lib/classes/class-cherry-interface-builder.php:981
+#: ../cherry-options.php:276 ../cherry-options.php:359
+#: ../lib/classes/class-cherry-interface-builder.php:980
 msgid "Left"
 msgstr ""
 
-#: ../cherry-options.php:238 ../cherry-options.php:321
-#: ../lib/classes/class-cherry-interface-builder.php:982
+#: ../cherry-options.php:277 ../cherry-options.php:360
+#: ../lib/classes/class-cherry-interface-builder.php:981
 msgid "Right"
 msgstr ""
 
-#: ../cherry-options.php:239 ../cherry-options.php:322
-#: ../lib/classes/class-cherry-interface-builder.php:983
+#: ../cherry-options.php:278 ../cherry-options.php:361
+#: ../lib/classes/class-cherry-interface-builder.php:982
 msgid "Center"
 msgstr ""
 
-#: ../cherry-options.php:244
+#: ../cherry-options.php:283
 msgid "Post content"
 msgstr ""
 
-#: ../cherry-options.php:247
+#: ../cherry-options.php:286
 msgid ""
 "Select how you want to display post content in blog listing: full - display "
-"fill post content, part - display part of the post (you can specify post "
-"part size below), none - hide post content."
+"full post content, excerpt - display part of the post (you can specify "
+"excerpt length below), none - hide post content."
 msgstr ""
 
-#: ../cherry-options.php:252
+#: ../cherry-options.php:291
 msgid "Part"
 msgstr ""
 
-#: ../cherry-options.php:253
+#: ../cherry-options.php:292
 msgid "Full"
 msgstr ""
 
-#: ../cherry-options.php:258
-msgid "Post part length"
+#: ../cherry-options.php:297
+msgid "Excerpt length"
 msgstr ""
 
-#: ../cherry-options.php:261
-msgid "Specify number of words displayed as post part in blog listing."
+#: ../cherry-options.php:300
+msgid "Specify number of words displayed in excerpt in blog listing."
 msgstr ""
 
-#: ../cherry-options.php:269
+#: ../cherry-options.php:308
 msgid "More button"
 msgstr ""
 
-#: ../cherry-options.php:272
+#: ../cherry-options.php:311
 msgid "Enable/Disable read more button in blog listing."
 msgstr ""
 
-#: ../cherry-options.php:278
+#: ../cherry-options.php:317
 msgid "More button label"
 msgstr ""
 
-#: ../cherry-options.php:281
+#: ../cherry-options.php:320
 msgid "Specify read more button label text. "
 msgstr ""
 
-#: ../cherry-options.php:283
+#: ../cherry-options.php:322
 msgid "read more"
 msgstr ""
 
-#: ../cherry-options.php:290
+#: ../cherry-options.php:329
 msgid "Featured Image"
 msgstr ""
 
-#: ../cherry-options.php:293
-msgid "Display featured image at the single post page."
+#: ../cherry-options.php:332
+msgid "Display featured image on the single post page."
 msgstr ""
 
-#: ../cherry-options.php:299
-msgid "Size for Featured Image"
+#: ../cherry-options.php:338
+msgid "Size of Featured Image"
 msgstr ""
 
-#: ../cherry-options.php:302
-msgid "Set dimensions for single post featured images in pixels."
+#: ../cherry-options.php:341
+msgid "Set dimensions for single post featured images."
 msgstr ""
 
-#: ../cherry-options.php:312
-msgid "Alignment for Featured Image"
+#: ../cherry-options.php:351
+msgid "Alignment of Featured Image"
 msgstr ""
 
-#: ../cherry-options.php:315
+#: ../cherry-options.php:354
 msgid "Set alignment for single post featured images."
 msgstr ""
 
-#: ../cherry-options.php:327
+#: ../cherry-options.php:366
 msgid "Author bio"
 msgstr ""
 
-#: ../cherry-options.php:330
+#: ../cherry-options.php:369
 msgid ""
-"Enable/disable author bio block. Author bio block is displayed at the post "
+"Enable/disable author bio block. Author bio block is displayed on the post "
 "page."
 msgstr ""
 
-#: ../cherry-options.php:336
+#: ../cherry-options.php:375
 msgid "Related posts"
 msgstr ""
 
-#: ../cherry-options.php:339
+#: ../cherry-options.php:378
 msgid ""
-"Enable/disable related posts block. Related posts block is displayed at the "
+"Enable/disable related posts block. Related posts block is displayed on the "
 "post page."
 msgstr ""
 
-#: ../cherry-options.php:345
+#: ../cherry-options.php:384
 msgid "Allow comments"
 msgstr ""
 
-#: ../cherry-options.php:348
+#: ../cherry-options.php:387
 msgid ""
 "Enable/disable comments for blog posts. Make sure comments are enabled in "
 "Wordpress 'settings->discussion'. For posts that have already been published "
 "you need to enable comments individually in post settings."
 msgstr ""
 
-#: ../cherry-options.php:354
+#: ../cherry-options.php:393
 msgid "Gallery slider"
 msgstr ""
 
-#: ../cherry-options.php:357
+#: ../cherry-options.php:396
 msgid ""
 "Replace default Wordpress gallery shortcode with enhanced jQuery carousel."
 msgstr ""
 
-#: ../cherry-options.php:366 ../lib/functions/template-media.php:165
+#: ../cherry-options.php:405 ../lib/functions/template-media.php:165
 msgid "Date"
 msgstr ""
 
-#: ../cherry-options.php:369
+#: ../cherry-options.php:408
 msgid "Show/Hide post publication date."
 msgstr ""
 
-#: ../cherry-options.php:375
+#: ../cherry-options.php:414
 msgid "Author"
 msgstr ""
 
-#: ../cherry-options.php:378
+#: ../cherry-options.php:417
 msgid "Show/Hide post author."
 msgstr ""
 
-#: ../cherry-options.php:384
+#: ../cherry-options.php:423
 msgid "Comments"
 msgstr ""
 
-#: ../cherry-options.php:387
+#: ../cherry-options.php:426
 msgid "Show/Hide number of comments."
 msgstr ""
 
-#: ../cherry-options.php:393
+#: ../cherry-options.php:432
 msgid "Categories"
 msgstr ""
 
-#: ../cherry-options.php:396
+#: ../cherry-options.php:435
 msgid "Show/Hide post categories."
 msgstr ""
 
-#: ../cherry-options.php:402
+#: ../cherry-options.php:441
 msgid "Tags"
 msgstr ""
 
-#: ../cherry-options.php:405
+#: ../cherry-options.php:444
 msgid "Show/Hide post tags."
 msgstr ""
 
-#: ../cherry-options.php:418
+#: ../cherry-options.php:457
 msgid "Body background"
 msgstr ""
 
-#: ../cherry-options.php:421
+#: ../cherry-options.php:460
 msgid ""
 "Set background for body container. You can specify background image or "
 "color, set background repeat, position and attachment. "
 msgstr ""
 
-#: ../cherry-options.php:439
+#: ../cherry-options.php:478
 msgid "Primary color"
 msgstr ""
 
-#: ../cherry-options.php:444
+#: ../cherry-options.php:483
 msgid "Secondary color"
 msgstr ""
 
-#: ../cherry-options.php:449
+#: ../cherry-options.php:488
 msgid "Success color"
 msgstr ""
 
-#: ../cherry-options.php:454
+#: ../cherry-options.php:493
 msgid "Info color"
 msgstr ""
 
-#: ../cherry-options.php:459
+#: ../cherry-options.php:498
 msgid "Warning color"
 msgstr ""
 
-#: ../cherry-options.php:464
+#: ../cherry-options.php:503
 msgid "Danger color"
 msgstr ""
 
-#: ../cherry-options.php:469
+#: ../cherry-options.php:508
 msgid "Primary gray color"
 msgstr ""
 
-#: ../cherry-options.php:491
+#: ../cherry-options.php:530
 msgid "Header Menu Typography"
 msgstr ""
 
-#: ../cherry-options.php:494
+#: ../cherry-options.php:533
 msgid "Main header navigation typography settings."
 msgstr ""
 
-#: ../cherry-options.php:510
+#: ../cherry-options.php:549
 msgid "Footer Menu Typography"
 msgstr ""
 
-#: ../cherry-options.php:513
+#: ../cherry-options.php:552
 msgid "Main footer navigation typography settings."
 msgstr ""
 
-#: ../cherry-options.php:535 ../cherry-options.php:1530
+#: ../cherry-options.php:574 ../cherry-options.php:1569
 msgid "Breadcrumbs"
 msgstr ""
 
-#: ../cherry-options.php:538
+#: ../cherry-options.php:577
 msgid "Enable/disable breadcrumbs navigation."
 msgstr ""
 
-#: ../cherry-options.php:545
+#: ../cherry-options.php:584
 msgid "Breadcrumbs mobile"
 msgstr ""
 
-#: ../cherry-options.php:548
+#: ../cherry-options.php:587
 msgid "Enable/disable breadcrumbs on mobile devices."
 msgstr ""
 
-#: ../cherry-options.php:560
+#: ../cherry-options.php:599
 msgid "Tablet"
 msgstr ""
 
-#: ../cherry-options.php:561
+#: ../cherry-options.php:600
 msgid "Mobile"
 msgstr ""
 
-#: ../cherry-options.php:566
+#: ../cherry-options.php:605
 msgid "Home page breadcrumbs"
 msgstr ""
 
-#: ../cherry-options.php:569
+#: ../cherry-options.php:608
 msgid "Enable/disable breadcrumbs on home page."
 msgstr ""
 
-#: ../cherry-options.php:575
+#: ../cherry-options.php:614
 msgid "Page title"
 msgstr ""
 
-#: ../cherry-options.php:578
+#: ../cherry-options.php:617
 msgid "Enable/disable page title in breadcrumbs."
 msgstr ""
 
-#: ../cherry-options.php:585
+#: ../cherry-options.php:624
 msgid "Item separator"
 msgstr ""
 
-#: ../cherry-options.php:588
+#: ../cherry-options.php:627
 msgid "Breadcrumbs separator symbol."
 msgstr ""
 
-#: ../cherry-options.php:597
+#: ../cherry-options.php:636
 msgid "Breadcrumbs prefix"
 msgstr ""
 
-#: ../cherry-options.php:600
+#: ../cherry-options.php:639
 msgid "Text displayed before breadcrumbs navigation."
 msgstr ""
 
-#: ../cherry-options.php:602
+#: ../cherry-options.php:641
 msgid "You are here:"
 msgstr ""
 
-#: ../cherry-options.php:612
+#: ../cherry-options.php:651
 msgid "Pagination position"
 msgstr ""
 
-#: ../cherry-options.php:615
+#: ../cherry-options.php:654
 msgid "Select where you want to display pagination."
 msgstr ""
 
-#: ../cherry-options.php:619
+#: ../cherry-options.php:658
 msgid "After posts loop"
 msgstr ""
 
-#: ../cherry-options.php:620
+#: ../cherry-options.php:659
 msgid "Before posts loop"
 msgstr ""
 
-#: ../cherry-options.php:621
+#: ../cherry-options.php:660
 msgid "Both"
 msgstr ""
 
-#: ../cherry-options.php:627
+#: ../cherry-options.php:666
 msgid "Prev/next buttons"
 msgstr ""
 
-#: ../cherry-options.php:630
+#: ../cherry-options.php:669
 msgid "Show/hide previous and next buttons in pagination."
 msgstr ""
 
-#: ../cherry-options.php:636
+#: ../cherry-options.php:675
 msgid "Pagination label"
 msgstr ""
 
-#: ../cherry-options.php:639
+#: ../cherry-options.php:678
 msgid ""
 "Pagination label. Displayed before pagination buttons. Text or HTML can be "
 "used."
 msgstr ""
 
-#: ../cherry-options.php:641 ../lib/functions/template-post.php:259
+#: ../cherry-options.php:680 ../lib/functions/template-post.php:259
 msgid "Pages:"
 msgstr ""
 
-#: ../cherry-options.php:645
+#: ../cherry-options.php:684
 msgid "Prev button label"
 msgstr ""
 
-#: ../cherry-options.php:648
+#: ../cherry-options.php:687
 msgid "Previous button label text. Text or HTML can be used."
 msgstr ""
 
-#: ../cherry-options.php:654
+#: ../cherry-options.php:693
 msgid "Next button label"
 msgstr ""
 
-#: ../cherry-options.php:657
+#: ../cherry-options.php:696
 msgid "Next button label text. Text or HTML can be used."
 msgstr ""
 
-#: ../cherry-options.php:663
+#: ../cherry-options.php:702
 msgid "Show all the pages"
 msgstr ""
 
-#: ../cherry-options.php:666
+#: ../cherry-options.php:705
 msgid ""
 "If set to On, then it will show all of the pages instead of a short list of "
 "the pages near the current page."
 msgstr ""
 
-#: ../cherry-options.php:672
+#: ../cherry-options.php:711
 msgid "End size"
 msgstr ""
 
-#: ../cherry-options.php:675
-msgid "How many numbers to display on either the start and the end list edges."
+#: ../cherry-options.php:714
+msgid "How many pages to display either at the top or at the end of the list."
 msgstr ""
 
-#: ../cherry-options.php:684
+#: ../cherry-options.php:723
 msgid "Mid size"
 msgstr ""
 
-#: ../cherry-options.php:687
+#: ../cherry-options.php:726
 msgid ""
 "How many numbers to display to either side of current page, but not "
 "including current page."
 msgstr ""
 
-#: ../cherry-options.php:701 ../lib/admin/class-cherry-post-style.php:112
+#: ../cherry-options.php:740 ../lib/admin/class-cherry-post-style.php:112
 msgid "Header background"
-msgstr ""
-
-#: ../cherry-options.php:704
-msgid ""
-"Header background settings. You can select background color, upload header "
-"background image, set it's background position, attachment and repeat. "
-msgstr ""
-
-#: ../cherry-options.php:718
-msgid "Sticky header"
-msgstr ""
-
-#: ../cherry-options.php:721
-msgid "Enable\\disable fixed stick to top header."
-msgstr ""
-
-#: ../cherry-options.php:727
-msgid "Sticky selector"
-msgstr ""
-
-#: ../cherry-options.php:730
-msgid ""
-"Select what block selector that will be used to build sticky panel. You can "
-"use tag name, class name, or id."
-msgstr ""
-
-#: ../cherry-options.php:740
-msgid "Logo type"
 msgstr ""
 
 #: ../cherry-options.php:743
 msgid ""
-"Select whether you want your main logo to be an image or text. If you select "
-"'image' you can choose logo image from the media library in the next option, "
-"and if you select 'text' your Wordpress Site Title will be shown instead."
+"Header background settings. You can select background color, upload header "
+"background image, set its background position, attachment and repeat."
 msgstr ""
 
-#: ../cherry-options.php:762
+#: ../cherry-options.php:757
+msgid "Sticky header"
+msgstr ""
+
+#: ../cherry-options.php:760
+msgid "Enable\\disable fixed header that sticks to the top."
+msgstr ""
+
+#: ../cherry-options.php:766
+msgid "Sticky selector"
+msgstr ""
+
+#: ../cherry-options.php:769
+msgid ""
+"Select the block selector that will be used to build sticky panel. You can "
+"use tag name, class name, or id."
+msgstr ""
+
+#: ../cherry-options.php:779
+msgid "Logo type"
+msgstr ""
+
+#: ../cherry-options.php:782
+msgid ""
+"Select whether you want your main logo to be an image or text. If you select "
+"\"image\", you can choose logo image from the media library in the next "
+"option, and if you select \"text\", your WordPress Site Title will be shown "
+"instead."
+msgstr ""
+
+#: ../cherry-options.php:801
 msgid "Logo image"
 msgstr ""
 
-#: ../cherry-options.php:765
+#: ../cherry-options.php:804
 msgid ""
 "Click Choose Media button to select logo image from the media library or "
 "upload your image."
 msgstr ""
 
-#: ../cherry-options.php:772
+#: ../cherry-options.php:811
 msgid "Logo typography"
 msgstr ""
 
-#: ../cherry-options.php:775
+#: ../cherry-options.php:814
 msgid ""
 "Configuration settings for text logo. Here you can select logo font family, "
-"size, color etc."
+"size, color, etc."
 msgstr ""
 
-#: ../cherry-options.php:797
+#: ../cherry-options.php:836
 msgid "Footer background"
 msgstr ""
 
-#: ../cherry-options.php:800
+#: ../cherry-options.php:839
 msgid ""
 "Footer background settings. You can select background color, upload footer "
-"background image, set it's background position, attachment and repeat."
+"background image, set its background position, attachment and repeat."
 msgstr ""
 
-#: ../cherry-options.php:814
+#: ../cherry-options.php:853
 msgid "Footer typography"
 msgstr ""
 
-#: ../cherry-options.php:817
+#: ../cherry-options.php:856
 msgid "Typography settings for footer texts."
 msgstr ""
 
-#: ../cherry-options.php:839
+#: ../cherry-options.php:878
 msgid "Body text"
 msgstr ""
 
-#: ../cherry-options.php:842
+#: ../cherry-options.php:881
 msgid "Main website text typography options."
 msgstr ""
 
-#: ../cherry-options.php:858
+#: ../cherry-options.php:897
 msgid "Link color"
 msgstr ""
 
-#: ../cherry-options.php:861
-msgid "Color for links."
+#: ../cherry-options.php:900
+msgid "Color of links."
 msgstr ""
 
-#: ../cherry-options.php:867
+#: ../cherry-options.php:906
 msgid "Link hover color"
 msgstr ""
 
-#: ../cherry-options.php:870
-msgid "Color for links on hover."
+#: ../cherry-options.php:909
+msgid "Color of links on hover."
 msgstr ""
 
-#: ../cherry-options.php:876
+#: ../cherry-options.php:915
 msgid "Input text"
 msgstr ""
 
-#: ../cherry-options.php:879
+#: ../cherry-options.php:918
 msgid "Styling text in forms."
 msgstr ""
 
-#: ../cherry-options.php:895
+#: ../cherry-options.php:934
 msgid "Breadcrumbs typography"
 msgstr ""
 
-#: ../cherry-options.php:898
+#: ../cherry-options.php:937
 msgid "Styling text in breadcrumbs."
 msgstr ""
 
-#: ../cherry-options.php:914
+#: ../cherry-options.php:953
 msgid "Heading 1"
 msgstr ""
 
-#: ../cherry-options.php:917
+#: ../cherry-options.php:956
 msgid "H1 heading font settings."
 msgstr ""
 
-#: ../cherry-options.php:933
+#: ../cherry-options.php:972
 msgid "Heading 2"
 msgstr ""
 
-#: ../cherry-options.php:936
+#: ../cherry-options.php:975
 msgid "H2 heading font settings."
 msgstr ""
 
-#: ../cherry-options.php:952
+#: ../cherry-options.php:991
 msgid "Heading 3"
 msgstr ""
 
-#: ../cherry-options.php:955
+#: ../cherry-options.php:994
 msgid "H3 heading font settings."
 msgstr ""
 
-#: ../cherry-options.php:971
+#: ../cherry-options.php:1010
 msgid "Heading 4"
 msgstr ""
 
-#: ../cherry-options.php:974
+#: ../cherry-options.php:1013
 msgid "H4 heading font settings."
 msgstr ""
 
-#: ../cherry-options.php:990
+#: ../cherry-options.php:1029
 msgid "Heading 5"
 msgstr ""
 
-#: ../cherry-options.php:993
+#: ../cherry-options.php:1032
 msgid "H5 heading font settings."
 msgstr ""
 
-#: ../cherry-options.php:1009
+#: ../cherry-options.php:1048
 msgid "Heading 6"
 msgstr ""
 
-#: ../cherry-options.php:1012
+#: ../cherry-options.php:1051
 msgid "H6 heading font settings."
 msgstr ""
 
-#: ../cherry-options.php:1034
+#: ../cherry-options.php:1073
 msgid "Concatenate/minify CSS"
 msgstr ""
 
-#: ../cherry-options.php:1037
+#: ../cherry-options.php:1076
 msgid ""
-"Select if you want to merge minify CSS files to performance optimization."
+"Select if you want to merge\\minify CSS files to performance optimization."
 msgstr ""
 
-#: ../cherry-options.php:1041
+#: ../cherry-options.php:1080
 msgid "Yes"
 msgstr ""
 
-#: ../cherry-options.php:1042
+#: ../cherry-options.php:1081
 msgid "No"
 msgstr ""
 
-#: ../cherry-options.php:1050
+#: ../cherry-options.php:1089
 msgid "Output dynamic CSS into separate file or into style tag."
 msgstr ""
 
-#: ../cherry-options.php:1067
+#: ../cherry-options.php:1106
 msgid "Text input"
 msgstr ""
 
-#: ../cherry-options.php:1072
+#: ../cherry-options.php:1111
 msgid "Regular single line text input field."
 msgstr ""
 
-#: ../cherry-options.php:1078
+#: ../cherry-options.php:1117
 msgid "Textarea input"
 msgstr ""
 
-#: ../cherry-options.php:1083
+#: ../cherry-options.php:1122
 msgid "Multiline text input field ( 16 rows x 20 cols )."
 msgstr ""
 
-#: ../cherry-options.php:1089
+#: ../cherry-options.php:1128
 msgid "Select box"
 msgstr ""
 
-#: ../cherry-options.php:1094
+#: ../cherry-options.php:1133
 msgid "Select box with single option."
 msgstr ""
 
-#: ../cherry-options.php:1106
+#: ../cherry-options.php:1145
 msgid "Filtered select"
 msgstr ""
 
-#: ../cherry-options.php:1111
+#: ../cherry-options.php:1150
 msgid "Select box with filter option."
 msgstr ""
 
-#: ../cherry-options.php:1128
+#: ../cherry-options.php:1167
 msgid "Mulli-select box"
 msgstr ""
 
-#: ../cherry-options.php:1133
+#: ../cherry-options.php:1172
 msgid "Select box with multiple select capability."
 msgstr ""
 
-#: ../cherry-options.php:1151
+#: ../cherry-options.php:1190
 msgid "Checkbox"
 msgstr ""
 
-#: ../cherry-options.php:1152
+#: ../cherry-options.php:1191
 msgid "Checkbox label"
 msgstr ""
 
-#: ../cherry-options.php:1156
+#: ../cherry-options.php:1195
 msgid "Regular HTML checkbox."
 msgstr ""
 
-#: ../cherry-options.php:1162
+#: ../cherry-options.php:1201
 msgid "Switcher"
 msgstr ""
 
-#: ../cherry-options.php:1167
+#: ../cherry-options.php:1206
 msgid "Analogue of the regular HTML radio buttons. "
 msgstr ""
 
-#: ../cherry-options.php:1173
+#: ../cherry-options.php:1212
 msgid "Stepper"
 msgstr ""
 
-#: ../cherry-options.php:1178
+#: ../cherry-options.php:1217
 msgid "Adds a number input used to define numeric values."
 msgstr ""
 
-#: ../cherry-options.php:1187
+#: ../cherry-options.php:1226
 msgid "Switcher (alternative)"
 msgstr ""
 
-#: ../cherry-options.php:1192
+#: ../cherry-options.php:1231
 msgid "Alternative switcher with custom labels."
 msgstr ""
 
-#: ../cherry-options.php:1196
+#: ../cherry-options.php:1235
 msgid "Enabled"
 msgstr ""
 
-#: ../cherry-options.php:1197
+#: ../cherry-options.php:1236
 msgid "Disabled"
 msgstr ""
 
-#: ../cherry-options.php:1202
+#: ../cherry-options.php:1241
 msgid "Slider"
 msgstr ""
 
-#: ../cherry-options.php:1207
+#: ../cherry-options.php:1246
 msgid "Draggable slider with stepper. Used to define some numeric value."
 msgstr ""
 
-#: ../cherry-options.php:1215
+#: ../cherry-options.php:1254
 msgid "Slider (ranged)"
 msgstr ""
 
-#: ../cherry-options.php:1220
+#: ../cherry-options.php:1259
 msgid "Draggable slider with range capability. Used to define numeric range."
 msgstr ""
 
-#: ../cherry-options.php:1231
+#: ../cherry-options.php:1270
 msgid "Multiple checkboxes"
 msgstr ""
 
-#: ../cherry-options.php:1236
+#: ../cherry-options.php:1275
 msgid ""
 "Adds checkboxes group. Lets user to select several options from the list."
 msgstr ""
 
-#: ../cherry-options.php:1248
+#: ../cherry-options.php:1287
 msgid "Radio buttons"
 msgstr ""
 
-#: ../cherry-options.php:1253
+#: ../cherry-options.php:1292
 msgid "Adds radio buttons group. Lets user to select one option from the list."
 msgstr ""
 
-#: ../cherry-options.php:1272
+#: ../cherry-options.php:1311
 msgid "Radio buttons (image)"
 msgstr ""
 
-#: ../cherry-options.php:1277
+#: ../cherry-options.php:1316
 msgid "Adds image based radio buttons group. Behaves as HTML radio buttons."
 msgstr ""
 
-#: ../cherry-options.php:1299
+#: ../cherry-options.php:1338
 msgid "Media library element"
 msgstr ""
 
-#: ../cherry-options.php:1304
+#: ../cherry-options.php:1343
 msgid "Lets user to add content from Wordpress media library. "
 msgstr ""
 
-#: ../cherry-options.php:1312
+#: ../cherry-options.php:1351
 msgid "Background image"
 msgstr ""
 
-#: ../cherry-options.php:1317
+#: ../cherry-options.php:1356
 msgid ""
-"Lets user to add background image from the media library and define it's "
+"Lets user to add background image from the media library and define its "
 "background settings like background repeat, position, attachment, origin."
 msgstr ""
 
-#: ../cherry-options.php:1332
+#: ../cherry-options.php:1371
 msgid "Colorpicker"
 msgstr ""
 
-#: ../cherry-options.php:1337
+#: ../cherry-options.php:1376
 msgid "Adds a color picker."
 msgstr ""
 
-#: ../cherry-options.php:1344
+#: ../cherry-options.php:1383
 msgid "WYSIWYG editor"
 msgstr ""
 
-#: ../cherry-options.php:1349
+#: ../cherry-options.php:1388
 msgid ""
 "Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page "
 "editing area."
 msgstr ""
 
-#: ../cherry-options.php:1355
+#: ../cherry-options.php:1394
 msgid "CSS Editor"
 msgstr ""
 
-#: ../cherry-options.php:1360
+#: ../cherry-options.php:1399
 msgid "Embedded CSS editor with syntax highlighting."
 msgstr ""
 
-#: ../cherry-options.php:1366 ../cherry-options.php:1563
+#: ../cherry-options.php:1405 ../cherry-options.php:1602
 msgid "Typography"
 msgstr ""
 
-#: ../cherry-options.php:1371
+#: ../cherry-options.php:1410
 msgid ""
 "Provides typography configuration options such as Google Font family name, "
 "font size, line height, style, letter spacing, characters sets, text align "
 "and color. Below options you can see font preview."
 msgstr ""
 
-#: ../cherry-options.php:1387
+#: ../cherry-options.php:1426
 msgid "title layout editor"
 msgstr ""
 
-#: ../cherry-options.php:1430
+#: ../cherry-options.php:1469
 msgid "Links repeater"
 msgstr ""
 
-#: ../cherry-options.php:1435
+#: ../cherry-options.php:1474
 msgid ""
 "This option allows you to create a custom links list. For each link you can "
 "define URL, class and label."
 msgstr ""
 
-#: ../cherry-options.php:1457
+#: ../cherry-options.php:1496
 msgid "Info panel"
 msgstr ""
 
-#: ../cherry-options.php:1473
+#: ../cherry-options.php:1512
 msgid "General"
 msgstr ""
 
-#: ../cherry-options.php:1485
+#: ../cherry-options.php:1524
 msgid "Grid"
 msgstr ""
 
-#: ../cherry-options.php:1491
+#: ../cherry-options.php:1530
 msgid "Blog"
 msgstr ""
 
-#: ../cherry-options.php:1497
+#: ../cherry-options.php:1536
 msgid "Post"
 msgstr ""
 
-#: ../cherry-options.php:1504
+#: ../cherry-options.php:1543
 msgid "Meta"
 msgstr ""
 
-#: ../cherry-options.php:1511
+#: ../cherry-options.php:1550
 msgid "Styling"
 msgstr ""
 
-#: ../cherry-options.php:1517
+#: ../cherry-options.php:1556
 msgid "Color scheme"
 msgstr ""
 
-#: ../cherry-options.php:1524
+#: ../cherry-options.php:1563
 msgid "Navigation"
 msgstr ""
 
-#: ../cherry-options.php:1537
+#: ../cherry-options.php:1576
 msgid "Pagination"
 msgstr ""
 
-#: ../cherry-options.php:1550 ../init/statics/header-logo.php:92
+#: ../cherry-options.php:1589 ../init/statics/header-logo.php:112
 msgid "Logo"
 msgstr ""
 
-#: ../cherry-options.php:1557
+#: ../cherry-options.php:1596 ../lib/admin/class-cherry-grid-type.php:51
 msgid "Footer"
 msgstr ""
 
-#: ../cherry-options.php:1569
+#: ../cherry-options.php:1608
 msgid "Optimization"
 msgstr ""
 
-#: ../cherry-options.php:1575
+#: ../cherry-options.php:1614
 msgid "Interface elements (for UI developers)"
 msgstr ""
 
@@ -1110,11 +1134,11 @@ msgstr ""
 msgid "Showcase Area"
 msgstr ""
 
-#: ../init/config/static-areas.php:41
+#: ../init/config/static-areas.php:39
 msgid "Footer Top"
 msgstr ""
 
-#: ../init/config/static-areas.php:46
+#: ../init/config/static-areas.php:44
 msgid "Footer Bottom"
 msgstr ""
 
@@ -1164,7 +1188,7 @@ msgid "Search Form"
 msgstr ""
 
 #: ../lib/admin/class-cherry-admin.php:78
-msgid "Please, select import file"
+msgid "Please select file to import"
 msgstr ""
 
 #: ../lib/admin/class-cherry-admin.php:79
@@ -1176,13 +1200,17 @@ msgid ""
 "Cherry Options have been imported. Page will be refreshed to apply changes..."
 msgstr ""
 
-#: ../lib/admin/class-cherry-grid-type.php:65
+#: ../lib/admin/class-cherry-grid-type.php:47
+msgid "Content"
+msgstr ""
+
+#: ../lib/admin/class-cherry-grid-type.php:86
 msgid "Grid Type"
 msgstr ""
 
-#: ../lib/admin/class-cherry-grid-type.php:202
+#: ../lib/admin/class-cherry-grid-type.php:230
 #: ../lib/admin/class-cherry-layouts.php:203
-#: ../lib/classes/class-cherry-interface-builder.php:980
+#: ../lib/classes/class-cherry-interface-builder.php:979
 msgid "Inherit"
 msgstr ""
 
@@ -1194,9 +1222,9 @@ msgstr ""
 #: ../lib/classes/class-cherry-interface-builder.php:421
 #: ../lib/classes/class-cherry-interface-builder.php:446
 #: ../lib/classes/class-cherry-interface-builder.php:453
-#: ../lib/classes/class-cherry-interface-builder.php:1067
-#: ../lib/classes/class-cherry-interface-builder.php:1073
-#: ../lib/classes/class-cherry-interface-builder.php:1079
+#: ../lib/classes/class-cherry-interface-builder.php:1066
+#: ../lib/classes/class-cherry-interface-builder.php:1072
+#: ../lib/classes/class-cherry-interface-builder.php:1078
 msgid "Step Up"
 msgstr ""
 
@@ -1204,9 +1232,9 @@ msgstr ""
 #: ../lib/classes/class-cherry-interface-builder.php:421
 #: ../lib/classes/class-cherry-interface-builder.php:446
 #: ../lib/classes/class-cherry-interface-builder.php:453
-#: ../lib/classes/class-cherry-interface-builder.php:1067
-#: ../lib/classes/class-cherry-interface-builder.php:1073
-#: ../lib/classes/class-cherry-interface-builder.php:1079
+#: ../lib/classes/class-cherry-interface-builder.php:1066
+#: ../lib/classes/class-cherry-interface-builder.php:1072
+#: ../lib/classes/class-cherry-interface-builder.php:1078
 msgid "Step Down"
 msgstr ""
 
@@ -1220,81 +1248,81 @@ msgstr ""
 msgid "Off"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:217
+#: ../lib/classes/class-cherry-breadcrumbs.php:219
 msgid "Browse:"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:218
+#: ../lib/classes/class-cherry-breadcrumbs.php:220
 msgid "Home"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:219
+#: ../lib/classes/class-cherry-breadcrumbs.php:221
 msgid "404 Not Found"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:220
+#: ../lib/classes/class-cherry-breadcrumbs.php:222
 msgid "Archives"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:222
+#: ../lib/classes/class-cherry-breadcrumbs.php:224
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:224
+#: ../lib/classes/class-cherry-breadcrumbs.php:226
 #: ../lib/functions/head.php:117
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:226
+#: ../lib/classes/class-cherry-breadcrumbs.php:228
 #, php-format
 msgid "Minute %s"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:228
+#: ../lib/classes/class-cherry-breadcrumbs.php:230
 #, php-format
 msgid "Week %s"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:852
+#: ../lib/classes/class-cherry-breadcrumbs.php:854
 msgctxt "minute and hour archives time format"
 msgid "g:i a"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:872
+#: ../lib/classes/class-cherry-breadcrumbs.php:874
 msgctxt "minute archives time format"
 msgid "i"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:892
+#: ../lib/classes/class-cherry-breadcrumbs.php:894
 msgctxt "hour archives time format"
 msgid "g a"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:911
-#: ../lib/classes/class-cherry-breadcrumbs.php:967
-#: ../lib/classes/class-cherry-breadcrumbs.php:1008
-#: ../lib/classes/class-cherry-breadcrumbs.php:1048
-#: ../lib/classes/class-cherry-breadcrumbs.php:1256
+#: ../lib/classes/class-cherry-breadcrumbs.php:913
+#: ../lib/classes/class-cherry-breadcrumbs.php:969
+#: ../lib/classes/class-cherry-breadcrumbs.php:1010
+#: ../lib/classes/class-cherry-breadcrumbs.php:1050
+#: ../lib/classes/class-cherry-breadcrumbs.php:1258
 msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:916
-#: ../lib/classes/class-cherry-breadcrumbs.php:1012
-#: ../lib/classes/class-cherry-breadcrumbs.php:1267
+#: ../lib/classes/class-cherry-breadcrumbs.php:918
+#: ../lib/classes/class-cherry-breadcrumbs.php:1014
+#: ../lib/classes/class-cherry-breadcrumbs.php:1269
 msgctxt "monthly archives date format"
 msgid "F"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:921
-#: ../lib/classes/class-cherry-breadcrumbs.php:1280
+#: ../lib/classes/class-cherry-breadcrumbs.php:923
+#: ../lib/classes/class-cherry-breadcrumbs.php:1282
 msgctxt "daily archives date format"
 msgid "j"
 msgstr ""
 
-#: ../lib/classes/class-cherry-breadcrumbs.php:971
+#: ../lib/classes/class-cherry-breadcrumbs.php:973
 msgctxt "weekly archives date format"
 msgid "W"
 msgstr ""
@@ -1304,12 +1332,12 @@ msgid "Varaible not found"
 msgstr ""
 
 #: ../lib/classes/class-cherry-css-parser.php:201
-msgid "Function not exists"
+msgid "Function does not exist"
 msgstr ""
 
 #: ../lib/classes/class-cherry-interface-builder.php:123
-#: ../lib/classes/class-cherry-interface-builder.php:662
-#: ../lib/classes/class-cherry-interface-builder.php:925
+#: ../lib/classes/class-cherry-interface-builder.php:661
+#: ../lib/classes/class-cherry-interface-builder.php:924
 msgid "Choose Media"
 msgstr ""
 
@@ -1332,255 +1360,255 @@ msgstr ""
 msgid "Link label"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:482
+#: ../lib/classes/class-cherry-interface-builder.php:481
 msgid "Column class(.col-xs-*)"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:484
-#: ../lib/classes/class-cherry-interface-builder.php:493
-#: ../lib/classes/class-cherry-interface-builder.php:502
-#: ../lib/classes/class-cherry-interface-builder.php:511
-#: ../lib/classes/class-cherry-interface-builder.php:736
+#: ../lib/classes/class-cherry-interface-builder.php:483
+#: ../lib/classes/class-cherry-interface-builder.php:492
+#: ../lib/classes/class-cherry-interface-builder.php:501
+#: ../lib/classes/class-cherry-interface-builder.php:510
+#: ../lib/classes/class-cherry-interface-builder.php:735
 msgid "none"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:491
+#: ../lib/classes/class-cherry-interface-builder.php:490
 msgid "Column class(.col-sm-*)"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:500
+#: ../lib/classes/class-cherry-interface-builder.php:499
 msgid "Column class(.col-md-*)"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:509
+#: ../lib/classes/class-cherry-interface-builder.php:508
 msgid "Column class(.col-lg-*)"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:518
+#: ../lib/classes/class-cherry-interface-builder.php:517
 msgid "Custom class"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:532
+#: ../lib/classes/class-cherry-interface-builder.php:531
 msgid "Create new static"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:533
+#: ../lib/classes/class-cherry-interface-builder.php:532
 msgid "Add new static"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:696
+#: ../lib/classes/class-cherry-interface-builder.php:695
 msgid "position"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:698
+#: ../lib/classes/class-cherry-interface-builder.php:697
 msgid "margin"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:704
+#: ../lib/classes/class-cherry-interface-builder.php:703
 msgid "border"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:710
+#: ../lib/classes/class-cherry-interface-builder.php:709
 msgid "padding"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:716
+#: ../lib/classes/class-cherry-interface-builder.php:715
 msgid "size"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:728
+#: ../lib/classes/class-cherry-interface-builder.php:727
 msgid "solid"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:729
+#: ../lib/classes/class-cherry-interface-builder.php:728
 msgid "dashed"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:730
+#: ../lib/classes/class-cherry-interface-builder.php:729
 msgid "dotted"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:731
+#: ../lib/classes/class-cherry-interface-builder.php:730
 msgid "double"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:732
+#: ../lib/classes/class-cherry-interface-builder.php:731
 msgid "groove"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:733
+#: ../lib/classes/class-cherry-interface-builder.php:732
 msgid "ridge"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:734
+#: ../lib/classes/class-cherry-interface-builder.php:733
 msgid "inset"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:735
+#: ../lib/classes/class-cherry-interface-builder.php:734
 msgid "outset"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:738
+#: ../lib/classes/class-cherry-interface-builder.php:737
 msgid "Border style"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:748
+#: ../lib/classes/class-cherry-interface-builder.php:747
 msgid "Border radius"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:752
+#: ../lib/classes/class-cherry-interface-builder.php:751
 msgid "Border color"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:833
+#: ../lib/classes/class-cherry-interface-builder.php:832
 msgid "No repeat"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:834
+#: ../lib/classes/class-cherry-interface-builder.php:833
 msgid "Repeat All"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:835
+#: ../lib/classes/class-cherry-interface-builder.php:834
 msgid "Repeat Horizontally"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:836
+#: ../lib/classes/class-cherry-interface-builder.php:835
 msgid "Repeat Vertically"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:839
+#: ../lib/classes/class-cherry-interface-builder.php:838
 msgid "Top Left"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:840
+#: ../lib/classes/class-cherry-interface-builder.php:839
 msgid "Top Center"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:841
+#: ../lib/classes/class-cherry-interface-builder.php:840
 msgid "Top Right"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:842
+#: ../lib/classes/class-cherry-interface-builder.php:841
 msgid "Middle Left"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:843
+#: ../lib/classes/class-cherry-interface-builder.php:842
 msgid "Middle Center"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:844
+#: ../lib/classes/class-cherry-interface-builder.php:843
 msgid "Middle Right"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:845
+#: ../lib/classes/class-cherry-interface-builder.php:844
 msgid "Bottom Left"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:846
+#: ../lib/classes/class-cherry-interface-builder.php:845
 msgid "Bottom Center"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:847
+#: ../lib/classes/class-cherry-interface-builder.php:846
 msgid "Bottom Right"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:850
+#: ../lib/classes/class-cherry-interface-builder.php:849
 msgid "Scroll Normally"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:851
+#: ../lib/classes/class-cherry-interface-builder.php:850
 msgid "Fixed in Place"
+msgstr ""
+
+#: ../lib/classes/class-cherry-interface-builder.php:853
+#: ../lib/classes/class-cherry-interface-builder.php:863
+msgid "Padding box"
 msgstr ""
 
 #: ../lib/classes/class-cherry-interface-builder.php:854
 #: ../lib/classes/class-cherry-interface-builder.php:864
-msgid "Padding box"
+msgid "Border box"
 msgstr ""
 
 #: ../lib/classes/class-cherry-interface-builder.php:855
 #: ../lib/classes/class-cherry-interface-builder.php:865
-msgid "Border box"
-msgstr ""
-
-#: ../lib/classes/class-cherry-interface-builder.php:856
-#: ../lib/classes/class-cherry-interface-builder.php:866
 msgid "Content box"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:859
+#: ../lib/classes/class-cherry-interface-builder.php:858
 msgid "Auto Auto"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:860
+#: ../lib/classes/class-cherry-interface-builder.php:859
 msgid "Cover"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:861
+#: ../lib/classes/class-cherry-interface-builder.php:860
 msgid "Contain"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:871
+#: ../lib/classes/class-cherry-interface-builder.php:870
 msgid "Background Image"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:930
+#: ../lib/classes/class-cherry-interface-builder.php:929
 msgid "Background Color"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:935
+#: ../lib/classes/class-cherry-interface-builder.php:934
 msgid "Background Settings"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:939
+#: ../lib/classes/class-cherry-interface-builder.php:938
 #, php-format
 msgid "Background %s"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:979
+#: ../lib/classes/class-cherry-interface-builder.php:978
 msgid "Not defined"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:984
+#: ../lib/classes/class-cherry-interface-builder.php:983
 msgid "Justify"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:995
+#: ../lib/classes/class-cherry-interface-builder.php:994
 msgid "Font Family"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:998
+#: ../lib/classes/class-cherry-interface-builder.php:997
 msgid "Standart Webfonts"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:1009
+#: ../lib/classes/class-cherry-interface-builder.php:1008
 msgid "Google Webfonts"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:1040
+#: ../lib/classes/class-cherry-interface-builder.php:1039
 msgid "Font Style"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:1051
+#: ../lib/classes/class-cherry-interface-builder.php:1050
 msgid "Character Sets"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:1065
+#: ../lib/classes/class-cherry-interface-builder.php:1064
 msgid "Font Size"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:1071
-msgid "Lineheight"
+#: ../lib/classes/class-cherry-interface-builder.php:1070
+msgid "Line-height"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:1077
+#: ../lib/classes/class-cherry-interface-builder.php:1076
 msgid "Letter-spacing"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:1083
+#: ../lib/classes/class-cherry-interface-builder.php:1082
 msgid "Text align"
 msgstr ""
 
-#: ../lib/classes/class-cherry-interface-builder.php:1092
+#: ../lib/classes/class-cherry-interface-builder.php:1091
 msgid "Font color"
 msgstr ""
 
@@ -1787,34 +1815,4 @@ msgstr ""
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
-msgstr ""
-
-#: ../content/aside.tmpl:4 ../content/attachment.tmpl:5
-#: ../content/audio.tmpl:5 ../content/chat.tmpl:5 ../content/content.tmpl:7
-#: ../content/gallery.tmpl:5 ../content/image.tmpl:5 ../content/link.tmpl:5
-#: ../content/page.tmpl:5 ../content/quote.tmpl:4 ../content/standard.tmpl:5
-#: ../content/status.tmpl:6 ../content/video.tmpl:5
-msgid "Posted on "
-msgstr ""
-
-#: ../content/aside.tmpl:5 ../content/attachment.tmpl:6
-#: ../content/audio.tmpl:6 ../content/chat.tmpl:6 ../content/content.tmpl:8
-#: ../content/gallery.tmpl:6 ../content/image.tmpl:6 ../content/link.tmpl:6
-#: ../content/page.tmpl:6 ../content/quote.tmpl:5 ../content/standard.tmpl:6
-#: ../content/status.tmpl:7 ../content/video.tmpl:6
-msgid "by "
-msgstr ""
-
-#: ../content/aside.tmpl:7 ../content/audio.tmpl:8 ../content/gallery.tmpl:8
-#: ../content/image.tmpl:8 ../content/status.tmpl:9 ../content/video.tmpl:8
-msgid "in "
-msgstr ""
-
-#: ../content/author-bio.tmpl:1
-msgid "Written by"
-msgstr ""
-
-#: ../content/chat.tmpl:13 ../content/content.tmpl:16 ../content/link.tmpl:13
-#: ../content/quote.tmpl:13 ../content/standard.tmpl:15
-msgid "Posted in "
 msgstr ""

@@ -75,7 +75,7 @@ class Cherry_Admin {
 			wp_enqueue_script( 'admin-interface' );
 
 			$messages = array(
-				'no_file'      => __( 'Please, select import file', 'cherry' ),
+				'no_file'      => __( 'Please select file to import', 'cherry' ),
 				'invalid_type' => __( 'Invalid file type', 'cherry' ),
 				'success'      => __( 'Cherry Options have been imported. Page will be refreshed to apply changes...', 'cherry' ),
 				'redirect_url' => menu_page_url( 'cherry-options', false )

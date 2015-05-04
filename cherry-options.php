@@ -31,7 +31,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Favicon image', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 32x32 px <br>You also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
+			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size: 32x32 px <br>You can also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
 		),
 		'value'            => '',
 		'display_image'    => true,
@@ -53,7 +53,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Featured Images', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable displaying of featured images for pages.', 'cherry' ),
+			'content' => __( 'Enable/disable featured images for pages.', 'cherry' ),
 		),
 		'value' => 'false',
 	);
@@ -65,8 +65,7 @@ function cherry_defaults_settings() {
 		),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
-			be redirected to the page chosen below.', 'cherry' )
+			'content' => __( "Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will\won't be redirected to the page chosen below.", 'cherry' )
 		),
 		'value' => 'false',
 	);
@@ -110,7 +109,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Static areas', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Use static area editor to arrange static blocks. You can drag-n-drop statick blocks, remove them or add new ones using \'Create new static\' field below. ', 'cherry' ),
+			'content' => __( "Use static area editor to arrange static blocks. You can drag-n-drop static blocks, remove them or add new ones using 'Create new static' field below.", 'cherry' ),
 		),
 		'value'   => $cherry_registered_statics,
 		'options' => $cherry_registered_statics,
@@ -152,11 +151,11 @@ function cherry_defaults_settings() {
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
 			),
 			'1-left-2-left' => array(
-				'label'   => __( 'Sameside left sidebar', 'cherry' ),
+				'label'   => __( 'Two sidebars on the left', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
 			),
 			'1-right-2-right' => array(
-				'label'   => __( 'Sameside right sidebar', 'cherry' ),
+				'label'   => __( 'Two sidebars on the right', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
 			),
 			'no-sidebar' => array(
@@ -284,7 +283,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Post content', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Select how you want to display post content in blog listing: full - display fill post content, part - display part of the post (you can specify post part size below), none - hide post content.', 'cherry' ),
+			'content' => __( 'Select how you want to display post content in blog listing: full - display full post content, excerpt - display part of the post (you can specify excerpt length below), none - hide post content.', 'cherry' ),
 		),
 		'value'       => 'part',
 		'options'     => array(
@@ -295,10 +294,10 @@ function cherry_defaults_settings() {
 	);
 	$blog_options['blog-excerpt-length'] = array(
 		'type'        => 'slider',
-		'title'       => __( 'Post part length', 'cherry' ),
+		'title'       => __( 'Excerpt length', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Specify number of words displayed as post part in blog listing.', 'cherry' ),
+			'content' => __( 'Specify number of words displayed in excerpt in blog listing.', 'cherry' ),
 		),
 		'max_value'   => 500,
 		'min_value'   => 1,
@@ -330,16 +329,16 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Featured Image', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Display featured image at the single post page.', 'cherry' ),
+			'content' => __( 'Display featured image on the single post page.', 'cherry' ),
 		),
 		'value'       => 'true',
 	);
 	$post_single_options['blog-post-featured-image-size'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Size for Featured Image', 'cherry' ),
+		'title'       => __( 'Size of Featured Image', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Set dimensions for single post featured images in pixels.', 'cherry' ),
+			'content' => __( 'Set dimensions for single post featured images.', 'cherry' ),
 		),
 		'value'       => 'thumb-l',
 		'options'     => array(
@@ -349,7 +348,7 @@ function cherry_defaults_settings() {
 	);
 	$post_single_options['blog-post-featured-image-align'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Alignment for Featured Image', 'cherry' ),
+		'title'       => __( 'Alignment of Featured Image', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
 			'content' => __( 'Set alignment for single post featured images.', 'cherry' ),
@@ -367,7 +366,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Author bio', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable author bio block. Author bio block is displayed at the post page.', 'cherry' ),
+			'content' => __( 'Enable/disable author bio block. Author bio block is displayed on the post page.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -376,7 +375,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Related posts', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable related posts block. Related posts block is displayed at the post page.', 'cherry' ),
+			'content' => __( 'Enable/disable related posts block. Related posts block is displayed on the post page.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -712,7 +711,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'End size', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'How many numbers to display on either the start and the end list edges.', 'cherry' )
+			'content'	=> __( 'How many pages to display either at the top or at the end of the list.', 'cherry' )
 		),
 		'value'			=> '1',
 		'value-step'	=> '1',
@@ -741,7 +740,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Header background', 'cherry' ),
 		'hint'			=>  array(
 				'type'		=> 'text',
-				'content'	=>  __( 'Header background settings. You can select background color, upload header background image, set it\'s background position, attachment and repeat. ', 'cherry' )
+				'content'	=>  __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' )
 			),
 		'return_data_type'	=> 'id',
 		'library_type'		=> 'image',
@@ -758,7 +757,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Sticky header', 'cherry' ),
 		'hint'			=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Enable\disable fixed stick to top header.', 'cherry' )
+			'content'	=> __( 'Enable\disable fixed header that sticks to the top.', 'cherry' )
 		),
 		'value'			=> 'false'
 	);
@@ -767,7 +766,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Sticky selector', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Select what block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
+			'content'	=> __( 'Select the block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
 		),
 		'value'			=> $default_selector,
 		'options'		=> $sticky_selectors
@@ -780,7 +779,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Logo type', 'cherry' ),
 		'hint'			=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select \'image\' you can choose logo image from the media library in the next option, and if you select \'text\' your Wordpress Site Title will be shown instead.', 'cherry' )
+			'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select "image", you can choose logo image from the media library in the next option, and if you select "text", your WordPress Site Title will be shown instead.', 'cherry' )
 		),
 		'value'			=> 'text',
 		'default_value'	=> 'text',
@@ -812,7 +811,7 @@ function cherry_defaults_settings() {
 		'title'				=> __( 'Logo typography', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color etc.', 'cherry' )
+			'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color, etc.', 'cherry' )
 		),
 		'value'			=> array(
 			'fonttype'		=> 'web',
@@ -837,7 +836,7 @@ function cherry_defaults_settings() {
 		'title'				=> __( 'Footer background', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Footer background settings. You can select background color, upload footer background image, set it\'s background position, attachment and repeat.', 'cherry' )
+			'content'	=> __( 'Footer background settings. You can select background color, upload footer background image, set its background position, attachment and repeat.', 'cherry' )
 		),
 		'return_data_type'	=> 'id',
 		'library_type'		=> 'image',
@@ -898,7 +897,7 @@ function cherry_defaults_settings() {
 			'title'			=> __( 'Link color', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'Color for links.', 'cherry' )
+				'content'	=> __( 'Color of links.', 'cherry' )
 			),
 			'value'			=> '#f62e46'
 	);
@@ -907,7 +906,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Link hover color', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Color for links on hover.', 'cherry' )
+			'content'	=> __( 'Color of links on hover.', 'cherry' )
 		),
 		'value'			=> '#333333'
 	);
@@ -1074,7 +1073,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Concatenate/minify CSS', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Select if you want to merge minify CSS files to performance optimization.', 'cherry' )
+			'content'	=> __( 'Select if you want to merge\minify CSS files to performance optimization.', 'cherry' )
 		),
 		'value'         => 'false',
 		'toggle'        => array(
@@ -1354,7 +1353,7 @@ function cherry_defaults_settings() {
 		'decsription'	=> '',
 		'hint'      	=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Lets user to add background image from the media library and define it\'s background settings like background repeat, position, attachment, origin.', 'cherry'),
+			'content'	=> __('Lets user to add background image from the media library and define its background settings like background repeat, position, attachment, origin.', 'cherry'),
 		),
 		'multi-upload'		=> true,
 		'library_type'		=> 'image',
