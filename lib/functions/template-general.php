@@ -48,7 +48,7 @@ function cherry_get_site_link() {
 		return false;
 	}
 
-	return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url() ), $title );
+	return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url( '/' ) ), $title );
 }
 
 /**
@@ -157,7 +157,7 @@ function cherry_get_site_logo() {
 				'<a href="%1$s" rel="home"><img src="%2$s" alt="%3$s"></a>'
 			);
 
-			$logo_content = sprintf( $logo_image_format, home_url(), esc_url( $img ), get_bloginfo( 'title' ) );
+			$logo_content = sprintf( $logo_image_format, home_url( '/' ), esc_url( $img ), get_bloginfo( 'title' ) );
 		}
 
 	} else {
@@ -230,7 +230,7 @@ function cherry_get_retina_logo( $images ) {
 
 	$logo_content = sprintf(
 		$logo_format,
-		home_url(), esc_url( $img1x ), esc_url( $img2x ), get_bloginfo( 'title' ), $width1x, $height1x
+		home_url( '/' ), esc_url( $img1x ), esc_url( $img2x ), get_bloginfo( 'title' ), $width1x, $height1x
 	);
 
 	return $logo_content;

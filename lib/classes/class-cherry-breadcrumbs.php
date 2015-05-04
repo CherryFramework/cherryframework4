@@ -534,7 +534,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 						? 'link_format'
 						: 'home_format';
 
-			$url   = home_url();
+			$url   = home_url( '/' );
 			$label = ( is_multisite() && !is_main_site() && true === $this->args['network'] )
 						? get_bloginfo( 'name' )
 						: $this->args['labels']['home'];
@@ -986,7 +986,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$this->_add_item(
 					'link_format',
 					$week,
-					add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url() )
+					add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url( '/' ) )
 				);
 
 			} elseif ( true === $this->args['show_title'] ) {
