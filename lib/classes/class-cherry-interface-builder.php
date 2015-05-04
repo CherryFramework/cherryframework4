@@ -1067,7 +1067,7 @@ class Cherry_Interface_Builder {
 						$output .= '</div>';
 						//lineheight
 						$output .= '<div class="field-font-lineheight">';
-							$output .= $this -> add_label($id . '[lineheight]',  __( 'Lineheight', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= $this -> add_label($id . '[lineheight]',  __( 'Line-height', 'cherry' ), $this->options['class']['label'].' cherry-block');
 							$output .= '<input id="' . $id . '[lineheight]" name="' . $name . '[lineheight]" class="cherry-stepper-input font-lineheight" placeholder="inherit" type="text" value="' . esc_html( $value['lineheight'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-step-value="1">';
 							$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span> px';
 						$output .= '</div>';
