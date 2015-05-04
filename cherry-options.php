@@ -11,7 +11,15 @@ function cherry_defaults_settings() {
 		$all_pages[$page->ID] = $page->post_title;
 	}
 
-	$maintenance_preview = add_query_arg( array( 'maintenance-preview' => true ), home_url() );
+	$maintenance_preview = esc_url(
+		add_query_arg(
+			array(
+				'maintenance-preview' => true,
+				'nonce'               => wp_create_nonce( 'cherry-maintenance-preview' )
+			),
+			home_url()
+		)
+	);
 
 	$sticky_selectors = apply_filters( 'cherry_sticky_selectors', array(
 		'.site-header'            => __( 'Header', 'cherry' ),
