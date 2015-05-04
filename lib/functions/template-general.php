@@ -39,16 +39,21 @@ function cherry_site_link() {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @param  string $class optional CSS class added to site-link
  * @return string
  */
-function cherry_get_site_link() {
-	$title = get_bloginfo( 'name' );
+function cherry_get_site_link( $class = 'site-link' ) {
 
+	$class = esc_attr( $class );
+	if ( ! $class ) {
+		$class = 'site-link';
+	}
+
+	$title = get_bloginfo( 'name' );
 	if ( !$title ) {
 		return false;
 	}
-
-	return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url( '/' ) ), $title );
+	return sprintf( '<a class="%s" href="%s" rel="home">%s</a>', $class, esc_url( home_url( '/' ) ), $title );
 }
 
 /**
@@ -169,6 +174,34 @@ function cherry_get_site_logo() {
 	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', 'site-title', $logo_content, $tag ) : '';
 
 	return apply_filters( 'cherry_get_site_logo', $logo );
+}
+
+/**
+ * Returns the linked site footer logo
+ *
+ * @since  4.0.0
+ * @return string
+ */
+function cherry_get_footer_logo() {
+
+	$logo_img = cherry_get_option( 'logo-footer', false );
+
+	if ( ! $logo_img ) {
+		return;
+	}
+
+	$images = explode( ',', $logo_img );
+
+	if ( count( $images ) > 1 ) {
+		$logo_content = cherry_get_retina_logo( $images );
+	} else {
+		$img = wp_get_attachment_url( $images[0] );
+		$logo_image_format = '<a href="%1$s" rel="home"><img src="%2$s" alt="%3$s"></a>';
+		$logo_content = sprintf( $logo_image_format, home_url( '/' ), esc_url( $img ), get_bloginfo( 'title' ) );
+	}
+
+	return sprintf( '<div class="cherry-footer-logo">%s</div>', $logo_content );
+
 }
 
 /**

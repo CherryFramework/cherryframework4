@@ -17,7 +17,7 @@ function cherry_defaults_settings() {
 				'maintenance-preview' => true,
 				'nonce'               => wp_create_nonce( 'cherry-maintenance-preview' )
 			),
-			home_url()
+			home_url( '/' )
 		)
 	);
 
@@ -874,6 +874,16 @@ function cherry_defaults_settings() {
 			'letterspacing' => '',
 			'align'			=> 'notdefined'
 		)
+	);
+	$footer_options['logo-footer'] = array(
+		'type'				=> 'media',
+		'title'				=> __( 'Footer Logo image', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Click Choose Media button to select footer logo image from the media library or upload your image.', 'cherry' )
+		),
+		'value'				=> '',
+		'multi-upload'		=> true,
 	);
 //////////////////////////////////////////////////////////////////////
 // Typography options
