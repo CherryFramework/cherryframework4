@@ -42,7 +42,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 *
 		 * @var array
 		 */
-		public $var_pattern = '/\$(([-_a-zA-Z0-9]+)\[?[\'\"\s]*(\w+)?[\'\"\s]*\]?)/';
+		public $var_pattern = '/\$(([-_a-zA-Z0-9]+)\[?[\'\"]*([-_a-zA-Z0-9]+)?[\'\"]*\]?)/';
 
 		/**
 		 * Function pattern
