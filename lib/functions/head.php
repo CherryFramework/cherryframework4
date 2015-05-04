@@ -17,13 +17,9 @@ if ( !defined( 'WPINC' ) ) {
 
 // Adds common theme items to <head>.
 add_action( 'wp_head', 'cherry_meta_charset',  0 );
-add_action( 'wp_head', 'cherry_doctitle',      0 );
 add_action( 'wp_head', 'cherry_meta_viewport', 1 );
 add_action( 'wp_head', 'wp_generator',         1 ); // Move the WordPress generator to a better priority.
 add_action( 'wp_head', 'cherry_link_pingback', 3 );
-
-// Filters the WordPress title.
-add_filter( 'wp_title', 'cherry_wp_title', 10, 2 );
 
 /**
  * Removes unnecessary code that WordPress puts to <head>.
@@ -52,17 +48,6 @@ function cherry_meta_charset() {
 }
 
 /**
- * Adds the title to the header.
- *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
- * @since  4.0.0
- */
-function cherry_doctitle() {
-	?><title><?php wp_title( '|', true, 'right' ); ?></title>
-<?php }
-
-/**
  * Adds the meta viewport to the header.
  *
  * @since 4.0.0
@@ -86,38 +71,6 @@ function cherry_link_pingback() {
 	if ( 'open' === get_option( 'default_ping_status' ) ) {
 		printf( '<link rel="pingback" href="%s" />' . "\n", get_bloginfo( 'pingback_url' ) );
 	}
-}
-
-/**
- * Filters wp_title to print a neat <title> tag based on what is being viewed.
- *
- * @since  4.0.0
- * @param  string $title Default title text for current view.
- * @param  string $sep   Optional separator.
- * @return string        The filtered title.
- */
-function cherry_wp_title( $title, $sep ) {
-	if ( is_feed() ) {
-		return $title;
-	}
-
-	global $page, $paged;
-
-	// Add the blog name
-	$title .= get_bloginfo( 'name', 'display' );
-
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title .= " $sep $site_description";
-	}
-
-	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'cherry' ), max( $paged, $page ) );
-	}
-
-	return $title;
 }
 
 /**
