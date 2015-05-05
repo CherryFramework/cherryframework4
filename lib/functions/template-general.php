@@ -82,7 +82,10 @@ function cherry_wp_link() {
  * @return string
  */
 function cherry_get_wp_link() {
-	return sprintf( '<a class="wp-link" href="http://wordpress.org/" rel="nofollow">%s</a>', 'WordPress' );
+	return sprintf(
+		'<a class="wp-link" href="%s" rel="nofollow">%s</a>',
+		__( 'http://wordpress.org/', 'cherry' ), 'WordPress'
+	);
 }
 
 /**
