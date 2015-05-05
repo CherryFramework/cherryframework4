@@ -276,10 +276,10 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
 		),
-		'value'       => 'thumb-l',
+		'value'       => 'cherry-thumb-l',
 		'options'     => array(
-			'thumb-s' => __( 'Small', 'cherry' ),
-			'thumb-l' => __( 'Large', 'cherry' ),
+			'cherry-thumb-s' => __( 'Small', 'cherry' ),
+			'cherry-thumb-l' => __( 'Large', 'cherry' ),
 		)
 	);
 	$blog_options['blog-featured-images-align'] = array(
@@ -359,10 +359,10 @@ function cherry_defaults_settings() {
 			'type' => 'text',
 			'content' => __( 'Set dimensions for single post featured images.', 'cherry' ),
 		),
-		'value'       => 'thumb-l',
+		'value'       => 'cherry-thumb-l',
 		'options'     => array(
-			'thumb-s' => __( 'Small', 'cherry' ),
-			'thumb-l' => __( 'Large', 'cherry' ),
+			'cherry-thumb-s' => __( 'Small', 'cherry' ),
+			'cherry-thumb-l' => __( 'Large', 'cherry' ),
 		)
 	);
 	$post_single_options['blog-post-featured-image-align'] = array(
