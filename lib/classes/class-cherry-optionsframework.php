@@ -21,6 +21,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 
 		public $current_section_name = '';
 		public $loaded_settings;
+		public $themename = '';
 		public static $is_db_options_exist = null;
 		private static $instance = null;
 
@@ -50,9 +51,9 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		public function create_themename_option() {
 			// This gets the theme name from the stylesheet (lowercase and without spaces)
 			$themename = get_option( 'stylesheet' );
-			$themename = preg_replace("/\W/", "_", strtolower($themename) );
+			$this->themename = preg_replace("/\W/", "_", strtolower($themename) );
 			$cherry_options_settings = get_option('cherry-options');
-			$cherry_options_settings['id'] = $themename;
+			$cherry_options_settings['id'] = $this->themename;
 			update_option('cherry-options', $cherry_options_settings);
 
 			$this->loaded_settings = $this->load_settings();
@@ -69,7 +70,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function save_options($options_array) {
+		public function save_options( $options_array ) {
 			$settings = get_option( 'cherry-options' );
 			update_option($settings['id'], $options_array);
 		}
@@ -122,7 +123,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function get_type_by_option_id($option_id) {
+		public function get_type_by_id($option_id) {
 			$result = '';
 			$default_settings = $this->loaded_settings;
 			foreach ($default_settings as $sectionName => $sectionSettings) {
@@ -152,7 +153,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 							$set[$key] = $value['value'];
 						}
 					}
-				$options_parsed_array[$setname] = array('options-list'=>$set);
+				$options_parsed_array[ $setname ] = array('options-list'=>$set);
 			}
 
 			return $options_parsed_array;
@@ -164,28 +165,36 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 *
 		 * @since 1.0.0
 		 */
-		public function create_updated_options_array( $post_array ) {
-			$options = $this->load_options();
+		public function create_updated_options( $post_array ) {
+			$options = $this->create_options_array();
+			$saved_options = $this->load_options();
+
+			foreach ( $options as $section_key => $value) {
+				$option_list = $value['options-list'];
+				foreach ($option_list as $option_key => $value) {
+					if( isset( $saved_options[$section_key]['options-list'][$option_key] ) ){
+						$options[$section_key]['options-list'][$option_key] = $saved_options[$section_key]['options-list'][$option_key];
+					}
+				}
+			}
 
 			if(isset($options)){
 				foreach ( $options as $section_key => $value ) {
 					$section_name = $section_key;
 					$option_list = $value['options-list'];
 						foreach ($option_list as $key => $value) {
-							$type = $this->get_type_by_option_id($key);
+							$type = $this->get_type_by_id($key);
 							switch ($type) {
-								case 'checkbox':
-									if(isset($post_array[$key])){
-										$options[$section_name]['options-list'][$key] = 'true';
-									}else{
-										$options[$section_name]['options-list'][$key] = 'false';
-									}
-									break;
 								case 'multicheckbox':
 									if (isset($post_array[$key])) {
-										$value = array_keys( $post_array[$key] );
+										$check_value = array();
+										foreach ( $post_array[$key] as $checkbox => $checkbox_value ) {
+											if( 'true' == $checkbox_value ){
+												$check_value[] = $checkbox;
+											}
+										}
+										$options[$section_name]['options-list'][$key] = $check_value;
 									}
-									$options[$section_name]['options-list'][$key] = $value;
 									break;
 								default:
 									if (isset($post_array[$key])) {
@@ -195,21 +204,22 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 							}
 						}
 				}
-				$this->save_options($options);
+				return $options;
 			}
+			return false;
 		}
-
 		/**
 		 *
 		 * Restore section and save options
 		 *
 		 * @since 1.0.0
 		 */
-		public function restore_section_settings_array($activeSection) {
+		public function restore_section_settings_array( $activeSection ) {
 			$activeSectionName = $activeSection;
 
 			$loaded_settings = $this->load_options();
-			$default_settings = $this->create_options_array();
+
+			$default_settings = $this->get_default_options();
 
 			if(isset($loaded_settings)){
 				foreach ( $loaded_settings as $section_key => $value ) {
@@ -217,7 +227,9 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 					$option_list = $value['options-list'];
 					if( $section_name == $activeSectionName ){
 						foreach ($option_list as $key => $value) {
-							$loaded_settings[$section_name]['options-list'][$key] = $default_settings[$section_name]['options-list'][$key];
+							if( isset( $default_settings[$section_name]['options-list'][$key] ) ){
+								$loaded_settings[$section_name]['options-list'][$key] = $default_settings[$section_name]['options-list'][$key];
+							}
 						}
 					}
 				}
@@ -232,20 +244,41 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 1.0.0
 		 */
 		public function restore_default_settings_array() {
-			$options = $this->create_options_array();
-				if(isset($options)){
-					$this->save_options($options);
-				}
+
+			$default_settings = $this->get_default_options();
+
+			if( isset( $default_settings ) ){
+				$this->save_options( $default_settings );
+			}
 		}
 
 		/**
 		 *
-		 * Export options
+		 * Restore and save options
 		 *
 		 * @since 1.0.0
 		 */
-		public function json_export_options( $post_array ) {
+		public function get_default_options() {
+			global $wp_filesystem;
+			$default_backup_options = get_option( $this->themename . '_defaults' );
 
+			if( $default_backup_options ){
+				return $default_backup_options;
+			}
+
+			if ( ! $this->filesystem_init() ) {
+				return $this->create_options_array();
+			}else{
+				$path = get_stylesheet_directory().'/default-options/default.options';
+				$path = str_replace( ABSPATH, $wp_filesystem->abspath(), $path );
+
+				if ( ! $wp_filesystem->exists( $path ) ) {
+					return $this->create_options_array();
+				}
+				$export_options = json_decode( $wp_filesystem->get_contents( $path ), true );
+				return $export_options;
+			}
+			return $this->create_options_array();
 		}
 
 		/**
@@ -279,7 +312,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				$section_name = $key;
 				$option_list = $value['options-list'];
 					foreach ($option_list as $optname => $value) {
-						if(array_key_exists($section_name, $loaded_settings)){
+						if( array_key_exists($section_name, $loaded_settings) && isset( $loaded_settings[$section_name]['options-list'][$optname] ) ){
 							$default_settings[$section_name]['options-list'][$optname]['value'] = $loaded_settings[$section_name]['options-list'][$optname];
 						}
 					}
@@ -305,6 +338,40 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			}
 
 			return $result_settings;
+		}
+
+		/**
+		 * Initialize Filesystem object.
+		 *
+		 * @since  4.0.0
+		 * @return bool|str false on failure, stored text on success
+		 */
+		public function filesystem_init() {
+
+			global $wp_filesystem;
+
+			$url = admin_url();
+
+			// First attempt to get credentials.
+			if ( false === ( $creds = request_filesystem_credentials( $url, '', true, false, null ) ) ) {
+				/**
+				 * If we comes here - we don't have credentials
+				 * so the request for them is displaying
+				 * no need for further processing.
+				 **/
+				return false;
+			}
+
+			// Now we got some credentials - try to use them.
+			if ( ! WP_Filesystem( $creds ) ) {
+
+				// Incorrect connection data - ask for credentials again, now with error message.
+				request_filesystem_credentials( $url, '', true, false );
+
+				return false;
+			}
+
+			return true; // Filesystem object successfully initiated.
 		}
 
 		/**

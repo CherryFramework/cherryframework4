@@ -19,7 +19,7 @@ class cherry_header_sidebar_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
-		cherry_get_sidebar( 'header' );
+		cherry_get_sidebar( 'sidebar-header' );
 	}
 }
 

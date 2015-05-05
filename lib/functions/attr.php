@@ -20,6 +20,7 @@ add_filter( 'cherry_attr_body',    'cherry_attr_body',    9 );
 add_filter( 'cherry_attr_header',  'cherry_attr_header',  9 );
 add_filter( 'cherry_attr_footer',  'cherry_attr_footer',  9 );
 add_filter( 'cherry_attr_content', 'cherry_attr_content', 9 );
+add_filter( 'cherry_attr_main',    'cherry_attr_main',    9 );
 add_filter( 'cherry_attr_sidebar', 'cherry_attr_sidebar', 9, 2 );
 add_filter( 'cherry_attr_menu',    'cherry_attr_menu',    9, 2 );
 add_filter( 'cherry_attr_post',    'cherry_attr_post',    9 );
@@ -94,7 +95,7 @@ function cherry_attr_body( $attr ) {
  */
 function cherry_attr_header( $attr ) {
 	$attr['id']    = 'header';
-	$attr['class'] = 'site-header';
+	$attr['class'] = apply_filters( 'cherry_get_header_class', 'site-header' );
 	$attr['role']  = 'banner';
 
 	return $attr;
@@ -111,7 +112,7 @@ function cherry_attr_header( $attr ) {
  */
 function cherry_attr_footer( $attr ) {
 	$attr['id']    = 'footer';
-	$attr['class'] = 'site-footer';
+	$attr['class'] = apply_filters( 'cherry_get_footer_class', 'site-footer' );
 	$attr['role']  = 'contentinfo';
 
 	return $attr;
@@ -126,10 +127,25 @@ function cherry_attr_footer( $attr ) {
  * @param  array $attr
  * @return array
  */
-function cherry_attr_content( $attr ) {
+function cherry_attr_main( $attr ) {
 	$attr['id']    = 'main';
 	$attr['class'] = 'site-main';
 	$attr['role']  = 'main';
+
+	return $attr;
+}
+
+/**
+ * Main content container of the page attributes.
+ *
+ * @author Cherry Team <support@cherryframework.com>
+ * @since  4.0.0
+ * @param  array $attr
+ * @return array
+ */
+function cherry_attr_content( $attr ) {
+	$attr['id']    = 'content';
+	$attr['class'] = apply_filters( 'cherry_get_content_class', 'site-content' );
 
 	return $attr;
 }
@@ -147,7 +163,7 @@ function cherry_attr_content( $attr ) {
 function cherry_attr_sidebar( $attr, $context ) {
 
 	if ( !empty( $context ) ) {
-		$attr['id'] = "sidebar-$context";
+		$attr['id'] = "$context";
 	}
 
 	$attr['class'] = 'widget-area';

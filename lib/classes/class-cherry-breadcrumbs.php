@@ -1,11 +1,18 @@
 <?php
 /**
- * Cherry breadcrumbs class.
+ * Breadcrumb Trail - A breadcrumb menu script for WordPress.
+ *
+ * Breadcrumb Trail is a script for showing a breadcrumb trail for any type of page.  It tries to
+ * anticipate any type of structure and display the best possible trail that matches your site's
+ * permalink structure.  While not perfect, it attempts to fill in the gaps left by many other
+ * breadcrumb scripts.
  *
  * @package    Cherry_Framework
  * @subpackage Class
+ * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2015, Cherry Team
+ * @copyright  Copyright (c) 2008 - 2014, Justin Tadlock
+ * @link       http://themehybrid.com/plugins/breadcrumb-trail
  * @link       http://www.cherryframework.com
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
@@ -21,12 +28,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 	 * Breadcrumbs builder class.
 	 * Class is based on Breadcrumb Trail plugin by Justin Tadlock.
 	 *
-	 * @author    Justin Tadlock <justin@justintadlock.com>
-	 * @author    Cherry Team <support@cherryframework.com>
-	 * @copyright Copyright (c) 2008 - 2014, Justin Tadlock
-	 * @link      http://themehybrid.com/plugins/breadcrumb-trail
-	 * @license   http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
-	 * @since     4.0.0
+	 * @since 4.0.0
 	 */
 	class cherry_breadcrumbs {
 
@@ -532,7 +534,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 						? 'link_format'
 						: 'home_format';
 
-			$url   = home_url();
+			$url   = home_url( '/' );
 			$label = ( is_multisite() && !is_main_site() && true === $this->args['network'] )
 						? get_bloginfo( 'name' )
 						: $this->args['labels']['home'];
@@ -624,7 +626,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 				$post_terms = wp_get_post_terms( $post_id, $this->args['post_taxonomy'][ $post_type ] );
 
-				if ( is_array( $post_terms ) ) {
+				if ( is_array( $post_terms ) && isset( $post_terms[0] ) && is_object( $post_terms[0] ) ) {
 					$term_id = $post_terms[0]->term_id;
 					$this->add_term_parents( $term_id, $this->args['post_taxonomy'][ $post_type ] );
 				}
@@ -984,7 +986,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$this->_add_item(
 					'link_format',
 					$week,
-					add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url() )
+					add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url( '/' ) )
 				);
 
 			} elseif ( true === $this->args['show_title'] ) {

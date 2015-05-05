@@ -21,7 +21,7 @@ class cherry_footer_info_static extends cherry_register_static {
 		$output = '<div class="site-info">';
 		$output .= sprintf( __( 'Copyright &copy; %1$s %2$s. Powered by %3$s and %4$s.', 'cherry' ),
 						date_i18n( 'Y' ),
-						cherry_get_site_link(),
+						cherry_get_site_link( 'footer-site-link' ),
 						cherry_get_wp_link(),
 						cherry_get_theme_link()
 					);

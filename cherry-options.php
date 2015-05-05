@@ -1,6 +1,7 @@
 <?php
 
 function cherry_defaults_settings() {
+
 	global $cherry_registered_statics;
 
 	$all_pages     = array();
@@ -11,7 +12,15 @@ function cherry_defaults_settings() {
 		$all_pages[$page->ID] = $page->post_title;
 	}
 
-	$maintenance_preview = add_query_arg( array( 'maintenance-preview' => true ), home_url() );
+	$maintenance_preview = esc_url(
+		add_query_arg(
+			array(
+				'maintenance-preview' => true,
+				'nonce'               => wp_create_nonce( 'cherry-maintenance-preview' )
+			),
+			home_url( '/' )
+		)
+	);
 
 	$sticky_selectors = apply_filters( 'cherry_sticky_selectors', array(
 		'.site-header'            => __( 'Header', 'cherry' ),
@@ -22,6 +31,7 @@ function cherry_defaults_settings() {
 	$default_selector = array_keys($sticky_selectors);
 	$default_selector = $default_selector[0];
 
+
 	//////////////////////////////////////////////////////////////////////
 	// General
 	//////////////////////////////////////////////////////////////////////
@@ -31,13 +41,22 @@ function cherry_defaults_settings() {
 		'title' => __( 'Favicon image', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size 32x32 px <br>You also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
+			'content' => __( 'Icon image that is displayed in the browser address bar and browser tab heading. Max icon size: 32x32 px <br>You can also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
 		),
 		'value'            => '',
 		'display_image'    => true,
 		'multi_upload'     => true,
 		'return_data_type' => 'url',
 		'library_type'     => 'image',
+	);
+	$general_options['general-page-comments-status_'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Page comments', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
+		),
+		'value' => 'false',
 	);
 	$general_options['general-page-comments-status'] = array(
 		'type'  => 'switcher',
@@ -53,7 +72,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Featured Images', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable displaying of featured images for pages.', 'cherry' ),
+			'content' => __( 'Enable/disable featured images for pages.', 'cherry' ),
 		),
 		'value' => 'false',
 	);
@@ -65,8 +84,7 @@ function cherry_defaults_settings() {
 		),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will
-			be redirected to the page chosen below.', 'cherry' )
+			'content' => __( "Enable/disable maintenance mode. Logged in administrator gets full access to the site, while regular visitors will\won't be redirected to the page chosen below.", 'cherry' )
 		),
 		'value' => 'false',
 	);
@@ -110,7 +128,7 @@ function cherry_defaults_settings() {
 		'title' => __( 'Static areas', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Use static area editor to arrange static blocks. You can drag-n-drop statick blocks, remove them or add new ones using \'Create new static\' field below. ', 'cherry' ),
+			'content' => __( "Use static area editor to arrange static blocks. You can drag-n-drop static blocks, remove them or add new ones using 'Create new static' field below.", 'cherry' ),
 		),
 		'value'   => $cherry_registered_statics,
 		'options' => $cherry_registered_statics,
@@ -141,27 +159,27 @@ function cherry_defaults_settings() {
 		'options'       => array(
 			'1-left' => array(
 				'label'   => __( 'Left sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-left-sidebar.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-left-sidebar.svg',
 			),
 			'1-right' => array(
 				'label'   => __( 'Right sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-right-sidebar.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-right-sidebar.svg',
 			),
 			'1-left-2-right' => array(
 				'label'   => __( 'Left and right sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
 			),
 			'1-left-2-left' => array(
-				'label'   => __( 'Sameside left sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
+				'label'   => __( 'Two sidebars on the left', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
 			),
 			'1-right-2-right' => array(
-				'label'   => __( 'Sameside right sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
+				'label'   => __( 'Two sidebars on the right', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
 			),
 			'no-sidebar' => array(
 				'label'   => __( 'No sidebar', 'cherry' ),
-				'img_src' => PARENT_URI.'/lib/admin/assets/images/svg/page-layout-fullwidth.svg',
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-fullwidth.svg',
 			),
 		)
 	);
@@ -176,14 +194,54 @@ function cherry_defaults_settings() {
 		'min_value' => 970,
 		'value'     => 1170,
 	);
-	$grid_options['grid-type'] = array(
+	$grid_options['header-grid-type'] = array(
 		'type'  => 'radio',
-		'title' => __( 'Grid type', 'cherry' ),
+		'title' => __( 'Header grid type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select layout pattern for header website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
+		),
+		'value'         => 'wide',
+		'display_input' => false,
+		'options'       => array(
+			'wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+			),
+			'boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
+			),
+		),
+	);
+	$grid_options['content-grid-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Content grid type', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
 			'content' => __( 'Select layout pattern for main website container. Wide layout will fit window width. Boxed layout will have fixed width and left/right indents. ', 'cherry' ),
 		),
 		'value'         => 'boxed',
+		'display_input' => false,
+		'options'       => array(
+			'wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+			),
+			'boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
+			),
+		),
+	);
+	$grid_options['footer-grid-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Footer grid type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select layout pattern for footer website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
+		),
+		'value'         => 'wide',
 		'display_input' => false,
 		'options'       => array(
 			'wide' => array(
@@ -244,7 +302,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Post content', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Select how you want to display post content in blog listing: full - display fill post content, part - display part of the post (you can specify post part size below), none - hide post content.', 'cherry' ),
+			'content' => __( 'Select how you want to display post content in blog listing: full - display full post content, excerpt - display part of the post (you can specify excerpt length below), none - hide post content.', 'cherry' ),
 		),
 		'value'       => 'part',
 		'options'     => array(
@@ -255,10 +313,10 @@ function cherry_defaults_settings() {
 	);
 	$blog_options['blog-excerpt-length'] = array(
 		'type'        => 'slider',
-		'title'       => __( 'Post part length', 'cherry' ),
+		'title'       => __( 'Excerpt length', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Specify number of words displayed as post part in blog listing.', 'cherry' ),
+			'content' => __( 'Specify number of words displayed in excerpt in blog listing.', 'cherry' ),
 		),
 		'max_value'   => 500,
 		'min_value'   => 1,
@@ -290,16 +348,16 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Featured Image', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Display featured image at the single post page.', 'cherry' ),
+			'content' => __( 'Display featured image on the single post page.', 'cherry' ),
 		),
 		'value'       => 'true',
 	);
 	$post_single_options['blog-post-featured-image-size'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Size for Featured Image', 'cherry' ),
+		'title'       => __( 'Size of Featured Image', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
-			'content' => __( 'Set dimensions for single post featured images in pixels.', 'cherry' ),
+			'content' => __( 'Set dimensions for single post featured images.', 'cherry' ),
 		),
 		'value'       => 'thumb-l',
 		'options'     => array(
@@ -309,7 +367,7 @@ function cherry_defaults_settings() {
 	);
 	$post_single_options['blog-post-featured-image-align'] = array(
 		'type'        => 'select',
-		'title'       => __( 'Alignment for Featured Image', 'cherry' ),
+		'title'       => __( 'Alignment of Featured Image', 'cherry' ),
 		'hint' => array(
 			'type' => 'text',
 			'content' => __( 'Set alignment for single post featured images.', 'cherry' ),
@@ -327,7 +385,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Author bio', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable author bio block. Author bio block is displayed at the post page.', 'cherry' ),
+			'content' => __( 'Enable/disable author bio block. Author bio block is displayed on the post page.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -336,7 +394,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Related posts', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
-			'content' => __( 'Enable/disable related posts block. Related posts block is displayed at the post page.', 'cherry' ),
+			'content' => __( 'Enable/disable related posts block. Related posts block is displayed on the post page.', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -548,14 +606,7 @@ function cherry_defaults_settings() {
 			'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
 		),
 		'class'			=> '',
-		'value'			=> array(
-			'tablet'	=> true,
-			'mobile'	=> true,
-		),
-		'default_value'	=> array(
-			'tablet'	=> true,
-			'mobile'	=> true,
-		),
+		'value'			=> array( 'tablet', 'mobile' ),
 		'options'		=> array(
 			'tablet'	=> __( 'Tablet', 'cherry' ),
 			'mobile'	=> __( 'Mobile', 'cherry' ),
@@ -672,7 +723,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'End size', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'How many numbers to display on either the start and the end list edges.', 'cherry' )
+			'content'	=> __( 'How many pages to display either at the top or at the end of the list.', 'cherry' )
 		),
 		'value'			=> '1',
 		'value-step'	=> '1',
@@ -701,7 +752,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Header background', 'cherry' ),
 		'hint'			=>  array(
 				'type'		=> 'text',
-				'content'	=>  __( 'Header background settings. You can select background color, upload header background image, set it\'s background position, attachment and repeat. ', 'cherry' )
+				'content'	=>  __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' )
 			),
 		'return_data_type'	=> 'id',
 		'library_type'		=> 'image',
@@ -718,7 +769,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Sticky header', 'cherry' ),
 		'hint'			=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Enable\disable fixed stick to top header.', 'cherry' )
+			'content'	=> __( 'Enable\disable fixed header that sticks to the top.', 'cherry' )
 		),
 		'value'			=> 'false'
 	);
@@ -727,7 +778,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Sticky selector', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Select what block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
+			'content'	=> __( 'Select the block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
 		),
 		'value'			=> $default_selector,
 		'options'		=> $sticky_selectors
@@ -740,7 +791,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Logo type', 'cherry' ),
 		'hint'			=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select \'image\' you can choose logo image from the media library in the next option, and if you select \'text\' your Wordpress Site Title will be shown instead.', 'cherry' )
+			'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select "image", you can choose logo image from the media library in the next option, and if you select "text", your WordPress Site Title will be shown instead.', 'cherry' )
 		),
 		'value'			=> 'text',
 		'default_value'	=> 'text',
@@ -772,7 +823,7 @@ function cherry_defaults_settings() {
 		'title'				=> __( 'Logo typography', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color etc.', 'cherry' )
+			'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color, etc.', 'cherry' )
 		),
 		'value'			=> array(
 			'fonttype'		=> 'web',
@@ -797,7 +848,7 @@ function cherry_defaults_settings() {
 		'title'				=> __( 'Footer background', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Footer background settings. You can select background color, upload footer background image, set it\'s background position, attachment and repeat.', 'cherry' )
+			'content'	=> __( 'Footer background settings. You can select background color, upload footer background image, set its background position, attachment and repeat.', 'cherry' )
 		),
 		'return_data_type'	=> 'id',
 		'library_type'		=> 'image',
@@ -827,6 +878,16 @@ function cherry_defaults_settings() {
 			'letterspacing' => '',
 			'align'			=> 'notdefined'
 		)
+	);
+	$footer_options['logo-footer'] = array(
+		'type'				=> 'media',
+		'title'				=> __( 'Footer Logo image', 'cherry' ),
+		'hint'      	=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Click Choose Media button to select footer logo image from the media library or upload your image.', 'cherry' )
+		),
+		'value'				=> '',
+		'multi-upload'		=> true,
 	);
 //////////////////////////////////////////////////////////////////////
 // Typography options
@@ -858,7 +919,7 @@ function cherry_defaults_settings() {
 			'title'			=> __( 'Link color', 'cherry' ),
 			'hint'      	=> array(
 				'type'		=> 'text',
-				'content'	=> __( 'Color for links.', 'cherry' )
+				'content'	=> __( 'Color of links.', 'cherry' )
 			),
 			'value'			=> '#f62e46'
 	);
@@ -867,7 +928,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Link hover color', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Color for links on hover.', 'cherry' )
+			'content'	=> __( 'Color of links on hover.', 'cherry' )
 		),
 		'value'			=> '#333333'
 	);
@@ -1034,7 +1095,7 @@ function cherry_defaults_settings() {
 		'title'			=> __( 'Concatenate/minify CSS', 'cherry' ),
 		'hint'      	=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Select if you want to merge minify CSS files to performance optimization.', 'cherry' )
+			'content'	=> __( 'Select if you want to merge\minify CSS files to performance optimization.', 'cherry' )
 		),
 		'value'         => 'false',
 		'toggle'        => array(
@@ -1157,6 +1218,23 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> 'true',
 	);
+	$demo_options['multicheckbox-demo'] = array(
+		'type'			=> 'multicheckbox',
+		'title'			=> __('Multiple checkboxes', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds checkboxes group. Lets user to select several options from the list.', 'cherry'),
+		),
+		'class'			=> '',
+		'value'			=> array( 'checkbox-2', 'checkbox-3' ),
+		'options'		=> array(
+			'checkbox-1'	=> 'checkbox 1',
+			'checkbox-2'	=> 'checkbox 2',
+			'checkbox-3'	=> 'checkbox 3'
+		)
+	);
 	$demo_options['switcher-demo'] = array(
 		'type'			=> 'switcher',
 		'title'			=> __('Switcher', 'cherry'),
@@ -1226,23 +1304,6 @@ function cherry_defaults_settings() {
 			'right-value'	=> 50,
 		)
 	);
-	$demo_options['multicheckbox-demo'] = array(
-		'type'			=> 'multicheckbox',
-		'title'			=> __('Multiple checkboxes', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'      	=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Adds checkboxes group. Lets user to select several options from the list.', 'cherry'),
-		),
-		'class'			=> '',
-		'value'			=> array( 'checkbox-2', 'checkbox-3' ),
-		'options'		=> array(
-			'checkbox-1'	=> 'checkbox 1',
-			'checkbox-2'	=> 'checkbox 2',
-			'checkbox-3'	=> 'checkbox 3'
-		)
-	);
 	$demo_options['radio-demo'] = array(
 		'type'			=> 'radio',
 		'title'			=> __('Radio buttons', 'cherry'),
@@ -1307,14 +1368,14 @@ function cherry_defaults_settings() {
 		'multi-upload'		=> true,
 		'library_type'		=> ''
 	);
-	$demo_options['background-demo'] = array(
+	$demo_options['backgrounddemo'] = array(
 		'type'				=> 'background',
 		'title'			=> __('Background image', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
 		'hint'      	=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Lets user to add background image from the media library and define it\'s background settings like background repeat, position, attachment, origin.', 'cherry'),
+			'content'	=> __('Lets user to add background image from the media library and define its background settings like background repeat, position, attachment, origin.', 'cherry'),
 		),
 		'multi-upload'		=> true,
 		'library_type'		=> 'image',
@@ -1487,6 +1548,7 @@ function cherry_defaults_settings() {
 		'priority'     => 30,
 		'options-list' => apply_filters( 'cherry_grid_options_list', $grid_options ),
 	);
+
 	$sections_array['blog-section'] = array(
 		'name'         => __( 'Blog', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-post',

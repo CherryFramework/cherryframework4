@@ -468,13 +468,22 @@ add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
 function cherry_maintenance_mode() {
 
 	$enabled      = cherry_get_option( 'general-maintenance-mode', false );
-	$preview_mode = isset( $_GET['maintenance-preview'] ) ? true : false;
 
-	if ( 'true' !== $enabled && !$preview_mode ) {
+	if (
+		isset( $_GET['maintenance-preview'] )
+		&& isset( $_GET['nonce'] )
+		&& wp_verify_nonce( $_GET['nonce'], 'cherry-maintenance-preview' )
+	) {
+		$preview_mode = true;
+	} else {
+		$preview_mode = false;
+	}
+
+	if ( 'true' !== $enabled && ! $preview_mode ) {
 		return;
 	}
 
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && !$preview_mode ) {
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && ! $preview_mode ) {
 		return;
 	}
 

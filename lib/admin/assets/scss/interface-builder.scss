@@ -116,10 +116,11 @@
 			width: 100%;
 		}
 		/*End text input size*/
+
 		.cherry-checkbox-item{
 			width: 21px;
 			height: 21px;
-			float: left;
+			display: inline-block;
 			border-radius: 3px;
 			margin-right: 5px;
 			cursor: pointer;
@@ -138,7 +139,17 @@
 					display: none;
 				}
 		}
+		.cherry-checkbox-label{
+			display: inline-block;
+			vertical-align: top;
+			margin: 1px 0 5px 0;
+		}
+		.cherry-checkbox{
 
+		}
+		.cherry-multicheckbox{
+
+		}
 		/*Cherry rangeslider style*/
 		.cherry-rangeslider-wrap{
 				.cherry-rangeslider-left-input{
@@ -739,9 +750,9 @@
 			height: 40px;
 			border: 1px solid #c8c8c8;
 				&:hover{
-					color: #2EA2CC;
-					background-color: #2EA2CC;
-					border: 1px solid #2EA2CC;
+					color: #2a445d;
+					background-color: #2a445d;
+					border: 1px solid #2a445d;
 					cursor: pointer;
 				}
 				@media screen and (max-width: 769px){

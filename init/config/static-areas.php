@@ -30,10 +30,8 @@ function cherry_register_static_areas() {
 	) );
 
 	cherry_register_static_area( array(
-		'id'        => 'showcase-area',
-		'name'      => __( 'Showcase Area', 'cherry' ),
-		'container' => false,
-		'row'       => false,
+		'id'   => 'showcase-area',
+		'name' => __( 'Showcase Area', 'cherry' ),
 	) );
 
 	cherry_register_static_area( array(

@@ -42,7 +42,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 *
 		 * @var array
 		 */
-		public $var_pattern = '/\$(([-_a-zA-Z0-9]+)\[?[\'\"\s]*(\w+)?[\'\"\s]*\]?)/';
+		public $var_pattern = '/\$(([-_a-zA-Z0-9]+)\[?[\'\"]*([-_a-zA-Z0-9]+)?[\'\"]*\]?)/';
 
 		/**
 		 * Function pattern
@@ -198,7 +198,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 */
 		function replace_func( $matches ) {
 
-			$not_found = sprintf( '/* %s */', __( 'Function not exists', 'cherry' ) );
+			$not_found = sprintf( '/* %s */', __( 'Function does not exist', 'cherry' ) );
 
 			// check if functions name found
 			if ( empty( $matches[2] ) ) {

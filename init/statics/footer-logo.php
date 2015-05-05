@@ -11,7 +11,7 @@
 /**
  * Header Logo static.
  */
-class cherry_header_logo_static extends cherry_register_static {
+class cherry_footer_logo_static extends cherry_register_static {
 
 	function __construct( $args ) {
 		add_action( 'cherry-options-updated',  array( $this, 'clear_cache' ) );
@@ -32,47 +32,22 @@ class cherry_header_logo_static extends cherry_register_static {
 		global $wp_customize;
 
 		if ( isset( $wp_customize ) ) {
-			echo $this->get_logo();
+			echo cherry_get_footer_logo();
 			return;
 		}
 
-		$logo = get_transient( 'cherry_logo' );
-		$page = is_front_page() ? 'home' : 'page';
+		$logo = get_transient( 'cherry_footer_logo' );
 
-		if ( is_array( $logo ) && ! empty( $logo[$page] ) ) {
-			echo $logo[$page];
+		if ( $logo ) {
+			echo $logo;
 			return;
 		}
 
-		$result = $this->get_logo();
+		$result = cherry_get_footer_logo();
 
 		echo $result;
 
-		if ( is_array( $logo ) ) {
-			$logo[$page] = $result;
-		} else {
-			$logo = array(
-				$page => $result
-			);
-		}
-
-		set_transient( 'cherry_logo', $logo, DAY_IN_SECONDS );
-	}
-
-	/**
-	 * Get logo HTML
-	 *
-	 * @since  4.0.0
-	 */
-	public function get_logo() {
-
-		$result = sprintf( '<div class="site-branding">%1$s %2$s</div>',
-			cherry_get_site_logo(),
-			cherry_get_site_description()
-		);
-
-		return $result;
-
+		set_transient( 'cherry_footer_logo', $result, DAY_IN_SECONDS );
 	}
 
 	/**
@@ -81,7 +56,7 @@ class cherry_header_logo_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function clear_cache() {
-		delete_transient( 'cherry_logo' );
+		delete_transient( 'cherry_footer_logo' );
 	}
 
 	/**
@@ -91,28 +66,28 @@ class cherry_header_logo_static extends cherry_register_static {
 	 */
 	function clear_cache_options( $option ) {
 
-		if ( ! in_array( $option, array( 'blogname', 'blogdescription' ) ) ) {
+		if ( ! in_array( $option, array( 'blogname' ) ) ) {
 			return;
 		}
 
-		delete_transient( 'cherry_logo' );
+		delete_transient( 'cherry_footer_logo' );
 	}
 }
 
 /**
  * Registration for Header Logo static.
  */
-new cherry_header_logo_static(
+new cherry_footer_logo_static(
 	array(
-		'id'      => 'header_logo',
-		'name'    => __( 'Logo', 'cherry' ),
+		'id'      => 'footer_logo',
+		'name'    => __( 'Footer Logo', 'cherry' ),
 		'options' => array(
 			'col-xs'   => 'col-xs-12',
 			'col-sm'   => 'col-sm-12',
 			'col-md'   => 'col-md-6',
 			'col-lg'   => 'col-lg-6',
 			'position' => 1,
-			'area'     => 'header-top',
+			'area'     => 'footer-top',
 		)
 	)
 );

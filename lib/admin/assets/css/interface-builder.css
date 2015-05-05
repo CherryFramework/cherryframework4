@@ -143,7 +143,7 @@
 .cherry-section .cherry-checkbox-item {
   width: 21px;
   height: 21px;
-  float: left;
+  display: inline-block;
   border-radius: 3px;
   margin-right: 5px;
   cursor: pointer;
@@ -159,6 +159,11 @@
   top: 0;
   left: 0;
   display: none;
+}
+.cherry-section .cherry-checkbox-label {
+  display: inline-block;
+  vertical-align: top;
+  margin: 1px 0 5px 0;
 }
 .cherry-section .cherry-rangeslider-wrap .cherry-rangeslider-left-input {
   width: 15%;
@@ -704,9 +709,9 @@
   border: 1px solid #c8c8c8;
 }
 .cherry-section .hint-text:hover, .cherry-section .hint-image:hover, .cherry-section .hint-video:hover {
-  color: #2EA2CC;
-  background-color: #2EA2CC;
-  border: 1px solid #2EA2CC;
+  color: #2a445d;
+  background-color: #2a445d;
+  border: 1px solid #2a445d;
   cursor: pointer;
 }
 @media screen and (max-width: 769px) {
