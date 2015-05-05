@@ -22,6 +22,8 @@ if ( !defined( 'WPINC' ) ) {
  * Important! Do not use this for translation functions in your theme. Hardcode your textdomain string. Your
  * theme's textdomain should match your theme's folder name.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @return string $cherry->textdomain The textdomain of the theme.
  */
@@ -31,8 +33,7 @@ function cherry_get_parent_textdomain() {
 	// If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain.
 	if ( empty( $cherry->parent_textdomain ) ) {
 
-		$theme = wp_get_theme( get_template() );
-
+		$theme      = wp_get_theme( get_template() );
 		$textdomain = $theme->get( 'TextDomain' ) ? $theme->get( 'TextDomain' ) : get_template();
 
 		$cherry->parent_textdomain = sanitize_key( apply_filters( 'cherry_parent_textdomain', $textdomain ) );
@@ -49,6 +50,8 @@ function cherry_get_parent_textdomain() {
  * Important! Do not use this for translation functions in your theme. Hardcode your textdomain string. Your
  * theme's textdomain should match your theme's folder name.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @return string $cherry->child_theme_textdomain The textdomain of the child theme.
  */
@@ -62,8 +65,7 @@ function cherry_get_child_textdomain() {
 	// If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain.
 	if ( empty( $cherry->child_textdomain ) ) {
 
-		$theme = wp_get_theme();
-
+		$theme      = wp_get_theme();
 		$textdomain = $theme->get( 'TextDomain' ) ? $theme->get( 'TextDomain' ) : get_stylesheet();
 
 		$cherry->child_textdomain = sanitize_key( apply_filters( 'cherry_child_textdomain', $textdomain ) );

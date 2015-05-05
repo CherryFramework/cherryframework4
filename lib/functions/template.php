@@ -28,6 +28,8 @@ add_action( 'cherry_loop_empty', 'cherry_noposts' );
 /**
  * This is a replacement function for the WordPress `get_header()` function.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since 4.0.0
  * @param string $name The name of the specialised header.
  */
@@ -53,6 +55,8 @@ function cherry_get_header( $name = null ) {
 /**
  * This is a replacement function for the WordPress `get_footer()` function.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string $name
  */
@@ -90,6 +94,8 @@ function cherry_get_content() {
 /**
  * Loads a post content template based on the post type and/or the post format.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @return string
  */
@@ -203,6 +209,8 @@ function cherry_do_content( $matches ) {
 /**
  * Loads template for sidebar by $name.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string $name
  */
@@ -212,16 +220,16 @@ function cherry_get_sidebar( $name = null ) {
 
 	$name = (string) $name;
 
-	if ( false === cherry_display_sidebar( 'sidebar-' . $name ) ) {
+	if ( false === cherry_display_sidebar( $name ) ) {
 		return;
 	}
 
 	$_name = $name . '-' . cherry_template_base();
 
 	$templates   = array();
-	$templates[] = "sidebar-{$_name}.php";
+	$templates[] = "{$_name}.php";
 	$templates[] = "sidebar/{$_name}.php";
-	$templates[] = "sidebar-{$name}.php";
+	$templates[] = "{$name}.php";
 	$templates[] = "sidebar/{$name}.php";
 	$templates[] = 'sidebar.php';
 	$templates[] = 'sidebar/sidebar.php';
@@ -238,8 +246,8 @@ function cherry_get_sidebar( $name = null ) {
 
 	printf( '<div %s>', cherry_get_attr( 'sidebar', $name ) );
 
-	if ( is_active_sidebar( "sidebar-{$name}" ) ) {
-		dynamic_sidebar( "sidebar-{$name}" );
+	if ( is_active_sidebar( "{$name}" ) ) {
+		dynamic_sidebar( "{$name}" );
 	} else {
 		do_action( 'cherry_sidebar_empty', $name );
 	}
@@ -252,6 +260,8 @@ function cherry_get_sidebar( $name = null ) {
 /**
  * Loads template for menu.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string  $name
  */

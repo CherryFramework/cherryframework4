@@ -468,60 +468,55 @@ class Cherry_Interface_Builder {
 			*/
 			case 'static_area_editor':
 				global $cherry_registered_static_areas;
-				$available_areas = $cherry_registered_static_areas;
 				$output .= '<div id="' . $id . '" class="cherry-static-area-editor-wrap" data-name="' . $name . '">';
-					foreach ($available_areas as $area => $area_settings) {
+					foreach ( $cherry_registered_static_areas as $area => $area_settings ) {
 						$output .= '<div class="area-unit" data-area="' . $area . '">';
 							$output .= '<h3 class="title-primary_ title-mid_ text_center_">' . $area_settings['name'] . '</h3>';
 							$output .= '<div class="accordion-unit">';
-								foreach ($value as $handle => $handleArray) {
-									if($area == $handleArray['options']['area']){
+								foreach ( $value as $handle => $handleArray ) {
+									if ( $area == $handleArray['options']['area'] ) {
 										$output .= '<div class="group" data-static-id="' . $handle . '">';
 										$output .= '<h3><span class="label">' . $handleArray['name'] . '</span><div class="delete-group dashicons dashicons-trash"><span class="confirm-btn dashicons dashicons-yes"></span><span class="cancle-btn dashicons dashicons-no-alt"></span></div></h3>';
 										$output .= '<div>';
 											$output .= '<div class="field-col-xs">';
-												$output .= $this -> add_label($id . '-col-xs',  __( 'Column class(.col-xs-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= $this->add_label( $id . '-col-xs', __( 'Column class(.col-xs-*)', 'cherry' ), $this->options['class']['label'] . ' cherry-block' );
 												$output .= '<select ' . $item_inline_style . ' class="width-full key-col-xs" name="' . $name . '[' . $handle . '][options][col-xs]">';
-													$output .= '<option value="none" ' . selected( $handleArray['options']['col-xs'], 'none', false ) . '>'. esc_html( 'none' ) .'</option>';
-													for ($i=0; $i < 12; $i++) {
-														$inc = $i+1;
-														$output .= '<option value="col-xs-' . $inc . '" ' . selected( $handleArray['options']['col-xs'], 'col-xs-'.$inc, false ) . '>'. esc_html( 'col-xs-'.$inc ) .'</option>';
+													$output .= '<option value="none" ' . selected( $handleArray['options']['col-xs'], 'none', false ) . '>'. __( 'none', 'cherry' ) . '</option>';
+													for ( $i = 1; $i <= 12; $i++ ) {
+														$output .= '<option value="col-xs-' . $i . '" ' . selected( $handleArray['options']['col-xs'], 'col-xs-' . $i, false ) . '>' . $i . '</option>';
 													}
 												$output .= '</select>';
 											$output .= '</div>';
 											$output .= '<div class="field-col-sm">';
-												$output .= $this -> add_label($id . '-col-sm',  __( 'Column class(.col-sm-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= $this->add_label( $id . '-col-sm', __( 'Column class(.col-sm-*)', 'cherry' ), $this->options['class']['label'] . ' cherry-block');
 												$output .= '<select ' . $item_inline_style . ' class="width-full key-col-sm" name="' . $name . '[' . $handle . '][options][col-sm]">';
-													$output .= '<option value="none" ' . selected( $handleArray['options']['col-sm'], 'none', false ) . '>'. esc_html( 'none' ) .'</option>';
-													for ($i=0; $i < 12; $i++) {
-														$inc = $i+1;
-														$output .= '<option value="col-sm-' . $inc . '" ' . selected( $handleArray['options']['col-sm'], 'col-sm-'.$inc, false ) . '>'. esc_html( 'col-sm-'.$inc ) .'</option>';
+													$output .= '<option value="none" ' . selected( $handleArray['options']['col-sm'], 'none', false ) . '>'. __( 'none', 'cherry' ) . '</option>';
+													for ( $i = 1; $i <= 12; $i++ ) {
+														$output .= '<option value="col-sm-' . $i . '" ' . selected( $handleArray['options']['col-sm'], 'col-sm-' . $i, false ) . '>' . $i .'</option>';
 													}
 												$output .= '</select>';
 											$output .= '</div>';
 											$output .= '<div class="field-col-md">';
-												$output .= $this -> add_label($id . '-col-md',  __( 'Column class(.col-md-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= $this->add_label( $id . '-col-md', __( 'Column class(.col-md-*)', 'cherry' ), $this->options['class']['label'] . ' cherry-block' );
 												$output .= '<select ' . $item_inline_style . ' class="width-full key-col-md" name="' . $name . '[' . $handle . '][options][col-md]">';
-													$output .= '<option value="none" ' . selected( $handleArray['options']['col-md'], 'none', false ) . '>'. esc_html( 'none' ) .'</option>';
-													for ($i=0; $i < 12; $i++) {
-														$inc = $i+1;
-														$output .= '<option value="col-md-' . $inc . '" ' . selected( $handleArray['options']['col-md'], 'col-md-'.$inc, false ) . '>'. esc_html( 'col-md-'.$inc ) .'</option>';
+													$output .= '<option value="none" ' . selected( $handleArray['options']['col-md'], 'none', false ) . '>'. __( 'none', 'cherry' ) . '</option>';
+													for ( $i = 1; $i <= 12; $i++ ) {
+														$output .= '<option value="col-md-' . $i . '" ' . selected( $handleArray['options']['col-md'], 'col-md-' . $i, false ) . '>' . $i .'</option>';
 													}
 												$output .= '</select>';
 											$output .= '</div>';
 											$output .= '<div class="field-col-lg">';
-												$output .= $this -> add_label($id . '-col-lg',  __( 'Column class(.col-lg-*)', 'cherry' ), $this->options['class']['label'].' cherry-block');
+												$output .= $this->add_label( $id . '-col-lg', __( 'Column class(.col-lg-*)', 'cherry' ), $this->options['class']['label'] . ' cherry-block' );
 												$output .= '<select ' . $item_inline_style . ' class="width-full key-col-lg" name="' . $name . '[' . $handle . '][options][col-lg]">';
-													$output .= '<option value="none" ' . selected( $handleArray['options']['col-lg'], 'none', false ) . '>'. esc_html( 'none' ) .'</option>';
-													for ($i=0; $i < 12; $i++) {
-														$inc = $i+1;
-														$output .= '<option value="col-lg-' . $inc . '" ' . selected( $handleArray['options']['col-lg'], 'col-lg-'.$inc, false ) . '>'. esc_html( 'col-lg-'.$inc ) .'</option>';
+													$output .= '<option value="none" ' . selected( $handleArray['options']['col-lg'], 'none', false ) . '>'. __( 'none', 'cherry' ) . '</option>';
+													for ( $i = 1; $i <= 12; $i++ ) {
+														$output .= '<option value="col-lg-' . $i . '" ' . selected( $handleArray['options']['col-lg'], 'col-lg-' . $i, false ) . '>'. $i .'</option>';
 													}
 												$output .= '</select>';
 											$output .= '</div>';
 											$output .= '<div class="field-class">';
-												$output .= $this -> add_label($id . '-class',  __( 'Custom class', 'cherry' ), $this->options['class']['label'].' cherry-block');
-												$output .= '<input class="width-full key-custom-class" name="' . $name . '[' . $handle . '][options][class]" value="' . esc_html( $handleArray['options']['class'] ) . '" type="text" />';
+												$output .= $this->add_label( $id . '-class', __( 'Custom class', 'cherry' ), $this->options['class']['label'] . ' cherry-block');
+												$output .= '<input class="width-full key-custom-class" name="' . $name . '[' . $handle . '][options][class]" value="' . esc_html( $handleArray['options']['class'] ) . '" type="text">';
 											$output .= '</div>';
 											$output .= '<input type="hidden" class="key-item-name" name="' . $name . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
 											$output .= '<input type="hidden" class="key-area" name="' . $name . '[' . $handle . '][options][area]" value="' . $handleArray['options']['area'] . '">';
@@ -1074,7 +1069,7 @@ class Cherry_Interface_Builder {
 						$output .= '</div>';
 						//lineheight
 						$output .= '<div class="field-font-lineheight">';
-							$output .= $this -> add_label($id . '[lineheight]',  __( 'Lineheight', 'cherry' ), $this->options['class']['label'].' cherry-block');
+							$output .= $this -> add_label($id . '[lineheight]',  __( 'Line-height', 'cherry' ), $this->options['class']['label'].' cherry-block');
 							$output .= '<input id="' . $id . '[lineheight]" name="' . $name . '[lineheight]" class="cherry-stepper-input font-lineheight" placeholder="inherit" type="text" value="' . esc_html( $value['lineheight'] ) . '" data-max-value="' . esc_html( $max_value ) . '" data-min-value="1" data-step-value="1">';
 							$output .= '<span class="cherry-stepper-controls"><em class="step-up" title="'.__( 'Step Up', 'cherry' ).'">+</em><em class="step-down" title="'.__( 'Step Down', 'cherry' ).'">-</em></span> px';
 						$output .= '</div>';

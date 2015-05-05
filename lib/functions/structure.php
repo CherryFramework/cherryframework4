@@ -80,7 +80,7 @@ function cherry_content_wrap() {
 			$wrapper = '<div class="content-sidebar-wrapper">';
 		}
 
-		printf( '%1$s<div id="primary" class="content-area"><main %2$s>', $wrapper, cherry_get_attr( 'content' ) );
+		printf( '%1$s<div id="primary" class="content-area"><main %2$s>', $wrapper, cherry_get_attr( 'main' ) );
 
 	} else {
 		echo '</main></div>';
@@ -96,7 +96,7 @@ function cherry_content_wrap() {
  */
 function cherry_content_sidebar_wrap_close( $sidebar ) {
 
-	if ( 'main' != $sidebar ) {
+	if ( 'sidebar-main' != $sidebar ) {
 		return;
 	}
 

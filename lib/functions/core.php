@@ -21,7 +21,10 @@ if ( !defined( 'WPINC' ) ) {
  * Allows theme developers to set a definite prefix for their theme. If this isn't set, the framework
  * will assume the prefix is the value of 'get_template()'. This should be called early, such as in
  * the theme setup function.
+ * Function based on Hybrid Core by Justin Tadlock.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @global object $cherry The global Cherry_Framework object.
  * @param  string $prefix
@@ -35,6 +38,8 @@ function cherry_set_prefix( $prefix ) {
 /**
  * Defines the theme prefix.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @global object $cherry         The global Cherry_Framework object.
  * @return string $cherry->prefix The prefix of the theme.
@@ -59,6 +64,8 @@ function cherry_get_prefix() {
  * Function for setting the content width of a theme. This does not check if a content width has been set; it
  * simply overwrites whatever the content width is.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @global int    $content_width The width for the theme's content area.
  * @param  int    $width         Numeric value of the width to set.
@@ -72,6 +79,8 @@ function cherry_set_content_width( $width = '' ) {
 /**
  * Function for getting the theme's content width.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @global int   $content_width The width for the theme's content area.
  * @return int   $content_width
@@ -86,10 +95,10 @@ function cherry_get_content_width() {
  * Safely get value from arry by key
  *
  * @since  4.0.0
- * @param  array   $array    array to search value in
- * @param  string  $key      key
- * @param  mixed   $default  default value to return if key not found in array
- * @return mixed             value from array ar default if nothing found
+ * @param  array  $array    Array to search value in
+ * @param  string $key      Key
+ * @param  mixed  $default  Default value to return if key not found in array
+ * @return mixed            Value from array ar default if nothing found
  */
 function cherry_esc_value( $array, $key, $default = false ) {
 
@@ -110,9 +119,8 @@ function cherry_esc_value( $array, $key, $default = false ) {
  * Previously search file with in child theme, then in framework,
  * so you can easly overload needed file in your child theme
  *
- * @since  4.0.0
- *
- * @param  string  $path  file path, relative to theme directory
+ * @since 4.0.0
+ * @param string $path File path, relative to theme directory
  */
 function cherry_require( $path ) {
 
@@ -157,7 +165,6 @@ function cherry_require( $path ) {
  * Returns 1, if framework version greater than child theme
  *
  * @since  4.0.0
- *
  * @return int
  */
 function cherry_version_compare() {

@@ -161,8 +161,8 @@ function cherry_post_nav() {
 		<div class="paging-navigation">
 			<div class="nav-links">
 				<?php
-					previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'cherry' ) );
-					next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'cherry' ) );
+					previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
+					next_post_link( '<div class="nav-next">%link</div>', '%title' );
 				?>
 			</div><!-- .nav-links -->
 		</div>
@@ -468,13 +468,22 @@ add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
 function cherry_maintenance_mode() {
 
 	$enabled      = cherry_get_option( 'general-maintenance-mode', false );
-	$preview_mode = isset( $_GET['maintenance-preview'] ) ? true : false;
 
-	if ( 'true' !== $enabled && !$preview_mode ) {
+	if (
+		isset( $_GET['maintenance-preview'] )
+		&& isset( $_GET['nonce'] )
+		&& wp_verify_nonce( $_GET['nonce'], 'cherry-maintenance-preview' )
+	) {
+		$preview_mode = true;
+	} else {
+		$preview_mode = false;
+	}
+
+	if ( 'true' !== $enabled && ! $preview_mode ) {
 		return;
 	}
 
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && !$preview_mode ) {
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && ! $preview_mode ) {
 		return;
 	}
 

@@ -17,13 +17,9 @@ if ( !defined( 'WPINC' ) ) {
 
 // Adds common theme items to <head>.
 add_action( 'wp_head', 'cherry_meta_charset',  0 );
-add_action( 'wp_head', 'cherry_doctitle',      0 );
 add_action( 'wp_head', 'cherry_meta_viewport', 1 );
 add_action( 'wp_head', 'wp_generator',         1 ); // Move the WordPress generator to a better priority.
 add_action( 'wp_head', 'cherry_link_pingback', 3 );
-
-// Filters the WordPress title.
-add_filter( 'wp_title', 'cherry_wp_title', 10, 2 );
 
 /**
  * Removes unnecessary code that WordPress puts to <head>.
@@ -43,6 +39,8 @@ add_filter( 'wp_head', 'cherry_remove_recent_comments_style', 1 );
 /**
  * Adds the meta charset to the header.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_meta_charset() {
@@ -50,18 +48,9 @@ function cherry_meta_charset() {
 }
 
 /**
- * Adds the title to the header.
- *
- * @since  4.0.0
- */
-function cherry_doctitle() {
-	?><title><?php wp_title( '|', true, 'right' ); ?></title>
-<?php }
-
-/**
  * Adds the meta viewport to the header.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_meta_viewport() {
 	$is_responsive = cherry_get_option( 'grid-responsive' );
@@ -74,6 +63,8 @@ function cherry_meta_viewport() {
 /**
  * Adds the pingback meta tag to the head so that other sites can know how to send a pingback to our site.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_link_pingback() {
@@ -83,42 +74,9 @@ function cherry_link_pingback() {
 }
 
 /**
- * Filters wp_title to print a neat <title> tag based on what is being viewed.
- *
- * @since  4.0.0
- *
- * @param  string $title Default title text for current view.
- * @param  string $sep   Optional separator.
- * @return string        The filtered title.
- */
-function cherry_wp_title( $title, $sep ) {
-	if ( is_feed() ) {
-		return $title;
-	}
-
-	global $page, $paged;
-
-	// Add the blog name
-	$title .= get_bloginfo( 'name', 'display' );
-
-	// Add the blog description for the home/front page.
-	$site_description = get_bloginfo( 'description', 'display' );
-	if ( $site_description && ( is_home() || is_front_page() ) ) {
-		$title .= " $sep $site_description";
-	}
-
-	// Add a page number if necessary:
-	if ( $paged >= 2 || $page >= 2 ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'cherry' ), max( $paged, $page ) );
-	}
-
-	return $title;
-}
-
-/**
  * Remove inline CSS used by Recent Comments widget.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_remove_recent_comments_style() {
 	global $wp_widget_factory;

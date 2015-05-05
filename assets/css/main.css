@@ -1518,53 +1518,21 @@ object {
   position: fixed;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.site {
-  word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
-}
-
-.cherry-grid-boxed .cherry-container .container {
-  width: auto;
-}
-.cherry-no-responsive .cherry-container .container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.static-area.no-container.with-row {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-.static-area.no-container.with-row:before, .static-area.no-container.with-row:after {
-  content: " ";
-  display: table;
-}
-.static-area.no-container.with-row:after {
-  clear: both;
-}
-.container .static-area.no-container {
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.site-header.isStick {
-  left: 0;
-  right: 0;
-}
-
+/*
+Description: The layout stylesheet.
+Author:      Cherry Team
+Version:     1.0.0
+*/
+/*--------------------------------------------------------------
+# Responsive
+--------------------------------------------------------------*/
 @media (min-width: 992px) {
+  .cherry-header-boxed .site-header .container,
+  .cherry-content-boxed .site-content .container,
+  .cherry-footer-boxed .site-footer .container {
+    width: auto;
+  }
+
   .cherry-with-sidebar #primary {
     width: 75%;
   }
@@ -1604,11 +1572,30 @@ img {
     float: right;
   }
 
-  .cherry-with-sidebar .entry-header .container,
-  .cherry-with-sidebar .entry-content .container,
-  .cherry-with-sidebar .comments-area .container,
-  .cherry-with-sidebar .entry-footer .container {
+  .cherry-with-sidebar .site-content .container {
     width: 80%;
     /* fix */
   }
+  .cherry-with-sidebar.cherry-content-boxed .site-content .container {
+    width: auto;
+  }
+}
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.site {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+
+.site-header.isStick {
+  left: 0;
+  right: 0;
 }

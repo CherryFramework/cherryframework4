@@ -18,20 +18,6 @@
     width: $container-lg;
   }
 
-  .cherry-container & {
-    padding-left: 0;
-    padding-right: 0;
-    @media (min-width: $screen-sm-min) {
-      width: $container-sm - $grid-gutter-width;
-    }
-    @media (min-width: $screen-md-min) {
-      width: $container-md - $grid-gutter-width;
-    }
-    @media (min-width: $screen-lg-min) {
-      width: $container-lg - $grid-gutter-width;
-    }
-  }
-
 }
 
 // Extra small grid

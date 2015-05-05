@@ -1,13 +1,19 @@
 <?php
 /**
- * Cherry breadcrumbs class.
- * Based on Breadcrumb Trail plugin by Justin Tadlock (http://themehybrid.com/plugins/breadcrumb-trail)
+ * Breadcrumb Trail - A breadcrumb menu script for WordPress.
+ *
+ * Breadcrumb Trail is a script for showing a breadcrumb trail for any type of page.  It tries to
+ * anticipate any type of structure and display the best possible trail that matches your site's
+ * permalink structure.  While not perfect, it attempts to fill in the gaps left by many other
+ * breadcrumb scripts.
  *
  * @package    Cherry_Framework
  * @subpackage Class
+ * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2015, Cherry Team
- * @link       http://themehybrid.com/plugins/breadcrumb-trail, http://www.cherryframework.com/
+ * @copyright  Copyright (c) 2008 - 2014, Justin Tadlock
+ * @link       http://themehybrid.com/plugins/breadcrumb-trail
+ * @link       http://www.cherryframework.com
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -19,7 +25,8 @@ if ( !defined( 'WPINC' ) ) {
 if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 	/**
-	 * Breadcrumbs builder class
+	 * Breadcrumbs builder class.
+	 * Class is based on Breadcrumb Trail plugin by Justin Tadlock.
 	 *
 	 * @since 4.0.0
 	 */
@@ -78,8 +85,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				'wrapper_format'    => '<div>%1$s</div><div>%1$s</div>',
 				'page_title_format' => '<h1 class="page-title">%s</h1>',
 				'item_format'       => '<div class="%2$s">%1$s</div>',
-				'home_format'       => '<a href="%4$s" class="%2$s is-home" rel="home" title="%3$s">%1$s</a>',
-				'link_format'       => '<a href="%4$s" class="%2$s" rel="tag" title="%3$s">%1$s</a>',
+				'home_format'       => '<a href="%4$s" class="%2$s is-home" title="%3$s">%1$s</a>',
+				'link_format'       => '<a href="%4$s" class="%2$s" title="%3$s">%1$s</a>',
 				'target_format'     => '<span class="%2$s">%1$s</span>',
 				'show_on_front'     => true,
 				'network'           => false,
@@ -186,7 +193,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			);
 
 			/* Open the breadcrumb trail containers. */
-			$result = "\n\t\t" . '<div class="' . $wrapper_css . '" itemprop="breadcrumb">';
+			$result = "\n\t\t" . '<div class="' . $wrapper_css . '">';
 
 			$result .= sprintf( $this->args['wrapper_format'], $title, $breadcrumb );
 
@@ -319,6 +326,16 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$this->items = apply_filters( 'cherry_breadcrumbs_items', $this->items, $this->args );
 		}
 
+		/**
+		 * Add trail item int array
+		 *
+		 * @since 4.0.0
+		 *
+		 * @param string $format item format to add
+		 * @param string $label  item label
+		 * @param string $url    item URL
+		 * @param string $class  item CSS class
+		 */
 		public function _add_item( $format = 'link_format', $label, $url = '', $class = '' ) {
 
 			$title = esc_attr( $label );
@@ -517,7 +534,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 						? 'link_format'
 						: 'home_format';
 
-			$url   = home_url();
+			$url   = home_url( '/' );
 			$label = ( is_multisite() && !is_main_site() && true === $this->args['network'] )
 						? get_bloginfo( 'name' )
 						: $this->args['labels']['home'];
@@ -609,7 +626,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 				$post_terms = wp_get_post_terms( $post_id, $this->args['post_taxonomy'][ $post_type ] );
 
-				if ( is_array( $post_terms ) ) {
+				if ( is_array( $post_terms ) && isset( $post_terms[0] ) && is_object( $post_terms[0] ) ) {
 					$term_id = $post_terms[0]->term_id;
 					$this->add_term_parents( $term_id, $this->args['post_taxonomy'][ $post_type ] );
 				}
@@ -969,7 +986,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$this->_add_item(
 					'link_format',
 					$week,
-					add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url() )
+					add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url( '/' ) )
 				);
 
 			} elseif ( true === $this->args['show_title'] ) {

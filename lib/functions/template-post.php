@@ -669,7 +669,7 @@ function cherry_gallery_shortcode( $result, $attr ) {
 		return;
 	}
 
-	$result = cherry_get_gallery_html( $attachments );
+	$result = cherry_get_gallery_html( $attachments, $atts );
 
 	return $result;
 }
@@ -679,15 +679,21 @@ function cherry_gallery_shortcode( $result, $attr ) {
  *
  * @since  4.0.0
  * @param  array  $images Images array can contain image IDs or URLs
+ * @param  array  $atts   Shortcode attributes array
  * @return string         Gallery HTML markup
  */
-function cherry_get_gallery_html( $images ) {
+function cherry_get_gallery_html( $images, $atts = array() ) {
+
+	$atts = wp_parse_args( $atts, array(
+		'link' => ''
+	) );
 
 	$defaults = array(
 		'container_class'  => 'post-gallery',
 		'size'             => 'thumb-l',
 		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
 		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a>%4$s</figure>',
+		'item_format_alt'  => '<figure class="%3$s">%1$s%4$s</figure>'
 	);
 
 	/**
@@ -779,8 +785,14 @@ function cherry_get_gallery_html( $images ) {
 			$url   = $img;
 		}
 
+		if ( ! empty( $atts['link'] ) && 'none' === $atts['link'] ) {
+			$format = $args['item_format_alt'];
+		} else {
+			$format = $args['item_format'];
+		}
+
 		$items[] = sprintf(
-			$args['item_format'],
+			$format,
 			$image, $url, $args['container_class'] . '_item' . $nth_class, $caption
 		);
 	}
@@ -1011,6 +1023,8 @@ function cherry_get_the_post_avatar( $args ) {
 /**
  * Gets the first URL from the content, even if it's not wrapped in an <a> tag.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string $content
  * @return string
@@ -1026,6 +1040,8 @@ function cherry_get_content_url( $content ) {
 /**
  * If did not find a URL, check the post content for one. If nothing is found, return the post permalink.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  object $post
  * @return string

@@ -19,9 +19,13 @@ if ( !defined( 'WPINC' ) ) {
 
 /**
  * Class for determines whether or not to display the sidebar.
+ * Class is based on Sage Starter Theme by Roots.
  *
- * @since  4.0.0
- * @return boolean true Will display the sidebar, false - will not
+ * @author  Roots
+ * @author  Cherry Team <support@cherryframework.com>
+ * @link    https://roots.io/sage/
+ * @license http://opensource.org/licenses/MIT
+ * @since   4.0.0
  */
 class Cherry_Sidebar {
 	/**
