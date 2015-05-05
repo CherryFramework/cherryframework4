@@ -82,10 +82,6 @@ $max-desktop-width: 1170px;
 			box-shadow: none;
 			cursor: pointer;border-radius: 6px;
 			background: $primary-color;
-			&:before{
-				transform: scale(1);
-				border-radius: 6px;
-			}
 		}
 		&:link{
 			text-decoration: none;
@@ -95,17 +91,9 @@ $max-desktop-width: 1170px;
 		}
 		&:active{
 			@extend .button-primary_:hover;
-			&:before{
-				transform: scale(1);
-				border-radius: 6px;
-			}
 		}
 		&:focus{
 			@extend .button-primary_:hover;
-			&:before{
-				transform: scale(1);
-				border-radius: 6px;
-			}
 		}
 	}
 

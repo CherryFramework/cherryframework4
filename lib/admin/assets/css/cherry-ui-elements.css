@@ -50,23 +50,11 @@
   border-radius: 6px;
   background: #f62e46;
 }
-.cherry-ui-core .button-primary_:hover:before, .cherry-ui-core .button-primary_:active:before, .cherry-ui-core .button-primary_:focus:before {
-  transform: scale(1);
-  border-radius: 6px;
-}
 .cherry-ui-core .button-primary_:link {
   text-decoration: none;
   color: #FFFFFF;
   box-shadow: none;
   cursor: pointer;
-}
-.cherry-ui-core .button-primary_:active:before {
-  transform: scale(1);
-  border-radius: 6px;
-}
-.cherry-ui-core .button-primary_:focus:before {
-  transform: scale(1);
-  border-radius: 6px;
 }
 .cherry-ui-core .button-default_ {
   font-size: 13px;

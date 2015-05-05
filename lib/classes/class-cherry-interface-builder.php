@@ -292,8 +292,8 @@ class Cherry_Interface_Builder {
 				$output .= '<div class="cherry-fegr">';
 				$checked = ($value == 'true')?'checked':'';
 				$output .= '<div class="cherry-checkbox-item '. $checked .'"><span class="marker dashicons dashicons-yes"></span></div>';
-				$output .= '<input type="'.$type.'" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $id . '" name="' . $name . '" ' . checked( 'true', $value, false ) . ' value="' . esc_html( $value ) . '" >';
-				$output .= $this -> add_label($id, $label);
+				$output .= '<input type="hidden" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $id . '" name="' . $name . '" value="' . esc_html( $value ) . '" >';
+				$output .= $this -> add_label($id, $label, 'cherry-checkbox-label');
 				$output .= '</div>';
 			break;
 			/*
@@ -310,20 +310,21 @@ class Cherry_Interface_Builder {
 			*/
 			case 'multicheckbox':
 				if($options && !empty($options) && is_array($options)){
-
 					foreach ($options as $option => $option_value) {
-						//$name = $this -> generate_field_name($option);
 						$checkbox_id = $this -> generate_field_id($option);
+
 						if( '' !== $value ){
 							$option_checked = in_array($option, $value) ? $option : '' ;
+							$item_value = in_array($option, $value) ? 'true' : 'false' ;
 						}else{
 							$option_checked = '';
+							$item_value = 'false';
 						}
 						$output .= '<div class="cherry-fegr">';
 						$checked = ($option_checked !== '')?'checked':'';
 						$output .= '<div class="cherry-checkbox-item ' . $checked . '"><span class="marker dashicons dashicons-yes"></span></div>';
-						$output .= '<input type="checkbox" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $checkbox_id . '" name="' . $name . '['. $option .']" ' . checked( $option_checked, $option, false ) . ' value="' . esc_html( $option ) . '" >';
-						$output .= $this -> add_label($checkbox_id, $option_value);
+						$output .= '<input type="hidden" ' . $item_inline_style . ' class="cherry-input ' . $class . '" id="' . $checkbox_id . '" name="' . $name . '['. $option .']" value="' . esc_html( $item_value ) . '" >';
+						$output .= $this -> add_label($checkbox_id, $option_value, 'cherry-checkbox-label');
 						$output .= '</div>';
 					}
 				}
@@ -533,7 +534,7 @@ class Cherry_Interface_Builder {
 						$output .= '</div>';//end area-unit
 					}// end foreach $available_areas
 					$output .= '<div class="cherry-accordion-control">';
-						$output .= $this -> add_label($id.'-static',  __( 'Create new static', 'cherry' ), $this->options['class']['label'].' cherry-block');
+
 						$output .= '<a href="javascript:void(0);" class="button-primary_ add-new-btn">'. __( 'Add new static', 'cherry' ) .'</a>';
 						$output .= '<div class="field-static">';
 							$output .= '<select ' . $item_inline_style . ' class="static-selector width-full">';
@@ -987,6 +988,7 @@ class Cherry_Interface_Builder {
 					'center'     => __( 'Center', 'cherry' ),
 					'justify'    => __( 'Justify', 'cherry' )
 				);
+
 				$output .= '<div>';
 				$output .= '<div class="cherry-type-wrap">';
 					//Font Family

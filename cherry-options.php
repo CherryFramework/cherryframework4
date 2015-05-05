@@ -1,6 +1,7 @@
 <?php
 
 function cherry_defaults_settings() {
+
 	global $cherry_registered_statics, $cherry_registered_static_areas;
 
 	$all_pages     = array();
@@ -22,6 +23,7 @@ function cherry_defaults_settings() {
 	$default_selector = array_keys($sticky_selectors);
 	$default_selector = $default_selector[0];
 
+
 	//////////////////////////////////////////////////////////////////////
 	// General
 	//////////////////////////////////////////////////////////////////////
@@ -38,6 +40,15 @@ function cherry_defaults_settings() {
 		'multi_upload'     => true,
 		'return_data_type' => 'url',
 		'library_type'     => 'image',
+	);
+	$general_options['general-page-comments-status_'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Page comments', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
+		),
+		'value' => 'false',
 	);
 	$general_options['general-page-comments-status'] = array(
 		'type'  => 'switcher',
@@ -548,14 +559,7 @@ function cherry_defaults_settings() {
 			'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
 		),
 		'class'			=> '',
-		'value'			=> array(
-			'tablet'	=> true,
-			'mobile'	=> true,
-		),
-		'default_value'	=> array(
-			'tablet'	=> true,
-			'mobile'	=> true,
-		),
+		'value'			=> array( 'tablet', 'mobile' ),
 		'options'		=> array(
 			'tablet'	=> __( 'Tablet', 'cherry' ),
 			'mobile'	=> __( 'Mobile', 'cherry' ),
@@ -1157,6 +1161,23 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> 'true',
 	);
+	$demo_options['multicheckbox-demo'] = array(
+		'type'			=> 'multicheckbox',
+		'title'			=> __('Multiple checkboxes', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds checkboxes group. Lets user to select several options from the list.', 'cherry'),
+		),
+		'class'			=> '',
+		'value'			=> array( 'checkbox-2', 'checkbox-3' ),
+		'options'		=> array(
+			'checkbox-1'	=> 'checkbox 1',
+			'checkbox-2'	=> 'checkbox 2',
+			'checkbox-3'	=> 'checkbox 3'
+		)
+	);
 	$demo_options['switcher-demo'] = array(
 		'type'			=> 'switcher',
 		'title'			=> __('Switcher', 'cherry'),
@@ -1226,23 +1247,6 @@ function cherry_defaults_settings() {
 			'right-value'	=> 50,
 		)
 	);
-	$demo_options['multicheckbox-demo'] = array(
-		'type'			=> 'multicheckbox',
-		'title'			=> __('Multiple checkboxes', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'      	=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Adds checkboxes group. Lets user to select several options from the list.', 'cherry'),
-		),
-		'class'			=> '',
-		'value'			=> array( 'checkbox-2', 'checkbox-3' ),
-		'options'		=> array(
-			'checkbox-1'	=> 'checkbox 1',
-			'checkbox-2'	=> 'checkbox 2',
-			'checkbox-3'	=> 'checkbox 3'
-		)
-	);
 	$demo_options['radio-demo'] = array(
 		'type'			=> 'radio',
 		'title'			=> __('Radio buttons', 'cherry'),
@@ -1307,7 +1311,7 @@ function cherry_defaults_settings() {
 		'multi-upload'		=> true,
 		'library_type'		=> ''
 	);
-	$demo_options['background-demo'] = array(
+	$demo_options['backgrounddemo'] = array(
 		'type'				=> 'background',
 		'title'			=> __('Background image', 'cherry'),
 		'label'			=> '',
@@ -1487,6 +1491,7 @@ function cherry_defaults_settings() {
 		'priority'     => 30,
 		'options-list' => apply_filters( 'cherry_grid_options_list', $grid_options ),
 	);
+
 	$sections_array['blog-section'] = array(
 		'name'         => __( 'Blog', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-post',
