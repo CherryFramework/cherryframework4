@@ -416,6 +416,15 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
+	$post_single_options['blog-add-ligthbox'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Lightbox for images and videos', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Automatically adds lightbox for images and videos', 'cherry' ),
+		),
+		'value' => 'true',
+	);
 
 	// Meta
 	////////////////////////////////////////////////////////////////////////
