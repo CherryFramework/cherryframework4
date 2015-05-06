@@ -18,18 +18,48 @@ class cherry_footer_info_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
-		$output = '<div class="site-info">';
-		$output .= sprintf( __( 'Copyright &copy; %1$s %2$s. Powered by %3$s and %4$s.', 'cherry' ),
-						date_i18n( 'Y' ),
-						cherry_get_site_link( 'footer-site-link' ),
-						cherry_get_wp_link(),
-						cherry_get_theme_link()
-					);
-		$output .= '</div>';
 
-		$output = apply_filters( 'cherry_footer_info', $output );
+		$footer_text = cherry_get_option( 'footer-text' );
+
+		if ( ! empty( $footer_text ) ) {
+
+			$footer_text = preg_replace_callback(
+				'/%%([a-zA-Z0-9-_]+)%%/',
+				array( $this, 'texturize_links' ),
+				$footer_text
+			);
+
+			printf( '<div class="site-info">%s</div>', $footer_text );
+			return;
+		}
+
+		$format = apply_filters( 'cherry_default_footer_info_format', '%2$s &copy; %1$s. %3$s' );
+
+		$output = '<div class="site-info">';
+		$output .= sprintf(
+			$format,
+			date_i18n( 'Y' ), cherry_get_site_link( 'footer-site-link' ), cherry_get_link_by_slug( 'privacy-policy' )
+		);
+		$output .= '</div>';
 		echo $output;
 	}
+
+	/**
+	 * Replace page link makros with real links
+	 *
+	 * @since 4.0.0
+	 * @param mixed $matches text to search macros in
+	 */
+	public function texturize_links( $matches ) {
+
+		if ( ! isset( $matches[1] ) ) {
+			return $matches[0];
+		} else {
+			return cherry_get_link_by_slug( $matches[1] );
+		}
+
+	}
+
 }
 
 /**

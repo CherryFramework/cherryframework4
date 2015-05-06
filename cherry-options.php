@@ -898,6 +898,16 @@ function cherry_defaults_settings() {
 		'value'				=> '',
 		'multi-upload'		=> true,
 	);
+	$footer_options['footer-text'] = array(
+		'type'				=> 'textarea',
+		'title'				=> __( 'Footer Info text', 'cherry' ),
+		'hint'				=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Set custom text for Footer info static', 'cherry' )
+		),
+		'value'				=> '',
+		'multi-upload'		=> true,
+	);
 //////////////////////////////////////////////////////////////////////
 // Typography options
 //////////////////////////////////////////////////////////////////////
