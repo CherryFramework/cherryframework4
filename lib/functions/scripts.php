@@ -112,6 +112,11 @@ function cherry_enqueue_scripts() {
 	}
 
 	wp_enqueue_script( 'cherry-script' );
+
+	// add custom data to cherry scripts
+	$use_lightbox  = cherry_get_option( 'blog-add-ligthbox' );
+	$use_lightbox = ( 'true' == $use_lightbox ) ? true : false;
+	wp_localize_script( 'cherry-script', 'cherry_data', array( 'use_lightbox' => $use_lightbox ) );
 }
 
 /**

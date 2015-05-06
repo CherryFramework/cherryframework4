@@ -416,6 +416,15 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
+	$post_single_options['blog-add-ligthbox'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Lightbox for images and videos', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Automatically adds lightbox for images and videos', 'cherry' ),
+		),
+		'value' => 'true',
+	);
 
 	// Meta
 	////////////////////////////////////////////////////////////////////////
@@ -885,6 +894,16 @@ function cherry_defaults_settings() {
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Click Choose Media button to select footer logo image from the media library or upload your image.', 'cherry' )
+		),
+		'value'				=> '',
+		'multi-upload'		=> true,
+	);
+	$footer_options['footer-text'] = array(
+		'type'				=> 'textarea',
+		'title'				=> __( 'Footer Info text', 'cherry' ),
+		'hint'				=> array(
+			'type'		=> 'text',
+			'content'	=> __( 'Set custom text for Footer info static', 'cherry' )
 		),
 		'value'				=> '',
 		'multi-upload'		=> true,
