@@ -50,6 +50,9 @@ add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
 // Add favicon tags to page
 add_action( 'wp_head', 'cherry_favicon_tags' );
 
+// Add popup videa and image classes to embeded images into editor
+add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 );
+
 
 // Add specific CSS class by filter.
 function cherry_add_control_classes( $classes ) {
@@ -471,4 +474,66 @@ function cherry_add_extra_styles() {
 		// Print style if $output not empty.
 		printf( "<style type='text/css'>\n%s\n</style>\n", $output );
 	}
+}
+
+/**
+ * Add popup classes to media links in editor
+ *
+ * @since  4.0.0
+ *
+ * @param  string $html       media markup to indert
+ * @param  int    $id         media ID
+ * @param  array  $attachment media data
+ */
+function cherry_add_popup_classes_to_media( $html, $id, $attachment ) {
+
+	$img_reg   = '/[\'\"]{1}[^\s]+(\.(?i)(jpe?g|png|gif|bmp))[\'\"]{1}/';
+	$video_reg = '/(https?:\/\/www\.youtube\.com\/watch\?v=[a-zA-Z0-9-_]+)|(https?:\/\/vimeo\.com\/[a-zA-Z0-9-_]+)/';
+
+	$link_reg = "/<a[^>]*>/";
+	$found    = preg_match( $link_reg, $html, $a_elem );
+
+	// If no link, do nothing
+	if ( ! $found ) {
+		return $html;
+	}
+
+	$a_elem = $a_elem[0];
+
+	if ( preg_match( $img_reg, $a_elem ) ) { // Check if is direct link to image
+		$html = cherry_safe_add_class( $html, $a_elem, 'single-popup-image' );
+	} elseif ( preg_match( $video_reg, $a_elem ) ) { // Check if is direct link to youtube or vimeo video
+		$html = cherry_safe_add_class( $html, $a_elem, 'single-popup-video' );
+	}
+
+	return $html;
+
+}
+
+/**
+ * Servise function to add CSS class to link
+ *
+ * @since  4.0.0
+ *
+ * @param  string $html  input HTML
+ * @param  string $link  child link HTML to add class
+ * @param  string $class CSS class to add
+ */
+function cherry_safe_add_class( $html, $link, $class ) {
+
+	if ( ! $html || ! $class ) {
+		return false;
+	}
+
+	if ( false !== strstr( $link, "class=\"" ) ) {
+		// If link already has class defined inject it to attribute
+		$link_new = str_replace( "class=\"", "class=\"$class ", $link );
+		$html     = str_replace( $link, $link_new, $html );
+	} else {
+		// If no class defined, just add class attribute
+		$html = str_replace( "<a ", "<a class=\"$class\" ", $html );
+	}
+
+	return $html;
+
 }

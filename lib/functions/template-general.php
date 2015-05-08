@@ -123,6 +123,32 @@ function cherry_get_theme_link() {
 }
 
 /**
+ * Get link HTML by page slug
+ *
+ * @since 4.0.0
+ *
+ * @param string $slug page slug
+ */
+function cherry_get_link_by_slug( $slug = null ) {
+
+	if ( ! $slug || ! is_string( $slug ) ) {
+		return;
+	}
+
+	$page = get_page_by_path( $slug );
+
+	if ( ! $page ) {
+		return;
+	}
+
+	$format = '<a href="%s">%s</a>';
+	$result = sprintf( $format, get_permalink( $page->ID ), $page->post_title );
+
+	return $result;
+
+}
+
+/**
  * Outputs the site logo.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
