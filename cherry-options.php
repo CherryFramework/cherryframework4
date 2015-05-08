@@ -1205,7 +1205,7 @@ function cherry_defaults_settings() {
 	);
 	$demo_options['multiselect-demo'] = array(
 		'type'			=> 'multiselect',
-		'title'			=> __('Mulli-select box', 'cherry'),
+		'title'			=> __('Multi-select box', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
 		'hint'			=>  array(
