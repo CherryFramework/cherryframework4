@@ -303,7 +303,7 @@ function cherry_get_comments_template() {
 	}
 
 	if ( ( 'page' == $post_type )
-		&& ( 'false' == cherry_get_option( 'general-page-comments-status' ) )
+		&& ( 'false' == cherry_get_option( 'page-comments-status' ) )
 		) {
 		return;
 	}

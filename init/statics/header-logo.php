@@ -49,7 +49,7 @@ class cherry_header_logo_static extends cherry_register_static {
 		echo $result;
 
 		if ( is_array( $logo ) ) {
-			$logo[$page] = $result;
+			$logo[ $page ] = $result;
 		} else {
 			$logo = array(
 				$page => $result
@@ -67,7 +67,7 @@ class cherry_header_logo_static extends cherry_register_static {
 	public function get_logo() {
 
 		$result = sprintf( '<div class="site-branding">%1$s %2$s</div>',
-			cherry_get_site_logo(),
+			cherry_get_site_logo( 'header' ),
 			cherry_get_site_description()
 		);
 

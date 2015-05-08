@@ -78,7 +78,8 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				'color-danger',
 				'color-gray-variations',
 				'typography-body',
-				'typography-logo',
+				'typography-header-logo',
+				'typography-footer-logo',
 				'typography-header-menu',
 				'typography-footer-menu',
 				'typography-h1',
@@ -92,6 +93,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				'typography-footer',
 				'body-background',
 				'header-background',
+				'content-background',
 				'footer-background'
 			);
 

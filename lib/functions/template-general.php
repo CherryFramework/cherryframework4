@@ -145,10 +145,28 @@ function cherry_site_logo() {
  * @since  4.0.0
  * @return string
  */
-function cherry_get_site_logo() {
+function cherry_get_site_logo( $location = 'header' ) {
 
-	$type         = cherry_get_option( 'logo-type', 'text' );
-	$logo_img_ids = cherry_get_option( 'logo-image-path', false );
+	switch ( $location ) {
+		case 'header':
+			$type         = cherry_get_option( 'logo-type', 'text' );
+			$logo_img_ids = cherry_get_option( 'logo-image-path', false );
+			$tag          = is_front_page() ? 'h1' : 'h2';
+			$logo_class   = 'site-title';
+			$link_class   = '';
+			break;
+
+		case 'footer':
+			$type         = cherry_get_option( 'footer-logo-type', 'text' );
+			$logo_img_ids = cherry_get_option( 'footer-logo-image-path', false );
+			$tag          = 'div';
+			$logo_class   = 'cherry-footer-logo';
+			$link_class   = 'footer-logo-link';
+			break;
+
+		default:
+			break;
+	}
 
 	if ( 'image' == $type && false != $logo_img_ids ) {
 
@@ -162,49 +180,20 @@ function cherry_get_site_logo() {
 
 			$logo_image_format = apply_filters(
 				'cherry_logo_image_format',
-				'<a href="%1$s" rel="home"><img src="%2$s" alt="%3$s"></a>'
+				'<a href="%1$s" rel="home"><img src="%2$s" alt="%3$s"></a>',
+				$location
 			);
 
 			$logo_content = sprintf( $logo_image_format, home_url( '/' ), esc_url( $img ), get_bloginfo( 'title' ) );
 		}
 
 	} else {
-		$logo_content = cherry_get_site_link();
+		$logo_content = cherry_get_site_link( $link_class );
 	}
 
-	$tag = is_front_page() ? 'h1' : 'h2';
+	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', $logo_class, $logo_content, $tag ) : '';
 
-	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', 'site-title', $logo_content, $tag ) : '';
-
-	return apply_filters( 'cherry_get_site_logo', $logo );
-}
-
-/**
- * Returns the linked site footer logo
- *
- * @since  4.0.0
- * @return string
- */
-function cherry_get_footer_logo() {
-
-	$logo_img = cherry_get_option( 'logo-footer', false );
-
-	if ( ! $logo_img ) {
-		return;
-	}
-
-	$images = explode( ',', $logo_img );
-
-	if ( count( $images ) > 1 ) {
-		$logo_content = cherry_get_retina_logo( $images );
-	} else {
-		$img = wp_get_attachment_url( $images[0] );
-		$logo_image_format = '<a href="%1$s" rel="home"><img src="%2$s" alt="%3$s"></a>';
-		$logo_content = sprintf( $logo_image_format, home_url( '/' ), esc_url( $img ), get_bloginfo( 'title' ) );
-	}
-
-	return sprintf( '<div class="cherry-footer-logo">%s</div>', $logo_content );
-
+	return apply_filters( 'cherry_get_site_logo', $logo, $location );
 }
 
 /**

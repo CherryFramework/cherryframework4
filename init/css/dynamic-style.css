@@ -32,10 +32,15 @@ h6, .h6 {
 }
 
 .site-link {
-	@typography( $typography-logo )
+	@typography( $typography-header-logo )
+}
+
+.footer-logo-link {
+	@typography( $typography-footer-logo )
 }
 
 @background( .site-header, $header-background )
+@background( .site-content, $content-background )
 
 .site-footer {
 	@typography( $typography-footer )

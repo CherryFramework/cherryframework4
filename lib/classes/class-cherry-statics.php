@@ -298,7 +298,7 @@ class Cherry_Statics {
 		}
 
 		// Wrap open (default).
-		printf( '<div id="static-area-%1$s" class="%s static-area row">', $index );
+		printf( '<div id="static-area-%1$s" class="%s static-area">', $index );
 
 		/**
 		 * Filters a HTML tag (open) for container.
