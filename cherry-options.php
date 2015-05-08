@@ -933,16 +933,6 @@ function cherry_defaults_settings() {
 		'min_value' => 970,
 		'value'     => 1310,
 	);
-	$footer_options['logo-footer'] = array(
-		'type'  => 'media',
-		'title' => __( 'Logo image', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( 'Click Choose Media button to select footer logo image from the media library or upload your image.', 'cherry' ),
-		),
-		'value'        => '',
-		'multi-upload' => true,
-	);
 	// Footer Logo options
 	//////////////////////////////////////////////////////////////////////
 	$footer_logo_options = array();
