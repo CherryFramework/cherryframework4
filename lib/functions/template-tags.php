@@ -35,9 +35,12 @@ add_action( 'cherry_entry_after', 'cherry_get_related_posts', 20 );
  */
 function cherry_get_breadcrumbs() {
 
-	$show = cherry_get_option( 'breadcrumbs', 'true' );
+	$show       = cherry_get_option( 'breadcrumbs', 'true' );
+	$show       = ( 'true' == $show ) ? true : false;
+	$show_title = cherry_get_option( 'breadcrumbs-show-title', 'false' );
+	$show_title = ( 'true' == $show_title ) ? true : false;
 
-	if ( 'true' != $show ) {
+	if ( ! $show && ! $show_title ) {
 		return;
 	}
 
@@ -52,9 +55,6 @@ function cherry_get_breadcrumbs() {
 	$show_on_front = cherry_get_option( 'breadcrumbs-show-on-front', 'false' );
 	$show_on_front = ( 'true' == $show_on_front ) ? true : false;
 
-	$show_title = cherry_get_option( 'breadcrumbs-show-title', 'false' );
-	$show_title = ( 'true' == $show_title ) ? true : false;
-
 	$user_args = apply_filters( 'cherry_breadcrumbs_custom_args', array() );
 
 	$wrapper_format = '<div class="row">
@@ -68,6 +68,7 @@ function cherry_get_breadcrumbs() {
 		'show_tablet'    => $show_tablet,
 		'show_on_front'  => $show_on_front,
 		'show_title'     => $show_title,
+		'show_items'     => $show,
 		'labels'         => $browse_label,
 		'wrapper_format' => $wrapper_format
 	);

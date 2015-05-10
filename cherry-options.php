@@ -520,6 +520,17 @@ function cherry_defaults_settings() {
 			'value'			=> 'true',
 			'default_value'	=> 'true'
 	);
+
+	$breadcrumbs_options['breadcrumbs-show-title'] = array(
+		'type'			=> 'switcher',
+		'title' 		=> __( 'Page title', 'cherry' ),
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __( 'Enable/disable page title in breadcrumbs.', 'cherry' )
+		),
+		'value'			=> 'true'
+	);
+	
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'multicheckbox',
 		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
@@ -542,15 +553,6 @@ function cherry_defaults_settings() {
 			'content'	=> __( 'Enable/disable breadcrumbs on home page.', 'cherry' )
 		),
 		'value'			=> 'false'
-	);
-	$breadcrumbs_options['breadcrumbs-show-title'] = array(
-		'type'			=> 'switcher',
-		'title' 		=> __( 'Page title', 'cherry' ),
-		'hint'      	=>  array(
-			'type'		=> 'text',
-			'content'	=> __( 'Enable/disable page title in breadcrumbs.', 'cherry' )
-		),
-		'value'			=> 'true'
 	);
 
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
