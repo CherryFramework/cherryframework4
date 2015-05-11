@@ -23,6 +23,7 @@
 
 		&:hover > a,
 		&.focus > a {
+			text-decoration: underline;
 		}
 		&.current_page_item > a,
 		&.current-menu-item > a,
@@ -88,12 +89,6 @@
 }
 .menu-primary {
 	padding: 20px 0;
-	.sub-menu {
-	}
-}
-
-/* Temp */
-.menu-primary {
 	.sub-menu {
 		background: rgba(0,0,0,.7);
 		a {

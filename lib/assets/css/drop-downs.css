@@ -18,6 +18,11 @@
   float: left;
   position: relative;
 }
+.menu-primary li:hover > a, .menu-primary li.focus > a,
+.menu-secondary li:hover > a,
+.menu-secondary li.focus > a {
+  text-decoration: underline;
+}
 .menu-primary li.current_page_item > a, .menu-primary li.current-menu-item > a, .menu-primary li.current_page_ancestor > a,
 .menu-secondary li.current_page_item > a,
 .menu-secondary li.current-menu-item > a,
@@ -70,8 +75,6 @@
 .menu-primary {
   padding: 20px 0;
 }
-
-/* Temp */
 .menu-primary .sub-menu {
   background: rgba(0, 0, 0, 0.7);
 }
