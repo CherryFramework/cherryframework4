@@ -23,10 +23,4 @@ global $cherry_options_framework;
 
 $cherry_options_framework = new Cherry_Options_Framework;
 $options_framework_admin = new Cherry_Options_Framework_Admin;
-
-// Added menu items in admin panel.
-function cherry_add_admin_menu() {
-
-}
-// add_action( 'admin_menu', 'cherry_add_admin_menu');
 ?>
