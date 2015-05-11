@@ -398,7 +398,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'edit_theme_options',
 				'cherry-options',
 				array( $this, 'cherry_options_page_build' ),
-				PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.svg', 62
+				PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.png', 62
 			);
 		}
 
