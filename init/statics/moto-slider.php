@@ -7,17 +7,14 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
-
 /**
  * MotoPress Slider static.
  */
 class cherry_moto_slider_static extends cherry_register_static {
-
 	function __construct( $options ) {
 		add_filter( 'cherry_header_options_list', array( $this, 'set_slider_options' ) );
 		parent::__construct( $options );
 	}
-
 	/**
 	 * Callback-method for registered static.
 	 *
@@ -25,14 +22,11 @@ class cherry_moto_slider_static extends cherry_register_static {
 	 */
 	public function callback() {
 		$alias = cherry_get_option( 'moto-slider-alias' );
-
 		if ( ! $alias ) {
 			return;
 		}
-
 		motoPressSlider($alias);
 	}
-
 	/**
 	 * Define a slider options.
 	 *
@@ -40,7 +34,6 @@ class cherry_moto_slider_static extends cherry_register_static {
 	 */
 	public function set_slider_options( $options ) {
 		$select_options = $this->get_sliders_list();
-
 		$options['moto-slider-alias'] = array(
 			'type'        => 'select',
 			'label'       => __( 'Select MotoSlider to show in header', 'cherry' ),
@@ -49,11 +42,8 @@ class cherry_moto_slider_static extends cherry_register_static {
 			'class'       => 'width-full',
 			'options'     => $select_options,
 		);
-
 		return $options;
 	}
-
-
 	/**
 	 * Get avaliable MotoPress sliders list.
 	 *
@@ -61,26 +51,20 @@ class cherry_moto_slider_static extends cherry_register_static {
 	 */
 	public function get_sliders_list() {
 		global $wpdb;
-
 		$table = $wpdb->prefix . 'mpsl_sliders';
-
 		$result = $wpdb->get_results(
 			"SELECT * FROM $table ORDER BY id ASC",
 			ARRAY_A
 		);
-
 		if ( empty( $result ) ) {
 			return array( '0' => __( 'No Moto Sliders was found ', 'cherry' ) );
 		}
-
 		foreach ( $result as $row ) {
 			$return[$row['alias']] = $row['title'];
 		}
-
 		return $return;
 	}
 }
-
 /**
  * Registration for MotoPress Slider static (only if MotoPress Slider plugin is active).
  */
@@ -103,5 +87,4 @@ if ( in_array(
 			)
 		)
 	);
-
 }

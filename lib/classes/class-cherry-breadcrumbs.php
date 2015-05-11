@@ -82,15 +82,16 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				'after'             => '',
 				'show_mobile'       => true,
 				'show_tablet'       => true,
-				'wrapper_format'    => '<div>%1$s</div><div>%1$s</div>',
+				'wrapper_format'    => '<div>%1$s</div><div>%2$s</div>',
 				'page_title_format' => '<h1 class="page-title">%s</h1>',
 				'item_format'       => '<div class="%2$s">%1$s</div>',
-				'home_format'       => '<a href="%4$s" class="%2$s is-home" title="%3$s">%1$s</a>',
-				'link_format'       => '<a href="%4$s" class="%2$s" title="%3$s">%1$s</a>',
+				'home_format'       => '<a href="%4$s" class="%2$s is-home" rel="home" title="%3$s">%1$s</a>',
+				'link_format'       => '<a href="%4$s" class="%2$s" rel="tag" title="%3$s">%1$s</a>',
 				'target_format'     => '<span class="%2$s">%1$s</span>',
 				'show_on_front'     => true,
 				'network'           => false,
 				'show_title'        => true,
+				'show_items'        => true,
 				'show_browse'       => true,
 				'echo'              => true,
 				'labels'            => array(),
@@ -124,6 +125,54 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		 */
 		public function get_trail() {
 
+			if ( is_front_page() && false === $this->args['show_on_front'] ) {
+				return;
+			}
+
+			$breadcrumb = $this->get_items();
+			$title      = $this->get_title();
+
+			$wrapper_classes = array(
+				esc_attr( $this->css['module'] )
+			);
+
+			if ( false === $this->args['show_mobile'] ) {
+				$wrapper_classes[] = 'hide-mobile';
+			}
+
+			if ( false === $this->args['show_tablet'] ) {
+				$wrapper_classes[] = 'hide-tablet';
+			}
+
+			$wrapper_css = implode( ' ', $wrapper_classes );
+
+			/* Open the breadcrumb trail containers. */
+			$result = "\n\t\t" . '<div class="' . $wrapper_css . '">';
+
+			$result .= sprintf( $this->args['wrapper_format'], $title, $breadcrumb );
+
+			/* Close the breadcrumb trail containers. */
+			$result .= "\n\t\t" . '</div>';
+
+			if ( true === $this->args['echo'] ) {
+				echo $result;
+			} else {
+				return $result;
+			}
+
+		}
+
+		/**
+		 * Get breacrumbs list items
+		 *
+		 * @since  4.0.0
+		 */
+		public function get_items() {
+
+			if ( false == $this->args['show_items'] ) {
+				return;
+			}
+
 			$breadcrumb = '';
 
 			/* Connect the breadcrumb trail if there are items in the trail. */
@@ -141,20 +190,6 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			if ( $this->args['before'] ) {
 				$breadcrumb .= $this->args['before'];
 			}
-
-			$wrapper_classes = array(
-				esc_attr( $this->css['module'] )
-			);
-
-			if ( false === $this->args['show_mobile'] ) {
-				$wrapper_classes[] = 'hide-mobile';
-			}
-
-			if ( false === $this->args['show_tablet'] ) {
-				$wrapper_classes[] = 'hide-tablet';
-			}
-
-			$wrapper_css = implode( ' ', $wrapper_classes );
 
 			/* Open the breadcrumb trail containers. */
 			$breadcrumb .= "\n\t\t" . '<div class="' . esc_attr( $this->css['content'] ) . '">';
@@ -187,24 +222,28 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 			/* Allow developers to filter the breadcrumb trail HTML and page title. */
 			$breadcrumb = apply_filters( 'cherry_breadcrumbs_trail', $breadcrumb, $this->args );
-			$title      = apply_filters(
+
+			return $breadcrumb;
+
+		}
+
+		/**
+		 * Get page title
+		 * 
+		 * @since 4.0.0
+		 */
+		public function get_title() {
+
+			if ( false == $this->args['show_title'] ) {
+				return;
+			}
+
+			$title = apply_filters(
 				'cherry_page_title',
 				sprintf( $this->args['page_title_format'], $this->page_title ), $this->args
 			);
 
-			/* Open the breadcrumb trail containers. */
-			$result = "\n\t\t" . '<div class="' . $wrapper_css . '">';
-
-			$result .= sprintf( $this->args['wrapper_format'], $title, $breadcrumb );
-
-			/* Close the breadcrumb trail containers. */
-			$result .= "\n\t\t" . '</div>';
-
-			if ( true === $this->args['echo'] ) {
-				echo $result;
-			} else {
-				return $result;
-			}
+			return $title;
 
 		}
 

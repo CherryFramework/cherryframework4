@@ -32,10 +32,15 @@ h6, .h6 {
 }
 
 .site-link {
-	@typography( $typography-logo )
+	@typography( $typography-header-logo )
+}
+
+.footer-logo-link {
+	@typography( $typography-footer-logo )
 }
 
 @background( .site-header, $header-background )
+@background( .site-content, $content-background )
 
 .site-footer {
 	@typography( $typography-footer )
@@ -299,24 +304,24 @@ address {
 .cherry-nav-divider {
 	background-color: @lighten( $color-gray-variations, 53.2 );
 }
-.cherry-box.box-primary {
+.cherry-box .box-primary {
 	background-color: $color-primary;
 	color: @contrast( $color-primary );
 }
-.cherry-box.box-secondary {
+.cherry-box .box-secondary {
 	background-color: $color-secondary;
 	color: @contrast( $color-secondary );
 }
-.cherry-box.box-gray {
+.cherry-box .box-gray {
 	background-color: $color-gray-variations;
 }
-.cherry-box.box-primary-border {
+.cherry-box .box-primary-border {
 	border-color: $color-primary;
 }
-.cherry-box.box-secondary-border {
+.cherry-box .box-secondary-border {
 	border-color: $color-secondary;
 }
-.cherry-box.box-gray-border {
+.cherry-box .box-gray-border {
 	border-color: $color-gray-variations;
 }
 

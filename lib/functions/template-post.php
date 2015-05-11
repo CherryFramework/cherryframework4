@@ -97,7 +97,7 @@ function cherry_get_the_post_thumbnail( $args ) {
 		'container'       => 'figure',
 		'container_class' => 'entry-thumbnail',
 		'size'            => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-size' ) : cherry_get_option( 'blog-featured-images-size' ),
-		// thumb-s or thumb-l - the custom image sizes;
+		// cherry-thumb-s or cherry-thumb-l - the custom image sizes;
 		// thumbnail, medium or large - the default image sizes.
 		'before' => '',
 		'after'  => '',
@@ -435,7 +435,7 @@ function cherry_get_the_post_image( $args ) {
 	$defaults = apply_filters( 'cherry_get_the_post_image_defaults', array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
-		'size'            => 'thumb-l',
+		'size'            => 'cherry-thumb-l',
 		'before'          => '',
 		'after'           => '',
 		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s-link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
@@ -690,7 +690,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 
 	$defaults = array(
 		'container_class'  => 'post-gallery',
-		'size'             => 'thumb-l',
+		'size'             => 'cherry-thumb-l',
 		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
 		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a>%4$s</figure>',
 		'item_format_alt'  => '<figure class="%3$s">%1$s%4$s</figure>'

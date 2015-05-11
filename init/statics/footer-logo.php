@@ -32,7 +32,7 @@ class cherry_footer_logo_static extends cherry_register_static {
 		global $wp_customize;
 
 		if ( isset( $wp_customize ) ) {
-			echo cherry_get_footer_logo();
+			echo cherry_get_site_logo( 'footer' );
 			return;
 		}
 
@@ -43,7 +43,7 @@ class cherry_footer_logo_static extends cherry_register_static {
 			return;
 		}
 
-		$result = cherry_get_footer_logo();
+		$result = cherry_get_site_logo( 'footer' );
 
 		echo $result;
 

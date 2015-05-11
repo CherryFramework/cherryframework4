@@ -49,33 +49,6 @@ function cherry_defaults_settings() {
 		'return_data_type' => 'url',
 		'library_type'     => 'image',
 	);
-	$general_options['general-page-comments-status_'] = array(
-		'type'  => 'switcher',
-		'title' => __( 'Page comments', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
-		),
-		'value' => 'false',
-	);
-	$general_options['general-page-comments-status'] = array(
-		'type'  => 'switcher',
-		'title' => __( 'Page comments', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
-		),
-		'value' => 'false',
-	);
-	$general_options['general-page-featured-images'] = array(
-		'type'  => 'switcher',
-		'title' => __( 'Featured Images', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( 'Enable/disable featured images for pages.', 'cherry' ),
-		),
-		'value' => 'false',
-	);
 	$general_options['general-maintenance-mode'] = array(
 		'type'  => 'switcher',
 		'title' => sprintf(
@@ -188,71 +161,11 @@ function cherry_defaults_settings() {
 		'title' => __( 'Container width', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Width of main website container in pixels.', 'cherry' ),
+			'content' => __( 'Width of header/content/footer container in pixels.', 'cherry' ),
 		),
 		'max_value' => 1920, // Full HD
 		'min_value' => 970,
 		'value'     => 1170,
-	);
-	$grid_options['header-grid-type'] = array(
-		'type'  => 'radio',
-		'title' => __( 'Header grid type', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( 'Select layout pattern for header website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
-		),
-		'value'         => 'wide',
-		'display_input' => false,
-		'options'       => array(
-			'wide' => array(
-				'label'   => __( 'Wide', 'cherry' ),
-				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
-			),
-			'boxed' => array(
-				'label'   => __( 'Boxed', 'cherry' ),
-				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
-			),
-		),
-	);
-	$grid_options['content-grid-type'] = array(
-		'type'  => 'radio',
-		'title' => __( 'Content grid type', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( 'Select layout pattern for main website container. Wide layout will fit window width. Boxed layout will have fixed width and left/right indents. ', 'cherry' ),
-		),
-		'value'         => 'boxed',
-		'display_input' => false,
-		'options'       => array(
-			'wide' => array(
-				'label'   => __( 'Wide', 'cherry' ),
-				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
-			),
-			'boxed' => array(
-				'label'   => __( 'Boxed', 'cherry' ),
-				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
-			),
-		),
-	);
-	$grid_options['footer-grid-type'] = array(
-		'type'  => 'radio',
-		'title' => __( 'Footer grid type', 'cherry' ),
-		'hint'  => array(
-			'type'    => 'text',
-			'content' => __( 'Select layout pattern for footer website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
-		),
-		'value'         => 'wide',
-		'display_input' => false,
-		'options'       => array(
-			'wide' => array(
-				'label'   => __( 'Wide', 'cherry' ),
-				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
-			),
-			'boxed' => array(
-				'label'   => __( 'Boxed', 'cherry' ),
-				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
-			),
-		),
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -276,10 +189,10 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
 		),
-		'value'       => 'thumb-l',
+		'value'       => 'cherry-thumb-l',
 		'options'     => array(
-			'thumb-s' => __( 'Small', 'cherry' ),
-			'thumb-l' => __( 'Large', 'cherry' ),
+			'cherry-thumb-s' => __( 'Small', 'cherry' ),
+			'cherry-thumb-l' => __( 'Large', 'cherry' ),
 		)
 	);
 	$blog_options['blog-featured-images-align'] = array(
@@ -359,10 +272,10 @@ function cherry_defaults_settings() {
 			'type' => 'text',
 			'content' => __( 'Set dimensions for single post featured images.', 'cherry' ),
 		),
-		'value'       => 'thumb-l',
+		'value'       => 'cherry-thumb-l',
 		'options'     => array(
-			'thumb-s' => __( 'Small', 'cherry' ),
-			'thumb-l' => __( 'Large', 'cherry' ),
+			'cherry-thumb-s' => __( 'Small', 'cherry' ),
+			'cherry-thumb-l' => __( 'Large', 'cherry' ),
 		)
 	);
 	$post_single_options['blog-post-featured-image-align'] = array(
@@ -413,6 +326,15 @@ function cherry_defaults_settings() {
 		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'Replace default Wordpress gallery shortcode with enhanced jQuery carousel.', 'cherry' ),
+		),
+		'value' => 'true',
+	);
+	$post_single_options['blog-add-ligthbox'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Lightbox for images and videos', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Automatically adds lightbox for images and videos', 'cherry' ),
 		),
 		'value' => 'true',
 	);
@@ -598,6 +520,17 @@ function cherry_defaults_settings() {
 			'value'			=> 'true',
 			'default_value'	=> 'true'
 	);
+
+	$breadcrumbs_options['breadcrumbs-show-title'] = array(
+		'type'			=> 'switcher',
+		'title' 		=> __( 'Page title', 'cherry' ),
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __( 'Enable/disable page title in breadcrumbs.', 'cherry' )
+		),
+		'value'			=> 'true'
+	);
+	
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'multicheckbox',
 		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
@@ -620,15 +553,6 @@ function cherry_defaults_settings() {
 			'content'	=> __( 'Enable/disable breadcrumbs on home page.', 'cherry' )
 		),
 		'value'			=> 'false'
-	);
-	$breadcrumbs_options['breadcrumbs-show-title'] = array(
-		'type'			=> 'switcher',
-		'title' 		=> __( 'Page title', 'cherry' ),
-		'hint'      	=>  array(
-			'type'		=> 'text',
-			'content'	=> __( 'Enable/disable page title in breadcrumbs.', 'cherry' )
-		),
-		'value'			=> 'true'
 	);
 
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
@@ -748,143 +672,329 @@ function cherry_defaults_settings() {
 	$header_options = array();
 
 	$header_options['header-background'] = array(
-		'type'			=> 'background',
-		'title'			=> __('Header background', 'cherry' ),
-		'hint'			=>  array(
-				'type'		=> 'text',
-				'content'	=>  __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' )
+		'type'  => 'background',
+		'title' => __('Background', 'cherry' ),
+		'hint'  => array(
+				'type'    => 'text',
+				'content' => __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' )
 			),
-		'return_data_type'	=> 'id',
-		'library_type'		=> 'image',
-		'value'			=> array(
-				'image'	=> '',
-				'color'	=> '#ddd',
-				'repeat'	=> 'repeat',
-				'position'	=> 'left',
-				'attachment'=> 'fixed'
+		'return_data_type' => 'id',
+		'library_type'     => 'image',
+		'value'            => array(
+				'image'      => '',
+				'color'      => '',
+				'repeat'     => 'repeat',
+				'position'   => 'left',
+				'attachment' => 'fixed',
 			)
 	);
-	$header_options['header-sticky'] = array(
-		'type'			=> 'switcher',
-		'title'			=> __( 'Sticky header', 'cherry' ),
-		'hint'			=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Enable\disable fixed header that sticks to the top.', 'cherry' )
+	$header_options['header-grid-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Grid type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select layout pattern for header website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
 		),
-		'value'			=> 'false'
+		'value'         => 'wide',
+		'display_input' => false,
+		'options'       => array(
+			'wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+			),
+			'boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
+			),
+		),
+	);
+	$header_options['header-boxed-width'] = array(
+		'type'  => 'slider',
+		'title' => __( 'Boxed width', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Ширина хедера при выбраном `boxed` лэйауте.<br> Значение опции не должно быть больше чем значение опции `Grid -> Container width`', 'cherry' ),
+		),
+		'max_value' => 1920,
+		'min_value' => 970,
+		'value'     => 1310,
+	);
+	$header_options['header-sticky'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Sticky header', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Enable\disable fixed header that sticks to the top.', 'cherry' ),
+		),
+		'value' => 'false',
 	);
 	$header_options['header-sticky-selector'] = array(
-		'type'			=> 'select',
-		'title'			=> __( 'Sticky selector', 'cherry' ),
-		'hint'      	=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Select the block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' )
+		'type'  => 'select',
+		'title' => __( 'Sticky selector', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select the block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' ),
 		),
-		'value'			=> $default_selector,
-		'options'		=> $sticky_selectors
+		'value'   => $default_selector,
+		'options' => $sticky_selectors,
 	);
-	// Logo options
+	// Header Logo options
 	//////////////////////////////////////////////////////////////////////
 	$logo_options = array();
 	$logo_options['logo-type'] = array(
-		'type'			=> 'radio',
-		'title'			=> __( 'Logo type', 'cherry' ),
-		'hint'			=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Select whether you want your main logo to be an image or text. If you select "image", you can choose logo image from the media library in the next option, and if you select "text", your WordPress Site Title will be shown instead.', 'cherry' )
+		'type'  => 'radio',
+		'title' => __( 'Logo type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select whether you want your main logo to be an image or text. If you select "image", you can choose logo image from the media library in the next option, and if you select "text", your WordPress Site Title will be shown instead.', 'cherry' ),
 		),
-		'value'			=> 'text',
-		'default_value'	=> 'text',
-		'class'			=> '',
-		'display_input'	=> true,
-		'options'		=> array(
+		'value'         => 'text',
+		'default_value' => 'text',
+		'class'         => '',
+		'display_input' => true,
+		'options'       => array(
 			'image' => array(
-				'label' => 'Image logo',
-				'img_src' => ''
+				'label'   => 'Image logo',
+				'img_src' => '',
 			),
 			'text' => array(
-				'label' => 'Text logo',
-				'img_src' => ''
+				'label'   => 'Text logo',
+				'img_src' => '',
 			)
 		)
 	);
 	$logo_options['logo-image-path'] = array(
-		'type'				=> 'media',
-		'title'				=> __( 'Logo image', 'cherry' ),
-		'hint'      	=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' )
+		'type'  => 'media',
+		'title' => __( 'Logo image', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
 		),
-		'value'				=> '',
-		'multi-upload'		=> true,
+		'value'        => '',
+		'multi-upload' => true,
 	);
-	$logo_options['typography-logo'] = array(
-		'type'			=> 'typography',
-		'title'				=> __( 'Logo typography', 'cherry' ),
-		'hint'      	=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Configuration settings for text logo. Here you can select logo font family, size, color, etc.', 'cherry' )
-		),
-		'value'			=> array(
-			'fonttype'		=> 'web',
-			'size'			=> '60',
-			'lineheight'	=> '80',
-			'color'			=> '#777777',
-			'family'		=> 'Lobster',
-			'character'		=> 'latin-ext',
-			'style'			=> '',
+	$logo_options['typography-header-logo'] = array(
+		'type'  => 'typography',
+		'title' => __( 'Logo typography', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Configuration settings for text logo. Here you can select logo font family, size, color, etc.', 'cherry' ),
+			),
+		'value' => array(
+			'fonttype'      => 'web',
+			'size'          => '60',
+			'lineheight'    => '80',
+			'color'         => '#777777',
+			'family'        => 'Lobster',
+			'character'     => 'latin-ext',
+			'style'         => '',
 			'letterspacing' => '',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
+			)
+	);
+
+//////////////////////////////////////////////////////////////////////
+// Page options
+//////////////////////////////////////////////////////////////////////
+	$page_options = array();
+	$page_options['content-background'] = array(
+		'type'  => 'background',
+		'title' => __( 'Background', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Page background settings. You can select background color, upload footer background image, set its background position, attachment and repeat.', 'cherry' ),
+		),
+		'return_data_type' => 'id',
+		'library_type'     => 'image',
+		'value'            => array(
+			'image'      => '',
+			'color'      => '',
+			'repeat'     => 'repeat',
+			'position'   => 'left',
+			'attachment' => 'fixed',
 		)
+	);
+	$page_options['content-grid-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Grid type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select layout pattern for main website container. Wide layout will fit window width. Boxed layout will have fixed width and left/right indents. ', 'cherry' ),
+		),
+		'value'         => 'boxed',
+		'display_input' => false,
+		'options'       => array(
+			'wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+			),
+			'boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
+			),
+		),
+	);
+	$page_options['content-boxed-width'] = array(
+		'type'  => 'slider',
+		'title' => __( 'Boxed width', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Ширина main контента при выбраном `boxed` лэйауте.<br> Значение опции не должно быть больше чем значение опции `Grid -> Container width`', 'cherry' ),
+		),
+		'max_value' => 1920,
+		'min_value' => 970,
+		'value'     => 1310,
+	);
+	$page_options['page-featured-images'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Featured Images', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Enable/disable featured images for pages.', 'cherry' ),
+		),
+		'value' => 'false',
+	);
+	$page_options['page-comments-status'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Page comments', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
+		),
+		'value' => 'false',
 	);
 
 //////////////////////////////////////////////////////////////////////
 // Footer options
 //////////////////////////////////////////////////////////////////////
-
 	$footer_options = array();
 	$footer_options['footer-background'] = array(
-		'type'			=> 'background',
-		'title'				=> __( 'Footer background', 'cherry' ),
-		'hint'      	=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Footer background settings. You can select background color, upload footer background image, set its background position, attachment and repeat.', 'cherry' )
+		'type'  => 'background',
+		'title' => __( 'Background', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Footer background settings. You can select background color, upload footer background image, set its background position, attachment and repeat.', 'cherry' ),
 		),
-		'return_data_type'	=> 'id',
-		'library_type'		=> 'image',
-		'value'			=> array(
-			'image'	=> '',
-			'color'	=> '#ddd',
-			'repeat'	=> 'repeat',
-			'position'	=> 'left',
-			'attachment'=> 'fixed'
+		'return_data_type' => 'id',
+		'library_type'     => 'image',
+		'value'            => array(
+			'image'      => '',
+			'color'      => '#ddd',
+			'repeat'     => 'repeat',
+			'position'   => 'left',
+			'attachment' => 'fixed',
 		)
 	);
 	$footer_options['typography-footer'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Footer typography', 'cherry' ),
-		'hint'      	=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Typography settings for footer texts.', 'cherry' )
+		'type'  => 'typography',
+		'title' => __( 'Typography', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Typography settings for footer texts.', 'cherry' ),
 		),
 		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '14',
-			'lineheight'	=> '30',
-			'color'			=> '#333333',
-			'family'		=> 'Roboto',
-			'character'		=> 'latin-ext',
-			'style'			=> '',
+			'fonttype'      => 'web',
+			'size'          => '14',
+			'lineheight'    => '30',
+			'color'         => '#333333',
+			'family'        => 'Roboto',
+			'character'     => 'latin-ext',
+			'style'         => '',
 			'letterspacing' => '',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
-	$footer_options['logo-footer'] = array(
-		'type'				=> 'media',
-		'title'				=> __( 'Footer Logo image', 'cherry' ),
-		'hint'      	=> array(
+	$footer_options['footer-grid-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Grid type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select layout pattern for footer website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
+		),
+		'value'         => 'wide',
+		'display_input' => false,
+		'options'       => array(
+			'wide' => array(
+				'label'   => __( 'Wide', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-fullwidth.svg',
+			),
+			'boxed' => array(
+				'label'   => __( 'Boxed', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/grid-type-container.svg',
+			),
+		),
+	);
+	$footer_options['footer-boxed-width'] = array(
+		'type'  => 'slider',
+		'title' => __( 'Boxed width', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Ширина футера при выбраном `boxed` лэйауте.<br> Значение опции не должно быть больше чем значение опции `Grid -> Container width`', 'cherry' ),
+		),
+		'max_value' => 1920,
+		'min_value' => 970,
+		'value'     => 1310,
+	);
+	// Footer Logo options
+	//////////////////////////////////////////////////////////////////////
+	$footer_logo_options = array();
+	$footer_logo_options['footer-logo-type'] = array(
+		'type'  => 'radio',
+		'title' => __( 'Logo type', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Select whether you want your footer logo to be an image or text.', 'cherry' ),
+		),
+		'value'         => 'text',
+		'default_value' => 'text',
+		'class'         => '',
+		'display_input' => true,
+		'options'       => array(
+			'image' => array(
+				'label'   => 'Image logo',
+				'img_src' => '',
+			),
+			'text' => array(
+				'label'   => 'Text logo',
+				'img_src' => '',
+			)
+		)
+	);
+	$footer_logo_options['footer-logo-image-path'] = array(
+		'type'  => 'media',
+		'title' => __( 'Logo image', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
+		),
+		'value'        => '',
+		'multi-upload' => true,
+	);
+	$footer_logo_options['typography-footer-logo'] = array(
+		'type'  => 'typography',
+		'title' => __( 'Logo typography', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Configuration settings for text logo. Here you can select logo font family, size, color, etc.', 'cherry' ),
+			),
+		'value' => array(
+			'fonttype'      => 'web',
+			'size'          => '30',
+			'lineheight'    => '36',
+			'color'         => '#777777',
+			'family'        => 'Lobster',
+			'character'     => 'latin-ext',
+			'style'         => '',
+			'letterspacing' => '',
+			'align'         => 'notdefined',
+		)
+	);
+	$footer_options['footer-text'] = array(
+		'type'				=> 'textarea',
+		'title'				=> __( 'Footer Info text', 'cherry' ),
+		'hint'				=> array(
 			'type'		=> 'text',
-			'content'	=> __( 'Click Choose Media button to select footer logo image from the media library or upload your image.', 'cherry' )
+			'content'	=> __( 'Set custom text for Footer info static', 'cherry' )
 		),
 		'value'				=> '',
 		'multi-upload'		=> true,
@@ -1186,7 +1296,7 @@ function cherry_defaults_settings() {
 	);
 	$demo_options['multiselect-demo'] = array(
 		'type'			=> 'multiselect',
-		'title'			=> __('Mulli-select box', 'cherry'),
+		'title'			=> __('Multi-select box', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
 		'hint'			=>  array(
@@ -1615,28 +1725,41 @@ function cherry_defaults_settings() {
 		'priority'     => 1,
 		'options-list' => apply_filters( 'cherry_logo_options_list', $logo_options ),
 	);
+	$sections_array['page-section'] = array(
+		'name'         => __( 'Page', 'cherry' ),
+		'icon'         => 'dashicons dashicons-text',
+		'priority'     => 80,
+		'options-list' => apply_filters( 'cherry_page_options_list', $page_options ),
+	);
 	$sections_array['footer-section'] = array(
 		'name'         => __( 'Footer', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-appearance',
-		'priority'     => 80,
+		'priority'     => 90,
 		'options-list' => apply_filters( 'cherry_footer_options_list', $footer_options ),
+	);
+	$sections_array['footer-logo-subsection'] = array(
+		'name'         => __( 'Logo', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'footer-section',
+		'priority'     => 1,
+		'options-list' => apply_filters( 'cherry_footer_logo_options_list', $footer_logo_options ),
 	);
 	$sections_array['typography-section'] = array(
 		'name'         => __( 'Typography', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-generic',
-		'priority'     => 90,
+		'priority'     => 100,
 		'options-list' => apply_filters( 'cherry_typography_options_list', $typography_options ),
 	);
 	$sections_array['optimization-section'] = array(
 		'name'         => __( 'Optimization', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-tools',
-		'priority'     => 100,
+		'priority'     => 110,
 		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options ),
 	);
 	$sections_array['demo-section'] = array(
 		'name'         => __( 'Interface elements (for UI developers)', 'cherry' ),
 		'icon'         => 'dashicons dashicons-editor-help',
-		'priority'     => 110,
+		'priority'     => 120,
 		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
 

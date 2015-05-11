@@ -1523,13 +1523,66 @@ Description: The layout stylesheet.
 Author:      Cherry Team
 Version:     1.0.0
 */
+.site-header.boxed,
+.site-content.boxed,
+.site-footer.boxed {
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .site-header.boxed,
+  .site-content.boxed,
+  .site-footer.boxed {
+    max-width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .site-header.boxed,
+  .site-content.boxed,
+  .site-footer.boxed {
+    max-width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .site-header.boxed,
+  .site-content.boxed,
+  .site-footer.boxed {
+    max-width: 1170px;
+  }
+}
+.site-header.extra-boxed,
+.site-content.extra-boxed,
+.site-footer.extra-boxed {
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .site-header.extra-boxed,
+  .site-content.extra-boxed,
+  .site-footer.extra-boxed {
+    max-width: 780px;
+  }
+}
+@media (min-width: 992px) {
+  .site-header.extra-boxed,
+  .site-content.extra-boxed,
+  .site-footer.extra-boxed {
+    max-width: 1000px;
+  }
+}
+@media (min-width: 1200px) {
+  .site-header.extra-boxed,
+  .site-content.extra-boxed,
+  .site-footer.extra-boxed {
+    max-width: 1200px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Responsive
 --------------------------------------------------------------*/
 @media (min-width: 992px) {
-  .cherry-header-boxed .site-header .container,
-  .cherry-content-boxed .site-content .container,
-  .cherry-footer-boxed .site-footer .container {
+  .site-content.boxed .content-area .container {
     width: auto;
   }
 
@@ -1572,12 +1625,9 @@ Version:     1.0.0
     float: right;
   }
 
-  .cherry-with-sidebar .site-content .container {
+  .cherry-with-sidebar .content-area .container {
     width: 80%;
     /* fix */
-  }
-  .cherry-with-sidebar.cherry-content-boxed .site-content .container {
-    width: auto;
   }
 }
 img {
