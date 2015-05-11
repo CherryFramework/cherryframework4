@@ -1,6 +1,9 @@
 <?php
 /**
- * Cherry theme supports configuration
+ * Content width configuration.
+ *
+ * Set the maximum allowed width for any content in the theme,
+ * like oEmbeds and images added to posts.
  *
  * @package    Cherry_Framework
  * @subpackage Config

@@ -1,6 +1,6 @@
 <?php
 /**
- * Cherry theme sidebars configuration
+ * Sidebars configuration.
  *
  * @package    Cherry_Framework
  * @subpackage Config

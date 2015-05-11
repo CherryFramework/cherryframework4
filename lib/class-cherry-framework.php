@@ -242,17 +242,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_theme_support( 'html5', array(
 				'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
 			) );
-
-			/**
-			 * Enable support for Infinite Scroll.
-			 *
-			 * @link http://jetpack.me/support/infinite-scroll/
-			 */
-			add_theme_support( 'infinite-scroll', array(
-				'container' => 'main',
-				'footer'    => 'page',
-			) );
-
 		}
 
 		/**

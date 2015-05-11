@@ -1,6 +1,6 @@
 <?php
 /**
- * Cherry theme supports configuration
+ * Post formats configuration.
  *
  * @package    Cherry_Framework
  * @subpackage Config
