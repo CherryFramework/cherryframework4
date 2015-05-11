@@ -200,7 +200,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_filter( 'widget_text',      'do_shortcode' );
 			add_filter( 'the_excerpt',      'do_shortcode' );
 			add_filter( 'term_description', 'do_shortcode' );
-			add_filter( 'comment_text',     'do_shortcode' );
 
 			// Load the core filters.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'filters.php' );
