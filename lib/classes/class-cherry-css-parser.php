@@ -185,13 +185,13 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 			$maybe_units = '';
 
 			// check if we need to add units after value
-			if ( ! empty( $matches[4] ) ) {
-				$maybe_units = $matches[4];
+			if ( ! empty( $matches[6] ) ) {
+				$maybe_units = $matches[6];
 			}
 
 			// check if we search for array val
-			if ( ! empty( $matches[6] ) && is_array( $val ) && isset( $val[$matches[6]] ) ) {
-				return $val[$matches[6]] . $maybe_units;
+			if ( ! empty( $matches[4] ) && is_array( $val ) && isset( $val[$matches[4]] ) ) {
+				return $val[$matches[4]] . $maybe_units;
 			}
 
 			if ( ! is_array( $val ) ) {
