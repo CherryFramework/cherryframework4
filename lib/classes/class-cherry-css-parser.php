@@ -42,7 +42,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 *
 		 * @var array
 		 */
-		public $var_pattern = '/\$(([-_a-zA-Z0-9]+)\[?[\'\"]*([-_a-zA-Z0-9]+)?[\'\"]*\]?)/';
+		public $var_pattern = '/\$(([-_a-zA-Z0-9]+)(&([a-z%]+))?(\[[\'\"]*([-_a-zA-Z0-9]+)[\'\"]*\])?)/';
 
 		/**
 		 * Function pattern
@@ -178,13 +178,20 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 
 			$val = $this->variables[$matches[2]];
 
+			$maybe_units = '';
+
+			// check if we need to add units after value
+			if ( ! empty( $matches[4] ) ) {
+				$maybe_units = $matches[4];
+			}
+
 			// check if we search for array val
-			if ( ! empty( $matches[3] ) && is_array( $val ) && isset( $val[$matches[3]] ) ) {
-				return $val[$matches[3]];
+			if ( ! empty( $matches[6] ) && is_array( $val ) && isset( $val[$matches[6]] ) ) {
+				return $val[$matches[6]] . $maybe_units;
 			}
 
 			if ( ! is_array( $val ) ) {
-				return $val;
+				return $val . $maybe_units;
 			} else {
 				return $matches[0];
 			}
