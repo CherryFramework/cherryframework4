@@ -530,7 +530,7 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> 'true'
 	);
-	
+
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'multicheckbox',
 		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
@@ -1628,10 +1628,6 @@ function cherry_defaults_settings() {
 		'title'			=> __('Info panel', 'cherry'),
 		'decsription'	=> '',
 		'value'			=> 'Demo',
-	);
-	$demo_options['submit-demo'] = array(
-		'type'			=> 'submit',
-		'value'			=> 'get value'
 	);
 
 //////////////////////////////////////////////////////////////////////
