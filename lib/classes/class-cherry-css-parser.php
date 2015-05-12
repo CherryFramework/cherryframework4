@@ -94,7 +94,11 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				'body-background',
 				'header-background',
 				'content-background',
-				'footer-background'
+				'footer-background',
+				'grid-container-width',
+				'header-boxed-width',
+				'content-boxed-width',
+				'footer-boxed-width',
 			);
 
 			$var_list = apply_filters( 'cherry_css_var_list', $var_list );
