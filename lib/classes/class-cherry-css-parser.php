@@ -77,6 +77,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				'color-warning',
 				'color-danger',
 				'color-gray-variations',
+
 				'typography-body',
 				'typography-header-logo',
 				'typography-footer-logo',
@@ -91,14 +92,20 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				'typography-input-text',
 				'typography-breadcrumbs',
 				'typography-footer',
+
 				'body-background',
 				'header-background',
 				'content-background',
 				'footer-background',
+
 				'grid-container-width',
 				'header-boxed-width',
 				'content-boxed-width',
 				'footer-boxed-width',
+
+				'header-grid-type',
+				'content-grid-type',
+				'footer-grid-type',
 			);
 
 			$var_list = apply_filters( 'cherry_css_var_list', $var_list );
