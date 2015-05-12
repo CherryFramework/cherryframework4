@@ -504,6 +504,16 @@ function cherry_defaults_settings() {
 			'align'         => 'notdefined',
 		)
 	);
+	$navigation_options['navigation-arrow'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Arrows markup', 'cherry' ),
+		'hint'  => array(
+			'type'    => 'text',
+			'content' => __( 'Do you want to generate arrow mark-up?', 'cherry' ),
+		),
+		'value'         => 'true',
+		'default_value' => 'true',
+	);
 
 
 	// Breadcrumbs options

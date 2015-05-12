@@ -1,6 +1,6 @@
 <?php
 /**
- * Cherry theme static-areas configuration
+ * Static-areas configuration.
  *
  * @package    Cherry_Framework
  * @subpackage Config

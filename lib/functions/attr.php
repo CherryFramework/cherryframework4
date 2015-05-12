@@ -5,9 +5,10 @@
  *
  * @package    Cherry_Framework
  * @subpackage Functions
+ * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2015, Cherry Team
- * @link       http://www.cherryframework.com/
+ * @copyright  Copyright (c) 2008 - 2015, Justin Tadlock
+ * @link       http://themehybrid.com/hybrid-core
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -30,8 +31,6 @@ add_filter( 'cherry_attr_entry-terms', 'cherry_attr_entry_terms', 9, 2 );
 /**
  * Outputs an HTML element's attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string $slug    The slug/ID of the element (e.g., 'sidebar').
  * @param  string $context A specific context (e.g., 'primary').
@@ -44,8 +43,6 @@ function cherry_attr( $slug, $context = '' ) {
  * Gets an HTML element's attributes. The purpose is to allow folks to modify, remove, or add any attributes they
  * want without having to edit every template file in the theme.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string $slug    The slug/ID of the element (e.g., 'sidebar').
  * @param  string $context A specific context (e.g., 'primary').
@@ -71,8 +68,6 @@ function cherry_get_attr( $slug, $context = '' ) {
 /**
  * <body> element attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array $attr
  * @return array
@@ -87,8 +82,6 @@ function cherry_attr_body( $attr ) {
 /**
  * Page <header> element attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array $attr
  * @return array
@@ -104,8 +97,6 @@ function cherry_attr_header( $attr ) {
 /**
  * Page <footer> element attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array $attr
  * @return array
@@ -121,8 +112,6 @@ function cherry_attr_footer( $attr ) {
 /**
  * Main content container of the page attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array $attr
  * @return array
@@ -138,7 +127,6 @@ function cherry_attr_main( $attr ) {
 /**
  * Main content container of the page attributes.
  *
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array $attr
  * @return array
@@ -153,8 +141,6 @@ function cherry_attr_content( $attr ) {
 /**
  * Sidebar attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array  $attr
  * @param  string $context
@@ -175,8 +161,6 @@ function cherry_attr_sidebar( $attr, $context ) {
 /**
  * Nav menu attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array  $attr
  * @param  string $context
@@ -199,8 +183,6 @@ function cherry_attr_menu( $attr, $context ) {
 /**
  * Post <article> element attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array $attr
  * @return array
@@ -227,8 +209,6 @@ function cherry_attr_post( $attr ) {
 /**
  * Post terms (tags, categories, etc.) attributes.
  *
- * @author Justin Tadlock <justin@justintadlock.com>
- * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array  $attr
  * @param  string $context

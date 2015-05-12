@@ -41,7 +41,7 @@ function cherry_image_size_names_choose( $sizes ) {
 
 	// If the theme as set a custom post thumbnail size, give it a nice name.
 	if ( has_image_size( 'post-thumbnail' ) ) {
-		$sizes['post-thumbnail'] = __( 'Post Thumbnail', 'cherry' );
+		$sizes['cherry-thumb-s'] = __( 'Post Thumbnail', 'cherry' );
 	}
 
 	return $sizes;

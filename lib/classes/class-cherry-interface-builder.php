@@ -69,7 +69,7 @@ class Cherry_Interface_Builder {
 
 		$this->options = $this->processed_input_data( $this->options, $args );
 		$this->google_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/google-fonts.json';
-		$this->standart_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/standart-fonts.json';
+		$this->standart_font_url = trailingslashit( CHERRY_ADMIN ) . 'assets/fonts/standard-fonts.json';
 
 		// Load ui-switcher element
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-switcher/ui-switcher.php' );

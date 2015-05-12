@@ -1,6 +1,6 @@
 <?php
 /**
- * Cherry theme thumbnails configuration
+ * Thumbnails configuration.
  *
  * @package    Cherry_Framework
  * @subpackage Config

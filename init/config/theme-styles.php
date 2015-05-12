@@ -1,6 +1,6 @@
 <?php
 /**
- * Cherry theme styles configuration
+ * Styles configuration.
  *
  * @package    Cherry_Framework
  * @subpackage Config

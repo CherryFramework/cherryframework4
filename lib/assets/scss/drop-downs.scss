@@ -23,6 +23,7 @@
 
 		&:hover > a,
 		&.focus > a {
+			text-decoration: underline;
 		}
 		&.current_page_item > a,
 		&.current-menu-item > a,
@@ -36,6 +37,24 @@
 	}
 }
 .menu-primary {
+	li {
+		.cherry-navigation-arrow & {
+			> a::after {
+				content: "\f347";
+				display: inline-block;
+				font: normal 14px/1 'dashicons';
+				vertical-align: top;
+				-webkit-font-smoothing: antialiased;
+			}
+			a {
+				&:only-child {
+					&::after {
+						content: '';
+					}
+				}
+			}
+		}
+	}
 	.sub-menu {
 		float: left;
 		position: absolute;
@@ -65,6 +84,20 @@
 		a:hover,
 		a.focus {
 		}
+		.cherry-navigation-arrow & {
+			li {
+				> a::after {
+					content: "\f345";
+				}
+			}
+			a {
+				&:only-child {
+					&::after {
+						content: '';
+					}
+				}
+			}
+		}
 	}
 	li:hover > ul,
 	li.focus > ul {
@@ -88,12 +121,6 @@
 }
 .menu-primary {
 	padding: 20px 0;
-	.sub-menu {
-	}
-}
-
-/* Temp */
-.menu-primary {
 	.sub-menu {
 		background: rgba(0,0,0,.7);
 		a {
