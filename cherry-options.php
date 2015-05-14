@@ -530,7 +530,7 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> 'true'
 	);
-	
+
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'multicheckbox',
 		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
@@ -1083,6 +1083,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h1'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 1', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H1 heading font settings.', 'cherry' )
@@ -1102,6 +1103,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h2'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 2', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H2 heading font settings.', 'cherry' )
@@ -1121,6 +1123,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h3'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 3', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H3 heading font settings.', 'cherry' )
@@ -1140,6 +1143,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h4'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 4', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H4 heading font settings.', 'cherry' )
@@ -1159,6 +1163,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h5'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 5', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H5 heading font settings.', 'cherry' )
@@ -1178,6 +1183,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h6'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 6', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H6 heading font settings.', 'cherry' )
@@ -1537,6 +1543,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Typography'),
 		'label'			=> '',
 		'decsription'	=> '',
+		'max_value '	=> 500,
 		'hint'			=>  array(
 			'type'		=> 'text',
 			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
