@@ -1237,6 +1237,26 @@ function cherry_defaults_settings() {
 			'tag'	=> 'Style tag in HEAD'
 		)
 	);
+//////////////////////////////////////////////////////////////////////
+// Cookie Banner
+//////////////////////////////////////////////////////////////////////
+	$cookie_banner = array();
+
+	$cookie_banner['cookie-banner-visibility'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Display Cookie Banner?', 'cherry' ),
+		'value'  => 'false',
+		'toggle' => array(
+			'true_toggle'  => __( 'Yes', 'cherry' ),
+			'false_toggle' => __( 'No', 'cherry' ),
+		)
+	);
+	$cookie_banner['cookie-banner-text'] = array(
+		'type'        => 'textarea',
+		'title'       => __( 'Message', 'cherry' ),
+		'decsription' => __( 'Enter the cookie banner message.', 'cherry' ),
+		'value'       => __( 'We use Cookies - By using this site or closing this you agree to our Cookies policy.', 'cherry' ),
+	);
 
 //////////////////////////////////////////////////////////////////////
 // Demo options
@@ -1762,10 +1782,16 @@ function cherry_defaults_settings() {
 		'priority'     => 110,
 		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options ),
 	);
+	$sections_array['cookie-banner-section'] = array(
+		'name'         => __( 'Cookie Banner', 'cherry' ),
+		'icon'         => 'dashicons dashicons-admin-tools',
+		'priority'     => 120,
+		'options-list' => apply_filters( 'cherry_cookie_banner_options_list', $cookie_banner ),
+	);
 	$sections_array['demo-section'] = array(
 		'name'         => __( 'Interface elements (for UI developers)', 'cherry' ),
 		'icon'         => 'dashicons dashicons-editor-help',
-		'priority'     => 120,
+		'priority'     => 130,
 		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
 

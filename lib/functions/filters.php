@@ -50,7 +50,7 @@ add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
 // Add favicon tags to page
 add_action( 'wp_head', 'cherry_favicon_tags' );
 
-// Add popup videa and image classes to embeded images into editor
+// Add popup video and image classes to embeded images into editor
 add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 );
 
 
