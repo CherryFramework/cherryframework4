@@ -1,9 +1,4 @@
 <?php
-// If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
-	die;
-}
-
 /**
  * Theme administration functions used with other components of the framework admin.
  * This file is for setting up any basic features and holding additional admin helper functions.
@@ -23,10 +18,4 @@ global $cherry_options_framework;
 
 $cherry_options_framework = new Cherry_Options_Framework;
 $options_framework_admin = new Cherry_Options_Framework_Admin;
-
-// Added menu items in admin panel.
-function cherry_add_admin_menu() {
-
-}
-// add_action( 'admin_menu', 'cherry_add_admin_menu');
 ?>

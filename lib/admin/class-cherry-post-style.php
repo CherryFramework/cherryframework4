@@ -1,9 +1,15 @@
 <?php
-// If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
-	die;
-}
-
+/**
+ * `Style` metabox.
+ *
+ * @package    Cherry_Framework
+ * @subpackage Admin
+ * @version    4.0.0
+ * @author     Cherry Team <support@cherryframework.com>
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
+ * @link       http://www.cherryframework.com/
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
 class Cherry_Post_Style {
 
 	/**

@@ -1,6 +1,6 @@
 <?php
 /**
- * Cherry theme thumbnails configuration
+ * Title tag configuration.
  *
  * Let WordPress manage the document title.
  * By adding theme support, we declare that this theme does not use a

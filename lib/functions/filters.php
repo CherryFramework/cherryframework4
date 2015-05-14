@@ -56,23 +56,11 @@ add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 )
 
 // Add specific CSS class by filter.
 function cherry_add_control_classes( $classes ) {
-	$object_id = get_queried_object_id();
-
-	$layout = get_post_meta( $object_id, 'cherry_layout', true );
+	$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
 
 	if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
 		$layout = cherry_get_option( 'page-layout' );
 	}
-
-	// $defaults   = array( 'header' => '', 'content' => '', 'footer' => '' );
-	// $grid_types = get_post_meta( $object_id, 'cherry_grid_type', true );
-	// $grid_types = wp_parse_args( $grid_types, $defaults );
-
-	// foreach ( $grid_types as $key => $grid_type ) {
-	// 	if ( empty( $grid_type ) || ( 'default-grid-type' == $grid_type ) ) {
-	// 		$grid_types[ $key ] = cherry_get_option( "{$key}-grid-type" );
-	// 	}
-	// }
 
 	// Responsive.
 	if ( 'true' == cherry_get_option( 'grid-responsive' ) ) {
@@ -91,10 +79,10 @@ function cherry_add_control_classes( $classes ) {
 		$classes[] = 'cherry-no-sidebar';
 	}
 
-	// // Grid type.
-	// foreach ( $grid_types as $key => $grid_type ) {
-	// 	$classes[] = sanitize_html_class( "cherry-{$key}-{$grid_type}" );
-	// }
+	// Navigation Arrow.
+	if ( 'true' == cherry_get_option( 'navigation-arrow' ) ) {
+		$classes[] = 'cherry-navigation-arrow';
+	}
 
 	return $classes;
 }

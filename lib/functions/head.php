@@ -4,9 +4,10 @@
  *
  * @package    Cherry_Framework
  * @subpackage Functions
+ * @author     Justin Tadlock <justin@justintadlock.com>
  * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2015, Cherry Team
- * @link       http://www.cherryframework.com/
+ * @copyright  Copyright (c) 2008 - 2015, Justin Tadlock
+ * @link       http://themehybrid.com/hybrid-core
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
 
@@ -18,20 +19,7 @@ if ( !defined( 'WPINC' ) ) {
 // Adds common theme items to <head>.
 add_action( 'wp_head', 'cherry_meta_charset',  0 );
 add_action( 'wp_head', 'cherry_meta_viewport', 1 );
-add_action( 'wp_head', 'wp_generator',         1 ); // Move the WordPress generator to a better priority.
 add_action( 'wp_head', 'cherry_link_pingback', 3 );
-
-/**
- * Removes unnecessary code that WordPress puts to <head>.
- *
- * @link http://wpengineer.com/1438/wordpress-header/
- */
-remove_action( 'wp_head', 'rsd_link' );
-remove_action( 'wp_head', 'wp_generator' );
-remove_action( 'wp_head', 'wlwmanifest_link' );
-remove_action( 'wp_head', 'feed_links_extra', 3 );
-remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0 );
-remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 
 // Removes injected CSS from recent comments widget.
 add_filter( 'wp_head', 'cherry_remove_recent_comments_style', 1 );
@@ -53,9 +41,7 @@ function cherry_meta_charset() {
  * @since 4.0.0
  */
 function cherry_meta_viewport() {
-	$is_responsive = cherry_get_option( 'grid-responsive' );
-
-	if ( 'true' == $is_responsive ) {
+	if ( 'true' === cherry_get_option( 'grid-responsive' ) ) {
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
 	}
 }
