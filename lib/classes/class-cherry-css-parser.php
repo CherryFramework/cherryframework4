@@ -49,7 +49,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 *
 		 * @var array
 		 */
-		public $func_pattern = '/@(([a-zA-Z_]+)\((.*)\))/';
+		public $func_pattern = '/@(([a-zA-Z_]+)\((.[^\)]*)\))/';
 
 		function __construct() {
 
