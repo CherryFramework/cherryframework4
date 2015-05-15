@@ -777,19 +777,19 @@ th {
   text-align: left;
 }
 
-.table {
+.table,
+table {
   width: 100%;
 }
-.table > thead > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > th,
-.table > tbody > tr > td,
-.table > tfoot > tr > th,
-.table > tfoot > tr > td {
+.table tr > th,
+.table tr > td,
+table tr > th,
+table tr > td {
   padding: 8px;
   vertical-align: top;
 }
-.table > thead > tr > th {
+.table > thead > tr > th,
+table > thead > tr > th {
   vertical-align: bottom;
 }
 .table > caption + thead > tr:first-child > th,
@@ -797,7 +797,13 @@ th {
 .table > colgroup + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > th,
-.table > thead:first-child > tr:first-child > td {
+.table > thead:first-child > tr:first-child > td,
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
   border-top: 0;
 }
 
@@ -1152,6 +1158,10 @@ abbr[data-original-title] {
   text-transform: uppercase;
 }
 
+blockquote {
+  padding: 0 0 0 20px;
+  margin: 0 0 20px 0;
+}
 blockquote p:last-child,
 blockquote ul:last-child,
 blockquote ol:last-child {

@@ -213,7 +213,22 @@ class Cherry_Post_Style {
 	 * @return bool            True on successful update, false on failure.
 	 */
 	public function set_post_style( $post_id, $style ) {
+
+		array_walk_recursive( $style, array( $this, 'sanitize_meta' ) );
 		return update_post_meta( $post_id, 'cherry_style', $style );
+	}
+
+	/**
+	 * Sanitize meta item value
+	 *
+	 * @todo  personally sanitize item values by their keys
+	 *
+	 * @since  4.0.0
+	 * @param  mixed  &$item item value to sanitize
+	 * @param  string $key   sanitized item key
+	 */
+	public function sanitize_meta( &$item, $key ) {
+		$item = esc_attr( $item );
 	}
 
 	/**
