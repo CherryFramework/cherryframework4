@@ -432,7 +432,18 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 
 			ob_start();
 
-			cherry_require( 'init/css/dynamic-style.css' );
+			$parent_css = PARENT_DIR . '/init/css/dynamic-style.css';
+			$child_css  = CHILD_DIR . '/init/css/dynamic-style.css';
+
+			// Include framework dynamic CSS file
+			if ( file_exists( $parent_css ) ) {
+				require_once $parent_css;
+			}
+
+			// Include child theme Dynamic CSS file (if fwe use child theme, not framework)
+			if ( file_exists( $child_css ) && $parent_css !== $child_css ) {
+				require_once $child_css;
+			}
 
 			/**
 			 * Allow 3rd party plugins and child themes pass own CSS to parser
