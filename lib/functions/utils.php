@@ -17,43 +17,69 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 // Load Cherry Framework scripts.
-add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts', 1 );
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts' );
 
 /**
  * Enqueue utility scripts
  * @since  4.0.0
  */
 function cherry_enqueue_utility_scripts() {
-
 	global $is_chrome;
 
-	$smooth_scroll = cherry_get_option( 'general-smoothscroll' );
-	$header_sticky = cherry_get_option( 'header-sticky' );
-	$cherry_url    = trailingslashit( CHERRY_URI );
+	$cherry_url = trailingslashit( CHERRY_URI );
 
-	if( "false" != $smooth_scroll ) {
-
+	if ( 'false' != cherry_get_option( 'general-smoothscroll' ) ) {
 		wp_register_script(
 			'jquery-easing',
-			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.min.js' ), array( 'jquery' ), '3.1.0', true
+			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.min.js' ),
+			array( 'jquery' ),
+			'3.1.0',
+			true
 		);
 		wp_register_script(
 			'jquery-smoothscroll',
-			esc_url( $cherry_url . 'assets/js/jquery.smoothscroll.js' ), array( 'jquery', 'jquery-easing' ), '3.0.6', true
+			esc_url( $cherry_url . 'assets/js/jquery.smoothscroll.js' ),
+			array( 'jquery', 'jquery-easing' ),
+			'3.0.6',
+			true
 		);
 
-		if( !wp_is_mobile() && $is_chrome ){
+		if ( !wp_is_mobile() && $is_chrome ){
 			wp_enqueue_script( 'jquery-smoothscroll' );
 		}
 	}
 
-	if( "false" != $header_sticky ) {
-
+	if ( 'false' != cherry_get_option( 'header-sticky' ) ) {
 		wp_enqueue_script(
 			'cherry-stick-up',
-			esc_url( $cherry_url . 'assets/js/jquery.cherry.stickup.min.js' ), array( 'jquery' ), '1.0.0', true
+			esc_url( $cherry_url . 'assets/js/jquery.cherry.stickup.min.js' ),
+			array( 'jquery' ),
+			'1.0.0',
+			true
 		);
+	}
 
+	if ( 'false' != cherry_get_option( 'cookie-banner-visibility' )
+		&& !( isset( $_COOKIE['cherry_cookie_banner'] ) && '1' == $_COOKIE['cherry_cookie_banner'] )
+		) {
+		wp_enqueue_script(
+			'cherry-cookie-banner',
+			esc_url( $cherry_url . 'assets/js/jquery.cherry.cookie.banner.js' ),
+			array( 'jquery' ),
+			CHERRY_VERSION,
+			true
+		);
+		wp_localize_script(
+			'cherry-cookie-banner', 'cookie_banner_args', array(
+				'name'    => 'cherry_cookie_banner',
+				'value'   => '1',
+				'options' => array(
+					'expires' => YEAR_IN_SECONDS,
+					'path'    => ( defined( 'COOKIEPATH' ) ? COOKIEPATH : '/' ),
+					'domain'  => ( defined( 'COOKIE_DOMAIN' ) ? COOKIE_DOMAIN : '' ),
+				),
+			)
+		);
 	}
 
 }
