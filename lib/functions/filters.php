@@ -19,10 +19,11 @@ if ( !defined( 'WPINC' ) ) {
 add_filter( 'body_class', 'cherry_add_control_classes' );
 
 // Filters the containers class.
-add_filter( 'cherry_get_header_class',   'cherry_get_header_classes' );
-add_filter( 'cherry_get_content_class',  'cherry_get_content_classes' );
-add_filter( 'cherry_get_footer_class',   'cherry_get_footer_classes' );
-add_filter( 'cherry_get_container_class', 'cherry_get_container_classes' );
+add_filter( 'cherry_get_header_class',              'cherry_get_header_classes' );
+add_filter( 'cherry_get_content_class',             'cherry_get_content_classes' );
+add_filter( 'cherry_get_footer_class',              'cherry_get_footer_classes' );
+add_filter( 'cherry_get_container_class',           'cherry_get_container_classes' );
+add_filter( 'cherry_content_sidebar_wrapper_class', 'cherry_content_sidebar_wrapper_class' );
 
 // Filters a sidebar visibility.
 add_filter( 'cherry_display_sidebar', 'cherry_hide_sidebar', 9, 2 );
@@ -44,23 +45,15 @@ add_filter( 'cherry_pre_get_the_post_audio',     'cherry_option_post_audio',    
 add_filter( 'cherry_pre_get_the_post_video',     'cherry_option_post_video',     10, 2 );
 add_filter( 'cherry_pre_get_the_post_avatar',    'cherry_option_post_avatar',    10, 2 );
 
-// Prints option styles.
-add_action( 'wp_head', 'cherry_add_extra_styles', 9999 );
-
 // Add favicon tags to page
 add_action( 'wp_head', 'cherry_favicon_tags' );
 
-// Add popup videa and image classes to embeded images into editor
+// Add popup video and image classes to embeded images into editor
 add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 );
 
 
 // Add specific CSS class by filter.
 function cherry_add_control_classes( $classes ) {
-	$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
-
-	if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
-		$layout = cherry_get_option( 'page-layout' );
-	}
 
 	// Responsive.
 	if ( 'true' == cherry_get_option( 'grid-responsive' ) ) {
@@ -68,9 +61,6 @@ function cherry_add_control_classes( $classes ) {
 	} else {
 		$classes[] = 'cherry-no-responsive';
 	}
-
-	// Sidebar Position.
-	$classes[] = sanitize_html_class( 'cherry-blog-layout-' . $layout );
 
 	// Sidebar.
 	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
@@ -240,6 +230,18 @@ function cherry_get_container_classes( $class ) {
 	return join( ' ', $classes );
 }
 
+function cherry_content_sidebar_wrapper_class( $class ) {
+	$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
+
+	if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
+		$layout = cherry_get_option( 'page-layout' );
+	}
+
+	$class = sanitize_html_class( $layout .'-wrapper' );
+
+	return $class;
+}
+
 function cherry_hide_sidebar( $display, $id ) {
 	$skip_sidebars = apply_filters( 'cherry_skip_hidden_sidebars', array(
 		'sidebar-footer-1',
@@ -262,7 +264,7 @@ function cherry_hide_sidebar( $display, $id ) {
 		return false;
 	}
 
-	if ( ( ( '1-left' == $layout ) || ( '1-right' == $layout ) ) && ( 'sidebar-secondary' == $id ) ) {
+	if ( ( ( 'sidebar-content' == $layout ) || ( 'content-sidebar' == $layout ) ) && ( 'sidebar-secondary' == $id ) ) {
 		return false;
 	}
 
@@ -423,45 +425,6 @@ function cherry_option_post_avatar( $display, $args ) {
 	}
 
 	return $display;
-}
-
-function cherry_add_extra_styles() {
-	$responsive = cherry_get_option( 'grid-responsive' );
-	$output     = '';
-
-	// Boxed & Container width.
-	$container_width     = intval( cherry_get_option( 'grid-container-width' ) );
-	$header_boxed_width  = intval( cherry_get_option( 'header-boxed-width' ) );
-	$content_boxed_width = intval( cherry_get_option( 'content-boxed-width' ) );
-	$footer_boxed_width  = intval( cherry_get_option( 'footer-boxed-width' ) );
-
-	$header_boxed_width  = ( $header_boxed_width < $container_width ) ? $container_width : $header_boxed_width;
-	$content_boxed_width = ( $content_boxed_width < $container_width ) ? $container_width : $content_boxed_width;
-	$footer_boxed_width  = ( $footer_boxed_width < $container_width ) ? $container_width : $footer_boxed_width;
-
-	$output .= ".site-header.boxed { max-width: {$header_boxed_width}px; }\n";
-	$output .= ".site-content.boxed { max-width: {$content_boxed_width}px; }\n";
-	$output .= ".site-footer.boxed { max-width: {$footer_boxed_width}px; }\n";
-
-	$output .= ".site-header .container,\n";
-	$output .= ".site-content > .container,\n";
-	$output .= ".site-footer .container { max-width: {$container_width}px; width: auto; }\n";
-
-	if ( 'false' == $responsive ) {
-		$output .= "body { min-width: {$container_width}px; }\n";
-	} else {
-		$output = "@media (min-width: {$container_width}px) {\n" . $output;
-		$output .= "}\n";
-	}
-
-	// Prepare a string with a styles.
-	$output = trim( $output );
-
-	if ( !empty( $output ) ) {
-
-		// Print style if $output not empty.
-		printf( "<style type='text/css'>\n%s\n</style>\n", $output );
-	}
 }
 
 /**

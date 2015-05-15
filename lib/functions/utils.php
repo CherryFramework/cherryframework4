@@ -725,3 +725,51 @@ function cherry_element_emphasis( $parent, $color, $property ) {
 
 	return $result;
 }
+
+/**
+ * Return width value for container.
+ *
+ * @since  4.0.0
+ *
+ * @param  int $container_width A container width value.
+ * @param  int $element_width   Some-block (parent-block for container) width value.
+ * @return int
+ */
+function cherry_container_width_compare( $container_width, $element_width ) {
+	return ( $container_width > $element_width ) ? $element_width : $container_width;
+}
+
+/**
+ * Retirieve CSS-rule only when site non-responsive.
+ *
+ * @since  4.0.0
+ *
+ * @param  string $style CSS-rule.
+ * @return string
+ */
+function cherry_non_responsive_style( $style ) {
+	return ( 'false' == cherry_get_option( 'grid-responsive' ) ) ? $style : '';
+}
+
+/**
+ * Open `@media` rule.
+ *
+ * @since  4.0.0
+ *
+ * @param  string $function Media function
+ * @return string
+ */
+function cherry_media_queries_open( $function ) {
+	return ( 'true' == cherry_get_option( 'grid-responsive' ) ) ? '@media ( ' . $function . ' ) {' : '';
+}
+
+/**
+ * Close `@media` rule.
+ *
+ * @since  4.0.0
+ *
+ * @return string
+ */
+function cherry_media_queries_close() {
+	return ( 'true' == cherry_get_option( 'grid-responsive' ) ) ? '}' : '';
+}

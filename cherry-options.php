@@ -130,23 +130,23 @@ function cherry_defaults_settings() {
 		'value'         => '1-right',
 		'display_input' => false,
 		'options'       => array(
-			'1-left' => array(
+			'sidebar-content' => array(
 				'label'   => __( 'Left sidebar', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-left-sidebar.svg',
 			),
-			'1-right' => array(
+			'content-sidebar' => array(
 				'label'   => __( 'Right sidebar', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-right-sidebar.svg',
 			),
-			'1-left-2-right' => array(
+			'sidebar-content-sidebar' => array(
 				'label'   => __( 'Left and right sidebar', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
 			),
-			'1-left-2-left' => array(
+			'sidebar-sidebar-content' => array(
 				'label'   => __( 'Two sidebars on the left', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
 			),
-			'1-right-2-right' => array(
+			'content-sidebar-sidebar' => array(
 				'label'   => __( 'Two sidebars on the right', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
 			),

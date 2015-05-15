@@ -77,7 +77,8 @@ function cherry_content_wrap() {
 		$wrapper = '';
 
 		if ( false !== cherry_display_sidebar( 'sidebar-main' ) ) {
-			$wrapper = '<div class="content-sidebar-wrapper">';
+			$wrapper_class = apply_filters( 'cherry_content_sidebar_wrapper_class', 'content-sidebar-wrapper' );
+			$wrapper       = sprintf( '<div class="%s">', $wrapper_class );
 		}
 
 		printf( '%1$s<div id="primary" class="content-area"><main %2$s>', $wrapper, cherry_get_attr( 'main' ) );
