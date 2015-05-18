@@ -42,14 +42,14 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 *
 		 * @var array
 		 */
-		public $var_pattern = '/\$(([-_a-zA-Z0-9]+)\[?[\'\"]*([-_a-zA-Z0-9]+)?[\'\"]*\]?)/';
+		public $var_pattern = '/\$(([-_a-zA-Z0-9]+)(\[[\'\"]*([-_a-zA-Z0-9]+)[\'\"]*\])?({([a-z%]+)})?)/';
 
 		/**
 		 * Function pattern
 		 *
 		 * @var array
 		 */
-		public $func_pattern = '/@(([a-zA-Z_]+)\((.*)\))/';
+		public $func_pattern = '/@(([a-zA-Z_]+)\((.[^\)]*)\))/';
 
 		function __construct() {
 
@@ -77,6 +77,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				'color-warning',
 				'color-danger',
 				'color-gray-variations',
+
 				'typography-body',
 				'typography-header-logo',
 				'typography-footer-logo',
@@ -91,10 +92,22 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				'typography-input-text',
 				'typography-breadcrumbs',
 				'typography-footer',
+
 				'body-background',
 				'header-background',
 				'content-background',
-				'footer-background'
+				'footer-background',
+
+				'grid-container-width',
+				'header-boxed-width',
+				'content-boxed-width',
+				'footer-boxed-width',
+
+				'header-grid-type',
+				'content-grid-type',
+				'footer-grid-type',
+
+				'grid-responsive',
 			);
 
 			$var_list = apply_filters( 'cherry_css_var_list', $var_list );
@@ -122,14 +135,18 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		public function get_css_functions() {
 
 			$func_list = array(
-				'darken'     => 'cherry_colors_darken',
-				'lighten'    => 'cherry_colors_lighten',
-				'contrast'   => 'cherry_contrast_color',
-				'background' => 'cherry_get_background_css',
-				'typography' => 'cherry_get_typography_css',
-				'box'        => 'cherry_get_box_model_css',
-				'emph'       => 'cherry_element_emphasis',
-				'font_size'  => 'cherry_typography_size'
+				'darken'            => 'cherry_colors_darken',
+				'lighten'           => 'cherry_colors_lighten',
+				'contrast'          => 'cherry_contrast_color',
+				'background'        => 'cherry_get_background_css',
+				'typography'        => 'cherry_get_typography_css',
+				'box'               => 'cherry_get_box_model_css',
+				'emph'              => 'cherry_element_emphasis',
+				'font_size'         => 'cherry_typography_size',
+				'container_compare' => 'cherry_container_width_compare',
+				'non_responsive'    => 'cherry_non_responsive_style',
+				'media_open'        => 'cherry_media_queries_open',
+				'media_close'       => 'cherry_media_queries_close',
 			);
 
 			$func_list = apply_filters( 'cherry_css_func_list', $func_list );
@@ -178,13 +195,20 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 
 			$val = $this->variables[$matches[2]];
 
+			$maybe_units = '';
+
+			// check if we need to add units after value
+			if ( ! empty( $matches[6] ) ) {
+				$maybe_units = $matches[6];
+			}
+
 			// check if we search for array val
-			if ( ! empty( $matches[3] ) && is_array( $val ) && isset( $val[$matches[3]] ) ) {
-				return $val[$matches[3]];
+			if ( ! empty( $matches[4] ) && is_array( $val ) && isset( $val[$matches[4]] ) ) {
+				return $val[$matches[4]] . $maybe_units;
 			}
 
 			if ( ! is_array( $val ) ) {
-				return $val;
+				return $val . $maybe_units;
 			} else {
 				return $matches[0];
 			}

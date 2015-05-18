@@ -130,23 +130,23 @@ function cherry_defaults_settings() {
 		'value'         => '1-right',
 		'display_input' => false,
 		'options'       => array(
-			'1-left' => array(
+			'sidebar-content' => array(
 				'label'   => __( 'Left sidebar', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-left-sidebar.svg',
 			),
-			'1-right' => array(
+			'content-sidebar' => array(
 				'label'   => __( 'Right sidebar', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-right-sidebar.svg',
 			),
-			'1-left-2-right' => array(
+			'sidebar-content-sidebar' => array(
 				'label'   => __( 'Left and right sidebar', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
 			),
-			'1-left-2-left' => array(
+			'sidebar-sidebar-content' => array(
 				'label'   => __( 'Two sidebars on the left', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
 			),
-			'1-right-2-right' => array(
+			'content-sidebar-sidebar' => array(
 				'label'   => __( 'Two sidebars on the right', 'cherry' ),
 				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
 			),
@@ -1110,6 +1110,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h1'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 1', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H1 heading font settings.', 'cherry' )
@@ -1129,6 +1130,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h2'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 2', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H2 heading font settings.', 'cherry' )
@@ -1148,6 +1150,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h3'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 3', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H3 heading font settings.', 'cherry' )
@@ -1167,6 +1170,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h4'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 4', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H4 heading font settings.', 'cherry' )
@@ -1186,6 +1190,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h5'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 5', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H5 heading font settings.', 'cherry' )
@@ -1205,6 +1210,7 @@ function cherry_defaults_settings() {
 	$typography_options['typography-h6'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Heading 6', 'cherry' ),
+		'max_value'		=> 500,
 		'hint'      	=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'H6 heading font settings.', 'cherry' )
@@ -1253,6 +1259,26 @@ function cherry_defaults_settings() {
 			'file'	=> 'Separate file',
 			'tag'	=> 'Style tag in HEAD'
 		)
+	);
+//////////////////////////////////////////////////////////////////////
+// Cookie Banner
+//////////////////////////////////////////////////////////////////////
+	$cookie_banner = array();
+
+	$cookie_banner['cookie-banner-visibility'] = array(
+		'type'  => 'switcher',
+		'title' => __( 'Display Cookie Banner?', 'cherry' ),
+		'value'  => 'false',
+		'toggle' => array(
+			'true_toggle'  => __( 'Yes', 'cherry' ),
+			'false_toggle' => __( 'No', 'cherry' ),
+		)
+	);
+	$cookie_banner['cookie-banner-text'] = array(
+		'type'        => 'textarea',
+		'title'       => __( 'Message', 'cherry' ),
+		'decsription' => __( 'Enter the cookie banner message.', 'cherry' ),
+		'value'       => __( 'We use Cookies - By using this site or closing this you agree to our Cookies policy.', 'cherry' ),
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -1566,6 +1592,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Typography'),
 		'label'			=> '',
 		'decsription'	=> '',
+		'max_value '	=> 500,
 		'hint'			=>  array(
 			'type'		=> 'text',
 			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
@@ -1781,10 +1808,16 @@ function cherry_defaults_settings() {
 		'priority'     => 110,
 		'options-list' => apply_filters( 'cherry_optimization_options_list', $optimization_options ),
 	);
+	$sections_array['cookie-banner-section'] = array(
+		'name'         => __( 'Cookie Banner', 'cherry' ),
+		'icon'         => 'dashicons dashicons-admin-tools',
+		'priority'     => 120,
+		'options-list' => apply_filters( 'cherry_cookie_banner_options_list', $cookie_banner ),
+	);
 	$sections_array['demo-section'] = array(
 		'name'         => __( 'Interface elements (for UI developers)', 'cherry' ),
 		'icon'         => 'dashicons dashicons-editor-help',
-		'priority'     => 120,
+		'priority'     => 130,
 		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
 

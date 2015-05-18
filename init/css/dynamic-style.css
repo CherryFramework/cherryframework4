@@ -1,5 +1,6 @@
 body {
 	@typography( $typography-body )
+	@non_responsive( min-width: $grid-container-width{px} )
 }
 
 @background( body, $body-background )
@@ -336,3 +337,26 @@ address {
 @emph( .bg-info, $color-info, background-color )
 @emph( .bg-warning, $color-warning, background-color )
 @emph( .bg-danger, $color-danger, background-color )
+
+@media_open( min-width: 992px )
+	.site-header.boxed { max-width: $header-boxed-width{px} }
+	.site-content.boxed { max-width: $content-boxed-width{px} }
+	.site-footer.boxed { max-width: $footer-boxed-width{px} }
+
+	.site-header.boxed .container {
+		width: auto;
+		max-width: @container_compare( $grid-container-width, $header-boxed-width )px
+	}
+	.site-content.boxed .container{
+		width: auto;
+		max-width: @container_compare( $grid-container-width, $content-boxed-width )px
+	}
+	.site-footer.boxed .container {
+		width: auto;
+		max-width: @container_compare( $grid-container-width, $footer-boxed-width )px
+	}
+
+	.site-header.wide .container,
+	.site-content.wide .container,
+	.site-footer.wide .container { max-width: $grid-container-width{px} }
+@media_close

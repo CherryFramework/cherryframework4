@@ -163,7 +163,7 @@ class Cherry_Layouts {
 		$meta_value = $this->get_post_layout( $post_id );
 
 		// Get the all submitted `cherry` data.
-		$cherry_meta = $_POST['cherry'];
+		$cherry_meta = array_map( 'sanitize_text_field' , $_POST['cherry'] );
 
 		// Get the submitted post layout.
 		if ( isset( $cherry_meta['layout'] ) ) {

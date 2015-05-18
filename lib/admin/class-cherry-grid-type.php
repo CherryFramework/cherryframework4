@@ -190,7 +190,7 @@ class Cherry_Grid_Type {
 		$meta_value = $this->get_post_grid_type( $post_id );
 
 		// Get the all submitted `grid-type` data.
-		$cherry_meta = $_POST['grid-type'];
+		$cherry_meta = array_map( 'sanitize_text_field' , $_POST['grid-type'] );
 
 		// Get the submitted post grid type.
 		if ( !empty( $cherry_meta ) ) {

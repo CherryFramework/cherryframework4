@@ -215,3 +215,12 @@ $container-md:                 $container-desktop !default;
 $container-large-desktop:      (1140px + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
+
+
+//== Blog
+
+$primary-area-width:            75%;
+$sidebar-main-width:            23%;
+$sidebar-secondary-width:       18%;
+// When set a two sidebars.
+$content-sidebar-wrapper-width: 80%;
