@@ -189,6 +189,7 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
 		),
+		'class'       => 'width-full',
 		'value'       => 'cherry-thumb-l',
 		'options'     => array(
 			'cherry-thumb-s' => __( 'Small', 'cherry' ),
@@ -203,6 +204,7 @@ function cherry_defaults_settings() {
 			'content' => __( 'Set alignment for post featured images.', 'cherry' ),
 		),
 		'value'       => 'aligncenter',
+		'class'       => 'width-full',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
 			'alignleft'   => __( 'Left', 'cherry' ),
@@ -218,6 +220,7 @@ function cherry_defaults_settings() {
 			'content' => __( 'Select how you want to display post content in blog listing: full - display full post content, excerpt - display part of the post (you can specify excerpt length below), none - hide post content.', 'cherry' ),
 		),
 		'value'       => 'part',
+		'class'       => 'width-full',
 		'options'     => array(
 			'none' => __( 'None', 'cherry' ),
 			'part' => __( 'Part', 'cherry' ),
@@ -273,6 +276,7 @@ function cherry_defaults_settings() {
 			'content' => __( 'Set dimensions for single post featured images.', 'cherry' ),
 		),
 		'value'       => 'cherry-thumb-l',
+		'class'       => 'width-full',
 		'options'     => array(
 			'cherry-thumb-s' => __( 'Small', 'cherry' ),
 			'cherry-thumb-l' => __( 'Large', 'cherry' ),
@@ -286,6 +290,7 @@ function cherry_defaults_settings() {
 			'content' => __( 'Set alignment for single post featured images.', 'cherry' ),
 		),
 		'value'       => 'aligncenter',
+		'class'       => 'width-full',
 		'options'     => array(
 			'alignnone'   => __( 'None', 'cherry' ),
 			'alignleft'   => __( 'Left', 'cherry' ),
@@ -403,11 +408,14 @@ function cherry_defaults_settings() {
 		'return_data_type'	=> 'url',
 		'library_type'		=> 'image',
 		'value'				=> array(
-			'image'	=> '',
-			'color'	=> '#FFFFFF',
-			'repeat'	=> 'repeat',
-			'position'	=> 'left',
-			'attachment'=> 'fixed'
+			'image'			=> '',
+			'color'			=> '#FFFFFF',
+			'repeat'		=> 'repeat',
+			'position'		=> 'left',
+			'attachment'	=> 'fixed',
+			'clip'			=> 'padding-box',
+			'size'			=> 'cover',
+			'origin'		=> 'padding-box',
 		)
 	);
 	// Color scheme options
@@ -691,11 +699,14 @@ function cherry_defaults_settings() {
 		'return_data_type' => 'id',
 		'library_type'     => 'image',
 		'value'            => array(
-				'image'      => '',
-				'color'      => '',
-				'repeat'     => 'repeat',
-				'position'   => 'left',
-				'attachment' => 'fixed',
+				'image'			=> '',
+				'color'			=> '',
+				'repeat'		=> 'repeat',
+				'position'		=> 'left',
+				'attachment'	=> 'fixed',
+				'clip'			=> 'padding-box',
+				'size'			=> 'cover',
+				'origin'		=> 'padding-box',
 			)
 	);
 	$header_options['header-grid-type'] = array(
@@ -814,14 +825,17 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Page background settings. You can select background color, upload footer background image, set its background position, attachment and repeat.', 'cherry' ),
 		),
-		'return_data_type' => 'id',
-		'library_type'     => 'image',
-		'value'            => array(
-			'image'      => '',
-			'color'      => '',
-			'repeat'     => 'repeat',
-			'position'   => 'left',
-			'attachment' => 'fixed',
+		'return_data_type'	=> 'id',
+		'library_type'		=> 'image',
+		'value'				=> array(
+			'image'			=> '',
+			'color'			=> '',
+			'repeat'		=> 'repeat',
+			'position'		=> 'left',
+			'attachment'	=> 'fixed',
+			'clip'			=> 'padding-box',
+			'size'			=> 'cover',
+			'origin'		=> 'padding-box',
 		)
 	);
 	$page_options['content-grid-type'] = array(
@@ -888,11 +902,14 @@ function cherry_defaults_settings() {
 		'return_data_type' => 'id',
 		'library_type'     => 'image',
 		'value'            => array(
-			'image'      => '',
-			'color'      => '#ddd',
-			'repeat'     => 'repeat',
-			'position'   => 'left',
-			'attachment' => 'fixed',
+			'image'			=> '',
+			'color'			=> '#ddd',
+			'repeat'		=> 'repeat',
+			'position'		=> 'left',
+			'attachment'	=> 'fixed',
+			'clip'			=> 'padding-box',
+			'size'			=> 'cover',
+			'origin'		=> 'padding-box',
 		)
 	);
 	$footer_options['typography-footer'] = array(
@@ -1505,7 +1522,9 @@ function cherry_defaults_settings() {
 			'repeat'		=> 'repeat',
 			'position'		=> 'left',
 			'attachment'	=> 'fixed',
-			'origin'		=> 'padding-box'
+			'clip'			=> 'padding-box',
+			'size'			=> 'cover',
+			'origin'		=> 'padding-box',
 		)
 	);
 	$demo_options['colorpicker-demo'] = array(
@@ -1513,7 +1532,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Colorpicker', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
-		'hint'      	=>  array(
+		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __('Adds a color picker.', 'cherry'),
 		),

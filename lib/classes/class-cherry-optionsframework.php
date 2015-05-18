@@ -433,7 +433,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	}
 }
 
-
 /**
  * Get cherry option value
  *

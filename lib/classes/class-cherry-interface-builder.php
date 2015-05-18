@@ -847,26 +847,29 @@ class Cherry_Interface_Builder {
 							'bottom-right' => __( 'Bottom Right', 'cherry' )
 					),
 					'attachment' => array(
+							'notdefined' => __( 'Not defined', 'cherry' ),
 							'scroll' => __( 'Scroll Normally', 'cherry' ),
 							'fixed' => __( 'Fixed in Place', 'cherry' )
 					),
 					'clip' => array(
+							'notdefined' => __( 'Not defined', 'cherry' ),
 							'padding-box' => __( 'Padding box', 'cherry' ),
 							'border-box'  => __( 'Border box', 'cherry' ),
 							'content-box' => __( 'Content box', 'cherry' )
 					),
 					'size' => array(
-							'auto-auto' => __( 'Auto Auto', 'cherry' ),
+							'notdefined' => __( 'Not defined', 'cherry' ),
+							'auto'      => __( 'Auto', 'cherry' ),
 							'cover'     => __( 'Cover', 'cherry' ),
 							'contain'   => __( 'Contain', 'cherry' )
 					),
 					'origin' => array(
+							'notdefined' => __( 'Not defined', 'cherry' ),
 							'padding-box' => __( 'Padding box', 'cherry' ),
 							'border-box'  => __( 'Border box', 'cherry' ),
 							'content-box' => __( 'Content box', 'cherry' )
 					)
 				);
-
 				$img_style = !$value['image'] ? 'style="display:none;"' : '' ;
 				$output .= $this -> add_label($id . '[image]',  __( 'Background Image', 'cherry' ));
 				$output .= '<div '.$img_style.' class="cherry-element-wrap cherry-upload-preview" >';

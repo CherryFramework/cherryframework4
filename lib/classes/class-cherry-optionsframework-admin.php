@@ -30,13 +30,11 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		public $options_export_url = null;
 
-
 		/**
 		* Cherry_Options_Framework_Admin constructor
 		*
 		* @since 4.0.0
 		*/
-
 		function __construct() {
 
 			// attach import/export options handlers
@@ -76,18 +74,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			// Settings need to be registered after admin_init
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
-
-			// Displays notice after options save
-			add_action('cherry-options-updated', array( $this, 'save_options_notice' ) );
-
-			// Displays notice after section restored
-			add_action('cherry-section-restored', array( $this, 'restore_section_notice' ) );
-
-			// Displays notice after options restored
-			add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
-
-			add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
-
 
 			//************* Sanitize Utility Filters  ************************************//
 			// Utility sanitize text
@@ -360,40 +346,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			register_setting( 'cherry-options', $cherry_options_settings['id'], array( $this, 'validate_options' ) );
 		}
 
-		/**
-		 * Display message when options have been saved
-		 */
-		function save_options_notice() {
-			add_settings_error( 'cherry-options', 'save-options', __( 'Options saved', 'cherry-options' ), 'updated slide_up' );
-		}
-
-		/**
-		 * Display message when section have been restored
-		 */
-		function restore_section_notice() {
-			$tmp_active_section = apply_filters( 'cherry_set_active_section', '' );
-			$message            = sprintf( __( 'Section %s restored', 'cherry-options' ), $tmp_active_section );
-			add_settings_error( 'cherry-options', 'restore-section', $message, 'updated slide_up' );
-		}
-
-		/**
-		 * Display message when options have been restored
-		 */
-		function restore_options_notice() {
-			add_settings_error( 'cherry-options', 'restore-options', __( 'All options restored', 'cherry-options' ), 'updated slide_up' );
-		}
-
-		/**
-		 * Registers the settings
-		 *
-		 * @since 4.0.0
-		 */
-		function new_section_name($result) {
-			global $cherry_options_framework;
-			$currentSectionName = $cherry_options_framework->get_section_name_by_id($_POST['active_section']);
-			$result = '<i>' . $currentSectionName . '</i>';
-			return $result;
-		}
 
 		/**
 		 *
