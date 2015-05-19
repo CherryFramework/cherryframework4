@@ -4,7 +4,6 @@ Author:      Cherry Team
 Version:     1.0.0
 */
 .container {
-  width: 1170px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
@@ -16,6 +15,9 @@ Version:     1.0.0
 }
 .container:after {
   clear: both;
+}
+.cherry-no-responsive .container {
+  width: 1170px;
 }
 
 .collapse-col {

@@ -3,8 +3,10 @@
 // --------------------------------------------------
 
 .container {
-  width: $container-lg;
   @include container-fixed;
+  .cherry-no-responsive & {
+    width: $container-lg;
+  }
 }
 
 .collapse-col {
