@@ -313,7 +313,8 @@ class Cherry_Statics {
 		 * Filters a CSS-class for container.
 		 *
 		 * @since 4.0.0
-		 * @param int   $index Index, name, or ID of the static area.
+		 * @param string $container_class CSS-class name.
+		 * @param int    $index           Index, name, or ID of the static area.
 		 */
 		$container_class = apply_filters( 'cherry_static_area_container_class', $container_class, $index );
 
@@ -389,7 +390,7 @@ class Cherry_Statics {
 			 * Fires before a static's display callback is called.
 			 *
 			 * @since 4.0.0
-			 * @param array $static An associative array of static arguments.
+			 * @param array $index Index, name or ID of static area.
 			 */
 			do_action( 'cherry_static_area', $index );
 
