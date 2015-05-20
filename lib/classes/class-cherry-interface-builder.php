@@ -1354,7 +1354,7 @@ class Cherry_Interface_Builder {
 	 */
 	public function register_builder_scripts() {
 		wp_register_script( 'ace-editor', trailingslashit( CHERRY_URI ) . 'admin/assets/js/vendor/ace.js', array( 'jquery' ), CHERRY_VERSION, true );
-		wp_register_script( 'select2', trailingslashit( CHERRY_URI ) . 'admin/assets/js/select2.js', array( 'jquery' ), CHERRY_VERSION, true );
+		wp_register_script( 'select2_', trailingslashit( CHERRY_URI ) . 'admin/assets/js/select2.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'statics-areas-editor-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/statics-areas-editor-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'repeater-plugin', trailingslashit( CHERRY_URI ) . 'admin/assets/js/cherry-repeater-plugin.js', array( 'jquery' ), CHERRY_VERSION, true );
 		wp_register_script( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/js/interface-builder.js', array( 'jquery' ), CHERRY_VERSION, true );
@@ -1385,7 +1385,7 @@ class Cherry_Interface_Builder {
 			wp_enqueue_script( 'editor');
 			wp_enqueue_script( 'wp-color-picker');
 			wp_enqueue_script( 'ace-editor');
-			wp_enqueue_script( 'select2' );
+			wp_enqueue_script( 'select2_' );
 			wp_enqueue_script( 'statics-areas-editor-plugin' );
 			wp_enqueue_script( 'repeater-plugin' );
 			wp_enqueue_script( 'jquery-ui-tooltip' );

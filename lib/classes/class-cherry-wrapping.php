@@ -83,6 +83,7 @@ class Cherry_Wrapping {
 			$str = substr( $template, 0, -4 );
 			array_unshift( $this->templates, sprintf( $str . '-%s.php', self::$base ) );
 		}
+
 	}
 
 	/**

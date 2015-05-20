@@ -179,6 +179,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load abstract class for static registration.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
 
+			// Load WooCommerce compatibility module
+			require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-woocommerce.php' );
+
 			// Load Icons gateway for shortcodes ultimate ( only if SU active )
 			if ( in_array(
 				'shortcodes-ultimate/shortcodes-ultimate.php',
