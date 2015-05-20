@@ -63,7 +63,7 @@ if ( ! class_exists( 'Cherry_Woocommerce' ) ) {
 			}
 
 			$woo_breadcrums = new Cherry_Woo_Breadcrumbs( $args );
-			return $woo_breadcrums->items;
+			return array( 'items' => $woo_breadcrums->items, 'page_title' => $woo_breadcrums->page_title );
 		}
 
 		/**
@@ -187,6 +187,8 @@ class Cherry_Woo_Breadcrumbs extends cherry_breadcrumbs {
 
 	/**
 	 * Add single product trailings
+	 *
+	 * @since  4.0.0
 	 */
 	private function add_single_product() {
 
@@ -208,11 +210,14 @@ class Cherry_Woo_Breadcrumbs extends cherry_breadcrumbs {
 		}
 
 		$this->_add_item( 'target_format', get_the_title( $post->ID ) );
+		$this->page_title = false;
 
 	}
 
 	/**
 	 * Add parent erms items for a term
+	 *
+	 * @since 4.0.0
 	 * @param string $taxonomy
 	 */
 	private function term_ancestors( $term_id, $taxonomy ) {
@@ -230,6 +235,8 @@ class Cherry_Woo_Breadcrumbs extends cherry_breadcrumbs {
 
 	/**
 	 * Get product category page trilink
+	 *
+	 * @since 4.0.0
 	 */
 	private function add_product_tax() {
 		$current_term = $GLOBALS['wp_query']->get_queried_object();
@@ -255,9 +262,10 @@ class Cherry_Woo_Breadcrumbs extends cherry_breadcrumbs {
 		$label = get_the_title( $shop_page_id );
 		$url   = get_permalink( $shop_page_id );
 
-		if ( ! is_page( $shop_page_id ) ) {
+		if ( ! is_page( $shop_page_id ) && ! is_post_type_archive( 'product' ) ) {
 			$this->_add_item( 'link_format', $label, $url );
 		} elseif ( $label && true === $this->args['show_title'] ) {
+			$this->page_title = $label;
 			$this->_add_item( 'target_format', $label );
 		}
 

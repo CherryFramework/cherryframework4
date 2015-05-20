@@ -289,7 +289,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			// Break trail building, if use custom trailing for this page
 			$custom_trail = apply_filters( 'cherry_breadcrumbs_custom_trail', false, $this->args );
 			if ( is_array( $custom_trail ) && ! empty( $custom_trail ) ) {
-				$this->items = $custom_trail;
+				$this->items      = $custom_trail['items'];
+				$this->page_title = $custom_trail['page_title'];
 				return;
 			}
 
