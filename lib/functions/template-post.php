@@ -279,6 +279,9 @@ function cherry_get_the_post_content( $args ) {
 	$output = ob_get_contents();
 	ob_end_clean();
 
+	// This need for BuddyPress.
+	$output = apply_filters( 'the_content', $output );
+
 	return apply_filters( 'cherry_get_the_post_content', $output );
 }
 
