@@ -167,6 +167,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 			$replace_func = preg_replace_callback( $this->func_pattern, array( $this, 'replace_func' ), $replce_vars );
 
 			$result = preg_replace( '/\t|\r|\n|\s{2,}/', '', $replace_func );
+			$result = htmlspecialchars_decode( $result );
 
 			return $result;
 
