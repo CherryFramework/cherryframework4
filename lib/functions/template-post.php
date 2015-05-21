@@ -223,7 +223,7 @@ function cherry_get_the_post_title( $args ) {
 function cherry_the_post_content( $args ) {
 	global $post;
 
-	if ( !$post->post_content ) {
+	if ( ! $post->post_content && 0 !== $post->ID ) {
 		return;
 	}
 
@@ -278,9 +278,6 @@ function cherry_get_the_post_content( $args ) {
 	cherry_the_post_content( $args );
 	$output = ob_get_contents();
 	ob_end_clean();
-
-	// This need for BuddyPress.
-	$output = apply_filters( 'the_content', $output );
 
 	return apply_filters( 'cherry_get_the_post_content', $output );
 }
