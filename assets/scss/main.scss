@@ -4,17 +4,3 @@ Author:      Cherry Team
 Version:     1.0.0
 */
 @import "css-framework/base";
-@import "layout";
-
-img {
-	@include img-responsive();
-}
-
-.site {
-	@include hyphens(auto);
-}
-
-.site-header.isStick {
-	left: 0;
-	right: 0;
-}

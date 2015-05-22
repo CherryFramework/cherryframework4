@@ -229,12 +229,12 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 		/**
 		 * Get page title
-		 * 
+		 *
 		 * @since 4.0.0
 		 */
 		public function get_title() {
 
-			if ( false == $this->args['show_title'] ) {
+			if ( false == $this->args['show_title'] || ! $this->page_title ) {
 				return;
 			}
 
@@ -285,6 +285,14 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		 * @since 4.0.0
 		 */
 		public function build_trail() {
+
+			// Break trail building, if use custom trailing for this page
+			$custom_trail = apply_filters( 'cherry_breadcrumbs_custom_trail', false, $this->args );
+			if ( is_array( $custom_trail ) && ! empty( $custom_trail ) ) {
+				$this->items      = $custom_trail['items'];
+				$this->page_title = $custom_trail['page_title'];
+				return;
+			}
 
 			if ( is_front_page() ) {
 

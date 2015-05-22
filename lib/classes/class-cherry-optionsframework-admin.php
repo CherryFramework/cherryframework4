@@ -279,6 +279,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 					'message' => __( 'Options have been saved', 'cherry' ),
 					'type' => 'success-notice'
 				);
+
+				do_action( 'cherry-options-updated' );
+
 				wp_send_json( $response );
 			}
 		}
@@ -293,6 +296,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				global $cherry_options_framework;
 				$current_section = $_POST['current_section'];
 				$cherry_options_framework -> restore_section_settings_array( $current_section );
+
+				do_action( 'cherry-section-restored' );
+
 				exit;
 			}
 		}
@@ -305,6 +311,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function cherry_restore_options(){
 			global $cherry_options_framework;
 			$cherry_options_framework -> restore_default_settings_array();
+
+			do_action( 'cherry-options-restored' );
 		}
 
 		/**

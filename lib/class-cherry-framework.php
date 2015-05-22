@@ -182,6 +182,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load abstract class for static registration.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
 
+			// Load WooCommerce compatibility module
+			require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-woocommerce.php' );
+
 			// Load Icons gateway for shortcodes ultimate ( only if SU active )
 			if ( in_array(
 				'shortcodes-ultimate/shortcodes-ultimate.php',
@@ -203,7 +206,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_filter( 'widget_text',      'do_shortcode' );
 			add_filter( 'the_excerpt',      'do_shortcode' );
 			add_filter( 'term_description', 'do_shortcode' );
-			add_filter( 'comment_text',     'do_shortcode' );
 
 			// Load the core filters.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'filters.php' );
@@ -245,17 +247,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_theme_support( 'html5', array(
 				'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
 			) );
-
-			/**
-			 * Enable support for Infinite Scroll.
-			 *
-			 * @link http://jetpack.me/support/infinite-scroll/
-			 */
-			add_theme_support( 'infinite-scroll', array(
-				'container' => 'main',
-				'footer'    => 'page',
-			) );
-
 		}
 
 		/**

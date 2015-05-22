@@ -404,7 +404,7 @@ function cherry_get_related_posts() {
 
 	$content = '';
 
-	$template = cherry_load_tmpl(
+	$template = cherry_parse_tmpl(
 		apply_filters(
 			'cherry_related_post_template_hierarchy',
 			array( 'content/related-post.tmpl' )

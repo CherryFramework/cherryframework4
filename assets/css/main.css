@@ -768,6 +768,33 @@ select[multiple].input-lg, .form-group-lg .form-control {
   }
 }
 
+.cherry-cookie-banner-wrap {
+  position: fixed;
+  z-index: 9999;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  padding: 0;
+  margin: 0;
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+}
+.cherry-cookie-banner-wrap .container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.cherry-cookie-banner-wrap .close {
+  color: #fff;
+  outline: none;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+}
+.cherry-cookie-banner-wrap .close:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
 table {
   max-width: 100%;
   background-color: transparent;
@@ -777,19 +804,19 @@ th {
   text-align: left;
 }
 
-.table {
+.table,
+table {
   width: 100%;
 }
-.table > thead > tr > th,
-.table > thead > tr > td,
-.table > tbody > tr > th,
-.table > tbody > tr > td,
-.table > tfoot > tr > th,
-.table > tfoot > tr > td {
+.table tr > th,
+.table tr > td,
+table tr > th,
+table tr > td {
   padding: 8px;
   vertical-align: top;
 }
-.table > thead > tr > th {
+.table > thead > tr > th,
+table > thead > tr > th {
   vertical-align: bottom;
 }
 .table > caption + thead > tr:first-child > th,
@@ -797,7 +824,13 @@ th {
 .table > colgroup + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > td,
 .table > thead:first-child > tr:first-child > th,
-.table > thead:first-child > tr:first-child > td {
+.table > thead:first-child > tr:first-child > td,
+table > caption + thead > tr:first-child > th,
+table > caption + thead > tr:first-child > td,
+table > colgroup + thead > tr:first-child > th,
+table > colgroup + thead > tr:first-child > td,
+table > thead:first-child > tr:first-child > th,
+table > thead:first-child > tr:first-child > td {
   border-top: 0;
 }
 
@@ -1152,6 +1185,10 @@ abbr[data-original-title] {
   text-transform: uppercase;
 }
 
+blockquote {
+  padding: 0 0 0 20px;
+  margin: 0 0 20px 0;
+}
 blockquote p:last-child,
 blockquote ul:last-child,
 blockquote ol:last-child {
@@ -1200,6 +1237,15 @@ blockquote:after {
 
 address {
   font-style: normal;
+}
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /*--------------------------------------------------------------
@@ -1333,6 +1379,32 @@ address {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+.site {
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  -o-hyphens: auto;
+  hyphens: auto;
+}
+
+.site-header,
+.site-content,
+.site-footer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.site-header {
+  position: relative;
+  z-index: 9;
+}
+.site-header.isStick {
+  left: 0;
+  right: 0;
+}
+
 .sticky {
   display: block;
 }
@@ -1516,136 +1588,4 @@ object {
 
 .affix {
   position: fixed;
-}
-
-/*
-Description: The layout stylesheet.
-Author:      Cherry Team
-Version:     1.0.0
-*/
-.site-header.boxed,
-.site-content.boxed,
-.site-footer.boxed {
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 768px) {
-  .site-header.boxed,
-  .site-content.boxed,
-  .site-footer.boxed {
-    max-width: 750px;
-  }
-}
-@media (min-width: 992px) {
-  .site-header.boxed,
-  .site-content.boxed,
-  .site-footer.boxed {
-    max-width: 970px;
-  }
-}
-@media (min-width: 1200px) {
-  .site-header.boxed,
-  .site-content.boxed,
-  .site-footer.boxed {
-    max-width: 1170px;
-  }
-}
-.site-header.extra-boxed,
-.site-content.extra-boxed,
-.site-footer.extra-boxed {
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 768px) {
-  .site-header.extra-boxed,
-  .site-content.extra-boxed,
-  .site-footer.extra-boxed {
-    max-width: 780px;
-  }
-}
-@media (min-width: 992px) {
-  .site-header.extra-boxed,
-  .site-content.extra-boxed,
-  .site-footer.extra-boxed {
-    max-width: 1000px;
-  }
-}
-@media (min-width: 1200px) {
-  .site-header.extra-boxed,
-  .site-content.extra-boxed,
-  .site-footer.extra-boxed {
-    max-width: 1200px;
-  }
-}
-
-/*--------------------------------------------------------------
-# Responsive
---------------------------------------------------------------*/
-@media (min-width: 992px) {
-  .site-content.boxed .content-area .container {
-    width: auto;
-  }
-
-  .cherry-with-sidebar #primary {
-    width: 75%;
-  }
-  .cherry-with-sidebar.cherry-blog-layout-1-left #primary, .cherry-with-sidebar.cherry-blog-layout-1-left-2-left #primary {
-    float: right;
-  }
-  .cherry-with-sidebar.cherry-blog-layout-1-right #primary, .cherry-with-sidebar.cherry-blog-layout-1-right-2-right #primary, .cherry-with-sidebar.cherry-blog-layout-1-left-2-right #primary {
-    float: left;
-  }
-  .cherry-with-sidebar.cherry-blog-layout-1-left-2-left .content-sidebar-wrapper, .cherry-with-sidebar.cherry-blog-layout-1-left-2-right .content-sidebar-wrapper, .cherry-with-sidebar.cherry-blog-layout-1-right-2-right .content-sidebar-wrapper {
-    width: 80%;
-  }
-  .cherry-with-sidebar.cherry-blog-layout-1-right-2-right .content-sidebar-wrapper {
-    float: left;
-  }
-  .cherry-with-sidebar.cherry-blog-layout-1-left-2-right .content-sidebar-wrapper, .cherry-with-sidebar.cherry-blog-layout-1-left-2-left .content-sidebar-wrapper {
-    float: right;
-  }
-
-  #sidebar-main {
-    width: 23%;
-  }
-  .cherry-blog-layout-1-left #sidebar-main, .cherry-blog-layout-1-left-2-left #sidebar-main {
-    float: left;
-  }
-  .cherry-blog-layout-1-right #sidebar-main, .cherry-blog-layout-1-right-2-right #sidebar-main, .cherry-blog-layout-1-left-2-right #sidebar-main {
-    float: right;
-  }
-
-  #sidebar-secondary {
-    width: 18%;
-  }
-  .cherry-blog-layout-1-left-2-left #sidebar-secondary, .cherry-blog-layout-1-left-2-right #sidebar-secondary {
-    float: left;
-  }
-  .cherry-blog-layout-1-right-2-right #sidebar-secondary {
-    float: right;
-  }
-
-  .cherry-with-sidebar .content-area .container {
-    width: 80%;
-    /* fix */
-  }
-}
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.site {
-  word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
-  -o-hyphens: auto;
-  hyphens: auto;
-}
-
-.site-header.isStick {
-  left: 0;
-  right: 0;
 }

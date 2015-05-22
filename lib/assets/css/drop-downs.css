@@ -35,6 +35,16 @@
   text-decoration: none;
 }
 
+.cherry-navigation-arrow .menu-primary li > a::after {
+  content: "\f347";
+  display: inline-block;
+  font: normal 14px/1 'dashicons';
+  vertical-align: top;
+  -webkit-font-smoothing: antialiased;
+}
+.cherry-navigation-arrow .menu-primary li a:only-child::after {
+  content: '';
+}
 .menu-primary .sub-menu {
   float: left;
   position: absolute;
@@ -54,6 +64,12 @@
 }
 .menu-primary .sub-menu a {
   width: 200px;
+}
+.cherry-navigation-arrow .menu-primary .sub-menu li > a::after {
+  content: "\f345";
+}
+.cherry-navigation-arrow .menu-primary .sub-menu a:only-child::after {
+  content: '';
 }
 .menu-primary li:hover > ul,
 .menu-primary li.focus > ul {
