@@ -74,6 +74,7 @@ class Cherry_Interface_Builder {
 		// Load ui-switcher element
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-switcher/ui-switcher.php' );
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-stepper/ui-stepper.php' );
+		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-notice/ui-notice.php' );
 	}
 
 	/**

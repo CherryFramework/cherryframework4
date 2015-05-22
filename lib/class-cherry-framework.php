@@ -87,7 +87,10 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			do_action( 'cherry_constants_before' );
 
 			/** Sets the framework version number. */
-			define( 'CHERRY_VERSION', '4.0.0' );
+			$template = get_template();
+			$framework = wp_get_theme($template);
+
+			define( 'CHERRY_VERSION', $framework -> get( 'Version' ) );
 
 			/** Sets the path to the parent theme directory. */
 			define( 'PARENT_DIR', get_template_directory() );
@@ -333,6 +336,12 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 				// Load Cherry_Options_Framework_Admin class.
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
+
+				// Class Cherry Update.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-update.php' );
+
+				// Class Cherry Update.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-proxy.php' );
 
 				// Load the main admin file.
 				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );
