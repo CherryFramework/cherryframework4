@@ -42,8 +42,8 @@ class Cherry_Interface_Builder {
 								'label_end'          => '</label>',
 								'before_title'       => '<h4 %1s>',
 								'after_title'        => '</h4>',
-								'before_decsription' => '<small %1s>',
-								'after_decsription'  => '</small>',
+								'before_description' => '<small %1s>',
+								'after_description'  => '</small>',
 							),
 		'widget'		=> array(
 								'id_base' => '',
@@ -132,7 +132,7 @@ class Cherry_Interface_Builder {
 			'editor_theme'			=> 'monokai',
 			'label'					=> '',
 			'title'					=> '',
-			'decsription'			=> '',
+			'description'			=> '',
 			'hint'					=> '',
 			'toggle'				=> array(
 				'true_toggle'		=> __( 'On', 'cherry' ),
@@ -156,7 +156,7 @@ class Cherry_Interface_Builder {
 				type: submit
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: button button-primary
 				item_inline_style: ''
@@ -173,7 +173,7 @@ class Cherry_Interface_Builder {
 				type: reset
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: button button-primary
 				item_inline_style: ''
@@ -186,7 +186,7 @@ class Cherry_Interface_Builder {
 				type: text
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
@@ -200,7 +200,7 @@ class Cherry_Interface_Builder {
 				type: textarea
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
@@ -213,7 +213,7 @@ class Cherry_Interface_Builder {
 				type: select
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
@@ -234,7 +234,7 @@ class Cherry_Interface_Builder {
 				type: multiselect
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: width-small, width-medium, width-full
 				item_inline_style: ''
@@ -255,7 +255,7 @@ class Cherry_Interface_Builder {
 				type: multiselect
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				placeholder: ''
 				value: ''
 				class: width-small, width-medium, width-full
@@ -284,7 +284,7 @@ class Cherry_Interface_Builder {
 				type: checkbox
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: ''
 				item_inline_style: ''
@@ -302,7 +302,7 @@ class Cherry_Interface_Builder {
 				type: multicheckbox
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: ''
 				item_inline_style: ''
@@ -364,7 +364,7 @@ class Cherry_Interface_Builder {
 				type: repeater
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: ''
 				item_inline_style: ''
@@ -411,7 +411,7 @@ class Cherry_Interface_Builder {
 				type: slider
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: ''
 				item_inline_style: ''
@@ -433,7 +433,7 @@ class Cherry_Interface_Builder {
 				type: rangeslider
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: ''
 				item_inline_style: ''
@@ -462,7 +462,7 @@ class Cherry_Interface_Builder {
 				type: static_area_editor
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: ''
 				item_inline_style: ''
@@ -548,7 +548,7 @@ class Cherry_Interface_Builder {
 				type: radio
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: ''
 				item_inline_style: ''
@@ -587,7 +587,7 @@ class Cherry_Interface_Builder {
 				type: media
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				item_inline_style: ''
 				upload_button_text:Choose Image
@@ -669,7 +669,7 @@ class Cherry_Interface_Builder {
 				type: colorpicker
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				class: ''
 				item_inline_style: ''
@@ -682,7 +682,7 @@ class Cherry_Interface_Builder {
 				type: layouteditor
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: ''
 				item_inline_style: ''
 			*/
@@ -761,7 +761,7 @@ class Cherry_Interface_Builder {
 			arg:
 				type: ace-editor
 				title: ''
-				decsription: ''
+				description: ''
 				editor_mode: ''
 				editor_theme: ''
 				value: ''
@@ -780,7 +780,7 @@ class Cherry_Interface_Builder {
 			arg:
 				type: editor
 				title: ''
-				decsription: ''
+				description: ''
 				value: ''
 			*/
 			case 'editor':
@@ -811,7 +811,7 @@ class Cherry_Interface_Builder {
 				type: background
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: array(
 							'image'		=> '',
 							'color'		=> '',
@@ -954,7 +954,7 @@ class Cherry_Interface_Builder {
 			arg:
 				type: info
 				title: ''
-				decsription: ''
+				description: ''
 				value: ''
 			*/
 			case 'info':
@@ -965,7 +965,7 @@ class Cherry_Interface_Builder {
 				type: typography
 				title: ''
 				label: ''
-				decsription: ''
+				description: ''
 				value: array(
 					'size'		=> '',
 					'lineheight'=> '',
@@ -1102,7 +1102,7 @@ class Cherry_Interface_Builder {
 			break;
 		}
 
-		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $decsription, $hint );
+		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $description, $hint );
 	}
 
 	/**
@@ -1111,8 +1111,8 @@ class Cherry_Interface_Builder {
 	 * @since  4.0.0
 	 * @return string
 	 */
-	private function wrap_item( $item, $id, $class, $title, $label, $decsription, $hint ) {
-		$decsription = $decsription ? $this->add_description( $decsription ) : '';
+	private function wrap_item( $item, $id, $class, $title, $label, $description, $hint ) {
+		$description = $description ? $this->add_description( $description ) : '';
 		$class       = 'cherry-section-' . $this->options['pattern'] . ' ' . $class;
 		$output      = '<div id="wrap-' . $id . '" class="' . $class . '">';
 		$output      .= $title ? $this->add_title( $title ) : '';
@@ -1120,7 +1120,7 @@ class Cherry_Interface_Builder {
 
 		if ( $this->options['pattern'] == 'inline' ) :
 
-			$output .= $this->add_label( $id, $label ) . $item . $decsription;
+			$output .= $this->add_label( $id, $label ) . $item . $description;
 
 		else :
 
@@ -1128,7 +1128,7 @@ class Cherry_Interface_Builder {
 				$hint_html .=  $this->add_hint( $hint ) ;
 			}
 
-			$output .= '<div class="cherry-col-1">' . $this->add_label( $id, $label ) . $decsription . $hint_html. '</div>';
+			$output .= '<div class="cherry-col-1">' . $this->add_label( $id, $label ) . $description . $hint_html. '</div>';
 			$output .= '<div class="cherry-col-2">' . $item . '</div>';
 			//$output .= '<div class="clear"></div>';
 		endif;
@@ -1162,8 +1162,8 @@ class Cherry_Interface_Builder {
 	* @since 4.0.0
 	* @return string
 	*/
-	private function add_description($decsription){
-		return sprintf($this->options['html_wrappers']['before_decsription'], 'class="cherry-description"') . $decsription . $this->options['html_wrappers']['after_decsription'];
+	private function add_description($description){
+		return sprintf($this->options['html_wrappers']['before_description'], 'class="cherry-description"') . $description . $this->options['html_wrappers']['after_description'];
 	}
 
 	/**
