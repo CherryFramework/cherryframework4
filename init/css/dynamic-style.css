@@ -204,10 +204,10 @@ a:hover {
 .cherry-btn-transparent:hover{
 	color: $color-gray-variations;
 }
-.cherry-tabs .cherry-tabs-nav span {
+.cherry-tabs-nav span {
 	color: $color-secondary;
 }
-.cherry-tabs .cherry-tabs-nav span.cherry-tabs-current {
+.cherry-tabs-nav span.cherry-tabs-current {
 	color: $color-primary;
 	border-bottom: 2px solid @lighten( $color-gray-variations, 54 );
 }
