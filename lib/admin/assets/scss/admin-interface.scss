@@ -388,3 +388,37 @@
 				transform: rotate(360deg);
 	}
 }
+
+//Updater - Proxy Notice
+div#proxy-settings{
+	form{
+		>div{
+			float: left;
+			.cherry-section{
+				border: none;
+				padding: 0px 10px 10px 0;
+				>div.cherry-col-1{
+					width: auto;
+					label{
+						margin: 10px 10px 0 0;
+						min-width: 70px;
+					}
+				}
+				>div.cherry-col-2{
+					max-width: 150px;
+					width: 100%;
+				}
+			}
+		}
+		#submit-button{
+			margin-top: -1px;
+		}
+		&:after{
+			content: ".";
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
+	}
+}
