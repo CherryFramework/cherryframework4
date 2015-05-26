@@ -57,6 +57,7 @@ class cherry_enqueue_fonts {
 		add_action( 'cherry-options-updated', array( $this, 'reset_fonts_cache' ) );
 		add_action( 'cherry-section-restored', array( $this, 'reset_fonts_cache' ) );
 		add_action( 'cherry-options-restored', array( $this, 'reset_fonts_cache' ) );
+		add_action( 'cherry_data_manager_install_complete', array( $this, 'reset_fonts_cache' ) );
 
 		if ( is_admin() ) {
 			return;
