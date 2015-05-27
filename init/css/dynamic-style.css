@@ -98,37 +98,6 @@ a:hover {
 .post-gallery_paging_item:hover {
 	background-color: $color-primary;
 }
-.cherry-btn-primary {
-	background-color: $color-primary;
-	color: @contrast( $color-primary );
-	border: 2px solid $color-primary;
-}
-.cherry-btn-primary:hover {
-	background-color: $color-secondary;
-	color: @contrast( $color-secondary );
-	border: 2px solid $color-secondary;
-}
-.cherry-btn-link{
-	color: @contrast( $color-primary );
-}
-.cherry-btn-link:hover {
-	color: $color-secondary;
-}
-.cherry-btn-primary-light {
-	color: $color-primary;
-	border: 2px solid $color-primary;
-}
-.cherry-btn-primary-light:hover {
-	background-color: $color-primary;
-}
-.cherry-btn-gray {
-	border: 2px solid @lighten( $color-gray-variations, 54 );
-	color: $color-secondary;
-}
-.cherry-btn-gray:hover {
-	border: 2px solid @lighten( $color-gray-variations, 54 );
-	color: $color-secondary;
-}
 .cherry-list-numbered-circle > li, .cherry-list-numbered-slash > li, .cherry-list-icons > li {
 	color: @darken( $color-gray-variations, 13.2 );
 }

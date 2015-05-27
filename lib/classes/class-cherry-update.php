@@ -20,38 +20,42 @@ if( !class_exists('Cherry_Update') ) {
 	class Cherry_Update {
 		public static $api = array(
 				'versions' => CHERRY_VERSION,
-				'product_name' => '',
-				'repository_name' => '',
+				'product_name' => 'CherryFramework',
+				'repository_name' => 'cherryframework4',
 				'brunch_name' => 'master',
 				'hub_url' => 'https://github.com/',
 				'api_url' => 'https://api.github.com/repos/',
 				'html_url' => 'www.cherryframework.com/blog',//www.cherryframework.com/blog/version-4.0.0
 				'sslverify' => true,
-				'release_label' => '-IMP',
+				'release_label' => '-imp',
+				'template' => 'cherryframework4',
 			);
 
 		public static function init($attr = array()){
+			global $pagenow;
 			self::$api = array_merge(self::$api, $attr);
+
+			$framework_info = wp_get_theme();
+			self::$api[ 'template' ] = $framework_info->template;
 
 			//For developers testing
 			//set_site_transient('update_themes', null);
 
-			add_filter( 'pre_set_site_transient_update_themes', array( __CLASS__ , 'update' ), 99, 1 );
+			add_filter( 'pre_set_site_transient_update_themes', array( 'Cherry_Update' , 'update' ), 99, 1 );
+			add_filter( 'upgrader_source_selection', array( 'Cherry_Update', 'rename_github_zip' ), 1, 3 );
+
 			$current = get_transient('update_themes');
 		}
 
 		public static function update($data) {
-			$framework_info = wp_get_theme();
-			$template = $framework_info->template;
-
 			$new_update = self::check_update();
 
 			if($new_update['version']){
 				$update = array(
-					'theme' => $template,
-					'new_version' => $new_update['version'],
-					'url'         => $new_update['url'],
-					'package'     => $new_update['package'],
+					'theme' 		=> self::$api[ 'template' ],
+					'new_version' 	=> $new_update['version'],
+					'url'        	=> $new_update['url'],
+					'package'     	=> $new_update['package'],
 				);
 
 				$data->response[ $update['theme'] ] = $update;
@@ -71,8 +75,9 @@ if( !class_exists('Cherry_Update') ) {
 				$current_version = self::$api['versions'];
 
 				foreach ($response as $key => $update) {
-					$get_version = preg_replace('/[^\d\.]/', '', $update->name);
-					$important_update = strpos($update->name, self::$api['release_label']);
+					$get_version = strtolower ($update->name);
+					$important_update = strpos($get_version, self::$api['release_label']);
+					$get_version = preg_replace('/[^\d\.]/', '', $get_version);
 
 					if( version_compare ( $get_version, $current_version ) > 0 && $important_update !==false ){
 						$new_update['version'] = $get_version;
@@ -104,7 +109,19 @@ if( !class_exists('Cherry_Update') ) {
 
 			return $response;
 		}
+
+		public function rename_github_zip( $upgrate_dir, $remote_dir, $theme_upgrader ){
+		    if(  strpos( $upgrate_dir, self::$api['product_name'] ) === false ){
+		        return $upgrate_dir;
+		    }
+
+		    $upgrate_dir_path = pathinfo($upgrate_dir);
+		    $new_upgrate_dir = trailingslashit( $upgrate_dir_path['dirname'] ) . trailingslashit( self::$api['template'] );
+
+		    rename($upgrate_dir, $new_upgrate_dir);
+		    return $new_upgrate_dir;
+		}
 	}
-	Cherry_Update::init( array( 'product_name' => 'CherryFramework', 'repository_name' => 'CherryFramework' ) );
+	Cherry_Update::init();
 }
 ?>

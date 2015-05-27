@@ -331,9 +331,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 				// Class Cherry Update.
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-update.php' );
 
-				// Class Cherry Update.
-				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-proxy.php' );
-
 				// Load the main admin file.
 				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );
 			}
