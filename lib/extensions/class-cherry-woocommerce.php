@@ -38,6 +38,8 @@ if ( ! class_exists( 'Cherry_Woocommerce' ) ) {
 
 			add_filter( 'cherry_breadcrumbs_custom_trail', array( $this, 'get_woo_breadcrumbs' ), 10, 2 );
 
+			add_filter( 'cherry_current_object_id', array( $this, 'fix_shop_page_object' ) );
+
 			add_action( 'after_setup_theme', array( $this, 'define_support' ) );
 		}
 
@@ -99,6 +101,28 @@ if ( ! class_exists( 'Cherry_Woocommerce' ) ) {
 		 */
 		public function remove_archive_title( $show_title ) {
 			return false;
+		}
+
+		/**
+		 * Correctly get container classes for shop page
+		 *
+		 * @since  4.0.0
+		 * @param  array $classes current container classes
+		 */
+		function fix_shop_page_object( $object_id ) {
+
+			if ( ! function_exists( 'is_shop' ) || ! function_exists( 'wc_get_page_id' ) ) {
+				return $object_id;
+			}
+
+			if ( ! is_shop() ) {
+				return $object_id;
+			}
+
+			$page_id = wc_get_page_id( 'shop' );
+
+			return $page_id;
+
 		}
 
 		/**
