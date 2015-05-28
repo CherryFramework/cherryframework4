@@ -1,8 +1,26 @@
 <?php
+/**
+ * Class for template hierarchy.
+ *
+ * @package    Cherry_Framework
+ * @subpackage Class
+ * @author     Cherry Team <support@cherryframework.com>
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
+ * @link       http://www.cherryframework.com
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
+
 // If this file is called directly, abort.
 if ( !defined( 'WPINC' ) ) {
 	die;
 }
+
+/**
+ * This filter hook is executed immediately
+ * before WordPress includes the predetermined template file.
+ */
+add_filter( 'template_include', array( 'Cherry_Wrapping', 'wrap' ), 99 );
+add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
 
 /**
  * Function return the full path to the main template file.
@@ -24,6 +42,17 @@ function cherry_template_base() {
 	return Cherry_Wrapping::$base;
 }
 
+/**
+ * Class for template hierarchy.
+ * Based on Sage Starter Theme by Roots.
+ *
+ * @author  Cristi Burcă <mail@scribu.net>
+ * @author  Roots
+ * @author  Cherry Team <support@cherryframework.com>
+ * @link    https://roots.io/sage/
+ * @license http://opensource.org/licenses/MIT
+ * @since   4.0.0
+ */
 class Cherry_Wrapping {
 
 	/**
@@ -32,7 +61,7 @@ class Cherry_Wrapping {
 	 * @since 4.0.0
 	 * @var   string
 	 */
-	static $main_template;
+	public static $main_template;
 
 	/**
 	 * Stores the base name of the template file; e.g. 'page' for 'page.php' etc.
@@ -40,14 +69,14 @@ class Cherry_Wrapping {
 	 * @since 4.0.0
 	 * @var   string
 	 */
-	static $base;
+	public static $base;
 
 	/**
 	 * Initialize new instance of Cherry_Wrapping class by setting a variable for the $slug (which defaults to base)
 	 * and create a new $templates array with the fallback template base.php as the first item.
 	 *
 	 * @since 4.0.0
-	 * @param string $template default base's file name
+	 * @param string $template Default base's file name.
 	 */
 	public function __construct( $template = 'base.php' ) {
 		$this->slug      = basename( $template, '.php' );
@@ -61,16 +90,18 @@ class Cherry_Wrapping {
 			$str = substr( $template, 0, -4 );
 			array_unshift( $this->templates, sprintf( $str . '-%s.php', self::$base ) );
 		}
+
 	}
 
 	/**
-	 * To apply a filter to final $templates array, before returning the full path to the most specific existing base template
-	 * via the inbuilt WordPress function locate_template.
+	 * To apply a filter to final $templates array, before returning the full path to the most specific existing base
+	 * template via the inbuilt WordPress function locate_template.
 	 *
 	 * @since 4.0.0
 	 */
 	public function __toString() {
 		$this->templates = apply_filters( 'cherry_wrap_' . $this->slug, $this->templates );
+
 		return locate_template( $this->templates );
 	}
 
@@ -81,7 +112,7 @@ class Cherry_Wrapping {
 	 * @since 4.0.0
 	 * @param string $main The path of the template to include
 	 */
-	static function wrap( $main ) {
+	public static function wrap( $main ) {
 		self::$main_template = $main;
 		self::$base = basename( self::$main_template, '.php' );
 
@@ -92,8 +123,23 @@ class Cherry_Wrapping {
 		return new Cherry_Wrapping();
 	}
 }
+
 /**
- * This filter hook is executed immediately
- * before WordPress includes the predetermined template file.
+ * Filters to $templates array, before returning the full path
+ * to the most specific existing base template.
+ *
+ * @since 4.0.0
+ *
+ * @param  array $templates
+ * @return array
  */
-add_filter( 'template_include', array( 'Cherry_Wrapping', 'wrap' ), 99 );
+function cherry_wrap_base_cpts( $templates ) {
+	$post_type = get_post_type();
+
+	if ( $post_type && ( 'page' !== $post_type ) ) {
+		array_unshift( $templates, 'base-' . $post_type . '.php' );
+	}
+
+	// Return modified array with base-$cpt.php at the front of the queue
+	return $templates;
+}

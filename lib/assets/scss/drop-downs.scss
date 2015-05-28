@@ -23,6 +23,7 @@
 
 		&:hover > a,
 		&.focus > a {
+			text-decoration: underline;
 		}
 		&.current_page_item > a,
 		&.current-menu-item > a,
@@ -36,6 +37,24 @@
 	}
 }
 .menu-primary {
+	li {
+		.cherry-navigation-arrow & {
+			> a::after {
+				content: "\f347";
+				display: inline-block;
+				font: normal 14px/1 'dashicons';
+				vertical-align: top;
+				-webkit-font-smoothing: antialiased;
+			}
+			a {
+				&:only-child {
+					&::after {
+						content: '';
+					}
+				}
+			}
+		}
+	}
 	.sub-menu {
 		float: left;
 		position: absolute;
@@ -46,18 +65,31 @@
 		visibility: hidden;
 		overflow: hidden;
 		@include transition(opacity .4s ease-in-out, visibility .4s ease-in-out);
+		@media (max-width:480px) {
+			position: static;
+			float: none;
+			visibility: visible;
+			opacity: 1;
+			padding: 0 0 0 20px;
+		}
 
 		ul {
 			left: 100%;
 			top: 0;
 		}
 		li {
+			@media (max-width:480px) {
+				float: none;
+			}
 			&:hover > ul,
 			&.focus > ul {
 			}
 		}
 		a {
 			width: 200px;
+			@media (max-width:480px) {
+				width: 100%;
+			}
 		}
 		:hover > a,
 		.focus > a {
@@ -65,12 +97,50 @@
 		a:hover,
 		a.focus {
 		}
+		.cherry-navigation-arrow & {
+			li {
+				> a::after {
+					content: "\f345";
+				}
+			}
+			a {
+				&:only-child {
+					&::after {
+						content: '';
+					}
+				}
+			}
+		}
 	}
 	li:hover > ul,
 	li.focus > ul {
-		opacity: 1;
-		visibility: visible;
-		overflow: visible;
+		@media (min-width:481px) {
+			opacity: 1;
+			visibility: visible;
+			overflow: visible;
+		}
+	}
+	&_trigger {
+		background: #fff;
+		box-shadow:0 2px 4px rgba(0,0,0,.1);
+		padding:10px;
+		margin: 0;
+		cursor: pointer;
+		display: none;
+		position: relative;
+		z-index: 999;
+		@media (max-width:480px) {
+			display: block;
+		}
+	}
+
+	.menu-items {
+		@media (max-width:480px) {
+			display: none;
+			&[aria-expanded="true"] {
+				display: block;
+			}
+		}
 	}
 }
 
@@ -89,16 +159,26 @@
 .menu-primary {
 	padding: 20px 0;
 	.sub-menu {
-	}
-}
-
-/* Temp */
-.menu-primary {
-	.sub-menu {
 		background: rgba(0,0,0,.7);
+		@media (max-width:480px) {
+			background: none;
+		}
 		a {
 			color: #fff;
 			margin: 5px;
+		}
+	}
+}
+
+.menu-primary {
+	> ul {
+		> li {
+			@media (max-width:480px) {
+				float: none;
+				display: block;
+				margin: 0;
+				padding: 0 0 3px 0;
+			}
 		}
 	}
 }

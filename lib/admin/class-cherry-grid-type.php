@@ -1,9 +1,15 @@
 <?php
-// If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
-	die;
-}
-
+/**
+ * `Grid Type` metabox.
+ *
+ * @package    Cherry_Framework
+ * @subpackage Admin
+ * @version    4.0.0
+ * @author     Cherry Team <support@cherryframework.com>
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
+ * @link       http://www.cherryframework.com/
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
 class Cherry_Grid_Type {
 
 	/**
@@ -13,6 +19,14 @@ class Cherry_Grid_Type {
 	 * @var   object
 	 */
 	private static $instance = null;
+
+	/**
+	 * Options.
+	 *
+	 * @since 4.0.0
+	 * @var   array
+	 */
+	private $options = array();
 
 	/**
 	 * Sets up the needed actions for adding and saving the meta boxes.
@@ -29,11 +43,24 @@ class Cherry_Grid_Type {
 			return;
 		}
 
-		// Add the `Grid Type` meta box on the 'add_meta_boxes' hook.
-		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
+		$this->options = array(
+			'header'  => array(
+				'id'   => 'header',
+				'name' => __( 'Header', 'cherry' ),
+			),
+			'content' => array(
+				'id'   => 'content',
+				'name' => __( 'Content', 'cherry' ),
+			),
+			'footer'  => array(
+				'id'   => 'footer',
+				'name' => __( 'Footer', 'cherry' ),
+			),
+		);
 
-		// Saves the post format on the post editing page.
+		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
 		add_action( 'save_post',      array( $this, 'save_post'      ), 10, 2 );
+		add_action( 'admin_head',     array( $this, 'print_styles' ) );
 	}
 
 	/**
@@ -53,7 +80,7 @@ class Cherry_Grid_Type {
 				|| current_user_can( 'delete_post_meta', $post->ID ) )
 			) {
 
-			$grid_types = $this->get_grid_types();
+			$grid_types = array_map( array( $this, 'get_grid_types' ), $this->options );
 
 			/**
 			 * Filter the array of 'add_meta_box' parametrs.
@@ -100,23 +127,30 @@ class Cherry_Grid_Type {
 		// Get the current post's grid type.
 		$post_grid_type = $this->get_post_grid_type( $post->ID );
 
-		$args = array(
-			'id'            => 'grid-type',
-			'type'          => 'radio',
-			'value'         => $post_grid_type,
-			'display_input' => false,
-			'options'       => $metabox['args'],
-		);
-
 		wp_nonce_field( basename( __FILE__ ), 'cherry-grid-type-nonce' );
 
 		$builder = new Cherry_Interface_Builder( array(
-			'name_prefix' => 'cherry',
+			'name_prefix' => 'grid-type',
 			'pattern'     => 'inline',
 			'class'       => array( 'section' => 'single-section' ),
 		) );
 
-		printf( '<div class="post-grid-type">%s</div>', $builder->add_form_item( $args ) );
+		$output = '';
+
+		foreach ( $this->options as $id => $item ) {
+
+			$args = array(
+				'id'            => $id,
+				'type'          => 'radio',
+				'value'         => $post_grid_type[ $id ],
+				'display_input' => false,
+				'options'       => $metabox['args'][ $id ],
+			);
+
+			$output .= sprintf( '<div class="post-grid-type_col"><div class="post-grid-type_col__inner"><h4 class="cherry-title">%1$s</h4>%2$s</div></div>', $item['name'], $builder->add_form_item( $args ) );
+		}
+
+		printf( '<div class="post-grid-type_container"><div class="post-grid-type_row">%s</div><div class="clear"></div></div>', $output );
 
 		/**
 		 * Fires after `Grid Type` fields of metabox.
@@ -155,12 +189,12 @@ class Cherry_Grid_Type {
 		// Get the previous post grid type.
 		$meta_value = $this->get_post_grid_type( $post_id );
 
-		// Get the all submitted `cherry` data.
-		$cherry_meta = $_POST['cherry'];
+		// Get the all submitted `grid-type` data.
+		$cherry_meta = array_map( 'sanitize_text_field' , $_POST['grid-type'] );
 
 		// Get the submitted post grid type.
-		if ( isset( $cherry_meta['grid-type'] ) ) {
-			$new_meta_value = $cherry_meta['grid-type'];
+		if ( !empty( $cherry_meta ) ) {
+			$new_meta_value = $cherry_meta;
 		} else {
 			$new_meta_value = '';
 		}
@@ -194,7 +228,7 @@ class Cherry_Grid_Type {
 	 * @since  4.0.0
 	 * @return array Either theme-supported grid types or the default grid types.
 	 */
-	public function get_grid_types() {
+	public function get_grid_types( $item ) {
 
 		// Set up the default grid types strings.
 		$default = array(
@@ -204,26 +238,25 @@ class Cherry_Grid_Type {
 			),
 		);
 
-		$grid_type = cherry_get_options( 'grid-type' );
+		$grid_type = cherry_get_options( "{$item['id']}-grid-type" );
 		$grid_type = array_merge( $default, $grid_type );
 
-		return apply_filters( 'cherry_grid_type_get_types', $grid_type );
+		return apply_filters( 'cherry_grid_type_get_types', $grid_type, $item['id'] );
 	}
 
 	/**
 	 * Get the post grid type based on the given post ID.
 	 *
 	 * @since  4.0.0
-	 * @param  int    $post_id   The ID of the post to get the grid types for.
-	 * @return string $grid_type The name of the post's grid types.
+	 * @param  int    $post_id    The ID of the post to get the grid types for.
+	 * @return string $grid_types The name of the post's grid types.
 	 */
 	public function get_post_grid_type( $post_id ) {
+		$defaults   = array_fill_keys( array_keys( $this->options ) , 'default-grid-type' );
+		$grid_types = get_post_meta( $post_id, 'cherry_grid_type', true );
+		$grid_types = wp_parse_args( $grid_types, $defaults );
 
-		// Get the post grid type.
-		$grid_type = get_post_meta( $post_id, 'cherry_grid_type', true );
-
-		// Return the grid type if one is found. Otherwise, return 'default-grid-type'.
-		return ( !empty( $grid_type ) ? $grid_type : 'default-grid-type' );
+		return $grid_types;
 	}
 
 	/**
@@ -248,6 +281,43 @@ class Cherry_Grid_Type {
 	public function delete_post_grid_type( $post_id ) {
 		return delete_post_meta( $post_id, 'cherry_grid_type' );
 	}
+
+	/**
+	 * Output styles for `Grid Type` metabox.
+	 *
+	 * @since 4.0.0
+	 */
+	function print_styles() { ?>
+
+		<style type="text/css">
+			.post-grid-type_container {
+				padding-right: 5px;
+				padding-left: 5px;
+			}
+			.post-grid-type_row {
+				margin-right: -5px;
+				margin-left: -5px;
+			}
+			.post-grid-type_col {
+				float: left;
+				width: 33.33333%;
+				padding: 5px;
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			.post-grid-type_col__inner {
+				padding-right: 10px;
+				padding-left: 10px;
+				border: 1px solid #eee;
+				border-radius: 2px;
+			}
+			.post-grid-type_container .cherry-title {
+				text-align: center;
+			}
+		</style>
+
+	<?php }
 
 	/**
 	 * Returns the instance.

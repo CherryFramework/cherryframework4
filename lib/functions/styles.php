@@ -28,6 +28,8 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 10 );
  * the wp_register_style() function. It does not load any stylesheets on the site. If a theme wants to
  * register its own custom styles, it should do so on the 'wp_enqueue_scripts' hook.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_register_styles() {
@@ -101,6 +103,7 @@ function cherry_get_styles() {
 		$drop_downs = array(
 			'handle'  => get_template() . '-drop-downs',
 			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
+			'deps'    => array( 'dashicons' ),
 			'version' => CHERRY_VERSION,
 		);
 
@@ -188,59 +191,6 @@ function cherry_get_styles() {
 	return apply_filters( 'cherry_get_styles', $styles );
 }
 
-/**
- * Get CSS variables into array
- *
- * @since  4.0.0
- *
- * @return array  dynamic CSS variables
- */
-function cherry_get_css_varaibles() {
-
-	$var_list = array(
-		'logo-typography',
-		'color-primary',
-		'color-secondary',
-		'color-success',
-		'color-info',
-		'color-warning',
-		'color-danger',
-		'color-gray-variations',
-		'styling-body-content-background',
-		'typography-body-text',
-		'navigation-header-menu-typography',
-		'navigation-footer-menu-typography',
-		'typography-link',
-		'typography-input-text',
-		'typography-h1',
-		'typography-h2',
-		'typography-h3',
-		'typography-h4',
-		'typography-h5',
-		'typography-h6',
-		'typography-breadcrumbs',
-		'typography-link',
-		'lists-typography',
-		'header-background',
-		'footer-typography',
-		'footer-background'
-	);
-
-	$var_list = apply_filters( 'cherry_css_var_list', $var_list );
-
-	if ( ! is_array( $var_list ) ) {
-		return false;
-	}
-
-	$result = array();
-
-	foreach ( $var_list as $var ) {
-		$result[$var] = cherry_get_option($var);
-	}
-
-	return $result;
-}
-
 // add post specific inline CSS
 add_action( 'wp_enqueue_scripts', 'cherry_post_inline_styles', 101 );
 
@@ -269,7 +219,8 @@ function cherry_post_inline_styles() {
 		return;
 	}
 
-	$styles = get_post_meta( $post_id, 'cherry_style', true );
+	$object_id = apply_filters( 'cherry_current_object_id', $post_id );
+	$styles    = get_post_meta( $object_id, 'cherry_style', true );
 
 	if ( ! $styles ) {
 		return;

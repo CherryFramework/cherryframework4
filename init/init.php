@@ -26,7 +26,8 @@ function cherry_theme_config() {
 		'menus',
 		'sidebars',
 		'display-sidebars',
-		'static-areas'
+		'static-areas',
+		'title-tag'
 	);
 
 	// Get from child theme disabled config statements array.

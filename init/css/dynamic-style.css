@@ -1,0 +1,341 @@
+body {
+	@typography( $typography-body )
+	@non_responsive( min-width: $grid-container-width{px} )
+}
+
+@background( body, $body-background )
+
+input[type="text"],
+input[type="search"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="email"] {
+	@typography( $typography-input-text )
+}
+h1, .h1 {
+	@typography( $typography-h1 )
+}
+h2, .h2 {
+	@typography( $typography-h2 )
+}
+h3, .h3 {
+	@typography( $typography-h3 )
+}
+h4, .h4 {
+	@typography( $typography-h4 )
+}
+h5, .h5 {
+	@typography( $typography-h5 )
+}
+h6, .h6 {
+	@typography( $typography-h6 )
+}
+
+.site-link {
+	@typography( $typography-header-logo )
+}
+
+.footer-logo-link {
+	@typography( $typography-footer-logo )
+}
+
+@background( .site-header, $header-background )
+@background( .site-content, $content-background )
+
+.site-footer {
+	@typography( $typography-footer )
+}
+@background( .site-footer, $footer-background )
+a {
+	color: $color-link;
+}
+a:hover {
+	color: $color-link-hover;
+}
+.menu-primary a {
+	@typography( $typography-header-menu )
+}
+.menu-secondary a {
+	@typography( $typography-footer-menu )
+}
+.cherry-mega-menu-sub.level-0 {
+	border-top: 3px solid $color-primary;
+}
+.cherry-mega-menu-sub-item > a {
+	color: $typography-body[color];
+}
+.cherry-mega-menu-sub-item > a:hover {
+	color: $color-primary;
+}
+.cherry-mega-menu-sub .sub-column-title > a {
+	color: $color-secondary;
+}
+.cherry-breadcrumbs {
+	background-color: @lighten( $color-gray-variations , 60.8 );
+}
+.cherry-breadcrumbs_item_link, .cherry-breadcrumbs_item_target {
+	@typography( $typography-breadcrumbs )
+}
+.post-gallery_prev,
+.post-gallery_next {
+	background-color: $color-primary;
+	color: @contrast( $color-primary );
+}
+.post-gallery_prev:hover,
+.post-gallery_next:hover {
+	background-color: $color-secondary;
+	color: @contrast( $color-secondary );
+}
+.post-gallery_item_caption {
+	background-color: $color-secondary;
+	color: @contrast( $color-secondary );
+}
+.post-gallery_paging_item {
+	background-color: $color-secondary;
+}
+.slick-active > .post-gallery_paging_item,
+.post-gallery_paging_item:hover {
+	background-color: $color-primary;
+}
+.cherry-list-numbered-circle > li, .cherry-list-numbered-slash > li, .cherry-list-icons > li {
+	color: @darken( $color-gray-variations, 13.2 );
+}
+.cherry-list-numbered-circle > li::before {
+	background-color: $color-primary;
+}
+.cherry-list-numbered-circle > li:hover::before {
+	background-color: @darken( $color-gray-variations, 13.2 );
+}
+.cherry-list-numbered-circle > li:hover {
+	color: $color-primary;
+}
+.cherry-list-simple > li {
+	color: $color-primary;
+}
+.cherry-list-simple > li::before {
+	color: @lighten( $color-gray-variations, 53.2 );
+}
+.cherry-list-simple > li:hover {
+	color: @darken( $color-gray-variations, 13.2 );
+}
+.cherry-list-simple > li:hover::before {
+	color: $color-primary;
+}
+.cherry-list-numbered-slash > li::before {
+	color: $color-primary;
+}
+.cherry-list-numbered-slash > li:hover {
+	color: $color-primary;
+}
+.cherry-list-numbered-slash > li:hover::before {
+	color: @darken( $color-gray-variations, 13.2 );
+}
+.cherry-list-icons > li {
+	color: @darken( $color-gray-variations, 13.2 );
+}
+.cherry-list-icons > li:hover {
+	color: $color-primary;
+}
+.cherry-list-icons > li i {
+	color: @lighten( $color-gray-variations, 53.2);
+}
+.cherry-list-icons > li:hover i {
+	color: @darken( $color-gray-variations, 13.2);
+}
+.cherry-hr-primary{
+	background-color: $color-primary;
+}
+.cherry-hr-gray-lighter{
+	background-color: @lighten( $color-gray-variations, 53.2 );
+}
+.cherry-hr-gray-dark{
+	background-color: @darken( $color-gray-variations, 13.2 );
+}
+.cherry-drop-cap:first-letter {
+	color: $color-primary;
+}
+.cherry-drop-cap-bg:first-letter {
+	background-color: $color-primary
+}
+.cherry-drop-cap-bg-grey:first-letter {
+	background-color: @lighten( $typography-body[color], 24 );
+}
+.cherry-blockquote, .cherry-blockquote:before{
+	color: $color-primary;
+	}
+.cherry-highlight {
+	background-color: $color-primary;
+}
+.cherry-highlight-grey {
+	background-color: @lighten( $color-gray-variations, 53.2 );
+}
+.cherry-btn-transparent:hover{
+	color: $color-gray-variations;
+}
+.cherry-tabs-nav span {
+	color: $color-secondary;
+}
+.cherry-tabs-nav span.cherry-tabs-current {
+	color: $color-primary;
+	border-bottom: 2px solid @lighten( $color-gray-variations, 54 );
+}
+.cherry-post-meta .cherry-post-date {
+	color: $color-primary;
+}
+.portfolio-wrap .portfolio-container .portfolio-pagination ul.page-link li a {
+	color: @darken( $color-gray-variations, 13.2 );
+}
+.portfolio-wrap .portfolio-container .portfolio-pagination .page-nav a {
+	color: @darken( $color-gray-variations, 13.2 );
+}
+.text-muted {
+	color: @lighten( $color-gray-variations, 13.2 );
+}
+.help-block {
+	color: @lighten( $typography-body[color], 20 );
+}
+legend {
+	color: @darken( $color-gray-variations, 20 );
+	font-size: @font_size( $typography-body[size], multiple, round, 1.5 )px;
+	border-bottom: 1px solid @lighten( $color-gray-variations, 54 );
+}
+.cherry-highlight-grey {
+	color: @darken( $color-gray-variations, 13.2 );
+}
+abbr[title],
+abbr[data-original-title] {
+	border-bottom: 1px dotted @darken( $color-gray-variations, 13.2 );
+}
+output {
+	color: $color-gray-variations;
+	font-size: $typography-body[size]px;
+	line-height: $typography-body[lineheight]px;
+}
+small, .small {
+	color: @darken( $color-gray-variations, 13.2);
+}
+small, .small {
+	font-size: @font_size( $typography-body[size], multiple, ceil, 0.85 )px;
+}
+.form-control[disabled], .form-control[readonly], .form-control fieldset[disabled] {
+	background-color: @lighten( $color-gray-variations, 53.2 );
+}
+.form-control {
+	color: $color-gray-variations;
+	font-size: $typography-body[size]px;
+	line-height: $typography-body[lineheight]px;
+}
+.blockquote-reverse, blockquote.pull-right {
+	border-right: 5px solid @lighten( $color-gray-variations, 53.2 );
+}
+.page-header {
+	border-bottom: 1px solid @lighten( $color-gray-variations, 53.2 );
+}
+blockquote {
+	border-left: 5px solid @lighten( $color-gray-variations, 53.2 );
+	font-size: @font_size( $typography-body[size], multiple, floor, 1.25 )px;
+}
+hr {
+	border-top: 1px solid @lighten( $color-gray-variations, 53.2 );
+}
+.close,
+.close:hover,
+.close:focus {
+	color: $color-warning;
+	font-size: @font_size( $typography-body[size], multiple, round, 1.5)px;
+}
+.lead {
+	font-size: @font_size( $typography-body[size], multiple, round, 1.15)px;
+}
+.table .table {
+	background-color: $typography-body[color];
+}
+.table > thead > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > th,
+.table > tbody > tr > td,
+.table > tfoot > tr > th,
+.table > tfoot > tr > td {
+	line-height: $typography-body[lineheight]px;
+}
+dt,
+dd {
+	line-height: $typography-body[lineheight]px;
+}
+blockquote footer,
+blockquote small,
+blockquote .small {
+	line-height: $typography-body[lineheight]px;
+}
+address {
+	line-height: $typography-body[lineheight]px;
+}
+.cherry-nav-divider {
+	background-color: @lighten( $color-gray-variations, 53.2 );
+}
+.cherry-box .box-primary {
+	background-color: $color-primary;
+	color: @contrast( $color-primary );
+}
+.cherry-box .box-secondary {
+	background-color: $color-secondary;
+	color: @contrast( $color-secondary );
+}
+.cherry-box .box-gray {
+	background-color: $color-gray-variations;
+}
+.cherry-box .box-primary-border {
+	border-color: $color-primary;
+}
+.cherry-box .box-secondary-border {
+	border-color: $color-secondary;
+}
+.cherry-box .box-gray-border {
+	border-color: $color-gray-variations;
+}
+
+@emph( .text-primary, $color-primary, color )
+@emph( .text-success, $color-success, color )
+@emph( .text-info, $color-info, color )
+@emph( .text-warning, $color-warning, color )
+@emph( .text-danger, $color-danger, color )
+
+@emph( .bg-primary, $color-primary, background-color )
+@emph( .bg-success, $color-success, background-color )
+@emph( .bg-info, $color-info, background-color )
+@emph( .bg-warning, $color-warning, background-color )
+@emph( .bg-danger, $color-danger, background-color )
+
+@media_open( min-width: 992px )
+	.site-header.boxed { max-width: $header-boxed-width{px} }
+	.site-content.boxed { max-width: $content-boxed-width{px} }
+	.site-footer.boxed { max-width: $footer-boxed-width{px} }
+
+	.site-header.boxed .container {
+		width: auto;
+		max-width: @container_compare( $grid-container-width, $header-boxed-width )px
+	}
+	.site-content.boxed .container{
+		width: auto;
+		max-width: @container_compare( $grid-container-width, $content-boxed-width )px
+	}
+	.site-footer.boxed .container {
+		width: auto;
+		max-width: @container_compare( $grid-container-width, $footer-boxed-width )px
+	}
+
+	.site-header.wide .container,
+	.site-content.wide .container,
+	.site-footer.wide .container { max-width: $grid-container-width{px} }
+@media_close()
+
+@media (max-width:480px) {
+	.menu-items {
+		padding: 10px;
+		background: @contrast( $typography-header-menu[color], #fafafa, #454545 );
+	}
+	.menu-primary .sub-menu a {
+		color: $typography-header-menu[color];
+	}
+}

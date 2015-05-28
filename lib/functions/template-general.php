@@ -19,8 +19,9 @@ if ( !defined( 'WPINC' ) ) {
 /**
  * Outputs the link back to the site.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return void
  */
 function cherry_site_link() {
@@ -35,25 +36,32 @@ function cherry_site_link() {
 /**
  * Returns a link back to the site.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
+ * @param  string $class optional CSS class added to site-link
  * @return string
  */
-function cherry_get_site_link() {
-	$title = get_bloginfo( 'name' );
+function cherry_get_site_link( $class = 'site-link' ) {
 
+	$class = esc_attr( $class );
+	if ( ! $class ) {
+		$class = 'site-link';
+	}
+
+	$title = get_bloginfo( 'name' );
 	if ( !$title ) {
 		return false;
 	}
-
-	return sprintf( '<a class="site-link" href="%s" rel="home">%s</a>', esc_url( home_url() ), $title );
+	return sprintf( '<a class="%s" href="%s" rel="home">%s</a>', $class, esc_url( home_url( '/' ) ), $title );
 }
 
 /**
  * Displays a link to WordPress.org.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return void
  */
 function cherry_wp_link() {
@@ -68,19 +76,24 @@ function cherry_wp_link() {
 /**
  * Returns a link to WordPress.org.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_wp_link() {
-	return sprintf( '<a class="wp-link" href="http://wordpress.org/" rel="nofollow">%s</a>', 'WordPress' );
+	return sprintf(
+		'<a class="wp-link" href="%s" rel="nofollow">%s</a>',
+		__( 'http://wordpress.org/', 'cherry' ), 'WordPress'
+	);
 }
 
 /**
  * Displays a link to the parent theme URI.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return void
  */
 function cherry_theme_link() {
@@ -95,8 +108,9 @@ function cherry_theme_link() {
 /**
  * Returns a link to the parent theme URI.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_theme_link() {
@@ -109,10 +123,37 @@ function cherry_get_theme_link() {
 }
 
 /**
+ * Get link HTML by page slug
+ *
+ * @since 4.0.0
+ *
+ * @param string $slug page slug
+ */
+function cherry_get_link_by_slug( $slug = null ) {
+
+	if ( ! $slug || ! is_string( $slug ) ) {
+		return;
+	}
+
+	$page = get_page_by_path( $slug );
+
+	if ( ! $page ) {
+		return;
+	}
+
+	$format = '<a href="%s">%s</a>';
+	$result = sprintf( $format, get_permalink( $page->ID ), $page->post_title );
+
+	return $result;
+
+}
+
+/**
  * Outputs the site logo.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return void
  */
 function cherry_site_logo() {
@@ -128,13 +169,30 @@ function cherry_site_logo() {
  * Returns the linked site logo wrapped in an '<h1>' tag.
  *
  * @since  4.0.0
- *
  * @return string
  */
-function cherry_get_site_logo() {
+function cherry_get_site_logo( $location = 'header' ) {
 
-	$type         = cherry_get_option( 'logo-type', 'text' );
-	$logo_img_ids = cherry_get_option( 'logo-image-path', false );
+	switch ( $location ) {
+		case 'header':
+			$type         = cherry_get_option( 'logo-type', 'text' );
+			$logo_img_ids = cherry_get_option( 'logo-image-path', false );
+			$tag          = is_front_page() ? 'h1' : 'h2';
+			$logo_class   = 'site-title';
+			$link_class   = '';
+			break;
+
+		case 'footer':
+			$type         = cherry_get_option( 'footer-logo-type', 'text' );
+			$logo_img_ids = cherry_get_option( 'footer-logo-image-path', false );
+			$tag          = 'div';
+			$logo_class   = 'cherry-footer-logo';
+			$link_class   = 'footer-logo-link';
+			break;
+
+		default:
+			break;
+	}
 
 	if ( 'image' == $type && false != $logo_img_ids ) {
 
@@ -148,21 +206,20 @@ function cherry_get_site_logo() {
 
 			$logo_image_format = apply_filters(
 				'cherry_logo_image_format',
-				'<a href="%1$s" rel="home"><img src="%2$s" alt="%3$s"></a>'
+				'<a href="%1$s" rel="home"><img src="%2$s" alt="%3$s"></a>',
+				$location
 			);
 
-			$logo_content = sprintf( $logo_image_format, home_url(), esc_url( $img ), get_bloginfo( 'title' ) );
+			$logo_content = sprintf( $logo_image_format, home_url( '/' ), esc_url( $img ), get_bloginfo( 'title' ) );
 		}
 
 	} else {
-		$logo_content = cherry_get_site_link();
+		$logo_content = cherry_get_site_link( $link_class );
 	}
 
-	$tag = is_front_page() ? 'h1' : 'h2';
+	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', $logo_class, $logo_content, $tag ) : '';
 
-	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', 'site-title', $logo_content, $tag ) : '';
-
-	return apply_filters( 'cherry_get_site_logo', $logo );
+	return apply_filters( 'cherry_get_site_logo', $logo, $location );
 }
 
 /**
@@ -224,7 +281,7 @@ function cherry_get_retina_logo( $images ) {
 
 	$logo_content = sprintf(
 		$logo_format,
-		home_url(), esc_url( $img1x ), esc_url( $img2x ), get_bloginfo( 'title' ), $width1x, $height1x
+		home_url( '/' ), esc_url( $img1x ), esc_url( $img2x ), get_bloginfo( 'title' ), $width1x, $height1x
 	);
 
 	return $logo_content;
@@ -234,6 +291,8 @@ function cherry_get_retina_logo( $images ) {
 /**
  * Outputs the site description.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @return void
  */
@@ -249,8 +308,9 @@ function cherry_site_description() {
 /**
  * Returns the site description wrapped in an '<div>' tag.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @return string
  */
 function cherry_get_site_description() {

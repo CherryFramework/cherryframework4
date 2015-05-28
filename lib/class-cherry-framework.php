@@ -2,8 +2,6 @@
 /**
  * Cherry Framework - The most delicious WordPress framework.
  *
- * CHERRY_FRAMEWORK_DESCRIPTION_TYPE_HERE
- *
  * @package   Cherry_Framework
  * @version   4.0.0
  * @author    Cherry Team <support@cherryframework.com>
@@ -34,6 +32,8 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		 * It controls the load order of the required files for running the framework.
 		 *
 		 * @since  4.0.0
+		 * @author Justin Tadlock <justin@justintadlock.com>
+		 * @author Cherry Team <support@cherryframework.com>
 		 */
 		function __construct() {
 			// Global variables.
@@ -58,7 +58,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_action( 'after_setup_theme', array( $this, 'default_filters' ), 3 );
 
 			// Language functions and translations setup.
-			// add_action( 'after_setup_theme', array( $this, 'lang' ), 4 );
+			add_action( 'after_setup_theme', array( $this, 'l10n' ), 4 );
 
 			// Handle theme supported features.
 			add_action( 'after_setup_theme', array( $this, 'theme_support' ), 5 );
@@ -76,18 +76,21 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		/**
 		 * Defines the constant paths for use within the core framework, parent theme, and child theme.
 		 *
-		 * @since  4.0.0
+		 * @since 4.0.0
 		 */
 		function constants() {
 			/**
 			 * Fires before definitions the constant.
 			 *
-			 * @since  4.0.0
+			 * @since 4.0.0
 			 */
 			do_action( 'cherry_constants_before' );
 
 			/** Sets the framework version number. */
-			define( 'CHERRY_VERSION', '4.0.0' );
+			$template = get_template();
+			$framework = wp_get_theme($template);
+
+			define( 'CHERRY_VERSION', $framework -> get( 'Version' ) );
 
 			/** Sets the path to the parent theme directory. */
 			define( 'PARENT_DIR', get_template_directory() );
@@ -178,6 +181,18 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load abstract class for static registration.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
+
+			// Load WooCommerce compatibility module
+			require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-woocommerce.php' );
+
+			// Load Icons gateway for shortcodes ultimate ( only if SU active )
+			if ( in_array(
+				'shortcodes-ultimate/shortcodes-ultimate.php',
+				apply_filters( 'active_plugins', get_option( 'active_plugins' ) )
+			) ) {
+				require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-icons-gateway.php' );
+			}
+
 		}
 
 		/**
@@ -191,33 +206,28 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_filter( 'widget_text',      'do_shortcode' );
 			add_filter( 'the_excerpt',      'do_shortcode' );
 			add_filter( 'term_description', 'do_shortcode' );
-			add_filter( 'comment_text',     'do_shortcode' );
 
 			// Load the core filters.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'filters.php' );
 		}
 
 		/**
-		 * Loads both the parent and child theme translation files. If a locale-based functions file exists
-		 * in either the parent or child theme (child overrides parent), it will also be loaded.  All translation
-		 * and locale functions files are expected to be within the theme's '/languages' folder, but the
-		 * framework will fall back on the theme root folder if necessary.  Translation files are expected
-		 * to be prefixed with the template or stylesheet path (example: 'templatename-en_US.mo').
+		 * Loads both the parent and child theme translation files.
 		 *
-		 * @since  4.0.0
+		 * @since 4.0.0
 		 */
-		function lang() {
+		function l10n() {
 			global $cherry;
 
 			// Get parent and child theme textdomains.
 			$parent_textdomain = cherry_get_parent_textdomain();
 			$child_textdomain  = cherry_get_child_textdomain();
 
-			// Load theme textdomain.
-			$cherry->textdomain_loaded[ $parent_textdomain ] = load_theme_textdomain( $parent_textdomain );
+			// Loads the parent theme translated strings.
+			$cherry->textdomain_loaded[ $parent_textdomain ] = load_theme_textdomain( $parent_textdomain, PARENT_DIR . '/languages' );
 
-			// Load child theme textdomain.
-			$cherry->textdomain_loaded[ $child_textdomain ] = is_child_theme() ? load_child_theme_textdomain( $child_textdomain ) : false;
+			// Loads the child theme translated strings.
+			$cherry->textdomain_loaded[ $child_textdomain ] = load_child_theme_textdomain( $child_textdomain, CHILD_DIR . '/languages' );
 		}
 
 		/**
@@ -237,17 +247,6 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			add_theme_support( 'html5', array(
 				'comment-list', 'comment-form', 'search-form', 'gallery', 'caption',
 			) );
-
-			/**
-			 * Enable support for Infinite Scroll.
-			 *
-			 * @link http://jetpack.me/support/infinite-scroll/
-			 */
-			add_theme_support( 'infinite-scroll', array(
-				'container' => 'main',
-				'footer'    => 'page',
-			) );
-
 		}
 
 		/**
@@ -328,6 +327,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 				// Load Cherry_Options_Framework_Admin class.
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
+
+				// Class Cherry Update.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-update.php' );
 
 				// Load the main admin file.
 				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );

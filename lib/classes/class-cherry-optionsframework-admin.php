@@ -42,6 +42,11 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			// attach import/export options handlers
 			add_action( 'wp_ajax_cherry_export_options', array( $this, 'export_options' ) );
 			add_action( 'wp_ajax_cherry_import_options', array( $this, 'import_options' ) );
+			add_action( 'wp_ajax_cherry_save_options', array( $this, 'cherry_save_options' ) );
+			add_action( 'wp_ajax_cherry_restore_section', array( $this, 'cherry_restore_section' ) );
+			add_action( 'wp_ajax_cherry_restore_options', array( $this, 'cherry_restore_options' ) );
+			add_action( 'wp_ajax_get_options_section', array( $this, 'get_options_section' ) );
+			add_action( 'wp_ajax_default_options_backup', array( $this, 'default_options_backup' ) );
 
 			// add options to allowed MIME types
 			add_filter( 'upload_mimes', array( $this, 'add_options_mime' ) );
@@ -80,8 +85,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			// Displays notice after options restored
 			add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
-
-			add_action( 'wp_ajax_get_options_section', array( $this, 'get_options_section' ) );
 
 			add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
 
@@ -240,6 +243,112 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
+		 * Ajax get current options section
+		 *
+		 * @since 4.0.0
+		 */
+		function get_options_section() {
+			if ( !empty($_POST) && array_key_exists('active_section', $_POST) ) {
+				global $cherry_options_framework;
+				$html = '';
+				$active_section = $_POST['active_section'];
+
+				$cherry_options = $cherry_options_framework->get_current_settings();
+				$current_section_options = $cherry_options[$active_section];
+
+				$html .= $this->option_inteface_builder->multi_output_items($current_section_options['options-list']);
+				printf( '<div class="options-group %1$s">%2$s</div>', $active_section, $html );
+				exit;
+			}
+		}
+
+		/**
+		 * Ajax save options
+		 *
+		 * @since 4.0.0
+		 */
+		function cherry_save_options(){
+			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
+				global $cherry_options_framework;
+				$post_array = $_POST['post_array'];
+
+				$options = $cherry_options_framework->create_updated_options( $post_array );
+
+				$cherry_options_framework->save_options( $options );
+				$response = array(
+					'message' => __( 'Options have been saved', 'cherry' ),
+					'type' => 'success-notice'
+				);
+
+				do_action( 'cherry-options-updated' );
+
+				wp_send_json( $response );
+			}
+		}
+
+		/**
+		 * Ajax restore section
+		 *
+		 * @since 4.0.0
+		 */
+		function cherry_restore_section(){
+			if ( !empty($_POST) && array_key_exists('current_section', $_POST) ) {
+				global $cherry_options_framework;
+				$current_section = $_POST['current_section'];
+				$cherry_options_framework -> restore_section_settings_array( $current_section );
+
+				do_action( 'cherry-section-restored' );
+
+				exit;
+			}
+		}
+
+		/**
+		 * Ajax restore options
+		 *
+		 * @since 4.0.0
+		 */
+		function cherry_restore_options(){
+			global $cherry_options_framework;
+			$cherry_options_framework -> restore_default_settings_array();
+
+			do_action( 'cherry-options-restored' );
+		}
+
+		/**
+		 * Ajax set default options
+		 *
+		 * @since 4.0.0
+		 */
+		function default_options_backup(){
+			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
+				global $cherry_options_framework;
+				$post_array = $_POST['post_array'];
+
+				$default_backup_options = get_option( $cherry_options_framework->themename . '_defaults' );
+				if( false == $default_backup_options ){
+					$response = array(
+						'message' => __( 'Default options backup has been created', 'cherry' ),
+						'type' => 'success-notice'
+					);
+				}else{
+					$response = array(
+						'message' => __( 'Default options backup has been overwrited', 'cherry' ),
+						'type' => 'info-notice'
+					);
+				}
+
+				$options = $cherry_options_framework->create_updated_options( $post_array );
+
+				$default_options_name = $cherry_options_framework->themename .'_defaults';
+
+				update_option( $default_options_name, $options);
+
+				wp_send_json( $response );
+			}
+		}
+
+		/**
 		 * Registers the settings
 		 *
 		 * @since 4.0.0
@@ -297,7 +406,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'edit_theme_options',
 				'cherry-options',
 				array( $this, 'cherry_options_page_build' ),
-				PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon-20x20.svg', 62
+				PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.png', 62
 			);
 		}
 
@@ -312,7 +421,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			foreach ($option_value as $sectionName => $sectionOptionsList) {
 				foreach ($sectionOptionsList['options-list'] as $optionId => $optionValue) {
-					$optionType = $cherry_options_framework->get_type_by_option_id($optionId);
+					$optionType = $cherry_options_framework->get_type_by_id($optionId);
 					// For a value to be submitted to database it must pass through a sanitization filter
 					if ( has_filter( 'utility_sanitize_' . $optionType ) ) {
 						$validated_value = apply_filters( 'utility_sanitize_' . $optionType, $optionValue );
@@ -367,24 +476,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			global $cherry_options_framework;
 
 				$section_index = 0;
-				//save options
-				if(isset($_POST['cherry']['save-options'])){
-					//$location = add_query_arg( array( 'saved' => 'true' ), menu_page_url( 'cherry-options', 0 ) );
-					//wp_redirect( $location );
-					//exit;
-					$cherry_options_framework -> create_updated_options_array($_POST['cherry']);
-					do_action('cherry-options-updated');
-				}
-				//restore section
-				if(isset($_POST['cherry']['restore-section'])){
-					$cherry_options_framework -> restore_section_settings_array($_POST['active_section']);
-					do_action('cherry-section-restored');
-				}
-				//restore options
-				if(isset($_POST['cherry']['restore-options'])){
-					$cherry_options_framework -> restore_default_settings_array();
-					do_action('cherry-options-restored');
-				}
 
 				$cherry_options = $cherry_options_framework->get_current_settings();
 
@@ -420,23 +511,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 									<div class="clear"></div>
 								</div>
 								<div class="cherry-submit-wrapper">
-									<?php
-										$submitSection = array();
-										$submitSection['save-options'] = array(
-											'type'  => 'submit',
-											'class' => 'primary',
-											'value' => __( 'Save Options', 'cherry' ),
-										);
-										$submitSection['restore-section'] = array(
-											'type'  => 'submit',
-											'value' => __( 'Restore Section', 'cherry' ),
-										);
-										$submitSection['restore-options'] = array(
-											'type'  => 'submit',
-											'value' => __( 'Restore Options', 'cherry' ),
-										);
-										//echo $this->option_inteface_builder->multi_output_items( $submitSection );
-									?>
 									<div class="cherry-options-export-import">
 										<div class="wrap-cherry-export-options">
 											<a href="<?php echo esc_url( $this->options_export_url ) ?>" id="cherry-export-options" class="button button-default_">
@@ -448,15 +522,28 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 												<?php _e( 'Import', 'cherry' ); ?>
 											</a>
 										</div>
+										<div class="wrap-cherry-default-options-backup">
+											<a href="#" id="cherry-default-options-backup" class="button button-default_">
+												<?php _e( 'Default options', 'cherry' ); ?>
+												<div class="cherry-spinner-wordpress spinner-wordpress-type-3"><span class="cherry-inner-circle"></span></div>
+											</a>
+										</div>
 									</div>
 									<div id="wrap-cherry-save-options">
-										<?php echo get_submit_button( $submitSection['save-options']['value'], 'button-primary_', 'cherry[save-options]', false ); ?>
+										<a href="#" id="cherry-save-options" class="button button-primary_">
+											<?php echo __( 'Save options', 'cherry' ); ?>
+											<div class="cherry-spinner-wordpress spinner-wordpress-type-2"><span class="cherry-inner-circle"></span></div>
+										</a>
 									</div>
 									<div id="wrap-cherry-restore-section">
-										<?php echo get_submit_button( $submitSection['restore-section']['value'], 'button-default_', 'cherry[restore-section]', false ); ?>
+										<a href="#" id="cherry-restore-section" class="button button-default_">
+											<?php echo __( 'Restore section', 'cherry' ); ?>
+										</a>
 									</div>
 									<div id="wrap-cherry-restore-options">
-										<?php echo get_submit_button( $submitSection['restore-options']['value'], 'button-default_', 'cherry[restore-options]', false ); ?>
+										<a href="#" id="cherry-restore-options" class="button button-default_">
+											<?php echo __( 'Restore options', 'cherry' ); ?>
+										</a>
 									</div>
 								</div>
 							</form>
@@ -472,6 +559,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 									<a href="#" id="cherry-import-options-start" class="button button-primary_">
 										<?php _e( 'Start import', 'cherry' ); ?>
 									</a>
+
 									<span class="spinner"></span>
 								</div>
 							</div>
@@ -479,20 +567,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				<?php
 		}
 
-		function get_options_section() {
-			if ( !empty($_POST) && array_key_exists('active_section', $_POST) ) {
-				global $cherry_options_framework;
-				$html = '';
-				$active_section = $_POST['active_section'];
 
-				$cherry_options = $cherry_options_framework->get_current_settings();
-				$current_section_options = $cherry_options[$active_section];
-
-				$html .= $this->option_inteface_builder->multi_output_items($current_section_options['options-list']);
-				printf( '<div class="options-group %1$s">%2$s</div>', $active_section, $html );
-				exit;
-			}
-		}
 		/**
 		 * Is a given string a color formatted in hexidecimal notation?
 		 *

@@ -28,6 +28,8 @@ add_action( 'cherry_loop_empty', 'cherry_noposts' );
 /**
  * This is a replacement function for the WordPress `get_header()` function.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since 4.0.0
  * @param string $name The name of the specialised header.
  */
@@ -53,6 +55,8 @@ function cherry_get_header( $name = null ) {
 /**
  * This is a replacement function for the WordPress `get_footer()` function.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string $name
  */
@@ -90,6 +94,8 @@ function cherry_get_content() {
 /**
  * Loads a post content template based on the post type and/or the post format.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @return string
  */
@@ -121,14 +127,18 @@ function cherry_get_content_template() {
 	// Allow devs to filter the content template hierarchy.
 	$templates = apply_filters( 'cherry_content_template_hierarchy', $templates );
 
-	cherry_content_template( $templates );
-}
-
-function cherry_content_template( $templates ) {
 	printf( '%s', cherry_parse_tmpl( $templates ) );
 }
 
-function cherry_load_tmpl( $template_names ) {
+/**
+ * Parse *.tmpl file - replace macros on the real content.
+ *
+ * @since  4.0.0
+ *
+ * @param  array $template_names
+ * @return string
+ */
+function cherry_parse_tmpl( $template_names ) {
 	ob_start();
 
 	include( locate_template( $template_names, false, false ) );
@@ -136,18 +146,20 @@ function cherry_load_tmpl( $template_names ) {
 	$template = ob_get_contents();
 	ob_end_clean();
 
-	return $template;
-}
-
-function cherry_parse_tmpl( $template_names ) {
-	$template = cherry_load_tmpl( $template_names );
-
 	// Perform a regular expression.
 	$output = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
 
-	return $output;
+	return apply_filters( 'cherry_parse_tmpl', $output, $template, $template_names );
 }
 
+/**
+ * Callback-function for regular expression.
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $matches Array of matched elements.
+ * @return string
+ */
 function cherry_do_content( $matches ) {
 	if ( !is_array( $matches ) ) {
 		return '';
@@ -175,6 +187,7 @@ function cherry_do_content( $matches ) {
 
 	/**
 	 * Filter callback function's name for outputing post element.
+	 *
 	 * @since 4.0.0
 	 */
 	$pre = apply_filters( "cherry_pre_get_the_post_{$macros}", false, $attr );
@@ -203,6 +216,8 @@ function cherry_do_content( $matches ) {
 /**
  * Loads template for sidebar by $name.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string $name
  */
@@ -212,16 +227,16 @@ function cherry_get_sidebar( $name = null ) {
 
 	$name = (string) $name;
 
-	if ( false === cherry_display_sidebar( 'sidebar-' . $name ) ) {
+	if ( false === cherry_display_sidebar( $name ) ) {
 		return;
 	}
 
 	$_name = $name . '-' . cherry_template_base();
 
 	$templates   = array();
-	$templates[] = "sidebar-{$_name}.php";
+	$templates[] = "{$_name}.php";
 	$templates[] = "sidebar/{$_name}.php";
-	$templates[] = "sidebar-{$name}.php";
+	$templates[] = "{$name}.php";
 	$templates[] = "sidebar/{$name}.php";
 	$templates[] = 'sidebar.php';
 	$templates[] = 'sidebar/sidebar.php';
@@ -238,8 +253,8 @@ function cherry_get_sidebar( $name = null ) {
 
 	printf( '<div %s>', cherry_get_attr( 'sidebar', $name ) );
 
-	if ( is_active_sidebar( "sidebar-{$name}" ) ) {
-		dynamic_sidebar( "sidebar-{$name}" );
+	if ( is_active_sidebar( "{$name}" ) ) {
+		dynamic_sidebar( "{$name}" );
 	} else {
 		do_action( 'cherry_sidebar_empty', $name );
 	}
@@ -252,6 +267,8 @@ function cherry_get_sidebar( $name = null ) {
 /**
  * Loads template for menu.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  string  $name
  */
@@ -293,7 +310,7 @@ function cherry_get_comments_template() {
 	}
 
 	if ( ( 'page' == $post_type )
-		&& ( 'false' == cherry_get_option( 'general-page-comments-status' ) )
+		&& ( 'false' == cherry_get_option( 'page-comments-status' ) )
 		) {
 		return;
 	}

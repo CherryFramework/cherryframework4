@@ -15,10 +15,6 @@
   /*End html ellements stule*/
   /*Text input, textarea, select size*/
   /*End text input size*/
-  /*Cherry stepper style*/
-  /*End cherry stepper style*/
-  /*Cherry switcher style*/
-  /*End cherry switcher style*/
   /*Cherry rangeslider style*/
   /*Cherry rangeslider style*/
   /*Cherry repeater style*/
@@ -147,7 +143,7 @@
 .cherry-section .cherry-checkbox-item {
   width: 21px;
   height: 21px;
-  float: left;
+  display: inline-block;
   border-radius: 3px;
   margin-right: 5px;
   cursor: pointer;
@@ -164,100 +160,10 @@
   left: 0;
   display: none;
 }
-.cherry-section .cherry-stepper-input {
-  max-width: 90px;
-}
-.cherry-section .cherry-stepper-controls {
+.cherry-section .cherry-checkbox-label {
   display: inline-block;
   vertical-align: top;
-  margin: 3px 0 0 -24px;
-}
-.cherry-section .cherry-stepper-controls .step-up {
-  border-radius: 0 3px 0 0;
-  border-bottom: 0;
-  height: 17px;
-}
-@media screen and (max-width: 782px) {
-  .cherry-section .cherry-stepper-controls .step-up {
-    border-bottom: 1px solid #CCC;
-  }
-}
-.cherry-section .cherry-stepper-controls .step-down {
-  border-radius: 0 0 3px 0;
-}
-.cherry-section .cherry-stepper-controls em {
-  background-color: #eeeded;
-  border: 1px solid #cccccc;
-  color: #444444;
-  cursor: pointer;
-  display: block;
-  font-size: 16px;
-  height: 16px;
-  line-height: 12px;
-  margin: 0 0 0 -1px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  width: 20px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-@media screen and (max-width: 782px) {
-  .cherry-section .cherry-stepper-controls em {
-    line-height: 16px;
-    height: 16px;
-  }
-}
-.cherry-section .cherry-switcher-wrap {
-  border: 2px solid #dddcdc;
-  border-radius: 6px;
-  display: inline-block;
-  overflow: hidden;
-  padding: 4px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
-}
-.cherry-section .cherry-switcher-wrap .sw-enable {
-  padding: 6px 10px;
-  background-color: #F5F5F5;
-  border-right: none;
-  border-radius: 3px 0 0 3px;
-  display: block;
-  float: left;
-}
-.cherry-section .cherry-switcher-wrap .sw-enable span {
-  font-weight: bold;
-}
-.cherry-section .cherry-switcher-wrap .sw-enable.selected {
-  background-color: #8bc735;
-  border-right: none;
-}
-.cherry-section .cherry-switcher-wrap .sw-enable.selected span {
-  color: #fff;
-}
-.cherry-section .cherry-switcher-wrap .sw-disable {
-  background-color: #eeeded;
-  border-left: medium none;
-  border-radius: 0 3px 3px 0;
-  display: block;
-  float: left;
-  padding: 6px 10px;
-}
-.cherry-section .cherry-switcher-wrap .sw-disable span {
-  font-weight: bold;
-}
-.cherry-section .cherry-switcher-wrap .sw-disable.selected {
-  background-color: #646464;
-  border-left: none;
-}
-.cherry-section .cherry-switcher-wrap .sw-disable.selected span {
-  color: #fff;
+  margin: 1px 0 5px 0;
 }
 .cherry-section .cherry-rangeslider-wrap .cherry-rangeslider-left-input {
   width: 15%;
@@ -583,9 +489,9 @@
 }
 .cherry-section .cherry-radio-img {
   float: left;
-  margin: 10px 10px 0 5px;
+  margin: 10px 5px 0 5px;
   text-align: center;
-  max-width: 120px;
+  max-width: 105px;
   position: relative;
 }
 .cherry-section .cherry-radio-img img {
@@ -803,9 +709,9 @@
   border: 1px solid #c8c8c8;
 }
 .cherry-section .hint-text:hover, .cherry-section .hint-image:hover, .cherry-section .hint-video:hover {
-  color: #2EA2CC;
-  background-color: #2EA2CC;
-  border: 1px solid #2EA2CC;
+  color: #2a445d;
+  background-color: #2a445d;
+  border: 1px solid #2a445d;
   cursor: pointer;
 }
 @media screen and (max-width: 769px) {

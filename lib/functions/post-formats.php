@@ -26,6 +26,8 @@ add_action( 'wp_loaded', 'cherry_structured_post_formats', 1 );
  * Theme compatibility for post formats. This function adds appropriate filters for
  * the various post formats that a theme supports.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_structured_post_formats() {
@@ -56,8 +58,9 @@ function cherry_structured_post_formats() {
 /**
  * Adds an infinity character "&#8734;" to the end of the post content on 'aside' posts.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @param  string $content The post content.
  * @return string $content
  */
@@ -93,7 +96,6 @@ function cherry_get_the_link_title( $title, $post_id ) {
  * This function filters the post link when viewing a post with the `link` post format.
  *
  * @since  4.0.0
- *
  * @param  array  $args The defaults arguments used to display a post title.
  * @param  int    $post_id
  * @param  string $post_type
@@ -114,8 +116,9 @@ function cherry_get_the_link_url( $args, $post_id, $post_type ) {
  * Checks if the quote post has a <blockquote> tag within the content.
  * If not, wraps the entire post content with one.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- *
  * @param  string $content The post content.
  * @return string $content
  */
@@ -139,9 +142,10 @@ function cherry_quote_content( $content ) {
 /**
  * This function filters the attachment markup to be prepended to the post content.
  *
- * @since 4.0.0
- *
- * @param string $p The attachment HTML output.
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
+ * @since  4.0.0
+ * @param  string $p The attachment HTML output.
  */
 function cherry_attachment_content( $p ) {
 

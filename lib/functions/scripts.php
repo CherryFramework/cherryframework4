@@ -17,8 +17,12 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
+// Register ande Enqueue Cherry Api
+add_action( 'admin_enqueue_scripts', 'enqueue_cherry_api_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'enqueue_cherry_api_scripts', 0 );
+
 // Register Cherry Framework scripts.
-add_action( 'wp_enqueue_scripts', 'cherry_register_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'cherry_register_scripts', 1 );
 
 // Load Cherry Framework scripts.
 add_action( 'wp_enqueue_scripts', 'cherry_enqueue_scripts', 5 );
@@ -30,7 +34,6 @@ add_action( 'wp_enqueue_scripts', 'cherry_prepare_sticky_vars' );
  * Get cherry default scripts data
  *
  * @since  4.0.0
- *
  * @return array  cherry default scripts data
  */
 function cherry_default_scripts() {
@@ -52,12 +55,23 @@ function cherry_default_scripts() {
 
 	return $default_scripts;
 }
-
+/**
+ * Register ande Enqueue Cherry Api.
+ *
+ * @since 1.0.0
+ */
+function enqueue_cherry_api_scripts() {
+	// Cherry Framework JS API
+	wp_register_script( 'cherry-api', esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/cherry-api.js' ), array( 'jquery' ), CHERRY_VERSION, true );
+	wp_enqueue_script( 'cherry-api' );
+}
 /**
  * Registers JavaScript files for the framework.  This function merely registers scripts with WordPress using
  * the wp_register_script() function.  It does not load any script files on the site.  If a theme wants to register
  * its own custom scripts, it should do so on the 'wp_enqueue_scripts' hook.
  *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  */
 function cherry_register_scripts() {
@@ -90,7 +104,9 @@ function cherry_register_scripts() {
 /**
  * Tells WordPress to load the scripts needed for the framework using the wp_enqueue_script() function.
  *
- * @since 4.0.0
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
+ * @since  4.0.0
  */
 function cherry_enqueue_scripts() {
 
@@ -109,6 +125,11 @@ function cherry_enqueue_scripts() {
 	}
 
 	wp_enqueue_script( 'cherry-script' );
+
+	// add custom data to cherry scripts
+	$use_lightbox  = cherry_get_option( 'blog-add-ligthbox' );
+	$use_lightbox = ( 'true' == $use_lightbox ) ? true : false;
+	wp_localize_script( 'cherry-script', 'cherry_data', array( 'use_lightbox' => $use_lightbox ) );
 }
 
 /**
@@ -126,7 +147,7 @@ function cherry_prepare_sticky_vars() {
 	);
 
 	$options_args = array(
-		'active' => ( 'true' == $is_sticky ) ? true : false
+		'active' => ( 'true' == $is_sticky && ! wp_is_mobile() ) ? true : false
 	);
 
 	$args            = apply_filters( 'cherry_header_sticky_args', $defaults );

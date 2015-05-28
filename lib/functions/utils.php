@@ -17,43 +17,69 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 // Load Cherry Framework scripts.
-add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts', 1 );
+add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts' );
 
 /**
  * Enqueue utility scripts
  * @since  4.0.0
  */
 function cherry_enqueue_utility_scripts() {
-
 	global $is_chrome;
 
-	$smooth_scroll = cherry_get_option( 'general-smoothscroll' );
-	$header_sticky = cherry_get_option( 'header-sticky' );
-	$cherry_url    = trailingslashit( CHERRY_URI );
+	$cherry_url = trailingslashit( CHERRY_URI );
 
-	if( "false" != $smooth_scroll ) {
-
+	if ( 'false' != cherry_get_option( 'general-smoothscroll' ) ) {
 		wp_register_script(
 			'jquery-easing',
-			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.min.js' ), array( 'jquery' ), '3.1.0', true
+			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.min.js' ),
+			array( 'jquery' ),
+			'3.1.0',
+			true
 		);
 		wp_register_script(
 			'jquery-smoothscroll',
-			esc_url( $cherry_url . 'assets/js/jquery.smoothscroll.js' ), array( 'jquery', 'jquery-easing' ), '3.0.6', true
+			esc_url( $cherry_url . 'assets/js/jquery.smoothscroll.js' ),
+			array( 'jquery', 'jquery-easing' ),
+			'3.0.6',
+			true
 		);
 
-		if( !wp_is_mobile() && $is_chrome ){
+		if ( !wp_is_mobile() && $is_chrome ){
 			wp_enqueue_script( 'jquery-smoothscroll' );
 		}
 	}
 
-	if( "false" != $header_sticky ) {
-
+	if ( 'false' != cherry_get_option( 'header-sticky' ) ) {
 		wp_enqueue_script(
 			'cherry-stick-up',
-			esc_url( $cherry_url . 'assets/js/jquery.cherry.stickup.min.js' ), array( 'jquery' ), '1.0.0', true
+			esc_url( $cherry_url . 'assets/js/jquery.cherry.stickup.min.js' ),
+			array( 'jquery' ),
+			'1.0.0',
+			true
 		);
+	}
 
+	if ( 'false' != cherry_get_option( 'cookie-banner-visibility' )
+		&& !( isset( $_COOKIE['cherry_cookie_banner'] ) && '1' == $_COOKIE['cherry_cookie_banner'] )
+		) {
+		wp_enqueue_script(
+			'cherry-cookie-banner',
+			esc_url( $cherry_url . 'assets/js/jquery.cherry.cookie.banner.js' ),
+			array( 'jquery' ),
+			CHERRY_VERSION,
+			true
+		);
+		wp_localize_script(
+			'cherry-cookie-banner', 'cookie_banner_args', array(
+				'name'    => 'cherry_cookie_banner',
+				'value'   => '1',
+				'options' => array(
+					'expires' => YEAR_IN_SECONDS,
+					'path'    => ( defined( 'COOKIEPATH' ) ? COOKIEPATH : '/' ),
+					'domain'  => ( defined( 'COOKIE_DOMAIN' ) ? COOKIE_DOMAIN : '' ),
+				),
+			)
+		);
 	}
 
 }
@@ -303,7 +329,7 @@ function cherry_get_background_css( $selector, $data ) {
 
 	for ( $i = 0; $i < $count; $i++ ) {
 
-		if ( ! wp_attachment_is_image( $images[$i] ) ) {
+		if ( ( !isset($images[$i]) ) || ( ! wp_attachment_is_image( $images[$i] ) ) ) {
 			continue;
 		}
 
@@ -385,9 +411,21 @@ function cherry_prepare_background( $data ) {
 	$format = 'background-%s:%s;';
 
 	foreach ( $data as $prop => $value ) {
-		if ( 'color' == $prop ) {
-			$value = cherry_sanitize_hex_color( $value );
+
+		if ( ! $value ) {
+			continue;
 		}
+
+		switch ( $prop ) {
+			case 'color':
+				$value = cherry_sanitize_hex_color( $value );
+				break;
+
+			case 'position':
+				$value = str_replace( '-', ' ', $value );
+				break;
+		}
+
 		$result .= sprintf( $format, $prop, $value );
 	}
 
@@ -474,6 +512,178 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 }
 
 /**
+ * Get box model CSS from layout editor option
+ *
+ * @since  4.0.0
+ *
+ * @param  array  $data  layout parameters array from options
+ * @param  array  $mod   optional parameter - pass function name and arg to modify values inside layout array
+ * @return string        indents, border etc.
+ */
+function cherry_get_box_model_css( $data, $mod = array() ) {
+
+	if ( ! is_array( $data ) || empty( $data ) ) {
+		return;
+	}
+
+	$defaults = array(
+		'position'  => array(),
+		'margin'    => array(),
+		'border'    => array(),
+		'padding'   => array(),
+		'container' => array()
+	);
+
+	$box_defaults = array(
+		'top'    => '',
+		'right'  => '',
+		'bottom' => '',
+		'left'   => ''
+	);
+
+	$data = wp_parse_args( $data, $defaults );
+
+	$result = '';
+
+	// Prepare postion
+	$data['position'] = array_filter( $data['position'] );
+	if ( ! empty( $data['position'] ) ) {
+
+		$data['position'] = array_intersect_key( $data['position'], $box_defaults );
+
+		$parser_data = array(
+			'prefix'  => '',
+			'allowed' => $box_defaults
+		);
+
+		array_walk( $data['position'], 'cherry_prepare_box_item', $parser_data );
+
+		$result .= implode( ';', array_filter( $data['position'] ) ) . ';';
+
+	}
+
+	// Prepare indents
+	$result .= cherry_prepare_css_indents( $data['margin'], 'margin' );
+	$result .= cherry_prepare_css_indents( $data['padding'], 'padding' );
+
+	// Prepare borders
+	if ( ! empty( $data['border'] ) ) {
+
+		$border_style  = ! empty( $data['border']['style'] ) ? $data['border']['style'] : '';
+		$border_color  = ! empty( $data['border']['color'] ) ? $data['border']['color'] : '';
+		$border_radius = ! empty( $data['border']['radius'] ) ? $data['border']['radius'] : '';
+
+		if ( '' != $border_radius ) {
+			$result .= 'border-radius:' . $border_radius . ';';
+		}
+
+		$border_format = 'border-%1$s:%2$s %3$s %4$s;';
+
+		foreach ( $data['border'] as $property => $value ) {
+
+			if ( ! array_key_exists( $property, $box_defaults ) ) {
+				continue;
+			}
+
+			if ( empty( $value ) ) {
+				continue;
+			}
+
+			$result .= sprintf(
+				$border_format,
+				$property, $value, $border_style, $border_color
+			);
+
+		}
+
+	}
+
+	// Prepare dimensions
+	if ( ! empty( $data['container']['width'] ) ) {
+		$result .= 'width:' . $data['container']['width'] . ';';
+	}
+	if ( ! empty( $data['container']['height'] ) ) {
+		$result .= 'height:' . $data['container']['height'] . ';';
+	}
+
+	return $result;
+}
+
+/**
+ * Service function to grab CSS indents from data array into string
+ *
+ * @since  4.0.0
+ *
+ * @param  array        $data      data array
+ * @param  CSS property $property  CSS property
+ * @return string
+ */
+function cherry_prepare_css_indents( $data, $property ) {
+
+	if ( empty( $data ) ) {
+		return;
+	}
+
+	$box_defaults = array(
+		'top'    => '',
+		'right'  => '',
+		'bottom' => '',
+		'left'   => ''
+	);
+
+	$data = array_intersect_key( $data, $box_defaults );
+	$data = array_filter( $data );
+
+	if ( 4 == count( $data ) ) {
+		$result = $property . ':' . implode( ' ', $data ) . ';';
+		return $result;
+	}
+
+	$parser_data = array(
+		'prefix'  => $property,
+		'allowed' => $box_defaults
+	);
+
+	array_walk( $data, 'cherry_prepare_box_item', $parser_data );
+
+	$result = implode( ';', array_filter( $data ) ) . ';';
+
+	return $result;
+}
+
+/**
+ * Service callback function for
+ *
+ * @since  4.0.0
+ *
+ * @param  string  $item  position value
+ * @param  string  $key   position key
+ * @param  array   $data  array of allowed positions and property prefix
+ * @return bool
+ */
+function cherry_prepare_box_item( &$item, $key, $data ) {
+
+	if ( ! array_key_exists( $key, $data['allowed'] ) ) {
+		$item = false;
+		return;
+	}
+
+	if ( empty( $item ) ) {
+		$item = false;
+		return;
+	}
+
+	$prefix = '';
+
+	if ( ! empty( $data['prefix'] ) ) {
+		$prefix = $data['prefix'] . '-';
+	}
+
+	$item = $prefix . $key . ':' . $item;
+
+}
+
+/**
  * Make float size
  *
  * @since  4.0.0
@@ -524,24 +734,68 @@ function cherry_empty_value( $value, $rule) {
 	}
 
 }
-/*
-function cherry_text_emphasis( $parent, $color ) {
 
-	echo $parent." {color: $color;} ";
-	echo "a$parent:hover {color: ".cherry_colors_darken($color, 10).";}";
-
-}
-*/
+/**
+ * Set element emphasis
+ *
+ * @since  4.0.0
+ *
+ * @param  string $parent   parent selector
+ * @param  string $color    color
+ * @param  string $property to define
+ */
 function cherry_element_emphasis( $parent, $color, $property ) {
 
-	echo $parent." {".$property. ": $color;} ";
-	echo "a$parent:hover {"."$property: ".cherry_colors_darken($color, 10).";}";
+	$result  = $parent . ' {' . $property . ':' . $color . ';}';
+	$result .= $parent . ':hover {' . $property . ':' . cherry_colors_darken( $color, 10 ) . ';}';
 
+	return $result;
 }
 
-function cherry_box_shadow( $shadow ) {
-
-	echo "-webkit-box-shadow: $shadow;";
-	echo "box-shadow: $shadow;";
+/**
+ * Return width value for container.
+ *
+ * @since  4.0.0
+ *
+ * @param  int $container_width A container width value.
+ * @param  int $element_width   Some-block (parent-block for container) width value.
+ * @return int
+ */
+function cherry_container_width_compare( $container_width, $element_width ) {
+	return ( $container_width > $element_width ) ? $element_width : $container_width;
 }
 
+/**
+ * Retirieve CSS-rule only when site non-responsive.
+ *
+ * @since  4.0.0
+ *
+ * @param  string $style CSS-rule.
+ * @return string
+ */
+function cherry_non_responsive_style( $style ) {
+	return ( 'false' == cherry_get_option( 'grid-responsive' ) ) ? $style : '';
+}
+
+/**
+ * Open `@media` rule.
+ *
+ * @since  4.0.0
+ *
+ * @param  string $function Media function
+ * @return string
+ */
+function cherry_media_queries_open( $function ) {
+	return ( 'true' == cherry_get_option( 'grid-responsive' ) ) ? '@media ( ' . $function . ' ) {' : '';
+}
+
+/**
+ * Close `@media` rule.
+ *
+ * @since  4.0.0
+ *
+ * @return string
+ */
+function cherry_media_queries_close() {
+	return ( 'true' == cherry_get_option( 'grid-responsive' ) ) ? '}' : '';
+}

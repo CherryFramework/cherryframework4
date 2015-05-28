@@ -17,6 +17,7 @@ class cherry_header_logo_static extends cherry_register_static {
 		add_action( 'cherry-options-updated',  array( $this, 'clear_cache' ) );
 		add_action( 'cherry-section-restored', array( $this, 'clear_cache' ) );
 		add_action( 'cherry-options-restored', array( $this, 'clear_cache' ) );
+		add_action( 'customize_save_after', array( $this, 'clear_cache' ) );
 		add_action( 'update_option', array( $this, 'clear_cache_options' ) );
 		parent::__construct( $args );
 	}
@@ -27,6 +28,14 @@ class cherry_header_logo_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
+
+		global $wp_customize;
+
+		if ( isset( $wp_customize ) ) {
+			echo $this->get_logo();
+			return;
+		}
+
 		$logo = get_transient( 'cherry_logo' );
 		$page = is_front_page() ? 'home' : 'page';
 
@@ -35,21 +44,12 @@ class cherry_header_logo_static extends cherry_register_static {
 			return;
 		}
 
-		$result = '';
-
-		if ( cherry_get_site_logo() || cherry_get_site_description() ) {
-
-			$result = sprintf( '<div class="site-branding">%1$s %2$s</div>',
-				cherry_get_site_logo(),
-				cherry_get_site_description()
-			);
-
-		}
+		$result = $this->get_logo();
 
 		echo $result;
 
 		if ( is_array( $logo ) ) {
-			$logo[$page] = $result;
+			$logo[ $page ] = $result;
 		} else {
 			$logo = array(
 				$page => $result
@@ -57,6 +57,22 @@ class cherry_header_logo_static extends cherry_register_static {
 		}
 
 		set_transient( 'cherry_logo', $logo, DAY_IN_SECONDS );
+	}
+
+	/**
+	 * Get logo HTML
+	 *
+	 * @since  4.0.0
+	 */
+	public function get_logo() {
+
+		$result = sprintf( '<div class="site-branding">%1$s %2$s</div>',
+			cherry_get_site_logo( 'header' ),
+			cherry_get_site_description()
+		);
+
+		return $result;
+
 	}
 
 	/**
@@ -89,13 +105,13 @@ class cherry_header_logo_static extends cherry_register_static {
 new cherry_header_logo_static(
 	array(
 		'id'      => 'header_logo',
-		'name'    => __( 'Logo', 'cherry4' ),
+		'name'    => __( 'Logo', 'cherry' ),
 		'options' => array(
 			'col-xs'   => 'col-xs-12',
 			'col-sm'   => 'col-sm-12',
 			'col-md'   => 'col-md-6',
 			'col-lg'   => 'col-lg-6',
-			'position' => 2,
+			'position' => 1,
 			'area'     => 'header-top',
 		)
 	)

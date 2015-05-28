@@ -26,12 +26,12 @@
 					line-height: 35px;
 				}
 				.ajax-section-spinner{
-					width: 50px;
-					height: 50px;
+					width: 40px;
+					height: 40px;
 					display: none;
 					position: absolute;
-					top: 11px;
-					right: 15px;
+					top: 18px;
+					right: 18px;
 				}
 		}
 		.info-box{
@@ -51,6 +51,75 @@
 					}
 				}
 		}
+		.notice-box{
+			background: #222222;
+			position: fixed;
+			margin: 5px 0;
+			border-left: 5px solid #2a445d;
+			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+			box-sizing: border-box;
+			padding: 15px 20px 15px 15px;
+			min-width: 200px;
+			overflow: hidden;
+			z-index: 999;
+			-webkit-transition: all 250ms cubic-bezier(0.85, 0.04, 1, 1);
+					transition: all 250ms cubic-bezier(0.85, 0.04, 1, 1);
+				span.dashicons{
+					position: relative;
+					margin-right: 20px;
+					&:before{
+						position: absolute;
+						font-size: 40px;
+						left: -10px;
+						top: -10px;
+					}
+				}
+				&.success-notice{
+					border-color: #8bc735;
+					span.dashicons{
+						color: #8bc735;
+						&:before{
+							content: "\f147";
+						}
+					}
+					.inner{
+						b{
+							color: #8bc735;
+						}
+					}
+				}
+				&.info-notice{
+					border-color: #ffcc00;
+					span.dashicons{
+						color: #ffcc00;
+						&:before{
+							content: "\f348";
+						}
+					}
+					.inner{
+						b{
+							color: #ffcc00;
+						}
+					}
+				}
+				&.error-notice{
+					border-color: #f62e46;
+					span.dashicons{
+						color: #f62e46;
+						&:before{
+							content: "\f158";
+						}
+					}
+				}
+				&.show-state{
+					-webkit-transition: all 500ms cubic-bezier(0.1, 0.67, 0.26, 1);
+							transition: all 500ms cubic-bezier(0.1, 0.67, 0.26, 1);
+				}
+				.inner{
+					display: inline-block;
+					color: #fff;
+				}
+		}
 }
 
 .cherry-submit-wrapper {
@@ -61,6 +130,24 @@
 		#wrap-cherry-save-options {
 			float: right;
 			margin: 0 5px;
+				#cherry-save-options{
+					position: relative;
+					-webkit-transition: all 300ms ease-in-out 300ms;
+							transition: all 300ms ease-in-out 300ms;
+					.spinner-wordpress-type-2{
+						opacity: 0;
+						-webkit-transition: opacity 300ms ease-in-out 150ms;
+								transition: opacity 300ms ease-in-out 150ms;
+					}
+					&.spinner-state{
+						padding-right: 40px;
+							-webkit-transition: all 300ms ease-in-out;
+									transition: all 300ms ease-in-out;
+							.spinner-wordpress-type-2{
+								opacity: 1;
+							}
+					}
+				}
 		}
 		#wrap-cherry-restore-options {
 			float: right;
@@ -82,12 +169,32 @@
 }
 
 .wrap-cherry-export-options,
-.wrap-cherry-import-options {
+.wrap-cherry-import-options,
+.wrap-cherry-default-options-backup {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 0 5px 0 0;
 }
-
+.wrap-cherry-default-options-backup{
+	#cherry-default-options-backup{
+		position: relative;
+		-webkit-transition: all 300ms ease-in-out 300ms;
+				transition: all 300ms ease-in-out 300ms;
+		.spinner-wordpress-type-3{
+			opacity: 0;
+			-webkit-transition: opacity 300ms ease-in-out 150ms;
+					transition: opacity 300ms ease-in-out 150ms;
+		}
+		&.spinner-state{
+			padding-right: 40px;
+				-webkit-transition: all 300ms ease-in-out;
+						transition: all 300ms ease-in-out;
+				.spinner-wordpress-type-3{
+					opacity: 1;
+				}
+		}
+	}
+}
 .cherry-options-import {
 	padding: 20px 20px 20px 200px;
 	background: #fff;
@@ -204,60 +311,114 @@
 		}
 }
 
-.cherry-spinner-chasing-dots.cherry-spinner {
-	width: 50px;
-	height: 50px;
+.spinner-wordpress-type-1{
+	background-color: #f62e46;
+	width: 40px;
+	height: 40px;
+	border-radius: 30px;
 	position: relative;
-	text-align: center;
-	-webkit-animation: cherry-chasingDotsRotate 2s infinite linear;
-			animation: cherry-chasingDotsRotate 2s infinite linear;
 }
-.cherry-spinner-chasing-dots .cherry-dot {
-	width: 60%;
-	height: 60%;
-	display: inline-block;
+.spinner-wordpress-type-2{
+	background-color: #fff;
+	width: 25px;
+	height: 25px;
+	border-radius: 30px;
 	position: absolute;
-	top: 0;
-	background-color: #f62e46 ;
-	border-radius: 100%;
-	-webkit-animation: cherry-chasingDotsBounce 2s infinite ease-in-out;
-			animation: cherry-chasingDotsBounce 2s infinite ease-in-out;
+	top: 8px;
+	right: 6px;
+		&.cherry-spinner-wordpress{
+			.cherry-inner-circle {
+				background-color: #f62e46;
+				width: 8px;
+				height: 8px;
+				top: 4px;
+				left: 4px;
+			}
+		}
 }
-.cherry-spinner-chasing-dots .cherry-dot2 {
-	top: auto;
-	bottom: 0px;
-	-webkit-animation-delay: -1s;
-			animation-delay: -1s;
+.spinner-wordpress-type-3{
+	background-color: #f62e46;
+	width: 25px;
+	height: 25px;
+	border-radius: 30px;
+	position: absolute;
+	top: 8px;
+	right: 6px;
+		&.cherry-spinner-wordpress{
+			.cherry-inner-circle {
+				background-color: #fff;
+				width: 8px;
+				height: 8px;
+				top: 4px;
+				left: 4px;
+			}
+		}
 }
-@-webkit-keyframes cherry-chasingDotsRotate {
+.cherry-spinner-wordpress {
+	-webkit-animation: cherry-innerCircle 1s linear infinite;
+			animation: cherry-innerCircle 1s linear infinite;
+	.cherry-inner-circle {
+		display: block;
+		background-color: #fff;
+		width: 12px;
+		height: 12px;
+		position: absolute;
+		border-radius: 8px;
+		top: 6px;
+		left: 6px;
+	}
+}
+@-webkit-keyframes cherry-innerCircle {
+	0% {
+		-webkit-transform: rotate(0);
+				transform: rotate(0);
+	}
 	100% {
 		-webkit-transform: rotate(360deg);
 				transform: rotate(360deg);
 	}
 }
-@keyframes cherry-chasingDotsRotate {
+@keyframes cherry-innerCircle {
+	0% {
+		-webkit-transform: rotate(0);
+				transform: rotate(0);
+	}
 	100% {
 		-webkit-transform: rotate(360deg);
 				transform: rotate(360deg);
 	}
 }
-@-webkit-keyframes cherry-chasingDotsBounce {
-	0%, 100% {
-		-webkit-transform: scale(0);
-				transform: scale(0);
-	}
-	50% {
-		-webkit-transform: scale(1);
-				transform: scale(1);
-	}
-}
-@keyframes cherry-chasingDotsBounce {
-	0%, 100% {
-		-webkit-transform: scale(0);
-				transform: scale(0);
-	}
-	50% {
-		-webkit-transform: scale(1);
-				transform: scale(1);
+
+//Updater - Proxy Notice
+div#proxy-settings{
+	form{
+		>div{
+			float: left;
+			.cherry-section{
+				border: none;
+				padding: 0px 10px 10px 0;
+				>div.cherry-col-1{
+					width: auto;
+					label{
+						margin: 10px 10px 0 0;
+						min-width: 70px;
+					}
+				}
+				>div.cherry-col-2{
+					max-width: 150px;
+					width: 100%;
+				}
+			}
+		}
+		#submit-button{
+			margin-top: -1px;
+		}
+		&:after{
+			content: ".";
+			display: block;
+			height: 0;
+			clear: both;
+			visibility: hidden;
+		}
 	}
 }

@@ -35,9 +35,12 @@ add_action( 'cherry_entry_after', 'cherry_get_related_posts', 20 );
  */
 function cherry_get_breadcrumbs() {
 
-	$show = cherry_get_option( 'breadcrumbs', 'true' );
+	$show       = cherry_get_option( 'breadcrumbs', 'true' );
+	$show       = ( 'true' == $show ) ? true : false;
+	$show_title = cherry_get_option( 'breadcrumbs-show-title', 'false' );
+	$show_title = ( 'true' == $show_title ) ? true : false;
 
-	if ( 'true' != $show ) {
+	if ( ! $show && ! $show_title ) {
 		return;
 	}
 
@@ -52,9 +55,6 @@ function cherry_get_breadcrumbs() {
 	$show_on_front = cherry_get_option( 'breadcrumbs-show-on-front', 'false' );
 	$show_on_front = ( 'true' == $show_on_front ) ? true : false;
 
-	$show_title = cherry_get_option( 'breadcrumbs-show-title', 'false' );
-	$show_title = ( 'true' == $show_title ) ? true : false;
-
 	$user_args = apply_filters( 'cherry_breadcrumbs_custom_args', array() );
 
 	$wrapper_format = '<div class="row">
@@ -68,6 +68,7 @@ function cherry_get_breadcrumbs() {
 		'show_tablet'    => $show_tablet,
 		'show_on_front'  => $show_on_front,
 		'show_title'     => $show_title,
+		'show_items'     => $show,
 		'labels'         => $browse_label,
 		'wrapper_format' => $wrapper_format
 	);
@@ -161,8 +162,8 @@ function cherry_post_nav() {
 		<div class="paging-navigation">
 			<div class="nav-links">
 				<?php
-					previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span>&nbsp;%title', 'Previous post link', 'cherry' ) );
-					next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title&nbsp;<span class="meta-nav">&rarr;</span>', 'Next post link',     'cherry' ) );
+					previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
+					next_post_link( '<div class="nav-next">%link</div>', '%title' );
 				?>
 			</div><!-- .nav-links -->
 		</div>
@@ -371,6 +372,8 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
  */
 function cherry_get_related_posts() {
 
+	global $post;
+
 	if ( 'false' == cherry_get_option( 'blog-related-posts' ) ) {
 		return;
 	}
@@ -403,23 +406,23 @@ function cherry_get_related_posts() {
 
 	$content = '';
 
-	$template = cherry_load_tmpl(
-		apply_filters(
-			'cherry_related_post_template_hierarchy',
-			array( 'content/related-post.tmpl' )
-		)
-	);
+	foreach ( $related_query->posts as $post ) {
 
-	while ( $related_query->have_posts() ) {
+		// Sets up global post data.
+		setup_postdata( $post );
 
-		$related_query->the_post();
+		$item_body = cherry_parse_tmpl(
+			apply_filters(
+				'cherry_related_post_template_hierarchy',
+				array( 'content/related-post.tmpl' )
+			)
+		);
 
-		$temp      = $template;
-		$item_body = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $temp );
 		$content  .= sprintf( '<%1$s class="related-posts_item">%2$s</%1$s>', $args['wrapper_item'], $item_body );
 	}
 
 	wp_reset_postdata();
+	wp_reset_query();
 
 	$content = sprintf( $args['format_list'], $args['wrapper_list'], $content );
 
@@ -429,6 +432,7 @@ function cherry_get_related_posts() {
 	);
 
 	echo $result;
+
 }
 
 function cherry_get_author_bio() {
@@ -468,13 +472,22 @@ add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
 function cherry_maintenance_mode() {
 
 	$enabled      = cherry_get_option( 'general-maintenance-mode', false );
-	$preview_mode = isset( $_GET['maintenance-preview'] ) ? true : false;
 
-	if ( 'true' !== $enabled && !$preview_mode ) {
+	if (
+		isset( $_GET['maintenance-preview'] )
+		&& isset( $_GET['nonce'] )
+		&& wp_verify_nonce( $_GET['nonce'], 'cherry-maintenance-preview' )
+	) {
+		$preview_mode = true;
+	} else {
+		$preview_mode = false;
+	}
+
+	if ( 'true' !== $enabled && ! $preview_mode ) {
 		return;
 	}
 
-	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && !$preview_mode ) {
+	if ( is_user_logged_in() && current_user_can( 'manage_options' ) && ! $preview_mode ) {
 		return;
 	}
 
