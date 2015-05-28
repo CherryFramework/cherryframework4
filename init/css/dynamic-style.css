@@ -329,3 +329,13 @@ address {
 	.site-content.wide .container,
 	.site-footer.wide .container { max-width: $grid-container-width{px} }
 @media_close()
+
+@media (max-width:480px) {
+	.menu-items {
+		padding: 10px;
+		background: @contrast( $typography-header-menu[color], #fafafa, #454545 );
+	}
+	.menu-primary .sub-menu a {
+		color: $typography-header-menu[color];
+	}
+}
