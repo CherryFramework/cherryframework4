@@ -62,7 +62,7 @@ function cherry_default_scripts() {
  */
 function enqueue_cherry_api_scripts() {
 	// Cherry Framework JS API
-	wp_register_script( 'cherry-api', esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/cherry-api.js' ), array( 'jquery' ), CHERRY_SHORTCODES_VERSION, true );
+	wp_register_script( 'cherry-api', esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/cherry-api.js' ), array( 'jquery' ), CHERRY_VERSION, true );
 	wp_enqueue_script( 'cherry-api' );
 }
 /**
