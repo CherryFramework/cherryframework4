@@ -50,6 +50,8 @@ add_action( 'wp_head', 'cherry_favicon_tags' );
 
 // Add popup video and image classes to embeded images into editor
 add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 );
+// Add mobile menu trigger to Primary nav menu
+add_filter( 'wp_nav_menu', 'cherry_add_mobile_menu_trigger', 10, 2 );
 
 
 // Add specific CSS class by filter.
@@ -487,4 +489,28 @@ function cherry_safe_add_class( $html, $link, $class ) {
 
 	return $html;
 
+}
+
+/**
+ * Add mobile triiger for standard menu
+ *
+ * @since  4.0.0
+ *
+ * @param  string $menu menu output
+ * @param  object $args menu arguments object
+ */
+function cherry_add_mobile_menu_trigger( $menu, $args ) {
+
+	if ( 'primary' !== $args->theme_location ) {
+		return $menu;
+	}
+
+	if ( is_a( $args->walker, 'cherry_mega_menu_walker' ) ) {
+		return $menu;
+	}
+
+	$label   = apply_filters( 'cherry_menu_mobile_label', __( 'Menu', 'cherry' ) );
+	$trigger = '<button class="menu-primary_trigger" aria-expanded="false">' . esc_textarea( $label ) . '</button>';
+
+	return $trigger . $menu;
 }
