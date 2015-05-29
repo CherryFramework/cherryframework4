@@ -288,7 +288,7 @@ class Cherry_Woo_Breadcrumbs extends cherry_breadcrumbs {
 
 		if ( ! is_page( $shop_page_id ) && ! is_post_type_archive( 'product' ) ) {
 			$this->_add_item( 'link_format', $label, $url );
-		} elseif ( $label && true === $this->args['show_title'] ) {
+		} elseif ( $label ) {
 			$this->page_title = $label;
 			$this->_add_item( 'target_format', $label );
 		}
