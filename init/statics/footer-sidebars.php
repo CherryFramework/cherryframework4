@@ -18,8 +18,15 @@ class cherry_footer_sidebars_static extends cherry_register_static {
 	 * @since 4.0.0
 	 */
 	public function callback() {
+		$classes   = array();
+		$classes[] = 'col-xs-12';
+		$classes[] = 'col-sm-3';
+		$classes   = apply_filters( 'cherry_footer_sidebars_static_class', $classes );
+		$classes   = array_map( 'esc_attr', $classes );
+		$classes   = array_unique( $classes );
+
 		for ( $i = 1; $i <= 4; $i++ ) {
-			echo '<div class="col-xs-12 col-sm-3">';
+			echo '<div class="' . join( ' ', $classes ) . '">';
 				cherry_get_sidebar( "sidebar-footer-{$i}" );
 			echo '</div>';
 		}

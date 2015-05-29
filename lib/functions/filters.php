@@ -26,7 +26,8 @@ add_filter( 'cherry_get_container_class',           'cherry_get_container_classe
 add_filter( 'cherry_content_sidebar_wrapper_class', 'cherry_content_sidebar_wrapper_class' );
 
 // Filters a sidebar visibility.
-add_filter( 'cherry_display_sidebar', 'cherry_hide_sidebar', 9, 2 );
+add_filter( 'cherry_display_sidebar',      'cherry_hide_sidebar', 9, 2 );
+add_filter( 'cherry_display_sidebar_args', 'cherry_add_display_sidebar_args', 9, 2 );
 
 // Filters an excerpt params.
 add_filter( 'excerpt_length', 'cherry_excerpt_length', 999 );
@@ -65,7 +66,7 @@ function cherry_add_control_classes( $classes ) {
 	}
 
 	// Sidebar.
-	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
+	if ( cherry_display_sidebar( apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' ) ) ) {
 		$classes[] = 'cherry-with-sidebar';
 	} else {
 		$classes[] = 'cherry-no-sidebar';
@@ -255,21 +256,24 @@ function cherry_content_sidebar_wrapper_class( $class ) {
 }
 
 function cherry_hide_sidebar( $display, $id ) {
-	$skip_sidebars = apply_filters( 'cherry_skip_hidden_sidebars', array(
-		'sidebar-footer-1',
-		'sidebar-footer-2',
-		'sidebar-footer-3',
-		'sidebar-footer-4',
-	), $display, $id );
+	if ( did_action( 'cherry_footer' ) ) {
+		return $display;
+	}
 
-	if ( in_array( $id, $skip_sidebars ) ) {
+	$sidebar_main      = apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' );
+	$sidebar_secondary = apply_filters( 'cherry_get_secondary_sidebar', 'sidebar-secondary' );
+
+	$allowed_sidebars = array( $sidebar_main, $sidebar_secondary );
+	$allowed_sidebars = apply_filters( 'cherry_hide_allowed_sidebars', $allowed_sidebars, $display, $id );
+
+	if ( ! in_array( $id, $allowed_sidebars ) ) {
 		return $display;
 	}
 
 	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
 	$layout    = get_post_meta( $object_id, 'cherry_layout', true );
 
-	if ( !$layout || ( 'default-layout' == $layout ) ) {
+	if ( ! $layout || ( 'default-layout' == $layout ) ) {
 		$layout = cherry_get_option( 'page-layout' );
 	}
 
@@ -277,11 +281,33 @@ function cherry_hide_sidebar( $display, $id ) {
 		return false;
 	}
 
-	if ( ( ( 'sidebar-content' == $layout ) || ( 'content-sidebar' == $layout ) ) && ( 'sidebar-secondary' == $id ) ) {
+	if ( $sidebar_main == $sidebar_secondary ) {
+		static $cherry_sidebar_counter = 0;
+	}
+
+	if ( ( ( 'sidebar-content' == $layout ) || ( 'content-sidebar' == $layout ) )
+		&& ( apply_filters( 'cherry_get_secondary_sidebar', 'sidebar-secondary' ) == $id )
+		) {
+
+		if ( isset( $cherry_sidebar_counter ) && ! $cherry_sidebar_counter ) {
+			$cherry_sidebar_counter++;
+
+			return $display;
+		}
+
 		return false;
 	}
 
 	return $display;
+}
+
+function cherry_add_display_sidebar_args( $sidebars, $id ) {
+
+	if ( ! isset( $sidebars[ $id ] ) ) {
+		$sidebars = array_merge( $sidebars, array( $id => new Cherry_Sidebar() ) );
+	}
+
+	return $sidebars;
 }
 
 function cherry_excerpt_length( $length ) {

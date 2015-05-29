@@ -76,7 +76,7 @@ function cherry_content_wrap() {
 
 		$wrapper = '';
 
-		if ( false !== cherry_display_sidebar( 'sidebar-main' ) ) {
+		if ( false !== cherry_display_sidebar( apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' ) ) ) {
 			$wrapper_class = apply_filters( 'cherry_content_sidebar_wrapper_class', 'content-sidebar-wrapper' );
 			$wrapper       = sprintf( '<div class="%s">', $wrapper_class );
 		}
@@ -97,7 +97,11 @@ function cherry_content_wrap() {
  */
 function cherry_content_sidebar_wrap_close( $sidebar ) {
 
-	if ( 'sidebar-main' != $sidebar ) {
+	if ( apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' ) !== $sidebar ) {
+		return;
+	}
+
+	if ( did_action( 'cherry_footer' ) ) {
 		return;
 	}
 

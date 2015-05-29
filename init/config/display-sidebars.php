@@ -80,11 +80,7 @@ function cherry_display_sidebar( $id ) {
 				'is_404',
 			)
 		),
-	) );
-
-	if ( !isset( $sidebars[ $id ] ) ) {
-		return true;
-	}
+	), $id );
 
 	return apply_filters( 'cherry_display_sidebar', $sidebars[ $id ]->display, $id );
 }

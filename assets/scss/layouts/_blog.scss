@@ -43,40 +43,38 @@
 
 
 // Main sidebar.
-#sidebar-main {
-	width: $sidebar-main-width;
-}
-
 .sidebar-content-wrapper,
 .sidebar-sidebar-content-wrapper {
-	#sidebar-main {
+	.widget-area {
 		float: left;
+		width: $sidebar-main-width;
 	}
 }
 
 .content-sidebar-wrapper,
 .content-sidebar-sidebar-wrapper,
 .sidebar-content-sidebar-wrapper {
-	#sidebar-main {
+	.widget-area {
 		float: right;
+		width: $sidebar-main-width;
 	}
 }
 
 
 // Secondary sidebar.
-#sidebar-secondary {
+.site-content .widget-area {
 	width: $sidebar-secondary-width;
 }
 
 .sidebar-sidebar-content-wrapper +,
 .sidebar-content-sidebar-wrapper + {
-	#sidebar-secondary {
+	.widget-area {
 		float: left;
 	}
 }
 
 .content-sidebar-sidebar-wrapper + {
-	#sidebar-secondary {
+	.widget-area {
 		float: right;
 	}
 }

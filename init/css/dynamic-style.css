@@ -327,7 +327,10 @@ address {
 
 	.site-header.wide .container,
 	.site-content.wide .container,
-	.site-footer.wide .container { max-width: $grid-container-width{px} }
+	.site-footer.wide .container {
+		width: auto;
+		max-width: $grid-container-width{px}
+}
 @media_close()
 
 @media (max-width:480px) {

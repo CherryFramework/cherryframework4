@@ -149,10 +149,11 @@ function cherry_attr_content( $attr ) {
 function cherry_attr_sidebar( $attr, $context ) {
 
 	if ( !empty( $context ) ) {
-		$attr['id'] = "$context";
+		$attr['class'] = "$context widget-area";
+	} else {
+		$attr['class'] = 'widget-area';
 	}
 
-	$attr['class'] = 'widget-area';
 	$attr['role']  = 'complementary';
 
 	return $attr;

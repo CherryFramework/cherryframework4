@@ -1202,31 +1202,29 @@ Version:     1.0.0
     float: left;
   }
 
-  #sidebar-main {
+  .sidebar-content-wrapper .widget-area,
+  .sidebar-sidebar-content-wrapper .widget-area {
+    float: left;
     width: 23%;
   }
 
-  .sidebar-content-wrapper #sidebar-main,
-  .sidebar-sidebar-content-wrapper #sidebar-main {
-    float: left;
-  }
-
-  .content-sidebar-wrapper #sidebar-main,
-  .content-sidebar-sidebar-wrapper #sidebar-main,
-  .sidebar-content-sidebar-wrapper #sidebar-main {
+  .content-sidebar-wrapper .widget-area,
+  .content-sidebar-sidebar-wrapper .widget-area,
+  .sidebar-content-sidebar-wrapper .widget-area {
     float: right;
+    width: 23%;
   }
 
-  #sidebar-secondary {
+  .site-content .widget-area {
     width: 18%;
   }
 
-  .sidebar-sidebar-content-wrapper + #sidebar-secondary,
-  .sidebar-content-sidebar-wrapper + #sidebar-secondary {
+  .sidebar-sidebar-content-wrapper + .widget-area,
+  .sidebar-content-sidebar-wrapper + .widget-area {
     float: left;
   }
 
-  .content-sidebar-sidebar-wrapper + #sidebar-secondary {
+  .content-sidebar-sidebar-wrapper + .widget-area {
     float: right;
   }
 
