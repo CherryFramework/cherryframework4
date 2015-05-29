@@ -115,7 +115,7 @@ if ( ! class_exists( 'Cherry_Woocommerce' ) ) {
 				return $object_id;
 			}
 
-			if ( ! is_shop() ) {
+			if ( ! is_shop() && ! is_tax( 'product_cat' ) && ! is_tax( 'product_tag' ) ) {
 				return $object_id;
 			}
 
