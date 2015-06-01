@@ -1215,17 +1215,15 @@ Version:     1.0.0
     width: 23%;
   }
 
-  .site-content .widget-area {
-    width: 18%;
-  }
-
   .sidebar-sidebar-content-wrapper + .widget-area,
   .sidebar-content-sidebar-wrapper + .widget-area {
     float: left;
+    width: 18%;
   }
 
   .content-sidebar-sidebar-wrapper + .widget-area {
     float: right;
+    width: 18%;
   }
 
   .cherry-with-sidebar .content-area .container {

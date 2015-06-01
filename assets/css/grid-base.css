@@ -928,15 +928,14 @@ Version:     1.0.0
   float: right;
   width: 23%;
 }
-.cherry-no-responsive .site-content .widget-area {
-  width: 18%;
-}
 .cherry-no-responsive .sidebar-sidebar-content-wrapper + .widget-area,
 .cherry-no-responsive .sidebar-content-sidebar-wrapper + .widget-area {
   float: left;
+  width: 18%;
 }
 .cherry-no-responsive .content-sidebar-sidebar-wrapper + .widget-area {
   float: right;
+  width: 18%;
 }
 .cherry-no-responsive .cherry-with-sidebar .content-area .container {
   width: 80%;

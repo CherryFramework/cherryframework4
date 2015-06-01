@@ -62,20 +62,18 @@
 
 
 // Secondary sidebar.
-.site-content .widget-area {
-	width: $sidebar-secondary-width;
-}
-
 .sidebar-sidebar-content-wrapper +,
 .sidebar-content-sidebar-wrapper + {
 	.widget-area {
 		float: left;
+		width: $sidebar-secondary-width;
 	}
 }
 
 .content-sidebar-sidebar-wrapper + {
 	.widget-area {
 		float: right;
+		width: $sidebar-secondary-width;
 	}
 }
 
