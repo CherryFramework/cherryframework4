@@ -161,6 +161,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the scripts functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'scripts.php' );
 
+			// Class Cherry API JS
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-api-js.php' );
+
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );
 
@@ -322,6 +325,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Check if in the WordPress admin.
 			if ( is_admin() ) {
+				// Class Cherry Page Builder
+				require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-page-builder.php' );
+
 				// Load Cherry_Interface_Builder class.
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-interface-builder.php' );
 
@@ -332,7 +338,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-update.php' );
 
 				// Load the main admin file.
-				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );
+				require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-admin.php' );
 			}
 		}
 

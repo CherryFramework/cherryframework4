@@ -29,18 +29,18 @@ if( !class_exists('Cherry_Update') ) {
 				'sslverify' => true,
 				'important_release' => '-imp',
 				'alpha_release' => '-alpha', //To alpha update need constant CHERRY_ALPHA_UPDATE - true
-				'beta_release' => '-beta', //To beta update need constant CHERRY_BETA_UPDATE - true 
+				'beta_release' => '-beta', //To beta update need constant CHERRY_BETA_UPDATE - true
 				'template' => 'cherryframework4',
 			);
 
 		public function __construct($attr = array()){
-			
+
 			if( @constant ( 'CHERRY_UPDATE' ) !== false ){
 
 				self::init($attr);
 				//Need for test update
 				//set_site_transient('update_themes', null);
-				
+
 				add_filter( 'pre_set_site_transient_update_themes', array( 'Cherry_Update' , 'update' ), 99, 1 );
 				add_filter( 'upgrader_source_selection', array( 'Cherry_Update', 'rename_github_zip' ), 1, 3 );
 
@@ -68,7 +68,7 @@ if( !class_exists('Cherry_Update') ) {
 
 				$data->response[ $update['theme'] ] = $update;
 			}
-			
+
 			return $data;
 		}
 
@@ -88,7 +88,7 @@ if( !class_exists('Cherry_Update') ) {
 					$get_version = strtolower ($update->name);
 					$update_label = preg_replace('/[\d\.]/', '', $get_version);;
 					$get_version = preg_replace('/[^\d\.]/', '', $get_version);
-					
+
 
 					if( version_compare ( $get_version, $current_version ) > 0 && strpos($update_label, self::$api['important_release']) !==false ){
 						$new_update['version'] = $get_version;
@@ -129,17 +129,17 @@ if( !class_exists('Cherry_Update') ) {
 		}
 
 		public function rename_github_zip( $upgrate_dir, $remote_dir, $theme_upgrader ){
-		    if(  strpos( $upgrate_dir, self::$api['product_name'] ) === false ){
-		        return $upgrate_dir;
-		    }
+			if( strpos( $upgrate_dir, self::$api['product_name'] ) === false ){
+				return $upgrate_dir;
+			}
 
-		    $upgrate_dir_path = pathinfo($upgrate_dir);
-		    $new_upgrate_dir = trailingslashit( $upgrate_dir_path['dirname'] ) . trailingslashit( self::$api['template'] );
+			$upgrate_dir_path = pathinfo($upgrate_dir);
+			$new_upgrate_dir = trailingslashit( $upgrate_dir_path['dirname'] ) . trailingslashit( self::$api['template'] );
 
-		    rename($upgrate_dir, $new_upgrate_dir);
-		    return $new_upgrate_dir;
+			rename($upgrate_dir, $new_upgrate_dir);
+			return $new_upgrate_dir;
 		}
 	}
-	$Update = new Cherry_Update();
+	$Cherry_Update = new Cherry_Update();
 }
 ?>
