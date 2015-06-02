@@ -80,7 +80,7 @@ function cherry_defaults_settings() {
 	$general_options['general-user-css'] = array(
 		'type'  => 'ace-editor',
 		'title' => __( 'User CSS', 'cherry' ),
-		'description' => __( 'Define custom CSS styling.', 'cherry' ),		
+		'description' => __( 'Define custom CSS styling.', 'cherry' ),
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
 		'value'        => ''
@@ -112,10 +112,10 @@ function cherry_defaults_settings() {
 		'value' => 'true',
 	);
 	$grid_options['page-layout'] = array(
-		'type'  => 'radio',
-		'title' => __( 'Layout', 'cherry' ),
-		'description' => __( 'Select blog page layout.', 'cherry' ),
-		'hint'  => array(
+		'type'        => 'radio',
+		'title'       => __( 'Layout', 'cherry' ),
+		'description' => __( 'Select page layout.', 'cherry' ),
+		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'You can choose if you want to display sidebars and how you want to display them.', 'cherry' ),
 		),
