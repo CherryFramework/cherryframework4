@@ -40,7 +40,7 @@ class Cherry_Admin {
 	 */
 	public function enqueue_admin_scripts( $hook_suffix ) {
 
-		if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
+		if ( 'toplevel_page_cherry-options-page' == $hook_suffix ) {
 
 			wp_enqueue_media();
 			wp_enqueue_script( 'admin-interface', trailingslashit( CHERRY_URI ) . 'admin/assets/js/admin-interface.js', array( 'jquery' ), CHERRY_VERSION, true );
@@ -102,3 +102,8 @@ class Cherry_Admin {
 }
 
 Cherry_Admin::get_instance();
+
+// Include theme options page.
+global $cherry_options_framework;
+$cherry_options_framework = new Cherry_Options_Framework;
+$options_framework_admin = new Cherry_Options_Framework_Admin;

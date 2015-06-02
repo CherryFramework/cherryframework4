@@ -28,7 +28,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 * @since 4.0.0
 		 * @var   string
 		 */
-		public $options_export_url = null;
+		public static $options_export_url = null;
 
 
 		/**
@@ -58,7 +58,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				admin_url( 'admin-ajax.php' )
 			);
 
-			$this->options_export_url = wp_nonce_url( $url, 'cherry_export' );
+			self::$options_export_url = wp_nonce_url( $url, 'cherry_export' );
 		}
 
 		private function init(){
@@ -72,21 +72,38 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			);
 
 			// Add the options page and menu item.
-			add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );
+			$Cherry_Page_Builder = new Cherry_Page_Builder();
+
+			$Cherry_Page_Builder -> add_parent_menu_item (array(
+				'page_title' => __( 'Theme Cherry Framework', 'cherry' ),
+				'menu_title' => __( 'Cherry Options', 'cherry' ),
+				'capability' => 'edit_theme_options',
+				'menu_slug' => 'cherry-options-page',
+				'function' => array( __CLASS__, 'cherry_options_page_build'),
+				'icon_url' => PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.png',
+				'position' => 62,
+				'before_content' => '
+					<div class="cherry-info-box">
+						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
+							<a href="http://cherryframework.com/documentation/cf4/index_en.html" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
+						</div>
+					</div>'
+			));
+			//add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );
 
 			// Settings need to be registered after admin_init
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
 
 			// Displays notice after options save
-			add_action('cherry-options-updated', array( $this, 'save_options_notice' ) );
+			//add_action('cherry-options-updated', array( $this, 'save_options_notice' ) );
 
 			// Displays notice after section restored
-			add_action('cherry-section-restored', array( $this, 'restore_section_notice' ) );
+			//add_action('cherry-section-restored', array( $this, 'restore_section_notice' ) );
 
 			// Displays notice after options restored
-			add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
+			//add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
 
-			add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
+			//add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
 
 
 			//************* Sanitize Utility Filters  ************************************//
@@ -396,21 +413,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
-		 *
-		 * @since 4.0.0
-		 */
-		function cherry_admin_menu_add_item() {
-			add_menu_page(
-				__( 'Cherry page', 'cherry' ),
-				__( 'Cherry Options', 'cherry' ),
-				'edit_theme_options',
-				'cherry-options',
-				array( $this, 'cherry_options_page_build' ),
-				PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.png', 62
-			);
-		}
-
-		/**
 		 * Validate Options.
 		 *
 		 *
@@ -437,8 +439,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 *
 		 * @since 4.0.0
 		 */
-		private function priority_sorting($base_array) {
-			uasort($base_array, array( $this, 'compare' ));
+		private static function priority_sorting($base_array) {
+			uasort($base_array, array( __CLASS__, 'compare' ));
 			return $base_array;
 		}
 		/**
@@ -448,7 +450,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 * @param  int $a
 		 * @param  int $b
 		 */
-		private function compare( $a, $b ) {
+		private static function compare( $a, $b ) {
 			return ($a['priority'] - $b['priority']);
 		}
 		/**
@@ -456,7 +458,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 *
 		 * @since 4.0.0
 		 */
-		private function child_priority_sorting($base_array) {
+		private static function child_priority_sorting($base_array) {
 			foreach ($base_array as $sectionName => $sectionSettings) {
 				$parent = !empty( $sectionSettings['parent'] ) ? $sectionSettings['parent'] : '';
 				if($parent !== ''){
@@ -472,98 +474,88 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 *
 		 * @since 4.0.0
 		 */
-		function cherry_options_page_build() {
+		public static function cherry_options_page_build() {
 			global $cherry_options_framework;
 
 				$section_index = 0;
 
 				$cherry_options = $cherry_options_framework->get_current_settings();
 
-				$cherry_options = $this->child_priority_sorting($cherry_options);
+				$cherry_options = self::child_priority_sorting($cherry_options);
 
-				$cherry_options = $this->priority_sorting($cherry_options);
+				$cherry_options = self::priority_sorting($cherry_options);
 
 				?>
-					<div class="options-page-wrapper">
-						<div class="current-theme">
-							<span><?php  echo "Theme ".get_option( 'current_theme' ); ?></span>
-						</div>
-						<div class="info-box">
-							<div class="documentation-link">
-								<?php  echo __( 'Feel free to view detailed ', 'cherry' ) ?><a href="http://cherryframework.com/documentation/cf4/index_en.html"><?php  echo __( 'Cherry Framework 4 documentation', 'cherry' ) ?></a>
-							</div>
-						</div>
-						<?php settings_errors( 'cherry-options' ); ?>
-							<form id="cherry-options" class="cherry-ui-core" method="post">
-								<?php settings_fields( 'cherry-options' ); ?>
-								<input class="active-section-field" type="hidden" name="active_section" value="">
-								<div class="cherry-sections-wrapper">
-									<ul class="cherry-option-section-tab vertical-tabs_ vertical-tabs_width_mid_">
-										<?php
-										foreach ($cherry_options as $section_key => $section_value) {
-											$parent = !empty( $section_value['parent'] ) ? $section_value['parent'] : '';
-											( $parent !== '') ? $subClass = 'subitem' : $subClass = '';
-											$priority_value = $section_value['priority']; ?>
-											<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $parent ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
-										<?php $section_index++; } ?>
-									</ul>
-									<div class="cherry-option-group-list"></div>
-									<div class="clear"></div>
-								</div>
-								<div class="cherry-submit-wrapper">
-									<div class="cherry-options-export-import">
-										<div class="wrap-cherry-export-options">
-											<a href="<?php echo esc_url( $this->options_export_url ) ?>" id="cherry-export-options" class="button button-default_">
-												<?php _e( 'Export', 'cherry' ); ?>
-											</a>
-										</div>
-										<div class="wrap-cherry-import-options">
-											<a href="#" id="cherry-import-options" class="button button-default_">
-												<?php _e( 'Import', 'cherry' ); ?>
-											</a>
-										</div>
-										<div class="wrap-cherry-default-options-backup">
-											<a href="#" id="cherry-default-options-backup" class="button button-default_">
-												<?php _e( 'Default options', 'cherry' ); ?>
-												<div class="cherry-spinner-wordpress spinner-wordpress-type-3"><span class="cherry-inner-circle"></span></div>
-											</a>
-										</div>
-									</div>
-									<div id="wrap-cherry-save-options">
-										<a href="#" id="cherry-save-options" class="button button-primary_">
-											<?php echo __( 'Save options', 'cherry' ); ?>
-											<div class="cherry-spinner-wordpress spinner-wordpress-type-2"><span class="cherry-inner-circle"></span></div>
-										</a>
-									</div>
-									<div id="wrap-cherry-restore-section">
-										<a href="#" id="cherry-restore-section" class="button button-default_">
-											<?php echo __( 'Restore section', 'cherry' ); ?>
-										</a>
-									</div>
-									<div id="wrap-cherry-restore-options">
-										<a href="#" id="cherry-restore-options" class="button button-default_">
-											<?php echo __( 'Restore options', 'cherry' ); ?>
-										</a>
-									</div>
-								</div>
-							</form>
-							<div class="cherry-ui-core">
-								<div class="cherry-options-import">
-									<div class="cherry-import-file-name"></div>
-									<?php wp_nonce_field( 'cherry_import_options', 'import-options-nonce', false ); ?>
-									<input type="hidden" autocomplete="off" id="cherry-import-options-file-id" value="">
-									<input type="hidden" autocomplete="off" id="cherry-import-options-file-type" value="">
-									<a href="#" id="cherry-import-options-file" class="button button-default_">
-										<?php _e( 'Select file', 'cherry' ); ?>
-									</a>
-									<a href="#" id="cherry-import-options-start" class="button button-primary_">
-										<?php _e( 'Start import', 'cherry' ); ?>
-									</a>
-
-									<span class="spinner"></span>
-								</div>
-							</div>
+			<?php settings_errors( 'cherry-options' ); ?>
+				<form id="cherry-options" class="cherry-ui-core" method="post">
+					<?php settings_fields( 'cherry-options' ); ?>
+					<input class="active-section-field" type="hidden" name="active_section" value="">
+					<div class="cherry-sections-wrapper">
+						<ul class="cherry-option-section-tab vertical-tabs_ vertical-tabs_width_mid_">
+							<?php
+							foreach ($cherry_options as $section_key => $section_value) {
+								$parent = !empty( $section_value['parent'] ) ? $section_value['parent'] : '';
+								( $parent !== '') ? $subClass = 'subitem' : $subClass = '';
+								$priority_value = $section_value['priority']; ?>
+								<li class="tabitem-<?php echo $section_index; ?> <?php echo $subClass; ?> <?php echo $parent ?>" data-section-name="<?php echo $section_key; ?>"><a href="javascript:void(0)"><i class="<?php echo $section_value["icon"]; ?>"></i><span><?php echo $section_value["name"]; ?></span></a></li>
+							<?php $section_index++; } ?>
+						</ul>
+						<div class="cherry-option-group-list"></div>
+						<div class="clear"></div>
 					</div>
+					<div class="cherry-submit-wrapper">
+						<div class="cherry-options-export-import">
+							<div class="wrap-cherry-export-options">
+								<a href="<?php echo esc_url( self::$options_export_url ) ?>" id="cherry-export-options" class="button button-default_">
+									<?php _e( 'Export', 'cherry' ); ?>
+								</a>
+							</div>
+							<div class="wrap-cherry-import-options">
+								<a href="#" id="cherry-import-options" class="button button-default_">
+									<?php _e( 'Import', 'cherry' ); ?>
+								</a>
+							</div>
+							<div class="wrap-cherry-default-options-backup">
+								<a href="#" id="cherry-default-options-backup" class="button button-default_">
+									<?php _e( 'Default options', 'cherry' ); ?>
+									<div class="cherry-spinner-wordpress spinner-wordpress-type-3"><span class="cherry-inner-circle"></span></div>
+								</a>
+							</div>
+						</div>
+						<div id="wrap-cherry-save-options">
+							<a href="#" id="cherry-save-options" class="button button-primary_">
+								<?php echo __( 'Save options', 'cherry' ); ?>
+								<div class="cherry-spinner-wordpress spinner-wordpress-type-2"><span class="cherry-inner-circle"></span></div>
+							</a>
+						</div>
+						<div id="wrap-cherry-restore-section">
+							<a href="#" id="cherry-restore-section" class="button button-default_">
+								<?php echo __( 'Restore section', 'cherry' ); ?>
+							</a>
+						</div>
+						<div id="wrap-cherry-restore-options">
+							<a href="#" id="cherry-restore-options" class="button button-default_">
+								<?php echo __( 'Restore options', 'cherry' ); ?>
+							</a>
+						</div>
+					</div>
+				</form>
+				<div class="cherry-ui-core">
+					<div class="cherry-options-import">
+						<div class="cherry-import-file-name"></div>
+						<?php wp_nonce_field( 'cherry_import_options', 'import-options-nonce', false ); ?>
+						<input type="hidden" autocomplete="off" id="cherry-import-options-file-id" value="">
+						<input type="hidden" autocomplete="off" id="cherry-import-options-file-type" value="">
+						<a href="#" id="cherry-import-options-file" class="button button-default_">
+							<?php _e( 'Select file', 'cherry' ); ?>
+						</a>
+						<a href="#" id="cherry-import-options-start" class="button button-primary_">
+							<?php _e( 'Start import', 'cherry' ); ?>
+						</a>
+
+						<span class="spinner"></span>
+					</div>
+				</div>
 				<?php
 		}
 
