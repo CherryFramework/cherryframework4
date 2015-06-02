@@ -350,7 +350,7 @@ class Cherry_Statics {
 				continue;
 			}
 
-			if ( !is_callable( $cherry_registered_statics[ $id ]['callback'] ) ) {
+			if ( !is_callable( $cherry_registered_statics[ $id ]['callback'] ) ) { // add check
 				continue;
 			}
 

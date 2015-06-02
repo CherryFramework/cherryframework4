@@ -53,9 +53,7 @@ function cherry_get_attr( $slug, $context = '' ) {
 	$attr   = apply_filters( "cherry_attr_{$slug}", array(), $context );
 
 	if ( empty( $attr ) ) {
-
 		$attr['class'] = $slug;
-
 	}
 
 	foreach ( $attr as $name => $value ) {
@@ -147,13 +145,30 @@ function cherry_attr_content( $attr ) {
  * @return array
  */
 function cherry_attr_sidebar( $attr, $context ) {
+	$sidebar_main      = apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' );
+	$sidebar_secondary = apply_filters( 'cherry_get_secondary_sidebar', 'sidebar-secondary' );
 
-	if ( !empty( $context ) ) {
-		$attr['id'] = "$context";
+	if ( did_action( 'cherry_footer' ) ) {
+		$attr['class'] = "$context widget-area";
+		$attr['role']  = 'complementary';
+		return $attr;
 	}
 
-	$attr['class'] = 'widget-area';
-	$attr['role']  = 'complementary';
+	switch ( $context ) {
+		case $sidebar_main:
+			$attr['class'] = "cherry-sidebar-main $context widget-area";
+			break;
+
+		case $sidebar_secondary:
+			$attr['class'] = "cherry-sidebar-secondary $context widget-area";
+			break;
+
+		default:
+			$attr['class'] = "$context widget-area";
+			break;
+	}
+
+	$attr['role'] = 'complementary';
 
 	return $attr;
 }

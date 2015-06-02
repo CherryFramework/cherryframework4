@@ -239,7 +239,8 @@ function cherry_the_post_content( $args ) {
 	 * @param string $post_type The post type of the current post.
 	 */
 	$defaults = apply_filters( 'cherry_the_post_content_defaults', array(
-		'type'   => 'full',
+		'type'   => 'full', // full or part
+		'length' => cherry_get_option( 'blog-excerpt-length' ),
 		'class'  => 'entry-content',
 		'before' => '',
 		'after'  => '',
@@ -247,7 +248,7 @@ function cherry_the_post_content( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( !is_singular( $post_type ) ) {
+	if ( ! is_singular( $post_type ) ) {
 		$args['type'] = cherry_get_option( 'blog-content-type' );
 	}
 
@@ -261,7 +262,13 @@ function cherry_the_post_content( $args ) {
 		) );
 
 	} elseif ( 'part' == $args['type'] ) {
-		echo wp_trim_excerpt();
+		/* wp_trim_excerpt analog */
+		$content = strip_shortcodes( get_the_content( '' ) );
+		$content = apply_filters( 'the_content', $content );
+		$content = str_replace( ']]>', ']]&gt;', $content );
+		$content = wp_trim_words( $content, $args['length'], '' );
+
+		echo $content;
 	}
 
 	printf( '%s</div>', $args['after'] );

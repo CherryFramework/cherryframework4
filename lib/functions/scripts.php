@@ -133,7 +133,7 @@ function cherry_prepare_sticky_vars() {
 	);
 
 	$options_args = array(
-		'active' => ( 'true' == $is_sticky ) ? true : false
+		'active' => ( 'true' == $is_sticky && ! wp_is_mobile() ) ? true : false
 	);
 
 	$args            = apply_filters( 'cherry_header_sticky_args', $defaults );

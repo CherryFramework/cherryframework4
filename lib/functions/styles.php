@@ -219,7 +219,8 @@ function cherry_post_inline_styles() {
 		return;
 	}
 
-	$styles = get_post_meta( $post_id, 'cherry_style', true );
+	$object_id = apply_filters( 'cherry_current_object_id', $post_id );
+	$styles    = get_post_meta( $object_id, 'cherry_style', true );
 
 	if ( ! $styles ) {
 		return;

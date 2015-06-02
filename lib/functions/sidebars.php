@@ -61,6 +61,14 @@ function cherry_register_sidebar( $args ) {
 	$args = apply_filters( 'cherry_sidebar_args', $args );
 
 	/**
+	 * Fires before execute WordPress `register_sidebar` function.
+	 *
+	 * @since 4.0.0
+	 * @param array $args
+	 */
+	do_action( 'cherry_register_sidebar', $args );
+
+	/**
 	 * Register the sidebar.
 	 * @link http://codex.wordpress.org/Function_Reference/register_sidebar
 	 */

@@ -26,7 +26,8 @@ add_filter( 'cherry_get_container_class',           'cherry_get_container_classe
 add_filter( 'cherry_content_sidebar_wrapper_class', 'cherry_content_sidebar_wrapper_class' );
 
 // Filters a sidebar visibility.
-add_filter( 'cherry_display_sidebar', 'cherry_hide_sidebar', 9, 2 );
+add_filter( 'cherry_display_sidebar',      'cherry_hide_sidebar', 9, 2 );
+add_filter( 'cherry_display_sidebar_args', 'cherry_add_display_sidebar_args', 9, 2 );
 
 // Filters an excerpt params.
 add_filter( 'excerpt_length', 'cherry_excerpt_length', 999 );
@@ -50,6 +51,8 @@ add_action( 'wp_head', 'cherry_favicon_tags' );
 
 // Add popup video and image classes to embeded images into editor
 add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 );
+// Add mobile menu trigger to Primary nav menu
+add_filter( 'wp_nav_menu', 'cherry_add_mobile_menu_trigger', 10, 2 );
 
 
 // Add specific CSS class by filter.
@@ -63,7 +66,7 @@ function cherry_add_control_classes( $classes ) {
 	}
 
 	// Sidebar.
-	if ( cherry_display_sidebar( 'sidebar-main' ) ) {
+	if ( cherry_display_sidebar( apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' ) ) ) {
 		$classes[] = 'cherry-with-sidebar';
 	} else {
 		$classes[] = 'cherry-no-sidebar';
@@ -81,8 +84,10 @@ function cherry_get_header_classes( $class ) {
 	$classes   = array();
 	$classes[] = $class;
 
+	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+
 	// Gets a single value.
-	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	$grid_type = apply_filters( 'cherry_get_page_grid_type', get_post_meta( $object_id, 'cherry_grid_type', true ) );
 
 	if ( empty( $grid_type['header'] ) || ( 'default-grid-type' == $grid_type['header'] ) ) {
 		$grid_type['header'] = cherry_get_option( 'header-grid-type' );
@@ -122,8 +127,10 @@ function cherry_get_content_classes( $class ) {
 	$classes   = array();
 	$classes[] = $class;
 
+	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+
 	// Gets a single value.
-	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	$grid_type = apply_filters( 'cherry_get_page_grid_type', get_post_meta( $object_id, 'cherry_grid_type', true ) );
 
 	if ( empty( $grid_type['content'] ) || ( 'default-grid-type' == $grid_type['content'] ) ) {
 		$grid_type['content'] = cherry_get_option( 'content-grid-type' );
@@ -163,8 +170,10 @@ function cherry_get_footer_classes( $class ) {
 	$classes   = array();
 	$classes[] = $class;
 
+	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+
 	// Gets a single value.
-	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	$grid_type = apply_filters( 'cherry_get_page_grid_type', get_post_meta( $object_id, 'cherry_grid_type', true ) );
 
 	if ( empty( $grid_type['footer'] ) || ( 'default-grid-type' == $grid_type['footer'] ) ) {
 		$grid_type['footer'] = cherry_get_option( 'footer-grid-type' );
@@ -203,8 +212,10 @@ function cherry_get_footer_classes( $class ) {
 function cherry_get_container_classes( $class ) {
 	$classes = array();
 
+	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+
 	// Gets a single value.
-	$grid_type = get_post_meta( get_queried_object_id(), 'cherry_grid_type', true );
+	$grid_type = apply_filters( 'cherry_get_page_grid_type', get_post_meta( $object_id, 'cherry_grid_type', true ) );
 
 	if ( empty( $grid_type['content'] ) || ( 'default-grid-type' == $grid_type['content'] ) ) {
 		$grid_type['content'] = cherry_get_option( 'content-grid-type' );
@@ -231,7 +242,9 @@ function cherry_get_container_classes( $class ) {
 }
 
 function cherry_content_sidebar_wrapper_class( $class ) {
-	$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
+
+	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+	$layout    = apply_filters( 'cherry_get_page_layout', get_post_meta( $object_id, 'cherry_layout', true ) );
 
 	if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
 		$layout = cherry_get_option( 'page-layout' );
@@ -243,20 +256,24 @@ function cherry_content_sidebar_wrapper_class( $class ) {
 }
 
 function cherry_hide_sidebar( $display, $id ) {
-	$skip_sidebars = apply_filters( 'cherry_skip_hidden_sidebars', array(
-		'sidebar-footer-1',
-		'sidebar-footer-2',
-		'sidebar-footer-3',
-		'sidebar-footer-4',
-	), $display, $id );
-
-	if ( in_array( $id, $skip_sidebars ) ) {
+	if ( did_action( 'cherry_footer' ) ) {
 		return $display;
 	}
 
-	$layout = get_post_meta( get_queried_object_id(), 'cherry_layout', true );
+	$sidebar_main      = apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' );
+	$sidebar_secondary = apply_filters( 'cherry_get_secondary_sidebar', 'sidebar-secondary' );
 
-	if ( !$layout || ( 'default-layout' == $layout ) ) {
+	$allowed_sidebars = array( $sidebar_main, $sidebar_secondary );
+	$allowed_sidebars = apply_filters( 'cherry_hide_allowed_sidebars', $allowed_sidebars, $display, $id );
+
+	if ( ! in_array( $id, $allowed_sidebars ) ) {
+		return $display;
+	}
+
+	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+	$layout    = apply_filters( 'cherry_get_page_layout', get_post_meta( $object_id, 'cherry_layout', true ) );
+
+	if ( ! $layout || ( 'default-layout' == $layout ) ) {
 		$layout = cherry_get_option( 'page-layout' );
 	}
 
@@ -264,11 +281,33 @@ function cherry_hide_sidebar( $display, $id ) {
 		return false;
 	}
 
-	if ( ( ( 'sidebar-content' == $layout ) || ( 'content-sidebar' == $layout ) ) && ( 'sidebar-secondary' == $id ) ) {
+	if ( $sidebar_main == $sidebar_secondary ) {
+		static $cherry_sidebar_counter = 0;
+	}
+
+	if ( ( ( 'sidebar-content' == $layout ) || ( 'content-sidebar' == $layout ) )
+		&& ( apply_filters( 'cherry_get_secondary_sidebar', 'sidebar-secondary' ) == $id )
+		) {
+
+		if ( isset( $cherry_sidebar_counter ) && ! $cherry_sidebar_counter ) {
+			$cherry_sidebar_counter++;
+
+			return $display;
+		}
+
 		return false;
 	}
 
 	return $display;
+}
+
+function cherry_add_display_sidebar_args( $sidebars, $id ) {
+
+	if ( ! isset( $sidebars[ $id ] ) ) {
+		$sidebars = array_merge( $sidebars, array( $id => new Cherry_Sidebar() ) );
+	}
+
+	return $sidebars;
 }
 
 function cherry_excerpt_length( $length ) {
@@ -487,4 +526,28 @@ function cherry_safe_add_class( $html, $link, $class ) {
 
 	return $html;
 
+}
+
+/**
+ * Add mobile triiger for standard menu
+ *
+ * @since  4.0.0
+ *
+ * @param  string $menu menu output
+ * @param  object $args menu arguments object
+ */
+function cherry_add_mobile_menu_trigger( $menu, $args ) {
+
+	if ( 'primary' !== $args->theme_location ) {
+		return $menu;
+	}
+
+	if ( is_a( $args->walker, 'cherry_mega_menu_walker' ) ) {
+		return $menu;
+	}
+
+	$label   = apply_filters( 'cherry_menu_mobile_label', __( 'Menu', 'cherry' ) );
+	$trigger = '<button class="menu-primary_trigger" aria-expanded="false">' . esc_textarea( $label ) . '</button>';
+
+	return $trigger . $menu;
 }
