@@ -266,7 +266,7 @@ function cherry_the_post_content( $args ) {
 		$content = strip_shortcodes( get_the_content( '' ) );
 		$content = apply_filters( 'the_content', $content );
 		$content = str_replace( ']]>', ']]&gt;', $content );
-		$content = wp_trim_words( $content, $args['length'], '' );
+		$content = wp_trim_words( $content, $args['length'], apply_filters( 'cherry_the_post_content_more', '', $args, $post_id ) );
 
 		echo $content;
 	}
