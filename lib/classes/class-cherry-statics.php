@@ -342,7 +342,7 @@ class Cherry_Statics {
 
 		foreach ( $args as $id => $data ) :
 
-			if ( !isset( $data['options']['area'] ) ) {
+			if ( ! isset( $data['options']['area'] ) ) {
 				continue;
 			}
 
@@ -350,7 +350,11 @@ class Cherry_Statics {
 				continue;
 			}
 
-			if ( !is_callable( $cherry_registered_statics[ $id ]['callback'] ) ) { // add check
+			if ( empty( $cherry_registered_statics[ $id ] ) ) {
+				continue;
+			}
+
+			if ( ! is_callable( $cherry_registered_statics[ $id ]['callback'] ) ) {
 				continue;
 			}
 
