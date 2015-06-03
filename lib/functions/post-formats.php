@@ -85,6 +85,10 @@ function cherry_aside_infinity( $content ) {
  */
 function cherry_get_the_link_title( $title, $post_id ) {
 
+	if ( is_admin() ) {
+		return $title;
+	}
+
 	if ( ! has_post_format( 'link', $post_id ) ) {
 		return $title;
 	}
