@@ -18,13 +18,4 @@ function cherry_theme_setup() {
 
 	// Load necessary config parts.
 	cherry_theme_config();
-
-	add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
-	function cherry_wrap_base_cpts( $templates ) {
-		$cpt = get_post_type(); // Get the current post type
-		if ( $cpt && ( 'page' !== $cpt ) ) {
-			array_unshift( $templates, 'base-single-' . $cpt . '.php' ); // Shift the template to the front of the array
-		}
-		return $templates; // Return modified array with base-$cpt.php at the front of the queue
-	}
 }

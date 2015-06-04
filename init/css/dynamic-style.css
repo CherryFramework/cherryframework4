@@ -98,37 +98,6 @@ a:hover {
 .post-gallery_paging_item:hover {
 	background-color: $color-primary;
 }
-.cherry-btn-primary {
-	background-color: $color-primary;
-	color: @contrast( $color-primary );
-	border: 2px solid $color-primary;
-}
-.cherry-btn-primary:hover {
-	background-color: $color-secondary;
-	color: @contrast( $color-secondary );
-	border: 2px solid $color-secondary;
-}
-.cherry-btn-link{
-	color: @contrast( $color-primary );
-}
-.cherry-btn-link:hover {
-	color: $color-secondary;
-}
-.cherry-btn-primary-light {
-	color: $color-primary;
-	border: 2px solid $color-primary;
-}
-.cherry-btn-primary-light:hover {
-	background-color: $color-primary;
-}
-.cherry-btn-gray {
-	border: 2px solid @lighten( $color-gray-variations, 54 );
-	color: $color-secondary;
-}
-.cherry-btn-gray:hover {
-	border: 2px solid @lighten( $color-gray-variations, 54 );
-	color: $color-secondary;
-}
 .cherry-list-numbered-circle > li, .cherry-list-numbered-slash > li, .cherry-list-icons > li {
 	color: @darken( $color-gray-variations, 13.2 );
 }
@@ -204,10 +173,10 @@ a:hover {
 .cherry-btn-transparent:hover{
 	color: $color-gray-variations;
 }
-.cherry-tabs .cherry-tabs-nav span {
+.cherry-tabs-nav span {
 	color: $color-secondary;
 }
-.cherry-tabs .cherry-tabs-nav span.cherry-tabs-current {
+.cherry-tabs-nav span.cherry-tabs-current {
 	color: $color-primary;
 	border-bottom: 2px solid @lighten( $color-gray-variations, 54 );
 }
@@ -358,5 +327,18 @@ address {
 
 	.site-header.wide .container,
 	.site-content.wide .container,
-	.site-footer.wide .container { max-width: $grid-container-width{px} }
-@media_close
+	.site-footer.wide .container {
+		width: auto;
+		max-width: $grid-container-width{px}
+}
+@media_close()
+
+@media (max-width:480px) {
+	.menu-items {
+		padding: 10px;
+		background: @contrast( $typography-header-menu[color], #fafafa, #454545 );
+	}
+	.menu-primary .sub-menu a {
+		color: $typography-header-menu[color];
+	}
+}

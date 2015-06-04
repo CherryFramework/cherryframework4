@@ -178,3 +178,26 @@ function cherry_version_compare() {
 
 	return version_compare( CHERRY_VERSION, $cherry_child_version );
 }
+
+/**
+ * Retrieve a file URI (in the parent theme or in the child theme if file exists).
+ *
+ * @since  4.0.0
+ *
+ * @param  string $path
+ * @return string
+ */
+function cherry_file_uri( $path ) {
+	$path = wp_normalize_path( $path );
+	$path = ltrim( $path, '/' );
+
+	if ( ! is_child_theme() ) {
+		return trailingslashit( PARENT_URI ) . $path;
+	}
+
+	if ( file_exists( trailingslashit( CHILD_DIR ) . $path ) ) {
+		return trailingslashit( CHILD_URI ) . $path;
+	}
+
+	return trailingslashit( PARENT_URI ) . $path;
+}

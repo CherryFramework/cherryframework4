@@ -372,6 +372,8 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
  */
 function cherry_get_related_posts() {
 
+	global $post;
+
 	if ( 'false' == cherry_get_option( 'blog-related-posts' ) ) {
 		return;
 	}
@@ -404,23 +406,23 @@ function cherry_get_related_posts() {
 
 	$content = '';
 
-	$template = cherry_load_tmpl(
-		apply_filters(
-			'cherry_related_post_template_hierarchy',
-			array( 'content/related-post.tmpl' )
-		)
-	);
+	foreach ( $related_query->posts as $post ) {
 
-	while ( $related_query->have_posts() ) {
+		// Sets up global post data.
+		setup_postdata( $post );
 
-		$related_query->the_post();
+		$item_body = cherry_parse_tmpl(
+			apply_filters(
+				'cherry_related_post_template_hierarchy',
+				array( 'content/related-post.tmpl' )
+			)
+		);
 
-		$temp      = $template;
-		$item_body = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $temp );
 		$content  .= sprintf( '<%1$s class="related-posts_item">%2$s</%1$s>', $args['wrapper_item'], $item_body );
 	}
 
 	wp_reset_postdata();
+	wp_reset_query();
 
 	$content = sprintf( $args['format_list'], $args['wrapper_list'], $content );
 
@@ -430,6 +432,7 @@ function cherry_get_related_posts() {
 	);
 
 	echo $result;
+
 }
 
 function cherry_get_author_bio() {

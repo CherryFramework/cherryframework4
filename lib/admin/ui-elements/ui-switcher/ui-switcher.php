@@ -38,7 +38,7 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 			$this->defaults_settings['id'] = 'cherry-ui-swither-'.uniqid();
 			$this->settings = wp_parse_args( $args, $this->defaults_settings );
 
-			add_action( 'admin_enqueue_scripts', array( get_called_class(), 'enqueue_assets' ) );
+			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
 		}
 
 		/**

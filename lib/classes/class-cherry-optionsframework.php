@@ -330,10 +330,8 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			$result_settings = array();
 
 			if( self::$is_db_options_exist ){
-				//var_dump('merged_settings');
 				$result_settings = $this->merged_settings();
 			}else{
-				//var_dump('default_settings');
 				$result_settings = $this->loaded_settings;
 			}
 

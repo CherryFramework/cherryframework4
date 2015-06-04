@@ -87,7 +87,10 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			do_action( 'cherry_constants_before' );
 
 			/** Sets the framework version number. */
-			define( 'CHERRY_VERSION', '4.0.0' );
+			$template = get_template();
+			$framework = wp_get_theme($template);
+
+			define( 'CHERRY_VERSION', $framework -> get( 'Version' ) );
 
 			/** Sets the path to the parent theme directory. */
 			define( 'PARENT_DIR', get_template_directory() );
@@ -158,6 +161,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the scripts functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'scripts.php' );
 
+			// Class Cherry API JS
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-api-js.php' );
+
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );
 
@@ -179,9 +185,12 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load abstract class for static registration.
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-abstract-cherry-register-static.php' );
 
+			// Load WooCommerce compatibility module
+			require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-woocommerce.php' );
+
 			// Load Icons gateway for shortcodes ultimate ( only if SU active )
 			if ( in_array(
-				'shortcodes-ultimate/shortcodes-ultimate.php',
+				'cherry-shortcodes/cherry-shortcodes.php',
 				apply_filters( 'active_plugins', get_option( 'active_plugins' ) )
 			) ) {
 				require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-icons-gateway.php' );
@@ -316,14 +325,20 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Check if in the WordPress admin.
 			if ( is_admin() ) {
+				// Class Cherry Page Builder
+				require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-page-builder.php' );
+
 				// Load Cherry_Interface_Builder class.
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-interface-builder.php' );
 
 				// Load Cherry_Options_Framework_Admin class.
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
 
+				// Class Cherry Update.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-update.php' );
+
 				// Load the main admin file.
-				require_once( trailingslashit( CHERRY_ADMIN ) . 'admin.php' );
+				require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-admin.php' );
 			}
 		}
 

@@ -40,7 +40,7 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 		function __construct( $args = array() ) {
 			$this->defaults_settings['id'] = 'cherry-ui-range-slider-'.uniqid();
 			$this->settings = wp_parse_args( $args, $this->defaults_settings );
-			add_action( 'admin_enqueue_scripts', array( get_called_class(), 'enqueue_assets' ) );
+			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
 
 			self::enqueue_assets();
 		}
@@ -52,7 +52,6 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 		 */
 		public function render() {
 			$html = '';
-
 			$ui_left_stepper = new UI_Stepper(
 				array(
 					'id'			=> $this->settings['id'] . '-left-stepper',

@@ -49,7 +49,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 *
 		 * @var array
 		 */
-		public $func_pattern = '/@(([a-zA-Z_]+)\((.[^\)]*)\))/';
+		public $func_pattern = '/@(([a-zA-Z_]+)\((.[^@\)]*)?\))/';
 
 		function __construct() {
 
@@ -167,6 +167,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 			$replace_func = preg_replace_callback( $this->func_pattern, array( $this, 'replace_func' ), $replce_vars );
 
 			$result = preg_replace( '/\t|\r|\n|\s{2,}/', '', $replace_func );
+			$result = htmlspecialchars_decode( $result );
 
 			return $result;
 
@@ -231,13 +232,20 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				return $not_found;
 			}
 
-			// check if function registered exists
-			if ( ! array_key_exists( $matches[2], $this->functions ) ) {
+			// check if function exists and is not CSS @media query
+			if ( ! array_key_exists( $matches[2], $this->functions ) && 'media' !== $matches[2] ) {
 				return $not_found;
+			} elseif ( 'media' == $matches[2] ) {
+				return $matches[0];
 			}
 
 			$function = $this->functions[$matches[2]];
 			$args     = isset( $matches[3] ) ? $matches[3] : array();
+
+			if ( empty( $args ) ) {
+				$result = call_user_func( $function );
+				return $result;
+			}
 
 			$args = str_replace( ' ', '', $args );
 			$args = explode( ',', $args );

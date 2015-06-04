@@ -18,7 +18,7 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 // Register Cherry Framework scripts.
-add_action( 'wp_enqueue_scripts', 'cherry_register_scripts', 0 );
+add_action( 'wp_enqueue_scripts', 'cherry_register_scripts', 1 );
 
 // Load Cherry Framework scripts.
 add_action( 'wp_enqueue_scripts', 'cherry_enqueue_scripts', 5 );
@@ -51,7 +51,6 @@ function cherry_default_scripts() {
 
 	return $default_scripts;
 }
-
 /**
  * Registers JavaScript files for the framework.  This function merely registers scripts with WordPress using
  * the wp_register_script() function.  It does not load any script files on the site.  If a theme wants to register
@@ -134,7 +133,7 @@ function cherry_prepare_sticky_vars() {
 	);
 
 	$options_args = array(
-		'active' => ( 'true' == $is_sticky ) ? true : false
+		'active' => ( 'true' == $is_sticky && ! wp_is_mobile() ) ? true : false
 	);
 
 	$args            = apply_filters( 'cherry_header_sticky_args', $defaults );

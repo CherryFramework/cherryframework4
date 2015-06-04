@@ -4,7 +4,6 @@ Author:      Cherry Team
 Version:     1.0.0
 */
 .container {
-  width: 1170px;
   margin-right: auto;
   margin-left: auto;
   padding-left: 15px;
@@ -16,6 +15,9 @@ Version:     1.0.0
 }
 .container:after {
   clear: both;
+}
+.cherry-no-responsive .container {
+  width: 1170px;
 }
 
 .collapse-col {
@@ -915,27 +917,25 @@ Version:     1.0.0
 .cherry-no-responsive .sidebar-content-sidebar-wrapper #primary {
   float: left;
 }
-.cherry-no-responsive #sidebar-main {
+.cherry-no-responsive .sidebar-content-wrapper .widget-area,
+.cherry-no-responsive .sidebar-sidebar-content-wrapper .widget-area {
+  float: left;
   width: 23%;
 }
-.cherry-no-responsive .sidebar-content-wrapper #sidebar-main,
-.cherry-no-responsive .sidebar-sidebar-content-wrapper #sidebar-main {
-  float: left;
-}
-.cherry-no-responsive .content-sidebar-wrapper #sidebar-main,
-.cherry-no-responsive .content-sidebar-sidebar-wrapper #sidebar-main,
-.cherry-no-responsive .sidebar-content-sidebar-wrapper #sidebar-main {
+.cherry-no-responsive .content-sidebar-wrapper .widget-area,
+.cherry-no-responsive .content-sidebar-sidebar-wrapper .widget-area,
+.cherry-no-responsive .sidebar-content-sidebar-wrapper .widget-area {
   float: right;
+  width: 23%;
 }
-.cherry-no-responsive #sidebar-secondary {
+.cherry-no-responsive .sidebar-sidebar-content-wrapper + .widget-area,
+.cherry-no-responsive .sidebar-content-sidebar-wrapper + .widget-area {
+  float: left;
   width: 18%;
 }
-.cherry-no-responsive .sidebar-sidebar-content-wrapper + #sidebar-secondary,
-.cherry-no-responsive .sidebar-content-sidebar-wrapper + #sidebar-secondary {
-  float: left;
-}
-.cherry-no-responsive .content-sidebar-sidebar-wrapper + #sidebar-secondary {
+.cherry-no-responsive .content-sidebar-sidebar-wrapper + .widget-area {
   float: right;
+  width: 18%;
 }
 .cherry-no-responsive .cherry-with-sidebar .content-area .container {
   width: 80%;
