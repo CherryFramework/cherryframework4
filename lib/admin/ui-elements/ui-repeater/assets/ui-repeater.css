@@ -1,0 +1,94 @@
+.cherry-repeater-wrap {
+  background: none repeat scroll 0 0 #fcfcfc;
+  border: 1px solid #dfdfdf;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 5px;
+  overflow: hidden;
+}
+.cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-dublicate-item {
+  display: none;
+}
+.cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item {
+  border: 1px solid #d4d5d6;
+  background-color: #f2f3f4;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: -webkit-grab;
+}
+.cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .col {
+  width: 30%;
+  margin-right: 1%;
+  float: left;
+}
+.cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .col input {
+  width: 100%;
+  border: 1px solid #dddcdc;
+  border-radius: 6px;
+  margin: 0;
+  padding: 10px 12px 10px 10px;
+  background-color: #fff;
+  transition: border-color 0.05s ease-in-out 0s;
+  outline: 0 none;
+  color: #333;
+}
+.cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .repeater-delete-button-holder {
+  width: 7%;
+  float: left;
+  text-align: right;
+}
+.cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .repeater-delete-button-holder .repeater-delete-button {
+  padding: 5px;
+  border-radius: 6px;
+  text-decoration: none;
+  outline: none;
+  background-color: #f62e46;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+}
+.cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .repeater-delete-button-holder .repeater-delete-button:focus {
+  box-shadow: none;
+}
+.cherry-repeater-wrap .cherry-repeater-item-list .cherry-repeater-item .repeater-delete-button-holder .repeater-delete-button i {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 30px;
+  line-height: 30px;
+}
+.cherry-repeater-wrap .repeater-add-button-holder {
+  text-align: center;
+}
+.cherry-repeater-wrap .repeater-add-button-holder .repeater-add-button {
+  padding: 2px;
+  border-radius: 6px;
+  text-decoration: none;
+  outline: none;
+  background-color: #8bc735;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  border: 3px solid #8bc735;
+}
+.cherry-repeater-wrap .repeater-add-button-holder .repeater-add-button:focus {
+  box-shadow: none;
+}
+.cherry-repeater-wrap .repeater-add-button-holder .repeater-add-button i {
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 30px;
+  line-height: 36px;
+}
+.cherry-repeater-wrap .sortable-placeholder {
+  width: 100%;
+  height: 70px;
+  margin-bottom: 10px;
+  border: 1px dashed #8BC735;
+  border-radius: 6px;
+  background: rgba(139, 199, 53, 0.3);
+  box-sizing: border-box;
+}

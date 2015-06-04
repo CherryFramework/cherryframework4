@@ -346,7 +346,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			register_setting( 'cherry-options', $cherry_options_settings['id'], array( $this, 'validate_options' ) );
 		}
 
-
 		/**
 		 *
 		 * @since 4.0.0
@@ -360,6 +359,101 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				array( $this, 'cherry_options_page_build' ),
 				PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.png', 62
 			);
+
+			add_menu_page(
+				__( 'Test', 'cherry' ),
+				__( 'Test', 'cherry' ),
+				'edit_theme_options',
+				'cherry-test',
+				array( $this, 'test' ),
+				PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.png', 63
+			);
+		}
+
+		function test(){
+			$output = '<div class="cherry-ui-core_">';
+				$ui_text = new UI_Text();
+				$output .= $ui_text->render();
+
+				$ui_textarea = new UI_Textarea();
+				$output .= $ui_textarea->render();
+
+				$ui_select = new UI_Select();
+				$output .= $ui_select->render();
+
+				$ui_select_filtered = new UI_Select(array( 'class' => 'cherry-filter-select' ));
+				$output .= $ui_select_filtered->render();
+
+				$ui_select_multiselect = new UI_Select(array( 'multiple' => true, 'class' => 'cherry-multi-select' ));
+				$output .= $ui_select_multiselect->render();
+
+				$ui_checkbox = new UI_Checkbox();
+				$output .= $ui_checkbox->render();
+
+				$ui_switcher = new UI_Switcher();
+				$output .= $ui_switcher->render();
+
+				$ui_radio = new UI_Radio();
+				$output .= $ui_radio->render();
+
+				$ui_radio_image = new UI_Radio(
+					array('options' => array(
+						'radio-1' => array(
+							'label' => 'radio image 1',
+							'img_src' => PARENT_URI.'/screenshot.png'
+						),
+						'radio-2' => array(
+							'label' => 'radio image 2',
+							'img_src' => PARENT_URI.'/screenshot.png'
+						),
+						'radio-3' => array(
+							'label' => 'radio image 3',
+							'img_src' => PARENT_URI.'/screenshot.png'
+						),
+					)
+					)
+				);
+				$output .= $ui_radio_image->render();
+
+				$ui_colorpicker = new UI_Colorpicker();
+				$output .= $ui_colorpicker->render();
+
+				$ui_repeater = new UI_Repeater();
+				$output .= $ui_repeater->render();
+
+				$ui_media = new UI_Media();
+				$output .= $ui_media->render();
+
+				$ui_stepper = new UI_Stepper();
+				$output .= $ui_stepper->render();
+
+				$ui_slider = new UI_Slider();
+				$output .= $ui_slider->render();
+
+				$ui_range_slider = new UI_Range_Slider();
+				$output .= $ui_range_slider->render();
+
+				$ui_background = new UI_Background();
+				$output .= $ui_background->render();
+
+				$ui_typography = new UI_Typography();
+				$output .= $ui_typography->render();
+
+				$ui_ace_editor = new UI_Ace_Editor();
+				$output .= $ui_ace_editor->render();
+
+				$ui_layout_editor= new UI_Layout_Editor();
+				$output .= $ui_layout_editor->render();
+
+				$ui_repeater = new UI_Static_Area_Editor();
+				$output .= $ui_repeater->render();
+
+				$ui_tooltip = new UI_Tooltip();
+				$output .=  $ui_tooltip->render();
+
+
+			$output .= '</div>';
+			echo $output;
 		}
 
 		/**

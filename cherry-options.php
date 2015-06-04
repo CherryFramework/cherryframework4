@@ -31,7 +31,6 @@ function cherry_defaults_settings() {
 	$default_selector = array_keys($sticky_selectors);
 	$default_selector = $default_selector[0];
 
-
 	//////////////////////////////////////////////////////////////////////
 	// General
 	//////////////////////////////////////////////////////////////////////
@@ -127,7 +126,7 @@ function cherry_defaults_settings() {
 			'type'    => 'text',
 			'content' => __( 'Select blog page layout. You can choose if you want to display sidebars and how you want to display them.', 'cherry' ),
 		),
-		'value'         => '1-right',
+		'value'         => 'content-sidebar',
 		'display_input' => false,
 		'options'       => array(
 			'sidebar-content' => array(
@@ -395,13 +394,12 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Styling options
 //////////////////////////////////////////////////////////////////////
-
 	$styling_options = array();
 	//background image
 	$styling_options['body-background'] = array(
 		'type'			=> 'background',
 		'title'			=> __('Body background', 'cherry' ),
-		'hint'      	=>  array(
+		'hint'			=>  array(
 			'type'		=> 'text',
 			'content'	=> __('Set background for body container. You can specify background image or color, set background repeat, position and attachment. ', 'cherry' ),
 		),
@@ -550,9 +548,9 @@ function cherry_defaults_settings() {
 	);
 
 	$breadcrumbs_options['breadcrumbs-display'] = array(
-		'type'			=> 'multicheckbox',
+		'type'			=> 'checkbox',
 		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
-		'hint'      	=>  array(
+		'hint'			=>  array(
 			'type'		=> 'text',
 			'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
 		),
@@ -696,9 +694,9 @@ function cherry_defaults_settings() {
 				'type'    => 'text',
 				'content' => __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' )
 			),
-		'return_data_type' => 'id',
-		'library_type'     => 'image',
-		'value'            => array(
+		'return_data_type'		=> 'id',
+		'library_type'			=> 'image',
+		'value'					=> array(
 				'image'			=> '',
 				'color'			=> '',
 				'repeat'		=> 'repeat',
@@ -1318,7 +1316,7 @@ function cherry_defaults_settings() {
 			'content'	=> __('Select box with single option.', 'cherry'),
 		),
 		'value'			=> 'select-1',
-		'class'			=> 'width-full',
+		'class'			=> '',
 		'options'		=> array(
 			'select-1'	=> 'select 1',
 			'select-2'	=> 'select 2',
@@ -1326,7 +1324,7 @@ function cherry_defaults_settings() {
 		)
 	);
 	$demo_options['filterselect-demo'] = array(
-		'type'			=> 'filterselect',
+		'type'			=> 'select',
 		'title'			=> __('Filtered select', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
@@ -1334,8 +1332,8 @@ function cherry_defaults_settings() {
 			'type'		=> 'text',
 			'content'	=> __('Select box with filter option.', 'cherry'),
 		),
-		'value'			=> 'select_1',
-		'class'			=> 'width-full',
+		'value'			=> 'select-2',
+		'class'			=> 'cherry-filter-select',
 		'options'		=> array(
 			'select-1'	=> 'select 1',
 			'select-2'	=> 'select 2',
@@ -1348,7 +1346,7 @@ function cherry_defaults_settings() {
 		)
 	);
 	$demo_options['multiselect-demo'] = array(
-		'type'			=> 'multiselect',
+		'type'			=> 'select',
 		'title'			=> __('Multi-select box', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
@@ -1356,9 +1354,9 @@ function cherry_defaults_settings() {
 			'type'		=> 'text',
 			'content'	=> __('Select box with multiple select capability.', 'cherry'),
 		),
-		'placeholder'	=> 'Select value',
-		'value'			=> array('select-1','select-8'),
-		'class'			=> 'width-full',
+		'multiple'		=> true,
+		'value'			=> array('select-1','select-2'),
+		'class'			=> 'cherry-multi-select',
 		'options'		=> array(
 			'select-1'	=> 'Item 1',
 			'select-2'	=> 'Item 2',
@@ -1379,92 +1377,10 @@ function cherry_defaults_settings() {
 			'type'		=> 'text',
 			'content'	=> __('Regular HTML checkbox.', 'cherry'),
 		),
-		'value'			=> 'true',
-	);
-	$demo_options['multicheckbox-demo'] = array(
-		'type'			=> 'multicheckbox',
-		'title'			=> __('Multiple checkboxes', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'      	=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Adds checkboxes group. Lets user to select several options from the list.', 'cherry'),
-		),
-		'class'			=> '',
-		'value'			=> array( 'checkbox-2', 'checkbox-3' ),
+		'value'			=> array( 'checkbox-1' ),
 		'options'		=> array(
-			'checkbox-1'	=> 'checkbox 1',
-			'checkbox-2'	=> 'checkbox 2',
-			'checkbox-3'	=> 'checkbox 3'
-		)
-	);
-	$demo_options['switcher-demo'] = array(
-		'type'			=> 'switcher',
-		'title'			=> __('Switcher', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Analogue of the regular HTML radio buttons. ', 'cherry'),
-		),
-		'value'			=> 'true',
-	);
-	$demo_options['stepper-demo'] = array(
-		'type'			=> 'stepper',
-		'title'			=> __('Stepper', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'			=> array(
-			'type'		=> 'text',
-			'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
-		),
-		'value'			=> '0',
-		'step_value'	=> '1',
-		'max-value'		=> '50',
-		'min-value'		=> '-50'
-	);
-	$demo_options['switcher-custom-toogle-demo'] = array(
-		'type'			=> 'switcher',
-		'title'			=> __('Switcher (alternative)', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'      	=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Alternative switcher with custom labels.', 'cherry'),
-		),
-		'value'			=> 'true',
-		'toggle'		=> array(
-			'true_toggle'	=> __( 'Enabled', 'cherry' ),
-			'false_toggle'	=> __( 'Disabled', 'cherry' )
-		)
-	);
-	$demo_options['slider-demo'] = array(
-		'type'			=> 'slider',
-		'title'			=> __('Slider', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Draggable slider with stepper. Used to define some numeric value.', 'cherry'),
-		),
-		'max_value'		=> 1920,
-		'min_value'		=> 980,
-		'value'			=> 1024
-	);
-	$demo_options['rangeslider-demo'] = array(
-		'type'			=> 'rangeslider',
-		'title'			=> __('Slider (ranged)', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Draggable slider with range capability. Used to define numeric range.', 'cherry'),
-		),
-		'max_value'		=> 100,
-		'min_value'		=> 20,
-		'value'			=> array(
-			'left-value'	=> 30,
-			'right-value'	=> 50,
+			'checkbox-1'	=> 'checkbox value 1',
+			'checkbox-2'	=> 'checkbox value 2',
 		)
 	);
 	$demo_options['radio-demo'] = array(
@@ -1478,7 +1394,6 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> 'radio-2',
 		'class'			=> '',
-		'display-input'	=> true,
 		'options'		=> array(
 			'radio-1' => array(
 				'label' => 'radio 1',
@@ -1500,9 +1415,8 @@ function cherry_defaults_settings() {
 			'type'		=> 'text',
 			'content'	=> __('Adds image based radio buttons group. Behaves as HTML radio buttons.', 'cherry'),
 		),
-		'value'			=> 'radio-1',
+		'value'			=> 'radio-2',
 		'class'			=> '',
-		'display_input'	=> false,
 		'options'		=> array(
 			'radio-1' => array(
 				'label' => 'radio image 1',
@@ -1518,39 +1432,30 @@ function cherry_defaults_settings() {
 			),
 		)
 	);
-	$demo_options['image-demo'] = array(
-		'type'				=> 'media',
-		'title'			=> __('Media library element', 'cherry'),
+	$demo_options['switcher-demo'] = array(
+		'type'			=> 'switcher',
+		'title'			=> __('Switcher', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
-		'hint'      	=>  array(
+		'hint'			=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Lets user to add content from Wordpress media library. ', 'cherry'),
+			'content'	=> __('Analogue of the regular HTML radio buttons. ', 'cherry'),
 		),
-		'value'				=> '',
-		'multi-upload'		=> true,
-		'library_type'		=> ''
+		'value'			=> 'true',
 	);
-	$demo_options['backgrounddemo'] = array(
-		'type'				=> 'background',
-		'title'			=> __('Background image', 'cherry'),
+	$demo_options['switcher-custom-toogle-demo'] = array(
+		'type'			=> 'switcher',
+		'title'			=> __('Switcher (alternative)', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
 		'hint'      	=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Lets user to add background image from the media library and define its background settings like background repeat, position, attachment, origin.', 'cherry'),
+			'content'	=> __('Alternative switcher with custom labels.', 'cherry'),
 		),
-		'multi-upload'		=> true,
-		'library_type'		=> 'image',
-		'value'				=> array(
-			'image'			=> '',
-			'color'			=> '#ff0000',
-			'repeat'		=> 'repeat',
-			'position'		=> 'left',
-			'attachment'	=> 'fixed',
-			'clip'			=> 'padding-box',
-			'size'			=> 'cover',
-			'origin'		=> 'padding-box',
+		'value'			=> 'true',
+		'toggle'		=> array(
+			'true_toggle'	=> __( 'Enabled', 'cherry' ),
+			'false_toggle'	=> __( 'Disabled', 'cherry' )
 		)
 	);
 	$demo_options['colorpicker-demo'] = array(
@@ -1564,17 +1469,105 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> '#ff0000',
 	);
-
-	$demo_options['editordemo'] = array(
-		'type'			=> 'editor',
-		'title'			=> __('WYSIWYG editor', 'cherry'),
+	$demo_options['image-demo'] = array(
+		'type'				=> 'media',
+		'title'			=> __('Media library element', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
-		'hint'      	=>  array(
+		'hint'			=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
+			'content'	=> __('Lets user to add content from Wordpress media library. ', 'cherry'),
 		),
-		'value'			=> 'Lorem ipsum',
+		'value'				=> '',
+		'multi_upload'		=> true,
+		'library_type'		=> ''
+	);
+	$demo_options['stepper-demo'] = array(
+		'type'			=> 'stepper',
+		'title'			=> __('Stepper', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=> array(
+			'type'		=> 'text',
+			'content'	=> __('Adds a number input used to define numeric values.', 'cherry'),
+		),
+		'value'			=> '0',
+		'step_value'	=> '1',
+		'max-value'		=> '50',
+		'min-value'		=> '-50'
+	);
+	$demo_options['slider-demo'] = array(
+		'type'			=> 'slider',
+		'title'			=> __('Slider', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Draggable slider with stepper. Used to define some numeric value.', 'cherry'),
+		),
+		'max_value'		=> 1920,
+		'min_value'		=> 980,
+		'value'			=> 1024
+	);
+	$demo_options['range-slider-demo'] = array(
+		'type'			=> 'rangeslider',
+		'title'			=> __('Slider (ranged)', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Draggable slider with range capability. Used to define numeric range.', 'cherry'),
+		),
+		'max_value'		=> 100,
+		'min_value'		=> 20,
+		'value'			=> array(
+			'left_value'	=> 30,
+			'right_value'	=> 50,
+		)
+	);
+	$demo_options['background-demo'] = array(
+		'type'			=> 'background',
+		'title'			=> __('Background image', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Lets user to add background image from the media library and define its background settings like background repeat, position, attachment, origin.', 'cherry'),
+		),
+		'multi_upload'		=> true,
+		'library_type'		=> 'image',
+		'value'				=> array(
+			'image'			=> '',
+			'color'			=> '#ff0000',
+			'repeat'		=> 'repeat',
+			'position'		=> 'left',
+			'attachment'	=> 'fixed',
+			'clip'			=> 'padding-box',
+			'size'			=> 'cover',
+			'origin'		=> 'padding-box',
+		)
+	);
+	$demo_options['typography-demo'] = array(
+		'type'			=> 'typography',
+		'title'			=> __('Typography'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+		),
+		'max_value '	=> 500,
+		'value'			=> array(
+			'fonttype'		=> 'web',
+			'family'		=> 'Abril Fatface',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'size'			=> '20',
+			'lineheight'	=> '20',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined',
+			'color'			=> '#222222',
+		)
 	);
 	$demo_options['ace-editor-demo'] = array(
 		'type'			=> 'ace-editor',
@@ -1586,28 +1579,6 @@ function cherry_defaults_settings() {
 			'content'	=> __('Embedded CSS editor with syntax highlighting.', 'cherry'),
 		),
 		'value'			=> "#header{\n\tmargin: 0 auto;\n}\n#content{\n\tpadding: 0;\n}\n#footer{\n\tbackground-color: #fff;\n}\n.custom-class{\n\tcolor: #0f0f0f;\n}",
-	);
-	$demo_options['typography-demo'] = array(
-		'type'			=> 'typography',
-		'title'			=> __('Typography'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'max_value '	=> 500,
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
-		),
-		'value'			=> array(
-			'fonttype'		=> 'web',
-			'size'			=> '20',
-			'lineheight'	=> '20',
-			'color'			=> '#222222',
-			'family'		=> 'Abril Fatface',
-			'character'		=> 'latin-ext',
-			'style'			=> 'italic',
-			'letterspacing' => '0',
-			'align'			=> 'notdefined'
-		)
 	);
 	$demo_options['layout-editor-demo'] = array(
 		'type'			=> 'layouteditor',
@@ -1679,11 +1650,16 @@ function cherry_defaults_settings() {
 			),
 		)
 	);
-	$demo_options['info-demo'] = array(
-		'type'			=> 'info',
-		'title'			=> __('Info panel', 'cherry'),
+	$demo_options['editordemo'] = array(
+		'type'			=> 'editor',
+		'title'			=> __('WYSIWYG editor', 'cherry'),
+		'label'			=> '',
 		'decsription'	=> '',
-		'value'			=> 'Demo',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
+		),
+		'value'			=> 'Lorem ipsum',
 	);
 
 //////////////////////////////////////////////////////////////////////

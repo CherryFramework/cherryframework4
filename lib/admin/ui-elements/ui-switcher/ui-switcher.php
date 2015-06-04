@@ -19,34 +19,26 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 	class UI_Switcher {
 
 		private $settings = array();
+		private $defaults_settings = array(
+			'id'				=> 'cherry-ui-swither-id',
+			'name'				=> 'cherry-ui-swither-name',
+			'value'				=> 'true',
+			'toggle'			=> array(
+				'true_toggle'	=> 'On',
+				'false_toggle'	=> 'Off',
+			),
+			'class'				=> '',
+		);
 		/**
 		 * Constructor method for the UI_Switcher class.
 		 *
 		 * @since  4.0.0
 		 */
 		function __construct( $args = array() ) {
-			$this->settings = $this->get_defaults_settings();
+			$this->defaults_settings['id'] = 'cherry-ui-swither-'.uniqid();
+			$this->settings = wp_parse_args( $args, $this->defaults_settings );
 
-			$this->settings = wp_parse_args( $args, $this->settings );
 			add_action( 'admin_enqueue_scripts', array( get_called_class(), 'enqueue_assets' ) );
-		}
-
-		/**
-		 * Render html UI_Switcher.
-		 *
-		 * @since  4.0.0
-		 */
-		protected function get_defaults_settings(){
-			return array(
-				'id'				=> 'ui-switcher-'.uniqid(),
-				'name'				=> 'ui-switch',
-				'value'				=> 'true',
-				'class'				=> 'interface-builder-item',
-				'toggle'			=> array(
-					'true_toggle'	=> __( 'On', 'cherry' ),
-					'false_toggle'	=> __( 'Off', 'cherry' )
-				)
-			);
 		}
 
 		/**
@@ -66,23 +58,38 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 		}
 
 		/**
+		 * Get current file URL
+		 *
+		 * @since  4.0.0
+		 */
+		public static function get_current_file_url() {
+			$abs_path = str_replace('/', '\\', ABSPATH);
+			$assets_url = dirname( __FILE__ );
+			$assets_url = str_replace( $abs_path, '', $assets_url );
+			$assets_url = site_url().'/'.$assets_url;
+			$assets_url = str_replace( '\\', '/', $assets_url );
+
+			return $assets_url;
+		}
+
+		/**
 		 * Enqueue javascript and stylesheet UI_Switcher.
 		 *
 		 * @since  4.0.0
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-switcher-js',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-switcher/assets/min/ui-switcher.min.js',
+				'ui-switcher.min',
+				self::get_current_file_url() . '/assets/min/ui-switcher.min.js',
 				array( 'jquery' ),
-				CHERRY_VERSION,
+				'1.0.0',
 				true
 			);
 			wp_enqueue_style(
-				'ui-switcher-css',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-switcher/assets/ui-switcher.css',
+				'ui-switcher',
+				self::get_current_file_url() . '/assets/ui-switcher.css',
 				array(),
-				CHERRY_VERSION,
+				'1.0.0',
 				'all'
 			);
 		}

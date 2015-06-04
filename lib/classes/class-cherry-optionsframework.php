@@ -185,7 +185,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 						foreach ($option_list as $key => $value) {
 							$type = $this->get_type_by_id($key);
 							switch ($type) {
-								case 'multicheckbox':
+								case 'checkbox':
 									if (isset($post_array[$key])) {
 										$check_value = array();
 										foreach ( $post_array[$key] as $checkbox => $checkbox_value ) {
