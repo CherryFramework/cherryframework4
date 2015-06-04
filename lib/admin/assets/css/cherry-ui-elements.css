@@ -186,36 +186,6 @@
   outline: none;
   cursor: pointer;
 }
-.cherry-ui-core .select2 .selection .select2-selection {
-  box-shadow: none;
-  border-radius: 6px;
-  border: 1px solid #dddcdc;
-}
-.cherry-ui-core .select2 .selection .select2-selection.select2-selection--single {
-  height: 42px;
-}
-.cherry-ui-core .select2 .selection .select2-selection.select2-selection--single .select2-selection__rendered {
-  font-size: 14px;
-  padding: 6px 20px 6px 14px;
-}
-.cherry-ui-core .select2 .selection .select2-selection.select2-selection--single .select2-selection__arrow {
-  height: 40px;
-}
-.cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered {
-  font-size: 14px;
-}
-.cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
-  border: 1px solid #dddcdc;
-  line-height: 30px;
-  background: #fff;
-  margin-bottom: 3px;
-}
-.cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search {
-  margin: 0;
-}
-.cherry-ui-core .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search .select2-search__field {
-  margin: 0;
-}
 .cherry-ui-core select {
   width: 100%;
   height: 42px;

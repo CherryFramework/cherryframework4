@@ -112,10 +112,6 @@ $max-desktop-width: 1170px;
 	}
 
 ////////////////////Titles///////////////////////
-	.title_{
-
-	}
-
 	.title-primary_{
 		color: $dark-blue-color;
 	}
@@ -125,7 +121,6 @@ $max-desktop-width: 1170px;
 	.text_center_{
 		text-align: center;
 	}
-
 	.main-title_{
 		background: #FFF;
 		/*border-left: 4px solid #2EA2CC;*/
@@ -249,44 +244,6 @@ $max-desktop-width: 1170px;
 	}
 
 ////////////////////Select/////////////////////
-	.select2{
-		.selection{
-			.select2-selection{
-				box-shadow: none;
-				border-radius: 6px;
-				border: 1px solid #dddcdc;
-				&.select2-selection--single{
-					height: 42px;
-					.select2-selection__rendered{
-						font-size: 14px;
-						padding: 6px 20px 6px 14px;
-					}
-					.select2-selection__arrow{
-						height: 40px;
-					}
-				}
-				&.select2-selection--multiple{
-					.select2-selection__rendered{
-						font-size: 14px;
-						.select2-selection__choice{
-							border: 1px solid #dddcdc;
-							line-height: 30px;
-							background: #fff;
-							margin-bottom: 3px;
-							.select2-selection__choice__remove{
-							}
-						}
-						.select2-search{
-							margin: 0;
-							.select2-search__field{
-								margin: 0;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
 	select {
 		width: 100%;
 		height: 42px;
@@ -295,7 +252,6 @@ $max-desktop-width: 1170px;
 			font-size:14px;
 		}
 	}
-
 ////////////////////Tabs////////////////////
 
 	.vertical-tabs_{

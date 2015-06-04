@@ -1,0 +1,48 @@
+.cherry-ui-typography-wrap{
+	.field-font-family, .field-font-style, .field-font-character, .field-font-align{
+		margin-bottom: 5px;
+		clear: both;
+		.cherry-filter-select{
+			width: 100%;
+		}
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	.field-font-size, .field-font-lineheight, .field-font-letter-spacing, .field-font-color{
+		float: left;
+		overflow: hidden;
+		margin-right: 10px;
+			&:last-child{
+				margin-right: 0;
+			}
+	}
+	.cherry-column-section{
+		width: 50%;
+		float: left;
+		padding-right: 10px;
+		padding-left: 0;
+		box-sizing: border-box;
+		.inner{
+			background: #fff;
+			padding: 10px 15px;
+			box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+		}
+		&:nth-child(2n){
+			padding-right: 0;
+			padding-left: 10px;
+		}
+	}
+	.cherry-font-preview{
+		width: 100%;
+		display: none;
+		padding: 15px 10px;
+		margin-top: 20px;
+		box-sizing: border-box;
+		clear: both;
+		transition: background-color;
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+		border-radius: 0;
+		border: none;
+	}
+}

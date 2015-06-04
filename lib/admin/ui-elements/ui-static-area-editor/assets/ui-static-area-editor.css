@@ -1,0 +1,159 @@
+.cherry-static-area-editor-wrap .area-unit {
+  background: none repeat scroll 0 0 #fcfcfc;
+  border: 1px solid #dfdfdf;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+.cherry-static-area-editor-wrap .area-unit .area-name {
+  margin: 5px 0 20px 0;
+  text-align: center;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit {
+  padding: 5px;
+  background: transparent;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group {
+  margin: 4px 0;
+  border-radius: 6px;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-sortable-helper:focus {
+  cursor: -webkit-grabbing;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header {
+  font-size: 16px;
+  margin: 0;
+  padding: 10px 10px 10px 30px;
+  color: #444;
+  background-image: none;
+  background: #f2f3f4;
+  border-radius: 6px;
+  font-weight: normal;
+  border: none;
+  border: 1px solid #dddcdc;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .ui-accordion-header-icon {
+  background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group {
+  float: right;
+  color: #2a445d;
+  cursor: pointer;
+  width: 60px;
+  height: 20px;
+  position: relative;
+  text-align: right;
+  overflow: hidden;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group .confirm-btn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -20px;
+  left: 0px;
+  display: inline-block;
+  color: #7ad03a;
+  transition: all 0.2s ease;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group .cancle-btn {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: -20px;
+  left: 20px;
+  display: inline-block;
+  color: #f4130c;
+  transition: all 0.2s ease;
+  transition-delay: 0.1s;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group:before {
+  width: 20px;
+  height: 20px;
+  top: 0;
+  transition: all 0.3s ease;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group:hover:before {
+  color: #555555;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group.confirm-state .confirm-btn {
+  top: 0;
+  transition: all 0.2s ease;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group.confirm-state .cancle-btn {
+  top: 0;
+  transition: all 0.2s ease;
+  transition-delay: 0.1s;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header.ui-state-active {
+  border: 1px solid #cccccc;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header.ui-state-hover {
+  background: none;
+  border: 1px solid #cccccc;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div {
+  background: none;
+  border-radius: 6px;
+  padding: 1em 2.1em;
+  overflow: hidden;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-lg {
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  float: left;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-md {
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  float: left;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-sm {
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  float: left;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-xs {
+  width: 24%;
+  margin-right: 1%;
+  margin-bottom: 10px;
+  float: left;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-class {
+  width: 99%;
+  float: left;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-class input {
+  margin: 0;
+  height: 42px;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div select {
+  margin: 0;
+}
+.cherry-static-area-editor-wrap .area-unit .accordion-unit .ui-state-highlight {
+  height: 42px;
+  margin: 4px 0;
+  border-radius: 6px;
+  border: 1px dashed #8BC735;
+  background: rgba(139, 199, 53, 0.3);
+  box-sizing: border-box;
+}
+.cherry-static-area-editor-wrap .cherry-accordion-control .cherry-label {
+  text-align: right;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+.cherry-static-area-editor-wrap .cherry-accordion-control .field-static {
+  width: 50%;
+  margin-right: 1%;
+  float: right;
+}
+.cherry-static-area-editor-wrap .cherry-accordion-control .field-static .static-selector option.hidden {
+  display: none;
+}
+.cherry-static-area-editor-wrap .cherry-accordion-control .add-new-btn {
+  float: right;
+}

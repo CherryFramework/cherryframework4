@@ -119,7 +119,7 @@ function cherry_get_styles() {
 		$grid_responsive = ( 'true' == $responsive ) ?
 			array(
 				'handle'  => $prefix . 'grid-responsive',
-				'src'     => trailingslashit( CHILD_URI ) . 'assets/css/grid-responsive.css',
+				'src'     => cherry_file_uri( 'assets/css/grid-responsive.css' ),
 				'version' => $version,
 			) : false;
 
@@ -127,17 +127,17 @@ function cherry_get_styles() {
 		$defaults = apply_filters( 'cherry_get_styles_defaults', array(
 			'main' => array(
 				'handle'  => $prefix . 'main',
-				'src'     => trailingslashit( CHILD_URI ) . 'assets/css/main.css',
+				'src'     => cherry_file_uri( 'assets/css/main.css' ),
 				'version' => $version,
 			),
 			'grid-base' => array(
 				'handle'  => $prefix . 'grid-base',
-				'src'     => trailingslashit( CHILD_URI ) . 'assets/css/grid-base.css',
+				'src'     => cherry_file_uri( 'assets/css/grid-base.css' ),
 				'version' => $version,
 			),
 			'grid-responsive' => $grid_responsive,
-			'drop-downs' => $drop_downs,
-			'magnific-popup' => array(
+			'drop-downs'      => $drop_downs,
+			'magnific-popup'  => array(
 				'handle'  => get_template() . '-magnific-popup',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/magnific-popup.css',
 				'version' => CHERRY_VERSION,
