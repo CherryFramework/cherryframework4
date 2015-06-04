@@ -799,3 +799,29 @@ function cherry_media_queries_open( $function ) {
 function cherry_media_queries_close() {
 	return ( 'true' == cherry_get_option( 'grid-responsive' ) ) ? '}' : '';
 }
+
+/**
+ * Sum of $a and $b.
+ *
+ * @since  4.0.0
+ *
+ * @param  int $a
+ * @param  int $b
+ * @return int
+ */
+function cherry_simple_sum( $a, $b ) {
+	return intval($a) + intval($b);
+}
+
+/**
+ * Difference of $a and $b.
+ *
+ * @since  4.0.0
+ *
+ * @param  int $a
+ * @param  int $b
+ * @return int
+ */
+function cherry_simple_diff( $a, $b ) {
+	return intval($a) - intval($b);
+}
