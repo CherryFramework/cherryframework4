@@ -74,7 +74,10 @@ a:hover {
 .cherry-breadcrumbs {
 	background-color: @lighten( $color-gray-variations , 60.8 );
 }
-.cherry-breadcrumbs_item_link, .cherry-breadcrumbs_item_target {
+.cherry-breadcrumbs_item_link,
+.cherry-breadcrumbs_item_target,
+.cherry-breadcrumbs_browse,
+.cherry-breadcrumbs_item_sep {
 	@typography( $typography-breadcrumbs )
 }
 .post-gallery_prev,
