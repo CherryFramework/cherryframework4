@@ -48,8 +48,8 @@ class Cherry_Admin {
 			$messages = array(
 				'no_file'         => __( 'Please, select import file', 'cherry' ),
 				'invalid_type'    => __( 'Invalid file type', 'cherry' ),
-				'success'         => __( 'Cherry Options have been imported.<br>Page will be refreshed to apply changes...', 'cherry' ),
-				'section_restore' => __( 'section have been restored.<br>Page will be refreshed to apply changes...', 'cherry' ),
+				'success'         => __( 'Cherry Options was imported.<br>Page was refreshed to apply changes...', 'cherry' ),
+				'section_restore' => __( 'section was restored.<br>Page was refreshed to apply changes...', 'cherry' ),
 				'options_restore' => __( 'All options have been restored', 'cherry' ),
 				'section_loaded'  => __( 'options have been loaded.', 'cherry' ),
 				'redirect_url'    => menu_page_url( 'cherry-options', false ),

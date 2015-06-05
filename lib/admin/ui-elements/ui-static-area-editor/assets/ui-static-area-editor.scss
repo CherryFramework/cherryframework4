@@ -5,6 +5,7 @@
 		border-radius: 6px;
 		margin-bottom: 20px;
 		padding: 5px;
+		//box-shadow: 0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);
 			.area-name{
 				margin: 5px 0 20px 0;
 				text-align: center;
@@ -31,9 +32,10 @@
 								font-weight: normal;
 								border: none;
 								border: 1px solid #dddcdc;
+								//box-shadow: 0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);
 								//cursor: -webkit-grab;
 									.ui-accordion-header-icon{
-										background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
+										background-image: url("ui-images/ui-icons_228ef1_256x240.png");
 									}
 									.delete-group{
 										float: right;
@@ -99,8 +101,9 @@
 							>div{
 								background: none;
 								border-radius: 6px;
-								padding: 1em 2.1em;
+								padding: 1em 1.2em;
 								overflow: hidden;
+								//box-shadow: 0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);
 									.field-col-lg{
 										width: 24%;
 										margin-right: 1%;
@@ -139,9 +142,9 @@
 							}
 					}
 					.ui-state-highlight {
-						height: 42px;
+						height: 40px;
 						margin: 4px 0;
-						border-radius: 6px;
+						border-radius: 0px;
 						border: 1px dashed #8BC735;
 						background: rgba(139, 199, 53, 0.3);
 						box-sizing:  border-box;

@@ -124,6 +124,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 
 			global $cherry_registered_static_areas;
 			$col_xs_array = array(
+				'none'		=> __( 'none', 'cherry' ),
 				'col-xs-1'	=> __( 'col-xs-1', 'cherry' ),
 				'col-xs-2'	=> __( 'col-xs-2', 'cherry' ),
 				'col-xs-3'	=> __( 'col-xs-3', 'cherry' ),
@@ -138,6 +139,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 				'col-xs-12'	=> __( 'col-xs-12', 'cherry' ),
 			);
 			$col_sm_array = array(
+				'none'		=> __( 'none', 'cherry' ),
 				'col-sm-1'	=> __( 'col-sm-1', 'cherry' ),
 				'col-sm-2'	=> __( 'col-sm-2', 'cherry' ),
 				'col-sm-3'	=> __( 'col-sm-3', 'cherry' ),
@@ -152,6 +154,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 				'col-sm-12'	=> __( 'col-sm-12', 'cherry' ),
 			);
 			$col_md_array = array(
+				'none'		=> __( 'none', 'cherry' ),
 				'col-md-1'	=> __( 'col-md-1', 'cherry' ),
 				'col-md-2'	=> __( 'col-md-2', 'cherry' ),
 				'col-md-3'	=> __( 'col-md-3', 'cherry' ),
@@ -166,6 +169,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 				'col-md-12'	=> __( 'col-md-12', 'cherry' ),
 			);
 			$col_lg_array = array(
+				'none'		=> __( 'none', 'cherry' ),
 				'col-lg-1'	=> __( 'col-lg-1', 'cherry' ),
 				'col-lg-2'	=> __( 'col-lg-2', 'cherry' ),
 				'col-lg-3'	=> __( 'col-lg-3', 'cherry' ),
