@@ -158,11 +158,11 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the sidebar functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'sidebars.php' );
 
-			// Load the scripts functions.
-			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'scripts.php' );
-
 			// Class Cherry API JS
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-api-js.php' );
+
+			// Load the scripts functions.
+			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'scripts.php' );
 
 			// Load the styles functions.
 			require_once( trailingslashit( CHERRY_FUNCTIONS ) . 'styles.php' );

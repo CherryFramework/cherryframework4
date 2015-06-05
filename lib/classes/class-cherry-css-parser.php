@@ -147,6 +147,8 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 				'non_responsive'    => 'cherry_non_responsive_style',
 				'media_open'        => 'cherry_media_queries_open',
 				'media_close'       => 'cherry_media_queries_close',
+				'sum'               => 'cherry_simple_sum',
+				'diff'              => 'cherry_simple_diff',
 			);
 
 			$func_list = apply_filters( 'cherry_css_func_list', $func_list );
