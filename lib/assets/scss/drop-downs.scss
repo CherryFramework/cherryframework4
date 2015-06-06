@@ -113,7 +113,8 @@
 		}
 	}
 	li:hover > ul,
-	li.focus > ul {
+	li.focus > ul,
+	li.menu-hover > ul {
 		@media (min-width:481px) {
 			opacity: 1;
 			visibility: visible;
@@ -136,9 +137,9 @@
 
 	.menu-items {
 		@media (max-width:480px) {
-			display: none;
+			display: none !important;
 			&[aria-expanded="true"] {
-				display: block;
+				display: block !important;
 			}
 		}
 	}
