@@ -19,11 +19,10 @@ if ( !defined( 'WPINC' ) ) {
 add_filter( 'body_class', 'cherry_add_control_classes' );
 
 // Filters the containers class.
-add_filter( 'cherry_get_header_class',              'cherry_get_header_classes' );
-add_filter( 'cherry_get_content_class',             'cherry_get_content_classes' );
-add_filter( 'cherry_get_footer_class',              'cherry_get_footer_classes' );
-add_filter( 'cherry_get_container_class',           'cherry_get_container_classes' );
-add_filter( 'cherry_content_sidebar_wrapper_class', 'cherry_content_sidebar_wrapper_class' );
+add_filter( 'cherry_get_header_class',    'cherry_get_header_classes' );
+add_filter( 'cherry_get_content_class',   'cherry_get_content_classes' );
+add_filter( 'cherry_get_footer_class',    'cherry_get_footer_classes' );
+add_filter( 'cherry_get_container_class', 'cherry_get_container_classes' );
 
 // Filters a sidebar visibility.
 add_filter( 'cherry_display_sidebar',      'cherry_hide_sidebar', 9, 2 );
@@ -241,20 +240,6 @@ function cherry_get_container_classes( $class ) {
 	return join( ' ', $classes );
 }
 
-function cherry_content_sidebar_wrapper_class( $class ) {
-
-	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
-	$layout    = apply_filters( 'cherry_get_page_layout', get_post_meta( $object_id, 'cherry_layout', true ) );
-
-	if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
-		$layout = cherry_get_option( 'page-layout' );
-	}
-
-	$class = sanitize_html_class( $layout .'-wrapper' );
-
-	return $class;
-}
-
 function cherry_hide_sidebar( $display, $id ) {
 	if ( did_action( 'cherry_footer' ) ) {
 		return $display;
@@ -274,7 +259,13 @@ function cherry_hide_sidebar( $display, $id ) {
 	$layout    = apply_filters( 'cherry_get_page_layout', get_post_meta( $object_id, 'cherry_layout', true ) );
 
 	if ( ! $layout || ( 'default-layout' == $layout ) ) {
-		$layout = cherry_get_option( 'page-layout' );
+
+		if ( is_single() ) {
+			$layout = apply_filters( 'cherry_get_single_post_layout', cherry_get_option( 'single-post-layout' ), $object_id );
+		} else {
+			$layout = cherry_get_option( 'page-layout' );
+		}
+
 	}
 
 	if ( 'no-sidebar' == $layout ) {
