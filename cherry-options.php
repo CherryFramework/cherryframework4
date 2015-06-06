@@ -36,10 +36,10 @@ function cherry_defaults_settings() {
 	//////////////////////////////////////////////////////////////////////
 	$general_options = array();
 	$general_options['general-favicon'] = array(
-		'type'  => 'media',
-		'title' => __( 'Favicon image', 'cherry' ),
+		'type'        => 'media',
+		'title'       => __( 'Favicon image', 'cherry' ),
 		'description' => 'Icon image that is displayed in the browser address bar and browser tab heading. ',
-		'hint'  => array(
+		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'Max icon size: 32x32 px <br>You can also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
 		),
@@ -56,44 +56,44 @@ function cherry_defaults_settings() {
 			$maintenance_preview
 		),
 		'description' => 'Enable/disable maintenance mode. ',
-		'hint'  => array(
+		'hint' => array(
 			'type'    => 'text',
 			'content' => __( "Logged in administrator gets full access to the site, while regular visitors will\won't be redirected to the page chosen below.", 'cherry' )
 		),
 		'value' => 'false',
 	);
 	$general_options['general-maintenance-page'] = array(
-		'type'    => 'select',
-		'title'   => __( 'Maintenance page', 'cherry' ),
+		'type'        => 'select',
+		'title'       => __( 'Maintenance page', 'cherry' ),
 		'description' => 'Select page that regular visitors will see if maintenance mode is enabled. ',
-		'value'   => '',
-		'class'   => 'width-full',
-		'options' => $all_pages,
+		'value'       => '',
+		'class'       => 'width-full',
+		'options'     => $all_pages,
 	);
 	$general_options['general-smoothscroll'] = array(
-		'type'  => 'switcher',
-		'title' => __( 'Document smooth scroll', 'cherry' ),
+		'type'        => 'switcher',
+		'title'       => __( 'Document smooth scroll', 'cherry' ),
 		'description' => __( 'Enable/disable smooth vertical mousewheel scrolling (Chrome browser only).', 'cherry' ),
-		'value' => 'false',
+		'value'       => 'false',
 	);
 	$general_options['general-user-css'] = array(
-		'type'  => 'ace-editor',
-		'title' => __( 'User CSS', 'cherry' ),
-		'description' => __( 'Define custom CSS styling.', 'cherry' ),
+		'type'         => 'ace-editor',
+		'title'        => __( 'User CSS', 'cherry' ),
+		'description'  => __( 'Define custom CSS styling.', 'cherry' ),
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
-		'value'        => ''
+		'value'        => '',
 	);
 	///////////////////////////////////////////////////////////////////
 	// Static Area Editor
 	///////////////////////////////////////////////////////////////////
 	$static_area_editor_options = array();
 	$static_area_editor_options['static-area-editor'] = array(
-		'type'  => 'static_area_editor',
-		'title' => __( 'Static areas', 'cherry' ),
+		'type'        => 'static_area_editor',
+		'title'       => __( 'Static areas', 'cherry' ),
 		'description' => __( "Use static area editor to arrange static blocks. You can drag-n-drop static blocks, remove them or add new ones using 'Create new static' field below.", 'cherry' ),
-		'value'   => $cherry_registered_statics,
-		'options' => $cherry_registered_statics,
+		'value'       => $cherry_registered_statics,
+		'options'     => $cherry_registered_statics,
 	);
 
 	//////////////////////////////////////////////////////////////////////
@@ -101,10 +101,10 @@ function cherry_defaults_settings() {
 	//////////////////////////////////////////////////////////////////////
 	$grid_options = array();
 	$grid_options['grid-responsive'] = array(
-		'type'  => 'switcher',
-		'title' => __( 'Responsive grid', 'cherry' ),
+		'type'        => 'switcher',
+		'title'       => __( 'Responsive grid', 'cherry' ),
 		'description' => __( 'Enable/disable responsive grid. ', 'cherry' ),
-		'hint'  => array(
+		'hint'        => array(
 			'type'    => 'text',
 			'content' => __('If for any reason you want to disable responsive layout for your site, you are able to turn it off here.', 'cherry' ),
 		),
@@ -148,12 +148,12 @@ function cherry_defaults_settings() {
 		)
 	);
 	$grid_options['grid-container-width'] = array(
-		'type'  => 'slider',
-		'title' => __( 'Container width', 'cherry' ),
+		'type'        => 'slider',
+		'title'       => __( 'Container width', 'cherry' ),
 		'description' => __( 'Width of header/content/footer container in pixels.', 'cherry' ),
-		'max_value' => 1920, // Full HD
-		'min_value' => 970,
-		'value'     => 1170,
+		'max_value'   => 1920, // Full HD
+		'min_value'   => 970,
+		'value'       => 1170,
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -200,7 +200,7 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Post content', 'cherry' ),
 		'description' => __( 'Select how you want to display post content in blog listing', 'cherry' ),
 		'hint' => array(
-			'type' => 'text',
+			'type'    => 'text',
 			'content' => __( 'The following options are available: full - display full post content, excerpt - display part of the post (you can specify excerpt length below), none - hide post content.', 'cherry' ),
 		),
 		'value'       => 'part',
@@ -268,7 +268,7 @@ function cherry_defaults_settings() {
 		'type'        => 'switcher',
 		'title'       => __( 'Author bio', 'cherry' ),
 		'description' => __( 'Enable/disable author bio block. Author bio block is displayed on the post page.', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 	$post_single_options['blog-related-posts'] = array(
 		'type'        => 'switcher',
@@ -305,31 +305,31 @@ function cherry_defaults_settings() {
 		'type'        => 'switcher',
 		'title'       => __( 'Date', 'cherry' ),
 		'description' => __( 'Show/Hide post publication date.', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 	$post_meta_options['blog-post-author'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Author', 'cherry' ),
 		'description' => __( 'Show/Hide post author.', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 	$post_meta_options['blog-post-comments'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Comments', 'cherry' ),
 		'description' => __( 'Show/Hide number of comments.', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 	$post_meta_options['blog-categories'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Categories', 'cherry' ),
 		'description' => __( 'Show/Hide post categories.', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 	$post_meta_options['blog-tags'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Tags', 'cherry' ),
 		'description' => __( 'Show/Hide post tags.', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -413,10 +413,10 @@ function cherry_defaults_settings() {
 
 	$navigation_options = array();
 	$navigation_options['typography-header-menu'] = array(
-		'type'  => 'typography',
-		'title' => __('Header Menu Typography', 'cherry' ),
+		'type'        => 'typography',
+		'title'       => __('Header Menu Typography', 'cherry' ),
 		'description' => __( 'Main header navigation typography settings.', 'cherry' ),
-		'value' => array(
+		'value'       => array(
 			'fonttype'      => 'web',
 			'size'          => '14',
 			'lineheight'    => '14',
@@ -429,10 +429,10 @@ function cherry_defaults_settings() {
 		)
 	);
 	$navigation_options['typography-footer-menu'] = array(
-		'type'  => 'typography',
-		'title' => __('Footer Menu Typography', 'cherry' ),
+		'type'        => 'typography',
+		'title'       => __('Footer Menu Typography', 'cherry' ),
 		'description' => __('Main footer navigation typography settings.', 'cherry' ),
-		'value' => array(
+		'value'       => array(
 			'fonttype'      => 'web',
 			'size'          => '14',
 			'lineheight'    => '14',
@@ -445,10 +445,10 @@ function cherry_defaults_settings() {
 		)
 	);
 	$navigation_options['navigation-arrow'] = array(
-		'type' => 'switcher',
-		'title' => __( 'Arrows markup', 'cherry' ),
-		'description' => __( 'Do you want to generate arrow mark-up?', 'cherry' ),
-		'value'		=> 'true',
+		'type'          => 'switcher',
+		'title'         => __( 'Arrows markup', 'cherry' ),
+		'description'   => __( 'Do you want to generate arrow mark-up?', 'cherry' ),
+		'value'         => 'true',
 		'default_value' => 'true',
 	);
 
@@ -457,17 +457,17 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options = array();
 
 	$breadcrumbs_options['breadcrumbs'] = array(
-			'type'			=> 'switcher',
-			'title'			=> __( 'Breadcrumbs', 'cherry' ),
-			'description'	=> __('Enable/disable breadcrumbs navigation.', 'cherry' ),
-			'value'			=> 'true',
-			'default_value'	=> 'true'
+		'type'          => 'switcher',
+		'title'         => __( 'Breadcrumbs', 'cherry' ),
+		'description'   => __('Enable/disable breadcrumbs navigation.', 'cherry' ),
+		'value'         => 'true',
+		'default_value' => 'true',
 	);
 	$breadcrumbs_options['breadcrumbs-show-title'] = array(
-		'type'			=> 'switcher',
-		'title' 		=> __( 'Page title', 'cherry' ),
-		'description'	=> __( 'Enable/disable page title in breadcrumbs.', 'cherry' ),
-		'value'			=> 'true'
+		'type'        => 'switcher',
+		'title'       => __( 'Page title', 'cherry' ),
+		'description' => __( 'Enable/disable page title in breadcrumbs.', 'cherry' ),
+		'value'       => 'true',
 	);
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'checkbox',
@@ -868,165 +868,165 @@ function cherry_defaults_settings() {
 	$typography_options = array();
 
 	$typography_options['typography-body'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Body text', 'cherry' ),
-		'description'	=> __( 'Main website text typography options.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '14',
-			'lineheight'	=> '20',
-			'color'			=> '#777777',
-			'family'		=> 'Raleway',
-			'character'		=> 'latin-ext',
-			'style'			=> 'italic',
+		'type'        => 'typography',
+		'title'       => __( 'Body text', 'cherry' ),
+		'description' => __( 'Main website text typography options.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'web',
+			'size'          => '12',
+			'lineheight'    => '18',
+			'color'         => '#333333',
+			'family'        => 'Arial, Helvetica',
+			'character'     => 'latin-ext',
+			'style'         => 'regular',
 			'letterspacing' => '',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 	$typography_options['color-link'] = array(
-		'type'			=> 'colorpicker',
-		'title'			=> __( 'Link color', 'cherry' ),
-		'description'	=> __( 'Color of links.', 'cherry' ),
-		'value'			=> '#f62e46'
+		'type'        => 'colorpicker',
+		'title'       => __( 'Link color', 'cherry' ),
+		'description' => __( 'Color of links.', 'cherry' ),
+		'value'       => '#f62e46',
 	);
 	$typography_options['color-link-hover'] = array(
-		'type'			=> 'colorpicker',
-		'title'			=> __( 'Link hover color', 'cherry' ),
-		'description'	=> __( 'Color of links on hover.', 'cherry' ),
-		'value'			=> '#333333'
+		'type'        => 'colorpicker',
+		'title'       => __( 'Link hover color', 'cherry' ),
+		'description' => __( 'Color of links on hover.', 'cherry' ),
+		'value'       => '#333333',
 	);
 	$typography_options['typography-input-text'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Input text', 'cherry' ),
-		'description'	=> __( 'Styling text in forms.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'standart',
-			'size'			=> '14',
-			'lineheight'	=> '20',
-			'color'			=> '#333333',
-			'family'		=> 'Arial',
-			'character'		=> 'latin-ext',
-			'style'			=> 'italic',
+		'type'        => 'typography',
+		'title'       => __( 'Input text', 'cherry' ),
+		'description' => __( 'Styling text in forms.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'standart',
+			'size'          => '14',
+			'lineheight'    => '20',
+			'color'         => '#333333',
+			'family'        => 'Arial',
+			'character'     => 'latin-ext',
+			'style'         => 'italic',
 			'letterspacing' => '',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 	$typography_options['typography-breadcrumbs'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Breadcrumbs typography', 'cherry' ),
-		'description'	=> __( 'Styling text in breadcrumbs.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'standart',
-			'size'			=> '14',
-			'lineheight'	=> '20',
-			'color'			=> '#777777',
-			'family'		=> 'Arial',
-			'character'		=> 'latin-ext',
-			'style'			=> 'italic',
+		'type'        => 'typography',
+		'title'       => __( 'Breadcrumbs typography', 'cherry' ),
+		'description' => __( 'Styling text in breadcrumbs.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'standart',
+			'size'          => '14',
+			'lineheight'    => '20',
+			'color'         => '#777777',
+			'family'        => 'Arial',
+			'character'     => 'latin-ext',
+			'style'         => 'italic',
 			'letterspacing' => '',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 	$typography_options['typography-h1'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Heading 1', 'cherry' ),
-		'max_value'		=> 500,
-		'description'	=> __( 'H1 heading font settings.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '36',
-			'lineheight'	=> '40',
-			'color'			=> '#333333',
-			'family'		=> 'ABeeZee',
-			'character'		=> 'latin-ext',
-			'style'			=> 'normal',
+		'type'        => 'typography',
+		'title'       => __( 'Heading 1', 'cherry' ),
+		'max_value'   => 500,
+		'description' => __( 'H1 heading font settings.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'web',
+			'size'          => '36',
+			'lineheight'    => '40',
+			'color'         => '#333333',
+			'family'        => 'Arial, Helvetica',
+			'character'     => 'latin-ext',
+			'style'         => 'normal',
 			'letterspacing' => '',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 	$typography_options['typography-h2'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Heading 2', 'cherry' ),
-		'max_value'		=> 500,
-		'description'	=> __( 'H2 heading font settings.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '30',
-			'lineheight'	=> '33',
-			'color'			=> '#333333',
-			'family'		=> 'ABeeZee',
-			'character'		=> 'latin-ext',
-			'style'			=> 'normal',
+		'type'        => 'typography',
+		'title'       => __( 'Heading 2', 'cherry' ),
+		'max_value'   => 500,
+		'description' => __( 'H2 heading font settings.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'web',
+			'size'          => '30',
+			'lineheight'    => '33',
+			'color'         => '#333333',
+			'family'        => 'Arial, Helvetica',
+			'character'     => 'latin-ext',
+			'style'         => 'normal',
 			'letterspacing' => '0',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 	$typography_options['typography-h3'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Heading 3', 'cherry' ),
-		'max_value'		=> 500,
-		'description'	=> __( 'H3 heading font settings.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '24',
-			'lineheight'	=> '26',
-			'color'			=> '#333333',
-			'family'		=> 'ABeeZee',
-			'character'		=> 'latin-ext',
-			'style'			=> 'normal',
+		'type'        => 'typography',
+		'title'       => __( 'Heading 3', 'cherry' ),
+		'max_value'   => 500,
+		'description' => __( 'H3 heading font settings.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'web',
+			'size'          => '24',
+			'lineheight'    => '26',
+			'color'         => '#333333',
+			'family'        => 'Arial, Helvetica',
+			'character'     => 'latin-ext',
+			'style'         => 'normal',
 			'letterspacing' => '0',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 	$typography_options['typography-h4'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Heading 4', 'cherry' ),
-		'max_value'		=> 500,
-		'description'	=> __( 'H4 heading font settings.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '18',
-			'lineheight'	=> '20',
-			'color'			=> '#333333',
-			'family'		=> 'ABeeZee',
-			'character'		=> 'latin-ext',
-			'style'			=> 'normal',
+		'type'        => 'typography',
+		'title'       => __( 'Heading 4', 'cherry' ),
+		'max_value'   => 500,
+		'description' => __( 'H4 heading font settings.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'web',
+			'size'          => '18',
+			'lineheight'    => '20',
+			'color'         => '#333333',
+			'family'        => 'Arial, Helvetica',
+			'character'     => 'latin-ext',
+			'style'         => 'normal',
 			'letterspacing' => '0',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 	$typography_options['typography-h5'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Heading 5', 'cherry' ),
-		'max_value'		=> 500,
-		'description'	=> __( 'H5 heading font settings.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '14',
-			'lineheight'	=> '16',
-			'color'			=> '#333333',
-			'family'		=> 'ABeeZee',
-			'character'		=> 'latin-ext',
-			'style'			=> 'normal',
+		'type'        => 'typography',
+		'title'       => __( 'Heading 5', 'cherry' ),
+		'max_value'   => 500,
+		'description' => __( 'H5 heading font settings.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'web',
+			'size'          => '14',
+			'lineheight'    => '16',
+			'color'         => '#333333',
+			'family'        => 'Arial, Helvetica',
+			'character'     => 'latin-ext',
+			'style'         => 'normal',
 			'letterspacing' => '0',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 	$typography_options['typography-h6'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Heading 6', 'cherry' ),
-		'max_value'		=> 500,
-		'description'	=> __( 'H6 heading font settings.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '12',
-			'lineheight'	=> '14',
-			'color'			=> '#333333',
-			'family'		=> 'ABeeZee',
-			'character'		=> 'latin-ext',
-			'style'			=> 'normal',
+		'type'        => 'typography',
+		'title'       => __( 'Heading 6', 'cherry' ),
+		'max_value'   => 500,
+		'description' => __( 'H6 heading font settings.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'web',
+			'size'          => '12',
+			'lineheight'    => '14',
+			'color'         => '#333333',
+			'family'        => 'Arial, Helvetica',
+			'character'     => 'latin-ext',
+			'style'         => 'normal',
 			'letterspacing' => '0',
-			'align'			=> 'notdefined'
+			'align'         => 'notdefined',
 		)
 	);
 //////////////////////////////////////////////////////////////////////
