@@ -63,10 +63,16 @@ if ( ! class_exists( 'UI_Text' ) ) {
 		 * @since  4.0.0
 		 */
 		public static function get_current_file_url() {
-			$abs_path = str_replace('/', '\\', ABSPATH);
+			/*$abs_path = str_replace('/', '\\', ABSPATH);
 			$assets_url = dirname( __FILE__ );
 			$assets_url = str_replace( $abs_path, '', $assets_url );
 			$assets_url = site_url().'/'.$assets_url;
+			$assets_url = str_replace( '\\', '/', $assets_url );*/
+
+
+			$assets_url = dirname( __FILE__ );
+			$site_url = site_url();
+			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
 			$assets_url = str_replace( '\\', '/', $assets_url );
 
 			return $assets_url;
@@ -78,6 +84,7 @@ if ( ! class_exists( 'UI_Text' ) ) {
 		 * @since  4.0.0
 		 */
 		public static function enqueue_assets(){
+
 			wp_enqueue_style(
 				'ui-text',
 				self::get_current_file_url() . '/assets/ui-text.css',

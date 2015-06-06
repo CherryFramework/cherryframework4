@@ -83,10 +83,11 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 
 			$google_fonts_array = $this->get_google_font();
 			$standart_fonts_array = $this->get_standart_font();
+
 			$character_array = array();
 			$style_array = array();
 			$fonttype = '';
-			///var_dump($this->settings['value']);
+
 			$html .= '<div class="cherry-ui-typography-wrap">';
 			//Font Family
 				$html .= '<div class="cherry-column-section">';
@@ -363,12 +364,12 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 					WP_Filesystem();
 					global $wp_filesystem;
 
-					if ( !$wp_filesystem->exists( $this->standart_font_url ) ) { // Check for existence.
+					if ( !$wp_filesystem->exists( self::get_font_path(). '/assets/fonts/standard-fonts.json' ) ) { // Check for existence.
 						return false;
 					}
 
 					// Read the file.
-					$json = $wp_filesystem->get_contents( $this->standart_font_url );
+					$json = $wp_filesystem->get_contents( self::get_font_path(). '/assets/fonts/standard-fonts.json' );
 					if ( !$json ) {
 						return new WP_Error( 'reading_error', 'Error when reading file' ); // Return error object.
 					}
@@ -391,14 +392,11 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		 * @return array
 		 */
 		private function get_google_font() {
-
 			if ( empty( $this->google_font ) ) {
-
 				// Get cache.
 				$fonts = get_transient( 'cherry_google_fonts' );
 
 				if ( false === $fonts ) {
-
 					if ( !function_exists( 'WP_Filesystem' ) ) {
 						include_once( ABSPATH . '/wp-admin/includes/file.php' );
 					}
@@ -406,12 +404,12 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 					WP_Filesystem();
 					global $wp_filesystem;
 
-					if ( !$wp_filesystem->exists( $this->google_font_url ) ) { // Check for existence.
+					if ( !$wp_filesystem->exists( self::get_font_path(). '/assets/fonts/google-fonts.json' ) ) { // Check for existence.
 						return false;
 					}
 
 					// Read the file.
-					$json = $wp_filesystem->get_contents( $this->google_font_url );
+					$json = $wp_filesystem->get_contents( self::get_font_path(). '/assets/fonts/google-fonts.json' );
 
 					if ( !$json ) {
 						return new WP_Error( 'reading_error', 'Error when reading file' ); // Return error object.
@@ -421,7 +419,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 					$fonts   = $content['items'];
 
 					// Set cache.
-					set_transient( 'cherry_google_fonts', $fonts, WEEK_IN_SECONDS );
+					set_transient( 'cherry_google_fonts', $fonts, 1 );
 				}
 
 				$this->google_font = $fonts;
@@ -436,13 +434,26 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		 * @since  4.0.0
 		 */
 		public static function get_current_file_url() {
-			$abs_path = str_replace('/', '\\', ABSPATH);
 			$assets_url = dirname( __FILE__ );
-			$assets_url = str_replace( $abs_path, '', $assets_url );
-			$assets_url = site_url().'/'.$assets_url;
+			$site_url = site_url();
+			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
 			$assets_url = str_replace( '\\', '/', $assets_url );
 
 			return $assets_url;
+		}
+
+		/**
+		 * Get current file URL
+		 *
+		 * @since  4.0.0
+		 */
+		public static function get_font_path() {
+			$assets_url = dirname( __FILE__ );
+			/*$site_url = site_url();
+			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
+			$assets_url = str_replace( '\\', '/', $assets_url );*/
+
+			return dirname( __FILE__ );
 		}
 
 		/**
@@ -453,7 +464,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		public static function enqueue_assets(){
 			wp_enqueue_script(
 				'ui-typography.min',
-				self::get_current_file_url() . '/assets/min/ui-typography.min.js',
+				self::get_current_file_url() . '/assets/ui-typography.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
 				true
