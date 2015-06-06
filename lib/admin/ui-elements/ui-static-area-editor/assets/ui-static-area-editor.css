@@ -33,7 +33,7 @@
   border: 1px solid #dddcdc;
 }
 .cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .ui-accordion-header-icon {
-  background-image: url("../images/ui-images/ui-icons_228ef1_256x240.png");
+  background-image: url("ui-images/ui-icons_228ef1_256x240.png");
 }
 .cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group {
   float: right;
@@ -94,7 +94,7 @@
 .cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div {
   background: none;
   border-radius: 6px;
-  padding: 1em 2.1em;
+  padding: 1em 1.2em;
   overflow: hidden;
 }
 .cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-lg {
@@ -133,9 +133,9 @@
   margin: 0;
 }
 .cherry-static-area-editor-wrap .area-unit .accordion-unit .ui-state-highlight {
-  height: 42px;
+  height: 40px;
   margin: 4px 0;
-  border-radius: 6px;
+  border-radius: 0px;
   border: 1px dashed #8BC735;
   background: rgba(139, 199, 53, 0.3);
   box-sizing: border-box;

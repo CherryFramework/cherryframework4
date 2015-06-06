@@ -105,6 +105,19 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 		}
 
 		/**
+		 * Get current file URL
+		 *
+		 * @since  4.0.0
+		 */
+		public static function get_current_file_url() {
+			$assets_url = dirname( __FILE__ );
+			$site_url = site_url();
+			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
+			$assets_url = str_replace( '\\', '/', $assets_url );
+
+			return $assets_url;
+		}
+		/**
 		 * Enqueue javascript and stylesheet UI_Repeater
 		 *
 		 * @since  4.0.0
@@ -112,7 +125,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 		public static function enqueue_assets(){
 			wp_enqueue_script(
 				'cherry-repeater-plugin.min',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-repeater/assets/min/cherry-repeater-plugin.min.js',
+				self::get_current_file_url() . '/assets/min/cherry-repeater-plugin.min.js',
 				array( 'jquery', 'jquery-ui-sortable' ),
 				'1.0.0',
 				true
@@ -120,7 +133,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 
 			wp_enqueue_script(
 				'ui-repeater.min',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-repeater/assets/min/ui-repeater.min.js',
+				self::get_current_file_url() . '/assets/min/ui-repeater.min.js',
 				array( 'jquery' ),
 				'1.0.0',
 				true
@@ -128,7 +141,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 
 			wp_enqueue_style(
 				'ui-repeater',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-repeater/assets/ui-repeater.css',
+				self::get_current_file_url() . '/assets/ui-repeater.css',
 				array(),
 				'1.0.0',
 				'all'

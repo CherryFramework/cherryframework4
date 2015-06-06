@@ -336,12 +336,49 @@ address {
 }
 @media_close()
 
-@media (max-width:480px) {
+@media ( max-width:@menu_toogle_endpoint()px ) {
+	.menu-primary_trigger {
+		display: block;
+	}
+	.menu-primary .menu-items {
+		display: none !important;
+	}
+	.menu-primary .menu-items[aria-expanded="true"] {
+		display: block !important;
+	}
 	.menu-items {
 		padding: 10px;
 		background: @contrast( $typography-header-menu[color], #fafafa, #454545 );
 	}
+	.menu-primary .sub-menu {
+		position: static;
+		float: none;
+		visibility: visible;
+		opacity: 1;
+		padding: 0 0 0 20px;
+		background: none;
+	}
+	.menu-primary .sub-menu li {
+		float: none;
+	}
 	.menu-primary .sub-menu a {
+		width: 100%;
 		color: $typography-header-menu[color];
+	}
+	.menu-primary > ul > li {
+		float: none;
+		display: block;
+		margin: 0;
+		padding: 0 0 3px 0;
+	}
+}
+
+@media ( min-width:@menu_toogle_endpoint()px ) {
+	.menu-primary li:hover > ul,
+	.menu-primary li.focus > ul,
+	.menu-primary li.menu-hover > ul {
+		opacity: 1;
+		visibility: visible;
+		overflow: visible;
 	}
 }
