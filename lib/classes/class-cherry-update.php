@@ -86,10 +86,9 @@ if( !class_exists('Cherry_Update') ) {
 				foreach ($response as $key => $update) {
 
 					$get_version = strtolower ($update->name);
-					$update_label = preg_replace('/[\d\.]/', '', $get_version);;
+					$update_label = preg_replace('/[v]?[\d\.]+[v]?/', '', $get_version);
 					$get_version = preg_replace('/[^\d\.]/', '', $get_version);
-
-
+					
 					if( version_compare ( $get_version, $current_version ) > 0 && strpos($update_label, self::$api['important_release']) !==false ){
 						$new_update['version'] = $get_version;
 						$new_update['url'] = self::$api['html_url'].'/version-'.$get_version;
