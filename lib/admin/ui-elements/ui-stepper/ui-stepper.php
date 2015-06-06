@@ -59,21 +59,35 @@ if ( ! class_exists( 'UI_Stepper' ) ) {
 		}
 
 		/**
+		 * Get current file URL
+		 *
+		 * @since  4.0.0
+		 */
+		public static function get_current_file_url() {
+			$assets_url = dirname( __FILE__ );
+			$site_url = site_url();
+			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
+			$assets_url = str_replace( '\\', '/', $assets_url );
+
+			return $assets_url;
+		}
+
+		/**
 		 * Enqueue javascript and stylesheet UI_Stepper.
 		 *
 		 * @since  4.0.0
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-stepper-js',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-stepper/assets/min/ui-stepper.min.js',
+				'ui-stepper.min',
+				self::get_current_file_url() . '/assets/min/ui-stepper.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
 				true
 			);
 			wp_enqueue_style(
 				'ui-stepper-css',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-stepper/assets/ui-stepper.css',
+				self::get_current_file_url() . '/assets/ui-stepper.css',
 				array(),
 				CHERRY_VERSION,
 				'all'

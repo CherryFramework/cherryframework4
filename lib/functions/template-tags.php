@@ -382,18 +382,23 @@ function cherry_get_related_posts() {
 		return;
 	}
 
-	$related_query = cherry_get_related_post_list( array( 'num' => 4, 'relation' => 'OR' ) );
+	$related_args = apply_filters( 'cherry_related_posts_args', array(
+		'num'      => 4,
+		'relation' => 'OR',
+	) );
+	$related_query = cherry_get_related_post_list( $related_args );
 
 	if ( ! $related_query->have_posts() ) {
 		return;
 	}
 
 	$default_args = array(
-		'format_block'  => '<div class="related-posts">%1$s%2$s</div>',
-		'format_list'   => '<%1$s class="related-posts_list">%2$s</%1$s>',
-		'format_title'  => '<h3 class="related-posts_title">%1$s</h3>',
-		'wrapper_list'  => 'ul',
-		'wrapper_item'  => 'li',
+		'format_block' => '<div class="related-posts">%1$s%2$s</div>',
+		'format_list'  => '<%1$s class="related-posts_list row list-unstyled">%2$s</%1$s>',
+		'format_item'  => '<%1$s class="related-posts_item col-xs-12 col-sm-6 col-md-%3$s">%2$s</%1$s>',
+		'format_title' => '<h3 class="related-posts_title">%1$s</h3>',
+		'wrapper_list' => 'ul',
+		'wrapper_item' => 'li',
 	);
 
 	/**
@@ -418,7 +423,7 @@ function cherry_get_related_posts() {
 			)
 		);
 
-		$content  .= sprintf( '<%1$s class="related-posts_item">%2$s</%1$s>', $args['wrapper_item'], $item_body );
+		$content .= sprintf( $args['format_item'], $args['wrapper_item'], $item_body, floor( 12 / $related_args['num'] ) );
 	}
 
 	wp_reset_postdata();

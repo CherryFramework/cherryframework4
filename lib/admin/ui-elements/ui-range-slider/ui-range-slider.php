@@ -92,6 +92,20 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 		}
 
 		/**
+		 * Get current file URL
+		 *
+		 * @since  4.0.0
+		 */
+		public static function get_current_file_url() {
+			$assets_url = dirname( __FILE__ );
+			$site_url = site_url();
+			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
+			$assets_url = str_replace( '\\', '/', $assets_url );
+
+			return $assets_url;
+		}
+
+		/**
 		 * Enqueue javascript and stylesheet UI_Range_Slider.
 		 *
 		 * @since  4.0.0
@@ -99,21 +113,21 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 		public static function enqueue_assets(){
 			wp_enqueue_script(
 				'ui-range-slider.min',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-range-slider/assets/min/ui-range-slider.min.js',
+				self::get_current_file_url() . '/assets/min/ui-range-slider.min.js',
 				array( 'jquery', 'jquery-ui-slider' ),
 				CHERRY_VERSION,
 				true
 			);
 			wp_enqueue_style(
 				'jquery-ui',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-range-slider/assets/jquery-ui.css',
+				self::get_current_file_url() . '/assets/jquery-ui.css',
 				array(),
 				CHERRY_VERSION,
 				'all'
 			);
 			wp_enqueue_style(
 				'ui-range-slider',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-range-slider/assets/ui-range-slider.css',
+				self::get_current_file_url() . '/assets/ui-range-slider.css',
 				array(),
 				CHERRY_VERSION,
 				'all'
