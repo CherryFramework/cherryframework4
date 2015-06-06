@@ -825,3 +825,14 @@ function cherry_simple_sum( $a, $b ) {
 function cherry_simple_diff( $a, $b ) {
 	return intval($a) - intval($b);
 }
+
+/**
+ * Get width to swith on mobile menu from
+ *
+ * @since  4.0.0
+ *
+ * @return int
+ */
+function cherry_menu_toogle_endpoint() {
+	return apply_filters( 'cherry_menu_toogle_endpoint', 600 );
+}
