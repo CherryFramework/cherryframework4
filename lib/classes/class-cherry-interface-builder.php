@@ -139,7 +139,7 @@ class Cherry_Interface_Builder {
 			'library_type'			=> '',
 			'label'					=> '',
 			'title'					=> '',
-			'decsription'			=> '',
+			'description'			=> '',
 			'hint'					=> '',
 			'toggle'				=> array(
 				'true_toggle'		=> __( 'On', 'cherry' ),
@@ -147,6 +147,7 @@ class Cherry_Interface_Builder {
 			)
 		);
 		extract( array_merge( $default, $args ) );
+
 		$value             = $value == '' || $value == false && $value != 0 ? $default_value : $value;
 		$item_id           = $id;
 		$name              = $this->generate_field_name( $id );
@@ -422,7 +423,7 @@ class Cherry_Interface_Builder {
 
 		}
 
-		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $decsription, $hint );
+		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $description, $hint );
 	}
 
 	/**
@@ -431,8 +432,9 @@ class Cherry_Interface_Builder {
 	 * @since  4.0.0
 	 * @return string
 	 */
-	private function wrap_item( $item, $id, $class, $title, $label, $decsription, $hint ) {
-		$decsription = $decsription ? $this->add_description( $decsription ) : '';
+	private function wrap_item( $item, $id, $class, $title, $label, $description, $hint ) {
+
+		$description = $description ? $this->add_description( $description ) : '';
 		$class       = 'cherry-section-' . $this->options['pattern'] . ' ' . $class;
 		$output      = '<div id="wrap-' . $id . '" class="' . $class . '">';
 		$output      .= $title ? $this->add_title( $title ) : '';
@@ -440,7 +442,7 @@ class Cherry_Interface_Builder {
 
 		if ( $this->options['pattern'] == 'inline' ) :
 
-			$output .= $this->add_label( $id, $label ) . $item . $decsription;
+			$output .= $this->add_label( $id, $label ) . $item . $description;
 
 		else :
 
@@ -455,7 +457,7 @@ class Cherry_Interface_Builder {
 				$hint_html .=  $ui_tooltip->render();
 			}
 
-			$output .= '<div class="cherry-col-1">' . $this->add_label( $id, $label ) . $decsription . $hint_html. '</div>';
+			$output .= '<div class="cherry-col-1">' . $this->add_label( $id, $label ) . $description . $hint_html. '</div>';
 			$output .= '<div class="cherry-col-2">' . $item . '</div>';
 		endif;
 
@@ -488,8 +490,8 @@ class Cherry_Interface_Builder {
 	* @since 4.0.0
 	* @return string
 	*/
-	private function add_description($decsription){
-		return sprintf($this->options['html_wrappers']['before_decsription'], 'class="cherry-description"') . $decsription . $this->options['html_wrappers']['after_decsription'];
+	private function add_description($description){
+		return sprintf($this->options['html_wrappers']['before_decsription'], 'class="cherry-description"') . $description . $this->options['html_wrappers']['after_decsription'];
 	}
 
 	/**
