@@ -940,12 +940,12 @@ function cherry_defaults_settings() {
 		'description' => __( 'Styling text in forms.', 'cherry' ),
 		'value'       => array(
 			'fonttype'      => 'standart',
-			'size'          => '14',
+			'size'          => '12',
 			'lineheight'    => '20',
 			'color'         => '#333333',
-			'family'        => 'Arial',
+			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'italic',
+			'style'         => 'regular',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
 		)
@@ -956,12 +956,12 @@ function cherry_defaults_settings() {
 		'description' => __( 'Styling text in breadcrumbs.', 'cherry' ),
 		'value'       => array(
 			'fonttype'      => 'standart',
-			'size'          => '14',
-			'lineheight'    => '20',
+			'size'          => '12',
+			'lineheight'    => '18',
 			'color'         => '#777777',
 			'family'        => 'Arial',
 			'character'     => 'latin-ext',
-			'style'         => 'italic',
+			'style'         => 'regular',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
 		)
