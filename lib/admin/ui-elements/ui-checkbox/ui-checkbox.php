@@ -39,7 +39,32 @@ if ( ! class_exists( 'UI_Checkbox' ) ) {
 		function __construct( $args = array() ) {
 			$this->defaults_settings['id'] = 'cherry-ui-checkbox-'.uniqid();
 			$this->settings = wp_parse_args( $args, $this->defaults_settings );
-			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
+
+			//$arr = array( self::get_current_file_url() . '/assets/min/ui-checkbox.min.js', self::get_current_file_url() . '/assets/ui-checkbox.css' );
+			//$this->type_of_assets();
+			/*if ( defined( 'DOING_AJAX' ) && DOING_AJAX ){
+				?>
+					<script>
+					(function(){
+
+						CHERRY_API.utilites.namespace('ui_elements.tmp_assets');
+						CHERRY_API.ui_elements.tmp_assets = (typeof CHERRY_API.ui_elements.tmp_assets === 'object') ? [] : CHERRY_API.ui_elements.tmp_assets ;
+
+						if( $.inArray( 'ui-checkbox.min.js', CHERRY_API.variable.loaded_assets.script ) == -1 ){
+							CHERRY_API.ui_elements.tmp_assets.push("<?php echo self::get_current_file_url() . '/assets/min/ui-checkbox.min.js'; ?>");
+						}else{
+							CHERRY_API.ui_elements.checkbox.init( $('body') );
+						}
+
+						if( $.inArray( 'ui-checkbox.css', CHERRY_API.variable.loaded_assets.style ) == -1 ){
+							CHERRY_API.ui_elements.tmp_assets.push("<?php echo self::get_current_file_url() . '/assets/ui-checkbox.css' ?>");
+						}
+					}())
+					</script>
+				<?php
+			}else{*/
+				add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
+			//}
 
 			self::enqueue_assets();
 		}
@@ -80,6 +105,9 @@ if ( ! class_exists( 'UI_Checkbox' ) ) {
 			return $html;
 		}
 
+		public function type_of_assets(){
+
+		}
 		/**
 		 * Get current file URL
 		 *
