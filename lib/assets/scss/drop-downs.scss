@@ -65,31 +65,18 @@
 		visibility: hidden;
 		overflow: hidden;
 		@include transition(opacity .4s ease-in-out, visibility .4s ease-in-out);
-		@media (max-width:480px) {
-			position: static;
-			float: none;
-			visibility: visible;
-			opacity: 1;
-			padding: 0 0 0 20px;
-		}
 
 		ul {
 			left: 100%;
 			top: 0;
 		}
 		li {
-			@media (max-width:480px) {
-				float: none;
-			}
 			&:hover > ul,
 			&.focus > ul {
 			}
 		}
 		a {
 			width: 200px;
-			@media (max-width:480px) {
-				width: 100%;
-			}
 		}
 		:hover > a,
 		.focus > a {
@@ -112,15 +99,7 @@
 			}
 		}
 	}
-	li:hover > ul,
-	li.focus > ul,
-	li.menu-hover > ul {
-		@media (min-width:481px) {
-			opacity: 1;
-			visibility: visible;
-			overflow: visible;
-		}
-	}
+
 	&_trigger {
 		background: #fff;
 		box-shadow:0 2px 4px rgba(0,0,0,.1);
@@ -130,18 +109,6 @@
 		display: none;
 		position: relative;
 		z-index: 999;
-		@media (max-width:480px) {
-			display: block;
-		}
-	}
-
-	.menu-items {
-		@media (max-width:480px) {
-			display: none !important;
-			&[aria-expanded="true"] {
-				display: block !important;
-			}
-		}
 	}
 }
 
@@ -161,25 +128,9 @@
 	padding: 20px 0;
 	.sub-menu {
 		background: rgba(0,0,0,.7);
-		@media (max-width:480px) {
-			background: none;
-		}
 		a {
 			color: #fff;
 			margin: 5px;
-		}
-	}
-}
-
-.menu-primary {
-	> ul {
-		> li {
-			@media (max-width:480px) {
-				float: none;
-				display: block;
-				margin: 0;
-				padding: 0 0 3px 0;
-			}
 		}
 	}
 }

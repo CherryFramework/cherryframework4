@@ -101,8 +101,8 @@ function cherry_get_the_post_thumbnail( $args ) {
 		// thumbnail, medium or large - the default image sizes.
 		'before' => '',
 		'after'  => '',
-		'class'  =>  is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-align' ) : cherry_get_option( 'blog-featured-images-align' ), // aligncenter, alignleft or alignright
-		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s %3$s">%6$s</%1$s>' : '<%1$s class="%2$s %3$s"><a href="%4$s" title="%5$s">%6$s</a></%1$s>',
+		'class'  => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-align' ) : cherry_get_option( 'blog-featured-images-align' ), // aligncenter, alignleft or alignright
+		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s %3$s %7$s">%6$s</%1$s>' : '<%1$s class="%2$s %3$s %7$s"><a href="%4$s" title="%5$s">%6$s</a></%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -115,7 +115,7 @@ function cherry_get_the_post_thumbnail( $args ) {
 	$size = ( in_array( $args['size'], $sizes ) ) ? $args['size'] : $defaults['size'];
 
 	// Gets the Featured Image.
-	$thumbnail = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['class'] ) );
+	$thumbnail = get_the_post_thumbnail( $post_id, $args['size'] );
 	$thumbnail = $args['before'] . $thumbnail . $args['after'];
 
 	$output = sprintf(
@@ -125,7 +125,8 @@ function cherry_get_the_post_thumbnail( $args ) {
 		sanitize_html_class( $args['size'] ),
 		get_permalink( $post_id ),
 		esc_attr( the_title_attribute( 'echo=0' ) ),
-		$thumbnail
+		$thumbnail,
+		esc_attr( $args['class'] )
 	);
 
 	/**
@@ -442,10 +443,13 @@ function cherry_get_the_post_image( $args ) {
 	$defaults = apply_filters( 'cherry_get_the_post_image_defaults', array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
-		'size'            => 'cherry-thumb-l',
+		'size'            => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-size' ) : cherry_get_option( 'blog-featured-images-size' ),
+		// cherry-thumb-s or cherry-thumb-l - the custom image sizes;
+		// thumbnail, medium or large - the default image sizes.
 		'before'          => '',
 		'after'           => '',
-		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s-link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
+		'class'           => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-align' ) : cherry_get_option( 'blog-featured-images-align' ), // aligncenter, alignleft or alignright
+		'wrap'            => '<%1$s class="%2$s %6$s"><a href="%4$s" class="%2$s-link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -503,7 +507,7 @@ function cherry_get_the_post_image( $args ) {
 
 	$result = sprintf(
 		$args['wrap'],
-		$args['container'], $args['container_class'], $thumb, $url, $init
+		$args['container'], $args['container_class'], $thumb, $url, $init, esc_attr( $args['class'] )
 	);
 
 	/**
