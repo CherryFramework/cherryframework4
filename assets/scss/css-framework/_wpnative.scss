@@ -140,9 +140,13 @@ img {
 .site-header {
 	position: relative;
 	z-index: 9;
-	&.isStick {
+}
+.isStick {
+	&.site-header,
+	&.header-top {
 		left: 0;
 		right: 0;
+		z-index: 9;
 	}
 }
 
