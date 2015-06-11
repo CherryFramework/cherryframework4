@@ -23,7 +23,7 @@ if( !class_exists( 'Cherry_Bace_Update' ) ) {
 
 	class Cherry_Bace_Update {
 		protected $api = array(
-				'versions'			=> '',
+				'version'			=> '',
 				'slug'				=> '',
 				'hub_url'			=> 'https://github.com/',
 				'api_url'			=> 'https://api.github.com/repos/',
@@ -53,7 +53,7 @@ if( !class_exists( 'Cherry_Bace_Update' ) ) {
 
 				$response = array_reverse( $response );
 				$last_update = count( $response )-1;
-				$current_version = $this -> api[ 'versions' ];
+				$current_version = $this -> api[ 'version' ];
 
 				foreach ($response as $key => $update) {
 

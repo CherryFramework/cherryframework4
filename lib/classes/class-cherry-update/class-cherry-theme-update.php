@@ -71,7 +71,7 @@ if( !class_exists( 'Cherry_Theme_Update' ) ) {
 	$Cherry_Theme_Update = new Cherry_Theme_Update();
 	$Cherry_Theme_Update -> init( array(
 			'slug'				=> get_template(),
-			'versions'			=> CHERRY_VERSION,
+			'version'			=> CHERRY_VERSION,
 			'repository_name'	=> 'cherryframework4'
 	));
 }
