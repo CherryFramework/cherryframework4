@@ -87,7 +87,6 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 			$character_array = array();
 			$style_array = array();
 			$fonttype = '';
-
 			$html .= '<div class="cherry-ui-typography-wrap">';
 			//Font Family
 				$html .= '<div class="cherry-column-section">';

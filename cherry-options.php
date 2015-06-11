@@ -110,9 +110,20 @@ function cherry_defaults_settings() {
 		),
 		'value' => 'true',
 	);
-	$grid_options['page-layout'] = array(
+	$grid_options['grid-container-width'] = array(
+		'type'        => 'slider',
+		'title'       => __( 'Container width', 'cherry' ),
+		'description' => __( 'Width of header/content/footer container in pixels.', 'cherry' ),
+		'max_value'   => 1920, // Full HD
+		'min_value'   => 970,
+		'value'       => 1170,
+	);
+
+	// Layouts
+	////////////////////////////////////////////////////////////////////////
+	$layouts_options['page-layout'] = array(
 		'type'        => 'radio',
-		'title'       => __( 'Layout', 'cherry' ),
+		'title'       => __( 'Pages', 'cherry' ),
 		'description' => __( 'Select page layout.', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
@@ -147,17 +158,45 @@ function cherry_defaults_settings() {
 			),
 		)
 	);
-	$grid_options['grid-container-width'] = array(
-		'type'        => 'slider',
-		'title'       => __( 'Container width', 'cherry' ),
-		'description' => __( 'Width of header/content/footer container in pixels.', 'cherry' ),
-		'max_value'   => 1920, // Full HD
-		'min_value'   => 970,
-		'value'       => 1170,
+	$layouts_options['single-post-layout'] = array(
+		'type'        => 'radio',
+		'title'       => __( 'Blog posts', 'cherry' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'You can choose if you want to display sidebars and how you want to display them.', 'cherry' ),
+		),
+		'value'         => 'content-sidebar',
+		'display_input' => false,
+		'options'       => array(
+			'sidebar-content' => array(
+				'label'   => __( 'Left sidebar', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-left-sidebar.svg',
+			),
+			'content-sidebar' => array(
+				'label'   => __( 'Right sidebar', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-right-sidebar.svg',
+			),
+			'sidebar-content-sidebar' => array(
+				'label'   => __( 'Left and right sidebar', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-both-sidebar.svg',
+			),
+			'sidebar-sidebar-content' => array(
+				'label'   => __( 'Two sidebars on the left', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-left-sidebar.svg',
+			),
+			'content-sidebar-sidebar' => array(
+				'label'   => __( 'Two sidebars on the right', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-sameside-right-sidebar.svg',
+			),
+			'no-sidebar' => array(
+				'label'   => __( 'No sidebar', 'cherry' ),
+				'img_src' => PARENT_URI . '/lib/admin/assets/images/svg/page-layout-fullwidth.svg',
+			),
+		)
 	);
 
 //////////////////////////////////////////////////////////////////////
-// Blog layout options
+// Blog options
 //////////////////////////////////////////////////////////////////////
 
 	$blog_options = array();
@@ -472,7 +511,7 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'checkbox',
 		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
-		'hint'			=>  array(
+		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
 		),
@@ -901,12 +940,12 @@ function cherry_defaults_settings() {
 		'description' => __( 'Styling text in forms.', 'cherry' ),
 		'value'       => array(
 			'fonttype'      => 'standart',
-			'size'          => '14',
+			'size'          => '12',
 			'lineheight'    => '20',
 			'color'         => '#333333',
-			'family'        => 'Arial',
+			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'italic',
+			'style'         => 'regular',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
 		)
@@ -917,12 +956,12 @@ function cherry_defaults_settings() {
 		'description' => __( 'Styling text in breadcrumbs.', 'cherry' ),
 		'value'       => array(
 			'fonttype'      => 'standart',
-			'size'          => '14',
-			'lineheight'    => '20',
+			'size'          => '12',
+			'lineheight'    => '18',
 			'color'         => '#777777',
 			'family'        => 'Arial',
 			'character'     => 'latin-ext',
-			'style'         => 'italic',
+			'style'         => 'regular',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
 		)
@@ -1038,7 +1077,7 @@ function cherry_defaults_settings() {
 	$optimization_options['concatenate-css'] = array(
 		'type'          => 'switcher',
 		'title'			=> __( 'Concatenate/minify CSS', 'cherry' ),
-		'description'	=> __( 'Select if you want to merge\minify CSS files to performance optimization.', 'cherry' ),
+		'description'	=> __( 'Select if you want to merge\minify CSS files for performance optimization.', 'cherry' ),
 		'value'         => 'false',
 		'toggle'        => array(
 			'true_toggle'  => __( 'Yes', 'cherry' ),
@@ -1469,6 +1508,13 @@ function cherry_defaults_settings() {
 		'icon'         => 'dashicons dashicons-admin-appearance',
 		'priority'     => 30,
 		'options-list' => apply_filters( 'cherry_grid_options_list', $grid_options ),
+	);
+	$sections_array['layouts-subsection'] = array(
+		'name'         => __( 'Layouts', 'cherry' ),
+		'icon'         => 'dashicons dashicons-arrow-right',
+		'parent'       => 'grid-section',
+		'priority'     => 1,
+		'options-list' => apply_filters( 'cherry_layouts_options_list', $layouts_options ),
 	);
 
 	$sections_array['blog-section'] = array(

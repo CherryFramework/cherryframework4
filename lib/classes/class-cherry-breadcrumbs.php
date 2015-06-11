@@ -137,14 +137,17 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			);
 
 			if ( false === $this->args['show_mobile'] ) {
-				$wrapper_classes[] = 'hide-mobile';
+				$wrapper_classes[] = 'hidden-xs';
 			}
 
 			if ( false === $this->args['show_tablet'] ) {
-				$wrapper_classes[] = 'hide-tablet';
+				$wrapper_classes[] = 'hidden-sm';
 			}
 
-			$wrapper_css = implode( ' ', $wrapper_classes );
+			$wrapper_classes = apply_filters( 'cherry_breadcrumbs_wrapper_classes', $wrapper_classes );
+			$wrapper_classes = array_unique( $wrapper_classes );
+			$wrapper_classes = array_map( 'sanitize_html_class', $wrapper_classes );
+			$wrapper_css     = implode( ' ', $wrapper_classes );
 
 			/* Open the breadcrumb trail containers. */
 			$result = "\n\t\t" . '<div class="' . $wrapper_css . '">';
