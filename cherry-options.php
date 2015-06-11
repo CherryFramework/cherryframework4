@@ -1077,7 +1077,7 @@ function cherry_defaults_settings() {
 	$optimization_options['concatenate-css'] = array(
 		'type'          => 'switcher',
 		'title'			=> __( 'Concatenate/minify CSS', 'cherry' ),
-		'description'	=> __( 'Select if you want to merge\minify CSS files to performance optimization.', 'cherry' ),
+		'description'	=> __( 'Select if you want to merge\minify CSS files for performance optimization.', 'cherry' ),
 		'value'         => 'false',
 		'toggle'        => array(
 			'true_toggle'  => __( 'Yes', 'cherry' ),

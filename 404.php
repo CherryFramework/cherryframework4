@@ -10,7 +10,7 @@
 
 	<!-- Page header -->
 	<header class="page-header">
-		<h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'cherry' ); ?></h1>
+		<h2 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'cherry' ); ?></h2>
 	</header>
 
 	<!-- Page content -->
