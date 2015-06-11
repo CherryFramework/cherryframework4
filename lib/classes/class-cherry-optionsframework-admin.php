@@ -85,7 +85,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'before_content' => '
 					<div class="cherry-info-box">
 						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
-							<a href="http://cherryframework.com/documentation/cf4/index_en.html" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
+							<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>'
 			));

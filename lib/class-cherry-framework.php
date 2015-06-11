@@ -335,7 +335,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
 
 				// Class Cherry Update.
-				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-update.php' );
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-update/class-cherry-theme-update.php' );
 
 				// Load the main admin file.
 				require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-admin.php' );
