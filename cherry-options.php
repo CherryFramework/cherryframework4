@@ -511,7 +511,7 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'checkbox',
 		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
-		'hint'			=>  array(
+		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
 		),
