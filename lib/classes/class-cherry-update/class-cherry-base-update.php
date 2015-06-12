@@ -1,8 +1,8 @@
 <?php
 /**
- * Class for the bace update
+ * Class for the base update
  *
- * @package    Cherry_Bace_Update
+ * @package    Cherry_Base_Update
  * @subpackage Bace_Update
  * @author     Cherry Team <support@cherryframework.com>
  * @copyright  Copyright (c) 2012 - 2015, Cherry Team
@@ -15,13 +15,13 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
-if( !class_exists( 'Cherry_Bace_Update' ) ) {
+if( !class_exists( 'Cherry_Base_Update' ) ) {
 
 	//define('CHERRY_UPDATE', false);
 	//define('CHERRY_ALPHA_UPDATE', true);
 	//define('CHERRY_BETA_UPDATE', true);
 
-	class Cherry_Bace_Update {
+	class Cherry_Base_Update {
 		protected $api = array(
 				'version'			=> '',
 				'slug'				=> '',
@@ -104,15 +104,14 @@ if( !class_exists( 'Cherry_Bace_Update' ) ) {
 			$skin_plugin = isset($skin_upgrader ->skin ->plugin) ? $skin_upgrader ->skin ->plugin : '' ;
 
 			if( $skin_theme === $this -> api[ 'slug' ] || $skin_plugin === $this -> api[ 'slug' ] ){
-				return $upgrate_dir;
+				$upgrate_dir_path = pathinfo( $upgrate_dir );
+				$new_upgrate_dir = trailingslashit( $upgrate_dir_path[ 'dirname' ] ) . trailingslashit( $this -> api[ 'slug' ] );
+
+				rename( $upgrate_dir, $new_upgrate_dir );
+
+				$upgrate_dir = $new_upgrate_dir;
 			}
-
-			$upgrate_dir_path = pathinfo( $upgrate_dir );
-			$new_upgrate_dir = trailingslashit( $upgrate_dir_path[ 'dirname' ] ) . trailingslashit( $this -> api[ 'slug' ] );
-
-			rename( $upgrate_dir, $new_upgrate_dir );
-
-			return $new_upgrate_dir;
+			return $upgrate_dir;
 		}
 	}
 }
