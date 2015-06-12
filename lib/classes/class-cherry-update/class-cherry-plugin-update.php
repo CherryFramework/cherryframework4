@@ -25,7 +25,7 @@ if( !class_exists( 'Cherry_Plugin_Update' ) ) {
 				$this -> bace_init( $attr );
 
 				//Need for test update
-				set_site_transient('update_plugins', null);
+				//set_site_transient('update_plugins', null);
 
 				add_action( 'pre_set_site_transient_update_plugins', array( $this, 'update' ) );
 				add_action( 'admin_footer', array( $this, 'change_details_url' ) );
