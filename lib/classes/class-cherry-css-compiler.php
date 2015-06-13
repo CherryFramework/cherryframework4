@@ -242,8 +242,9 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 * @return string $url
 		 */
 		public function prepare_url( $path ) {
-			$home_url  = '/' . preg_quote( home_url('/'), '/' ) . '/';
-			$home_path = '/' . preg_quote( ABSPATH, '/' ) . '/';
+			$path      = str_replace('\\', '/', $path);
+			$abspath   = str_replace('\\', '/', ABSPATH);
+			$home_path = '/' . preg_quote( $abspath, '/' ) . '/';
 
 			return preg_replace( $home_path, home_url('/'), $path );
 		}
