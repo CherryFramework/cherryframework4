@@ -2,7 +2,7 @@
 /**
  * Class for the update plugins.
  *
- * @package    Cherry_Bace_Update
+ * @package    Cherry_Base_Update
  * @subpackage Plugins_Update
  * @author     Cherry Team <support@cherryframework.com>
  * @copyright  Copyright (c) 2012 - 2015, Cherry Team
@@ -18,7 +18,7 @@ if ( !defined( 'WPINC' ) ) {
 if( !class_exists( 'Cherry_Plugin_Update' ) ) {
 	require( 'class-cherry-base-update.php' );
 
-	class Cherry_Plugin_Update extends Cherry_Bace_Update {
+	class Cherry_Plugin_Update extends Cherry_Base_Update {
 
 		public function init( $attr = array() ){
 			if( @constant ( 'CHERRY_UPDATE' ) !== false ){
