@@ -476,7 +476,7 @@ add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
  */
 function cherry_maintenance_mode() {
 
-	$enabled      = cherry_get_option( 'general-maintenance-mode', false );
+	$enabled = cherry_get_option( 'general-maintenance-mode', false );
 
 	if (
 		isset( $_GET['maintenance-preview'] )
@@ -503,7 +503,7 @@ function cherry_maintenance_mode() {
 		)
 	);
 
-	echo $result;
+	echo apply_filters( 'the_content', $result );
 
 	wp_footer(); ?>
 	</body>
@@ -549,5 +549,4 @@ function cherry_get_the_post_maintenance_content() {
 	$page = get_post( $page_id );
 
 	return $page->post_content;
-
 }
