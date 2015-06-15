@@ -3,7 +3,7 @@
  * Class for the base update
  *
  * @package    Cherry_Base_Update
- * @subpackage Bace_Update
+ * @subpackage Base_Update
  * @author     Cherry Team <support@cherryframework.com>
  * @copyright  Copyright (c) 2012 - 2015, Cherry Team
  * @link       http://www.cherryframework.com/
@@ -36,7 +36,7 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 				'sslverify'			=> true
 			);
 
-		protected function bace_init( $attr = array() ){
+		protected function base_init( $attr = array() ){
 			$this ->api = array_merge( $this ->api, $attr );
 
 			add_filter( 'upgrader_source_selection', array( $this, 'rename_github_folder' ), 11, 3 );

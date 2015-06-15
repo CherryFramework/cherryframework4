@@ -22,7 +22,7 @@ if( !class_exists( 'Cherry_Plugin_Update' ) ) {
 
 		public function init( $attr = array() ){
 			if( @constant ( 'CHERRY_UPDATE' ) !== false ){
-				$this -> bace_init( $attr );
+				$this -> base_init( $attr );
 
 				//Need for test update
 				//set_site_transient('update_plugins', null);
