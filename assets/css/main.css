@@ -1455,6 +1455,47 @@ img {
   display: block;
 }
 
+ol.comment-list {
+  list-style: none;
+  margin: 0 0 1em;
+  padding: 0;
+  text-indent: 0;
+}
+ol.comment-list li > .children,
+ol.comment-list .children li > .children {
+  list-style: none;
+}
+ol.comment-list li .comment-body {
+  padding: 1.5em;
+  background: #fff;
+}
+ol.comment-list li.comment, ol.comment-list li.ping {
+  clear: both;
+}
+ol.comment-list li.comment {
+  margin: 0 0 1em;
+  /* Avatar */
+  /* Meta */
+  /* Reply */
+  /* Sub-comments */
+}
+ol.comment-list li.comment div.vcard cite.fn {
+  font-style: normal;
+}
+ol.comment-list li.comment div.vcard img.avatar {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+ol.comment-list li.comment footer.comment-meta {
+  font-size: 10px;
+}
+ol.comment-list li.comment div.reply {
+  text-align: right;
+}
+ol.comment-list li.comment ol.children {
+  margin: 1em 0 0;
+}
+
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
