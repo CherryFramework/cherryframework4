@@ -329,13 +329,13 @@ function cherry_defaults_settings() {
 		'type'        => 'switcher',
 		'title'       => __( 'Gallery slider', 'cherry' ),
 		'description' => __( 'Replace default Wordpress gallery shortcode with enhanced jQuery carousel.', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 	$post_single_options['blog-add-ligthbox'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Lightbox for images and videos', 'cherry' ),
 		'description' => __( 'Automatically adds lightbox for images and videos', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 
 	// Meta
