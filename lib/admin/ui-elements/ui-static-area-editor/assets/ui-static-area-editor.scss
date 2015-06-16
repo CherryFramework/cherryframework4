@@ -1,157 +1,129 @@
 .cherry-static-area-editor-wrap{
+	.area-units{
+		width: 60%;
+		padding-right: 15px;
+		float: left;
+		box-sizing: border-box;
+	}
 	.area-unit{
 		background: none repeat scroll 0 0 #fcfcfc;
 		border: 1px solid #dfdfdf;
 		border-radius: 6px;
 		margin-bottom: 20px;
 		padding: 5px;
-		//box-shadow: 0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);
 			.area-name{
 				margin: 5px 0 20px 0;
 				text-align: center;
 			}
-			.accordion-unit{
-				padding: 5px;
-				background: transparent;
-				.group{
-					margin: 4px 0;
-					border-radius: 6px;
-							.ui-sortable-helper{
-								&:focus{
-									cursor: -webkit-grabbing;
-								}
+			&.drag-target{
+				border: 1px dashed #8BC735;
+			}
+	}
+	.accordion-unit{
+		padding: 5px;
+		background: transparent;
+		.group{
+			margin: 4px 0;
+			border-radius: 6px;
+					.ui-accordion-header{
+						font-size: 16px;
+						margin: 0;
+						padding: 10px 10px 10px 30px;
+						color: #444;
+						background-image: none;
+						background: #f2f3f4;
+						border-radius: 6px;
+						font-weight: normal;
+						border: none;
+						border: 1px solid #dddcdc;
+						cursor: -webkit-grab;
+							.ui-accordion-header-icon{
+								background-image: url("ui-images/ui-icons_228ef1_256x240.png");
 							}
-							.ui-accordion-header{
-								font-size: 16px;
-								margin: 0;
-								padding: 10px 10px 10px 30px;
-								color: #444;
-								background-image: none;
-								background: #f2f3f4;
-								border-radius: 6px;
-								font-weight: normal;
-								border: none;
-								border: 1px solid #dddcdc;
-								//box-shadow: 0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);
-								//cursor: -webkit-grab;
-									.ui-accordion-header-icon{
-										background-image: url("ui-images/ui-icons_228ef1_256x240.png");
-									}
-									.delete-group{
-										float: right;
-										color: #2a445d;
-										cursor: pointer;
-										width: 60px;
-										height: 20px;
-										position: relative;
-										text-align: right;
-										overflow: hidden;
-											.confirm-btn{
-												position: absolute;
-												width: 20px;
-												height: 20px;
-												top: -20px;
-												left: 0px;
-												display: inline-block;
-												color: #7ad03a;
-												transition: all 0.2s ease;
-											}
-											.cancle-btn{
-												position: absolute;
-												width: 20px;
-												height: 20px;
-												top: -20px;
-												left: 20px;
-												display: inline-block;
-												color: #f4130c;
-												transition: all 0.2s ease;
-												transition-delay: 0.1s;
-											}
-											&:before{
-												width: 20px;
-												height: 20px;
-												top: 0;
-												transition: all 0.3s ease;
-											}
-											&:hover{
-												&:before{
-													color: #555555;
-												}
-											}
-											&.confirm-state{
-												.confirm-btn{
-													top: 0;
-													transition: all 0.2s ease;
-												}
-												.cancle-btn{
-													top: 0;
-													transition: all 0.2s ease;
-													transition-delay: 0.1s;
-												}
-											}
-									}
-									&.ui-state-active{
-										border: 1px solid #cccccc;
-									}
-									&.ui-state-hover{
-										background: none;
-										border: 1px solid #cccccc;
-									}
-							}
-							>div{
-								background: none;
-								border-radius: 6px;
-								padding: 1em 1.2em;
+							.delete-group{
+								float: right;
+								color: #2a445d;
+								cursor: pointer;
+								width: 20px;
+								height: 20px;
+								position: relative;
+								text-align: right;
 								overflow: hidden;
-								//box-shadow: 0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);
-									.field-col-lg{
-										width: 24%;
-										margin-right: 1%;
-										margin-bottom: 10px;
-										float: left;
+									&:before{
+										width: 20px;
+										height: 20px;
+										top: 0;
+										transition: all 0.3s ease;
 									}
-									.field-col-md{
-										width: 24%;
-										margin-right: 1%;
-										margin-bottom: 10px;
-										float: left;
-									}
-									.field-col-sm{
-										width: 24%;
-										margin-right: 1%;
-										margin-bottom: 10px;
-										float: left;
-									}
-									.field-col-xs{
-										width: 24%;
-										margin-right: 1%;
-										margin-bottom: 10px;
-										float: left;
-									}
-									.field-class{
-										width: 99%;
-										float: left;
-											input{
-												margin: 0;
-												height: 42px;
-											}
-									}
-									select{
-										margin: 0;
+									&:hover{
+										&:before{
+											color: #f62e46 ;
+										}
 									}
 							}
+							&.ui-state-active{
+								border: 1px solid #cccccc;
+							}
+							&.ui-state-hover{
+								background: #fff;
+								border: 1px solid #cccccc;
+							}
 					}
-					.ui-state-highlight {
-						height: 40px;
-						margin: 4px 0;
-						border-radius: 0px;
-						border: 1px dashed #8BC735;
-						background: rgba(139, 199, 53, 0.3);
-						box-sizing:  border-box;
+					>div{
+						background: #fff;
+						border-radius: 6px;
+						padding: 1em 1.2em;
+						overflow: hidden;
+							.field-col-lg{
+								width: 24%;
+								margin-right: 1%;
+								margin-bottom: 10px;
+								float: left;
+							}
+							.field-col-md{
+								width: 24%;
+								margin-right: 1%;
+								margin-bottom: 10px;
+								float: left;
+							}
+							.field-col-sm{
+								width: 24%;
+								margin-right: 1%;
+								margin-bottom: 10px;
+								float: left;
+							}
+							.field-col-xs{
+								width: 24%;
+								margin-right: 1%;
+								margin-bottom: 10px;
+								float: left;
+							}
+							.field-class{
+								width: 99%;
+								float: left;
+									input{
+										margin: 0;
+										height: 42px;
+									}
+							}
+							select{
+								margin: 0;
+							}
 					}
+			}
+			.ui-state-highlight {
+				height: 42px;
+				margin: 4px 0;
+				border-radius: 6px;
+				border: 1px dashed #8BC735;
+				background: rgba(139, 199, 53, 0.3);
+				box-sizing:  border-box;
 			}
 	}
 	.cherry-accordion-control{
+		width: 40%;
+		float: left;
+		box-sizing: border-box;
 		.cherry-label{
 			text-align: right;
 			border-bottom: 1px solid #cccccc;
@@ -159,9 +131,8 @@
 			padding-bottom: 5px;
 		}
 		.field-static{
-			width: 50%;
-			margin-right: 1%;
-			float: right;
+			width: 100%;
+			margin-bottom: 10px;
 				.static-selector{
 					option{
 						&.hidden{
@@ -173,5 +144,29 @@
 		.add-new-btn{
 			float: right;
 		}
+	}
+	.available-statics{
+		width: 40%;
+		float: left;
+		box-sizing: border-box;
+		border: 1px solid #dfdfdf;
+		background: none repeat scroll 0 0 #2a445d;
+			&.drag-target{
+				border: 1px dashed #fff;
+			}
+			h3{
+				color: #fff;
+			}
+			.delete-group{
+				display: none;
+			}
+			.ui-state-highlight {
+				height: 42px;
+				margin: 4px 0;
+				border-radius: 6px;
+				border: 1px dashed #fff;
+				background: rgba(255, 255, 255, 0.3);
+				box-sizing:  border-box;
+			}
 	}
 }

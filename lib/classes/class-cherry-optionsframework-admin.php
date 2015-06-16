@@ -30,7 +30,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		public static $options_export_url = null;
 
-
 		/**
 		* Cherry_Options_Framework_Admin constructor
 		*
@@ -62,7 +61,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		private function init(){
-			global $cherry_options_framework;
+			global $cherry_options_framework, $submenu, $cherry_page_builder;
 
 			$this->option_inteface_builder = new Cherry_Interface_Builder(
 				array(
@@ -71,40 +70,41 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				)
 			);
 
-			// Add the options page and menu item.
-			$Cherry_Page_Builder = new Cherry_Page_Builder();
-
-			$Cherry_Page_Builder -> add_parent_menu_item (array(
+			$cherry_page_builder -> add_parent_menu_item (array(
 				'page_title' => __( 'Theme Cherry Framework', 'cherry' ),
-				'menu_title' => __( 'Cherry Options', 'cherry' ),
+				'menu_title' => __( 'Cherry', 'cherry' ),
 				'capability' => 'edit_theme_options',
-				'menu_slug' => 'cherry-options-page',
+				'menu_slug' => 'cherry',
 				'function' => array( __CLASS__, 'cherry_options_page_build'),
-				'icon_url' => PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.png',
+				'icon_url' => PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.svg',
 				'position' => 62,
 				'before_content' => '
 					<div class="cherry-info-box">
 						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
-							<a href="http://cherryframework.com/documentation/cf4/index_en.html" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
+							<a href="http://www.cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>'
 			));
-			//add_action( 'admin_menu', array( $this, 'cherry_admin_menu_add_item' ) );
+
+			$cherry_page_builder -> add_child_menu_item (array(
+				'parent_slug'	=> 'cherry',
+				'page_title'	=> __( 'Theme Cherry Framework', 'cherry' ),
+				'menu_title'	=> __( 'Options', 'cherry' ),
+				'capability'	=> 'edit_theme_options',
+				'menu_slug'		=> 'options',
+				'function'		=> array( __CLASS__, 'cherry_options_page_build'),
+				'before_content' => '
+					<div class="cherry-info-box">
+						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
+							<a href="http://www.cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
+						</div>
+					</div>'
+			));
 
 			// Settings need to be registered after admin_init
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
 
-			// Displays notice after options save
-			//add_action('cherry-options-updated', array( $this, 'save_options_notice' ) );
-
-			// Displays notice after section restored
-			//add_action('cherry-section-restored', array( $this, 'restore_section_notice' ) );
-
-			// Displays notice after options restored
-			//add_action('cherry-options-restored', array( $this, 'restore_options_notice' ) );
-
-			//add_filter('cherry_set_active_section', array( $this, 'new_section_name') );
-
+			add_action( 'admin_head', array( $this, 'admin_head' ) );
 
 			//************* Sanitize Utility Filters  ************************************//
 			// Utility sanitize text
@@ -172,7 +172,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			echo $options;
 
 			exit();
-
 		}
 
 		/**
@@ -378,26 +377,13 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
-		 * Display message when options have been saved
+		 * Delete sub menu item
+		 *
+		 * @since 4.0.0
 		 */
-		function save_options_notice() {
-			add_settings_error( 'cherry-options', 'save-options', __( 'Options saved', 'cherry-options' ), 'updated slide_up' );
-		}
-
-		/**
-		 * Display message when section have been restored
-		 */
-		function restore_section_notice() {
-			$tmp_active_section = apply_filters( 'cherry_set_active_section', '' );
-			$message            = sprintf( __( 'Section %s restored', 'cherry-options' ), $tmp_active_section );
-			add_settings_error( 'cherry-options', 'restore-section', $message, 'updated slide_up' );
-		}
-
-		/**
-		 * Display message when options have been restored
-		 */
-		function restore_options_notice() {
-			add_settings_error( 'cherry-options', 'restore-options', __( 'All options restored', 'cherry-options' ), 'updated slide_up' );
+		function admin_head(){
+			global $submenu;
+			unset($submenu['cherry'][0]);
 		}
 
 		/**

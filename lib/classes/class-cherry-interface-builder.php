@@ -4,10 +4,12 @@
  *
  * @package    Cherry_Framework
  * @subpackage Class
- * @author     Cherry Team <support@cherryframework.com>
- * @copyright  Copyright (c) 2012 - 2015, Cherry Team
+ * @version    4.0.0
  * @link       http://www.cherryframework.com/
- * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @author     Cherry Team <support@cherryframework.com>
+ * @copyright  Copyright © 2012 - 2015, Cherry Team
+ * @license    GNU General Public License version 3. See LICENSE.txt or http://www.gnu.org/licenses/
+ *
  */
 
 // If this file is called directly, abort.
@@ -373,7 +375,7 @@ class Cherry_Interface_Builder {
 			break;
 
 			case 'static_area_editor':
-				$ui_repeater = new UI_Static_Area_Editor(
+				$ui_statics = new UI_Static_Area_Editor(
 					array(
 						'id'			=> $id,
 						'name'			=> $name,
@@ -382,7 +384,7 @@ class Cherry_Interface_Builder {
 						'class'			=> $class,
 					)
 				);
-				$output .= $ui_repeater->render();
+				$output .= $ui_statics->render();
 			break;
 
 			case 'layouteditor':

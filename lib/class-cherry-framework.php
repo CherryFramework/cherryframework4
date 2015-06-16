@@ -334,6 +334,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 				// Load Cherry_Options_Framework_Admin class.
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-optionsframework-admin.php' );
 
+				// Load Cherry_Statics_Page class.
+				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-statics-page.php' );
+
 				// Class Cherry Update.
 				require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-update.php' );
 

@@ -1497,12 +1497,12 @@ function cherry_defaults_settings() {
 		'priority'     => 10,
 		'options-list' => apply_filters( 'cherry_general_options_list', $general_options ),
 	);
-	$sections_array['static-area-editor-section'] = array(
+	/*$sections_array['static-area-editor-section'] = array(
 		'name'         => __( 'Static areas', 'cherry' ),
 		'icon'         => 'dashicons dashicons-menu',
 		'priority'     => 20,
 		'options-list' => apply_filters( 'cherry_static_area_editor_list', $static_area_editor_options ),
-	);
+	);*/
 	$sections_array['grid-section'] = array(
 		'name'         => __( 'Grid', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-appearance',

@@ -259,8 +259,10 @@ class Cherry_Statics {
 		}
 
 		// Get statics from options.
-		$option_name = apply_filters( 'cherry_statics_option_name', 'static-area-editor', $index );
-		$args        = cherry_get_option( $option_name );
+		$theme_options = get_option( 'cherry-options' );
+		$args = get_option( $theme_options['id'] . '_statics' );
+		//$option_name = apply_filters( 'cherry_statics_option_name', 'static-area-editor', $index );
+		//$args        = cherry_get_option( $option_name );
 
 		if ( !$args ) {
 			return false;
@@ -454,8 +456,10 @@ class Cherry_Statics {
 	public static function is_active_static_area( $index ) {
 		global $cherry_registered_statics;
 
-		$option_name   = apply_filters( 'cherry_statics_option_name', 'static-area-editor', $index );
-		$saved_statics = cherry_get_option( $option_name, false );
+		//$option_name   = apply_filters( 'cherry_statics_option_name', 'static-area-editor', $index );
+		//$saved_statics = cherry_get_option( $option_name, false );
+		$theme_options = get_option( 'cherry-options' );
+		$saved_statics = get_option( $theme_options['id'] . '_statics' );
 
 		if ( !$saved_statics ) {
 			$saved_statics = $cherry_registered_statics;
