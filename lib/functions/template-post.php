@@ -736,7 +736,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 	 *
 	 * @since  4.0.0
 	 */
-	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_slider_init );
+	$init = apply_filters( 'cherry_get_the_post_gallery_slider_args', $default_slider_init );
 	$init = wp_parse_args( $init, $default_slider_init );
 	$init = json_encode( $init );
 
