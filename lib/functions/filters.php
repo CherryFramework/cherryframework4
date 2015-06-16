@@ -36,7 +36,6 @@ add_filter( 'cherry_pre_get_the_post_date',     'cherry_option_post_date',     1
 add_filter( 'cherry_pre_get_the_post_author',   'cherry_option_post_author',   10, 2 );
 add_filter( 'cherry_pre_get_the_post_comments', 'cherry_option_post_comments', 10, 2 );
 add_filter( 'cherry_pre_get_the_post_taxonomy', 'cherry_option_post_taxonomy', 10, 2 );
-add_filter( 'cherry_pre_get_the_post_content',  'cherry_option_post_content',  10, 2 );
 add_filter( 'cherry_pre_get_the_post_button',   'cherry_option_post_button',   10, 2 );
 
 add_filter( 'cherry_pre_get_the_post_thumbnail', 'cherry_option_post_thumbnail', 10, 2 );
@@ -349,20 +348,12 @@ function cherry_option_post_taxonomy( $display, $args ) {
 	return $display;
 }
 
-function cherry_option_post_content( $display, $args ) {
-	if ( !is_single() && ( 'none' == cherry_get_option( 'blog-content-type' ) ) ) {
-		return '';
-	}
-
-	return $display;
-}
-
 function cherry_option_post_button( $display, $args ) {
-	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-button' ) ) ) {
+	if ( ! is_singular() && ( 'false' == cherry_get_option( 'blog-button' ) ) ) {
 		return '';
 	}
 
-	if ( !is_single() && ( '' == cherry_get_option( 'blog-button-text' ) ) ) {
+	if ( ! is_singular() && ( '' == cherry_get_option( 'blog-button-text' ) ) ) {
 		return '';
 	}
 
@@ -370,7 +361,7 @@ function cherry_option_post_button( $display, $args ) {
 }
 
 function cherry_option_post_thumbnail( $display, $args ) {
-	$post_id = get_the_ID();
+	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
 	if ( is_singular() ) {
@@ -394,7 +385,7 @@ function cherry_option_post_thumbnail( $display, $args ) {
 
 	}
 
-	if ( !is_singular() ) {
+	if ( ! is_singular() ) {
 		$args['size'] = cherry_get_option( 'blog-featured-images-size' );
 	}
 

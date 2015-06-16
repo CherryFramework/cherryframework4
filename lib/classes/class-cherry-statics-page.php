@@ -78,7 +78,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 							<a href="http://www.cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>
-					<div class="cherry-info-box">' . __( 'Documentation', 'cherry' ) . '</div>'
+					<div class="cherry-info-box">' . __( "Use static area editor to arrange static blocks. You can drag-n-drop static blocks to arrange them or add new ones.", 'cherry' ) . '</div>'
 			));
 
 

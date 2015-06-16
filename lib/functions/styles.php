@@ -138,12 +138,12 @@ function cherry_get_styles() {
 			'grid-responsive' => $grid_responsive,
 			'drop-downs'      => $drop_downs,
 			'magnific-popup'  => array(
-				'handle'  => get_template() . '-magnific-popup',
+				'handle'  => 'magnific-popup',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/magnific-popup.css',
 				'version' => CHERRY_VERSION,
 			),
 			'slick' => array(
-				'handle'  => get_template() . '-slick',
+				'handle'  => 'slick',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/slick.css',
 				'version' => CHERRY_VERSION,
 			),

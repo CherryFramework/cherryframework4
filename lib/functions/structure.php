@@ -20,8 +20,8 @@ add_action( 'cherry_content_after',  'cherry_content_wrap',       0 );
 add_action( 'cherry_sidebar_after',  'cherry_content_sidebar_wrap_close', 0 );
 
 // Entry structure.
-add_action( 'cherry_entry_before', 'cherry_entry_wrap_open',  0 );
-add_action( 'cherry_entry_after',  'cherry_entry_wrap_close', 0 );
+add_action( 'cherry_entry_before', 'cherry_entry_wrap_open',  999 );
+add_action( 'cherry_entry_after',  'cherry_entry_wrap_close',   0 );
 
 // Replace gallery shortcode
 add_filter( 'post_gallery', 'cherry_gallery_shortcode', 10, 3 );

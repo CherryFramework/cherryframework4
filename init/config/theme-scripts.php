@@ -17,5 +17,5 @@ if ( !defined( 'WPINC' ) ) {
 
 // Load scripts
 add_theme_support( 'cherry-scripts', array(
-	'comment-reply', 'cherry-slick', 'cherry-magnific-popup'
+	'comment-reply', 'slick', 'magnific-popup'
 ) );

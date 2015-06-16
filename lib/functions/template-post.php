@@ -240,7 +240,7 @@ function cherry_the_post_content( $args ) {
 	 * @param string $post_type The post type of the current post.
 	 */
 	$defaults = apply_filters( 'cherry_the_post_content_defaults', array(
-		'type'   => 'full', // full or part
+		'type'   => is_singular() ? 'full' : cherry_get_option( 'blog-content-type' ), // none, part or full
 		'length' => cherry_get_option( 'blog-excerpt-length' ),
 		'class'  => 'entry-content',
 		'before' => '',
@@ -249,8 +249,8 @@ function cherry_the_post_content( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( ! is_singular( $post_type ) ) {
-		$args['type'] = cherry_get_option( 'blog-content-type' );
+	if ( 'none' == $args['type'] ) {
+		return '';
 	}
 
 	printf( '<div class="%1$s">%2$s', esc_attr( $args['class'] ), $args['before'] );
@@ -454,7 +454,7 @@ function cherry_get_the_post_image( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
-	wp_enqueue_script( 'cherry-magnific-popup' );
+	wp_enqueue_script( 'magnific-popup' );
 
 	$default_init = array(
 		'type' => 'image'
@@ -715,7 +715,8 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
-	wp_enqueue_script( 'cherry-slick' );
+	wp_enqueue_script( 'slick' );
+	wp_enqueue_script( 'magnific-popup' );
 
 	$default_slider_init = array(
 		'infinite'       => true,

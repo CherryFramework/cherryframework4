@@ -329,13 +329,13 @@ function cherry_defaults_settings() {
 		'type'        => 'switcher',
 		'title'       => __( 'Gallery slider', 'cherry' ),
 		'description' => __( 'Replace default Wordpress gallery shortcode with enhanced jQuery carousel.', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 	$post_single_options['blog-add-ligthbox'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Lightbox for images and videos', 'cherry' ),
 		'description' => __( 'Automatically adds lightbox for images and videos', 'cherry' ),
-		'value' => 'true',
+		'value'       => 'true',
 	);
 
 	// Meta
@@ -511,7 +511,7 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options['breadcrumbs-display'] = array(
 		'type'			=> 'checkbox',
 		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
-		'hint'			=>  array(
+		'hint'			=> array(
 			'type'		=> 'text',
 			'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
 		),
@@ -1077,7 +1077,7 @@ function cherry_defaults_settings() {
 	$optimization_options['concatenate-css'] = array(
 		'type'          => 'switcher',
 		'title'			=> __( 'Concatenate/minify CSS', 'cherry' ),
-		'description'	=> __( 'Select if you want to merge\minify CSS files to performance optimization.', 'cherry' ),
+		'description'	=> __( 'Select if you want to merge\minify CSS files for performance optimization.', 'cherry' ),
 		'value'         => 'false',
 		'toggle'        => array(
 			'true_toggle'  => __( 'Yes', 'cherry' ),

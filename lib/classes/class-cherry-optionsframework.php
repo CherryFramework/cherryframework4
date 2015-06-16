@@ -417,9 +417,11 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				$options_array = get_option( $setting['id'] );
 				if ( $options_array ) {
 					foreach ( $options_array as $sections_name => $section_value ) {
-						if(array_key_exists($name, $section_value['options-list'])){
-							wp_cache_set( $name, $section_value['options-list'][$name], 'cherry-options' );
-							return $section_value['options-list'][$name];
+						if( !empty( $section_value[ 'options-list' ] ) ){
+							if(array_key_exists($name, $section_value['options-list'])){
+								wp_cache_set( $name, $section_value['options-list'][$name], 'cherry-options' );
+								return $section_value['options-list'][$name];
+							}
 						}
 					}
 				}

@@ -35,13 +35,13 @@ add_action( 'wp_enqueue_scripts', 'cherry_prepare_sticky_vars' );
 function cherry_default_scripts() {
 
 	$default_scripts = array(
-		'cherry-slick' => array(
+		'slick' => array(
 			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.slick.min.js' ),
 			'deps'      => array( 'jquery' ),
 			'ver'       => CHERRY_VERSION,
 			'in_footer' => true
 		),
-		'cherry-magnific-popup' => array(
+		'magnific-popup' => array(
 			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.magnific-popup.min.js' ),
 			'deps'      => array( 'jquery' ),
 			'ver'       => CHERRY_VERSION,
