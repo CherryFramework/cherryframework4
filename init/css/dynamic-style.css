@@ -60,9 +60,6 @@ a:hover {
 .menu-secondary a {
 	@typography( $typography-footer-menu )
 }
-.cherry-mega-menu-sub.level-0 {
-	border-top: 3px solid $color-primary;
-}
 .cherry-mega-menu-sub-item > a {
 	color: $typography-body[color];
 }
@@ -375,9 +372,9 @@ address {
 }
 
 @media ( min-width:@menu_toogle_endpoint()px ) {
-	.menu-primary li:hover > ul,
-	.menu-primary li.focus > ul,
-	.menu-primary li.menu-hover > ul {
+	.simple-menu li:hover > ul,
+	.simple-menu li.focus > ul,
+	.simple-menu li.menu-hover > ul {
 		opacity: 1;
 		visibility: visible;
 		overflow: visible;
