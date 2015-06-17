@@ -338,17 +338,17 @@ address {
 	.menu-primary_trigger {
 		display: block;
 	}
-	.menu-primary .menu-items {
+	.simple-menu.menu-items {
 		display: none !important;
 	}
-	.menu-primary .menu-items[aria-expanded="true"] {
+	.simple-menu.menu-items[aria-expanded="true"] {
 		display: block !important;
 	}
-	.menu-items {
+	.simple-menu.menu-items {
 		padding: 10px;
 		background: @contrast( $typography-header-menu[color], #fafafa, #454545 );
 	}
-	.menu-primary .sub-menu {
+	.simple-menu .sub-menu {
 		position: static;
 		float: none;
 		visibility: visible;
@@ -356,14 +356,14 @@ address {
 		padding: 0 0 0 20px;
 		background: none;
 	}
-	.menu-primary .sub-menu li {
+	.simple-menu .sub-menu li {
 		float: none;
 	}
-	.menu-primary .sub-menu a {
+	.simple-menu .sub-menu a {
 		width: 100%;
 		color: $typography-header-menu[color];
 	}
-	.menu-primary > ul > li {
+	.simple-menu > ul > li {
 		float: none;
 		display: block;
 		margin: 0;

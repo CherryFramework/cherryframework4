@@ -1410,6 +1410,10 @@ img {
   margin: 0 0 1.5em;
 }
 
+.entry-meta {
+  overflow: hidden;
+}
+
 .byline,
 .updated:not(.published) {
   display: none;

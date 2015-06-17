@@ -107,12 +107,6 @@ function cherry_get_styles() {
 			'version' => CHERRY_VERSION,
 		);
 
-		// Disable dropdown CSS if Mega Menu enabled
-		$active_plugins = apply_filters( 'active_plugins', get_option( 'active_plugins' ) );
-		if ( in_array( 'cherry-mega-menu/cherry-mega-menu.php', $active_plugins ) ) {
-			$drop_downs = false;
-		}
-
 		// Responsive grid?
 		$responsive = cherry_get_option( 'grid-responsive' );
 
