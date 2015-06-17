@@ -1000,6 +1000,15 @@ table th[class*="col-"] {
   }
 }
 
+.error-404 {
+  padding: 30px 0;
+}
+.error-404-num {
+  text-align: center;
+  font-size: 15em;
+  line-height: 1.1;
+}
+
 .close {
   float: right;
   line-height: 1;
