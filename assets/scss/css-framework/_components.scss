@@ -198,3 +198,12 @@ table {
     }
   }
 }
+
+.error-404 {
+  padding: 30px 0;
+  &-num {
+    text-align: center;
+    font-size: 15em;
+    line-height: 1.1;
+  }
+}
