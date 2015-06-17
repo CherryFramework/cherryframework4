@@ -96,7 +96,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 		 */
 		function cherry_save_statics(){
 			if ( !empty($_POST) && array_key_exists('static_array', $_POST) ) {
-				global $cherry_options_framework, $cherry_registered_statics;
+				global $cherry_registered_statics;
 
 				$static_array = $_POST['static_array'];
 				$updated_statics_array = array();
@@ -176,7 +176,6 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 						$updated_statics_array[ $static ] = $settings;
 						foreach ( $cherry_registered_statics[ $static ][ 'options' ] as $option_key => $option_value ) {
 							if( isset( $static_array[ $static ][ 'options' ][ $option_key ] ) ){
-
 								$updated_statics_array[ $static ][ 'options' ][ $option_key ] = $static_array[ $static ][ 'options' ][ $option_key ];
 							}
 						}
@@ -261,6 +260,32 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 		}
 
 		/**
+		 * Check for the existence of an statics option in the database
+		 *
+		 * @since 1.0.0
+		 */
+		public static function get_current_statics() {
+			global $cherry_registered_statics;
+			$result_settings = array();
+			$cherry_options_settings = get_option('cherry-options');
+
+			if( false == get_option($cherry_options_settings['id'] . '_statics') ){
+				$result_settings = $cherry_registered_statics;
+			}else{
+				$settings = get_option( 'cherry-options' );
+				$saved_settings = get_option( $settings['id'] . '_statics' );
+				$result_settings = $cherry_registered_statics;
+
+				foreach ( $result_settings as $static_key => $static_settings ) {
+					if( isset( $saved_settings[ $static_key ] ) ){
+						$result_settings[ $static_key ][ 'options' ] = $saved_settings[ $static_key ][ 'options' ];
+					}
+				}
+			}
+			return $result_settings;
+		}
+
+		/**
 		 * Initialize Filesystem object.
 		 *
 		 * @since  4.0.0
@@ -316,16 +341,12 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 			return $option_value;
 		}
 
-		/**
-		 * [cherry_statics_page_build description]
-		 * @return [type] [description]
-		 */
+
 		public static function cherry_statics_page_build() {
-			global $cherry_options_framework, $cherry_registered_statics;
+			global $cherry_registered_statics;
 
-			$statics = $cherry_options_framework->get_current_statics();
+			$statics = self::get_current_statics();
 
-			//var_dump($cherry_registered_statics);
 			?>
 			<div class="statics-wrapper">
 				<form id="cherry-statics" method="post">
