@@ -60,7 +60,9 @@ if ( !class_exists( 'Cherry_Page_Builder' ) ) {
 
 		public function add_child_menu_item( $attr ){
 			$attr = array_merge(self::$child_attr, $attr);
-			$page_key = $attr[ 'parent_slug' ] . '_page_' . $attr[ 'menu_slug' ];
+			$prefix = ( false !== strpos( $attr[ 'parent_slug' ], '_page_') ) ? '_' : '_page_' ;
+
+			$page_key = $attr[ 'parent_slug' ] . $prefix . $attr[ 'menu_slug' ];
 
 			self::$pages[ 'child' ][ $page_key ] = $attr;
 		}
@@ -96,7 +98,9 @@ if ( !class_exists( 'Cherry_Page_Builder' ) ) {
 
 		public static function build_page(){
 			$page_hook = current_action();
+
 			$page_attr = array_key_exists ( $page_hook , self::$pages[ 'parent' ] ) ? self::$pages[ 'parent' ][ $page_hook ] : self::$pages[ 'child' ][ $page_hook ] ;
+
 			$page_content = is_array($page_attr[ 'function' ]) ? $page_attr[ 'function' ][0].'::'.$page_attr[ 'function' ][1] : $page_attr[ 'function' ] ; ?>
 			<div id = "<?php echo $page_attr['menu_slug']; ?>" class="cherry-page-wrapper">
 		<?php if($page_attr[ 'page_title' ]){ ?>

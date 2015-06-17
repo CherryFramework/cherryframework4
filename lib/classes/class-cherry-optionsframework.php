@@ -31,10 +31,12 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		* @since 1.0.0
 		*/
 		function __construct() {
+
 			add_action( 'admin_init', array( $this, 'create_themename_option' ) );
 		}
 
 		public static function get_instance() {
+
 
 			// If the single instance hasn't been set, set it now.
 			if ( null == self::$instance )
@@ -50,6 +52,8 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 */
 		public function create_themename_option() {
 			// This gets the theme name from the stylesheet (lowercase and without spaces)
+			global $cherry_registered_statics;
+
 			$themename = get_option( 'stylesheet' );
 			$this->themename = preg_replace("/\W/", "_", strtolower($themename) );
 			$cherry_options_settings = get_option('cherry-options');
@@ -61,6 +65,10 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			if( !self::is_db_options_exist() ){
 				$options = $this->create_options_array( $this->loaded_settings );
 				$this->save_options( $options );
+			}
+
+			if( false == get_option($cherry_options_settings['id'] . '_statics') ){
+				update_option($cherry_options_settings['id'] . '_statics', $cherry_registered_statics );
 			}
 		}
 
@@ -333,6 +341,25 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				$result_settings = $this->merged_settings();
 			}else{
 				$result_settings = $this->loaded_settings;
+			}
+
+			return $result_settings;
+		}
+
+		/**
+		 * Check for the existence of an statics option in the database
+		 *
+		 * @since 1.0.0
+		 */
+		public function get_current_statics() {
+			$result_settings = array();
+			$cherry_options_settings = get_option('cherry-options');
+
+			if( false == get_option($cherry_options_settings['id'] . '_statics') ){
+				$result_settings = $cherry_registered_statics;
+			}else{
+				$settings = get_option( 'cherry-options' );
+				$result_settings = get_option( $settings['id'] . '_statics' );
 			}
 
 			return $result_settings;

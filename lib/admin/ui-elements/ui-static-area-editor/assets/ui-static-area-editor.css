@@ -1,3 +1,9 @@
+.cherry-static-area-editor-wrap .area-units {
+  width: 60%;
+  padding-right: 15px;
+  float: left;
+  box-sizing: border-box;
+}
 .cherry-static-area-editor-wrap .area-unit {
   background: none repeat scroll 0 0 #fcfcfc;
   border: 1px solid #dfdfdf;
@@ -9,18 +15,18 @@
   margin: 5px 0 20px 0;
   text-align: center;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit {
+.cherry-static-area-editor-wrap .area-unit.drag-target {
+  border: 1px dashed #8BC735;
+}
+.cherry-static-area-editor-wrap .accordion-unit {
   padding: 5px;
   background: transparent;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group {
+.cherry-static-area-editor-wrap .accordion-unit .group {
   margin: 4px 0;
   border-radius: 6px;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-sortable-helper:focus {
-  cursor: -webkit-grabbing;
-}
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header {
+.cherry-static-area-editor-wrap .accordion-unit .group .ui-accordion-header {
   font-size: 16px;
   margin: 0;
   padding: 10px 10px 10px 30px;
@@ -31,113 +37,89 @@
   font-weight: normal;
   border: none;
   border: 1px solid #dddcdc;
+  cursor: -webkit-grab;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .ui-accordion-header-icon {
+.cherry-static-area-editor-wrap .accordion-unit .group .ui-accordion-header .ui-accordion-header-icon {
   background-image: url("ui-images/ui-icons_228ef1_256x240.png");
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group {
+.cherry-static-area-editor-wrap .accordion-unit .group .ui-accordion-header .delete-group {
   float: right;
   color: #2a445d;
   cursor: pointer;
-  width: 60px;
+  width: 20px;
   height: 20px;
   position: relative;
   text-align: right;
   overflow: hidden;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group .confirm-btn {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: -20px;
-  left: 0px;
-  display: inline-block;
-  color: #7ad03a;
-  transition: all 0.2s ease;
-}
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group .cancle-btn {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  top: -20px;
-  left: 20px;
-  display: inline-block;
-  color: #f4130c;
-  transition: all 0.2s ease;
-  transition-delay: 0.1s;
-}
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group:before {
+.cherry-static-area-editor-wrap .accordion-unit .group .ui-accordion-header .delete-group:before {
   width: 20px;
   height: 20px;
   top: 0;
   transition: all 0.3s ease;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group:hover:before {
-  color: #555555;
+.cherry-static-area-editor-wrap .accordion-unit .group .ui-accordion-header .delete-group:hover:before {
+  color: #f62e46;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group.confirm-state .confirm-btn {
-  top: 0;
-  transition: all 0.2s ease;
-}
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header .delete-group.confirm-state .cancle-btn {
-  top: 0;
-  transition: all 0.2s ease;
-  transition-delay: 0.1s;
-}
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header.ui-state-active {
+.cherry-static-area-editor-wrap .accordion-unit .group .ui-accordion-header.ui-state-active {
   border: 1px solid #cccccc;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group .ui-accordion-header.ui-state-hover {
-  background: none;
+.cherry-static-area-editor-wrap .accordion-unit .group .ui-accordion-header.ui-state-hover {
+  background: #fff;
   border: 1px solid #cccccc;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div {
-  background: none;
+.cherry-static-area-editor-wrap .accordion-unit .group > div {
+  background: #fff;
   border-radius: 6px;
   padding: 1em 1.2em;
   overflow: hidden;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-lg {
+.cherry-static-area-editor-wrap .accordion-unit .group > div .field-col-lg {
   width: 24%;
   margin-right: 1%;
   margin-bottom: 10px;
   float: left;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-md {
+.cherry-static-area-editor-wrap .accordion-unit .group > div .field-col-md {
   width: 24%;
   margin-right: 1%;
   margin-bottom: 10px;
   float: left;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-sm {
+.cherry-static-area-editor-wrap .accordion-unit .group > div .field-col-sm {
   width: 24%;
   margin-right: 1%;
   margin-bottom: 10px;
   float: left;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-col-xs {
+.cherry-static-area-editor-wrap .accordion-unit .group > div .field-col-xs {
   width: 24%;
   margin-right: 1%;
   margin-bottom: 10px;
   float: left;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-class {
+.cherry-static-area-editor-wrap .accordion-unit .group > div .field-class {
   width: 99%;
   float: left;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div .field-class input {
+.cherry-static-area-editor-wrap .accordion-unit .group > div .field-class input {
   margin: 0;
   height: 42px;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .group > div select {
+.cherry-static-area-editor-wrap .accordion-unit .group > div select {
   margin: 0;
 }
-.cherry-static-area-editor-wrap .area-unit .accordion-unit .ui-state-highlight {
-  height: 40px;
+.cherry-static-area-editor-wrap .accordion-unit .ui-state-highlight {
+  height: 42px;
   margin: 4px 0;
-  border-radius: 0px;
+  border-radius: 6px;
   border: 1px dashed #8BC735;
   background: rgba(139, 199, 53, 0.3);
+  box-sizing: border-box;
+}
+.cherry-static-area-editor-wrap .cherry-accordion-control {
+  width: 40%;
+  float: left;
   box-sizing: border-box;
 }
 .cherry-static-area-editor-wrap .cherry-accordion-control .cherry-label {
@@ -147,13 +129,36 @@
   padding-bottom: 5px;
 }
 .cherry-static-area-editor-wrap .cherry-accordion-control .field-static {
-  width: 50%;
-  margin-right: 1%;
-  float: right;
+  width: 100%;
+  margin-bottom: 10px;
 }
 .cherry-static-area-editor-wrap .cherry-accordion-control .field-static .static-selector option.hidden {
   display: none;
 }
 .cherry-static-area-editor-wrap .cherry-accordion-control .add-new-btn {
   float: right;
+}
+.cherry-static-area-editor-wrap .available-statics {
+  width: 40%;
+  float: left;
+  box-sizing: border-box;
+  border: 1px solid #dfdfdf;
+  background: none repeat scroll 0 0 #2a445d;
+}
+.cherry-static-area-editor-wrap .available-statics.drag-target {
+  border: 1px dashed #fff;
+}
+.cherry-static-area-editor-wrap .available-statics h3 {
+  color: #fff;
+}
+.cherry-static-area-editor-wrap .available-statics .delete-group {
+  display: none;
+}
+.cherry-static-area-editor-wrap .available-statics .ui-state-highlight {
+  height: 42px;
+  margin: 4px 0;
+  border-radius: 6px;
+  border: 1px dashed #fff;
+  background: rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
 }

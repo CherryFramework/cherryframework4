@@ -184,100 +184,174 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 				'col-lg-12'	=> __( 'col-lg-12', 'cherry' ),
 			);
 				$html .= '<div id="' . $this->settings['id'] . '" class="cherry-static-area-editor-wrap" data-name="' .$this->settings['name'] . '">';
-					foreach ( $cherry_registered_static_areas as $area => $area_settings ) {
-						$html .= '<div class="area-unit" data-area="' . $area . '">';
-							$html .= '<h3 class="title-primary_ title-mid_ text_center_">' . $area_settings['name'] . '</h3>';
-							$html .= '<div class="accordion-unit">';
-								foreach ( $this->settings['value'] as $handle => $handleArray ) {
-									if ( $area == $handleArray['options']['area'] ) {
-										$html .= '<div class="group" data-static-id="' . $handle . '">';
-										$html .= '<h3><span class="label">' . $handleArray['name'] . '</span><div class="delete-group dashicons dashicons-trash"><span class="confirm-btn dashicons dashicons-yes"></span><span class="cancle-btn dashicons dashicons-no-alt"></span></div></h3>';
-										$html .= '<div>';
-											$html .= '<div class="field-col-xs">';
-												$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-xs">' . __( 'Column class(.col-xs-*)', 'cherry' ) . '</label> ';
-												$ui_xs_select = new UI_Select(
-													array(
-														'id'			=> $this->settings['id'] . '-' . $handle . '-col-xs',
-														'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-xs]',
-														'value'			=> $handleArray['options']['col-xs'],
-														'options'		=> $col_xs_array,
-														'class'			=> 'key-col-xs'
-													)
-												);
-												$html .= $ui_xs_select->render();
+					$html .= '<div class="area-units">';
+						foreach ( $cherry_registered_static_areas as $area => $area_settings ) {
+							$html .= '<div class="area-unit" data-area="' . $area . '">';
+								$html .= '<h3 class="title-primary_ title-mid_ text_center_">' . $area_settings['name'] . '</h3>';
+								$html .= '<div class="accordion-unit">';
+									foreach ( $this->settings['value'] as $handle => $handleArray ) {
+										if ( $area == $handleArray['options']['area'] && 'available-statics' !== $handleArray['options']['area'] ) {
+											$html .= '<div class="group" data-static-id="' . $handle . '">';
+											$html .= '<h3><span class="label">' . $handleArray['name'] . '</span><div class="delete-group dashicons dashicons-trash"></div></h3>';
+											$html .= '<div>';
+												$html .= '<div class="field-col-xs">';
+													$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-xs">' . __( '.col-xs-*', 'cherry' ) . '</label> ';
+													$ui_xs_select = new UI_Select(
+														array(
+															'id'			=> $this->settings['id'] . '-' . $handle . '-col-xs',
+															'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-xs]',
+															'value'			=> $handleArray['options']['col-xs'],
+															'options'		=> $col_xs_array,
+															'class'			=> 'key-col-xs'
+														)
+													);
+													$html .= $ui_xs_select->render();
+												$html .= '</div>';
+												$html .= '<div class="field-col-sm">';
+													$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-sm">' . __( '.col-sm-*', 'cherry' ) . '</label> ';
+													$ui_sm_select = new UI_Select(
+														array(
+															'id'			=> $this->settings['id'] . '-' . $handle . '-col-sm',
+															'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-sm]',
+															'value'			=> $handleArray['options']['col-sm'],
+															'options'		=> $col_sm_array,
+															'class'			=> 'key-col-sm'
+														)
+													);
+													$html .= $ui_sm_select->render();
+												$html .= '</div>';
+												$html .= '<div class="field-col-md">';
+													$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-md">' . __( '.col-md-*', 'cherry' ) . '</label> ';
+													$ui_md_select = new UI_Select(
+														array(
+															'id'			=> $this->settings['id'] . '-' . $handle . '-col-md',
+															'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-md]',
+															'value'			=> $handleArray['options']['col-md'],
+															'options'		=> $col_md_array,
+															'class'			=> 'key-col-md'
+														)
+													);
+													$html .= $ui_md_select->render();
+												$html .= '</div>';
+												$html .= '<div class="field-col-lg">';
+													$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-lg">' . __( '.col-lg-*', 'cherry' ) . '</label> ';
+													$ui_lg_select = new UI_Select(
+														array(
+															'id'			=> $this->settings['id'] . '-' . $handle . '-col-lg',
+															'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-lg]',
+															'value'			=> $handleArray['options']['col-lg'],
+															'options'		=> $col_lg_array,
+															'class'			=> 'key-col-lg'
+														)
+													);
+													$html .= $ui_lg_select->render();
+												$html .= '</div>';
+												$html .= '<div class="field-class">';
+													$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-class">' . __( 'Custom class', 'cherry' ) . '</label> ';
+													$ui_class_text = new UI_Text(
+														array(
+															'id'			=> $this->settings['id'] . '-' . $handle . '-class',
+															'name'			=> $this->settings['name'] . '[' . $handle . '][options][class]',
+															'value'			=> esc_html( $handleArray['options']['class'] ),
+															'class'			=> 'key-custom-class',
+														)
+													);
+													$html .= $ui_class_text->render();
+												$html .= '</div>';
+												$html .= '<input type="hidden" class="key-item-name" name="' . $this->settings['name'] . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
+												$html .= '<input type="hidden" class="key-area" name="' . $this->settings['name'] . '[' . $handle . '][options][area]" value="' . $handleArray['options']['area'] . '">';
+												$html .= '<input type="hidden" class="key-position" name="' . $this->settings['name'] . '[' . $handle . '][options][position]" value="' . $handleArray['options']['position'] . '">';
 											$html .= '</div>';
-											$html .= '<div class="field-col-sm">';
-												$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-sm">' . __( 'Column class(.col-sm-*)', 'cherry' ) . '</label> ';
-												$ui_sm_select = new UI_Select(
-													array(
-														'id'			=> $this->settings['id'] . '-' . $handle . '-col-sm',
-														'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-sm]',
-														'value'			=> $handleArray['options']['col-sm'],
-														'options'		=> $col_sm_array,
-														'class'			=> 'key-col-sm'
-													)
-												);
-												$html .= $ui_sm_select->render();
-											$html .= '</div>';
-											$html .= '<div class="field-col-md">';
-												$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-md">' . __( 'Column class(.col-md-*)', 'cherry' ) . '</label> ';
-												$ui_md_select = new UI_Select(
-													array(
-														'id'			=> $this->settings['id'] . '-' . $handle . '-col-md',
-														'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-md]',
-														'value'			=> $handleArray['options']['col-md'],
-														'options'		=> $col_md_array,
-														'class'			=> 'key-col-md'
-													)
-												);
-												$html .= $ui_md_select->render();
-											$html .= '</div>';
-											$html .= '<div class="field-col-lg">';
-												$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-lg">' . __( 'Column class(.col-lg-*)', 'cherry' ) . '</label> ';
-												$ui_lg_select = new UI_Select(
-													array(
-														'id'			=> $this->settings['id'] . '-' . $handle . '-col-lg',
-														'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-lg]',
-														'value'			=> $handleArray['options']['col-lg'],
-														'options'		=> $col_lg_array,
-														'class'			=> 'key-col-lg'
-													)
-												);
-												$html .= $ui_lg_select->render();
-											$html .= '</div>';
-											$html .= '<div class="field-class">';
-												$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-class">' . __( 'Custom class', 'cherry' ) . '</label> ';
-												$ui_class_text = new UI_Text(
-													array(
-														'id'			=> $this->settings['id'] . '-' . $handle . '-class',
-														'name'			=> $this->settings['name'] . '[' . $handle . '][options][class]',
-														'value'			=> esc_html( $handleArray['options']['class'] ),
-														'class'			=> 'key-custom-class',
-													)
-												);
-												$html .= $ui_class_text->render();
-											$html .= '</div>';
-											$html .= '<input type="hidden" class="key-item-name" name="' . $this->settings['name'] . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
-											$html .= '<input type="hidden" class="key-area" name="' . $this->settings['name'] . '[' . $handle . '][options][area]" value="' . $handleArray['options']['area'] . '">';
-											$html .= '<input type="hidden" class="key-position" name="' . $this->settings['name'] . '[' . $handle . '][options][position]" value="' . $handleArray['options']['position'] . '">';
 										$html .= '</div>';
-									$html .= '</div>';
+										}
 									}
+								$html .= '</div>';//end accordion-unit
+							$html .= '</div>';//end area-unit
+						}// end foreach $available_areas
+					$html .= '</div>';//end area-units
+
+					$html .= '<div class="available-statics area-unit" data-area="available-statics">';
+						$html .= '<h3 class="title-primary_ title-mid_ text_center_">' . __('Available statics', 'cherry') . '</h3>';
+						$html .= '<div class="accordion-unit">';
+							foreach ( $this->settings['value'] as $handle => $handleArray ) {
+								if ( 'available-statics' == $handleArray['options']['area'] ) {
+									$html .= '<div class="group" data-static-id="' . $handle . '">';
+									$html .= '<h3><span class="label">' . $handleArray['name'] . '</span><div class="delete-group dashicons dashicons-trash"></div></h3>';
+									$html .= '<div>';
+										$html .= '<div class="field-col-xs">';
+											$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-xs">' . __( '.col-xs-*', 'cherry' ) . '</label> ';
+											$ui_xs_select = new UI_Select(
+												array(
+													'id'			=> $this->settings['id'] . '-' . $handle . '-col-xs',
+													'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-xs]',
+													'value'			=> $handleArray['options']['col-xs'],
+													'options'		=> $col_xs_array,
+													'class'			=> 'key-col-xs'
+												)
+											);
+											$html .= $ui_xs_select->render();
+										$html .= '</div>';
+										$html .= '<div class="field-col-sm">';
+											$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-sm">' . __( '.col-sm-*', 'cherry' ) . '</label> ';
+											$ui_sm_select = new UI_Select(
+												array(
+													'id'			=> $this->settings['id'] . '-' . $handle . '-col-sm',
+													'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-sm]',
+													'value'			=> $handleArray['options']['col-sm'],
+													'options'		=> $col_sm_array,
+													'class'			=> 'key-col-sm'
+												)
+											);
+											$html .= $ui_sm_select->render();
+										$html .= '</div>';
+										$html .= '<div class="field-col-md">';
+											$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-md">' . __( '.col-md-*', 'cherry' ) . '</label> ';
+											$ui_md_select = new UI_Select(
+												array(
+													'id'			=> $this->settings['id'] . '-' . $handle . '-col-md',
+													'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-md]',
+													'value'			=> $handleArray['options']['col-md'],
+													'options'		=> $col_md_array,
+													'class'			=> 'key-col-md'
+												)
+											);
+											$html .= $ui_md_select->render();
+										$html .= '</div>';
+										$html .= '<div class="field-col-lg">';
+											$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-col-lg">' . __( '.col-lg-*', 'cherry' ) . '</label> ';
+											$ui_lg_select = new UI_Select(
+												array(
+													'id'			=> $this->settings['id'] . '-' . $handle . '-col-lg',
+													'name'			=> $this->settings['name'] . '[' . $handle . '][options][col-lg]',
+													'value'			=> $handleArray['options']['col-lg'],
+													'options'		=> $col_lg_array,
+													'class'			=> 'key-col-lg'
+												)
+											);
+											$html .= $ui_lg_select->render();
+										$html .= '</div>';
+										$html .= '<div class="field-class">';
+											$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-class">' . __( 'Custom class', 'cherry' ) . '</label> ';
+											$ui_class_text = new UI_Text(
+												array(
+													'id'			=> $this->settings['id'] . '-' . $handle . '-class',
+													'name'			=> $this->settings['name'] . '[' . $handle . '][options][class]',
+													'value'			=> esc_html( $handleArray['options']['class'] ),
+													'class'			=> 'key-custom-class',
+												)
+											);
+											$html .= $ui_class_text->render();
+										$html .= '</div>';
+										$html .= '<input type="hidden" class="key-item-name" name="' . $this->settings['name'] . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
+										$html .= '<input type="hidden" class="key-area" name="' . $this->settings['name'] . '[' . $handle . '][options][area]" value="' . $handleArray['options']['area'] . '">';
+										$html .= '<input type="hidden" class="key-position" name="' . $this->settings['name'] . '[' . $handle . '][options][position]" value="' . $handleArray['options']['position'] . '">';
+									$html .= '</div>';
+								$html .= '</div>';
 								}
-							$html .= '</div>';//end accordion-unit
-						$html .= '</div>';//end area-unit
-					}// end foreach $available_areas
-					$html .= '<div class="cherry-accordion-control">';
-						$html .= '<a href="javascript:void(0);" class="button-primary_ add-new-btn">'. __( 'Add new static', 'cherry' ) .'</a>';
-						$html .= '<div class="field-static">';
-							$html .= '<select class="static-selector width-full cherry-ui-select">';
-								foreach ( $this->settings['options'] as $static => $staticSettings) {
-									$html .= '<option data-position="'. $staticSettings['options']['position'] .'" value="' . $static . '" ' . selected( $staticSettings['name'], $handleArray['name'], false ) . '>'. esc_html( $staticSettings['name'] ) .'</option>';
-								}
-							$html .= '</select>';
+							}
 						$html .= '</div>';
-					$html .= '<div class="clear"></div>';
 					$html .= '</div>';
+					$html .= '<div class="clear"></div>';
 				$html .= '</div>';
 
 			return $html;
