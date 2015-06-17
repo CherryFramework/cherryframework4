@@ -347,25 +347,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		}
 
 		/**
-		 * Check for the existence of an statics option in the database
-		 *
-		 * @since 1.0.0
-		 */
-		public function get_current_statics() {
-			$result_settings = array();
-			$cherry_options_settings = get_option('cherry-options');
-
-			if( false == get_option($cherry_options_settings['id'] . '_statics') ){
-				$result_settings = $cherry_registered_statics;
-			}else{
-				$settings = get_option( 'cherry-options' );
-				$result_settings = get_option( $settings['id'] . '_statics' );
-			}
-
-			return $result_settings;
-		}
-
-		/**
 		 * Initialize Filesystem object.
 		 *
 		 * @since  4.0.0
