@@ -2,7 +2,7 @@
 # Elements
 --------------------------------------------------------------*/
 img {
-	@include img-responsive;
+	@include img-responsive(inline-block);
 }
 
 /*--------------------------------------------------------------
@@ -94,6 +94,7 @@ img {
 
 .aligncenter {
 	@include center-block;
+	text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -153,9 +154,12 @@ img {
 .hentry {
 	margin: 0 0 1.5em;
 }
+.entry-meta {
+	overflow: hidden;
+}
 
 .byline,
-.updated:not(.published){
+.updated:not(.published) {
 	display: none;
 }
 
@@ -197,6 +201,63 @@ img {
 .bypostauthor {
 	display: block;
 }
+
+ol.comment-list {
+	list-style: none;
+	margin: 0 0 1em;
+	padding: 0;
+	text-indent: 0;
+
+	li > .children,
+	.children li > .children {
+		list-style: none;
+	}
+
+	li {
+		.comment-body {
+			padding: 1.5em;
+			background: #fff;
+		}
+		&.comment,
+		&.ping {
+			clear: both;
+		}
+		&.alt {}
+		&.bypostauthor {}
+		&.comment {
+			margin: 0 0 1em;
+			div.comment-author {}
+
+			/* Avatar */
+			div.vcard {
+				cite.fn {
+					font-style: normal;
+					a.url {}
+				}
+				img.avatar {
+					float: left;
+					margin: 0 1em 1em 0;
+				}
+			}
+
+			/* Meta */
+			footer.comment-meta { font-size: 10px; }
+
+			/* Reply */
+			div.reply {
+				text-align: right;
+				a {}
+			}
+
+			/* Sub-comments */
+			ol.children {
+				margin: 1em 0 0;
+				padding-left: 40px;
+			}
+		}
+	}
+}
+
 
 /*--------------------------------------------------------------
 # Media
@@ -285,4 +346,16 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+# 404
+--------------------------------------------------------------*/
+.error-404 {
+	padding: 30px 0;
+	&-num {
+		text-align: center;
+		font-size: 15em;
+		line-height: 1.1;
+	}
 }

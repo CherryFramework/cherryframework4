@@ -248,6 +248,8 @@ function cherry_get_the_post_taxonomy( $args ) {
 	);
 	$output .= $args['after'];
 
+	$output = sprintf( '<span class="entry-terms_wrap %1$s_wrap">%2$s</span>', sanitize_html_class( $args['name'] ), $output );
+
 	return apply_filters( 'cherry_get_the_post_taxonomy', $output, $args );
 }
 

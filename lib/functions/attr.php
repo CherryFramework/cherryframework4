@@ -203,19 +203,36 @@ function cherry_attr_menu( $attr, $context ) {
  * @return array
  */
 function cherry_attr_post( $attr ) {
+	$post         = get_post();
+	$meta_classes = array();
+	$classes      = array();
+	$classes[]    = 'clearfix';
 
-	$post = get_post();
+	if ( 'true' == cherry_get_option( 'blog-post-date' ) )     $meta_classes[] = 'cherry-has-entry-date';
+	if ( 'true' == cherry_get_option( 'blog-post-author' ) )   $meta_classes[] = 'cherry-has-entry-author';
+	if ( 'true' == cherry_get_option( 'blog-post-comments' ) ) $meta_classes[] = 'cherry-has-entry-comments';
+	if ( 'true' == cherry_get_option( 'blog-categories' ) )    $meta_classes[] = 'cherry-has-entry-cats';
+	if ( 'true' == cherry_get_option( 'blog-tags' ) )          $meta_classes[] = 'cherry-has-entry-tags';
+
+
+	if ( is_singular() ) {
+
+		if ( is_single() ) {
+			$classes = wp_parse_args( $classes, $meta_classes );
+		}
+
+	} else {
+		$classes = wp_parse_args( $classes, $meta_classes );
+	}
+
+
+	$attr['class'] = implode( ' ', get_post_class( $classes ) );
 
 	// Make sure we have a real post first.
 	if ( !empty( $post ) ) {
-
-		$attr['id']    = 'post-' . get_the_ID();
-		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
-
+		$attr['id'] = 'post-' . get_the_ID();
 	} else {
-
-		$attr['id']    = 'post-0';
-		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
+		$attr['id'] = 'post-0';
 	}
 
 	return $attr;

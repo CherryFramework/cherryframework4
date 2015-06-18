@@ -701,6 +701,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 
 	$defaults = array(
 		'container_class'  => 'post-gallery',
+		'module_prefix'    => 'post-gallery',
 		'size'             => 'cherry-thumb-l',
 		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
 		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a>%4$s</figure>',
@@ -714,6 +715,8 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 	 */
 	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
+
+	$module_prefix = $args['module_prefix'];
 
 	wp_enqueue_script( 'slick' );
 	wp_enqueue_script( 'magnific-popup' );
@@ -736,7 +739,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 	 *
 	 * @since  4.0.0
 	 */
-	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_slider_init );
+	$init = apply_filters( 'cherry_get_the_post_gallery_slider_args', $default_slider_init );
 	$init = wp_parse_args( $init, $default_slider_init );
 	$init = json_encode( $init );
 
@@ -772,13 +775,13 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 		}
 
 		if ( 0 < intval( $img ) ) {
-			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $args['container_class'] . '_item_img' ) );
+			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $module_prefix . '_item_img' ) );
 			$url   = wp_get_attachment_url( $img );
 
 			$attachment = get_post( $img );
 
 			if ( ! empty( $attachment->post_excerpt ) ) {
-				$caption_class = $args['container_class'] . '_item_caption';
+				$caption_class = $module_prefix . '_item_caption';
 				$caption_text  = wptexturize( $attachment->post_excerpt );
 				$caption       = '<figcaption class="' . $caption_class . '">' . $caption_text . '</figcaption>';
 			}
@@ -793,7 +796,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 				$width = $_wp_additional_image_sizes[$args['size']]['width'];
 			}
 
-			$image = '<img src="' . esc_url( $img ) . '" class="' . $args['container_class'] . '_item_img" width="' . $width . '">';
+			$image = '<img src="' . esc_url( $img ) . '" class="' . $module_prefix . '_item_img" width="' . $width . '">';
 			$url   = $img;
 		}
 
@@ -805,7 +808,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 
 		$items[] = sprintf(
 			$format,
-			$image, $url, $args['container_class'] . '_item' . $nth_class, $caption
+			$image, $url, $module_prefix . '_item' . $nth_class, $caption
 		);
 	}
 
