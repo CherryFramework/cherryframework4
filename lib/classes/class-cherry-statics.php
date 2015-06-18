@@ -162,6 +162,10 @@ class Cherry_Statics {
 				'class'    => '',
 				'collapse' => false,
 			),
+			'conditions' => array(
+				'action' => '',
+				'rules'  => '',
+			),
 		), $args, $i );
 
 		$options           = wp_parse_args( $args['options'], $defaults['options'] );

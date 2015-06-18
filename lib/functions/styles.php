@@ -107,7 +107,7 @@ function cherry_get_styles() {
 			'version' => CHERRY_VERSION,
 		);
 
-		// Responsive grid?
+		// Is responsive site?
 		$responsive = cherry_get_option( 'grid-responsive' );
 
 		$grid_responsive = ( 'true' == $responsive ) ?
@@ -117,13 +117,15 @@ function cherry_get_styles() {
 				'version' => $version,
 			) : false;
 
+		$main_responsive = ( 'true' == $responsive ) ?
+			array(
+				'handle'  => $prefix . 'main-responsive',
+				'src'     => cherry_file_uri( 'assets/css/main-responsive.css' ),
+				'version' => $version,
+			) : false;
+
 		// Default styles.
 		$defaults = apply_filters( 'cherry_get_styles_defaults', array(
-			'main' => array(
-				'handle'  => $prefix . 'main',
-				'src'     => cherry_file_uri( 'assets/css/main.css' ),
-				'version' => $version,
-			),
 			'grid-base' => array(
 				'handle'  => $prefix . 'grid-base',
 				'src'     => cherry_file_uri( 'assets/css/grid-base.css' ),
@@ -141,6 +143,12 @@ function cherry_get_styles() {
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/slick.css',
 				'version' => CHERRY_VERSION,
 			),
+			'main' => array(
+				'handle'  => $prefix . 'main',
+				'src'     => cherry_file_uri( 'assets/css/main.css' ),
+				'version' => $version,
+			),
+			'main-responsive' => $main_responsive,
 			'add-ons' => array(
 				'handle'  => get_template() . '-add-ons',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
