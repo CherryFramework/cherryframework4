@@ -203,19 +203,23 @@ function cherry_attr_menu( $attr, $context ) {
  * @return array
  */
 function cherry_attr_post( $attr ) {
+	$post    = get_post();
+	$classes = array();
 
-	$post = get_post();
+	if ( 'true' == cherry_get_option( 'blog-post-date' ) )     $classes[] = 'cherry-has-entry-date';
+	if ( 'true' == cherry_get_option( 'blog-post-author' ) )   $classes[] = 'cherry-has-entry-author';
+	if ( 'true' == cherry_get_option( 'blog-post-comments' ) ) $classes[] = 'cherry-has-entry-comments';
+	if ( 'true' == cherry_get_option( 'blog-categories' ) )    $classes[] = 'cherry-has-entry-cats';
+	if ( 'true' == cherry_get_option( 'blog-tags' ) )          $classes[] = 'cherry-has-entry-tags';
+
+	$classes[]     = 'clearfix';
+	$attr['class'] = implode( ' ', get_post_class( $classes ) );
 
 	// Make sure we have a real post first.
 	if ( !empty( $post ) ) {
-
-		$attr['id']    = 'post-' . get_the_ID();
-		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
-
+		$attr['id'] = 'post-' . get_the_ID();
 	} else {
-
-		$attr['id']    = 'post-0';
-		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
+		$attr['id'] = 'post-0';
 	}
 
 	return $attr;
