@@ -203,16 +203,29 @@ function cherry_attr_menu( $attr, $context ) {
  * @return array
  */
 function cherry_attr_post( $attr ) {
-	$post    = get_post();
-	$classes = array();
+	$post         = get_post();
+	$meta_classes = array();
+	$classes      = array();
+	$classes[]    = 'clearfix';
 
-	if ( 'true' == cherry_get_option( 'blog-post-date' ) )     $classes[] = 'cherry-has-entry-date';
-	if ( 'true' == cherry_get_option( 'blog-post-author' ) )   $classes[] = 'cherry-has-entry-author';
-	if ( 'true' == cherry_get_option( 'blog-post-comments' ) ) $classes[] = 'cherry-has-entry-comments';
-	if ( 'true' == cherry_get_option( 'blog-categories' ) )    $classes[] = 'cherry-has-entry-cats';
-	if ( 'true' == cherry_get_option( 'blog-tags' ) )          $classes[] = 'cherry-has-entry-tags';
+	if ( 'true' == cherry_get_option( 'blog-post-date' ) )     $meta_classes[] = 'cherry-has-entry-date';
+	if ( 'true' == cherry_get_option( 'blog-post-author' ) )   $meta_classes[] = 'cherry-has-entry-author';
+	if ( 'true' == cherry_get_option( 'blog-post-comments' ) ) $meta_classes[] = 'cherry-has-entry-comments';
+	if ( 'true' == cherry_get_option( 'blog-categories' ) )    $meta_classes[] = 'cherry-has-entry-cats';
+	if ( 'true' == cherry_get_option( 'blog-tags' ) )          $meta_classes[] = 'cherry-has-entry-tags';
 
-	$classes[]     = 'clearfix';
+
+	if ( is_singular() ) {
+
+		if ( is_single() ) {
+			$classes = wp_parse_args( $classes, $meta_classes );
+		}
+
+	} else {
+		$classes = wp_parse_args( $classes, $meta_classes );
+	}
+
+
 	$attr['class'] = implode( ' ', get_post_class( $classes ) );
 
 	// Make sure we have a real post first.
