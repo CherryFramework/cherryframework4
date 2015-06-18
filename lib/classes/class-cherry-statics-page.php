@@ -83,10 +83,9 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 
 			// Settings need to be registered after admin_init
-			add_action( 'admin_init', array( $this, 'settings_init' ) );
+			//add_action( 'admin_init', array( $this, 'settings_init' ) );
 
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-static-area-editor/ui-static-area-editor.php' );
-
 		}
 
 		/**
@@ -274,13 +273,21 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 			}else{
 				$settings = get_option( 'cherry-options' );
 				$saved_settings = get_option( $settings['id'] . '_statics' );
-				$result_settings = $cherry_registered_statics;
+				$result_settings = $saved_settings;
 
-				foreach ( $result_settings as $static_key => $static_settings ) {
-					if( isset( $saved_settings[ $static_key ] ) ){
-						$result_settings[ $static_key ][ 'options' ] = $saved_settings[ $static_key ][ 'options' ];
+				foreach ( $result_settings as $saved_static_key => $saved_static_settings) {
+					if( !array_key_exists( $saved_static_key, $cherry_registered_statics ) ){
+						unset( $result_settings[ $saved_static_key ] );
 					}
 				}
+
+				foreach ( $cherry_registered_statics as $registered_static_key => $registered_static_settings ) {
+					if( !array_key_exists( $registered_static_key, $saved_settings ) ){
+						$result_settings[ $registered_static_key ] = $registered_static_settings;
+					}
+
+				}
+
 			}
 			return $result_settings;
 		}
@@ -317,18 +324,6 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 			}
 
 			return true; // Filesystem object successfully initiated.
-		}
-
-		/**
-		 * Registers the settings
-		 *
-		 * @since 4.0.0
-		 */
-		function settings_init() {
-			// Load Options Framework Settings
-			//$cherry_options_settings = get_option( 'cherry-options' );
-
-			//	register_setting( 'cherry-options', $cherry_options_settings['id'], array( $this, 'validate_options' ) );
 		}
 
 		/**
