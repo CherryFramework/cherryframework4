@@ -67,9 +67,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 				$this->save_options( $options );
 			}
 
-			if( false == get_option($cherry_options_settings['id'] . '_statics') ){
-				update_option($cherry_options_settings['id'] . '_statics', $cherry_registered_statics );
-			}
 		}
 
 		/**

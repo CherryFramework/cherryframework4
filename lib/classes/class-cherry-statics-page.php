@@ -46,6 +46,8 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 		function __construct() {
 
+			add_action( 'admin_init', array( $this, 'statics_option_field' ) );
+
 			add_action( 'wp_ajax_cherry_save_statics', array( $this, 'cherry_save_statics' ) );
 			add_action( 'wp_ajax_cherry_restore_statics', array( $this, 'cherry_restore_statics' ) );
 			add_action( 'wp_ajax_default_statics_backup', array( $this, 'default_statics_backup' ) );
@@ -59,6 +61,22 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 			);
 
 			self::$options_export_url = wp_nonce_url( $url, 'cherry_export' );
+		}
+
+		/**
+		 * Create statics option field
+		 *
+		 * @since 4.0.0
+		 */
+		public function statics_option_field() {
+
+			$cherry_options_settings = get_option('cherry-options');
+
+			if( false == get_option( $cherry_options_settings['id'] . '_statics') ){
+				$defaults_statics = $this->get_default_statics();
+				update_option( $cherry_options_settings['id'] . '_statics', $defaults_statics );
+			}
+
 		}
 
 		private function init(){
