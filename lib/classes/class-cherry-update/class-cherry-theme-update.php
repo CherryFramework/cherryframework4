@@ -28,6 +28,7 @@ if( !class_exists( 'Cherry_Theme_Update' ) ) {
 				//set_site_transient('update_themes', null);
 
 				add_action( 'pre_set_site_transient_update_themes', array( $this, 'update' ), 99, 1 );
+				add_filter( 'upgrader_source_selection', array( $this, 'rename_github_folder' ), 11, 3 );
 				add_filter( 'wp_prepare_themes_for_js', array( $this, 'change_details_url' ) );
 			}
 		}
@@ -38,13 +39,13 @@ if( !class_exists( 'Cherry_Theme_Update' ) ) {
 			if( $new_update[ 'version' ] ){
 
 				$update = array(
-					'theme' 		=> $this -> api[ 'slug' ],
+					'theme' 		=> $this->api[ 'slug' ],
 					'new_version'	=> $new_update['version'],
-					'url'			=> $this -> api[ 'details_url' ],
+					'url'			=> $this->api[ 'details_url' ],
 					'package'		=> $new_update['package'],
 				);
 
-				$data -> response[ $this -> api[ 'slug' ] ] = $update;
+				$data -> response[ $this->api[ 'slug' ] ] = $update;
 			}
 
 			return $data;

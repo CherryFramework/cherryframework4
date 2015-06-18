@@ -28,6 +28,7 @@ if( !class_exists( 'Cherry_Plugin_Update' ) ) {
 				//set_site_transient('update_plugins', null);
 
 				add_action( 'pre_set_site_transient_update_plugins', array( $this, 'update' ) );
+				add_filter( 'upgrader_source_selection', array( $this, 'rename_github_folder' ), 11, 3 );
 				add_action( 'admin_footer', array( $this, 'change_details_url' ) );
 			}
 		}
@@ -36,17 +37,18 @@ if( !class_exists( 'Cherry_Plugin_Update' ) ) {
 			$new_update = $this -> check_update();
 
 			if( $new_update[ 'version' ] ){
-				$this -> api[ 'plugin' ] = $this -> api[ 'slug' ] . '/' . $this -> api[ 'slug' ] . '.php';
+				$this->api[ 'plugin' ] = $this->api[ 'slug' ] . '/' . $this->api[ 'slug' ] . '.php';
 
 				$update = new stdClass();
 
-				$update -> slug = $this -> api[ 'slug' ];
-				$update -> plugin = $this -> api[ 'plugin' ];
+				$update -> slug = $this->api[ 'slug' ];
+				$update -> plugin = $this->api[ 'plugin' ];
 				$update -> new_version = $new_update[ 'version' ];
-				$update -> url = $this -> api[ 'details_url' ];
+				$update -> url = $this->api[ 'details_url' ];
 				$update -> package = $new_update[ 'package' ];
 
-				$data -> response[ $this -> api[ 'plugin' ] ] = $update;
+				$data -> response[ $this->api[ 'plugin' ] ] = $update;
+
 			}
 
 			return $data;

@@ -37,13 +37,11 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 			);
 
 		protected function base_init( $attr = array() ){
-			$this ->api = array_merge( $this ->api, $attr );
-
-			add_filter( 'upgrader_source_selection', array( $this, 'rename_github_folder' ), 11, 3 );
+			$this->api = array_merge( $this->api, $attr );
 		}
 
 		protected function check_update() {
-			$query = $this -> api[ 'api_url' ] . $this -> api[ 'product_name' ] . '/' . $this -> api[ 'repository_name' ] . '/tags';
+			$query = $this->api[ 'api_url' ] . $this->api[ 'product_name' ] . '/' . $this->api[ 'repository_name' ] . '/tags';
 			$response = $this -> remote_query( $query );
 			$new_version = false;
 			$url = '';
@@ -53,7 +51,7 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 
 				$response = array_reverse( $response );
 				$last_update = count( $response )-1;
-				$current_version = $this -> api[ 'version' ];
+				$current_version = $this->api[ 'version' ];
 
 				foreach ($response as $key => $update) {
 
@@ -61,10 +59,10 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 					$update_label = preg_replace( '/[v]?[\d\.]+[v]?/', '', $get_new_version );
 					$get_new_version = preg_replace( '/[^\d\.]/', '', $get_new_version );
 
-					$this -> api[ 'details_url' ] = 'https://github.com/' . $this -> api[ 'product_name' ] . '/' . $this -> api[ 'slug' ] . '/releases/tag/' . $update->name;
+					$this->api[ 'details_url' ] = 'https://github.com/' . $this->api[ 'product_name' ] . '/' . $this->api[ 'slug' ] . '/releases/tag/' . $update->name;
 					$package = $update->zipball_url;
 
-					if( version_compare ( $get_new_version, $current_version ) > 0 && strpos( $update_label, $this -> api[ 'important_release' ] ) !== false ){
+					if( version_compare ( $get_new_version, $current_version ) > 0 && strpos( $update_label, $this->api[ 'important_release' ] ) !== false ){
 
 						$new_version = $get_new_version;
 						break;
@@ -72,9 +70,9 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 
 					if( version_compare ( $get_new_version, $current_version ) > 0 && $key === $last_update ){
 
-						if($update_label !== $this -> api[ 'alpha_release' ] && $update_label !== $this -> api[ 'beta_release' ]
-						 || $update_label === $this -> api[ 'alpha_release' ] && @constant ( 'CHERRY_ALPHA_UPDATE' ) == true
-						 || $update_label === $this -> api[ 'beta_release' ] && @constant ( 'CHERRY_BETA_UPDATE' ) == true ){
+						if($update_label !== $this->api[ 'alpha_release' ] && $update_label !== $this->api[ 'beta_release' ]
+						|| $update_label === $this->api[ 'alpha_release' ] && @constant ( 'CHERRY_ALPHA_UPDATE' ) == true
+						|| $update_label === $this->api[ 'beta_release' ] && @constant ( 'CHERRY_BETA_UPDATE' ) == true ){
 
 							$new_version = $get_new_version;
 
@@ -88,7 +86,7 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 		}
 
 		protected function remote_query( $query ) {
-			$response = wp_remote_get( $query , array( 'sslverify' => $this -> api[ 'sslverify' ] , 'user-agent' => $this -> api[ 'product_name' ] ) );
+			$response = wp_remote_get( $query , array( 'sslverify' => $this->api[ 'sslverify' ] , 'user-agent' => $this->api[ 'product_name' ] ) );
 
 			if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) != '200') {
 				return false;
@@ -100,12 +98,9 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 		}
 
 		public function rename_github_folder( $upgrate_dir, $remote_dir, $skin_upgrader ){
-			$skin_theme = isset($skin_upgrader ->skin ->theme) ? $skin_upgrader ->skin ->theme : '' ;
-			$skin_plugin = isset($skin_upgrader ->skin ->plugin) ? $skin_upgrader ->skin ->plugin : '' ;
-
-			if( $skin_theme === $this -> api[ 'slug' ] || $skin_plugin === $this -> api[ 'slug' ] ){
+			if( strpos( $upgrate_dir, $this->api[ 'slug' ] ) !== false){
 				$upgrate_dir_path = pathinfo( $upgrate_dir );
-				$new_upgrate_dir = trailingslashit( $upgrate_dir_path[ 'dirname' ] ) . trailingslashit( $this -> api[ 'slug' ] );
+				$new_upgrate_dir = trailingslashit( $upgrate_dir_path[ 'dirname' ] ) . trailingslashit( $this->api[ 'slug' ] );
 
 				rename( $upgrate_dir, $new_upgrate_dir );
 
