@@ -35,8 +35,7 @@ new cherry_search_form_static(
 			'col-md'   => 'col-md-6',
 			'col-sm'   => 'col-sm-12',
 			'col-xs'   => 'col-xs-12',
-			'position' => 2,
-			'area'     => 'header-top',
+			'area'     => 'available-statics',
 		)
 	)
 );
