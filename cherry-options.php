@@ -1371,7 +1371,7 @@ function cherry_defaults_settings() {
 	);
 	$demo_options['typography-demo'] = array(
 		'type'			=> 'typography',
-		'title'			=> __('Typography'),
+		'title'			=> __('Typography', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
 		'max_value '	=> 500,
