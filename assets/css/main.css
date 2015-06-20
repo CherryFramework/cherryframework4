@@ -1166,11 +1166,17 @@ img {
   float: left;
   margin-right: 1.5em;
 }
+.alignleft.large img {
+  width: 100%;
+}
 
 .alignright {
   display: inline;
   float: right;
   margin-left: 1.5em;
+}
+.alignright.large img {
+  width: 100%;
 }
 
 .aligncenter {

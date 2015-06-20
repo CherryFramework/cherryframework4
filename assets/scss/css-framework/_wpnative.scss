@@ -84,12 +84,22 @@ img {
 	display: inline;
 	float: left;
 	margin-right: 1.5em;
+	&.large {
+		img {
+			width: 100%;
+		}
+	}
 }
 
 .alignright {
 	display: inline;
 	float: right;
 	margin-left: 1.5em;
+	&.large {
+		img {
+			width: 100%;
+		}
+	}
 }
 
 .aligncenter {
