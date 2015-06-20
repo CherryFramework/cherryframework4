@@ -39,6 +39,7 @@ add_filter( 'cherry_pre_get_the_post_taxonomy', 'cherry_option_post_taxonomy', 1
 add_filter( 'cherry_pre_get_the_post_button',   'cherry_option_post_button',   10, 2 );
 
 add_filter( 'cherry_pre_get_the_post_thumbnail', 'cherry_option_post_thumbnail', 10, 2 );
+add_filter( 'cherry_pre_get_the_post_image',     'cherry_option_post_image',     10, 2 );
 add_filter( 'cherry_pre_get_the_post_gallery',   'cherry_option_post_gallery',   10, 2 );
 add_filter( 'cherry_pre_get_the_post_audio',     'cherry_option_post_audio',     10, 2 );
 add_filter( 'cherry_pre_get_the_post_video',     'cherry_option_post_video',     10, 2 );
@@ -392,56 +393,33 @@ function cherry_option_post_thumbnail( $display, $args ) {
 	return $display;
 }
 
+function cherry_option_post_image( $display, $args ) {
+	return _cherry_post_media_visibility( $display, $args );
+}
+
 function cherry_option_post_gallery( $display, $args ) {
-	$post_id = get_the_ID();
-
-	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
-		return '';
-	}
-
-	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
-		return '';
-	}
-
-	return $display;
+	return _cherry_post_media_visibility( $display, $args );
 }
 
 function cherry_option_post_audio( $display, $args ) {
-	$post_id = get_the_ID();
-
-	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
-		return '';
-	}
-
-	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
-		return '';
-	}
-
-	return $display;
+	return _cherry_post_media_visibility( $display, $args );
 }
 
 function cherry_option_post_video( $display, $args ) {
-	$post_id = get_the_ID();
-
-	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
-		return '';
-	}
-
-	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
-		return '';
-	}
-
-	return $display;
+	return _cherry_post_media_visibility( $display, $args );
 }
 
 function cherry_option_post_avatar( $display, $args ) {
-	$post_id = get_the_ID();
+	return _cherry_post_media_visibility( $display, $args );
+}
 
-	if ( is_single( $post_id ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
+function _cherry_post_media_visibility( $display, $args ) {
+
+	if ( is_single( get_the_ID() ) && ( 'false' == cherry_get_option( 'blog-post-featured-image' ) ) ) {
 		return '';
 	}
 
-	if ( !is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
+	if ( ! is_single() && ( 'false' == cherry_get_option( 'blog-featured-images' ) ) ) {
 		return '';
 	}
 
