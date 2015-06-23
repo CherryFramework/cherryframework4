@@ -7,10 +7,11 @@
 	}
 	.area-unit{
 		background: none repeat scroll 0 0 #fcfcfc;
-		border: 1px solid #dfdfdf;
-		border-radius: 6px;
+		border: 1px solid #fff;
+		//border-radius: 6px;
 		margin-bottom: 20px;
 		padding: 5px;
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 			.area-name{
 				margin: 5px 0 20px 0;
 				text-align: center;
@@ -75,36 +76,136 @@
 						padding: 1em 1.2em;
 						overflow: hidden;
 							.field-col-lg{
-								width: 24%;
-								margin-right: 1%;
+								width: 25%;
+								padding-left: 5px;
 								margin-bottom: 10px;
 								float: left;
+								box-sizing: border-box;
 							}
 							.field-col-md{
-								width: 24%;
-								margin-right: 1%;
+								width: 25%;
+								padding-right: 5px;
+								padding-left: 5px;
 								margin-bottom: 10px;
 								float: left;
+								box-sizing: border-box;
 							}
 							.field-col-sm{
-								width: 24%;
-								margin-right: 1%;
+								width: 25%;
+								padding-right: 5px;
+								padding-left: 5px;
 								margin-bottom: 10px;
 								float: left;
+								box-sizing: border-box;
 							}
 							.field-col-xs{
-								width: 24%;
-								margin-right: 1%;
+								width: 25%;
+								padding-right: 5px;
 								margin-bottom: 10px;
 								float: left;
+								box-sizing: border-box;
 							}
 							.field-class{
-								width: 99%;
+								width: 100%;
 								float: left;
+								margin-bottom: 10px;
+								box-sizing: border-box;
 									input{
 										margin: 0;
 										height: 42px;
 									}
+							}
+							.conditions{
+								background-color: #FCFCFC;
+								border: 1px solid #cccccc;
+								padding: 10px;
+								border-radius: 6px;
+								&.empty{
+									.label-if{
+										display: none;
+									}
+								}
+								.label{
+									color: #2a445d;
+									font-size: 20px;
+									line-height: 20px;
+									&.label-if{
+										margin-bottom: 10px;
+										span{
+											margin: 0 10px;
+										}
+									}
+									&.label-is{
+										position: absolute;
+										display: inline-block;
+										top: 0;
+										left: 50%;
+										margin: 10px 0 10px -25px;
+									}
+								}
+								.conditions-action{
+									margin-bottom: 10px;
+								}
+								.conditions-rules{
+									.rule-item{
+										position: relative;
+										margin-bottom: 10px;
+										.rule-major{
+											width: 50%;
+											float: left;
+											padding-right: 5px;
+											padding-right: 40px;
+											box-sizing: border-box;
+										}
+										.rule-minor{
+											width: 50%;
+											float: left;
+											padding-left: 5px;
+											padding-right: 40px;
+											box-sizing: border-box;
+												select.loading-state{
+													opacity: 0.5;
+												}
+										}
+										.remove-rule-button{
+											position: absolute;
+											top: 0;
+											right: 0;
+											color: #2a445d;
+											margin: 5px;
+											cursor: pointer;
+											transition: all 0.3s ease;
+												&:hover{
+													color: #f62e46;
+												}
+												span{
+													width: 30px;
+													height: 30px;
+													font-size: 30px;
+												}
+										}
+
+									}
+									.dublicate-item{
+										display: none;
+									}
+								}
+								.add-rule-button{
+									color: #2a445d;
+									display: inline-block;
+									cursor: pointer;
+									line-height: 25px;
+									transition: all 0.3s ease;
+										&:hover{
+											color: #8bc735;
+										}
+										span{
+											width: 30px;
+											height: 30px;
+											font-size: 30px;
+											line-height: 30px;
+										}
+								}
 							}
 							select{
 								margin: 0;
@@ -149,7 +250,7 @@
 		width: 40%;
 		float: left;
 		box-sizing: border-box;
-		border: 1px solid #dfdfdf;
+		border: 1px solid #2a445d;
 		background: none repeat scroll 0 0 #2a445d;
 			&.drag-target{
 				border: 1px dashed #fff;

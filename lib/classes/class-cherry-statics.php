@@ -494,6 +494,10 @@ class Cherry_Statics {
 
 		$condition_result = false;
 
+		// echo "<pre>";
+		// var_dump($static['conditions']['rules']);
+		// echo "</pre>";
+
 		foreach ( $static['conditions']['rules'] as $rule ) {
 			$condition_key = $rule['major'] . ":" . $rule['minor'];
 

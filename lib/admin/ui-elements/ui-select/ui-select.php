@@ -24,13 +24,29 @@ if ( ! class_exists( 'UI_Select' ) ) {
 			'name'			=> 'cherry-ui-select-name',
 			'multiple'		=> false,
 			'size'			=> 1,
-			'value'			=> 'select-1',
+			'value'			=> 'select-8',
 			'options'		=> array(
 				'select-1'	=> 'select 1',
 				'select-2'	=> 'select 2',
 				'select-3'	=> 'select 3',
 				'select-4'	=> 'select 4',
 				'select-5'	=> 'select 5',
+				'optgroup-1'	=> array(
+					'label' => 'Group 1',
+					'group_options' => array(
+						'select-6'	=> 'select 6',
+						'select-7'	=> 'select 7',
+						'select-8'	=> 'select 8',
+					)
+				),
+				'optgroup-2'	=> array(
+					'label' => 'Group 2',
+					'group_options' => array(
+						'select-9'	=> 'select 9',
+						'select-10'	=> 'select 10',
+						'select-11'	=> 'select 11',
+					)
+				)
 			),
 			'class'			=> '',
 		);
@@ -66,19 +82,35 @@ if ( ! class_exists( 'UI_Select' ) ) {
 			if( $this->settings['options'] && !empty( $this->settings['options'] ) && is_array( $this->settings['options'] ) ){
 
 				foreach ( $this->settings['options'] as $option => $option_value) {
-					$selected_state = '';
-					if( $this->settings['value'] && !empty( $this->settings['value'] ) ){
-						if ( !is_array( $this->settings['value'] ) ) {
-							$this->settings['value'] = array( $this->settings['value'] );
-						}
-						foreach ( $this->settings['value'] as $key => $value) {
-							$selected_state = selected( $value, $option, false );
-							if( $selected_state == " selected='selected'" ){
-								break;
+					if ( !is_array( $this->settings['value'] ) ) {
+						$this->settings['value'] = array( $this->settings['value'] );
+					}
+
+					if( false === strpos($option, 'optgroup') ){
+						$selected_state = '';
+						if( $this->settings['value'] && !empty( $this->settings['value'] ) ){
+							foreach ( $this->settings['value'] as $key => $value) {
+								$selected_state = selected( $value, $option, false );
+								if( $selected_state == " selected='selected'" ){
+									break;
+								}
 							}
 						}
+						$html .= '<option value="' . $option . '" ' . $selected_state . '>'. esc_html( $option_value ) .'</option>';
+					}else{
+						$html .= '<optgroup label="' . $option_value['label'] . '">';
+							$selected_state = '';
+							foreach ( $option_value['group_options'] as $group_item => $group_value) {
+								foreach ( $this->settings['value'] as $key => $value) {
+									$selected_state = selected( $value, $group_item, false );
+									if( $selected_state == " selected='selected'" ){
+										break;
+									}
+								}
+								$html .= '<option value="' . $group_item . '" ' . $selected_state . '>'. esc_html( $group_value ) .'</option>';
+							}
+						$html .= '</optgroup>';
 					}
-					$html .= '<option value="' . $option . '" ' . $selected_state . '>'. esc_html( $option_value ) .'</option>';
 				}
 			}
 			$html .= '</select>';

@@ -45,6 +45,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 		*/
 
 		function __construct() {
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-static-area-editor/ui-static-area-editor.php' );
 
 			add_action( 'admin_init', array( $this, 'statics_option_field' ) );
 
@@ -52,6 +53,8 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 			add_action( 'wp_ajax_cherry_restore_statics', array( $this, 'cherry_restore_statics' ) );
 			add_action( 'wp_ajax_default_statics_backup', array( $this, 'default_statics_backup' ) );
 			add_action( 'wp_ajax_export_statics', array( $this, 'export_statics' ) );
+
+			add_action( 'wp_ajax_get_minor_select', array( $this, 'get_minor_select' ) );
 
 			$this->init();
 
@@ -103,7 +106,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 			// Settings need to be registered after admin_init
 			//add_action( 'admin_init', array( $this, 'settings_init' ) );
 
-			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-static-area-editor/ui-static-area-editor.php' );
+
 		}
 
 		/**
@@ -116,10 +119,11 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 				global $cherry_registered_statics;
 
 				$static_array = $_POST['static_array'];
-				$updated_statics_array = array();
 
+				$updated_statics_array = array();
 				foreach ( $static_array as $static => $settings ) {
 					$tmp_options = $settings[ 'options' ];
+					$tmp_conditions = $settings[ 'conditions' ];
 					if( isset( $cherry_registered_statics[ $static ] ) ){
 						$updated_statics_array[ $static ] = $cherry_registered_statics[ $static ];
 							foreach ( $updated_statics_array[ $static ][ 'options' ] as $option_key => $option_value ) {
@@ -127,6 +131,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 									$updated_statics_array[ $static ][ 'options' ][ $option_key ] = $static_array[ $static ][ 'options' ][ $option_key ];
 								}
 							}
+							$updated_statics_array[ $static ][ 'conditions' ] = $tmp_conditions;
 					}
 				}
 
@@ -140,6 +145,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 				do_action( 'cherry-options-updated' );
 
+				//exit;
 				wp_send_json( $response );
 			}
 		}
@@ -203,6 +209,109 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 				wp_send_json( $response );
 			}
+		}
+
+		/**
+		 * Ajax get minor select
+		 *
+		 * @since 4.0.0
+		 */
+		function get_minor_select(){
+			if ( !empty($_POST) && array_key_exists('major_type', $_POST) ) {
+				$major = $_POST['major_type'];
+				$minor = ( isset( $_POST['minor_type'] ) ) ? $_POST['minor_type'] : '';
+
+				$html = '';
+				switch ( $major ) {
+					case 'category':
+						$html .= '<option value="">' . __( 'All category pages', 'cherry' ) . '</option>';
+
+						$categories = get_categories( array( 'number' => 1000, 'orderby' => 'count', 'order' => 'DESC' ) );
+						usort( $categories, array( __CLASS__, 'strcasecmp_name' ) );
+
+						foreach ( $categories as $category ) {
+							$html .= '<option value="' . $category->term_id . '" ' . selected( $category->term_id, $minor ) . '>' . esc_html( $category->name ) . '</option>';
+						}
+						break;
+					case 'loggedin':
+						$html .= '<option value="loggedin" ' . selected( 'loggedin', $minor ) . '>' . __( 'Logged In', 'cherry' ) . '</option>';
+						$html .= '<option value="loggedout" ' . selected( 'loggedout', $minor ) . '>' . __( 'Logged Out', 'cherry' ) . '</option>';
+						break;
+					case 'author':
+						$html .= '<option value="">' . __( 'All author pages', 'cherry' ) . '</option>';
+						foreach ( get_users( array( 'orderby' => 'name', 'exclude_admin' => true ) ) as $author ) {
+							$html .= '<option value="' . esc_attr( $author->ID ) . '" ' . selected( $author->ID, $minor ) . '>' . esc_html( $author->display_name ) . '</option>';
+						}
+						break;
+					case 'role':
+						global $wp_roles;
+
+						foreach ( $wp_roles->roles as $role_key => $role ) {
+							$html .= '<option value="' . esc_attr( $role_key ) . '" ' . selected( $role_key, $minor ) . '>' . esc_html( $role['name'] ) . '</option>';
+						}
+						break;
+					case 'tag':
+						$html .= '<option value="">' . __( 'All tag pages', 'cherry' ) . '</option>';
+
+						$tags = get_tags( array( 'number' => 1000, 'orderby' => 'count', 'order' => 'DESC' ) );
+						usort( $tags, array( __CLASS__, 'strcasecmp_name' ) );
+
+						foreach ( $tags as $tag ) {
+							$html .= '<option value="' . esc_attr($tag->term_id ) . '" ' . selected( $tag->term_id, $minor ) . '>' . esc_html( $tag->name ) . '</option>';
+						}
+						break;
+					case 'date':
+						$html .= '<option value="" ' . selected( '', $minor ) . '>' . __( 'All date archives', 'cherry' ) . '</option>';
+						$html .= '<option value="day" ' . selected( 'day', $minor ) . '>' . __( 'Daily archives', 'cherry' ) . '</option>';
+						$html .= '<option value="month" ' . selected( 'month', $minor ) . '>' . __( 'Monthly archives', 'cherry' ) . '</option>';
+						$html .= '<option value="year" ' . selected( 'year', $minor ) . '>' . __( 'Yearly archives', 'cherry' ) . '</option>';
+					break;
+					case 'page':
+						if ( ! $minor )
+							$minor = 'post_type-page';
+						else if ( 'post' == $minor )
+							$minor = 'post_type-post';
+
+						$html .= '<option value="front" ' . selected( 'front', $minor ) . '>' . __( 'Front page', 'cherry' ) . '</option>';
+						$html .= '<option value="posts" ' . selected( 'posts', $minor ) . '>' . __( 'Posts page', 'cherry' ) . '</option>';
+						$html .= '<option value="archive" ' . selected( 'archive', $minor ) . '>' . __( 'Archive page', 'cherry' ) . '</option>';
+						$html .= '<option value="404" ' . selected( '404', $minor ) . '>' . __( '404 error page', 'cherry' ) . '</option>';
+						$html .= '<option value="search" ' . selected( 'search', $minor ) . '>' . __( 'Search results', 'cherry' ) . '</option>';
+
+						$html .= '<optgroup label="' . __( 'Post type:', 'cherry' ) . '">';
+							$post_types = get_post_types( array( 'public' => true ), 'objects' );
+							foreach ( $post_types as $post_type ) {
+								$html .= '<option value="' . esc_attr( 'post_type-' . $post_type->name ) . '" ' . selected( 'post_type-' . $post_type->name, $minor ) . '>' . esc_html( $post_type->labels->singular_name ) . '</option>';
+							}
+						$html .= '</optgroup>';
+						$html .= '<optgroup label="' . __( 'Static page:', 'cherry' ) . '">';
+							$html .= str_replace( ' value="' . esc_attr( $minor ) . '"', ' value="' . esc_attr( $minor ) . '" selected="selected"', preg_replace( '/<\/?select[^>]*?>/i', '', wp_dropdown_pages( array( 'echo' => false ) ) ) );
+						$html .= '</optgroup>';
+						break;
+					case 'taxonomy':
+							$html .= '<option value="">' . __( 'All taxonomy pages', 'cherry' ) . '</option>';
+							$taxonomies = get_taxonomies( array( '_builtin' => false ), 'objects' );
+							usort( $taxonomies, array( __CLASS__, 'strcasecmp_name' ) );
+
+							foreach ( $taxonomies as $taxonomy ) {
+								$html .= '<optgroup label="' . __( $taxonomy->labels->name . ':', 'cherry' ) . '">';
+									$html .= '<option value="' . esc_attr( $taxonomy->name ) . '" ' . selected( $taxonomy->name, $minor ) . '>' . 'All ' . esc_html( $taxonomy->name ) . ' pages' . '</option>';
+									$terms = get_terms( array( $taxonomy->name ), array( 'number' => 250, 'hide_empty' => false ) );
+									foreach ( $terms as $term ) {
+										$html .= '<option value="' . esc_attr( $taxonomy->name . '_tax_' . $term->term_id ) . '" ' . selected( $taxonomy->name . '_tax_' . $term->term_id, $minor ) . '>' . esc_html( $term->name ) . '</option>';
+									}
+								$html .= '</optgroup>';
+							}
+						break;
+				}
+
+				echo $html;
+				exit;
+			}
+		}
+
+		public static function strcasecmp_name( $a, $b ) {
+			return strcasecmp( $a->name, $b->name );
 		}
 
 		/**
@@ -307,6 +416,11 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 				}
 
 			}
+
+			foreach ( $result_settings as $static => $settings ) {
+				//var_dump($settings['conditions']);
+			}
+
 			return $result_settings;
 		}
 
