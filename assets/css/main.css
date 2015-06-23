@@ -701,33 +701,6 @@ select[multiple].input-lg, .form-group-lg .form-control {
   opacity: 1;
 }
 
-.cherry-cookie-banner-wrap {
-  position: fixed;
-  z-index: 9999;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  display: block;
-  padding: 0;
-  margin: 0;
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-}
-.cherry-cookie-banner-wrap .container {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.cherry-cookie-banner-wrap .close {
-  color: #fff;
-  outline: none;
-  opacity: 0.7;
-  filter: alpha(opacity=70);
-}
-.cherry-cookie-banner-wrap .close:hover {
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-
 table {
   max-width: 100%;
   background-color: transparent;
@@ -1114,11 +1087,7 @@ address {
 # Elements
 --------------------------------------------------------------*/
 img {
-<<<<<<< HEAD
-  display: block;
-=======
   display: inline-block;
->>>>>>> develop
   max-width: 100%;
   height: auto;
 }
@@ -1278,18 +1247,12 @@ img {
   position: relative;
   z-index: 9;
 }
-<<<<<<< HEAD
-.site-header.isStick {
-  left: 0;
-  right: 0;
-=======
 
 .isStick.site-header, .isStick.header-top {
   left: 0;
   right: 0;
   z-index: 9;
   width: 100%;
->>>>>>> develop
 }
 
 .sticky {
@@ -1526,8 +1489,6 @@ object {
 .affix {
   position: fixed;
 }
-<<<<<<< HEAD
-=======
 
 .embed-responsive {
   position: relative;
@@ -1606,4 +1567,3 @@ object {
 .cherry-no-responsive .cherry-with-sidebar .content-area .container {
   width: 80%;
 }
->>>>>>> develop
