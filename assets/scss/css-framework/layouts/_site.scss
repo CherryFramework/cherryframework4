@@ -1,0 +1,38 @@
+.site-header,
+.site-content,
+.site-footer {
+	&.boxed {
+		@media (min-width: $screen-sm-min) {
+			max-width: $container-sm;
+		}
+		@media (min-width: $screen-md-min) {
+			max-width: $container-md;
+		}
+		@media (min-width: $screen-lg-min) {
+			max-width: $container-lg;
+		}
+	}
+	&.extra-boxed {
+		@media (min-width: $screen-sm-min) {
+			max-width: $container-sm + $grid-gutter-width;
+		}
+		@media (min-width: $screen-md-min) {
+			max-width: $container-md + $grid-gutter-width;
+		}
+		@media (min-width: $screen-lg-min) {
+			max-width: $container-lg + $grid-gutter-width;
+		}
+	}
+}
+
+.entry-content {
+	.container {
+		.container {
+			width: auto;
+		}
+	}
+}
+
+@media (min-width: $screen-md-min) {
+	@import "blog";
+}

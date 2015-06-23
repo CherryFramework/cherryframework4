@@ -1,0 +1,88 @@
+// Wrapper.
+.sidebar-sidebar-content-wrapper,
+.sidebar-content-sidebar-wrapper,
+.content-sidebar-sidebar-wrapper {
+	width: $content-sidebar-wrapper-width;
+}
+
+.sidebar-content-sidebar-wrapper,
+.sidebar-sidebar-content-wrapper {
+	float: right;
+}
+
+.content-sidebar-sidebar-wrapper {
+	float: left;
+}
+
+
+// Primary area.
+.sidebar-content-wrapper,
+.content-sidebar-wrapper,
+.sidebar-sidebar-content-wrapper,
+.sidebar-content-sidebar-wrapper,
+.content-sidebar-sidebar-wrapper {
+	#primary {
+		width: $primary-area-width;
+	}
+}
+
+.sidebar-content-wrapper,
+.sidebar-sidebar-content-wrapper {
+	#primary {
+		float: right;
+	}
+}
+
+.content-sidebar-wrapper,
+.content-sidebar-sidebar-wrapper,
+.sidebar-content-sidebar-wrapper {
+	#primary {
+		float: left;
+	}
+}
+
+
+// Main sidebar.
+.sidebar-content-wrapper,
+.sidebar-sidebar-content-wrapper {
+	.widget-area {
+		float: left;
+		width: $sidebar-main-width;
+	}
+}
+
+.content-sidebar-wrapper,
+.content-sidebar-sidebar-wrapper,
+.sidebar-content-sidebar-wrapper {
+	.widget-area {
+		float: right;
+		width: $sidebar-main-width;
+	}
+}
+
+
+// Secondary sidebar.
+.sidebar-sidebar-content-wrapper +,
+.sidebar-content-sidebar-wrapper + {
+	.widget-area {
+		float: left;
+		width: $sidebar-secondary-width;
+	}
+}
+
+.content-sidebar-sidebar-wrapper + {
+	.widget-area {
+		float: right;
+		width: $sidebar-secondary-width;
+	}
+}
+
+
+// Fix for `.container`
+.cherry-with-sidebar {
+	.content-area {
+		.container {
+			width: 80%;
+		}
+	}
+}

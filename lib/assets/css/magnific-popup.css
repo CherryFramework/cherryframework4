@@ -8,8 +8,7 @@
   overflow: hidden;
   position: fixed;
   background: #0b0b0b;
-  opacity: 0.8;
-  filter: alpha(opacity=80); }
+  opacity: 0.8; }
 
 .mfp-wrap {
   top: 0;
@@ -73,8 +72,7 @@
 
 .mfp-close, .mfp-arrow, .mfp-preloader, .mfp-counter {
   -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none; }
+  -moz-user-select: none; }
 
 .mfp-loading.mfp-figure {
   display: none; }
@@ -129,15 +127,13 @@ button::-moz-focus-inner {
   text-decoration: none;
   text-align: center;
   opacity: 0.65;
-  filter: alpha(opacity=65);
   padding: 0 0 18px 10px;
   color: #FFF;
   font-style: normal;
   font-size: 28px;
   font-family: Arial, Baskerville, monospace; }
   .mfp-close:hover, .mfp-close:focus {
-    opacity: 1;
-    filter: alpha(opacity=100); }
+    opacity: 1; }
   .mfp-close:active {
     top: 1px; }
 
@@ -163,7 +159,6 @@ button::-moz-focus-inner {
 .mfp-arrow {
   position: absolute;
   opacity: 0.65;
-  filter: alpha(opacity=65);
   margin: 0;
   top: 50%;
   margin-top: -55px;
@@ -174,8 +169,7 @@ button::-moz-focus-inner {
   .mfp-arrow:active {
     margin-top: -54px; }
   .mfp-arrow:hover, .mfp-arrow:focus {
-    opacity: 1;
-    filter: alpha(opacity=100); }
+    opacity: 1; }
   .mfp-arrow:before, .mfp-arrow:after, .mfp-arrow .mfp-b, .mfp-arrow .mfp-a {
     content: '';
     display: block;

@@ -137,14 +137,17 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			);
 
 			if ( false === $this->args['show_mobile'] ) {
-				$wrapper_classes[] = 'hide-mobile';
+				$wrapper_classes[] = 'hidden-xs';
 			}
 
 			if ( false === $this->args['show_tablet'] ) {
-				$wrapper_classes[] = 'hide-tablet';
+				$wrapper_classes[] = 'hidden-sm';
 			}
 
-			$wrapper_css = implode( ' ', $wrapper_classes );
+			$wrapper_classes = apply_filters( 'cherry_breadcrumbs_wrapper_classes', $wrapper_classes );
+			$wrapper_classes = array_unique( $wrapper_classes );
+			$wrapper_classes = array_map( 'sanitize_html_class', $wrapper_classes );
+			$wrapper_css     = implode( ' ', $wrapper_classes );
 
 			/* Open the breadcrumb trail containers. */
 			$result = "\n\t\t" . '<div class="' . $wrapper_css . '">';
@@ -428,13 +431,13 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		public function add_paged_items() {
 
 			/* If viewing a paged singular post. */
-			if ( is_singular() && 1 < get_query_var( 'page' ) && true === $this->args['show_title'] ) {
+			if ( is_singular() && 1 < get_query_var( 'page' ) ) {
 				$label = sprintf(
 					$this->args['labels']['paged'],
 					number_format_i18n( absint( get_query_var( 'page' ) ) )
 				);
 				$this->_add_item( 'target_format', $label );
-			} elseif ( is_paged() && true === $this->args['show_title'] ) {
+			} elseif ( is_paged() ) {
 				/* If viewing a paged archive-type page. */
 				$label = sprintf(
 					$this->args['labels']['paged'],
@@ -528,10 +531,6 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 			} else {
 
-				if ( true !== $this->args['show_title'] ) {
-					return;
-				}
-
 				$label = ( is_multisite() && true === $this->args['network'] )
 							? get_bloginfo( 'name' )
 							: $this->args['labels']['home'];
@@ -609,7 +608,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 			if ( is_paged() ) {
 				$this->_add_item( 'link_format', $label, $url );
-			} elseif ( $label && true === $this->args['show_title'] ) {
+			} elseif ( $label ) {
 				$this->_add_item( 'target_format', $label );
 			}
 
@@ -647,12 +646,11 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 					$this->_add_item( 'link_format', $label, $url );
 
-				} elseif ( true === $this->args['show_title'] ) {
-
-					$label = $post_title;
-
-					$this->_add_item( 'target_format', $label );
 				}
+
+				$label = $post_title;
+				$this->_add_item( 'target_format', $label );
+
 			}
 		}
 
@@ -809,11 +807,10 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$url = esc_url( get_term_link( $term, $term->taxonomy ) );
 				$this->_add_item( 'link_format', $label, $url );
 
-			} elseif ( true === $this->args['show_title'] ) {
-
-				$this->_add_item( 'target_format', $label );
-
 			}
+
+			$this->_add_item( 'target_format', $label );
+
 		}
 
 		/**
@@ -843,12 +840,11 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 
 				$this->_add_item( 'link_format', $label, $url );
 
-			} elseif ( true === $this->args['show_title'] ) {
-
-				$label = post_type_archive_title( '', false );
-
-				$this->_add_item( 'target_format', $label );
 			}
+
+			$label = post_type_archive_title( '', false );
+			$this->_add_item( 'target_format', $label );
+
 		}
 
 		/**
@@ -878,9 +874,9 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$url = esc_url( get_author_posts_url( $user_id ) );
 				$this->_add_item( 'link_format', $label, $url );
 
-			} elseif ( true === $this->args['show_title'] ) {
-				$this->_add_item( 'target_format', $label );
 			}
+
+			$this->_add_item( 'target_format', $label );
 
 		}
 
@@ -895,13 +891,12 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$this->add_rewrite_front_items();
 
 			/* Add the minute + hour item. */
-			if ( true === $this->args['show_title'] ) {
-				$label = sprintf(
-					$this->args['labels']['archive_minute_hour'],
-					get_the_time( _x( 'g:i a', 'minute and hour archives time format', 'cherry' ) )
-				);
-				$this->_add_item( 'target_format', $label );
-			}
+			$label = sprintf(
+				$this->args['labels']['archive_minute_hour'],
+				get_the_time( _x( 'g:i a', 'minute and hour archives time format', 'cherry' ) )
+			);
+			$this->_add_item( 'target_format', $label );
+
 		}
 
 		/**
@@ -915,13 +910,13 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$this->add_rewrite_front_items();
 
 			/* Add the minute item. */
-			if ( true === $this->args['show_title'] ) {
-				$label = sprintf(
-					$this->args['labels']['archive_minute'],
-					get_the_time( _x( 'i', 'minute archives time format', 'cherry' ) )
-				);
-				$this->_add_item( 'target_format', $label );
-			}
+			$label = sprintf(
+				$this->args['labels']['archive_minute'],
+				get_the_time( _x( 'i', 'minute archives time format', 'cherry' ) )
+			);
+
+			$this->_add_item( 'target_format', $label );
+
 		}
 
 		/**
@@ -935,13 +930,12 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$this->add_rewrite_front_items();
 
 			/* Add the hour item. */
-			if ( true === $this->args['show_title'] ) {
-				$label = sprintf(
-					$this->args['labels']['archive_hour'],
-					get_the_time( _x( 'g a', 'hour archives time format', 'cherry' ) )
-				);
-				$this->_add_item( 'target_format', $label );
-			}
+			$label = sprintf(
+				$this->args['labels']['archive_hour'],
+				get_the_time( _x( 'g a', 'hour archives time format', 'cherry' ) )
+			);
+			$this->_add_item( 'target_format', $label );
+
 		}
 
 		/**
@@ -992,11 +986,9 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 					get_day_link( get_the_time( 'Y' ), get_the_time( 'm' ), get_the_time( 'd' ) )
 				);
 
-			} elseif ( true === $this->args['show_title'] ) {
-
-				$this->_add_item( 'target_format', $day );
-
 			}
+
+			$this->_add_item( 'target_format', $day );
 
 		}
 
@@ -1036,9 +1028,10 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 					add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url( '/' ) )
 				);
 
-			} elseif ( true === $this->args['show_title'] ) {
-				$this->_add_item( 'target_format', $week );
 			}
+
+			$this->_add_item( 'target_format', $week );
+
 		}
 
 		/**
@@ -1076,9 +1069,9 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 					get_month_link( get_the_time( 'Y' ), get_the_time( 'm' ) )
 				);
 
-			} elseif ( true === $this->args['show_title'] ) {
-				$this->_add_item( 'target_format', $month );
 			}
+
+			$this->_add_item( 'target_format', $month );
 		}
 
 		/**
@@ -1104,9 +1097,10 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 					$year,
 					get_year_link( get_the_time( 'Y' ) )
 				);
-			} elseif ( true === $this->args['show_title'] ) {
-				$this->_add_item( 'target_format', $year );
 			}
+
+			$this->_add_item( 'target_format', $year );
+
 		}
 
 		/**
@@ -1122,9 +1116,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$this->add_rewrite_front_items();
 			}
 
-			if ( true === $this->args['show_title'] ) {
-				$this->_add_item( 'target_format', $this->args['labels']['archives'] );
-			}
+			$this->_add_item( 'target_format', $this->args['labels']['archives'] );
+
 		}
 
 		/**
@@ -1140,9 +1133,9 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				$url   = get_search_link();
 				$this->_add_item( 'link_format', $label, $url );
 
-			} elseif ( true === $this->args['show_title'] ) {
-				$this->_add_item( 'target_format', $label );
 			}
+
+			$this->_add_item( 'target_format', $label );
 		}
 
 		/**
@@ -1154,9 +1147,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		 */
 		public function add_404_items() {
 
-			if ( true === $this->args['show_title'] ) {
-				$this->_add_item( 'target_format', $this->args['labels']['error_404'] );
-			}
+			$this->_add_item( 'target_format', $this->args['labels']['error_404'] );
+
 		}
 
 		/**

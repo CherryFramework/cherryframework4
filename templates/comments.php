@@ -23,7 +23,7 @@ do_action( 'cherry_comments_before' ); ?>
 		$title_comments = sprintf( _n( 'Comment', 'Comments (%s)', get_comments_number(), 'cherry' ),
 					number_format_i18n( get_comments_number() ) );
 
-		echo apply_filters( 'cherry_title_comments', sprintf( '<h3 class="comments-title">%s</h3>', $title_comments ) );
+		printf( apply_filters( 'cherry_title_comments', '<h3 class="comments-title">%s</h3>', $title_comments ), $title_comments );
 
 		do_action( 'cherry_comments_nav', 'above' );
 

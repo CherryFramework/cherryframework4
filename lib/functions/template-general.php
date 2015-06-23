@@ -172,13 +172,15 @@ function cherry_site_logo() {
  * @return string
  */
 function cherry_get_site_logo( $location = 'header' ) {
+	$logo_class = array();
 
 	switch ( $location ) {
 		case 'header':
 			$type         = cherry_get_option( 'logo-type', 'text' );
 			$logo_img_ids = cherry_get_option( 'logo-image-path', false );
 			$tag          = is_front_page() ? 'h1' : 'h2';
-			$logo_class   = 'site-title';
+			$logo_class[] = 'site-title';
+			$logo_class[] = $type . '-logo';
 			$link_class   = '';
 			break;
 
@@ -186,13 +188,21 @@ function cherry_get_site_logo( $location = 'header' ) {
 			$type         = cherry_get_option( 'footer-logo-type', 'text' );
 			$logo_img_ids = cherry_get_option( 'footer-logo-image-path', false );
 			$tag          = 'div';
-			$logo_class   = 'cherry-footer-logo';
+			$logo_class[] = 'cherry-footer-logo';
+			$logo_class[] = $type . '-logo';
 			$link_class   = 'footer-logo-link';
 			break;
 
 		default:
+			$tag          = 'div';
+			$logo_class[] = $location . '-logo';
+			$link_class   = '';
 			break;
 	}
+
+	$logo_class = apply_filters( 'cherry_logo_classes', $logo_class, $location );
+	$logo_class = array_unique( $logo_class );
+	$logo_class = array_map( 'sanitize_html_class', $logo_class );
 
 	if ( 'image' == $type && false != $logo_img_ids ) {
 
@@ -217,7 +227,7 @@ function cherry_get_site_logo( $location = 'header' ) {
 		$logo_content = cherry_get_site_link( $link_class );
 	}
 
-	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', $logo_class, $logo_content, $tag ) : '';
+	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', join( ' ', $logo_class ), $logo_content, $tag ) : '';
 
 	return apply_filters( 'cherry_get_site_logo', $logo, $location );
 }

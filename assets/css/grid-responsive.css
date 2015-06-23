@@ -854,6 +854,7 @@ Version:     1.0.0
     margin-left: 100%;
   }
 }
+<<<<<<< HEAD
 @-ms-viewport {
   width: device-width;
 }
@@ -1234,3 +1235,5 @@ Version:     1.0.0
     width: 80%;
   }
 }
+=======
+>>>>>>> develop

@@ -53,9 +53,7 @@ function cherry_get_attr( $slug, $context = '' ) {
 	$attr   = apply_filters( "cherry_attr_{$slug}", array(), $context );
 
 	if ( empty( $attr ) ) {
-
 		$attr['class'] = $slug;
-
 	}
 
 	foreach ( $attr as $name => $value ) {
@@ -147,13 +145,30 @@ function cherry_attr_content( $attr ) {
  * @return array
  */
 function cherry_attr_sidebar( $attr, $context ) {
+	$sidebar_main      = apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' );
+	$sidebar_secondary = apply_filters( 'cherry_get_secondary_sidebar', 'sidebar-secondary' );
 
-	if ( !empty( $context ) ) {
-		$attr['id'] = "$context";
+	if ( did_action( 'cherry_footer' ) ) {
+		$attr['class'] = "$context widget-area";
+		$attr['role']  = 'complementary';
+		return $attr;
 	}
 
-	$attr['class'] = 'widget-area';
-	$attr['role']  = 'complementary';
+	switch ( $context ) {
+		case $sidebar_main:
+			$attr['class'] = "cherry-sidebar-main $context widget-area";
+			break;
+
+		case $sidebar_secondary:
+			$attr['class'] = "cherry-sidebar-secondary $context widget-area";
+			break;
+
+		default:
+			$attr['class'] = "$context widget-area";
+			break;
+	}
+
+	$attr['role'] = 'complementary';
 
 	return $attr;
 }
@@ -188,19 +203,36 @@ function cherry_attr_menu( $attr, $context ) {
  * @return array
  */
 function cherry_attr_post( $attr ) {
+	$post         = get_post();
+	$meta_classes = array();
+	$classes      = array();
+	$classes[]    = 'clearfix';
 
-	$post = get_post();
+	if ( 'true' == cherry_get_option( 'blog-post-date' ) )     $meta_classes[] = 'cherry-has-entry-date';
+	if ( 'true' == cherry_get_option( 'blog-post-author' ) )   $meta_classes[] = 'cherry-has-entry-author';
+	if ( 'true' == cherry_get_option( 'blog-post-comments' ) ) $meta_classes[] = 'cherry-has-entry-comments';
+	if ( 'true' == cherry_get_option( 'blog-categories' ) )    $meta_classes[] = 'cherry-has-entry-cats';
+	if ( 'true' == cherry_get_option( 'blog-tags' ) )          $meta_classes[] = 'cherry-has-entry-tags';
+
+
+	if ( is_singular() ) {
+
+		if ( is_single() ) {
+			$classes = wp_parse_args( $classes, $meta_classes );
+		}
+
+	} else {
+		$classes = wp_parse_args( $classes, $meta_classes );
+	}
+
+
+	$attr['class'] = implode( ' ', get_post_class( $classes ) );
 
 	// Make sure we have a real post first.
 	if ( !empty( $post ) ) {
-
-		$attr['id']    = 'post-' . get_the_ID();
-		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
-
+		$attr['id'] = 'post-' . get_the_ID();
 	} else {
-
-		$attr['id']    = 'post-0';
-		$attr['class'] = implode( ' ', get_post_class( 'clearfix' ) );
+		$attr['id'] = 'post-0';
 	}
 
 	return $attr;

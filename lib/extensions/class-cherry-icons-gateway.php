@@ -55,7 +55,7 @@ if ( ! class_exists( 'Cherry_Icons_Gateway' ) ) {
 			add_action( 'wp_enqueue_scripts', array( $this, 'register_fonts' ), 1 );
 			add_action( 'admin_enqueue_scripts', array( $this, 'register_fonts' ), 1 );
 			// Add icons to picker
-			add_filter( 'su/data/icons', array( $this, 'prepare_icon_picker' ) );
+			add_filter( 'cherry_shortcodes/data/icons', array( $this, 'prepare_icon_picker' ) );
 			// Enqueue styles on backend
 			add_filter( 'cherry_shortcodes_admin_styles', array( $this, 'enqueue_admin' ) );
 			// Enqueue styles on frontend
@@ -90,10 +90,9 @@ if ( ! class_exists( 'Cherry_Icons_Gateway' ) ) {
 		 */
 		public function prepare_path( $url ) {
 
-			$home_url  = '/' . preg_quote( home_url('/'), '/' ) . '/';
-			$url       = remove_query_arg( array( 'rev', 'ver', 'v' ), $url );
+			$url = remove_query_arg( array( 'rev', 'ver', 'v' ), $url );
 
-			return preg_replace( $home_url, ABSPATH, $url );
+			return str_replace( home_url('/'), ABSPATH, $url );
 		}
 
 		/**

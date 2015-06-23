@@ -49,7 +49,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 *
 		 * @var array
 		 */
-		public $func_pattern = '/@(([a-zA-Z_]+)\((.[^@\)]*)?\))/';
+		public $func_pattern = '/@(([a-zA-Z_]+)\(([^@\)]*)?\))/';
 
 		function __construct() {
 
@@ -135,18 +135,21 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		public function get_css_functions() {
 
 			$func_list = array(
-				'darken'            => 'cherry_colors_darken',
-				'lighten'           => 'cherry_colors_lighten',
-				'contrast'          => 'cherry_contrast_color',
-				'background'        => 'cherry_get_background_css',
-				'typography'        => 'cherry_get_typography_css',
-				'box'               => 'cherry_get_box_model_css',
-				'emph'              => 'cherry_element_emphasis',
-				'font_size'         => 'cherry_typography_size',
-				'container_compare' => 'cherry_container_width_compare',
-				'non_responsive'    => 'cherry_non_responsive_style',
-				'media_open'        => 'cherry_media_queries_open',
-				'media_close'       => 'cherry_media_queries_close',
+				'darken'               => 'cherry_colors_darken',
+				'lighten'              => 'cherry_colors_lighten',
+				'contrast'             => 'cherry_contrast_color',
+				'background'           => 'cherry_get_background_css',
+				'typography'           => 'cherry_get_typography_css',
+				'box'                  => 'cherry_get_box_model_css',
+				'emph'                 => 'cherry_element_emphasis',
+				'font_size'            => 'cherry_typography_size',
+				'container_compare'    => 'cherry_container_width_compare',
+				'non_responsive'       => 'cherry_non_responsive_style',
+				'media_open'           => 'cherry_media_queries_open',
+				'media_close'          => 'cherry_media_queries_close',
+				'sum'                  => 'cherry_simple_sum',
+				'diff'                 => 'cherry_simple_diff',
+				'menu_toogle_endpoint' => 'cherry_menu_toogle_endpoint'
 			);
 
 			$func_list = apply_filters( 'cherry_css_func_list', $func_list );

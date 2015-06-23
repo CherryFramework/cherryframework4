@@ -17,10 +17,6 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
-// Register ande Enqueue Cherry Api
-add_action( 'admin_enqueue_scripts', 'enqueue_cherry_api_scripts', 0 );
-add_action( 'wp_enqueue_scripts', 'enqueue_cherry_api_scripts', 0 );
-
 // Register Cherry Framework scripts.
 add_action( 'wp_enqueue_scripts', 'cherry_register_scripts', 1 );
 
@@ -39,13 +35,13 @@ add_action( 'wp_enqueue_scripts', 'cherry_prepare_sticky_vars' );
 function cherry_default_scripts() {
 
 	$default_scripts = array(
-		'cherry-slick' => array(
+		'slick' => array(
 			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.slick.min.js' ),
 			'deps'      => array( 'jquery' ),
 			'ver'       => CHERRY_VERSION,
 			'in_footer' => true
 		),
-		'cherry-magnific-popup' => array(
+		'magnific-popup' => array(
 			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.magnific-popup.min.js' ),
 			'deps'      => array( 'jquery' ),
 			'ver'       => CHERRY_VERSION,
@@ -54,16 +50,6 @@ function cherry_default_scripts() {
 	);
 
 	return $default_scripts;
-}
-/**
- * Register ande Enqueue Cherry Api.
- *
- * @since 1.0.0
- */
-function enqueue_cherry_api_scripts() {
-	// Cherry Framework JS API
-	wp_register_script( 'cherry-api', esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/cherry-api.js' ), array( 'jquery' ), CHERRY_VERSION, true );
-	wp_enqueue_script( 'cherry-api' );
 }
 /**
  * Registers JavaScript files for the framework.  This function merely registers scripts with WordPress using

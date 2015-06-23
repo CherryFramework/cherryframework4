@@ -31,6 +31,14 @@ class Cherry_Admin {
 		// Loads post meta boxes on the post editing screen.
 		add_action( 'load-post.php',     array( $this, 'load_post_meta_boxes' ) );
 		add_action( 'load-post-new.php', array( $this, 'load_post_meta_boxes' ) );
+
+		global $cherry_options_framework, $cherry_page_builder;
+
+		$cherry_page_builder = new Cherry_Page_Builder();
+
+		$cherry_options_framework = new Cherry_Options_Framework;
+		$options_framework_admin = new Cherry_Options_Framework_Admin;
+		$cherry_statics_page = new Cherry_Statics_Page();
 	}
 
 	/**
@@ -40,7 +48,7 @@ class Cherry_Admin {
 	 */
 	public function enqueue_admin_scripts( $hook_suffix ) {
 
-		if ( 'toplevel_page_cherry-options' == $hook_suffix ) {
+		if ( 'toplevel_page_cherry' == $hook_suffix || 'cherry_page_options' == $hook_suffix ) {
 
 			wp_enqueue_media();
 			wp_enqueue_script( 'admin-interface', trailingslashit( CHERRY_URI ) . 'admin/assets/js/admin-interface.js', array( 'jquery' ), CHERRY_VERSION, true );
@@ -48,14 +56,29 @@ class Cherry_Admin {
 			$messages = array(
 				'no_file'         => __( 'Please, select import file', 'cherry' ),
 				'invalid_type'    => __( 'Invalid file type', 'cherry' ),
-				'success'         => __( 'Cherry Options have been imported.<br>Page will be refreshed to apply changes...', 'cherry' ),
-				'section_restore' => __( 'section have been restored.<br>Page will be refreshed to apply changes...', 'cherry' ),
-				'options_restore' => __( 'All options have been restored', 'cherry' ),
-				'section_loaded'  => __( 'options have been loaded.', 'cherry' ),
-				'redirect_url'    => menu_page_url( 'cherry-options', false ),
+				'success'         => __( 'Cherry Options imported. ', 'cherry' ),
+				'section_restore' => __( 'section restored.', 'cherry' ),
+				'options_restore' => __( 'All options restored', 'cherry' ),
+				'section_loaded'  => __( 'options loaded.', 'cherry' ),
+				'redirect_url'    => menu_page_url( 'options', false ),
 			);
 
 			wp_localize_script( 'admin-interface', 'cherry_options_page_data', $messages );
+		}
+
+		if ( 'cherry_page_statics' == $hook_suffix ) {
+			wp_enqueue_media();
+			wp_enqueue_script( 'admin-statics-page', trailingslashit( CHERRY_URI ) . 'admin/assets/js/admin-statics-page.js', array( 'jquery' ), CHERRY_VERSION, true );
+
+			$messages = array(
+				'no_file'         => __( 'Please, select import file', 'cherry' ),
+				'invalid_type'    => __( 'Invalid file type', 'cherry' ),
+				'success'         => __( 'Statics settings imported. ', 'cherry' ),
+				'statics_restore' => __( 'Statics restored', 'cherry' ),
+				'redirect_url'    => menu_page_url( 'statics', false ),
+			);
+
+			wp_localize_script( 'admin-statics-page', 'cherry_statics_page_data', $messages );
 		}
 
 		wp_enqueue_style( 'admin-interface', trailingslashit( CHERRY_URI ) . 'admin/assets/css/admin-interface.css', array(), CHERRY_VERSION, 'all' );
@@ -102,3 +125,5 @@ class Cherry_Admin {
 }
 
 Cherry_Admin::get_instance();
+
+

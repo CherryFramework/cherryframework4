@@ -170,10 +170,11 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 			}
 
 			$cherry_styles = cherry_get_styles();
+			$skip_styles   = apply_filters( 'cherry_skip_static_css_handles', array( 'magnific-popup', 'slick', 'style' ) );
 
 			foreach ( $cherry_styles as $id => $style_data ) {
 
-				if ( ! $style_data || 'style' == $id ) {
+				if ( ! $style_data || in_array( $id, $skip_styles ) ) {
 					continue;
 				}
 
@@ -242,8 +243,9 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 		 * @return string $url
 		 */
 		public function prepare_url( $path ) {
-			$home_url  = '/' . preg_quote( home_url('/'), '/' ) . '/';
-			$home_path = '/' . preg_quote( ABSPATH, '/' ) . '/';
+			$path      = str_replace('\\', '/', $path);
+			$abspath   = str_replace('\\', '/', ABSPATH);
+			$home_path = '/' . preg_quote( $abspath, '/' ) . '/';
 
 			return preg_replace( $home_path, home_url('/'), $path );
 		}

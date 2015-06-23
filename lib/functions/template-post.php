@@ -101,7 +101,7 @@ function cherry_get_the_post_thumbnail( $args ) {
 		// thumbnail, medium or large - the default image sizes.
 		'before' => '',
 		'after'  => '',
-		'class'  =>  is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-align' ) : cherry_get_option( 'blog-featured-images-align' ), // aligncenter, alignleft or alignright
+		'class'  => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-align' ) : cherry_get_option( 'blog-featured-images-align' ), // aligncenter, alignleft or alignright
 		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s %3$s">%6$s</%1$s>' : '<%1$s class="%2$s %3$s"><a href="%4$s" title="%5$s">%6$s</a></%1$s>',
 	), $post_id, $post_type );
 
@@ -111,18 +111,37 @@ function cherry_get_the_post_thumbnail( $args ) {
 	$sizes = get_intermediate_image_sizes();
 	$sizes[] = 'full';
 
-	// Checks if a value exists in an arrays
+	// Checks if a value exists in an arrays.
 	$size = ( in_array( $args['size'], $sizes ) ) ? $args['size'] : $defaults['size'];
 
 	// Gets the Featured Image.
-	$thumbnail = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['class'] ) );
+	$thumbnail = get_the_post_thumbnail( $post_id, $args['size'] );
 	$thumbnail = $args['before'] . $thumbnail . $args['after'];
+
+	$classes = array();
+	$classes[] = $args['size'];
+	$classes[] = $args['class'];
+
+	if ( ( 'cherry-thumb-l' == $args['size'] ) || ( 'large' == $args['size'] ) ) {
+		$classes[] = 'large';
+	}
+
+	/**
+	 * Filters the CSS classes for thumbnail.
+	 *
+	 * @since 4.0.0
+	 * @param array $classes An array of classes.
+	 * @param array $args
+	 */
+	$classes = apply_filters( 'cherry_the_post_thumbnail_classes', $classes, $args );
+	$classes = array_unique( $classes );
+	$classes = array_map( 'sanitize_html_class', $classes );
 
 	$output = sprintf(
 		$args['wrap'],
 		tag_escape( $args['container'] ),
 		esc_attr( $args['container_class'] ),
-		sanitize_html_class( $args['size'] ),
+		join( ' ', $classes ),
 		get_permalink( $post_id ),
 		esc_attr( the_title_attribute( 'echo=0' ) ),
 		$thumbnail
@@ -239,7 +258,8 @@ function cherry_the_post_content( $args ) {
 	 * @param string $post_type The post type of the current post.
 	 */
 	$defaults = apply_filters( 'cherry_the_post_content_defaults', array(
-		'type'   => 'full',
+		'type'   => is_singular() ? 'full' : cherry_get_option( 'blog-content-type' ), // none, part or full
+		'length' => cherry_get_option( 'blog-excerpt-length' ),
 		'class'  => 'entry-content',
 		'before' => '',
 		'after'  => '',
@@ -247,8 +267,8 @@ function cherry_the_post_content( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( !is_singular( $post_type ) ) {
-		$args['type'] = cherry_get_option( 'blog-content-type' );
+	if ( 'none' == $args['type'] ) {
+		return '';
 	}
 
 	printf( '<div class="%1$s">%2$s', esc_attr( $args['class'] ), $args['before'] );
@@ -261,7 +281,13 @@ function cherry_the_post_content( $args ) {
 		) );
 
 	} elseif ( 'part' == $args['type'] ) {
-		echo wp_trim_excerpt();
+		/* wp_trim_excerpt analog */
+		$content = strip_shortcodes( get_the_content( '' ) );
+		$content = apply_filters( 'the_content', $content );
+		$content = str_replace( ']]>', ']]&gt;', $content );
+		$content = wp_trim_words( $content, $args['length'], apply_filters( 'cherry_the_post_content_more', '', $args, $post_id ) );
+
+		echo $content;
 	}
 
 	printf( '%s</div>', $args['after'] );
@@ -435,15 +461,18 @@ function cherry_get_the_post_image( $args ) {
 	$defaults = apply_filters( 'cherry_get_the_post_image_defaults', array(
 		'container'       => 'figure',
 		'container_class' => 'post-thumbnail',
-		'size'            => 'cherry-thumb-l',
+		'size'            => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-size' ) : cherry_get_option( 'blog-featured-images-size' ),
+		// cherry-thumb-s or cherry-thumb-l - the custom image sizes;
+		// thumbnail, medium or large - the default image sizes.
 		'before'          => '',
 		'after'           => '',
-		'wrap'            => '<%1$s class="%2$s"><a href="%4$s" class="%2$s-link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>'
+		'class'           => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-align' ) : cherry_get_option( 'blog-featured-images-align' ), // aligncenter, alignleft or alignright
+		'wrap'            => '<%1$s class="%2$s %6$s"><a href="%4$s" class="%2$s-link popup-img" data-init=\'%5$s\'>%3$s</a></%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
 
-	wp_enqueue_script( 'cherry-magnific-popup' );
+	wp_enqueue_script( 'magnific-popup' );
 
 	$default_init = array(
 		'type' => 'image'
@@ -496,7 +525,7 @@ function cherry_get_the_post_image( $args ) {
 
 	$result = sprintf(
 		$args['wrap'],
-		$args['container'], $args['container_class'], $thumb, $url, $init
+		$args['container'], $args['container_class'], $thumb, $url, $init, esc_attr( $args['class'] )
 	);
 
 	/**
@@ -690,6 +719,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 
 	$defaults = array(
 		'container_class'  => 'post-gallery',
+		'module_prefix'    => 'post-gallery',
 		'size'             => 'cherry-thumb-l',
 		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
 		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a>%4$s</figure>',
@@ -704,7 +734,10 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
-	wp_enqueue_script( 'cherry-slick' );
+	$module_prefix = $args['module_prefix'];
+
+	wp_enqueue_script( 'slick' );
+	wp_enqueue_script( 'magnific-popup' );
 
 	$default_slider_init = array(
 		'infinite'       => true,
@@ -724,7 +757,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 	 *
 	 * @since  4.0.0
 	 */
-	$init = apply_filters( 'cherry_get_the_post_gallery_args', $default_slider_init );
+	$init = apply_filters( 'cherry_get_the_post_gallery_slider_args', $default_slider_init );
 	$init = wp_parse_args( $init, $default_slider_init );
 	$init = json_encode( $init );
 
@@ -760,13 +793,13 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 		}
 
 		if ( 0 < intval( $img ) ) {
-			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $args['container_class'] . '_item_img' ) );
+			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $module_prefix . '_item_img' ) );
 			$url   = wp_get_attachment_url( $img );
 
 			$attachment = get_post( $img );
 
 			if ( ! empty( $attachment->post_excerpt ) ) {
-				$caption_class = $args['container_class'] . '_item_caption';
+				$caption_class = $module_prefix . '_item_caption';
 				$caption_text  = wptexturize( $attachment->post_excerpt );
 				$caption       = '<figcaption class="' . $caption_class . '">' . $caption_text . '</figcaption>';
 			}
@@ -781,7 +814,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 				$width = $_wp_additional_image_sizes[$args['size']]['width'];
 			}
 
-			$image = '<img src="' . esc_url( $img ) . '" class="' . $args['container_class'] . '_item_img" width="' . $width . '">';
+			$image = '<img src="' . esc_url( $img ) . '" class="' . $module_prefix . '_item_img" width="' . $width . '">';
 			$url   = $img;
 		}
 
@@ -793,7 +826,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 
 		$items[] = sprintf(
 			$format,
-			$image, $url, $args['container_class'] . '_item' . $nth_class, $caption
+			$image, $url, $module_prefix . '_item' . $nth_class, $caption
 		);
 	}
 

@@ -18,3 +18,8 @@
 
 // Utility classes
 @import "utilities";
+@import "embed";
+
+.cherry-no-responsive {
+	@import "layouts/blog";
+}

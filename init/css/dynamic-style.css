@@ -10,7 +10,8 @@ input[type="search"],
 input[type="password"],
 input[type="email"],
 input[type="tel"],
-input[type="email"] {
+input[type="email"],
+input[type="url"] {
 	@typography( $typography-input-text )
 }
 h1, .h1 {
@@ -59,9 +60,6 @@ a:hover {
 .menu-secondary a {
 	@typography( $typography-footer-menu )
 }
-.cherry-mega-menu-sub.level-0 {
-	border-top: 3px solid $color-primary;
-}
 .cherry-mega-menu-sub-item > a {
 	color: $typography-body[color];
 }
@@ -74,7 +72,10 @@ a:hover {
 .cherry-breadcrumbs {
 	background-color: @lighten( $color-gray-variations , 60.8 );
 }
-.cherry-breadcrumbs_item_link, .cherry-breadcrumbs_item_target {
+.cherry-breadcrumbs_item_link,
+.cherry-breadcrumbs_item_target,
+.cherry-breadcrumbs_browse,
+.cherry-breadcrumbs_item_sep {
 	@typography( $typography-breadcrumbs )
 }
 .post-gallery_prev,
@@ -327,15 +328,55 @@ address {
 
 	.site-header.wide .container,
 	.site-content.wide .container,
-	.site-footer.wide .container { max-width: $grid-container-width{px} }
+	.site-footer.wide .container {
+		width: auto;
+		max-width: $grid-container-width{px}
+}
 @media_close()
 
-@media (max-width:480px) {
-	.menu-items {
+@media ( max-width:@menu_toogle_endpoint()px ) {
+	.menu-primary_trigger {
+		display: block;
+	}
+	.simple-menu.menu-items {
+		display: none !important;
+	}
+	.simple-menu.menu-items[aria-expanded="true"] {
+		display: block !important;
+	}
+	.simple-menu.menu-items {
 		padding: 10px;
 		background: @contrast( $typography-header-menu[color], #fafafa, #454545 );
 	}
-	.menu-primary .sub-menu a {
+	.simple-menu .sub-menu {
+		position: static;
+		float: none;
+		visibility: visible;
+		opacity: 1;
+		padding: 0 0 0 20px;
+		background: none;
+	}
+	.simple-menu .sub-menu li {
+		float: none;
+	}
+	.simple-menu .sub-menu a {
+		width: 100%;
 		color: $typography-header-menu[color];
+	}
+	.simple-menu > ul > li {
+		float: none;
+		display: block;
+		margin: 0;
+		padding: 0 0 3px 0;
+	}
+}
+
+@media ( min-width:@menu_toogle_endpoint()px ) {
+	.simple-menu li:hover > ul,
+	.simple-menu li.focus > ul,
+	.simple-menu li.menu-hover > ul {
+		opacity: 1;
+		visibility: visible;
+		overflow: visible;
 	}
 }

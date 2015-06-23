@@ -31,12 +31,11 @@ new cherry_search_form_static(
 		'id'      => 'search-form',
 		'name'    => __( 'Search Form', 'cherry' ),
 		'options' => array(
-			'col-lg'   => 'col-lg-6',
-			'col-md'   => 'col-md-6',
-			'col-sm'   => 'col-sm-12',
-			'col-xs'   => 'col-xs-12',
-			'position' => 2,
-			'area'     => 'header-top',
+			'col-lg' => 'col-lg-6',
+			'col-md' => 'col-md-6',
+			'col-sm' => 'col-sm-12',
+			'col-xs' => 'col-xs-12',
+			'area'   => 'available-statics',
 		)
 	)
 );

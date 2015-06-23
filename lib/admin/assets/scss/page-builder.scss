@@ -1,0 +1,29 @@
+.cherry{
+	&-page-wrapper {
+		margin: 20px 20px 0 0;
+		position: relative;
+	}
+	&-page-title, &-page-content {
+		background: #FFF;
+		box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+		box-sizing: border-box;
+	}
+	&-page-title{
+		position: relative;
+		border-left: 5px solid #2a445d;
+		margin-bottom: 10px;
+		padding: 20px;
+			span{
+				font-size: 30px;
+				line-height: 35px;
+			}
+			.ajax-section-spinner{
+				width: 40px;
+				height: 40px;
+				display: none;
+				position: absolute;
+				top: 18px;
+				right: 18px;
+			}
+	}
+}

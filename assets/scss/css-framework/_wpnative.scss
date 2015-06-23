@@ -2,7 +2,7 @@
 # Elements
 --------------------------------------------------------------*/
 img {
-	@include img-responsive;
+	@include img-responsive(inline-block);
 }
 
 /*--------------------------------------------------------------
@@ -84,16 +84,27 @@ img {
 	display: inline;
 	float: left;
 	margin-right: 1.5em;
+	&.large {
+		img {
+			width: 100%;
+		}
+	}
 }
 
 .alignright {
 	display: inline;
 	float: right;
 	margin-left: 1.5em;
+	&.large {
+		img {
+			width: 100%;
+		}
+	}
 }
 
 .aligncenter {
 	@include center-block;
+	text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -120,11 +131,6 @@ img {
 	}
 }
 
-/* Search widget */
-.widget_search .search-submit {
-	display: none;
-}
-
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -140,9 +146,14 @@ img {
 .site-header {
 	position: relative;
 	z-index: 9;
-	&.isStick {
+}
+.isStick {
+	&.site-header,
+	&.header-top {
 		left: 0;
 		right: 0;
+		z-index: 9;
+		width: 100%;
 	}
 }
 
@@ -153,9 +164,12 @@ img {
 .hentry {
 	margin: 0 0 1.5em;
 }
+.entry-meta {
+	overflow: hidden;
+}
 
 .byline,
-.updated:not(.published){
+.updated:not(.published) {
 	display: none;
 }
 
@@ -197,6 +211,63 @@ img {
 .bypostauthor {
 	display: block;
 }
+
+ol.comment-list {
+	list-style: none;
+	margin: 0 0 1em;
+	padding: 0;
+	text-indent: 0;
+
+	li > .children,
+	.children li > .children {
+		list-style: none;
+	}
+
+	li {
+		.comment-body {
+			padding: 1.5em;
+			background: #fff;
+		}
+		&.comment,
+		&.ping {
+			clear: both;
+		}
+		&.alt {}
+		&.bypostauthor {}
+		&.comment {
+			margin: 0 0 1em;
+			div.comment-author {}
+
+			/* Avatar */
+			div.vcard {
+				cite.fn {
+					font-style: normal;
+					a.url {}
+				}
+				img.avatar {
+					float: left;
+					margin: 0 1em 1em 0;
+				}
+			}
+
+			/* Meta */
+			footer.comment-meta { font-size: 10px; }
+
+			/* Reply */
+			div.reply {
+				text-align: right;
+				a {}
+			}
+
+			/* Sub-comments */
+			ol.children {
+				margin: 1em 0 0;
+				padding-left: 40px;
+			}
+		}
+	}
+}
+
 
 /*--------------------------------------------------------------
 # Media
@@ -285,4 +356,16 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+# 404
+--------------------------------------------------------------*/
+.error-404 {
+	padding: 30px 0;
+	&-num {
+		text-align: center;
+		font-size: 15em;
+		line-height: 1.1;
+	}
 }
