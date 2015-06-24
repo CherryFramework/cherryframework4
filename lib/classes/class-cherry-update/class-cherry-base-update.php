@@ -25,15 +25,9 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 		protected $api = array(
 				'version'			=> '',
 				'slug'				=> '',
-				'hub_url'			=> 'https://github.com/',
-				'api_url'			=> 'https://api.github.com/repos/',
+				'cloud_url'			=> 'https://cloud.cherryframework.com/cherry-update/',
 				'product_name'		=> 'CherryFramework',
-				'repository_name'	=> '',
-				'brunch_name'		=> 'master',
-				'important_release'	=> '-imp',
-				'alpha_release'		=> '-alpha', //To alpha update need constant CHERRY_ALPHA_UPDATE - true
-				'beta_release'		=> '-beta', //To beta update need constant CHERRY_BETA_UPDATE - true
-				'sslverify'			=> true
+				'repository_name'	=> ''
 			);
 
 		protected function base_init( $attr = array() ){
@@ -41,52 +35,41 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 		}
 
 		protected function check_update() {
-			$query = $this->api[ 'api_url' ] . $this->api[ 'product_name' ] . '/' . $this->api[ 'repository_name' ] . '/tags';
-			$response = $this -> remote_query( $query );
-			$new_version = false;
-			$url = '';
-			$package = '';
+			$args = array(
+				'user-agent' => 'WordPress',
+				'github_repository' => $this->api[ 'product_name' ] . '/' . $this->api[ 'repository_name' ],
+				'current_version' => $this->api[ 'version' ],
+				'up_query_limit' => false,
+				'get_alpha' => false,
+				'get_beta' => false
+			);
 
-			if( $response ){
-
-				$response = array_reverse( $response );
-				$last_update = count( $response )-1;
-				$current_version = $this->api[ 'version' ];
-
-				foreach ($response as $key => $update) {
-
-					$get_new_version = strtolower( $update->name );
-					$update_label = preg_replace( '/[v]?[\d\.]+[v]?/', '', $get_new_version );
-					$get_new_version = preg_replace( '/[^\d\.]/', '', $get_new_version );
-
-					$this->api[ 'details_url' ] = 'https://github.com/' . $this->api[ 'product_name' ] . '/' . $this->api[ 'slug' ] . '/releases/tag/' . $update->name;
-					$package = $update->zipball_url;
-
-					if( version_compare ( $get_new_version, $current_version ) > 0 && strpos( $update_label, $this->api[ 'important_release' ] ) !== false ){
-
-						$new_version = $get_new_version;
-						break;
-					}
-
-					if( version_compare ( $get_new_version, $current_version ) > 0 && $key === $last_update ){
-
-						if($update_label !== $this->api[ 'alpha_release' ] && $update_label !== $this->api[ 'beta_release' ]
-						|| $update_label === $this->api[ 'alpha_release' ] && @constant ( 'CHERRY_ALPHA_UPDATE' ) == true
-						|| $update_label === $this->api[ 'beta_release' ] && @constant ( 'CHERRY_BETA_UPDATE' ) == true ){
-
-							$new_version = $get_new_version;
-
-						}
-						break;
-					}
-				}
-
-				return array( 'version' => $new_version, 'package' => $package );
+			if( defined ( 'CHERRY_ALPHA_UPDATE' ) ){
+				$args[ 'get_alpha' ] = true;
 			}
+
+			if( defined ( 'CHERRY_BETA_UPDATE' ) ){
+				$args[ 'get_beta' ] = true;
+			}
+
+			if( defined ( 'CHERRY_UP_QUERY_LIMIT' ) ){
+				$args[ 'up_query_limit' ] = true;
+			}
+
+			$response = $this -> remote_query( $args );
+
+			if( $response && $response !=='not_update' ){
+				$this->api[ 'details_url' ] = $response->details_url;
+				return array( 'version' => $response->new_version, 'package' => $response->package );
+			}
+
+			return array( 'version' => false);
 		}
 
-		protected function remote_query( $query ) {
-			$response = wp_remote_get( $query , array( 'sslverify' => $this->api[ 'sslverify' ] , 'user-agent' => $this->api[ 'product_name' ] ) );
+		protected function remote_query( $args ) {
+			$query = add_query_arg( $args, $this->api['cloud_url'] );
+
+			$response = wp_remote_get( $query );
 
 			if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) != '200') {
 				return false;
