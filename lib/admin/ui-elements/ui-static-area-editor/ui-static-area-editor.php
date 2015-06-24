@@ -545,7 +545,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 						$categories = get_categories( array( 'number' => 1000, 'orderby' => 'count', 'order' => 'DESC' ) );
 						usort( $categories, array( __CLASS__, 'strcasecmp_name' ) );
 						foreach ( $categories as $category ) {
-							$result_array[ $category->term_id ] = esc_html( $category->name );
+							$result_array[ $category->slug ] = esc_html( $category->name );
 						}
 
 						return $result_array;
@@ -559,7 +559,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 					case 'author':
 						$result_array[''] = __( 'All author pages', 'cherry' );
 						foreach ( get_users( array( 'orderby' => 'name', 'exclude_admin' => true ) ) as $author ) {
-							$result_array[ esc_attr( $author->ID ) ] = esc_html( $author->display_name );
+							$result_array[ esc_attr( $author->user_login ) ] = esc_html( $author->display_name );
 						}
 
 						return $result_array;
@@ -577,7 +577,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 						$tags = get_tags( array( 'number' => 1000, 'orderby' => 'count', 'order' => 'DESC' ) );
 						usort( $tags, array( __CLASS__, 'strcasecmp_name' ) );
 						foreach ( $tags as $tag ) {
-							$result_array[ esc_attr($tag->term_id ) ] = esc_html( $tag->name );
+							$result_array[ esc_attr( $tag->slug ) ] = esc_html( $tag->name );
 						}
 
 						return $result_array;
@@ -606,7 +606,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 						$pages = get_pages();
 						$result_array['optgroup-static-page']['label'] = __( 'Static page:', 'cherry' );
 						foreach ( $pages as $page => $page_settings) {
-							$result_array['optgroup-static-page']['group_options'][ $page_settings->ID ] = $page_settings->post_name;
+							$result_array['optgroup-static-page']['group_options'][ $page_settings->post_name ] = $page_settings->post_name;
 						}
 						return $result_array;
 					break;
@@ -621,7 +621,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 							$result_array['optgroup-'.$taxonomy->labels->name]['group_options'][ esc_attr( $taxonomy->name ) ] = 'All ' . esc_html( $taxonomy->name ) . ' pages';
 							$terms = get_terms( array( $taxonomy->name ), array( 'number' => 250, 'hide_empty' => false ) );
 							foreach ( $terms as $term ) {
-								$result_array['optgroup-'.$taxonomy->labels->name]['group_options'][ esc_attr( $taxonomy->name . '_tax_' . $term->term_id ) ] = esc_html( $term->name );
+								$result_array['optgroup-'.$taxonomy->labels->name]['group_options'][ esc_attr( $taxonomy->name . '_tax_' . $term->slug ) ] = esc_html( $term->name );
 							}
 						}
 						return $result_array;

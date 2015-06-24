@@ -219,7 +219,6 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 		function get_minor_select(){
 			if ( !empty($_POST) && array_key_exists('major_type', $_POST) ) {
 				$major = $_POST['major_type'];
-				$minor = ( isset( $_POST['minor_type'] ) ) ? $_POST['minor_type'] : '';
 
 				$html = '';
 				switch ( $major ) {
@@ -230,24 +229,23 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 						usort( $categories, array( __CLASS__, 'strcasecmp_name' ) );
 
 						foreach ( $categories as $category ) {
-							$html .= '<option value="' . $category->term_id . '" ' . selected( $category->term_id, $minor ) . '>' . esc_html( $category->name ) . '</option>';
+							$html .= '<option value="' . $category->slug . '">' . esc_html( $category->name ) . '</option>';
 						}
 						break;
 					case 'loggedin':
-						$html .= '<option value="loggedin" ' . selected( 'loggedin', $minor ) . '>' . __( 'Logged In', 'cherry' ) . '</option>';
-						$html .= '<option value="loggedout" ' . selected( 'loggedout', $minor ) . '>' . __( 'Logged Out', 'cherry' ) . '</option>';
+						$html .= '<option value="loggedin">' . __( 'Logged In', 'cherry' ) . '</option>';
+						$html .= '<option value="loggedout">' . __( 'Logged Out', 'cherry' ) . '</option>';
 						break;
 					case 'author':
 						$html .= '<option value="">' . __( 'All author pages', 'cherry' ) . '</option>';
 						foreach ( get_users( array( 'orderby' => 'name', 'exclude_admin' => true ) ) as $author ) {
-							$html .= '<option value="' . esc_attr( $author->ID ) . '" ' . selected( $author->ID, $minor ) . '>' . esc_html( $author->display_name ) . '</option>';
+							$html .= '<option value="' . esc_attr( $author->user_login ) . '">' . esc_html( $author->display_name ) . '</option>';
 						}
 						break;
 					case 'role':
 						global $wp_roles;
-
 						foreach ( $wp_roles->roles as $role_key => $role ) {
-							$html .= '<option value="' . esc_attr( $role_key ) . '" ' . selected( $role_key, $minor ) . '>' . esc_html( $role['name'] ) . '</option>';
+							$html .= '<option value="' . esc_attr( $role_key ) . '">' . esc_html( $role['name'] ) . '</option>';
 						}
 						break;
 					case 'tag':
@@ -257,36 +255,36 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 						usort( $tags, array( __CLASS__, 'strcasecmp_name' ) );
 
 						foreach ( $tags as $tag ) {
-							$html .= '<option value="' . esc_attr($tag->term_id ) . '" ' . selected( $tag->term_id, $minor ) . '>' . esc_html( $tag->name ) . '</option>';
+							$html .= '<option value="' . esc_attr( $tag->slug ) . '">' . esc_html( $tag->name ) . '</option>';
 						}
 						break;
 					case 'date':
-						$html .= '<option value="" ' . selected( '', $minor ) . '>' . __( 'All date archives', 'cherry' ) . '</option>';
-						$html .= '<option value="day" ' . selected( 'day', $minor ) . '>' . __( 'Daily archives', 'cherry' ) . '</option>';
-						$html .= '<option value="month" ' . selected( 'month', $minor ) . '>' . __( 'Monthly archives', 'cherry' ) . '</option>';
-						$html .= '<option value="year" ' . selected( 'year', $minor ) . '>' . __( 'Yearly archives', 'cherry' ) . '</option>';
+						$html .= '<option value="">' . __( 'All date archives', 'cherry' ) . '</option>';
+						$html .= '<option value="day">' . __( 'Daily archives', 'cherry' ) . '</option>';
+						$html .= '<option value="month">' . __( 'Monthly archives', 'cherry' ) . '</option>';
+						$html .= '<option value="year">' . __( 'Yearly archives', 'cherry' ) . '</option>';
 					break;
 					case 'page':
-						if ( ! $minor )
-							$minor = 'post_type-page';
-						else if ( 'post' == $minor )
-							$minor = 'post_type-post';
 
-						$html .= '<option value="front" ' . selected( 'front', $minor ) . '>' . __( 'Front page', 'cherry' ) . '</option>';
-						$html .= '<option value="posts" ' . selected( 'posts', $minor ) . '>' . __( 'Posts page', 'cherry' ) . '</option>';
-						$html .= '<option value="archive" ' . selected( 'archive', $minor ) . '>' . __( 'Archive page', 'cherry' ) . '</option>';
-						$html .= '<option value="404" ' . selected( '404', $minor ) . '>' . __( '404 error page', 'cherry' ) . '</option>';
-						$html .= '<option value="search" ' . selected( 'search', $minor ) . '>' . __( 'Search results', 'cherry' ) . '</option>';
+						$html .= '<option value="front">' . __( 'Front page', 'cherry' ) . '</option>';
+						$html .= '<option value="posts">' . __( 'Posts page', 'cherry' ) . '</option>';
+						$html .= '<option value="archive">' . __( 'Archive page', 'cherry' ) . '</option>';
+						$html .= '<option value="404">' . __( '404 error page', 'cherry' ) . '</option>';
+						$html .= '<option value="search">' . __( 'Search results', 'cherry' ) . '</option>';
 
 						$html .= '<optgroup label="' . __( 'Post type:', 'cherry' ) . '">';
 							$post_types = get_post_types( array( 'public' => true ), 'objects' );
 							foreach ( $post_types as $post_type ) {
-								$html .= '<option value="' . esc_attr( 'post_type-' . $post_type->name ) . '" ' . selected( 'post_type-' . $post_type->name, $minor ) . '>' . esc_html( $post_type->labels->singular_name ) . '</option>';
+								$html .= '<option value="' . esc_attr( 'post_type-' . $post_type->name ) . '">' . esc_html( $post_type->labels->singular_name ) . '</option>';
 							}
 						$html .= '</optgroup>';
+						$pages = get_pages();
 						$html .= '<optgroup label="' . __( 'Static page:', 'cherry' ) . '">';
-							$html .= str_replace( ' value="' . esc_attr( $minor ) . '"', ' value="' . esc_attr( $minor ) . '" selected="selected"', preg_replace( '/<\/?select[^>]*?>/i', '', wp_dropdown_pages( array( 'echo' => false ) ) ) );
+							foreach ( $pages as $page => $page_settings) {
+								$html .= '<option value="' . $page_settings->post_name . '">' . $page_settings->post_name . '</option>';
+							}
 						$html .= '</optgroup>';
+
 						break;
 					case 'taxonomy':
 							$html .= '<option value="">' . __( 'All taxonomy pages', 'cherry' ) . '</option>';
@@ -295,10 +293,10 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 							foreach ( $taxonomies as $taxonomy ) {
 								$html .= '<optgroup label="' . __( $taxonomy->labels->name . ':', 'cherry' ) . '">';
-									$html .= '<option value="' . esc_attr( $taxonomy->name ) . '" ' . selected( $taxonomy->name, $minor ) . '>' . 'All ' . esc_html( $taxonomy->name ) . ' pages' . '</option>';
+									$html .= '<option value="' . esc_attr( $taxonomy->name ) . '">' . 'All ' . esc_html( $taxonomy->name ) . ' pages' . '</option>';
 									$terms = get_terms( array( $taxonomy->name ), array( 'number' => 250, 'hide_empty' => false ) );
 									foreach ( $terms as $term ) {
-										$html .= '<option value="' . esc_attr( $taxonomy->name . '_tax_' . $term->term_id ) . '" ' . selected( $taxonomy->name . '_tax_' . $term->term_id, $minor ) . '>' . esc_html( $term->name ) . '</option>';
+										$html .= '<option value="' . esc_attr( $taxonomy->name . '_tax_' . $term->slug ) . '">' . esc_html( $term->name ) . '</option>';
 									}
 								$html .= '</optgroup>';
 							}
