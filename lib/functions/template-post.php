@@ -102,7 +102,7 @@ function cherry_get_the_post_thumbnail( $args ) {
 		'before' => '',
 		'after'  => '',
 		'class'  => is_single( $post_id ) ? cherry_get_option( 'blog-post-featured-image-align' ) : cherry_get_option( 'blog-featured-images-align' ), // aligncenter, alignleft or alignright
-		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s %3$s %7$s">%6$s</%1$s>' : '<%1$s class="%2$s %3$s %7$s"><a href="%4$s" title="%5$s">%6$s</a></%1$s>',
+		'wrap'   => is_singular( $post_type ) ? '<%1$s class="%2$s %3$s">%6$s</%1$s>' : '<%1$s class="%2$s %3$s"><a href="%4$s" title="%5$s">%6$s</a></%1$s>',
 	), $post_id, $post_type );
 
 	$args = wp_parse_args( $args, $defaults );
@@ -111,22 +111,40 @@ function cherry_get_the_post_thumbnail( $args ) {
 	$sizes = get_intermediate_image_sizes();
 	$sizes[] = 'full';
 
-	// Checks if a value exists in an arrays
+	// Checks if a value exists in an arrays.
 	$size = ( in_array( $args['size'], $sizes ) ) ? $args['size'] : $defaults['size'];
 
 	// Gets the Featured Image.
 	$thumbnail = get_the_post_thumbnail( $post_id, $args['size'] );
 	$thumbnail = $args['before'] . $thumbnail . $args['after'];
 
+	$classes = array();
+	$classes[] = $args['size'];
+	$classes[] = $args['class'];
+
+	if ( ( 'cherry-thumb-l' == $args['size'] ) || ( 'large' == $args['size'] ) ) {
+		$classes[] = 'large';
+	}
+
+	/**
+	 * Filters the CSS classes for thumbnail.
+	 *
+	 * @since 4.0.0
+	 * @param array $classes An array of classes.
+	 * @param array $args
+	 */
+	$classes = apply_filters( 'cherry_the_post_thumbnail_classes', $classes, $args );
+	$classes = array_unique( $classes );
+	$classes = array_map( 'sanitize_html_class', $classes );
+
 	$output = sprintf(
 		$args['wrap'],
 		tag_escape( $args['container'] ),
 		esc_attr( $args['container_class'] ),
-		sanitize_html_class( $args['size'] ),
+		join( ' ', $classes ),
 		get_permalink( $post_id ),
 		esc_attr( the_title_attribute( 'echo=0' ) ),
-		$thumbnail,
-		esc_attr( $args['class'] )
+		$thumbnail
 	);
 
 	/**

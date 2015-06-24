@@ -3,127 +3,155 @@
   position: relative;
   display: block;
   -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -ms-touch-action: pan-y;
   touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: transparent;
+}
 
 .slick-list {
   position: relative;
   display: block;
   overflow: hidden;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+}
 
 .slick-list:focus {
-  outline: none; }
+  outline: none;
+}
 
 .slick-list.dragging {
   cursor: pointer;
-  cursor: hand; }
+}
 
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0); }
+  transform: translate3d(0, 0, 0);
+}
 
 .slick-track {
   position: relative;
   top: 0;
   left: 0;
-  display: block; }
+  display: block;
+}
 
 .slick-track:before,
 .slick-track:after {
   display: table;
-  content: ''; }
+  content: '';
+}
 
 .slick-track:after {
-  clear: both; }
+  clear: both;
+}
 
 .slick-loading .slick-track {
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 .slick-slide {
   display: none;
   float: left;
   height: 100%;
-  min-height: 1px; }
+  min-height: 1px;
+}
 
 [dir='rtl'] .slick-slide {
-  float: right; }
+  float: right;
+}
 
 .slick-slide img {
-  display: block; }
+  display: block;
+}
 
 .slick-slide.slick-loading img {
-  display: none; }
+  display: none;
+}
 
 .slick-slide.dragging img {
-  pointer-events: none; }
+  pointer-events: none;
+}
 
 .slick-initialized .slick-slide {
-  display: block; }
+  display: block;
+}
 
 .slick-loading .slick-slide {
-  visibility: hidden; }
+  visibility: hidden;
+}
 
 .slick-vertical .slick-slide {
   display: block;
   height: auto;
-  border: 1px solid transparent; }
+  border: 1px solid transparent;
+}
 
 .post-gallery {
-  position: relative; }
-  .post-gallery_prev, .post-gallery_next {
-    position: absolute;
-    width: 50px;
-    height: 34px;
-    line-height: 30px;
-    margin: -15px 0 0 0;
-    top: 50%;
-    font-size: 30px;
-    text-align: center;
-    display: block !important;
-    cursor: pointer; }
-  .post-gallery_prev {
-    left: 0; }
-    .post-gallery_prev:before {
-      content: "\2190"; }
-  .post-gallery_next {
-    right: 0; }
-    .post-gallery_next:before {
-      content: "\2192"; }
-  .post-gallery_item.nth-child {
-    display: none; }
-    .post-gallery_item.nth-child.slick-slide {
-      display: block; }
-  .post-gallery_item_link {
-    text-decoration: none; }
-    .post-gallery_item_link:hover, .post-gallery_item_link:focus, .post-gallery_item_link:active {
-      text-decoration: none; }
-  .post-gallery_item_caption {
-    padding: 20px; }
-  .post-gallery_paging {
-    padding: 10px 0;
-    text-align: center;
-    margin: 0;
-    list-style: none; }
-    .post-gallery_paging > li {
-      display: inline-block;
-      padding: 0 5px; }
-    .post-gallery_paging_item {
-      width: 12px;
-      height: 12px;
-      border-radius: 6px;
-      display: block;
-      cursor: pointer; }
+  position: relative;
+}
+.post-gallery_prev, .post-gallery_next {
+  position: absolute;
+  width: 50px;
+  height: 34px;
+  line-height: 30px;
+  margin: -15px 0 0 0;
+  top: 50%;
+  font-size: 30px;
+  text-align: center;
+  display: block !important;
+  cursor: pointer;
+}
+.post-gallery_prev {
+  left: 0;
+}
+.post-gallery_prev:before {
+  content: "\2190";
+}
+.post-gallery_next {
+  right: 0;
+}
+.post-gallery_next:before {
+  content: "\2192";
+}
+.post-gallery_item.nth-child {
+  display: none;
+}
+.post-gallery_item.nth-child.slick-slide {
+  display: block;
+}
+.post-gallery_item_link {
+  text-decoration: none;
+}
+.post-gallery_item_link:hover, .post-gallery_item_link:focus, .post-gallery_item_link:active {
+  text-decoration: none;
+}
+.post-gallery_item_caption {
+  padding: 20px;
+}
+.post-gallery_paging {
+  padding: 10px 0;
+  text-align: center;
+  margin: 0;
+  list-style: none;
+}
+.post-gallery_paging > li {
+  display: inline-block;
+  padding: 0 5px;
+}
+.post-gallery_paging_item {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  display: block;
+  cursor: pointer;
+}

@@ -124,7 +124,6 @@ function cherry_defaults_settings() {
 	$layouts_options['page-layout'] = array(
 		'type'        => 'radio',
 		'title'       => __( 'Pages', 'cherry' ),
-		'description' => __( 'Select page layout.', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'You can choose if you want to display sidebars and how you want to display them.', 'cherry' ),
@@ -211,10 +210,10 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Featured Image Size', 'cherry' ),
 		'hint'  => array(
 			'type'    => 'text',
-			'content' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
+			'content' => __( 'Set dimensions for post featured images.', 'cherry' ),
 		),
 		'class'       => 'width-full',
-		'description' => __( 'Set dimensions for post featured images in pixels.', 'cherry' ),
+		'description' => __( 'Set dimensions for post featured images.', 'cherry' ),
 		'value'       => 'cherry-thumb-l',
 		'options'     => array(
 			'cherry-thumb-s' => __( 'Small', 'cherry' ),
@@ -240,7 +239,7 @@ function cherry_defaults_settings() {
 		'description' => __( 'Select how you want to display post content in blog listing', 'cherry' ),
 		'hint' => array(
 			'type'    => 'text',
-			'content' => __( 'The following options are available: full - display full post content, excerpt - display part of the post (you can specify excerpt length below), none - hide post content.', 'cherry' ),
+			'content' => __( 'The following options are available:<br>`full` - display full post content, <br>`part` - display part of the post (you can specify excerpt length below), <br>`none` - hide post content.', 'cherry' ),
 		),
 		'value'       => 'part',
 		'class'       => 'width-full',
@@ -1371,7 +1370,7 @@ function cherry_defaults_settings() {
 	);
 	$demo_options['typography-demo'] = array(
 		'type'			=> 'typography',
-		'title'			=> __('Typography'),
+		'title'			=> __('Typography', 'cherry'),
 		'label'			=> '',
 		'decsription'	=> '',
 		'max_value '	=> 500,

@@ -35,8 +35,7 @@ new cherry_header_sidebar_static(
 			'col-md'   => 'col-md-12',
 			'col-sm'   => 'col-sm-12',
 			'col-xs'   => 'col-xs-12',
-			'position' => 2,
-			'area'     => 'header-bottom',
+			'area'     => 'available-statics',
 		)
 	)
 );
