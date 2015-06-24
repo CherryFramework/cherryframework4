@@ -494,10 +494,6 @@ class Cherry_Statics {
 
 		$condition_result = false;
 
-		// echo "<pre>";
-		// var_dump($static['conditions']['rules']);
-		// echo "</pre>";
-
 		foreach ( $static['conditions']['rules'] as $rule ) {
 			$condition_key = $rule['major'] . ":" . $rule['minor'];
 
@@ -616,24 +612,29 @@ class Cherry_Statics {
 					case 'taxonomy':
 						$term = explode( '_tax_', $rule['minor'] ); // $term[0] = taxonomy name; $term[1] = term id
 
-						if ( isset( $term[1] ) && is_tax( $term[0], $term[1] ) )
+						if ( ! isset( $term[1] ) ) {
+							$term[1] = 'all';
+						}
+
+						if ( isset( $term[1] ) && is_tax( $term[0], $term[1] ) ) {
 							$condition_result = true;
-						else if ( isset( $term[1] ) && is_singular() && $term[1] && has_term( $term[1], $term[0] ) )
+						}
+						else if ( isset( $term[1] ) && is_singular() && $term[1] && has_term( $term[1], $term[0] ) ) {
 							$condition_result = true;
-						else if ( is_singular() && $post_id = get_the_ID() ){
-							$terms = get_the_terms( $post_id, $rule['minor'] ); // Does post have terms in taxonomy?
-							if( $terms && ! is_wp_error( $terms ) ) {
-								$condition_result = true;
-							}
+						}
+						// else if ( is_singular() && $post_id = get_the_ID() ) {
+						// 	$terms = get_the_terms( $post_id, $rule['minor'] ); // Does post have terms in taxonomy?
+						// 	if ( $terms && ! is_wp_error( $terms ) ) {
+						// 		$condition_result = true;
+						// 	}
+						// }
+						else if ( isset( $term[1] ) && ( 'all' == $term[1] ) && is_tax( $term[0] ) ) {
+							$condition_result = true;
 						}
 					break;
 				}
 
-				// if ( $condition_result || self::$passed_template_redirect ) {
 				if ( $condition_result ) {
-					// Some of the conditions will return false when checked before the template_redirect
-					// action has been called, like is_page(). Only store positive lookup results, which
-					// won't be false positives, before template_redirect, and everything after.
 					$condition_result_cache[ $condition_key ] = $condition_result;
 				}
 			}
