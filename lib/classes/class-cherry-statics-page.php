@@ -281,7 +281,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 						$pages = get_pages();
 						$html .= '<optgroup label="' . __( 'Static page:', 'cherry' ) . '">';
 							foreach ( $pages as $page => $page_settings) {
-								$html .= '<option value="' . $page_settings->post_name . '">' . $page_settings->post_name . '</option>';
+								$html .= '<option value="' . $page_settings->post_name . '">' . $page_settings->post_title . '</option>';
 							}
 						$html .= '</optgroup>';
 

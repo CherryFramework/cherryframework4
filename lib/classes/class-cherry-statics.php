@@ -519,12 +519,6 @@ class Cherry_Statics {
 						}
 					break;
 					case 'page':
-						// Previously hardcoded post type options.
-						if ( 'post' == $rule['minor'] )
-							$rule['minor'] = 'post_type-post';
-						else if ( ! $rule['minor'] )
-							$rule['minor'] = 'post_type-page';
-
 						switch ( $rule['minor'] ) {
 							case '404':
 								$condition_result = is_404();
@@ -538,20 +532,19 @@ class Cherry_Statics {
 							case 'posts':
 								$condition_result = $wp_query->is_posts_page;
 							break;
-							case 'home':
-								$condition_result = is_home();
-							break;
 							case 'front':
 								$condition_result = is_front_page() && !is_paged();
 							break;
 							default:
-								if ( substr( $rule['minor'], 0, 10 ) == 'post_type-' ) {
-									$condition_result = is_singular( substr( $rule['minor'], 10 ) );
-								} elseif ( $rule['minor'] == get_option( 'page_for_posts' ) ) {
-									// If $rule['minor'] is a page ID which is also the posts page
+								$post_type = substr( $rule['minor'], 10 );
+
+								if ( 'post_type-' == substr( $rule['minor'], 0, 10 ) ) {
+									$condition_result = ( 'page' == $post_type ) ? is_singular( $post_type ) || $wp_query->is_posts_page : is_singular( $post_type );
+								} elseif ( get_post_field( 'post_name', get_option( 'page_for_posts' ) ) == $rule['minor'] ) {
+									// If $rule['minor'] is a page slug which is also the posts page.
 									$condition_result = $wp_query->is_posts_page;
 								} else {
-									// $rule['minor'] is a page ID
+									// $rule['minor'] is a page slug.
 									$condition_result = is_page( $rule['minor'] );
 								}
 							break;
@@ -563,7 +556,7 @@ class Cherry_Statics {
 						else if ( is_singular() && $rule['minor'] && has_tag( $rule['minor'] ) )
 							$condition_result = true;
 						else {
-							$tag = get_tag( $rule['minor'] );
+							$tag = get_term_by( 'slug', $rule['minor'], 'post_tag' );
 
 							if ( $tag && is_tag( $tag->slug ) )
 								$condition_result = true;
@@ -610,27 +603,32 @@ class Cherry_Statics {
 						}
 					break;
 					case 'taxonomy':
-						$term = explode( '_tax_', $rule['minor'] ); // $term[0] = taxonomy name; $term[1] = term id
+						// $term[0] = taxonomy name; $term[1] = term slug
+						$term = explode( '_tax_', $rule['minor'] );
 
 						if ( ! isset( $term[1] ) ) {
-							$term[1] = 'all';
+
+							if ( ! $rule['minor'] && is_tax() )
+								$condition_result = true;
+							else if ( is_tax( $rule['minor'] ) )
+								$condition_result = true;
+
+						} else {
+
+							if ( is_tax( $term[0], $term[1] ) )
+								$condition_result = true;
+							else if ( is_singular() && $term[1] && has_term( $term[1], $term[0] ) )
+								$condition_result = true;
+							else if ( is_singular() && $post_id = get_the_ID() ) {
+								$terms = get_the_terms( $post_id, $rule['minor'] );
+
+								if ( $terms && ! is_wp_error( $terms ) ) {
+									$condition_result = true;
+								}
+							}
+
 						}
 
-						if ( isset( $term[1] ) && is_tax( $term[0], $term[1] ) ) {
-							$condition_result = true;
-						}
-						else if ( isset( $term[1] ) && is_singular() && $term[1] && has_term( $term[1], $term[0] ) ) {
-							$condition_result = true;
-						}
-						// else if ( is_singular() && $post_id = get_the_ID() ) {
-						// 	$terms = get_the_terms( $post_id, $rule['minor'] ); // Does post have terms in taxonomy?
-						// 	if ( $terms && ! is_wp_error( $terms ) ) {
-						// 		$condition_result = true;
-						// 	}
-						// }
-						else if ( isset( $term[1] ) && ( 'all' == $term[1] ) && is_tax( $term[0] ) ) {
-							$condition_result = true;
-						}
 					break;
 				}
 
@@ -643,10 +641,23 @@ class Cherry_Statics {
 				break;
 		}
 
-		if ( ( 'show' == $static['conditions']['action'] && ! $condition_result ) || ( 'hide' == $static['conditions']['action'] && $condition_result ) )
-			return false;
 
-		return true;
+		$result = true;
+
+		if ( ( 'show' == $static['conditions']['action'] && ! $condition_result )
+			|| ( 'hide' == $static['conditions']['action'] && $condition_result )
+			) {
+			$result = false;
+		}
+
+		/**
+		 * Filters a some condition rules.
+		 *
+		 * @since 4.0.0
+		 * @param bool  $result
+		 * @param array $static Static options.
+		 */
+		return apply_filters( 'cherry_is_visible_static', $result, $static );
 	}
 
 	/**

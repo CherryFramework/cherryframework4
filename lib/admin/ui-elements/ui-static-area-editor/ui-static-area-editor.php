@@ -341,7 +341,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 																				'id'			=> $this->settings['id'] . '-' . $handle . '-minor-rule',
 																				'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules][' . $index . '][minor]',
 																				'value'			=> $minor,
-																				'options'		=> $this->get_miror_options( $rule['major'] ),
+																				'options'		=> $this->get_minor_options( $rule['major'] ),
 																				'class'			=> 'rule-minor-select'
 																			)
 																		);
@@ -508,7 +508,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 																			'id'			=> $this->settings['id'] . '-' . $handle . '-minor-rule',
 																			'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules][' . $index . '][minor]',
 																			'value'			=> $minor,
-																			'options'		=> $this->get_miror_options( $rule['major'] ),
+																			'options'		=> $this->get_minor_options( $rule['major'] ),
 																			'class'			=> 'rule-minor-select'
 																		)
 																	);
@@ -537,7 +537,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 			return $html;
 		}
 
-		public function get_miror_options( $major ){
+		public function get_minor_options( $major ){
 			$result_array = array();
 			switch ( $major ) {
 					case 'category':
@@ -591,23 +591,26 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 						return $result_array;
 					break;
 					case 'page':
-						$result_array['front'] = __( 'Front page', 'cherry' );
-						$result_array['posts'] = __( 'Posts page', 'cherry' );
+						$result_array['front']   = __( 'Front page', 'cherry' );
+						$result_array['posts']   = __( 'Posts page', 'cherry' );
 						$result_array['archive'] = __( 'Archive page', 'cherry' );
-						$result_array['404'] = __( '404 error page', 'cherry' );
-						$result_array['search'] = __( 'Search results', 'cherry' );
+						$result_array['404']     = __( '404 error page', 'cherry' );
+						$result_array['search']  = __( 'Search results', 'cherry' );
 
 						$post_types = get_post_types( array( 'public' => true ), 'objects' );
 						$result_array['optgroup-post-type']['label'] = __( 'Post type:', 'cherry' );
+
 						foreach ( $post_types as $post_type ) {
 							$result_array['optgroup-post-type']['group_options'][ esc_attr( 'post_type-' . $post_type->name ) ] = esc_html( $post_type->labels->singular_name );
 						}
 
 						$pages = get_pages();
 						$result_array['optgroup-static-page']['label'] = __( 'Static page:', 'cherry' );
+
 						foreach ( $pages as $page => $page_settings) {
-							$result_array['optgroup-static-page']['group_options'][ $page_settings->post_name ] = $page_settings->post_name;
+							$result_array['optgroup-static-page']['group_options'][ $page_settings->post_name ] = $page_settings->post_title;
 						}
+
 						return $result_array;
 					break;
 					case 'taxonomy':
