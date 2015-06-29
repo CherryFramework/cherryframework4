@@ -38,7 +38,7 @@ function cherry_defaults_settings() {
 	$general_options['general-favicon'] = array(
 		'type'        => 'media',
 		'title'       => __( 'Favicon image', 'cherry' ),
-		'description' => 'Icon image that is displayed in the browser address bar and browser tab heading. ',
+		'description' => __( 'Icon image that is displayed in the browser address bar and browser tab heading.', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'Max icon size: 32x32 px <br>You can also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
@@ -55,7 +55,7 @@ function cherry_defaults_settings() {
 			__( 'Maintenance mode. <a href="%s" target="_blank">Preview</a>', 'cherry' ),
 			$maintenance_preview
 		),
-		'description' => 'Enable/disable maintenance mode. ',
+		'description' => __( 'Enable/disable maintenance mode.', 'cherry' ),
 		'hint' => array(
 			'type'    => 'text',
 			'content' => __( "Logged in administrator gets full access to the site, while regular visitors will\won't be redirected to the page chosen below.", 'cherry' )
@@ -65,7 +65,7 @@ function cherry_defaults_settings() {
 	$general_options['general-maintenance-page'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Maintenance page', 'cherry' ),
-		'description' => 'Select page that regular visitors will see if maintenance mode is enabled. ',
+		'description' => __( 'Select page that regular visitors will see if maintenance mode is enabled.', 'cherry' ),
 		'value'       => '',
 		'class'       => 'width-full',
 		'options'     => $all_pages,
@@ -1406,7 +1406,7 @@ function cherry_defaults_settings() {
 		'type'			=> 'layouteditor',
 		'title'			=> __( 'title layout editor', 'cherry' ),
 		'label'			=> 'label layout editor',
-		'description'	=> 'description layout editor',
+		'description'	=> __( 'description layout editor', 'cherry' ),
 		'hint'			=>  array(
 			'type'		=> 'text',
 			'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '
