@@ -6,10 +6,10 @@
 }
 .cherry-static-area-editor-wrap .area-unit {
   background: none repeat scroll 0 0 #fcfcfc;
-  border: 1px solid #dfdfdf;
-  border-radius: 6px;
+  border: 1px solid #fff;
   margin-bottom: 20px;
   padding: 5px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
 }
 .cherry-static-area-editor-wrap .area-unit .area-name {
   margin: 5px 0 20px 0;
@@ -75,36 +75,131 @@
   overflow: hidden;
 }
 .cherry-static-area-editor-wrap .accordion-unit .group > div .field-col-lg {
-  width: 24%;
-  margin-right: 1%;
+  width: 25%;
+  padding-left: 5px;
   margin-bottom: 10px;
   float: left;
+  box-sizing: border-box;
 }
 .cherry-static-area-editor-wrap .accordion-unit .group > div .field-col-md {
-  width: 24%;
-  margin-right: 1%;
+  width: 25%;
+  padding-right: 5px;
+  padding-left: 5px;
   margin-bottom: 10px;
   float: left;
+  box-sizing: border-box;
 }
 .cherry-static-area-editor-wrap .accordion-unit .group > div .field-col-sm {
-  width: 24%;
-  margin-right: 1%;
+  width: 25%;
+  padding-right: 5px;
+  padding-left: 5px;
   margin-bottom: 10px;
   float: left;
+  box-sizing: border-box;
 }
 .cherry-static-area-editor-wrap .accordion-unit .group > div .field-col-xs {
-  width: 24%;
-  margin-right: 1%;
+  width: 25%;
+  padding-right: 5px;
   margin-bottom: 10px;
   float: left;
+  box-sizing: border-box;
 }
 .cherry-static-area-editor-wrap .accordion-unit .group > div .field-class {
-  width: 99%;
+  width: 100%;
   float: left;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 .cherry-static-area-editor-wrap .accordion-unit .group > div .field-class input {
   margin: 0;
   height: 42px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions {
+  background-color: #FCFCFC;
+  border: 1px solid #cccccc;
+  padding: 10px;
+  border-radius: 6px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions.empty .label-if {
+  display: none;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .label {
+  color: #2a445d;
+  font-size: 20px;
+  line-height: 20px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .label.label-if {
+  margin-bottom: 10px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .label.label-if span {
+  margin: 0 10px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .label.label-is {
+  position: absolute;
+  display: inline-block;
+  top: 0;
+  left: 50%;
+  margin: 10px 0 10px -25px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-action {
+  margin-bottom: 10px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-rules .rule-item {
+  position: relative;
+  margin-bottom: 10px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-rules .rule-item .rule-major {
+  width: 50%;
+  float: left;
+  padding-right: 5px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-rules .rule-item .rule-minor {
+  width: 50%;
+  float: left;
+  padding-left: 5px;
+  padding-right: 40px;
+  box-sizing: border-box;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-rules .rule-item .rule-minor select.loading-state {
+  opacity: 0.5;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-rules .rule-item .remove-rule-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #2a445d;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-rules .rule-item .remove-rule-button:hover {
+  color: #f62e46;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-rules .rule-item .remove-rule-button span {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .conditions-rules .dublicate-item {
+  display: none;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .add-rule-button {
+  color: #2a445d;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 25px;
+  transition: all 0.3s ease;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .add-rule-button:hover {
+  color: #8bc735;
+}
+.cherry-static-area-editor-wrap .accordion-unit .group > div .conditions .add-rule-button span {
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  line-height: 30px;
 }
 .cherry-static-area-editor-wrap .accordion-unit .group > div select {
   margin: 0;
@@ -142,7 +237,7 @@
   width: 40%;
   float: left;
   box-sizing: border-box;
-  border: 1px solid #dfdfdf;
+  border: 1px solid #2a445d;
   background: none repeat scroll 0 0 #2a445d;
 }
 .cherry-static-area-editor-wrap .available-statics.drag-target {

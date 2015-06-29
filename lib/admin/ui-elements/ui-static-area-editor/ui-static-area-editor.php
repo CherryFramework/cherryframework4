@@ -17,7 +17,6 @@ if ( !defined( 'WPINC' ) ) {
 
 if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 	class UI_Static_Area_Editor {
-
 		private $settings = array();
 		private $defaults_settings = array(
 			'id'		=> 'cherry-ui-static-area-editor-id',
@@ -109,8 +108,8 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 		function __construct( $args = array() ) {
 			$this->defaults_settings['id'] = 'cherry-ui-static-area-editor-'.uniqid();
 			$this->settings = wp_parse_args( $args, $this->defaults_settings );
-			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
 
+			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
 			self::enqueue_assets();
 		}
 
@@ -182,6 +181,21 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 				'col-lg-10'	=> __( 'col-lg-10', 'cherry' ),
 				'col-lg-11'	=> __( 'col-lg-11', 'cherry' ),
 				'col-lg-12'	=> __( 'col-lg-12', 'cherry' ),
+			);
+			$action_conditions = array(
+				'show'			=> __( 'Show', 'cherry' ),
+				'hide'			=> __( 'Hide', 'cherry' ),
+			);
+			$major_conditions_array = array(
+				''			=> __( '-- Select --', 'cherry' ),
+				'category'	=> __( 'Category', 'cherry' ),
+				'loggedin'	=> __( 'Loggedin', 'cherry' ),
+				'author'	=> __( 'Author', 'cherry' ),
+				'role'		=> __( 'Role', 'cherry' ),
+				'tag'		=> __( 'Tag', 'cherry' ),
+				'date'		=> __( 'Date', 'cherry' ),
+				'page'		=> __( 'Page', 'cherry' ),
+				'taxonomy'	=> __( 'Taxonomy', 'cherry' ),
 			);
 				$html .= '<div id="' . $this->settings['id'] . '" class="cherry-static-area-editor-wrap" data-name="' .$this->settings['name'] . '">';
 					$html .= '<div class="area-units">';
@@ -258,6 +272,89 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 													);
 													$html .= $ui_class_text->render();
 												$html .= '</div>';
+												$html .= '<div class="clear"></div>';
+												( is_array( $handleArray['conditions']['rules'] ) && count($handleArray['conditions']['rules']) > 0 ) ? $empty_class = '' : $empty_class = 'empty';
+												$html .= '<div class="conditions ' . $empty_class . '">';
+													$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-conditions-action">' . __( 'Conditions', 'cherry' ) . '</label> ';
+													$ui_condition_action = new UI_Select(
+														array(
+															'id'			=> $this->settings['id'] . '-' . $handle . '-conditions-action',
+															'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][action]',
+															'value'			=> $handleArray['conditions']['action'],
+															'options'		=> $action_conditions,
+															'class'			=> 'conditions-action'
+														)
+													);
+													$html .= $ui_condition_action->render();
+													$html .= '<div class="label label-if"><span>' . __( 'if', 'cherry' ) . '</span></div>';
+													$html .= '<div class="conditions-rules">';
+														$name =  $this->settings['name'] . '[' . $handle . '][conditions][rules]';
+														$html .= '<div class="dublicate-item" data-name="' . $name . '">';
+															$html .= '<div class="rule-major">';
+																$major_rule = new UI_Select(
+																	array(
+																		'id'			=> $this->settings['id'] . '-' . $handle . '-major-rule',
+																		'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules]',
+																		'value'			=> '',
+																		'options'		=> $major_conditions_array,
+																		'class'			=> 'rule-major-select'
+																	)
+																);
+																$html .= $major_rule->render();
+															$html .= '</div>';
+															$html .= '<div class="label label-is"><span>' . __( 'is', 'cherry' ) . '</span></div>';
+															$html .= '<div class="rule-minor">';
+																$minor_rule = new UI_Select(
+																	array(
+																		'id'			=> $this->settings['id'] . '-' . $handle . '-minor-rule',
+																		'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules]',
+																		'value'			=> '',
+																		'options'		=> '',
+																		'class'			=> 'rule-minor-select'
+																	)
+																);
+																$html .= $minor_rule->render();
+															$html .= '</div>';
+															$html .= '<div class="remove-rule-button"><span class="dashicons dashicons-no"></span></div>';
+															$html .= '<div class="clear"></div>';
+														$html .= '</div><!-- end dublicate item -->';
+														if( is_array( $handleArray['conditions']['rules'] ) && !empty( $handleArray['conditions']['rules'] ) ){
+															foreach ( $handleArray['conditions']['rules'] as $index => $rule ) {
+																$html .= '<div class="rule-item" data-name="' . $name . '">';
+																	$html .= '<div class="rule-major">';
+																		$major_rule = new UI_Select(
+																			array(
+																				'id'			=> $this->settings['id'] . '-' . $handle . '-major-rule-' . $index,
+																				'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules][' . $index . '][major]',
+																				'value'			=> $rule['major'],
+																				'options'		=> $major_conditions_array,
+																				'class'			=> 'rule-major-select'
+																			)
+																		);
+																		$html .= $major_rule->render();
+																	$html .= '</div>';
+																	$html .= '<div class="label label-is"><span>' . __( 'is', 'cherry' ) . '</span></div>';
+																	$html .= '<div class="rule-minor">';
+																		$minor = ( isset( $rule['minor'] ) ) ? $rule['minor'] : '' ;
+																		$minor_rule = new UI_Select(
+																			array(
+																				'id'			=> $this->settings['id'] . '-' . $handle . '-minor-rule',
+																				'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules][' . $index . '][minor]',
+																				'value'			=> $minor,
+																				'options'		=> $this->get_minor_options( $rule['major'] ),
+																				'class'			=> 'rule-minor-select'
+																			)
+																		);
+																		$html .= $minor_rule->render();
+																	$html .= '</div>';
+																	$html .= '<div class="remove-rule-button"><span class="dashicons dashicons-no"></span></div>';
+																	$html .= '<div class="clear"></div>';
+																$html .= '</div><!-- end dublicate item -->';
+															}
+														}
+													$html .= '</div><!-- end conditions-rules -->';
+													$html .= '<div class="add-rule-button"><span class="dashicons dashicons-plus"></span>' . __( 'Add rule', 'cherry' ) . '</div>';
+												$html .= '</div><!-- end conditions -->';
 												$html .= '<input type="hidden" class="key-item-name" name="' . $this->settings['name'] . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
 												$html .= '<input type="hidden" class="key-area" name="' . $this->settings['name'] . '[' . $handle . '][options][area]" value="' . $handleArray['options']['area'] . '">';
 												$html .= '<input type="hidden" class="key-position" name="' . $this->settings['name'] . '[' . $handle . '][options][position]" value="' . $handleArray['options']['position'] . '">';
@@ -342,6 +439,89 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 											);
 											$html .= $ui_class_text->render();
 										$html .= '</div>';
+										$html .= '<div class="clear"></div>';
+										( is_array( $handleArray['conditions']['rules'] ) && count($handleArray['conditions']['rules']) > 0 ) ? $empty_class = '' : $empty_class = 'empty';
+											$html .= '<div class="conditions ' . $empty_class . '">';
+												$html .= '<label for="' . $this->settings['id'] . '-' . $handle . '-conditions-action">' . __( 'Conditions', 'cherry' ) . '</label> ';
+												$ui_condition_action = new UI_Select(
+													array(
+														'id'			=> $this->settings['id'] . '-' . $handle . '-conditions-action',
+														'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][action]',
+														'value'			=> $handleArray['conditions']['action'],
+														'options'		=> $action_conditions,
+														'class'			=> 'conditions-action'
+													)
+												);
+												$html .= $ui_condition_action->render();
+												$html .= '<div class="label label-if"><span>' . __( 'if', 'cherry' ) . '</span></div>';
+												$html .= '<div class="conditions-rules">';
+													$name =  $this->settings['name'] . '[' . $handle . '][conditions][rules]';
+													$html .= '<div class="dublicate-item" data-name="' . $name . '">';
+														$html .= '<div class="rule-major">';
+															$major_rule = new UI_Select(
+																array(
+																	'id'			=> $this->settings['id'] . '-' . $handle . '-major-rule',
+																	'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules]',
+																	'value'			=> '',
+																	'options'		=> $major_conditions_array,
+																	'class'			=> 'rule-major-select'
+																)
+															);
+															$html .= $major_rule->render();
+														$html .= '</div>';
+														$html .= '<div class="label label-is"><span>' . __( 'is', 'cherry' ) . '</span></div>';
+														$html .= '<div class="rule-minor">';
+															$minor_rule = new UI_Select(
+																array(
+																	'id'			=> $this->settings['id'] . '-' . $handle . '-minor-rule',
+																	'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules]',
+																	'value'			=> '',
+																	'options'		=> '',
+																	'class'			=> 'rule-minor-select'
+																)
+															);
+															$html .= $minor_rule->render();
+														$html .= '</div>';
+														$html .= '<div class="remove-rule-button"><span class="dashicons dashicons-no"></span></div>';
+														$html .= '<div class="clear"></div>';
+													$html .= '</div><!-- end dublicate item -->';
+													if( is_array( $handleArray['conditions']['rules'] ) && !empty( $handleArray['conditions']['rules'] ) ){
+														foreach ( $handleArray['conditions']['rules'] as $index => $rule ) {
+															$html .= '<div class="rule-item" data-name="' . $name . '">';
+																$html .= '<div class="rule-major">';
+																	$major_rule = new UI_Select(
+																		array(
+																			'id'			=> $this->settings['id'] . '-' . $handle . '-major-rule-' . $index,
+																			'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules][' . $index . '][major]',
+																			'value'			=> $rule['major'],
+																			'options'		=> $major_conditions_array,
+																			'class'			=> 'rule-major-select'
+																		)
+																	);
+																	$html .= $major_rule->render();
+																$html .= '</div>';
+																$html .= '<div class="label label-is"><span>' . __( 'is', 'cherry' ) . '</span></div>';
+																$html .= '<div class="rule-minor">';
+																	$minor = ( isset( $rule['minor'] ) ) ? $rule['minor'] : '' ;
+																	$minor_rule = new UI_Select(
+																		array(
+																			'id'			=> $this->settings['id'] . '-' . $handle . '-minor-rule',
+																			'name'			=> $this->settings['name'] . '[' . $handle . '][conditions][rules][' . $index . '][minor]',
+																			'value'			=> $minor,
+																			'options'		=> $this->get_minor_options( $rule['major'] ),
+																			'class'			=> 'rule-minor-select'
+																		)
+																	);
+																	$html .= $minor_rule->render();
+																$html .= '</div>';
+																$html .= '<div class="remove-rule-button"><span class="dashicons dashicons-no"></span></div>';
+																$html .= '<div class="clear"></div>';
+															$html .= '</div><!-- end dublicate item -->';
+														}
+													}
+												$html .= '</div><!-- end conditions-rules -->';
+												$html .= '<div class="add-rule-button"><span class="dashicons dashicons-plus"></span>' . __( 'Add rule', 'cherry' ) . '</div>';
+											$html .= '</div><!-- end conditions -->';
 										$html .= '<input type="hidden" class="key-item-name" name="' . $this->settings['name'] . '[' . $handle . '][name]" value="' . $handleArray['name'] . '">';
 										$html .= '<input type="hidden" class="key-area" name="' . $this->settings['name'] . '[' . $handle . '][options][area]" value="' . $handleArray['options']['area'] . '">';
 										$html .= '<input type="hidden" class="key-position" name="' . $this->settings['name'] . '[' . $handle . '][options][position]" value="' . $handleArray['options']['position'] . '">';
@@ -355,6 +535,107 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 				$html .= '</div>';
 
 			return $html;
+		}
+
+		public function get_minor_options( $major ){
+			$result_array = array();
+			switch ( $major ) {
+					case 'category':
+						$result_array[''] = __( 'All category pages', 'cherry' );
+						$categories = get_categories( array( 'number' => 1000, 'orderby' => 'count', 'order' => 'DESC' ) );
+						usort( $categories, array( __CLASS__, 'strcasecmp_name' ) );
+						foreach ( $categories as $category ) {
+							$result_array[ $category->slug ] = esc_html( $category->name );
+						}
+
+						return $result_array;
+					break;
+					case 'loggedin':
+						$result_array[ 'loggedin' ] = __( 'Logged In', 'cherry' );
+						$result_array[ 'loggedout' ] = __( 'Logged Out', 'cherry' );
+
+						return $result_array;
+					break;
+					case 'author':
+						$result_array[''] = __( 'All author pages', 'cherry' );
+						foreach ( get_users( array( 'orderby' => 'name', 'exclude_admin' => true ) ) as $author ) {
+							$result_array[ esc_attr( $author->user_login ) ] = esc_html( $author->display_name );
+						}
+
+						return $result_array;
+					break;
+					case 'role':
+						global $wp_roles;
+						foreach ( $wp_roles->roles as $role_key => $role ) {
+							$result_array[ esc_attr( $role_key ) ] = esc_html( $role['name'] );
+						}
+
+						return $result_array;
+					break;
+					case 'tag':
+						$result_array[''] = __( 'All tag pages', 'cherry' );
+						$tags = get_tags( array( 'number' => 1000, 'orderby' => 'count', 'order' => 'DESC' ) );
+						usort( $tags, array( __CLASS__, 'strcasecmp_name' ) );
+						foreach ( $tags as $tag ) {
+							$result_array[ esc_attr( $tag->slug ) ] = esc_html( $tag->name );
+						}
+
+						return $result_array;
+					break;
+					case 'date':
+						$result_array[''] = __( 'All date archives', 'cherry' );
+						$result_array['day'] = __( 'Daily archives', 'cherry' );
+						$result_array['month'] = __( 'Monthly archives', 'cherry' );
+						$result_array['year'] = __( 'Yearly archives', 'cherry' );
+
+						return $result_array;
+					break;
+					case 'page':
+						$result_array['front']   = __( 'Front page', 'cherry' );
+						$result_array['posts']   = __( 'Posts page', 'cherry' );
+						$result_array['archive'] = __( 'Archive page', 'cherry' );
+						$result_array['404']     = __( '404 error page', 'cherry' );
+						$result_array['search']  = __( 'Search results', 'cherry' );
+
+						$post_types = get_post_types( array( 'public' => true ), 'objects' );
+						$result_array['optgroup-post-type']['label'] = __( 'Post type:', 'cherry' );
+
+						foreach ( $post_types as $post_type ) {
+							$result_array['optgroup-post-type']['group_options'][ esc_attr( 'post_type-' . $post_type->name ) ] = esc_html( $post_type->labels->singular_name );
+						}
+
+						$pages = get_pages();
+						$result_array['optgroup-static-page']['label'] = __( 'Static page:', 'cherry' );
+
+						foreach ( $pages as $page => $page_settings) {
+							$result_array['optgroup-static-page']['group_options'][ $page_settings->post_name ] = $page_settings->post_title;
+						}
+
+						return $result_array;
+					break;
+					case 'taxonomy':
+						$result_array[''] = __( 'All taxonomy pages', 'cherry' );
+
+						$taxonomies = get_taxonomies( array( '_builtin' => false ), 'objects' );
+						usort( $taxonomies, array( __CLASS__, 'strcasecmp_name' ) );
+
+						foreach ( $taxonomies as $taxonomy ) {
+							$result_array['optgroup-'.$taxonomy->labels->name]['label'] = __( $taxonomy->labels->name . ':', 'cherry' );
+							$result_array['optgroup-'.$taxonomy->labels->name]['group_options'][ esc_attr( $taxonomy->name ) ] = 'All ' . esc_html( $taxonomy->name ) . ' pages';
+							$terms = get_terms( array( $taxonomy->name ), array( 'number' => 250, 'hide_empty' => false ) );
+							foreach ( $terms as $term ) {
+								$result_array['optgroup-'.$taxonomy->labels->name]['group_options'][ esc_attr( $taxonomy->name . '_tax_' . $term->slug ) ] = esc_html( $term->name );
+							}
+						}
+						return $result_array;
+					break;
+				}
+
+				return false;
+		}
+
+		public static function strcasecmp_name( $a, $b ) {
+			return strcasecmp( $a->name, $b->name );
 		}
 
 		/**
