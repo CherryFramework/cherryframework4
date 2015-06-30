@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: blank\n"
-"POT-Creation-Date: 2015-06-25 10:49+0200\n"
-"PO-Revision-Date: 2015-06-25 10:49+0200\n"
+"POT-Creation-Date: 2015-06-30 10:33+0200\n"
+"PO-Revision-Date: 2015-06-30 10:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: uk_UA\n"
@@ -51,6 +51,12 @@ msgstr "Статична область хедера"
 msgid "Favicon image"
 msgstr "Піктограма улюбленого (Favicon)"
 
+#: ../cherry-options.php:41
+msgid ""
+"Icon image that is displayed in the browser address bar and browser tab "
+"heading."
+msgstr ""
+
 #: ../cherry-options.php:44
 msgid ""
 "Max icon size: 32x32 px <br>You can also upload favicon for retina displays. "
@@ -66,6 +72,10 @@ msgid "Maintenance mode. <a href=\"%s\" target=\"_blank\">Preview</a>"
 msgstr ""
 "Режим налагодження. <a href=\"%s\" target=\"_blank\">Попередній перегляд</a>"
 
+#: ../cherry-options.php:58
+msgid "Enable/disable maintenance mode."
+msgstr ""
+
 #: ../cherry-options.php:61
 msgid ""
 "Logged in administrator gets full access to the site, while regular visitors "
@@ -77,6 +87,11 @@ msgstr ""
 #: ../cherry-options.php:67
 msgid "Maintenance page"
 msgstr "Сторінка режиму налагодження"
+
+#: ../cherry-options.php:68
+msgid ""
+"Select page that regular visitors will see if maintenance mode is enabled."
+msgstr ""
 
 #: ../cherry-options.php:75
 msgid "Document smooth scroll"
@@ -368,7 +383,9 @@ msgstr "Лайтбокс зображень та відео"
 msgid "Automatically adds lightbox for images and videos"
 msgstr "Автоматично додає лайтбокс до зображень та відео"
 
-#: ../cherry-options.php:344 ../lib/functions/template-media.php:165
+#: ../cherry-options.php:344
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:196
+#: ../lib/functions/template-media.php:165
 msgid "Date"
 msgstr "Дата"
 
@@ -377,6 +394,7 @@ msgid "Show/Hide post publication date."
 msgstr "Відображати/приховувати дату публікації."
 
 #: ../cherry-options.php:350
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:193
 msgid "Author"
 msgstr "Автор"
 
@@ -1138,6 +1156,10 @@ msgstr "Вбудований CSS-редактор з виділенням син
 msgid "title layout editor"
 msgstr "редактор макета заголовка"
 
+#: ../cherry-options.php:1409
+msgid "description layout editor"
+msgstr ""
+
 #: ../cherry-options.php:1450
 msgid "Links repeater"
 msgstr "Повторення посилань"
@@ -1208,6 +1230,7 @@ msgid "Logo"
 msgstr "Логотип"
 
 #: ../cherry-options.php:1586
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:197
 msgid "Page"
 msgstr "Сторінка"
 
@@ -1573,10 +1596,10 @@ msgid "outset"
 msgstr "зовні"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:129
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:127
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:142
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:157
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:172
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:126
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:141
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:156
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:171
 msgid "none"
 msgstr "жодного"
 
@@ -1607,225 +1630,369 @@ msgstr "Клас шрифту"
 msgid "Link label"
 msgstr "Підпис посилання"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:128
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:127
 msgid "col-xs-1"
 msgstr "col-xs-1"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:129
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:128
 msgid "col-xs-2"
 msgstr "col-xs-2"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:130
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:129
 msgid "col-xs-3"
 msgstr "col-xs-3"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:131
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:130
 msgid "col-xs-4"
 msgstr "col-xs-4"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:132
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:131
 msgid "col-xs-5"
 msgstr "col-xs-5"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:133
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:132
 msgid "col-xs-6"
 msgstr "col-xs-6"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:134
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:133
 msgid "col-xs-7"
 msgstr "col-xs-7"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:135
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:134
 msgid "col-xs-8"
 msgstr "col-xs-8"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:136
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:135
 msgid "col-xs-9"
 msgstr "col-xs-9"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:137
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:136
 msgid "col-xs-10"
 msgstr "col-xs-10"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:138
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:137
 msgid "col-xs-11"
 msgstr "col-xs-11"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:139
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:138
 msgid "col-xs-12"
 msgstr "col-xs-12"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:143
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:142
 msgid "col-sm-1"
 msgstr "col-sm-1"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:144
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:143
 msgid "col-sm-2"
 msgstr "col-sm-2"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:145
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:144
 msgid "col-sm-3"
 msgstr "col-sm-3"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:146
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:145
 msgid "col-sm-4"
 msgstr "col-sm-4"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:147
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:146
 msgid "col-sm-5"
 msgstr "col-sm-5"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:148
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:147
 msgid "col-sm-6"
 msgstr "col-sm-6"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:149
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:148
 msgid "col-sm-7"
 msgstr "col-sm-7"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:150
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:149
 msgid "col-sm-8"
 msgstr "col-sm-8"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:151
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:150
 msgid "col-sm-9"
 msgstr "col-sm-9"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:152
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:151
 msgid "col-sm-10"
 msgstr "col-sm-10"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:153
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:152
 msgid "col-sm-11"
 msgstr "col-sm-11"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:154
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:153
 msgid "col-sm-12"
 msgstr "col-sm-12"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:158
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:157
 msgid "col-md-1"
 msgstr "col-md-1"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:159
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:158
 msgid "col-md-2"
 msgstr "col-md-2"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:160
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:159
 msgid "col-md-3"
 msgstr "col-md-3"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:161
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:160
 msgid "col-md-4"
 msgstr "col-md-4"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:162
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:161
 msgid "col-md-5"
 msgstr "col-md-5"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:163
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:162
 msgid "col-md-6"
 msgstr "col-md-6"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:164
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:163
 msgid "col-md-7"
 msgstr "col-md-7"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:165
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:164
 msgid "col-md-8"
 msgstr "col-md-8"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:166
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:165
 msgid "col-md-9"
 msgstr "col-md-9"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:167
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:166
 msgid "col-md-10"
 msgstr "col-md-10"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:168
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:167
 msgid "col-md-11"
 msgstr "col-md-11"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:169
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:168
 msgid "col-md-12"
 msgstr "col-md-12"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:173
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:172
 msgid "col-lg-1"
 msgstr "col-lg-1"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:174
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:173
 msgid "col-lg-2"
 msgstr "col-lg-2"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:175
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:174
 msgid "col-lg-3"
 msgstr "col-lg-3"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:176
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:175
 msgid "col-lg-4"
 msgstr "col-lg-4"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:177
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:176
 msgid "col-lg-5"
 msgstr "col-lg-5"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:178
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:177
 msgid "col-lg-6"
 msgstr "col-lg-6"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:179
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:178
 msgid "col-lg-7"
 msgstr "col-lg-7"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:180
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:179
 msgid "col-lg-8"
 msgstr "col-lg-8"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:181
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:180
 msgid "col-lg-9"
 msgstr "col-lg-9"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:182
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:181
 msgid "col-lg-10"
 msgstr "col-lg-10"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:183
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:182
 msgid "col-lg-11"
 msgstr "col-lg-11"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:184
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:183
 msgid "col-lg-12"
 msgstr "col-lg-12"
 
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:186
+msgid "Show"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:187
+msgid "Hide"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:190
+msgid "-- Select --"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:191
+msgid "Category"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:192
+msgid "Loggedin"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:194
+msgid "Role"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:195
+msgid "Tag"
+msgstr ""
+
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:198
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:282
+msgid "Taxonomy"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:212
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:379
 msgid ".col-xs-*"
 msgstr ""
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:211
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:295
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:225
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:392
 msgid ".col-sm-*"
 msgstr ""
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:224
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:308
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:238
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:405
 msgid ".col-md-*"
 msgstr ""
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:237
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:321
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:251
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:418
 msgid ".col-lg-*"
 msgstr ""
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:250
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:334
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:264
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:431
 msgid "Custom class"
 msgstr "Користувацький клас"
 
-#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:274
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:278
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:445
+msgid "Conditions"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:289
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:456
+msgid "if"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:305
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:336
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:472
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:503
+msgid "is"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:356
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:523
+msgid "Add rule"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:371
 msgid "Available statics"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:544
+#: ../lib/classes/class-cherry-statics-page.php:226
+msgid "All category pages"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:554
+#: ../lib/classes/class-cherry-statics-page.php:236
+msgid "Logged In"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:555
+#: ../lib/classes/class-cherry-statics-page.php:237
+msgid "Logged Out"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:560
+#: ../lib/classes/class-cherry-statics-page.php:240
+msgid "All author pages"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:576
+#: ../lib/classes/class-cherry-statics-page.php:252
+msgid "All tag pages"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:586
+#: ../lib/classes/class-cherry-statics-page.php:262
+msgid "All date archives"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:587
+#: ../lib/classes/class-cherry-statics-page.php:263
+msgid "Daily archives"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:588
+#: ../lib/classes/class-cherry-statics-page.php:264
+msgid "Monthly archives"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:589
+#: ../lib/classes/class-cherry-statics-page.php:265
+msgid "Yearly archives"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:594
+#: ../lib/classes/class-cherry-statics-page.php:269
+msgid "Front page"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:595
+#: ../lib/classes/class-cherry-statics-page.php:270
+msgid "Posts page"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:596
+#: ../lib/classes/class-cherry-statics-page.php:271
+msgid "Archive page"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:597
+#: ../lib/classes/class-cherry-statics-page.php:272
+msgid "404 error page"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:598
+#: ../lib/classes/class-cherry-statics-page.php:273
+msgid "Search results"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:601
+#: ../lib/classes/class-cherry-statics-page.php:275
+msgid "Post type:"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:608
+#: ../lib/classes/class-cherry-statics-page.php:282
+msgid "Static page:"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:617
+#: ../lib/classes/class-cherry-statics-page.php:290
+msgid "All taxonomy pages"
+msgstr ""
+
+#: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:623
+#: ../lib/classes/class-cherry-statics-page.php:295
+msgid ":"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
@@ -1993,19 +2160,19 @@ msgstr ""
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:83
 #: ../lib/classes/class-cherry-optionsframework-admin.php:98
-#: ../lib/classes/class-cherry-statics-page.php:95
+#: ../lib/classes/class-cherry-statics-page.php:98
 msgid "Feel free to view detailed "
 msgstr "Ви також можете переглянути"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:84
 #: ../lib/classes/class-cherry-optionsframework-admin.php:99
-#: ../lib/classes/class-cherry-statics-page.php:96
+#: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Documentation"
 msgstr "документація"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:84
 #: ../lib/classes/class-cherry-optionsframework-admin.php:99
-#: ../lib/classes/class-cherry-statics-page.php:96
+#: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Cherry Framework 4 documentation"
 msgstr "Документація Cherry Framework 4"
 
@@ -2015,15 +2182,15 @@ msgstr ""
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:144
 #: ../lib/classes/class-cherry-optionsframework-admin.php:148
-#: ../lib/classes/class-cherry-statics-page.php:216
-#: ../lib/classes/class-cherry-statics-page.php:220
+#: ../lib/classes/class-cherry-statics-page.php:323
+#: ../lib/classes/class-cherry-statics-page.php:327
 msgid "Invalid request"
 msgstr "Невірний запит"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:144
 #: ../lib/classes/class-cherry-optionsframework-admin.php:148
-#: ../lib/classes/class-cherry-statics-page.php:216
-#: ../lib/classes/class-cherry-statics-page.php:220
+#: ../lib/classes/class-cherry-statics-page.php:323
+#: ../lib/classes/class-cherry-statics-page.php:327
 msgid "Error. Invalid request"
 msgstr "Помилка. Невірний запит"
 
@@ -2071,51 +2238,51 @@ msgstr "Виберіть файл"
 msgid "Start import"
 msgstr "Розпочати імпорт"
 
-#: ../lib/classes/class-cherry-statics-page.php:88
-#: ../lib/classes/class-cherry-statics-page.php:89
+#: ../lib/classes/class-cherry-statics-page.php:91
+#: ../lib/classes/class-cherry-statics-page.php:92
 msgid "Statics editor"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:99
+#: ../lib/classes/class-cherry-statics-page.php:102
 msgid ""
 "Use static area editor to arrange static blocks. You can drag-n-drop static "
 "blocks to arrange them or add new ones."
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:137
+#: ../lib/classes/class-cherry-statics-page.php:142
 msgid "Statics have been saved"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:180
+#: ../lib/classes/class-cherry-statics-page.php:186
 msgid "Default statics backup has been created"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:185
+#: ../lib/classes/class-cherry-statics-page.php:191
 msgid "Default statics backup has been overwrited"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:380
+#: ../lib/classes/class-cherry-statics-page.php:492
 msgid "Save statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:386
+#: ../lib/classes/class-cherry-statics-page.php:498
 msgid "Restore statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:391
+#: ../lib/classes/class-cherry-statics-page.php:503
 msgid "Export statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:396
+#: ../lib/classes/class-cherry-statics-page.php:508
 msgid "Default statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics.php:93
+#: ../lib/classes/class-cherry-statics.php:95
 #, php-format
 msgid "Static Area %d"
 msgstr "Статична область  %d"
 
-#: ../lib/classes/class-cherry-statics.php:156
+#: ../lib/classes/class-cherry-statics.php:158
 #, php-format
 msgid "Static %d"
 msgstr "Статичний %d"
