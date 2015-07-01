@@ -3,6 +3,7 @@
 /////////////////////////////////////////////////
 
 $primary-color: #f62e46;
+$secondary-color: #8bc735;
 $dark-blue-color: #2a445d;
 $blue-color: #344d65;
 $light-blue-color: #41596F;
@@ -109,6 +110,19 @@ $max-desktop-width: 1170px;
 		box-shadow: none;
 		color: #464646;
 		height: auto;
+	}
+	.button-secondary_{
+		@extend .button_;
+		font-size: 13px;
+		background-color: $secondary-color;
+		border-radius: 6px;
+		line-height: 42px;
+		margin: 0;
+		padding: 0 16px;
+		box-shadow: none;
+		color: #FFFFFF;
+		height: auto;
+		border-style: none;
 	}
 
 ////////////////////Titles///////////////////////

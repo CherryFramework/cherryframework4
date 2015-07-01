@@ -502,25 +502,25 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 								</a>
 							</div>
 							<div class="wrap-cherry-default-options-backup">
-								<a href="#" id="cherry-default-options-backup" class="button button-default_">
+								<a href="#" id="cherry-default-options-backup" class="button button-primary_">
 									<?php _e( 'Default options', 'cherry' ); ?>
 									<div class="cherry-spinner-wordpress spinner-wordpress-type-3"><span class="cherry-inner-circle"></span></div>
 								</a>
 							</div>
 						</div>
 						<div id="wrap-cherry-save-options">
-							<a href="#" id="cherry-save-options" class="button button-primary_">
+							<a href="#" id="cherry-save-options" class="button button-secondary_">
 								<?php echo __( 'Save options', 'cherry' ); ?>
 								<div class="cherry-spinner-wordpress spinner-wordpress-type-2"><span class="cherry-inner-circle"></span></div>
 							</a>
 						</div>
 						<div id="wrap-cherry-restore-section">
-							<a href="#" id="cherry-restore-section" class="button button-default_">
+							<a href="#" id="cherry-restore-section" class="button button-primary_">
 								<?php echo __( 'Restore section', 'cherry' ); ?>
 							</a>
 						</div>
 						<div id="wrap-cherry-restore-options">
-							<a href="#" id="cherry-restore-options" class="button button-default_">
+							<a href="#" id="cherry-restore-options" class="button button-primary_">
 								<?php echo __( 'Restore options', 'cherry' ); ?>
 							</a>
 						</div>
