@@ -140,7 +140,6 @@ if ( ! class_exists( 'Cherry_Icons_Gateway' ) ) {
 			}
 
 			$result = ob_get_clean();
-			ob_end_flush();
 
 			preg_match_all( '/\.([-a-zA-Z0-9]+):before[, {]/', $result, $matches );
 
