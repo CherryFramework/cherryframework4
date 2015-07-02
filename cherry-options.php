@@ -332,8 +332,8 @@ function cherry_defaults_settings() {
 	);
 	$post_single_options['blog-add-ligthbox'] = array(
 		'type'        => 'switcher',
-		'title'       => __( 'Lightbox for images and videos', 'cherry' ),
-		'description' => __( 'Automatically adds lightbox for images and videos', 'cherry' ),
+		'title'       => __( 'Lightbox for images in a content', 'cherry' ),
+		'description' => __( 'Automatically adds lightbox for images in a post content.', 'cherry' ),
 		'value'       => 'true',
 	);
 
