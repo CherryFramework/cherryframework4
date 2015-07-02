@@ -347,6 +347,10 @@ class Cherry_Statics {
 				continue;
 			}
 
+			if ( empty( $cherry_registered_statics[ $id ] ) ) {
+				continue;
+			}
+
 			if ( ! is_callable( $cherry_registered_statics[ $id ]['callback'] ) ) {
 				continue;
 			}
