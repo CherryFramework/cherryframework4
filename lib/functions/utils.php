@@ -701,19 +701,25 @@ function cherry_typography_size( $size, $operation = ' ', $func = 'round', $perc
 	switch( $operation ) {
 		case 'multiple':
 			$size = (double)$size * (double)$percent;
+			break;
 		case 'addition':
 			$size = (double)$size + (double)$percent;
+			break;
 	}
 
 	switch( $func ) {
 		case 'floor':
 			$size = floor($size);
+			break;
 		case 'ceil':
 			$size = ceil($size);
+			break;
 		case 'round':
 			$size = round($size);
+			break;
 		case 'abs':
 			$size = abs($size);
+			break;
 	}
 
 	return $size;
