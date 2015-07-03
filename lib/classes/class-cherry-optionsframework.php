@@ -63,7 +63,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			$this->loaded_settings = $this->load_settings();
 
 			if( !self::is_db_options_exist() ){
-				$options = $this->create_options_array( $this->loaded_settings );
+				$options = $this->get_default_options();
 				$this->save_options( $options );
 			}
 
