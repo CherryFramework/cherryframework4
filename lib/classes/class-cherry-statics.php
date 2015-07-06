@@ -432,10 +432,12 @@ class Cherry_Statics {
 	public static function prepare_column_class( &$col_value, $col_key, $options ) {
 
 		if ( empty( $options[ $col_value ] ) ) {
+			$col_value = '';
 			return;
 		}
 
 		if ( 'none' == $options[ $col_value ] ) {
+			$col_value = '';
 			return;
 		}
 
