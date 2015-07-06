@@ -17,8 +17,9 @@ class cherry_footer_sidebars_static extends cherry_register_static {
 	 * Callback-method for registered static.
 	 * @since 4.0.0
 	 */
-	public function callback( $options ) {
-		$row = $this->need_row( $options );
+	public function callback() {
+		$options = func_get_args();
+		$row     = empty( $options[0] ) ? false : $this->need_row( $options[0] );
 
 		$classes   = array();
 		$classes[] = 'col-xs-12';
