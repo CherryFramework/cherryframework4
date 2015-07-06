@@ -17,7 +17,9 @@ class cherry_footer_sidebars_static extends cherry_register_static {
 	 * Callback-method for registered static.
 	 * @since 4.0.0
 	 */
-	public function callback() {
+	public function callback( $options ) {
+		$row = $this->need_row( $options );
+
 		$classes   = array();
 		$classes[] = 'col-xs-12';
 		$classes[] = 'col-sm-3';
@@ -25,11 +27,31 @@ class cherry_footer_sidebars_static extends cherry_register_static {
 		$classes   = array_map( 'esc_attr', $classes );
 		$classes   = array_unique( $classes );
 
+		if ( true === $row ) {
+			echo "<div class='row'>";
+		}
+
 		for ( $i = 1; $i <= 4; $i++ ) {
 			echo '<div class="' . join( ' ', $classes ) . '">';
 				cherry_get_sidebar( "sidebar-footer-{$i}" );
 			echo '</div>';
 		}
+
+		if ( true === $row ) {
+			echo "</div>";
+		}
+	}
+
+	public function need_row( $options ) {
+		$cols = apply_filters( 'cherry_static_options_cols', array( 'col-xs', 'col-sm', 'col-md', 'col-lg' ) );
+
+		foreach ( $cols as $col ) {
+			if ( ! empty( $options[ $col ] ) && ( 'none' != $options[ $col ] ) ) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 }
 
