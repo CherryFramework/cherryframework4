@@ -123,6 +123,15 @@ $max-desktop-width: 1170px;
 		color: #FFFFFF;
 		height: auto;
 		border-style: none;
+		&:hover,
+		&:active,
+		&:focus{
+			text-decoration: none;
+			color: #FFFFFF;
+			box-shadow: none;
+			cursor: pointer;border-radius: 6px;
+			background: darken($secondary-color, 10%);
+		}
 	}
 
 ////////////////////Titles///////////////////////
