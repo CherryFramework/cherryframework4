@@ -523,6 +523,10 @@ function cherry_get_the_post_image( $args ) {
 		}
 	}
 
+	if ( ( 'cherry-thumb-l' == $args['size'] ) || ( 'large' == $args['size'] ) ) {
+		$args['container_class'] .= ' large';
+	}
+
 	$result = sprintf(
 		$args['wrap'],
 		$args['container'], $args['container_class'], $thumb, $url, $init, esc_attr( $args['class'] )
