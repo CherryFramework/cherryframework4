@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: blank\n"
-"POT-Creation-Date: 2015-06-30 10:32+0200\n"
+"POT-Creation-Date: 2015-07-08 17:43+0300\n"
 "PO-Revision-Date: 2015-05-04 15:17+0200\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.2\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -346,11 +346,11 @@ msgid ""
 msgstr ""
 
 #: ../cherry-options.php:335
-msgid "Lightbox for images and videos"
+msgid "Lightbox for images in a content"
 msgstr ""
 
 #: ../cherry-options.php:336
-msgid "Automatically adds lightbox for images and videos"
+msgid "Automatically adds lightbox for images in a post content."
 msgstr ""
 
 #: ../cherry-options.php:344
@@ -1132,7 +1132,7 @@ msgid "Pagination"
 msgstr ""
 
 #: ../cherry-options.php:1579 ../cherry-options.php:1598
-#: ../init/statics/header-logo.php:108
+#: ../init/statics/header-logo.php:109
 msgid "Logo"
 msgstr ""
 
@@ -1250,7 +1250,7 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: ../init/statics/footer-sidebars.php:41
+#: ../init/statics/footer-sidebars.php:64
 msgid "Footer Sidebars"
 msgstr ""
 
@@ -2199,7 +2199,7 @@ msgstr ""
 msgid "Doing it wrong"
 msgstr ""
 
-#: ../lib/functions/filters.php:509
+#: ../lib/functions/filters.php:530
 msgid "Menu"
 msgstr ""
 
