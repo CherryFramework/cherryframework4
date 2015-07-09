@@ -236,6 +236,15 @@
 			}
 		}
 }
+.button-secondary_{
+	.spinner-wordpress-type-2{
+		&.cherry-spinner-wordpress{
+			.cherry-inner-circle{
+				background-color: #8bc735;
+			}
+		}
+	}
+}
 .spinner-wordpress-type-3{
 	background-color: #f62e46;
 	width: 25px;
