@@ -258,7 +258,7 @@ function cherry_the_post_content( $args ) {
 	 * @param string $post_type The post type of the current post.
 	 */
 	$defaults = apply_filters( 'cherry_the_post_content_defaults', array(
-		'type'   => is_singular() ? 'full' : cherry_get_option( 'blog-content-type' ), // none, part or full
+		'type'   => is_singular( $post_type ) ? 'full' : cherry_get_option( 'blog-content-type' ), // none, part or full
 		'length' => cherry_get_option( 'blog-excerpt-length' ),
 		'class'  => 'entry-content',
 		'before' => '',

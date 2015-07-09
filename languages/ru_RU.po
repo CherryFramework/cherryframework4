@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cherry Framework\n"
-"POT-Creation-Date: 2015-06-30 10:33+0200\n"
-"PO-Revision-Date: 2015-06-30 10:33+0200\n"
+"POT-Creation-Date: 2015-07-08 17:41+0300\n"
+"PO-Revision-Date: 2015-07-08 17:41+0300\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.2\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -365,11 +365,11 @@ msgstr ""
 "усовершенствованной jQuery каруселью."
 
 #: ../cherry-options.php:335
-msgid "Lightbox for images and videos"
+msgid "Lightbox for images in a content"
 msgstr ""
 
 #: ../cherry-options.php:336
-msgid "Automatically adds lightbox for images and videos"
+msgid "Automatically adds lightbox for images in a post content."
 msgstr ""
 
 #: ../cherry-options.php:344
@@ -1201,7 +1201,7 @@ msgid "Pagination"
 msgstr "Пагинация"
 
 #: ../cherry-options.php:1579 ../cherry-options.php:1598
-#: ../init/statics/header-logo.php:108
+#: ../init/statics/header-logo.php:109
 msgid "Logo"
 msgstr "Лого"
 
@@ -1323,7 +1323,7 @@ msgstr ""
 msgid "Footer Menu"
 msgstr "Меню футера"
 
-#: ../init/statics/footer-sidebars.php:41
+#: ../init/statics/footer-sidebars.php:64
 msgid "Footer Sidebars"
 msgstr "Боковые колонки в футере"
 
@@ -2272,7 +2272,7 @@ msgstr "Файл %s не существует"
 msgid "Doing it wrong"
 msgstr "Неправильно"
 
-#: ../lib/functions/filters.php:509
+#: ../lib/functions/filters.php:530
 msgid "Menu"
 msgstr ""
 
