@@ -145,9 +145,10 @@ function cherry_paging_nav() {
  * @since 4.0.0
  */
 function cherry_post_nav() {
-	$post_type = get_post_type();
+	$post_type         = get_post_type();
+	$navigation_status = cherry_get_option( 'blog-post-navigation', 'true' );
 
-	if ( 'page' == $post_type || !is_singular( $post_type ) || is_attachment() ) {
+	if ( 'page' == $post_type || ! is_singular( $post_type ) || is_attachment() || 'false' == $navigation_status ) {
 		return;
 	}
 
@@ -165,9 +166,9 @@ function cherry_post_nav() {
 					previous_post_link( '<div class="nav-previous">%link</div>', '%title' );
 					next_post_link( '<div class="nav-next">%link</div>', '%title' );
 				?>
-			</div><!-- .nav-links -->
+			</div>
 		</div>
-	</nav><!-- .navigation -->
+	</nav>
 	<?php
 }
 
