@@ -1,0 +1,36 @@
+<wpml-config>
+	<custom-fields>
+		<custom-field action="copy">cherry_style</custom-field>
+		<custom-field action="copy">cherry_grid_type</custom-field>
+		<custom-field action="copy">cherry_layout</custom-field>
+	</custom-fields>
+	<admin-texts>
+		<key name="cherryframework4">
+			<key name="blog-section">
+				<key name="options-list">
+					<key name="blog-button-text" />
+				</key>
+			</key>
+			<key name="pagination-section">
+				<key name="options-list">
+					<key name="pagination-label" />
+				</key>
+			</key>
+			<key name="breadcrumbs-subsection">
+				<key name="options-list">
+					<key name="breadcrumbs-prefix-path" />
+				</key>
+			</key>
+			<key name="footer-section">
+				<key name="options-list">
+					<key name="footer-text" />
+				</key>
+			</key>
+			<key name="cookie-banner-section">
+				<key name="options-list">
+					<key name="cookie-banner-text" />
+				</key>
+			</key>
+		</key>
+	</admin-texts>
+</wpml-config>

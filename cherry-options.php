@@ -302,6 +302,12 @@ function cherry_defaults_settings() {
 			'aligncenter' => __( 'Center', 'cherry' ),
 		)
 	);
+	$post_single_options['blog-post-navigation'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Navigation', 'cherry' ),
+		'description' => __( 'Enable/disable a post navigation block.', 'cherry' ),
+		'value'       => 'true',
+	);
 	$post_single_options['blog-post-author-bio'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Author bio', 'cherry' ),

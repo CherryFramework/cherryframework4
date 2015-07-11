@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: blank\n"
-"POT-Creation-Date: 2015-06-30 10:33+0200\n"
-"PO-Revision-Date: 2015-06-30 10:33+0200\n"
+"POT-Creation-Date: 2015-07-08 17:42+0300\n"
+"PO-Revision-Date: 2015-07-08 17:42+0300\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.2\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -376,12 +376,12 @@ msgstr ""
 "карусель. "
 
 #: ../cherry-options.php:335
-msgid "Lightbox for images and videos"
-msgstr "Лайтбокс зображень та відео"
+msgid "Lightbox for images in a content"
+msgstr ""
 
 #: ../cherry-options.php:336
-msgid "Automatically adds lightbox for images and videos"
-msgstr "Автоматично додає лайтбокс до зображень та відео"
+msgid "Automatically adds lightbox for images in a post content."
+msgstr ""
 
 #: ../cherry-options.php:344
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:196
@@ -1225,7 +1225,7 @@ msgid "Pagination"
 msgstr "Нумерація сторінок"
 
 #: ../cherry-options.php:1579 ../cherry-options.php:1598
-#: ../init/statics/header-logo.php:108
+#: ../init/statics/header-logo.php:109
 msgid "Logo"
 msgstr "Логотип"
 
@@ -1347,7 +1347,7 @@ msgstr "Логотип футера"
 msgid "Footer Menu"
 msgstr "Меню Футера"
 
-#: ../init/statics/footer-sidebars.php:41
+#: ../init/statics/footer-sidebars.php:64
 msgid "Footer Sidebars"
 msgstr "Бічні панелі футера"
 
@@ -2296,7 +2296,7 @@ msgstr "Немає файлу %s "
 msgid "Doing it wrong"
 msgstr "Щось пішло не так"
 
-#: ../lib/functions/filters.php:509
+#: ../lib/functions/filters.php:530
 msgid "Menu"
 msgstr "Меню"
 
@@ -2435,7 +2435,7 @@ msgstr ""
 #: ../content/page.tmpl:5 ../content/quote.tmpl:4 ../content/standard.tmpl:5
 #: ../content/status.tmpl:6 ../content/video.tmpl:5
 msgid "Posted on "
-msgstr "Опубліковано"
+msgstr "Опубліковано "
 
 #: ../content/aside.tmpl:5 ../content/attachment.tmpl:6
 #: ../content/audio.tmpl:6 ../content/chat.tmpl:6 ../content/content.tmpl:8
@@ -2457,7 +2457,13 @@ msgstr "Написано"
 #: ../content/chat.tmpl:13 ../content/content.tmpl:16 ../content/link.tmpl:13
 #: ../content/quote.tmpl:13 ../content/standard.tmpl:14
 msgid "Posted in "
-msgstr "Опубліковано в"
+msgstr "Опубліковано в "
+
+#~ msgid "Lightbox for images and videos"
+#~ msgstr "Лайтбокс зображень та відео"
+
+#~ msgid "Automatically adds lightbox for images and videos"
+#~ msgstr "Автоматично додає лайтбокс до зображень та відео"
 
 #~ msgid "Most Used Categories"
 #~ msgstr "Найпопулярніші категорії"

@@ -92,7 +92,7 @@ if ( ! class_exists( 'Cherry_Icons_Gateway' ) ) {
 
 			$url = remove_query_arg( array( 'rev', 'ver', 'v' ), $url );
 
-			return str_replace( home_url('/'), ABSPATH, $url );
+			return str_replace( WP_CONTENT_URL, WP_CONTENT_DIR, $url );
 		}
 
 		/**
@@ -136,7 +136,7 @@ if ( ! class_exists( 'Cherry_Icons_Gateway' ) ) {
 
 			foreach ( $this->font_icons as $handle => $src ) {
 				$path = $this->prepare_path( $src );
-				require $path;
+				include $path;
 			}
 
 			$result = ob_get_clean();

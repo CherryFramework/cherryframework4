@@ -1,16 +1,16 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cherry Framework\n"
-"POT-Creation-Date: 2015-06-30 10:32+0200\n"
-"PO-Revision-Date: 2015-06-30 10:32+0200\n"
+"POT-Creation-Date: 2015-07-08 17:41+0300\n"
+"PO-Revision-Date: 2015-07-08 17:41+0300\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
-"X-Poedit-Basepath: ..\\\n"
+"X-Generator: Poedit 1.8.2\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n;_x;esc_html_e;esc_html__;esc_attr_e;"
@@ -363,11 +363,11 @@ msgid ""
 msgstr "Sostituisci la galleria Wordpress predefinita con carosello jQuery."
 
 #: cherry-options.php:335
-msgid "Lightbox for images and videos"
+msgid "Lightbox for images in a content"
 msgstr ""
 
 #: cherry-options.php:336
-msgid "Automatically adds lightbox for images and videos"
+msgid "Automatically adds lightbox for images in a post content."
 msgstr ""
 
 #: cherry-options.php:344
@@ -1194,7 +1194,7 @@ msgid "Pagination"
 msgstr "Paginazione"
 
 #: cherry-options.php:1579 cherry-options.php:1598
-#: init/statics/header-logo.php:108
+#: init/statics/header-logo.php:109
 msgid "Logo"
 msgstr "Logo"
 
@@ -1316,7 +1316,7 @@ msgstr ""
 msgid "Footer Menu"
 msgstr "Menu piè di pagina"
 
-#: init/statics/footer-sidebars.php:41
+#: init/statics/footer-sidebars.php:64
 msgid "Footer Sidebars"
 msgstr "Barre laterali piè di pagina"
 
@@ -2263,7 +2263,7 @@ msgstr "Il file %s non esiste"
 msgid "Doing it wrong"
 msgstr "Stai sbagliando"
 
-#: lib/functions/filters.php:509
+#: lib/functions/filters.php:530
 msgid "Menu"
 msgstr ""
 
