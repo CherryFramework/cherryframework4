@@ -105,8 +105,6 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 			// Settings need to be registered after admin_init
 			//add_action( 'admin_init', array( $this, 'settings_init' ) );
-
-
 		}
 
 		/**
@@ -194,20 +192,26 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 				}
 
 				$updated_statics_array = array();
-				foreach ( $cherry_registered_statics as $static => $settings ) {
-					if( array_key_exists( $static, $cherry_registered_statics) && isset( $static_array[ $static ] ) ){
-						$updated_statics_array[ $static ] = $settings;
-						foreach ( $cherry_registered_statics[ $static ][ 'options' ] as $option_key => $option_value ) {
-							if( isset( $static_array[ $static ][ 'options' ][ $option_key ] ) ){
-								$updated_statics_array[ $static ][ 'options' ][ $option_key ] = $static_array[ $static ][ 'options' ][ $option_key ];
+				foreach ( $static_array as $static => $settings ) {
+					if( array_key_exists( $static, $cherry_registered_statics ) && isset( $static ) ){
+						foreach ( $cherry_registered_statics[ $static ] as $key => $value ) {
+							if ( !array_key_exists( $key, $settings ) ) {
+								$settings[ $key ] = $cherry_registered_statics[ $static ][ $key ];
 							}
 						}
+						foreach ( $cherry_registered_statics[ $static ][ 'options' ] as $option_key => $option_value ) {
+							if( !array_key_exists( $option_key, $settings[ 'options' ] ) ){
+								$settings[ 'options' ][ $option_key ] = $option_value;
+							}
+						}
+						$updated_statics_array[ $static ] = $settings;
 					}
 				}
 
 				update_option( $theme_options['id'] . '_statics_defaults', $updated_statics_array );
 
 				wp_send_json( $response );
+				exit;
 			}
 		}
 
@@ -378,6 +382,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 					return $cherry_registered_statics;
 				}
 				$export_options = json_decode( $wp_filesystem->get_contents( $path ), true );
+
 				return $export_options;
 			}
 			return $cherry_registered_statics;
@@ -413,10 +418,6 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 				}
 
-			}
-
-			foreach ( $result_settings as $static => $settings ) {
-				//var_dump($settings['conditions']);
 			}
 
 			return $result_settings;
