@@ -470,7 +470,6 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 		public static function cherry_statics_page_build() {
 			global $cherry_registered_statics;
-
 			$statics = self::get_current_statics();
 
 			?>
