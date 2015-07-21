@@ -31,6 +31,21 @@
 					<key name="cookie-banner-text" />
 				</key>
 			</key>
+			<key name="portfolio-options-section">
+				<key name="options-list">
+					<key name="portfolio-more-button-text" />
+				</key>
+			</key>
+			<key name="social-section">
+				<key name="options-list">
+					<key name="follow-title" />
+				</key>
+			</key>
+			<key name="mega-menu-options-section">
+				<key name="options-list">
+					<key name="mega-menu-mobile-label" />
+				</key>
+			</key>
 		</key>
 	</admin-texts>
 </wpml-config>

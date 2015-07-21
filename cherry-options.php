@@ -239,7 +239,7 @@ function cherry_defaults_settings() {
 		'description' => __( 'Select how you want to display post content in blog listing', 'cherry' ),
 		'hint' => array(
 			'type'    => 'text',
-			'content' => __( 'The following options are available:<br>`full` - display full post content, <br>`part` - display part of the post (you can specify excerpt length below), <br>`none` - hide post content.', 'cherry' ),
+			'content' => __( 'The following options are available:<br>`full` - display full post content, <br>`part` - display part of the post (you can specify content part length below), <br>`none` - hide post content.', 'cherry' ),
 		),
 		'value'       => 'part',
 		'class'       => 'width-full',
@@ -251,8 +251,8 @@ function cherry_defaults_settings() {
 	);
 	$blog_options['blog-excerpt-length'] = array(
 		'type'        => 'slider',
-		'title'       => __( 'Excerpt length', 'cherry' ),
-		'description' => __( 'Specify number of words displayed in excerpt in blog listing.', 'cherry' ),
+		'title'       => __( 'Content Part length', 'cherry' ),
+		'description' => __( 'Specify number of words displayed in blog listing content part. Will not work if post has an excerpt.', 'cherry' ),
 		'max_value'   => 500,
 		'min_value'   => 1,
 		'value'       => 55,
@@ -556,7 +556,7 @@ function cherry_defaults_settings() {
 	$pagination_option['pagination-position'] = array(
 		'type'			=> 'select',
 		'title' 		=> __( 'Pagination position', 'cherry' ),
-		'description'	=> __( 'Select where you want to display pagination.', 'cherry' ),
+		'description'	=> __( 'Select your pagination position.', 'cherry' ),
 		'value'			=> 'after',
 		'options'		=> array(
 			'after'		=> __( 'After posts loop', 'cherry' ),
@@ -1118,7 +1118,7 @@ function cherry_defaults_settings() {
 		'type'        => 'textarea',
 		'title'       => __( 'Message', 'cherry' ),
 		'description' => __( 'Enter the cookie banner message.', 'cherry' ),
-		'value'       => __( 'We use Cookies - By using this site or closing this you agree to our Cookies policy.', 'cherry' ),
+		'value'       => __( 'We use cookies to ensure you get the best experience on our website.', 'cherry' ),
 	);
 
 //////////////////////////////////////////////////////////////////////
