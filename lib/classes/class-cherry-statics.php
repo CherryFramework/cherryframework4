@@ -49,6 +49,8 @@ function cherry_static_area( $index = 1 ) {
 
 class Cherry_Statics {
 
+	public static $visible_statics = array();
+
 	/**
 	 * Constructor.
 	 */
@@ -250,7 +252,19 @@ class Cherry_Statics {
 			return apply_filters( 'cherry_static_area_has_statics', false, $index );
 		}
 
-		if ( !self::is_active_static_area( $index ) ) {
+		// Get statics from options.
+		$theme_options = get_option( 'cherry-options' );
+		$args          = get_option( $theme_options['id'] . '_statics' );
+
+		if ( ! $args ) {
+			$args = $cherry_registered_statics;
+		}
+
+		if ( empty( $args ) ) {
+			return false;
+		}
+
+		if ( ! self::is_active_static_area( $index, $args ) ) {
 
 			/**
 			 * Filters returned boolean variable when a static area is empty.
@@ -261,29 +275,6 @@ class Cherry_Statics {
 			 */
 			return apply_filters( 'cherry_is_active_static_area', false, $index );
 		}
-
-		// Get statics from options.
-		$theme_options = get_option( 'cherry-options' );
-		$args = get_option( $theme_options['id'] . '_statics' );
-		//$option_name = apply_filters( 'cherry_statics_option_name', 'static-area-editor', $index );
-		//$args        = cherry_get_option( $option_name );
-
-		if ( !$args ) {
-			return false;
-		}
-
-		foreach ( $args as $id => $data ) :
-
-			if ( empty( $cherry_registered_statics[ $id ] ) ) {
-				continue;
-			}
-
-			$args[ $id ]['options'] = wp_parse_args(
-				$args[ $id ]['options'],
-				$cherry_registered_statics[ $id ]['options']
-			);
-
-		endforeach;
 
 		/**
 		 * Fires before statics are rendered in a static area.
@@ -348,11 +339,11 @@ class Cherry_Statics {
 
 		foreach ( $args as $id => $data ) :
 
-			if ( ! isset( $data['options']['area'] ) ) {
+			if ( empty( self::$visible_statics[ $index ] ) ) {
 				continue;
 			}
 
-			if ( $index != $data['options']['area'] ) {
+			if ( ! in_array( $id, self::$visible_statics[ $index ] ) ) {
 				continue;
 			}
 
@@ -366,24 +357,13 @@ class Cherry_Statics {
 
 			$options = $data['options'];
 			$cols    = apply_filters( 'cherry_static_options_cols', array(
-				'col-xs' => '',
-				'col-sm' => '',
-				'col-md' => '',
-				'col-lg' => '',
+				'col-xs',
+				'col-sm',
+				'col-md',
+				'col-lg',
 			), $id );
 
-			foreach ( (array) $cols as $key => $col ) {
-
-				if ( empty( $options[ $key ] ) ) {
-					continue;
-				}
-
-				if ( 'none' == $options[ $key ] ) {
-					continue;
-				}
-
-				$cols[ $key ] = $key . '-' . preg_replace( '/[^0-9]/', '', $options[ $key ] );
-			}
+			array_walk( $cols, array( 'self', 'prepare_column_class' ), $options );
 
 			// Prepare a column CSS classes.
 			$cols_class = join( ' ', $cols );
@@ -449,6 +429,21 @@ class Cherry_Statics {
 		return true;
 	}
 
+	public static function prepare_column_class( &$col_value, $col_key, $options ) {
+
+		if ( empty( $options[ $col_value ] ) ) {
+			$col_value = '';
+			return;
+		}
+
+		if ( 'none' == $options[ $col_value ] ) {
+			$col_value = '';
+			return;
+		}
+
+		$col_value = $col_value . '-' . preg_replace( '/[^0-9]/', '', $options[ $col_value ] );
+	}
+
 	/**
 	 * Whether a static area is in use (not empty).
 	 *
@@ -457,35 +452,218 @@ class Cherry_Statics {
 	 * @param  mixed $index Static area id.
 	 * @return bool         true if the static area is in use, false otherwise.
 	 */
-	public static function is_active_static_area( $index ) {
-		global $cherry_registered_statics;
-
-		//$option_name   = apply_filters( 'cherry_statics_option_name', 'static-area-editor', $index );
-		//$saved_statics = cherry_get_option( $option_name, false );
-		$theme_options = get_option( 'cherry-options' );
-		$saved_statics = get_option( $theme_options['id'] . '_statics' );
-
-		if ( !$saved_statics ) {
-			$saved_statics = $cherry_registered_statics;
-		}
-
-		if ( empty( $saved_statics ) ) {
-			return false;
-		}
+	public static function is_active_static_area( $index, $saved_statics ) {
 
 		foreach ( $saved_statics as $id => $static ) :
 
-			if ( !isset( $static['options']['area'] ) ) {
+			if ( ! isset( $static['options']['area'] ) ) {
 				continue;
 			}
 
-			if ( $index === $static['options']['area'] ) {
-				return true;
+			if ( $index != $static['options']['area'] ) {
+				continue;
+			}
+
+			if ( true === self::is_visible_static( $static ) ) {
+				self::$visible_statics[ $static['options']['area'] ][] = $static['id'];
 			}
 
 		endforeach;
 
+		if ( ! empty( self::$visible_statics[ $index ] ) ) {
+			return true;
+		}
+
 		return false;
+	}
+
+	/**
+	 * Determine whether the static should be displayed based on conditions set by the user.
+	 *
+	 * @since 4.0.0
+	 *
+	 * @author JP Bot
+	 * @author Cherry Team <support@cherryframework.com>
+	 * @param  array $static The static settings.
+	 * @return array         Settings to display or bool false to hide.
+	 */
+	public static function is_visible_static( $static ) {
+		global $wp_query;
+
+		if ( empty( $static['conditions'] ) || empty( $static['conditions']['rules'] ) ) {
+			return true;
+		}
+
+		// Store the results of all in-page condition lookups so that multiple widgets with
+		// the same visibility conditions don't result in duplicate DB queries.
+		static $condition_result_cache = array();
+
+		$condition_result = false;
+
+		foreach ( $static['conditions']['rules'] as $rule ) {
+			$condition_key = $rule['major'] . ":" . $rule['minor'];
+
+			if ( isset( $condition_result_cache[ $condition_key ] ) ) {
+				$condition_result = $condition_result_cache[ $condition_key ];
+			}
+			else {
+				switch ( $rule['major'] ) {
+					case 'date':
+						switch ( $rule['minor'] ) {
+							case '':
+								$condition_result = is_date();
+							break;
+							case 'month':
+								$condition_result = is_month();
+							break;
+							case 'day':
+								$condition_result = is_day();
+							break;
+							case 'year':
+								$condition_result = is_year();
+							break;
+						}
+					break;
+					case 'page':
+						switch ( $rule['minor'] ) {
+							case '404':
+								$condition_result = is_404();
+							break;
+							case 'search':
+								$condition_result = is_search();
+							break;
+							case 'archive':
+								$condition_result = is_archive();
+							break;
+							case 'posts':
+								$condition_result = $wp_query->is_posts_page;
+							break;
+							case 'front':
+								$condition_result = is_front_page() && !is_paged();
+							break;
+							default:
+								$post_type = substr( $rule['minor'], 10 );
+
+								if ( 'post_type-' == substr( $rule['minor'], 0, 10 ) ) {
+									$condition_result = ( 'page' == $post_type ) ? is_singular( $post_type ) || $wp_query->is_posts_page : is_singular( $post_type );
+								} elseif ( get_post_field( 'post_name', get_option( 'page_for_posts' ) ) == $rule['minor'] ) {
+									// If $rule['minor'] is a page slug which is also the posts page.
+									$condition_result = $wp_query->is_posts_page;
+								} else {
+									// $rule['minor'] is a page slug.
+									$condition_result = is_page( $rule['minor'] );
+								}
+							break;
+						}
+					break;
+					case 'tag':
+						if ( ! $rule['minor'] && is_tag() )
+							$condition_result = true;
+						else if ( is_singular() && $rule['minor'] && has_tag( $rule['minor'] ) )
+							$condition_result = true;
+						else {
+							$tag = get_term_by( 'slug', $rule['minor'], 'post_tag' );
+
+							if ( $tag && is_tag( $tag->slug ) )
+								$condition_result = true;
+						}
+					break;
+					case 'category':
+						if ( ! $rule['minor'] && is_category() )
+							$condition_result = true;
+						else if ( is_category( $rule['minor'] ) )
+							$condition_result = true;
+						else if ( is_singular() && $rule['minor'] && in_array( 'category', get_post_taxonomies() ) && has_category( $rule['minor'] ) )
+							$condition_result = true;
+					break;
+					case 'loggedin':
+						$condition_result = is_user_logged_in();
+						if ( 'loggedin' !== $rule['minor'] ) {
+							$condition_result = ! $condition_result;
+						}
+					break;
+					case 'author':
+						$post = get_post();
+						if ( ! $rule['minor'] && is_author() )
+							$condition_result = true;
+						else if ( $rule['minor'] && is_author( $rule['minor'] ) )
+							$condition_result = true;
+						else if ( is_singular() && $rule['minor'] && $rule['minor'] == $post->post_author )
+							$condition_result = true;
+					break;
+					case 'role':
+						if( is_user_logged_in() ) {
+							global $current_user;
+							get_currentuserinfo();
+
+							$user_roles = $current_user->roles;
+
+							if( in_array( $rule['minor'], $user_roles ) ) {
+								$condition_result = true;
+							} else {
+								$condition_result = false;
+							}
+
+						} else {
+							$condition_result = false;
+						}
+					break;
+					case 'taxonomy':
+						// $term[0] = taxonomy name; $term[1] = term slug
+						$term = explode( '_tax_', $rule['minor'] );
+
+						if ( ! isset( $term[1] ) ) {
+
+							if ( ! $rule['minor'] && is_tax() )
+								$condition_result = true;
+							else if ( is_tax( $rule['minor'] ) )
+								$condition_result = true;
+
+						} else {
+
+							if ( is_tax( $term[0], $term[1] ) )
+								$condition_result = true;
+							else if ( is_singular() && $term[1] && has_term( $term[1], $term[0] ) )
+								$condition_result = true;
+							else if ( is_singular() && $post_id = get_the_ID() ) {
+								$terms = get_the_terms( $post_id, $rule['minor'] );
+
+								if ( $terms && ! is_wp_error( $terms ) ) {
+									$condition_result = true;
+								}
+							}
+
+						}
+
+					break;
+				}
+
+				if ( $condition_result ) {
+					$condition_result_cache[ $condition_key ] = $condition_result;
+				}
+			}
+
+			if ( $condition_result )
+				break;
+		}
+
+
+		$result = true;
+
+		if ( ( 'show' == $static['conditions']['action'] && ! $condition_result )
+			|| ( 'hide' == $static['conditions']['action'] && $condition_result )
+			) {
+			$result = false;
+		}
+
+		/**
+		 * Filters a some condition rules.
+		 *
+		 * @since 4.0.0
+		 * @param bool  $result
+		 * @param array $static Static options.
+		 */
+		return apply_filters( 'cherry_is_visible_static', $result, $static );
 	}
 
 	/**

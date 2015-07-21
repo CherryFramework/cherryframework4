@@ -15,8 +15,11 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
-// Filters the body class.
-add_filter( 'body_class', 'cherry_add_control_classes' );
+// Filters the classes that are assigned to the body HTML element.
+add_filter( 'body_class', 'cherry_add_body_control_classes', 10, 2 );
+
+// Filters the list of CSS classes for the current page.
+add_filter( 'post_class', 'cherry_add_page_control_classes', 10, 3 );
 
 // Filters the containers class.
 add_filter( 'cherry_get_header_class',    'cherry_get_header_classes' );
@@ -54,8 +57,7 @@ add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 )
 add_filter( 'wp_nav_menu', 'cherry_add_mobile_menu_trigger', 10, 2 );
 
 
-// Add specific CSS class by filter.
-function cherry_add_control_classes( $classes ) {
+function cherry_add_body_control_classes( $classes, $class ) {
 
 	// Responsive.
 	if ( 'true' == cherry_get_option( 'grid-responsive' ) ) {
@@ -74,6 +76,25 @@ function cherry_add_control_classes( $classes ) {
 	// Navigation Arrow.
 	if ( 'true' == cherry_get_option( 'navigation-arrow' ) ) {
 		$classes[] = 'cherry-navigation-arrow';
+	}
+
+	return $classes;
+}
+
+function cherry_add_page_control_classes( $classes, $class, $post_id ) {
+
+	if ( ! is_page( $post_id ) ) {
+		return $classes;
+	}
+
+	// Featured images?
+	if ( 'true' == cherry_get_option( 'page-featured-images' ) ) {
+		$classes[] = 'cherry-page-featured-images-on';
+	}
+
+	// Page comments?
+	if ( 'true' == cherry_get_option( 'page-comments-status' ) ) {
+		$classes[] = 'cherry-page-comments-on';
 	}
 
 	return $classes;

@@ -502,25 +502,25 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 								</a>
 							</div>
 							<div class="wrap-cherry-default-options-backup">
-								<a href="#" id="cherry-default-options-backup" class="button button-default_">
+								<a href="#" id="cherry-default-options-backup" class="button button-primary_">
 									<?php _e( 'Default options', 'cherry' ); ?>
 									<div class="cherry-spinner-wordpress spinner-wordpress-type-3"><span class="cherry-inner-circle"></span></div>
 								</a>
 							</div>
 						</div>
 						<div id="wrap-cherry-save-options">
-							<a href="#" id="cherry-save-options" class="button button-primary_">
+							<a href="#" id="cherry-save-options" class="button button-secondary_">
 								<?php echo __( 'Save options', 'cherry' ); ?>
 								<div class="cherry-spinner-wordpress spinner-wordpress-type-2"><span class="cherry-inner-circle"></span></div>
 							</a>
 						</div>
 						<div id="wrap-cherry-restore-section">
-							<a href="#" id="cherry-restore-section" class="button button-default_">
+							<a href="#" id="cherry-restore-section" class="button button-primary_">
 								<?php echo __( 'Restore section', 'cherry' ); ?>
 							</a>
 						</div>
 						<div id="wrap-cherry-restore-options">
-							<a href="#" id="cherry-restore-options" class="button button-default_">
+							<a href="#" id="cherry-restore-options" class="button button-primary_">
 								<?php echo __( 'Restore options', 'cherry' ); ?>
 							</a>
 						</div>
@@ -573,52 +573,63 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 		/************************ Sanitize functions *****************************************/
 		/* Text type */
-		function utility_sanitize_text( $input) {
+		function utility_sanitize_text( $input ) {
 			global $allowedtags;
-				$output = wp_kses( $input, $allowedtags);
-			return $output;
+
+			return wp_unslash( wp_kses( $input, $allowedtags ) );
 		}
+
 		/* Textarea type */
-		function utility_sanitize_textarea( $input) {
+		function utility_sanitize_textarea( $input ) {
 			global $allowedposttags;
-				$output = wp_kses( $input, $allowedposttags);
-			return $output;
+
+			return wp_unslash( wp_kses( $input, $allowedposttags ) );
 		}
+
 		/* Checkbox type*/
 		function utility_sanitize_checkbox( $input ) {
-			$output = $input;
-			return $output;
+			return $input;
 		}
-		/* Text type */
-		function utility_sanitize_slider( $input) {
-				$output = (int) $input;
-			return $output;
+
+		/* Slider type */
+		function utility_sanitize_slider( $input ) {
+			return (int) $input;
 		}
+
 		/* Editor type */
 		function utility_sanitize_editor( $input ) {
+
 			if ( current_user_can( 'unfiltered_html' ) ) {
-				$output = wpautop($input);
-			}
-			else {
+				$output = wpautop( $input );
+
+			} else {
 				global $allowedtags;
-				$output = wpautop(wp_kses( $input, $allowedtags));
+
+				$output = wpautop( wp_kses( $input, $allowedtags ) );
 			}
-			return $output;
+
+			return wp_unslash( $output );
 		}
+
 		/* Image type */
 		function utility_sanitize_image( $input ) {
 			$output = '';
 			$filetype = wp_check_filetype( $input );
+
 			if ( $filetype["ext"] ) {
 				$output = esc_url( $input );
 			}
+
 			return $output;
 		}
+
 		/* Color Picker */
 		function utility_sanitize_colorpicker( $input, $default = '' ) {
-			if ($this->validate_hex( $input ) ) {
+
+			if ( $this->validate_hex( $input ) ) {
 				return $input;
 			}
+
 			return $default;
 		}
 

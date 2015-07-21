@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Cherry Framework\n"
+"Project-Id-Version: blank\n"
 "POT-Creation-Date: 2015-07-21 15:47+0300\n"
 "PO-Revision-Date: 2015-07-21 15:47+0300\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
-"Language: ru\n"
+"Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,19 +20,19 @@ msgstr ""
 
 #: ../404.php:17
 msgid "Oops! That page can&rsquo;t be found."
-msgstr "Опаньки! Страница не найдена."
+msgstr "Халепа! Не вдається знайти цю сторінку."
 
 #: ../404.php:21
 msgid ""
 "It looks like nothing was found at this location. Maybe try one of the links "
 "below or use search."
 msgstr ""
-"Похоже, запрашиваемая Вами страница не найдена. Пожалуйста, попробуйте одну "
-"из ссылок, предложенных ниже, или воспользуйтесь поиском."
+"Схоже, тут нічого не знайдено. Спробуйте перейти за одним з наведених нижче "
+"посилань або скористатись пошуком."
 
 #: ../cherry-options.php:9
 msgid "Select a page:"
-msgstr "Выберите страницу:"
+msgstr "Виберіть сторінку:"
 
 #: ../cherry-options.php:26 ../cherry-options.php:1579
 #: ../lib/admin/class-cherry-grid-type.php:49
@@ -41,15 +41,15 @@ msgstr "Хедер"
 
 #: ../cherry-options.php:27
 msgid "Main menu"
-msgstr "Главное меню "
+msgstr "Головне меню"
 
 #: ../cherry-options.php:28
 msgid "Header top static area"
-msgstr "Верхняя статическая область хедера"
+msgstr "Статична область хедера"
 
 #: ../cherry-options.php:40
 msgid "Favicon image"
-msgstr "Фавикон"
+msgstr "Піктограма улюбленого (Favicon)"
 
 #: ../cherry-options.php:41
 msgid ""
@@ -62,12 +62,15 @@ msgid ""
 "Max icon size: 32x32 px <br>You can also upload favicon for retina displays. "
 "Max retina icon size: 152x152 px"
 msgstr ""
+"Максимально допустимий розмір піктограми: 32 х 32 пікс.<br>Можна також "
+"завантажити піктограму для відображення на Retina-дисплеях. Максимальний "
+"розмір таких піктограм: 152 х 152 пікс."
 
 #: ../cherry-options.php:55
 #, php-format
 msgid "Maintenance mode. <a href=\"%s\" target=\"_blank\">Preview</a>"
 msgstr ""
-"Режим техобслуживания. <a href=\"%s\" target=\"_blank\">Предпросмотр</a>"
+"Режим налагодження. <a href=\"%s\" target=\"_blank\">Попередній перегляд</a>"
 
 #: ../cherry-options.php:58
 msgid "Enable/disable maintenance mode."
@@ -78,63 +81,65 @@ msgid ""
 "Logged in administrator gets full access to the site, while regular visitors "
 "will\\won't be redirected to the page chosen below."
 msgstr ""
+"Адміністратор, що увійшов в систему, отримує повний доступ до сайту, тоді як "
+"постійних відвідувачів буде/не буде перенаправлено на сторінку, обрану нижче."
 
 #: ../cherry-options.php:67
 msgid "Maintenance page"
-msgstr "Режим техобслуживания"
+msgstr "Сторінка режиму налагодження"
 
 #: ../cherry-options.php:68
 msgid ""
 "Select page that regular visitors will see if maintenance mode is enabled."
 msgstr ""
-"Выберите страницу, которую смогут видеть обычные посетители, если на сайте "
-"активирован режим техобслуживания."
 
 #: ../cherry-options.php:75
 msgid "Document smooth scroll"
-msgstr "Плавная прокрутка страниц"
+msgstr "Плавне прокручування документа"
 
 #: ../cherry-options.php:76
 msgid ""
 "Enable/disable smooth vertical mousewheel scrolling (Chrome browser only)."
 msgstr ""
-"Включить/Отключить плавную вертикальную прокрутку страниц (только в браузере "
-"Chrome)"
+"Увімкнути/вимкнути плавне прокручування коліщатком миші (лише для веб-"
+"переглядача Chrome)."
 
 #: ../cherry-options.php:81
 msgid "User CSS"
-msgstr "Пользовательский CSS код"
+msgstr "CSS користувача "
 
 #: ../cherry-options.php:82
 msgid "Define custom CSS styling."
-msgstr "Задать пользовательские СSS стили."
+msgstr "Визначити нетипові стилі CSS."
 
 #: ../cherry-options.php:93
 msgid "Static areas"
-msgstr "Статические области"
+msgstr "Статичні області"
 
 #: ../cherry-options.php:94
 msgid ""
 "Use static area editor to arrange static blocks. You can drag-n-drop static "
 "blocks, remove them or add new ones using 'Create new static' field below."
 msgstr ""
-"Использовать редактор статических областей для расположения статических "
-"блоков. Вы можете перемещать статические блоки мышью, удалять их или "
-"добавлять новый блоки с помощью поля &quot;Создать новый блок&quot;."
+"Скористайтесь редактором статичних областей для упорядкування статичних "
+"блоків. Їх можна перетягувати зі зміною позиції, видаляти чи додавати нові з "
+"допомогою опції \"Створити нову статичну область\" нижче."
 
 #: ../cherry-options.php:105
 msgid "Responsive grid"
-msgstr "Адаптивная сетка"
+msgstr "Адаптивна сітка"
 
 #: ../cherry-options.php:106
 msgid "Enable/disable responsive grid. "
-msgstr ""
+msgstr "Увімкнути/вимкнути адаптивну сітку."
 
 #: ../cherry-options.php:109
 msgid ""
 "If for any reason you want to disable responsive layout for your site, you "
 "are able to turn it off here."
 msgstr ""
+"Якщо з будь-яких причин ви хочете вимкнути адаптивну сітку для вашого сайту, "
+"це можна зробити тут."
 
 #: ../cherry-options.php:115
 msgid "Container width"
@@ -142,7 +147,7 @@ msgstr "Ширина контейнера"
 
 #: ../cherry-options.php:116
 msgid "Width of header/content/footer container in pixels."
-msgstr ""
+msgstr "Ширина контейнера хедера/вмісту/футера в пікселях."
 
 #: ../cherry-options.php:126
 msgid "Pages"
@@ -153,30 +158,32 @@ msgid ""
 "You can choose if you want to display sidebars and how you want to display "
 "them."
 msgstr ""
+"Тут можна вибрати, чи відображати бічні панелі на сайті і яким саме чином це "
+"робити."
 
 #: ../cherry-options.php:135 ../cherry-options.php:171
 msgid "Left sidebar"
-msgstr "Левая боковая колонка"
+msgstr "Ліва бічна панель"
 
 #: ../cherry-options.php:139 ../cherry-options.php:175
 msgid "Right sidebar"
-msgstr "Правая боковая колонка"
+msgstr "Права бічна панель"
 
 #: ../cherry-options.php:143 ../cherry-options.php:179
 msgid "Left and right sidebar"
-msgstr "Левая и правая боковые колонки"
+msgstr "Ліва та права бічні панелі"
 
 #: ../cherry-options.php:147 ../cherry-options.php:183
 msgid "Two sidebars on the left"
-msgstr "Две боковые колонки слева"
+msgstr "Дві бічні панелі зліва"
 
 #: ../cherry-options.php:151 ../cherry-options.php:187
 msgid "Two sidebars on the right"
-msgstr "Две боковые колонки справа"
+msgstr "Дві бічні панелі справа  "
 
 #: ../cherry-options.php:155 ../cherry-options.php:191
 msgid "No sidebar"
-msgstr "Без боковых колонок"
+msgstr "Жодної бічної панелі"
 
 #: ../cherry-options.php:162
 msgid "Blog posts"
@@ -184,19 +191,19 @@ msgstr ""
 
 #: ../cherry-options.php:204
 msgid "Featured Media"
-msgstr "Избранные медиафайлы"
+msgstr "Головні медіафайли."
 
 #: ../cherry-options.php:205
 msgid ""
 "Displays Featured Image, Gallery, Audio, Video in blog posts listing "
 "depending on post type."
 msgstr ""
-"Отображать миниатюры записей, галереи, аудио, видео в списке записей блога в "
-"зависимости от типа записи."
+"Параметри відображення Головного Зображення, Галереї, Аудіо, Відео в "
+"публікаціях блогу, залежно від типу публікації."
 
 #: ../cherry-options.php:210
 msgid "Featured Image Size"
-msgstr "Размер миниатюры записи"
+msgstr "Розміри Головного зображення"
 
 #: ../cherry-options.php:213 ../cherry-options.php:216
 msgid "Set dimensions for post featured images."
@@ -204,47 +211,47 @@ msgstr ""
 
 #: ../cherry-options.php:219 ../cherry-options.php:288
 msgid "Small"
-msgstr "Маленький"
+msgstr "Малий"
 
 #: ../cherry-options.php:220 ../cherry-options.php:289
 msgid "Large"
-msgstr "Большой"
+msgstr "Великий"
 
 #: ../cherry-options.php:225
 msgid "Featured Image Alignment"
-msgstr "Выравнивание миниатюр записей"
+msgstr "Вирівнювання Головного Зображення"
 
 #: ../cherry-options.php:226
 msgid "Set alignment for post featured images."
-msgstr "Установить выравнивание миниатюр записей."
+msgstr "Визначте вирівнювання головних зображень публікацій."
 
 #: ../cherry-options.php:230 ../cherry-options.php:247
 #: ../cherry-options.php:299
 msgid "None"
-msgstr "Нет"
+msgstr "Жодного"
 
 #: ../cherry-options.php:231 ../cherry-options.php:300
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:78
 msgid "Left"
-msgstr "По левому краю"
+msgstr "Зліва"
 
 #: ../cherry-options.php:232 ../cherry-options.php:301
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:79
 msgid "Right"
-msgstr "По правому краю"
+msgstr "Справа"
 
 #: ../cherry-options.php:233 ../cherry-options.php:302
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:80
 msgid "Center"
-msgstr "По центру"
+msgstr "Посередині"
 
 #: ../cherry-options.php:238
 msgid "Post content"
-msgstr "Содержание записи"
+msgstr "Вміст публікації"
 
 #: ../cherry-options.php:239
 msgid "Select how you want to display post content in blog listing"
-msgstr ""
+msgstr "Оберіть спосіб відображення вмісту публікації на сторінці блогу"
 
 #: ../cherry-options.php:242
 msgid ""
@@ -255,11 +262,11 @@ msgstr ""
 
 #: ../cherry-options.php:248
 msgid "Part"
-msgstr "Частичный"
+msgstr "Частково"
 
 #: ../cherry-options.php:249
 msgid "Full"
-msgstr "Полный"
+msgstr "Повністю"
 
 #: ../cherry-options.php:254
 msgid "Content Part length"
@@ -273,52 +280,51 @@ msgstr ""
 
 #: ../cherry-options.php:262
 msgid "More button"
-msgstr "Кнопка &quot;Читать дальше&quot;"
+msgstr "Кнопка \"Детальніше\""
 
 #: ../cherry-options.php:263
 msgid "Enable/Disable read more button in blog listing."
-msgstr ""
-"Включить/Отключить кнопку &quot;Читаль дальше&quot; в списке записей блога."
+msgstr "Відображати/приховувати кнопку \"Детальніше\" на сторінці блогу."
 
 #: ../cherry-options.php:268
 msgid "More button label"
-msgstr "Текст кнопки &quot;Читать дальше&quot;"
+msgstr "Підпис кнопки \"Детальніше\""
 
 #: ../cherry-options.php:269
 msgid "Specify read more button label text. "
-msgstr "Укажите текст кнопки &quot;Читать дальше&quot;."
+msgstr "Зазначте бажаний підпис кнопки \"Детальніше\"."
 
 #: ../cherry-options.php:270
 msgid "read more"
-msgstr "читать дальше"
+msgstr "переглянути детальніше"
 
 #: ../cherry-options.php:277
 msgid "Featured Image"
-msgstr "Миниатюра записи"
+msgstr "Головне Зображення"
 
 #: ../cherry-options.php:278
 msgid "Display featured image on the single post page."
-msgstr "Отображать миниатюру на странице отдельной записи."
+msgstr "Відображати головне зображення на сторінці публікації."
 
 #: ../cherry-options.php:283
 msgid "Size of Featured Image"
-msgstr "Размер миниатюры"
+msgstr "Розміри Головного зображення"
 
 #: ../cherry-options.php:284
 msgid "Set dimensions for single post featured images."
-msgstr "Установить размер миниатюры на странице отдельной записи."
+msgstr "Вкажіть розміри головного зображення публікації."
 
 #: ../cherry-options.php:294
 msgid "Alignment of Featured Image"
-msgstr "Выравнивание миниатюр записей"
+msgstr "Вирівнювання Головного Зображення"
 
 #: ../cherry-options.php:295
 msgid "Set alignment for single post featured images."
-msgstr "Установить выравнивание миниатюр записей на странице отдельной записи."
+msgstr "Визначте вирівнювання головного зображення на сторінці публікації."
 
 #: ../cherry-options.php:307 ../cherry-options.php:1559
 msgid "Navigation"
-msgstr "Навигация "
+msgstr "Навігація"
 
 #: ../cherry-options.php:308
 msgid "Enable/disable a post navigation block."
@@ -326,34 +332,35 @@ msgstr ""
 
 #: ../cherry-options.php:313
 msgid "Author bio"
-msgstr "Блок автора"
+msgstr "Біографія автора."
 
 #: ../cherry-options.php:314
 msgid ""
 "Enable/disable author bio block. Author bio block is displayed on the post "
 "page."
 msgstr ""
-"Включить/Отключить блок автора, отображаемый на странице отдельной записи."
+"Відображати/приховувати блок біографії автора. Він відображатиметься на "
+"сторінці публікації."
 
 #: ../cherry-options.php:319
 msgid "Related posts"
-msgstr "Похожие записи"
+msgstr "Споріднені публікації"
 
 #: ../cherry-options.php:320
 msgid ""
 "Enable/disable related posts block. Related posts block is displayed on the "
 "post page."
 msgstr ""
-"Отображать/Скрыть блок похожих записей, выводимый на странице отдельной "
-"записи."
+"Відображати/приховувати блок споріднених публікацій. Блок споріднених "
+"публікацій відображатиметься на сторінці публікації."
 
 #: ../cherry-options.php:325
 msgid "Allow comments"
-msgstr "Разрешить комментирование"
+msgstr "Дозволити коментування."
 
 #: ../cherry-options.php:326
 msgid "EnaEnable/disable comments for blog posts."
-msgstr ""
+msgstr "Дозволити/заборонити коментування публікацій блогу."
 
 #: ../cherry-options.php:329
 msgid ""
@@ -361,17 +368,20 @@ msgid ""
 "posts that have already been published you need to enable comments "
 "individually in post settings."
 msgstr ""
+"Переконайтесь, що коментування дозволено в розділі 'налаштування -> "
+"коментарі'. Для публікацій, створених раніше, коментування доведеться "
+"дозволяти вручну в налаштуваннях кожної публікації."
 
 #: ../cherry-options.php:335
 msgid "Gallery slider"
-msgstr "Слайдер галереи"
+msgstr "Слайдер галереї"
 
 #: ../cherry-options.php:336
 msgid ""
 "Replace default Wordpress gallery shortcode with enhanced jQuery carousel."
 msgstr ""
-"Заменить шорткод Wordpress галереи, используемый по умолчанию, "
-"усовершенствованной jQuery каруселью."
+"Заміняє шорткод галереї Wordpress за замовчуванням на покращену jQuery -"
+"карусель. "
 
 #: ../cherry-options.php:341
 msgid "Lightbox for images in a content"
@@ -389,7 +399,7 @@ msgstr "Дата"
 
 #: ../cherry-options.php:351
 msgid "Show/Hide post publication date."
-msgstr "Отображать/Скрыть дату публикации записи."
+msgstr "Відображати/приховувати дату публікації."
 
 #: ../cherry-options.php:356
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:193
@@ -398,121 +408,125 @@ msgstr "Автор"
 
 #: ../cherry-options.php:357
 msgid "Show/Hide post author."
-msgstr "Отображать/Скрыть автора записи."
+msgstr "Відображати/приховувати автора публікації."
 
 #: ../cherry-options.php:362
 msgid "Comments"
-msgstr "Комментарии"
+msgstr "Коментарі"
 
 #: ../cherry-options.php:363
 msgid "Show/Hide number of comments."
-msgstr "Отображать/Скрыть комментарии. "
+msgstr "Відображати/приховувати кількість коментарів."
 
 #: ../cherry-options.php:368
 msgid "Categories"
-msgstr "Категории"
+msgstr "Категорії"
 
 #: ../cherry-options.php:369
 msgid "Show/Hide post categories."
-msgstr "Отображать/Скрыть категории. "
+msgstr "Відображати/приховувати категорії публікацій"
 
 #: ../cherry-options.php:374
 msgid "Tags"
-msgstr "Теги"
+msgstr "Теґи"
 
 #: ../cherry-options.php:375
 msgid "Show/Hide post tags."
-msgstr "Отображать/Скрыть теги записей."
+msgstr "Відображати/приховувати теґи публікації"
 
 #: ../cherry-options.php:386
 msgid "Body background"
-msgstr "Фон страницы"
+msgstr "Тло сторінки"
 
 #: ../cherry-options.php:387
 msgid "Set background for body container. "
-msgstr ""
+msgstr "Оберіть бажане тло сторінки."
 
 #: ../cherry-options.php:390
 msgid ""
 "You can specify background image or color, set background repeat, position "
 "and attachment. "
 msgstr ""
+"Можна обрати фонове зображення чи колір, вказати повторення тла, позицію і "
+"кріплення."
 
 #: ../cherry-options.php:411
 msgid "Primary color"
-msgstr "Основной цвет"
+msgstr "Основний колір"
 
 #: ../cherry-options.php:416
 msgid "Secondary color"
-msgstr "Второстепенный цвет"
+msgstr "Другорядний колір"
 
 #: ../cherry-options.php:421
 msgid "Success color"
-msgstr "Цвет сообщения об успехе"
+msgstr "Колір повідомлень про успішне виконання дії."
 
 #: ../cherry-options.php:426
 msgid "Info color"
-msgstr "Цвет информационного сообщения"
+msgstr "Колір інформаційних повідомлень."
 
 #: ../cherry-options.php:431
 msgid "Warning color"
-msgstr "Цвет предупреждения"
+msgstr "Колір застережних повідомлень."
 
 #: ../cherry-options.php:436
 msgid "Danger color"
-msgstr "Цвет опасности"
+msgstr "Колір повідомлень про небезпеку дій."
 
 #: ../cherry-options.php:441
 msgid "Primary gray color"
-msgstr "Основной серый цвет"
+msgstr "Основний сірий колір."
 
 #: ../cherry-options.php:461
 msgid "Header Menu Typography"
-msgstr "Шрифт меню хедера"
+msgstr "Оформлення Головного Меню"
 
 #: ../cherry-options.php:462
 msgid "Main header navigation typography settings."
-msgstr "Основные настройки стилей шрифта меню хедера. "
+msgstr "Налаштування оформлення головного меню."
 
 #: ../cherry-options.php:477
 msgid "Footer Menu Typography"
-msgstr "Шрифт меню футера"
+msgstr "Оформлення Меню Футера"
 
 #: ../cherry-options.php:478
 msgid "Main footer navigation typography settings."
-msgstr "Основные настройки стилей шрифта меню футера. "
+msgstr "Налаштування оформлення меню футера."
 
 #: ../cherry-options.php:493
 msgid "Arrows markup"
-msgstr ""
+msgstr "Стрілки розмітки"
 
 #: ../cherry-options.php:494
 msgid "Do you want to generate arrow mark-up?"
-msgstr ""
+msgstr "Чи хотіли б ви згенерувати стрілки розмітки?"
 
 #: ../cherry-options.php:505 ../cherry-options.php:1565
 msgid "Breadcrumbs"
-msgstr "Навигационная цепочка"
+msgstr "Ланцюжок навігації (Breadcrumbs)"
 
 #: ../cherry-options.php:506
 msgid "Enable/disable breadcrumbs navigation."
-msgstr "Включить/Отключить навигационную цепочку."
+msgstr "Відображати/приховувати ланцюжок навігації (breadcrumbs)."
 
 #: ../cherry-options.php:512
 msgid "Page title"
-msgstr "Заголовок страницы "
+msgstr "Заголовок сторінки"
 
 #: ../cherry-options.php:513
 msgid "Enable/disable page title in breadcrumbs."
-msgstr "Включить/Отключить заголовок страницы в навигационной цепочке."
+msgstr "Відображати/приховувати заголовок сторінки в ланцюжку навігації."
 
 #: ../cherry-options.php:518
 msgid "Breadcrumbs mobile"
-msgstr "Навигационная цепочка на мобильных устройствах"
+msgstr "Ланцюжок навігації на мобільних приладах."
 
 #: ../cherry-options.php:521 ../cherry-options.php:523
 msgid "Enable/disable breadcrumbs on mobile devices."
-msgstr "Включить/Отключить навигационную цепочку на мобильных устройствах."
+msgstr ""
+"Відображати/приховувати ланцюжок навігації (breadcrumbs) на мобільних "
+"приладах."
 
 #: ../cherry-options.php:527
 msgid "Tablet"
@@ -520,39 +534,39 @@ msgstr "Планшет"
 
 #: ../cherry-options.php:528
 msgid "Mobile"
-msgstr "Мобильное устройство"
+msgstr "Мобільний телефон"
 
 #: ../cherry-options.php:533
 msgid "Home page breadcrumbs"
-msgstr "Навигационная цепочка на домашней странице"
+msgstr "Ланцюжок навігації на домашній сторінці."
 
 #: ../cherry-options.php:534
 msgid "Enable/disable breadcrumbs on home page."
-msgstr "Включить/Отключить навигационную цепочку на домашней странице."
+msgstr "Відображати/приховувати ланцюжок навігації на домашній сторінці сайту"
 
 #: ../cherry-options.php:539
 msgid "Item separator"
-msgstr "Разделитель"
+msgstr "Розділювач елементів"
 
 #: ../cherry-options.php:540
 msgid "Breadcrumbs separator symbol."
-msgstr "Символ разделителя в навигационной цепочке."
+msgstr "Символ розділювача елементів ланцюжка навігації."
 
 #: ../cherry-options.php:547
 msgid "Breadcrumbs prefix"
-msgstr "Префикс навигационной цепочки"
+msgstr "Префікс ланцюжка навігації"
 
 #: ../cherry-options.php:548
 msgid "Text displayed before breadcrumbs navigation."
-msgstr "Текст, отображаемый в начале навигационной цепочки."
+msgstr "Текст, що відображатиметься перед ланцюжком навігації"
 
 #: ../cherry-options.php:549
 msgid "You are here:"
-msgstr "Вы здесь:"
+msgstr "Ви знаходитесь тут: "
 
 #: ../cherry-options.php:558
 msgid "Pagination position"
-msgstr "Позиция пагинации"
+msgstr "Розташування нумерації сторінок"
 
 #: ../cherry-options.php:559
 msgid "Select your pagination position."
@@ -560,117 +574,114 @@ msgstr ""
 
 #: ../cherry-options.php:562
 msgid "After posts loop"
-msgstr "После цикла записей"
+msgstr "Після переліку публікацій"
 
 #: ../cherry-options.php:563
 msgid "Before posts loop"
-msgstr "Перед циклом записей"
+msgstr "Перед переліком публікацій"
 
 #: ../cherry-options.php:564
 msgid "Both"
-msgstr "С обеих сторон"
+msgstr "Обидва варіанти"
 
 #: ../cherry-options.php:569
 msgid "Prev/next buttons"
-msgstr "Кнопки &quot;Вперед&quot;/&quot;Назад&quot;"
+msgstr "Кнопки Попередній/Наступний "
 
 #: ../cherry-options.php:570
 msgid "Show/hide previous and next buttons in pagination."
 msgstr ""
-"Отображать/скрыть пагинацию через указатели &quot;Вперед&quot;/&quot;"
-"Назад&quot;"
+"Відображати/приховувати кнопки Попередній/Наступний в нумерації сторінок"
 
 #: ../cherry-options.php:575
 msgid "Pagination label"
-msgstr "Текст пагинации"
+msgstr "Підпис нумерації сторінок"
 
 #: ../cherry-options.php:576
 msgid ""
 "Pagination label. Displayed before pagination buttons. Text or HTML can be "
 "used."
 msgstr ""
-"Текст, который будет отображаться перед кнопками пагинации. Можно "
-"использовать обычный текст или HTML код."
+"Підпис нумерації сторінок. Відображається перед нумерацією. Можна "
+"використовувати тест або код HTML."
 
 #: ../cherry-options.php:577 ../lib/functions/template-post.php:279
 msgid "Pages:"
-msgstr "Страницы:"
+msgstr "Сторінки:"
 
 #: ../cherry-options.php:581
 msgid "Prev button label"
-msgstr "Текст кнопки &quot;Назад&quot;"
+msgstr "Підпис кнопки \"Попередні\""
 
 #: ../cherry-options.php:582
 msgid "Previous button label text. Text or HTML can be used."
-msgstr ""
-"Текст кнопки &quot;Назад&quot; Можно использовать обычный текст или HTML код."
+msgstr "Підпис кнопки \"Попередні\". Можна використовувати тест або код HTML."
 
 #: ../cherry-options.php:587
 msgid "Next button label"
-msgstr "Текст кнопки &quot;Вперед&quot;"
+msgstr "Підпис кнопки \"Наступні\""
 
 #: ../cherry-options.php:588
 msgid "Next button label text. Text or HTML can be used."
-msgstr ""
-"Текст кнопки &quot;Вперед&quot; Можно использовать обычный текст или HTML "
-"код."
+msgstr "Підпис кнопки \"Наступні\". Можна використовувати тест або код HTML."
 
 #: ../cherry-options.php:593
 msgid "Show all the pages"
-msgstr "Отображать все страницы"
+msgstr "Відображати усі сторінки"
 
 #: ../cherry-options.php:594
 msgid ""
 "If set to On, then it will show all of the pages instead of a short list of "
 "the pages near the current page."
 msgstr ""
-"Если выбрана опция &quot;Вкл&quot;, будут отображаться все страницы, вместо "
-"краткого списка страниц возле текущей страницы."
+"Якщо встановлено на Увімкнути, то відображатимуться усі сторінки замість "
+"короткого переліку сторінок біля номера  поточної сторінки."
 
 #: ../cherry-options.php:599
 msgid "End size"
-msgstr "Конечный размер"
+msgstr "Максимальна кількість"
 
 #: ../cherry-options.php:600
 msgid "How many pages to display either at the top or at the end of the list."
-msgstr "Сколько страниц отображать в начале или в конце списка."
+msgstr "Скільки сторінок відображати перед та після переліку."
 
 #: ../cherry-options.php:608
 msgid "Mid size"
-msgstr "Средний размер"
+msgstr "Кількість сусідніх"
 
 #: ../cherry-options.php:609
 msgid ""
 "How many numbers to display to either side of current page, but not "
 "including current page."
 msgstr ""
-"Сколько цифр отображать с другой стороны страницы, без учета данной страницы."
+"Скільки сторінок відображати з обох сторін номера поточної сторінки, за "
+"винятком власне номера поточної сторінки."
 
 #: ../cherry-options.php:622 ../cherry-options.php:737
 #: ../cherry-options.php:800
 msgid "Background"
-msgstr ""
+msgstr "Тло"
 
 #: ../cherry-options.php:625 ../cherry-options.php:629
 msgid ""
 "Header background settings. You can select background color, upload header "
 "background image, set its background position, attachment and repeat."
 msgstr ""
-"Настройки фона хедера. Можно использовать фоновую картинку или цвет, "
-"установить повторение, позицию и привязку фона. "
+"Налаштування тла хедера. Можна вибрати колір тла, завантажити фонове "
+"зображення, зазначити його розташування, кріплення та повторення."
 
 #: ../cherry-options.php:645 ../cherry-options.php:758
 #: ../cherry-options.php:833
 msgid "Grid type"
-msgstr ""
+msgstr "Тип сітки"
 
 #: ../cherry-options.php:646
 msgid ""
 "Select layout pattern for header website. Wide layout will fit window width. "
 "Boxed layout will have fixed width."
 msgstr ""
-"Выберите схему разметки для хедера сайта. Широкий тип заполняет окно по "
-"ширине. Блочный тип имеет фиксированную ширину."
+"Оберіть модель макету хедера сайту. Широкий макет підлаштовуватиме сайт до "
+"ширини вікна. Коробковий  макет матиме фіксовану ширину."
 
 #: ../cherry-options.php:651 ../cherry-options.php:764
 #: ../cherry-options.php:839
@@ -680,48 +691,49 @@ msgstr "Широкий"
 #: ../cherry-options.php:655 ../cherry-options.php:768
 #: ../cherry-options.php:843
 msgid "Boxed"
-msgstr "Блочный"
+msgstr "Коробковий"
 
 #: ../cherry-options.php:662 ../cherry-options.php:775
 #: ../cherry-options.php:850
 msgid "Boxed width"
-msgstr ""
+msgstr "Ширина коробкового макету"
 
 #: ../cherry-options.php:663
 msgid ""
 "Header width for `boxed` layout. Should not be more than `Grid -> Container "
 "width` value."
 msgstr ""
+"Ширина хедера в коробковому макеті. Не повинна перевищувати значення 'Сітка  "
+"-> Ширина контейнера'."
 
 #: ../cherry-options.php:670
 msgid "Sticky header"
-msgstr "&quot;Прилипающий&quot; хедер"
+msgstr "Прикріплений хедер"
 
 #: ../cherry-options.php:671
 msgid "Enable\\disable fixed header that sticks to the top."
 msgstr ""
-"Включить/Отключить фиксированный хедер, который &quot;прилипает&quot; к "
-"верхней границе страницы."
+"Увімкнути/вимкнути режим прикріплення хедера до верхньої границі вікна."
 
 #: ../cherry-options.php:676
 msgid "Sticky selector"
-msgstr "&quot;Прилипающий&quot; селектор"
+msgstr "Селектор прикріпленого блоку"
 
 #: ../cherry-options.php:677
 msgid ""
 "Select the block selector that will be used to build sticky panel. You can "
 "use tag name, class name, or id."
 msgstr ""
-"Выберите селектор блоков, который будет использоваться для создания &quot;"
-"прилипающей&quot; панели. Можно использовать тег, класс или id элемента."
+"Оберіть селектор блоку, який визначатиме прикріплену панель. Можна вказати "
+"назву теґа, класу чи ідентифікатор елемента."
 
 #: ../cherry-options.php:686 ../cherry-options.php:861
 msgid "Logo type"
-msgstr "Тип лого"
+msgstr "Тип логотипа."
 
 #: ../cherry-options.php:687
 msgid "Select whether you want your main logo to be an image or text. "
-msgstr ""
+msgstr "Оберіть бажаний тип логотипа - зображення або текст."
 
 #: ../cherry-options.php:690
 msgid ""
@@ -729,154 +741,163 @@ msgid ""
 "the next option, and if you select \"text\", your WordPress Site Title will "
 "be shown instead."
 msgstr ""
+"Для варіанту \"зображення\" можна вибрати зображення логотипу з медіа-"
+"бібліотеки в полі нижче, якщо ж ви оберете \"текст\", замість цього "
+"відображатиметься назва вашого сайту WordPress."
 
 #: ../cherry-options.php:709 ../cherry-options.php:880
 msgid "Logo image"
-msgstr "Изображение лого"
+msgstr "Зображення логотипу"
 
 #: ../cherry-options.php:710 ../cherry-options.php:881
 msgid ""
 "Click Choose Media button to select logo image from the media library or "
 "upload your image."
 msgstr ""
-"Нажмите кнопку &quot;Выбрать медиа-файл&quot;, чтобы выбрать изображение из "
-"библиотеки медиaфайлов или загрузить новую картинку."
+"Натисніть кнопку \"Вибрати медіафайли\", щоб вибрати зображення логотипу з "
+"медіа-бібліотеки сайту чи завантажте нове зображення."
 
 #: ../cherry-options.php:716 ../cherry-options.php:887
 msgid "Logo typography"
-msgstr "Шрифт текстового лого."
+msgstr "Оформлення логотипу"
 
 #: ../cherry-options.php:717 ../cherry-options.php:888
 msgid ""
 "Configuration settings for text logo. Here you can select logo font family, "
 "size, color, etc."
 msgstr ""
-"Настройки стилей шрифта текстового лого. Можно выбрать семейство шрифтов, "
-"размер, цвет и другие настройки текста лого."
+"Спосіб оформлення текстового логотипу. Тут можна вибрати сімейство шрифтів, "
+"розмір, колір і т.д."
 
 #: ../cherry-options.php:740 ../cherry-options.php:742
 msgid ""
 "Page background settings. You can select background color, upload footer "
 "background image, set its background position, attachment and repeat."
 msgstr ""
+"Налаштування тла сторінки. Можна обрати колір тла, завантажити зображення "
+"тла футера, настроїти позицію фону, кріплення і повтор."
 
 #: ../cherry-options.php:759
 msgid ""
 "Select layout pattern for main website container. Wide layout will fit "
 "window width. Boxed layout will have fixed width and left/right indents. "
 msgstr ""
-"Выберите схему разметки для содержимого сайта. Широкий тип заполняет окно по "
-"ширине. Блочный тип имеет фиксированную ширину и левые/правые отступы."
+"Оберіть модель макету області вмісту сайту. Широкий макет підлаштовуватиме "
+"сайт до ширини вікна. Коробковий  макет матиме фіксовану ширину."
 
 #: ../cherry-options.php:776
 msgid ""
 "Main content width for `boxed` layout. Should not be more than `Grid -> "
 "Container width` value."
 msgstr ""
+"Ширина області вмісту в коробковому макеті. Не повинна перевищувати значення "
+"'Сітка  -> Ширина контейнера'."
 
 #: ../cherry-options.php:783
 msgid "Featured Images"
-msgstr "Миниатюры записей"
+msgstr "Головні зображення"
 
 #: ../cherry-options.php:784
 msgid "Enable/disable featured images for pages."
-msgstr "Отображать/Скрыть миниатюры для страниц."
+msgstr "Відобразити/приховати головні зображення сторінок."
 
 #: ../cherry-options.php:789
 msgid "Page comments"
-msgstr "Комментарии страниц"
+msgstr "Коментарі сторінки"
 
 #: ../cherry-options.php:790
 msgid ""
 "Enable/disable comments by default for pages. For pages that have already "
 "been published you need to enable comments individually in page settings."
 msgstr ""
-"Включить/Отключить комментарии для страниц по умолчанию. Для уже "
-"опубликованных страниц необходимо включать комментарии в индивидуальных "
-"настройках каждой страницы."
+"Увімкнути/вимкнути коментування сторінки за промовчанням. Для сторінок, які "
+"вже були опубліковані, коментування доведеться вмикати індивідуально в "
+"налаштуваннях сторінки."
 
 #: ../cherry-options.php:801
 msgid ""
 "Footer background settings. You can select background color, upload footer "
 "background image, set its background position, attachment and repeat."
 msgstr ""
-"Настройки фона футера. Можно использовать фоновую картинку или цвет, "
-"установить повторение, позицию и привязку фона. "
+"Налаштування тла футера. Можна вибрати колір тла, завантажити фонове "
+"зображення, зазначити його розташування, кріплення та повторення."
 
 #: ../cherry-options.php:817 ../cherry-options.php:1379
 #: ../cherry-options.php:1611
 msgid "Typography"
-msgstr "Шрифт"
+msgstr "Оформлення"
 
 #: ../cherry-options.php:818
 msgid "Typography settings for footer texts."
-msgstr "Настройки стилей шрифта для текста в футере."
+msgstr "Налаштування оформлення тексту футера."
 
 #: ../cherry-options.php:834
 msgid ""
 "Select layout pattern for footer website. Wide layout will fit window width. "
 "Boxed layout will have fixed width."
 msgstr ""
-"Выберите схему разметки для футера сайта. Широкий тип заполняет окно по "
-"ширине. Блочный тип имеет фиксированную ширину."
+"Оберіть модель макету футера сайту. Широкий макет підлаштовуватиме сайт до "
+"ширини вікна. Коробковий  макет матиме фіксовану ширину."
 
 #: ../cherry-options.php:851
 msgid ""
 "Footer width for `boxed` layout. Should not be more than `Grid -> Container "
 "width` value."
 msgstr ""
+"Ширина футера в коробковому макеті. Не повинна перевищувати значення 'Сітка  "
+"-> Ширина контейнера'."
 
 #: ../cherry-options.php:862
 msgid "Select whether you want your footer logo to be an image or text."
-msgstr ""
+msgstr "Оберіть бажаний тип логотипа футера - зображення або текст."
 
 #: ../cherry-options.php:903
 msgid "Footer Info text"
-msgstr ""
+msgstr "Текст авторського права у футері."
 
 #: ../cherry-options.php:904
 msgid "Set custom text for Footer info static"
-msgstr ""
+msgstr "Введіть бажаний текст статичного блока авторського права у футері."
 
 #: ../cherry-options.php:916
 msgid "Body text"
-msgstr "Текст страницы"
+msgstr "Текст сторінки"
 
 #: ../cherry-options.php:917
 msgid "Main website text typography options."
-msgstr "Настройки стилей шрифта основного текста сайта."
+msgstr "Загальні параметри оформлення тексту на сайті."
 
 #: ../cherry-options.php:932
 msgid "Link color"
-msgstr "Цвет ссылки"
+msgstr "Колір посилань"
 
 #: ../cherry-options.php:933
 msgid "Color of links."
-msgstr "Цвет ссылок"
+msgstr "Колір посилань."
 
 #: ../cherry-options.php:938
 msgid "Link hover color"
-msgstr "Цвет ссылки при наведении"
+msgstr "Колір виділених посилань"
 
 #: ../cherry-options.php:939
 msgid "Color of links on hover."
-msgstr "Цвет ссылок при наведении"
+msgstr "Колір виділення посилань при наведенні вказівника миші."
 
 #: ../cherry-options.php:944
 msgid "Input text"
-msgstr "Текст ввода"
+msgstr "Текст введення."
 
 #: ../cherry-options.php:945
 msgid "Styling text in forms."
-msgstr "Стиль текста в формах."
+msgstr "Стилізація тексту форм."
 
 #: ../cherry-options.php:960
 msgid "Breadcrumbs typography"
-msgstr "Шрифт навигационной цепочки"
+msgstr "Оформлення ланцюжка навігації"
 
 #: ../cherry-options.php:961
 msgid "Styling text in breadcrumbs."
-msgstr "Стиль текста в навигационных цепочках."
+msgstr "Стилізація тексту ланцюжка навігації"
 
 #: ../cherry-options.php:976
 msgid "Heading 1"
@@ -884,7 +905,7 @@ msgstr "Заголовок 1"
 
 #: ../cherry-options.php:978
 msgid "H1 heading font settings."
-msgstr "Настройки шрифта заголовка H1"
+msgstr "Налаштування шрифту заголовка H1"
 
 #: ../cherry-options.php:993
 msgid "Heading 2"
@@ -892,7 +913,7 @@ msgstr "Заголовок 2"
 
 #: ../cherry-options.php:995
 msgid "H2 heading font settings."
-msgstr "Настройки шрифта заголовка H2"
+msgstr "Налаштування шрифту заголовка H2"
 
 #: ../cherry-options.php:1010
 msgid "Heading 3"
@@ -900,7 +921,7 @@ msgstr "Заголовок 3"
 
 #: ../cherry-options.php:1012
 msgid "H3 heading font settings."
-msgstr "Настройки шрифта заголовка H3"
+msgstr "Налаштування шрифту заголовка H3"
 
 #: ../cherry-options.php:1027
 msgid "Heading 4"
@@ -908,7 +929,7 @@ msgstr "Заголовок 4"
 
 #: ../cherry-options.php:1029
 msgid "H4 heading font settings."
-msgstr "Настройки шрифта заголовка H4"
+msgstr "Налаштування шрифту заголовка H4"
 
 #: ../cherry-options.php:1044
 msgid "Heading 5"
@@ -916,7 +937,7 @@ msgstr "Заголовок 5"
 
 #: ../cherry-options.php:1046
 msgid "H5 heading font settings."
-msgstr "Настройки шрифта заголовка H5"
+msgstr "Налаштування шрифту заголовка H5"
 
 #: ../cherry-options.php:1061
 msgid "Heading 6"
@@ -924,11 +945,11 @@ msgstr "Заголовок 6"
 
 #: ../cherry-options.php:1063
 msgid "H6 heading font settings."
-msgstr "Настройки шрифта заголовка H6"
+msgstr "Налаштування шрифту заголовка H6"
 
 #: ../cherry-options.php:1084
 msgid "Concatenate/minify CSS"
-msgstr "Объединить/уменьшить CSS код"
+msgstr "Об'єднати/стиснути CSS"
 
 #: ../cherry-options.php:1085
 msgid ""
@@ -937,27 +958,27 @@ msgstr ""
 
 #: ../cherry-options.php:1088 ../cherry-options.php:1113
 msgid "Yes"
-msgstr "Да"
+msgstr "Так"
 
 #: ../cherry-options.php:1089 ../cherry-options.php:1114
 msgid "No"
-msgstr "Нет"
+msgstr "Ні"
 
 #: ../cherry-options.php:1095
 msgid "Output dynamic CSS into separate file or into style tag."
-msgstr "Выводить динамический CSS код в отдельных файлах или в теге style."
+msgstr "Вивести динамічні стилі CSS в окремий файл чи теґ стилю."
 
 #: ../cherry-options.php:1110
 msgid "Display Cookie Banner?"
-msgstr ""
+msgstr "Відобразити Cookie банер?"
 
 #: ../cherry-options.php:1119
 msgid "Message"
-msgstr ""
+msgstr "Повідомлення"
 
 #: ../cherry-options.php:1120
 msgid "Enter the cookie banner message."
-msgstr ""
+msgstr "Введіть повідомлення банера Cookies."
 
 #: ../cherry-options.php:1121
 msgid "We use cookies to ensure you get the best experience on our website."
@@ -965,157 +986,156 @@ msgstr ""
 
 #: ../cherry-options.php:1131
 msgid "Text input"
-msgstr "Текстовое поле"
+msgstr "Текст введення "
 
 #: ../cherry-options.php:1136
 msgid "Regular single line text input field."
-msgstr "Однострочное текстовое поле."
+msgstr "Звичайне текстове поле (1 рядок)."
 
 #: ../cherry-options.php:1142
 msgid "Textarea input"
-msgstr "Поле ввода текста"
+msgstr "Текстове поле вводу"
 
 #: ../cherry-options.php:1147
 msgid "Multiline text input field ( 16 rows x 20 cols )."
-msgstr "Многострочное поле ввода текста (16 строк x 20 колонок)."
+msgstr "Розширене поле введення тексту (16 рядків х 20 стовпців)."
 
 #: ../cherry-options.php:1153
 msgid "Select box"
-msgstr "Выпадающий список"
+msgstr "Поле вибору"
 
 #: ../cherry-options.php:1158
 msgid "Select box with single option."
-msgstr "Выпадающий список c одной обязательной опцией."
+msgstr "Один варіант вибору"
 
 #: ../cherry-options.php:1170
 msgid "Filtered select"
-msgstr "Выпадающий список с фильтром"
+msgstr "Фільтроване поле вибору"
 
 #: ../cherry-options.php:1175
 msgid "Select box with filter option."
-msgstr "Выпадающий список с фильтром опций."
+msgstr "Поле вибору з можливістю фільтрації вмісту."
 
 #: ../cherry-options.php:1192
 msgid "Multi-select box"
-msgstr ""
+msgstr "Поле мульти-вибору"
 
 #: ../cherry-options.php:1197
 msgid "Select box with multiple select capability."
-msgstr "Выпадающий список с возможностью выбора нескольких опций."
+msgstr "Кілька варіантів вибору"
 
 #: ../cherry-options.php:1215
 msgid "Checkbox"
-msgstr "Кнопка-флажок"
+msgstr "Прапорець"
 
 #: ../cherry-options.php:1216
 msgid "Checkbox label"
-msgstr "Текст кнопки-флажка"
+msgstr "Підпис прапорця"
 
 #: ../cherry-options.php:1220
 msgid "Regular HTML checkbox."
-msgstr "Стандартная HTML кнопка-флажок."
+msgstr "Звичайний прапорець HTML"
 
 #: ../cherry-options.php:1230
 msgid "Switcher"
-msgstr "Переключатель"
+msgstr "Перемикач"
 
 #: ../cherry-options.php:1233
 msgid "Analogue of the regular HTML radio buttons. "
-msgstr "Аналог стандартных кнопок-переключателей HTML."
+msgstr "Аналог звичайних кнопок-перемикачів HTML. "
 
 #: ../cherry-options.php:1238
 msgid "Switcher (alternative)"
-msgstr "Переключатель (альтернативный)"
+msgstr "Перемикач (альтернативний)"
 
 #: ../cherry-options.php:1241
 msgid "Alternative switcher with custom labels."
-msgstr "Альтернативный переключатель с пользовательскими названиями полей"
+msgstr "Інший варіант перемикача з користувацькими підписами."
 
 #: ../cherry-options.php:1244
 msgid "Enabled"
-msgstr "Включен"
+msgstr "Увімкнено"
 
 #: ../cherry-options.php:1245
 msgid "Disabled"
-msgstr "Отключен"
+msgstr "Вимкнено"
 
 #: ../cherry-options.php:1250
 msgid "Stepper"
-msgstr "Нумерователь"
+msgstr "Покроковий перемикач"
 
 #: ../cherry-options.php:1253
 msgid "Adds a number input used to define numeric values."
-msgstr "Добавляет цифровое поле, используемое для вывода цифровых значений."
+msgstr "Додає поле введення чисел, що визначає чисельні параметри."
 
 #: ../cherry-options.php:1261
 msgid "Slider"
-msgstr "Слайдер"
+msgstr "Повзунок"
 
 #: ../cherry-options.php:1264
 msgid "Draggable slider with stepper. Used to define some numeric value."
 msgstr ""
-"Перемещаемый слайдер с нумерователем. Используется для указания порядкового "
-"номера."
+"Рухомий повзунок з покроковим зростанням. Використовується для зазначення "
+"певної числової величини."
 
 #: ../cherry-options.php:1271
 msgid "Slider (ranged)"
-msgstr "Слайдер (позиционируемый)"
+msgstr "Повзунок (діапазональний)"
 
 #: ../cherry-options.php:1276
 msgid "Draggable slider with range capability. Used to define numeric range."
 msgstr ""
-"Перемещаемый слайдер с предельной дальностью. Используется для указания "
-"числовых пределов. "
+"Рухомий повзунок з можливістю визначення діапазону.  Використовується для "
+"визначення числового діапазону."
 
 #: ../cherry-options.php:1287
 msgid "Radio buttons"
-msgstr "Кнопки-переключатели"
+msgstr "Кнопки перемикання"
 
 #: ../cherry-options.php:1290
 msgid "Adds radio buttons group. Lets user to select one option from the list."
 msgstr ""
-"Добавить группу кнопок-переключателей. Позволяет пользователям выбрать одну "
-"опцию из списка."
+"Додає групи кнопок-перемикачів. Так користувач може вибирати один варіант із "
+"запропонованих."
 
 #: ../cherry-options.php:1307
 msgid "Radio buttons (image)"
-msgstr "Кнопки-переключатели (картинки)"
+msgstr "Кнопки перемикання (зображення)"
 
 #: ../cherry-options.php:1311 ../cherry-options.php:1313
 msgid "Adds image based radio buttons group. Behaves as HTML radio buttons."
 msgstr ""
-"Добавляет группу кнопок-переключателей в виде картинок. Работает как кнопки-"
-"переключатели HTML."
+"Додає групи кнопок-перемикачів, створених з допомогою зображення . Працюють "
+"за принципом кнопок-перемикачів HTML."
 
 #: ../cherry-options.php:1333
 msgid "Colorpicker"
-msgstr "Цветоподборщик"
+msgstr "Інструмент вибору кольору"
 
 #: ../cherry-options.php:1338
 msgid "Adds a color picker."
-msgstr "Добавляет цветоподборщик."
+msgstr "Додає інструмент вибору кольору."
 
 #: ../cherry-options.php:1344
 msgid "Media library element"
-msgstr "Элемент библиотеки медиафайлов"
+msgstr "Елемент бібліотеки медіафайлів"
 
 #: ../cherry-options.php:1349
 msgid "Lets user to add content from Wordpress media library. "
-msgstr ""
-"Позволяет пользователям добавлять файлы из Библиотеки медиафайлов Wordpress"
+msgstr "Дозволяє додавати файли бібліотеки медіа Wordpress  до вмісту."
 
 #: ../cherry-options.php:1357
 msgid "Background image"
-msgstr "Фоновая картинка"
+msgstr "Зображення тла"
 
 #: ../cherry-options.php:1362
 msgid ""
 "Lets user to add background image from the media library and define its "
 "background settings like background repeat, position, attachment, origin."
 msgstr ""
-"Позволяет добавлять фоновое изображение из библиотеки медиафайлов и "
-"устанавливать настройки фона, например: повторение, позиция, прилипание, "
-"область позиционирования."
+"Надає можливість вибирати фонове зображення з бібліотеки медіа та вказувати "
+"його властивості фону, такі як повторення фону, позиція, прикріплення, "
+"початок відліку."
 
 #: ../cherry-options.php:1385
 msgid ""
@@ -1123,21 +1143,22 @@ msgid ""
 "font size, line height, style, letter spacing, characters sets, text align "
 "and color. Below options you can see font preview."
 msgstr ""
-"Содержит настройки шрифта, например: семейство шрифтов библиотеки Google, "
-"размер шрифта, высота строки, межбуквенный интервал, набор символов, "
-"выравнивание текста и цвет. Под опциями находится поле предпросмотра шрифта. "
+"Параметри конфігурації оформлення, такі як  назва сімейства шрифтів Google, "
+"розмір шрифту, висота рядка, стиль, відстань між літерами, набори символів, "
+"вирівнювання і колір тексту. Нижче ви можете побачити попередній перегляд "
+"шрифту."
 
 #: ../cherry-options.php:1402
 msgid "CSS Editor"
-msgstr "Редактор CSS кода"
+msgstr "Редактор CSS "
 
 #: ../cherry-options.php:1407
 msgid "Embedded CSS editor with syntax highlighting."
-msgstr "Встроенный редактор CSS кода с подсветкой синтаксиса."
+msgstr "Вбудований CSS-редактор з виділенням синтаксису. "
 
 #: ../cherry-options.php:1413
 msgid "title layout editor"
-msgstr "Редактор стилей заголовка"
+msgstr "редактор макета заголовка"
 
 #: ../cherry-options.php:1415
 msgid "description layout editor"
@@ -1145,35 +1166,35 @@ msgstr ""
 
 #: ../cherry-options.php:1456
 msgid "Links repeater"
-msgstr "Повторитель ссылок"
+msgstr "Повторення посилань"
 
 #: ../cherry-options.php:1461
 msgid ""
 "This option allows you to create a custom links list. For each link you can "
 "define URL, class and label."
 msgstr ""
-"Эта опция позволяет создавать список пользовательских ссылок. Для каждой "
-"ссылки можно задать URL, класс и надпись."
+"З допомогою цього параметра можна створити список власних посилань, для "
+"кожного з яких можна вказати URL, клас та підпис."
 
 #: ../cherry-options.php:1483
 msgid "WYSIWYG editor"
-msgstr "Визуальный редактор WYSIWYG"
+msgstr "редактор WYSIWYG"
 
 #: ../cherry-options.php:1488
 msgid ""
 "Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page "
 "editing area."
 msgstr ""
-"Добавляет область ввода с WYSIWYG редактором. Работает как область "
-"редактирования страниц и записей Wordpress."
+"Додає поле введення з вбудованим редактором WYSIWYG. Працює аналогічно до "
+"області редагування публікації чи сторінки Wordpress."
 
 #: ../cherry-options.php:1500
 msgid "General"
-msgstr "Главные"
+msgstr "Загальне"
 
 #: ../cherry-options.php:1512
 msgid "Grid"
-msgstr "Сетка"
+msgstr "Сітка"
 
 #: ../cherry-options.php:1518
 msgid "Layouts"
@@ -1181,37 +1202,37 @@ msgstr ""
 
 #: ../cherry-options.php:1526
 msgid "Blog"
-msgstr "Блог"
+msgstr "Блоґ"
 
 #: ../cherry-options.php:1532
 msgid "Post"
-msgstr "Запись"
+msgstr "Публікація"
 
 #: ../cherry-options.php:1539
 msgid "Meta"
-msgstr "Метаданные"
+msgstr "Метадані"
 
 #: ../cherry-options.php:1546
 msgid "Styling"
-msgstr "Стиль"
+msgstr "Стилізація"
 
 #: ../cherry-options.php:1552
 msgid "Color scheme"
-msgstr "Цветовая схема"
+msgstr "Колірна схема"
 
 #: ../cherry-options.php:1572
 msgid "Pagination"
-msgstr "Пагинация"
+msgstr "Нумерація сторінок"
 
 #: ../cherry-options.php:1585 ../cherry-options.php:1604
 #: ../init/statics/header-logo.php:35
 msgid "Logo"
-msgstr "Лого"
+msgstr "Логотип"
 
 #: ../cherry-options.php:1592
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:197
 msgid "Page"
-msgstr ""
+msgstr "Сторінка"
 
 #: ../cherry-options.php:1598 ../lib/admin/class-cherry-grid-type.php:57
 msgid "Footer"
@@ -1219,84 +1240,84 @@ msgstr "Футер"
 
 #: ../cherry-options.php:1617
 msgid "Optimization"
-msgstr "Оптимизация"
+msgstr "Оптимізація"
 
 #: ../cherry-options.php:1623
 msgid "Cookie Banner"
-msgstr ""
+msgstr "Банер Cookies"
 
 #: ../cherry-options.php:1629
 msgid "Interface elements (for UI developers)"
-msgstr "Элементы интерфейса (для ПИ разработчиков)"
+msgstr "Елементи інтерфейсу (для UI розробників)"
 
 #: ../init/config/menus.php:21
 msgid "Primary"
-msgstr ""
+msgstr "Основний"
 
 #: ../init/config/menus.php:22
 msgid "Secondary"
-msgstr ""
+msgstr "Другорядний"
 
 #: ../init/config/sidebars.php:25
 msgid "Main Sidebar"
-msgstr "Главная боковая колонка"
+msgstr "Головна бічна панель"
 
 #: ../init/config/sidebars.php:26
 msgid ""
 "This is the main sidebar if you are using a two or three column site layout "
 "option."
 msgstr ""
-"Эта боковая колонка является главной, если вы используете разметку с двумя "
-"или тремя колонками."
+"Це основна бічна панель, у випадку, якщо ви використовуєте макет сайту з "
+"двох чи трьох стовпців."
 
 #: ../init/config/sidebars.php:33
 msgid "Secondary Sidebar"
-msgstr "Второстепенная боковая колонка"
+msgstr "Другорядна бічна панель"
 
 #: ../init/config/sidebars.php:34
 msgid ""
 "This is the secondary sidebar if you are using a three column site layout "
 "option."
 msgstr ""
-"Эта боковая колонка является второстепенной, если вы используете разметку с "
-"двумя или тремя колонками."
+"Це другорядна бічна панель, у випадку, якщо ви використовуєте макет сайту з "
+"двох чи трьох стовпців."
 
 #: ../init/config/sidebars.php:41 ../init/statics/header-sidebar.php:32
 msgid "Header Sidebar"
-msgstr "Боковая колонка в хедере"
+msgstr "Бічна панель хедера"
 
 #: ../init/config/sidebars.php:42
 msgid "A sidebar located in the header of the site."
-msgstr "Боковая колонка в хедере сайта."
+msgstr "Бічна панель, розташована у хедері сайту."
 
 #: ../init/config/sidebars.php:49
 msgid "Footer Sidebar 1"
-msgstr "Колонка №1 в футере"
+msgstr "Бічна панель футера 1"
 
 #: ../init/config/sidebars.php:50 ../init/config/sidebars.php:58
 #: ../init/config/sidebars.php:66 ../init/config/sidebars.php:74
 msgid "A sidebar located in the footer of the site."
-msgstr "Колонка в футере сайта."
+msgstr "Бічна панель, розташована у футері сайту."
 
 #: ../init/config/sidebars.php:57
 msgid "Footer Sidebar 2"
-msgstr "Колонка №2 в футере"
+msgstr "Бічна панель футера 2"
 
 #: ../init/config/sidebars.php:65
 msgid "Footer Sidebar 3"
-msgstr "Колонка №3 в футере"
+msgstr "Бічна панель футера 3"
 
 #: ../init/config/sidebars.php:73
 msgid "Footer Sidebar 4"
-msgstr "Колонка №4 в футере"
+msgstr "Бічна панель футера 4"
 
 #: ../init/config/static-areas.php:24
 msgid "Header Top"
-msgstr "Верхняя часть хедера"
+msgstr "Верхня частина хедера"
 
 #: ../init/config/static-areas.php:30
 msgid "Header Bottom"
-msgstr "Нижняя часть хедера"
+msgstr "Нижня частина хедера"
 
 #: ../init/config/static-areas.php:36
 msgid "Showcase Area"
@@ -1304,81 +1325,81 @@ msgstr "Область слайдера"
 
 #: ../init/config/static-areas.php:42
 msgid "Footer Top"
-msgstr "Верхняя часть футера"
+msgstr "Верхня частина футера"
 
 #: ../init/config/static-areas.php:48
 msgid "Footer Bottom"
-msgstr "Нижняя часть футера"
+msgstr "Нижня частина футера"
 
 #: ../init/statics/example.php:29
 msgid "Example"
-msgstr "Пример "
+msgstr "Приклад"
 
 #: ../init/statics/footer-info.php:71
 msgid "Footer Info"
-msgstr "Информация в футере"
+msgstr "Повідомлення авторського права у футері"
 
 #: ../init/statics/footer-logo.php:32
 msgid "Footer Logo"
-msgstr ""
+msgstr "Логотип футера"
 
 #: ../init/statics/footer-menu.php:31
 msgid "Footer Menu"
-msgstr "Меню футера"
+msgstr "Меню Футера"
 
 #: ../init/statics/footer-sidebars.php:64
 msgid "Footer Sidebars"
-msgstr "Боковые колонки в футере"
+msgstr "Бічні панелі футера"
 
 #: ../init/statics/header-menu.php:33
 msgid "Header Menu"
-msgstr "Меню хедера"
+msgstr "Головне меню"
 
 #: ../init/statics/moto-slider.php:39
 msgid "Select MotoSlider to show in header"
-msgstr "Отображать Moto слайдер в хедере"
+msgstr "Виберіть, чи відображати MotoSlider в хедері"
 
 #: ../init/statics/moto-slider.php:40
 msgid "Select main theme slider"
-msgstr "Выберите основной слайдер темы"
+msgstr "Оберіть основний слайдер теми"
 
 #: ../init/statics/moto-slider.php:60
 msgid "No Moto Sliders was found "
-msgstr "Moto слайдер не найден"
+msgstr "Не виявлено жодного слайдера MotoSlider"
 
 #: ../init/statics/moto-slider.php:78
 msgid "MotoPress Slider"
-msgstr "MotoPress слайдер"
+msgstr "Слайдер MotoPress "
 
 #: ../init/statics/search-form.php:32
 msgid "Search Form"
-msgstr "Форма поиска"
+msgstr "Пошук"
 
 #: ../lib/admin/class-cherry-admin.php:57
 #: ../lib/admin/class-cherry-admin.php:74
 msgid "Please, select import file"
-msgstr ""
+msgstr "Будь ласка, виберіть файл для імпорту"
 
 #: ../lib/admin/class-cherry-admin.php:58
 #: ../lib/admin/class-cherry-admin.php:75
 msgid "Invalid file type"
-msgstr "Неверный тип файла"
+msgstr "Невірний тип файлу."
 
 #: ../lib/admin/class-cherry-admin.php:59
 msgid "Cherry Options imported. "
-msgstr ""
+msgstr "Параметри Cherry імпортовано."
 
 #: ../lib/admin/class-cherry-admin.php:60
 msgid "section restored."
-msgstr ""
+msgstr "розділ відновлено."
 
 #: ../lib/admin/class-cherry-admin.php:61
 msgid "All options restored"
-msgstr "Все опции восстановлены"
+msgstr "Всі параметри відновлено"
 
 #: ../lib/admin/class-cherry-admin.php:62
 msgid "options loaded."
-msgstr ""
+msgstr "параметри завантажено."
 
 #: ../lib/admin/class-cherry-admin.php:76
 msgid "Statics settings imported. "
@@ -1390,21 +1411,21 @@ msgstr ""
 
 #: ../lib/admin/class-cherry-grid-type.php:53
 msgid "Content"
-msgstr "Содержимое"
+msgstr "Вміст"
 
 #: ../lib/admin/class-cherry-grid-type.php:92
 msgid "Grid Type"
-msgstr "Тип сетки"
+msgstr "Тип сітки"
 
 #: ../lib/admin/class-cherry-grid-type.php:236
 #: ../lib/admin/class-cherry-layouts.php:209
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:77
 msgid "Inherit"
-msgstr "Наследование"
+msgstr "Успадковувати"
 
 #: ../lib/admin/class-cherry-layouts.php:72
 msgid "Layout"
-msgstr "Разметка"
+msgstr "Макет"
 
 #: ../lib/admin/class-cherry-post-style.php:69
 msgid "Style"
@@ -1412,59 +1433,59 @@ msgstr "Стиль"
 
 #: ../lib/admin/class-cherry-post-style.php:118
 msgid "Header background"
-msgstr "Фон хедера"
+msgstr "Тло хедера"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:62
 msgid "No repeat"
-msgstr "No repeat (не повторять)"
+msgstr "Не повторювати"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:63
 msgid "Repeat All"
-msgstr "Repeat All (повторять все)"
+msgstr "Повторювати усе"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:64
 msgid "Repeat Horizontally"
-msgstr "Repeat Horizontally (повторять по горизонтали)"
+msgstr "Повторювати горизонтально"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:65
 msgid "Repeat Vertically"
-msgstr "Repeat Vertically (повторять по вертикали)"
+msgstr "Повторювати вертикально"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:68
 msgid "Top Left"
-msgstr "Top Left (сверху слева)"
+msgstr "Угорі зліва"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:69
 msgid "Top Center"
-msgstr "Top Center (сверху по центру)"
+msgstr "Угорі посередині"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:70
 msgid "Top Right"
-msgstr "Top Right (сверху справа)"
+msgstr "Угорі справа"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:71
 msgid "Middle Left"
-msgstr "Middle Left (по середине слева)"
+msgstr "Посередині зліва"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:72
 msgid "Middle Center"
-msgstr "Middle Center (по середине по центру)"
+msgstr "Посередині"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:73
 msgid "Middle Right"
-msgstr "Middle Right (по середине справа)"
+msgstr "Посередині справа"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:74
 msgid "Bottom Left"
-msgstr "Bottom Left (снизу слева)"
+msgstr "Внизу зліва"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:75
 msgid "Bottom Center"
-msgstr "Bottom Center (снизу по центу)"
+msgstr "Внизу посередині"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:76
 msgid "Bottom Right"
-msgstr "Bottom Right (снизу справа)"
+msgstr "Внизу справа"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:79
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:84
@@ -1472,107 +1493,107 @@ msgstr "Bottom Right (снизу справа)"
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:96
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:76
 msgid "Not defined"
-msgstr "Не определен"
+msgstr "Не визначено"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:80
 msgid "Scroll Normally"
-msgstr "Scroll Normally (обычная прокрутка)"
+msgstr "Звичайне прокручування"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:81
 msgid "Fixed in Place"
-msgstr "Fixed in Place (фиксированный)"
+msgstr "Закріплено у позиції"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:85
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:97
 msgid "Padding box"
-msgstr "Padding box (Область по отступу)"
+msgstr "Область внутрішнього відступу (padding)"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:86
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:98
 msgid "Border box"
-msgstr "Border box (Область по рамке)"
+msgstr "Область з рамкою"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:87
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:99
 msgid "Content box"
-msgstr "Content box (Область по содержимому)"
+msgstr "Область вмісту"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:91
 msgid "Auto"
-msgstr ""
+msgstr "Автоматично"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:92
 msgid "Cover"
-msgstr "Cover (заполнить)"
+msgstr "Заповнювати"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:93
 msgid "Contain"
-msgstr "Contain (покрыть)"
+msgstr "Вміщати"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:126
 msgid "Background Settings"
-msgstr "Настройки фона"
+msgstr "Налаштування тла."
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:128
 msgid "Background Color"
-msgstr "Цвет фона"
+msgstr "Колір тла"
 
 #: ../lib/admin/ui-elements/ui-background/ui-background.php:142
 #, php-format
 msgid "Background %s"
-msgstr "Фон %s"
+msgstr "Тло %s"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:89
 msgid "position"
-msgstr "position (позиция)"
+msgstr "позиція"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:91
 msgid "margin"
-msgstr "margin (поле)"
+msgstr "зовнішній відступ (margin)"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:97
 msgid "border"
-msgstr "border (рамка)"
+msgstr "край"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:103
 msgid "padding"
-msgstr "padding (отступ)"
+msgstr "внутрішній відступ (padding)"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:109
 msgid "size"
-msgstr "size (размер)"
+msgstr "розмір"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:121
 msgid "solid"
-msgstr "solid (сплошная)"
+msgstr "суцільна лінія"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:122
 msgid "dashed"
-msgstr "dashed (из точек)"
+msgstr "пунктир"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:123
 msgid "dotted"
-msgstr "dotted (пунктирная)"
+msgstr "крапкований пунктир"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:124
 msgid "double"
-msgstr "double (двойная)"
+msgstr "подвійна лінія"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:125
 msgid "groove"
-msgstr "groove (трехмерная с вдавленным внутренним краем, с имитацией объема)"
+msgstr "радіальна лінія"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:126
 msgid "ridge"
-msgstr "ridge (трехмерная с вдавленным внешним краем, с имитацией объема)"
+msgstr "по краю"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:127
 msgid "inset"
-msgstr "inset (трехмерная с вдавленным внутренним краем)"
+msgstr "всередині"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:128
 msgid "outset"
-msgstr "outset (трехмерная с вдавленным внешним краем)"
+msgstr "зовні"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:129
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:126
@@ -1580,226 +1601,226 @@ msgstr "outset (трехмерная с вдавленным внешним кр
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:156
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:171
 msgid "none"
-msgstr "нет"
+msgstr "жодного"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:132
 msgid "Border style"
-msgstr "Border style (Стиль рамки)"
+msgstr "Стиль краю"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:147
 msgid "Border radius"
-msgstr "Border radius (Радиус рамки)"
+msgstr "Радіус кривини краю"
 
 #: ../lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:159
 msgid "Border color"
-msgstr "Border color (Цвет рамки)"
+msgstr "Колір краю"
 
 #: ../lib/admin/ui-elements/ui-repeater/ui-repeater.php:72
 #: ../lib/admin/ui-elements/ui-repeater/ui-repeater.php:86
 msgid "External link"
-msgstr "Внешняя ссылка"
+msgstr "Зовнішнє посилання"
 
 #: ../lib/admin/ui-elements/ui-repeater/ui-repeater.php:75
 #: ../lib/admin/ui-elements/ui-repeater/ui-repeater.php:89
 msgid "Font class"
-msgstr "Класс шрифта"
+msgstr "Клас шрифту"
 
 #: ../lib/admin/ui-elements/ui-repeater/ui-repeater.php:78
 #: ../lib/admin/ui-elements/ui-repeater/ui-repeater.php:92
 msgid "Link label"
-msgstr "Текст ссылки"
+msgstr "Підпис посилання"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:127
 msgid "col-xs-1"
-msgstr ""
+msgstr "col-xs-1"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:128
 msgid "col-xs-2"
-msgstr ""
+msgstr "col-xs-2"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:129
 msgid "col-xs-3"
-msgstr ""
+msgstr "col-xs-3"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:130
 msgid "col-xs-4"
-msgstr ""
+msgstr "col-xs-4"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:131
 msgid "col-xs-5"
-msgstr ""
+msgstr "col-xs-5"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:132
 msgid "col-xs-6"
-msgstr ""
+msgstr "col-xs-6"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:133
 msgid "col-xs-7"
-msgstr ""
+msgstr "col-xs-7"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:134
 msgid "col-xs-8"
-msgstr ""
+msgstr "col-xs-8"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:135
 msgid "col-xs-9"
-msgstr ""
+msgstr "col-xs-9"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:136
 msgid "col-xs-10"
-msgstr ""
+msgstr "col-xs-10"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:137
 msgid "col-xs-11"
-msgstr ""
+msgstr "col-xs-11"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:138
 msgid "col-xs-12"
-msgstr ""
+msgstr "col-xs-12"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:142
 msgid "col-sm-1"
-msgstr ""
+msgstr "col-sm-1"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:143
 msgid "col-sm-2"
-msgstr ""
+msgstr "col-sm-2"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:144
 msgid "col-sm-3"
-msgstr ""
+msgstr "col-sm-3"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:145
 msgid "col-sm-4"
-msgstr ""
+msgstr "col-sm-4"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:146
 msgid "col-sm-5"
-msgstr ""
+msgstr "col-sm-5"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:147
 msgid "col-sm-6"
-msgstr ""
+msgstr "col-sm-6"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:148
 msgid "col-sm-7"
-msgstr ""
+msgstr "col-sm-7"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:149
 msgid "col-sm-8"
-msgstr ""
+msgstr "col-sm-8"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:150
 msgid "col-sm-9"
-msgstr ""
+msgstr "col-sm-9"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:151
 msgid "col-sm-10"
-msgstr ""
+msgstr "col-sm-10"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:152
 msgid "col-sm-11"
-msgstr ""
+msgstr "col-sm-11"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:153
 msgid "col-sm-12"
-msgstr ""
+msgstr "col-sm-12"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:157
 msgid "col-md-1"
-msgstr ""
+msgstr "col-md-1"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:158
 msgid "col-md-2"
-msgstr ""
+msgstr "col-md-2"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:159
 msgid "col-md-3"
-msgstr ""
+msgstr "col-md-3"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:160
 msgid "col-md-4"
-msgstr ""
+msgstr "col-md-4"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:161
 msgid "col-md-5"
-msgstr ""
+msgstr "col-md-5"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:162
 msgid "col-md-6"
-msgstr ""
+msgstr "col-md-6"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:163
 msgid "col-md-7"
-msgstr ""
+msgstr "col-md-7"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:164
 msgid "col-md-8"
-msgstr ""
+msgstr "col-md-8"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:165
 msgid "col-md-9"
-msgstr ""
+msgstr "col-md-9"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:166
 msgid "col-md-10"
-msgstr ""
+msgstr "col-md-10"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:167
 msgid "col-md-11"
-msgstr ""
+msgstr "col-md-11"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:168
 msgid "col-md-12"
-msgstr ""
+msgstr "col-md-12"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:172
 msgid "col-lg-1"
-msgstr ""
+msgstr "col-lg-1"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:173
 msgid "col-lg-2"
-msgstr ""
+msgstr "col-lg-2"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:174
 msgid "col-lg-3"
-msgstr ""
+msgstr "col-lg-3"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:175
 msgid "col-lg-4"
-msgstr ""
+msgstr "col-lg-4"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:176
 msgid "col-lg-5"
-msgstr ""
+msgstr "col-lg-5"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:177
 msgid "col-lg-6"
-msgstr ""
+msgstr "col-lg-6"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:178
 msgid "col-lg-7"
-msgstr ""
+msgstr "col-lg-7"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:179
 msgid "col-lg-8"
-msgstr ""
+msgstr "col-lg-8"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:180
 msgid "col-lg-9"
-msgstr ""
+msgstr "col-lg-9"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:181
 msgid "col-lg-10"
-msgstr ""
+msgstr "col-lg-10"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:182
 msgid "col-lg-11"
-msgstr ""
+msgstr "col-lg-11"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:183
 msgid "col-lg-12"
-msgstr ""
+msgstr "col-lg-12"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:186
 msgid "Show"
@@ -1856,7 +1877,7 @@ msgstr ""
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:264
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:431
 msgid "Custom class"
-msgstr "Пользовательский класс"
+msgstr "Користувацький клас"
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:278
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:445
@@ -1976,91 +1997,91 @@ msgstr ""
 
 #: ../lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
 msgid "Step Up"
-msgstr "Шаг вверх"
+msgstr "На крок вперед"
 
 #: ../lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
 msgid "Step Down"
-msgstr "Шаг вниз"
+msgstr "На крок назад"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:81
 msgid "Justify"
-msgstr "Justify (выровнять по ширине)"
+msgstr "Припасувати"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:95
 msgid "Font Family"
-msgstr "Семейство шрифтов"
+msgstr "Сімейство шрифтів"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:98
 msgid "Standart Webfonts"
-msgstr "Стандартные веб-шрифты"
+msgstr "Звичайні Веб-шрифти"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:124
 msgid "Google Webfonts"
-msgstr "Веб-шрифты библиотеки Google"
+msgstr "Веб-шрифти Google "
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:168
 msgid "Font Style"
-msgstr "Стиль шрифта"
+msgstr "Стиль шрифту"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:183
 msgid "Character Sets"
-msgstr "Наборы символов"
+msgstr "Набори символів"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:201
 msgid "Size"
-msgstr ""
+msgstr "Розмір"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:218
 msgid "Line-height"
-msgstr "Line-height (высота строк)"
+msgstr "Висота рядка"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:234
 msgid "Letter-spacing"
-msgstr "Letter-spacing (межбуквенный интервал)"
+msgstr "Відстань між літерами"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:250
 msgid "Font color"
-msgstr "Font color (цвет шрифта)"
+msgstr "Колір шрифта"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:263
 msgid "Text align"
-msgstr "Text align (выравнивание текста)"
+msgstr "Вирівнювання тексту"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:261
 msgid "Browse:"
-msgstr "Обзор:"
+msgstr "Огляд:"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:262
 msgid "Home"
-msgstr "Домашняя страница"
+msgstr "Головна сторінка"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:263
 msgid "404 Not Found"
-msgstr "404 Не найден(а)"
+msgstr "404 Не Знайдено"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:264
 msgid "Archives"
-msgstr "Архивы"
+msgstr "Архіви"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:266
 #, php-format
 msgid "Search results for &#8220;%s&#8221;"
-msgstr "Результаты поиска для &#8220;%s&#8221;"
+msgstr "Результати пошуку &#8220;%s&#8221;"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:268
 #, php-format
 msgid "Page %s"
-msgstr "Страница %s"
+msgstr "Сторінка %s"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:270
 #, php-format
 msgid "Minute %s"
-msgstr "Минута %s"
+msgstr "Хвилина %s"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:272
 #, php-format
 msgid "Week %s"
-msgstr "Неделя %s"
+msgstr "Тиждень %s"
 
 #: ../lib/classes/class-cherry-breadcrumbs.php:896
 msgctxt "minute and hour archives time format"
@@ -2106,32 +2127,32 @@ msgstr "W"
 
 #: ../lib/classes/class-cherry-css-parser.php:188
 msgid "Varaible not found"
-msgstr "Переменная не найдена"
+msgstr "Змінної не виявлено"
 
 #: ../lib/classes/class-cherry-css-parser.php:231
 msgid "Function does not exist"
-msgstr "Функция не существует"
+msgstr "Функція не існує"
 
 #: ../lib/classes/class-cherry-interface-builder.php:135
 msgid "Choose Media"
-msgstr "Выбрать медиафайл"
+msgstr "Вибрати медіафайли"
 
 #: ../lib/classes/class-cherry-interface-builder.php:136
 msgid "Remove Media"
-msgstr "Удалить медиафайл"
+msgstr "Видалити медіафайли"
 
 #: ../lib/classes/class-cherry-interface-builder.php:147
 msgid "On"
-msgstr "Вкл"
+msgstr "Увімкнути"
 
 #: ../lib/classes/class-cherry-interface-builder.php:148
 msgid "Off"
-msgstr "Выкл"
+msgstr "Вимкнути"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:74
 #: ../lib/classes/class-cherry-optionsframework-admin.php:91
 msgid "Theme Cherry Framework"
-msgstr ""
+msgstr "Тема Cherry Framework"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:75
 msgid "Cherry"
@@ -2141,19 +2162,19 @@ msgstr ""
 #: ../lib/classes/class-cherry-optionsframework-admin.php:98
 #: ../lib/classes/class-cherry-statics-page.php:98
 msgid "Feel free to view detailed "
-msgstr "Более детально"
+msgstr "Ви також можете переглянути"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:84
 #: ../lib/classes/class-cherry-optionsframework-admin.php:99
 #: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Documentation"
-msgstr ""
+msgstr "документація"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:84
 #: ../lib/classes/class-cherry-optionsframework-admin.php:99
 #: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Cherry Framework 4 documentation"
-msgstr "Документация Cherry Framework 4"
+msgstr "Документація Cherry Framework 4"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:92
 msgid "Options"
@@ -2164,58 +2185,58 @@ msgstr ""
 #: ../lib/classes/class-cherry-statics-page.php:327
 #: ../lib/classes/class-cherry-statics-page.php:331
 msgid "Invalid request"
-msgstr "Неверный запрос"
+msgstr "Невірний запит"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:144
 #: ../lib/classes/class-cherry-optionsframework-admin.php:148
 #: ../lib/classes/class-cherry-statics-page.php:327
 #: ../lib/classes/class-cherry-statics-page.php:331
 msgid "Error. Invalid request"
-msgstr "Ошибка. Неверный запрос"
+msgstr "Помилка. Невірний запит"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:295
 msgid "Options have been saved"
-msgstr ""
+msgstr "Параметри успішно збережено"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:347
 msgid "Default options backup has been created"
-msgstr ""
+msgstr "Створено резервну копію параметрів за замовчуванням"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:352
 msgid "Default options backup has been overwrited"
-msgstr ""
+msgstr "Резервну копію параметрів за замовчуванням перезаписано"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:496
 msgid "Export"
-msgstr "Экспорт"
+msgstr "Експорт"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:501
 msgid "Import"
-msgstr "Импорт"
+msgstr "Імпорт"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:506
 msgid "Default options"
-msgstr ""
+msgstr "Параметри за замовчуванням"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:513
 msgid "Save options"
-msgstr ""
+msgstr "Параметри зберігання"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:519
 msgid "Restore section"
-msgstr ""
+msgstr "Розділ відновлення"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:524
 msgid "Restore options"
-msgstr ""
+msgstr "Параметри відновлення"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:536
 msgid "Select file"
-msgstr "Выберите файл"
+msgstr "Виберіть файл"
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:539
 msgid "Start import"
-msgstr "Начать импорт"
+msgstr "Розпочати імпорт"
 
 #: ../lib/classes/class-cherry-statics-page.php:91
 #: ../lib/classes/class-cherry-statics-page.php:92
@@ -2259,71 +2280,71 @@ msgstr ""
 #: ../lib/classes/class-cherry-statics.php:95
 #, php-format
 msgid "Static Area %d"
-msgstr "Статическая область %d"
+msgstr "Статична область  %d"
 
 #: ../lib/classes/class-cherry-statics.php:158
 #, php-format
 msgid "Static %d"
-msgstr "Статический %d"
+msgstr "Статичний %d"
 
 #: ../lib/functions/core.php:156
 #, php-format
 msgid "File %s doesn't exist"
-msgstr "Файл %s не существует"
+msgstr "Немає файлу %s "
 
 #: ../lib/functions/core.php:157
 msgid "Doing it wrong"
-msgstr "Неправильно"
+msgstr "Щось пішло не так"
 
 #: ../lib/functions/filters.php:530
 msgid "Menu"
-msgstr ""
+msgstr "Меню"
 
 #: ../lib/functions/media.php:44
 msgid "Post Thumbnail"
-msgstr "Миниатюра изображения записи"
+msgstr "Мініатюра публікації"
 
 #: ../lib/functions/media.php:66
 msgid "File Size"
-msgstr "Размер файла"
+msgstr "Розмір файлу"
 
 #: ../lib/functions/media.php:67
 msgid "Mime Type"
-msgstr "Время анимации"
+msgstr "Тип імітації"
 
 #: ../lib/functions/media.php:68
 msgid "Run Time"
-msgstr "Время выполнения"
+msgstr "Час запуску"
 
 #: ../lib/functions/media.php:73
 msgid "Genre"
-msgstr "Класс"
+msgstr "Жанр"
 
 #: ../lib/functions/media.php:74
 msgid "Year"
-msgstr "Год"
+msgstr "Рік"
 
 #: ../lib/functions/structure.php:195
 #, php-format
 msgid "%s Info"
-msgstr "%s Информация"
+msgstr "Інформація про %s"
 
 #: ../lib/functions/template-comments.php:64
 msgid "&larr; Older Comments"
-msgstr "&larr; Предыдущие комментарии"
+msgstr "&larr; Давніші коментарі"
 
 #: ../lib/functions/template-comments.php:65
 msgid "Newer Comments &rarr;"
-msgstr "Новые комментарии &rarr;"
+msgstr "Новіші коментарі &rarr;"
 
 #: ../lib/functions/template-general.php:87
 msgid "http://wordpress.org/"
-msgstr ""
+msgstr "http://wordpress.org/"
 
 #: ../lib/functions/template-general.php:120
 #, php-format
 msgid "%s WordPress Theme"
-msgstr "%s Темы WordPress"
+msgstr "Тема WordPress %s"
 
 #: ../lib/functions/template-media.php:135
 #, php-format
@@ -2333,7 +2354,7 @@ msgstr "%1$s &#215; %2$s"
 #: ../lib/functions/template-media.php:135
 #: ../lib/functions/template-media.php:159
 msgid "Dimensions"
-msgstr "Размеры"
+msgstr "Розміри"
 
 #: ../lib/functions/template-media.php:158
 #, php-format
@@ -2355,57 +2376,58 @@ msgstr "%s мм"
 
 #: ../lib/functions/template-media.php:178
 msgid "Focal Length"
-msgstr "Длина фокуса"
+msgstr "Фокальна відстань"
 
 #: ../lib/functions/template-media.php:184
 msgid "International Organization for Standardization"
-msgstr "Международная организация по стандартизации"
+msgstr "Міжнародна організація стандартизації"
 
 #: ../lib/functions/template-media.php:184
 msgid "ISO"
-msgstr "ИСО"
+msgstr "МОС"
 
 #: ../lib/functions/template-tags.php:411
 msgid "Related Posts"
-msgstr "Похожие записи"
+msgstr "Споріднені публікації"
 
 #: ../templates/comments.php:23
 #, php-format
 msgid "Comment"
 msgid_plural "Comments (%s)"
-msgstr[0] "(%s) Комментарий"
-msgstr[1] "(%s) Комментария "
-msgstr[2] "(%s) Комментариев"
+msgstr[0] "Коментар (%s)"
+msgstr[1] "Коментарі (%s)"
+msgstr[2] "Коментарів (%s)"
 
 #: ../templates/comments.php:40
 msgid "Comments are closed."
-msgstr "Комментарии закрыты."
+msgstr "Коментування заборонено."
 
 #: ../templates/none.php:5
 msgid "Nothing Found"
-msgstr "Ничего не найдено"
+msgstr "Нічого не виявлено"
 
 #: ../templates/none.php:12
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Готовы опубликовать Вашу первую запись? <a href=\"%1$s\">Начать</a>."
+msgstr ""
+"Готові створити свою першу публікацію? <a href=\"%1$s\">Почніть з цього</a>."
 
 #: ../templates/none.php:16
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"К сожалению, по Вашему запросу ничего не найдено. Пожалуйста, введите другие "
-"ключевые слова и попробуйте снова."
+"На жаль, немає результатів, які б відповідали вашому пошуковому запиту. Будь "
+"ласка, спробуйте "
 
 #: ../templates/none.php:21
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"Кажется, мы не можем найти то, что Вы ищите. Попробуйте воспользоваться "
-"поиском. "
+"Здається, нам так і не вдалось знайти нічого, що б відповідало вашому "
+"запиту. Можливо, пошук стане у нагоді?"
 
 #: ../content/aside.tmpl:4 ../content/attachment.tmpl:5
 #: ../content/audio.tmpl:5 ../content/chat.tmpl:5 ../content/content.tmpl:7
@@ -2413,7 +2435,7 @@ msgstr ""
 #: ../content/page.tmpl:5 ../content/quote.tmpl:4 ../content/standard.tmpl:5
 #: ../content/status.tmpl:6 ../content/video.tmpl:5
 msgid "Posted on "
-msgstr ""
+msgstr "Опубліковано "
 
 #: ../content/aside.tmpl:5 ../content/attachment.tmpl:6
 #: ../content/audio.tmpl:6 ../content/chat.tmpl:6 ../content/content.tmpl:8
@@ -2421,213 +2443,94 @@ msgstr ""
 #: ../content/page.tmpl:6 ../content/quote.tmpl:5 ../content/standard.tmpl:6
 #: ../content/status.tmpl:7 ../content/video.tmpl:6
 msgid "by "
-msgstr ""
+msgstr " "
 
 #: ../content/aside.tmpl:7 ../content/audio.tmpl:8 ../content/gallery.tmpl:8
 #: ../content/image.tmpl:8 ../content/status.tmpl:9 ../content/video.tmpl:8
 msgid "in "
-msgstr ""
+msgstr " "
 
 #: ../content/author-bio.tmpl:1
 msgid "Written by"
-msgstr ""
+msgstr "Написано"
 
 #: ../content/chat.tmpl:13 ../content/content.tmpl:16 ../content/link.tmpl:13
 #: ../content/quote.tmpl:13 ../content/standard.tmpl:14
 msgid "Posted in "
-msgstr ""
+msgstr "Опубліковано в "
 
 #~ msgid "Excerpt length"
-#~ msgstr "Длина выдержки из записи"
+#~ msgstr "Довжина скорочення"
 
 #~ msgid "Specify number of words displayed in excerpt in blog listing."
 #~ msgstr ""
-#~ "Укажите количество слов, отображаемых в выдержке в списке записей блога."
+#~ "Зазначте кількість слів, що будуть відображатися в скороченні на сторінці "
+#~ "блогу."
 
 #~ msgid "Select where you want to display pagination."
-#~ msgstr "Выберите, где вы хотите отображать пагинацию. "
+#~ msgstr "Оберіть бажане місце розташування нумерації сторінок"
+
+#~ msgid ""
+#~ "We use Cookies - By using this site or closing this you agree to our "
+#~ "Cookies policy."
+#~ msgstr ""
+#~ "Ми використовуємо Cookies - Відвіданням цього сайту або закриттям цього "
+#~ "повідомлення ви підтверджуєте згоду з нашою політикою Cookies."
+
+#~ msgid "Lightbox for images and videos"
+#~ msgstr "Лайтбокс зображень та відео"
+
+#~ msgid "Automatically adds lightbox for images and videos"
+#~ msgstr "Автоматично додає лайтбокс до зображень та відео"
 
 #~ msgid "Most Used Categories"
-#~ msgstr "Наиболее часто используемые категории "
+#~ msgstr "Найпопулярніші категорії"
 
 #~ msgid "Try looking in the monthly archives. %1$s"
-#~ msgstr "Попробуйте посмотреть архивы за месяц. %1$s"
+#~ msgstr "Спробуйте переглянути місячні архіви. %1$s"
+
+#~ msgid "Select page layout."
+#~ msgstr "Оберіть макет сторінки."
 
 #~ msgid "Set dimensions for post featured images in pixels."
-#~ msgstr "Установить размеры миниатюр записей в пикселях."
+#~ msgstr "Вкажіть розміри головних зображень публікацій, в пікселях."
+
+#~ msgid ""
+#~ "The following options are available: full - display full post content, "
+#~ "excerpt - display part of the post (you can specify excerpt length "
+#~ "below), none - hide post content."
+#~ msgstr ""
+#~ "Доступні такі варіанти: повністю - відображатиметься увесь вміст "
+#~ "публікації, скорочення - відображатиметься частина публікації (довжину "
+#~ "скорочення можна вказати нижче), не відображати - вміст публікації буде "
+#~ "приховано."
 
 #~ msgid ""
 #~ "Select if you want to merge\\minify CSS files to performance optimization."
 #~ msgstr ""
-#~ "Выберите данную опцию, если хотите объединить/уменьшить CSS файлы для "
-#~ "оптимизации производительности."
+#~ "Оберіть, чи потрібно об'єднувати/стискати файли CSS  для оптимізації "
+#~ "продуктивності."
 
 #~ msgid "Column class(.col-xs-*)"
-#~ msgstr "Класс колонки(.col-xs-*)"
+#~ msgstr "Клас стовпця (.col-xs-*)"
 
 #~ msgid "Column class(.col-sm-*)"
-#~ msgstr "Класс колонки(.col-sm-*)"
+#~ msgstr "Клас стовпця (.col-sm-*)"
 
 #~ msgid "Column class(.col-md-*)"
-#~ msgstr "Класс колонки(.col-md-*)"
+#~ msgstr "Клас стовпця(.col-md-*)"
 
 #~ msgid "Column class(.col-lg-*)"
-#~ msgstr "Класс колонки(.col-lg-*)"
+#~ msgstr "Клас стовпця(.col-lg-*)"
 
 #~ msgid "Add new static"
-#~ msgstr "Добавить новую статическую область"
+#~ msgstr "Створити новий статичний блок"
 
 #~ msgid "Cherry Options"
-#~ msgstr "Опции Cherry"
+#~ msgstr "Параметри Cherry"
 
 #~ msgid "Options saved"
-#~ msgstr "Опции сохранены"
+#~ msgstr "Параметри збережено"
 
 #~ msgid "Section %s restored"
-#~ msgstr "Секция %s восстановлена"
-
-#~ msgid ""
-#~ "Icon image that is displayed in the browser address bar and browser tab "
-#~ "heading. Max icon size: 32x32 px <br>You can also upload favicon for "
-#~ "retina displays. Max retina icon size: 152x152 px"
-#~ msgstr ""
-#~ "Иконка, отображаемая в адресной строке и вкладке браузера. Максимальный "
-#~ "размер иконки: 32x32 px <br> Вы также можете загрузить фавикон для retina-"
-#~ "экранов. Максимальный размер retina-иконки: 152x152 px "
-
-#~ msgid ""
-#~ "Enable/disable maintenance mode. Logged in administrator gets full access "
-#~ "to the site, while regular visitors will\\won't be redirected to the page "
-#~ "chosen below."
-#~ msgstr ""
-#~ "Включить/Отключить режим техобслуживания. Авторизированные администраторы "
-#~ "получат полный доступ к сайту, а обычные пользователи будут/не будут "
-#~ "перенаправлены на страницу, выбранную из списка ниже.  "
-
-#~ msgid ""
-#~ "Enable/disable responsive grid. If for any reason you want to disable "
-#~ "responsive layout for your site, you are able to turn it off here."
-#~ msgstr ""
-#~ "Включить/Отключить адаптивную сетку. Если по каким-то причинам вы хотите "
-#~ "отключить адаптивный дизайн для Вашего сайта, необходимо просто отключить "
-#~ "данную опцию."
-
-#~ msgid ""
-#~ "Select blog page layout. You can choose if you want to display sidebars "
-#~ "and how you want to display them."
-#~ msgstr ""
-#~ "Выберите тип разметки страницы блога в зависимости от того, хотите ли вы "
-#~ "отображать боковые колонки и в каком виде."
-
-#~ msgid "Width of main website container in pixels."
-#~ msgstr "Ширина главного контейнера сайта в пикселях."
-
-#~ msgid "Header grid type"
-#~ msgstr "Тип сетки хедера"
-
-#~ msgid "Content grid type"
-#~ msgstr "Тип сетки содержимого"
-
-#~ msgid "Footer grid type"
-#~ msgstr "Тип сетки футера"
-
-#~ msgid ""
-#~ "Select how you want to display post content in blog listing: full - "
-#~ "display full post content, excerpt - display part of the post (you can "
-#~ "specify excerpt length below), none - hide post content."
-#~ msgstr ""
-#~ "Выберите стиль отображения содержания записей в списке блога: полный - "
-#~ "отображать все содержимое записи, выдержка - отображать часть записи "
-#~ "(можно установить длину выдержки ниже), нет - скрыть содержание записи."
-
-#~ msgid ""
-#~ "Enable/disable comments for blog posts. Make sure comments are enabled in "
-#~ "Wordpress 'settings->discussion'. For posts that have already been "
-#~ "published you need to enable comments individually in post settings."
-#~ msgstr ""
-#~ "Включить/Отключить комментарии для записей блога. Убедитесь, что "
-#~ "комментарии также включены в главном меню Wordpress в 'Настройках -> "
-#~ "Обсуждение'. Для уже опубликованных записей комментарии необходимо "
-#~ "включить в индивидуальных настройках записей. "
-
-#~ msgid ""
-#~ "Set background for body container. You can specify background image or "
-#~ "color, set background repeat, position and attachment. "
-#~ msgstr ""
-#~ "Установить фон для контейнера страницы. Можно использовать фоновую "
-#~ "картинку или цвет, установить повторение, позицию и привязку фона. "
-
-#~ msgid ""
-#~ "Select whether you want your main logo to be an image or text. If you "
-#~ "select \"image\", you can choose logo image from the media library in the "
-#~ "next option, and if you select \"text\", your WordPress Site Title will "
-#~ "be shown instead."
-#~ msgstr ""
-#~ "Выберите тип лого: графическое или текстовое. Если выбрана опция &quot;"
-#~ "Графического лого&quot;, можно выбрать изображение из библиотеки "
-#~ "медиафайлов в следующем пункте настроек. Если выбрана опция &quot;"
-#~ "Текстовое лого&quot;, на месте лого будет отображаться заголовок сайта."
-
-#~ msgid "Footer background"
-#~ msgstr "Фон футера"
-
-#~ msgid "Footer typography"
-#~ msgstr "Шрифт футера"
-
-#~ msgid "Mulli-select box"
-#~ msgstr "Выпадающий список с множественным выбором"
-
-#~ msgid "Multiple checkboxes"
-#~ msgstr "Кнопки-флажки с множественным выбором"
-
-#~ msgid ""
-#~ "Adds checkboxes group. Lets user to select several options from the list."
-#~ msgstr ""
-#~ "Добавляет группу кнопок-флажков. Позволяет выбрать несколько опций со "
-#~ "списка."
-
-#~ msgid "Info panel"
-#~ msgstr "Информационная панель"
-
-#~ msgid "Primary Menu"
-#~ msgstr "Основное меню"
-
-#~ msgid "Secondary Menu"
-#~ msgstr "Второстепенное меню"
-
-#~ msgid "Copyright &copy; %1$s %2$s. Powered by %3$s and %4$s."
-#~ msgstr "Авторские права &copy; %1$s %2$s. При поддержке %3$s и %4$s."
-
-#~ msgid "Please select file to import"
-#~ msgstr "Выберите файл для импорта"
-
-#~ msgid ""
-#~ "Cherry Options have been imported. Page will be refreshed to apply "
-#~ "changes..."
-#~ msgstr ""
-#~ "Опции Cherry были импортированы. Страница будет перезагружена, чтобы "
-#~ "применить изменения..."
-
-#~ msgid "Create new static"
-#~ msgstr "Создать новую статическую область"
-
-#~ msgid "Auto Auto"
-#~ msgstr "Auto Auto"
-
-#~ msgid "Background Image"
-#~ msgstr "Фоновое изображение"
-
-#~ msgid "Font Size"
-#~ msgstr "Font Size (размер шрифта)"
-
-#~ msgid "Cherry page"
-#~ msgstr "Страница Cherry"
-
-#~ msgid "Save Options"
-#~ msgstr "Сохранить опции"
-
-#~ msgid "Restore Section"
-#~ msgstr "Секция восстановления"
-
-#~ msgid "Restore Options"
-#~ msgstr "Восстановить опции"
+#~ msgstr "Розділ %s відновлено"

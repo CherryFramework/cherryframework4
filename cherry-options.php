@@ -38,7 +38,7 @@ function cherry_defaults_settings() {
 	$general_options['general-favicon'] = array(
 		'type'        => 'media',
 		'title'       => __( 'Favicon image', 'cherry' ),
-		'description' => 'Icon image that is displayed in the browser address bar and browser tab heading. ',
+		'description' => __( 'Icon image that is displayed in the browser address bar and browser tab heading.', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'Max icon size: 32x32 px <br>You can also upload favicon for retina displays. Max retina icon size: 152x152 px', 'cherry' ),
@@ -55,7 +55,7 @@ function cherry_defaults_settings() {
 			__( 'Maintenance mode. <a href="%s" target="_blank">Preview</a>', 'cherry' ),
 			$maintenance_preview
 		),
-		'description' => 'Enable/disable maintenance mode. ',
+		'description' => __( 'Enable/disable maintenance mode.', 'cherry' ),
 		'hint' => array(
 			'type'    => 'text',
 			'content' => __( "Logged in administrator gets full access to the site, while regular visitors will\won't be redirected to the page chosen below.", 'cherry' )
@@ -65,7 +65,7 @@ function cherry_defaults_settings() {
 	$general_options['general-maintenance-page'] = array(
 		'type'        => 'select',
 		'title'       => __( 'Maintenance page', 'cherry' ),
-		'description' => 'Select page that regular visitors will see if maintenance mode is enabled. ',
+		'description' => __( 'Select page that regular visitors will see if maintenance mode is enabled.', 'cherry' ),
 		'value'       => '',
 		'class'       => 'width-full',
 		'options'     => $all_pages,
@@ -239,7 +239,7 @@ function cherry_defaults_settings() {
 		'description' => __( 'Select how you want to display post content in blog listing', 'cherry' ),
 		'hint' => array(
 			'type'    => 'text',
-			'content' => __( 'The following options are available:<br>`full` - display full post content, <br>`part` - display part of the post (you can specify excerpt length below), <br>`none` - hide post content.', 'cherry' ),
+			'content' => __( 'The following options are available:<br>`full` - display full post content, <br>`part` - display part of the post (you can specify content part length below), <br>`none` - hide post content.', 'cherry' ),
 		),
 		'value'       => 'part',
 		'class'       => 'width-full',
@@ -251,8 +251,8 @@ function cherry_defaults_settings() {
 	);
 	$blog_options['blog-excerpt-length'] = array(
 		'type'        => 'slider',
-		'title'       => __( 'Excerpt length', 'cherry' ),
-		'description' => __( 'Specify number of words displayed in excerpt in blog listing.', 'cherry' ),
+		'title'       => __( 'Content Part length', 'cherry' ),
+		'description' => __( 'Specify number of words displayed in blog listing content part. Will not work if post has an excerpt.', 'cherry' ),
 		'max_value'   => 500,
 		'min_value'   => 1,
 		'value'       => 55,
@@ -302,6 +302,12 @@ function cherry_defaults_settings() {
 			'aligncenter' => __( 'Center', 'cherry' ),
 		)
 	);
+	$post_single_options['blog-post-navigation'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Navigation', 'cherry' ),
+		'description' => __( 'Enable/disable a post navigation block.', 'cherry' ),
+		'value'       => 'true',
+	);
 	$post_single_options['blog-post-author-bio'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Author bio', 'cherry' ),
@@ -332,8 +338,8 @@ function cherry_defaults_settings() {
 	);
 	$post_single_options['blog-add-ligthbox'] = array(
 		'type'        => 'switcher',
-		'title'       => __( 'Lightbox for images and videos', 'cherry' ),
-		'description' => __( 'Automatically adds lightbox for images and videos', 'cherry' ),
+		'title'       => __( 'Lightbox for images in a content', 'cherry' ),
+		'description' => __( 'Automatically adds lightbox for images in a post content.', 'cherry' ),
 		'value'       => 'true',
 	);
 
@@ -550,7 +556,7 @@ function cherry_defaults_settings() {
 	$pagination_option['pagination-position'] = array(
 		'type'			=> 'select',
 		'title' 		=> __( 'Pagination position', 'cherry' ),
-		'description'	=> __( 'Select where you want to display pagination.', 'cherry' ),
+		'description'	=> __( 'Select your pagination position.', 'cherry' ),
 		'value'			=> 'after',
 		'options'		=> array(
 			'after'		=> __( 'After posts loop', 'cherry' ),
@@ -1112,7 +1118,7 @@ function cherry_defaults_settings() {
 		'type'        => 'textarea',
 		'title'       => __( 'Message', 'cherry' ),
 		'description' => __( 'Enter the cookie banner message.', 'cherry' ),
-		'value'       => __( 'We use Cookies - By using this site or closing this you agree to our Cookies policy.', 'cherry' ),
+		'value'       => __( 'We use cookies to ensure you get the best experience on our website.', 'cherry' ),
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -1406,7 +1412,7 @@ function cherry_defaults_settings() {
 		'type'			=> 'layouteditor',
 		'title'			=> __( 'title layout editor', 'cherry' ),
 		'label'			=> 'label layout editor',
-		'description'	=> 'description layout editor',
+		'description'	=> __( 'description layout editor', 'cherry' ),
 		'hint'			=>  array(
 			'type'		=> 'text',
 			'content'	=> 'Visual editor based on HTML box model. You can define element margin, padding, size, border. '

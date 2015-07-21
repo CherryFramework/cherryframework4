@@ -62,6 +62,7 @@ if( !class_exists( 'Cherry_Theme_Update' ) ) {
 
 							$prepared_themes[$theme_key]['update'] = str_replace( 'class="thickbox"', 'target ="_blank"', $theme_value['update'] );
 						}
+						remove_filter( 'wp_prepare_themes_for_js', array( $this, 'change_details_url' ) );
 					}
 				}
 			}
