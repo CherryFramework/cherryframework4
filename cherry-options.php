@@ -556,7 +556,7 @@ function cherry_defaults_settings() {
 	$pagination_option['pagination-position'] = array(
 		'type'			=> 'select',
 		'title' 		=> __( 'Pagination position', 'cherry' ),
-		'description'	=> __( 'Select where you want to display pagination.', 'cherry' ),
+		'description'	=> __( 'Select your pagination position.', 'cherry' ),
 		'value'			=> 'after',
 		'options'		=> array(
 			'after'		=> __( 'After posts loop', 'cherry' ),
@@ -1118,7 +1118,7 @@ function cherry_defaults_settings() {
 		'type'        => 'textarea',
 		'title'       => __( 'Message', 'cherry' ),
 		'description' => __( 'Enter the cookie banner message.', 'cherry' ),
-		'value'       => __( 'We use Cookies - By using this site or closing this you agree to our Cookies policy.', 'cherry' ),
+		'value'       => __( 'We use cookies to ensure you get the best experience on our website.', 'cherry' ),
 	);
 
 //////////////////////////////////////////////////////////////////////
