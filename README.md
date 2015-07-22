@@ -31,4 +31,3 @@ You can learn more about Cherry Framework 4 features from the [official document
 * UPD: `Post content` option
 * UPD: `cherry_typography_size` function
 * UPD: `magnific-popup.css`
-* DEL: Init for `owl-carousel` script
