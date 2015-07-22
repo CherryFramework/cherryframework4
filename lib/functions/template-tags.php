@@ -442,12 +442,17 @@ function cherry_get_related_posts() {
 }
 
 function cherry_get_author_bio() {
+	$author_bio_status = ( 'false' == cherry_get_option( 'blog-post-author-bio' ) || ( ! is_singular('post') ) ) ? false : true;
 
-	if ( 'false' == cherry_get_option( 'blog-post-author-bio' ) ) {
-		return;
-	}
+	/**
+	 * Filters a author bio status.
+	 *
+	 * @since 4.0.1
+	 * @var   bool
+	 */
+	$pre = apply_filters( 'cherry_pre_get_author_bio', $author_bio_status );
 
-	if ( !is_single() ) {
+	if ( false === $pre ) {
 		return;
 	}
 
