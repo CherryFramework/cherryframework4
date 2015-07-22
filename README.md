@@ -15,6 +15,7 @@ You can learn more about Cherry Framework 4 features from the [official document
 
 #### v4.0.1 ####
 
+* ADD: statics visibility feature
 * ADD: `rtl.css`
 * ADD: WPML-plugin support
 * ADD: enable/disable option for a single post navigation
