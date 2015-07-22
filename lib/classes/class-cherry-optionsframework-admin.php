@@ -61,17 +61,16 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			// add shortcode button for wp editor
 			if( class_exists( 'Cherry_Shortcodes' ) ){
-				Cherry_Shortcodes_Generator::popup();
+				//Cherry_Shortcodes_Generator::popup();
 				// Request assets.
-				wp_enqueue_media();
+				//wp_enqueue_media();
 
-				$admin_styles = apply_filters(
+				/*$admin_styles = apply_filters(
 					'cherry_shortcodes_admin_styles',
 					array( 'simple-slider', 'farbtastic', 'magnific-popup', 'font-awesome', 'cherry-shortcodes-all', 'cherry-shortcodes-generator' )
 				);
-
 				cherry_query_asset( 'css', $admin_styles );
-				cherry_query_asset( 'js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-mouse', 'simple-slider', 'farbtastic', 'magnific-popup', 'cherry-shortcodes-generator' ) );
+				cherry_query_asset( 'js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-mouse', 'simple-slider', 'farbtastic', 'magnific-popup', 'cherry-shortcodes-generator' ) );*/
 			}
 		}
 
