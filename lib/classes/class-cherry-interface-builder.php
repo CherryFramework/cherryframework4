@@ -421,8 +421,10 @@ class Cherry_Interface_Builder {
 
 				_WP_Editors::editor_js();
 				_WP_Editors::enqueue_scripts();
-			break;
 
+
+
+			break;
 		}
 
 		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $description, $hint );
