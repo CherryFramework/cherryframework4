@@ -422,8 +422,6 @@ class Cherry_Interface_Builder {
 				_WP_Editors::editor_js();
 				_WP_Editors::enqueue_scripts();
 
-
-
 			break;
 		}
 

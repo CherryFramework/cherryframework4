@@ -61,7 +61,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			// add shortcode button for wp editor
 			if( class_exists( 'Cherry_Shortcodes' ) ){
-				Cherry_Shortcodes_Generator::button();
+				Cherry_Shortcodes_Generator::popup();
 				// Request assets.
 				wp_enqueue_media();
 
