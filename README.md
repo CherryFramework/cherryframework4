@@ -1,4 +1,4 @@
-Cherry Framework 4 (Beta)
+Cherry Framework 4
 ==================================
 
 Cherry Framework 4 is a theme configuration framework for Wordpress CMS. Framework itself contain a starter parent theme, theme configuration options, post formats templates etc. Cherry Framework parent theme is based on underscores.me started theme for WordPress with enhanced functionality and extended possibilities.
@@ -15,6 +15,7 @@ You can learn more about Cherry Framework 4 features from the [official document
 
 #### v4.0.1 ####
 
+* ADD: statics visibility feature
 * ADD: `rtl.css`
 * ADD: WPML-plugin support
 * ADD: enable/disable option for a single post navigation
