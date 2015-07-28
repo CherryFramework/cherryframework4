@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: blank\n"
-"POT-Creation-Date: 2015-07-21 15:47+0300\n"
-"PO-Revision-Date: 2015-07-21 15:47+0300\n"
+"POT-Creation-Date: 2015-07-28 16:22+0300\n"
+"PO-Revision-Date: 2015-07-28 16:22+0300\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: uk_UA\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.3\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -1250,11 +1250,11 @@ msgstr "Банер Cookies"
 msgid "Interface elements (for UI developers)"
 msgstr "Елементи інтерфейсу (для UI розробників)"
 
-#: ../init/config/menus.php:21
+#: ../init/config/menus.php:22
 msgid "Primary"
 msgstr "Основний"
 
-#: ../init/config/menus.php:22
+#: ../init/config/menus.php:23
 msgid "Secondary"
 msgstr "Другорядний"
 
@@ -2149,92 +2149,92 @@ msgstr "Увімкнути"
 msgid "Off"
 msgstr "Вимкнути"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:74
-#: ../lib/classes/class-cherry-optionsframework-admin.php:91
+#: ../lib/classes/class-cherry-optionsframework-admin.php:88
+#: ../lib/classes/class-cherry-optionsframework-admin.php:105
 msgid "Theme Cherry Framework"
 msgstr "Тема Cherry Framework"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:75
+#: ../lib/classes/class-cherry-optionsframework-admin.php:89
 msgid "Cherry"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:83
-#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:97
+#: ../lib/classes/class-cherry-optionsframework-admin.php:112
 #: ../lib/classes/class-cherry-statics-page.php:98
 msgid "Feel free to view detailed "
 msgstr "Ви також можете переглянути"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:84
-#: ../lib/classes/class-cherry-optionsframework-admin.php:99
+#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:113
 #: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Documentation"
 msgstr "документація"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:84
-#: ../lib/classes/class-cherry-optionsframework-admin.php:99
+#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:113
 #: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Cherry Framework 4 documentation"
 msgstr "Документація Cherry Framework 4"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:92
+#: ../lib/classes/class-cherry-optionsframework-admin.php:106
 msgid "Options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:144
-#: ../lib/classes/class-cherry-optionsframework-admin.php:148
+#: ../lib/classes/class-cherry-optionsframework-admin.php:158
+#: ../lib/classes/class-cherry-optionsframework-admin.php:162
 #: ../lib/classes/class-cherry-statics-page.php:327
 #: ../lib/classes/class-cherry-statics-page.php:331
 msgid "Invalid request"
 msgstr "Невірний запит"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:144
-#: ../lib/classes/class-cherry-optionsframework-admin.php:148
+#: ../lib/classes/class-cherry-optionsframework-admin.php:158
+#: ../lib/classes/class-cherry-optionsframework-admin.php:162
 #: ../lib/classes/class-cherry-statics-page.php:327
 #: ../lib/classes/class-cherry-statics-page.php:331
 msgid "Error. Invalid request"
 msgstr "Помилка. Невірний запит"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:295
+#: ../lib/classes/class-cherry-optionsframework-admin.php:309
 msgid "Options have been saved"
 msgstr "Параметри успішно збережено"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:347
+#: ../lib/classes/class-cherry-optionsframework-admin.php:361
 msgid "Default options backup has been created"
 msgstr "Створено резервну копію параметрів за замовчуванням"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:352
+#: ../lib/classes/class-cherry-optionsframework-admin.php:366
 msgid "Default options backup has been overwrited"
 msgstr "Резервну копію параметрів за замовчуванням перезаписано"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:496
+#: ../lib/classes/class-cherry-optionsframework-admin.php:510
 msgid "Export"
 msgstr "Експорт"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:501
+#: ../lib/classes/class-cherry-optionsframework-admin.php:515
 msgid "Import"
 msgstr "Імпорт"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:506
+#: ../lib/classes/class-cherry-optionsframework-admin.php:520
 msgid "Default options"
 msgstr "Параметри за замовчуванням"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:513
+#: ../lib/classes/class-cherry-optionsframework-admin.php:527
 msgid "Save options"
 msgstr "Параметри зберігання"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:519
+#: ../lib/classes/class-cherry-optionsframework-admin.php:533
 msgid "Restore section"
 msgstr "Розділ відновлення"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:524
+#: ../lib/classes/class-cherry-optionsframework-admin.php:538
 msgid "Restore options"
 msgstr "Параметри відновлення"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:536
+#: ../lib/classes/class-cherry-optionsframework-admin.php:550
 msgid "Select file"
 msgstr "Виберіть файл"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:539
+#: ../lib/classes/class-cherry-optionsframework-admin.php:553
 msgid "Start import"
 msgstr "Розпочати імпорт"
 
@@ -2261,19 +2261,19 @@ msgstr ""
 msgid "Default statics backup has been overwrited"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:493
+#: ../lib/classes/class-cherry-statics-page.php:492
 msgid "Save statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:499
+#: ../lib/classes/class-cherry-statics-page.php:498
 msgid "Restore statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:504
+#: ../lib/classes/class-cherry-statics-page.php:503
 msgid "Export statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:509
+#: ../lib/classes/class-cherry-statics-page.php:508
 msgid "Default statics"
 msgstr ""
 
@@ -2429,19 +2429,19 @@ msgstr ""
 "Здається, нам так і не вдалось знайти нічого, що б відповідало вашому "
 "запиту. Можливо, пошук стане у нагоді?"
 
-#: ../content/aside.tmpl:4 ../content/attachment.tmpl:5
-#: ../content/audio.tmpl:5 ../content/chat.tmpl:5 ../content/content.tmpl:7
-#: ../content/gallery.tmpl:5 ../content/image.tmpl:5 ../content/link.tmpl:5
-#: ../content/page.tmpl:5 ../content/quote.tmpl:4 ../content/standard.tmpl:5
-#: ../content/status.tmpl:6 ../content/video.tmpl:5
+#: ../content/aside.tmpl:4 ../content/attachment.tmpl:5 ../content/audio.tmpl:5
+#: ../content/chat.tmpl:5 ../content/content.tmpl:7 ../content/gallery.tmpl:5
+#: ../content/image.tmpl:5 ../content/link.tmpl:5 ../content/page.tmpl:5
+#: ../content/quote.tmpl:4 ../content/standard.tmpl:5 ../content/status.tmpl:6
+#: ../content/video.tmpl:5
 msgid "Posted on "
 msgstr "Опубліковано "
 
-#: ../content/aside.tmpl:5 ../content/attachment.tmpl:6
-#: ../content/audio.tmpl:6 ../content/chat.tmpl:6 ../content/content.tmpl:8
-#: ../content/gallery.tmpl:6 ../content/image.tmpl:6 ../content/link.tmpl:6
-#: ../content/page.tmpl:6 ../content/quote.tmpl:5 ../content/standard.tmpl:6
-#: ../content/status.tmpl:7 ../content/video.tmpl:6
+#: ../content/aside.tmpl:5 ../content/attachment.tmpl:6 ../content/audio.tmpl:6
+#: ../content/chat.tmpl:6 ../content/content.tmpl:8 ../content/gallery.tmpl:6
+#: ../content/image.tmpl:6 ../content/link.tmpl:6 ../content/page.tmpl:6
+#: ../content/quote.tmpl:5 ../content/standard.tmpl:6 ../content/status.tmpl:7
+#: ../content/video.tmpl:6
 msgid "by "
 msgstr " "
 
