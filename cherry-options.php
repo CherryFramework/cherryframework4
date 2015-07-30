@@ -1243,7 +1243,7 @@ function cherry_defaults_settings() {
 		'toggle'		=> array(
 			'true_toggle'	=> __( 'Enabled', 'cherry' ),
 			'false_toggle'	=> __( 'Disabled', 'cherry' )
-		)
+		),
 	);
 	$demo_options['stepper-demo'] = array(
 		'type'			=> 'stepper',
@@ -1491,6 +1491,156 @@ function cherry_defaults_settings() {
 	);
 
 //////////////////////////////////////////////////////////////////////
+// Test options
+//////////////////////////////////////////////////////////////////////
+	/*$test_options = array();
+
+	$test_options['switcher-test'] = array(
+		'type'			=> 'switcher',
+		'title'			=> __('Switcher', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'description'	=> __('Analogue of the regular HTML radio buttons. ', 'cherry'),
+		'value'			=> 'true',
+		'toggle'		=> array(
+			'true_toggle'	=> __( 'Enabled', 'cherry' ),
+			'false_toggle'	=> __( 'Disabled', 'cherry' ),
+			'true_slave'	=> 'switcher-test-true-slave',
+			'false_slave'	=> 'switcher-test-false-slave'
+		),
+	);
+
+	$test_options['text-test'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'switcher-test-true-slave'
+	);
+	$test_options['textarea-test'] = array(
+		'type'			=> 'textarea',
+		'title'			=> __('Textarea input', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Multiline text input field ( 16 rows x 20 cols ).', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'switcher-test-true-slave'
+	);
+	$test_options['select-test'] = array(
+		'type'			=> 'select',
+		'title'			=> __('Select box', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with single option.', 'cherry'),
+		),
+		'value'			=> 'select-1',
+		'class'			=> '',
+		'options'		=> array(
+			'select-1'	=> 'select 1',
+			'select-2'	=> 'select 2',
+			'select-3'	=> 'select 3'
+		),
+		'master'			=> 'switcher-test-false-slave'
+	);
+	$test_options['filterselect-test'] = array(
+		'type'			=> 'select',
+		'title'			=> __('Filtered select', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with filter option.', 'cherry'),
+		),
+		'value'			=> 'select-2',
+		'class'			=> 'cherry-filter-select',
+		'options'		=> array(
+			'select-1'	=> 'select 1',
+			'select-2'	=> 'select 2',
+			'select-3'	=> 'select 3',
+			'select-4'	=> 'select 4',
+			'select-5'	=> 'select 5',
+			'select-6'	=> 'select 6',
+			'select-7'	=> 'select 2',
+			'select-8'	=> 'select 8'
+		),
+		'master'			=> 'switcher-test-false-slave'
+	);
+	$test_options['radio-image-test'] = array(
+		'type'			=> 'radio',
+		'title'			=> __('Radio buttons (image)', 'cherry'),
+		'label'			=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds image based radio buttons group. Behaves as HTML radio buttons.', 'cherry'),
+		),
+		'description'	=> __('Adds image based radio buttons group. Behaves as HTML radio buttons.', 'cherry'),
+		'value'			=> 'radio-1',
+		'class'			=> '',
+		'options'		=> array(
+			'radio-1' => array(
+				'label'		=> 'radio image 1',
+				'img_src'	=> PARENT_URI.'/screenshot.png',
+				'slave'		=> 'radio-image-test-radio-1'
+			),
+			'radio-2' => array(
+				'label'		=> 'radio image 2',
+				'img_src'	=> PARENT_URI.'/screenshot.png',
+				'slave'		=> 'radio-image-test-radio-2'
+			),
+			'radio-3' => array(
+				'label'		=> 'radio image 3',
+				'img_src'	=> PARENT_URI.'/screenshot.png',
+				'slave'		=> 'radio-image-test-radio-3'
+			),
+		),
+	);
+	$test_options['text-test-radio-1'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 1', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'radio-image-test-radio-1'
+	);
+	$test_options['text-test-radio-2'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 2', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'radio-image-test-radio-2'
+	);
+	$test_options['text-test-radio-3'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 3', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'radio-image-test-radio-3'
+	);*/
+//////////////////////////////////////////////////////////////////////
 // Sections
 //////////////////////////////////////////////////////////////////////
 
@@ -1631,6 +1781,12 @@ function cherry_defaults_settings() {
 		'priority'     => 130,
 		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
+	/*$sections_array['test-section'] = array(
+		'name'         => __( 'Test', 'cherry' ),
+		'icon'         => 'dashicons dashicons-editor-help',
+		'priority'     => 140,
+		'options-list' => apply_filters( 'cherry_test_options_list', $test_options ),
+	);*/
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
 }
