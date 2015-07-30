@@ -36,7 +36,7 @@ class cherry_moto_slider_static extends cherry_register_static {
 		$select_options = $this->get_sliders_list();
 		$options['moto-slider-alias'] = array(
 			'type'        => 'select',
-			'label'       => __( 'Select MotoSlider to show in header', 'cherry' ),
+			'label'       => __( 'Select MotoSlider to appear in header', 'cherry' ),
 			'decsription' => __( 'Select main theme slider', 'cherry' ),
 			'value'       => '',
 			'class'       => 'width-full',

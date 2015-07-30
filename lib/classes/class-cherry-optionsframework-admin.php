@@ -94,7 +94,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'position' => 62,
 				'before_content' => '
 					<div class="cherry-info-box">
-						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
+						<div class="documentation-link">' . __( 'Feel free to view details ', 'cherry' ) . '
 							<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>'
@@ -109,7 +109,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'function'		=> array( __CLASS__, 'cherry_options_page_build'),
 				'before_content' => '
 					<div class="cherry-info-box">
-						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
+						<div class="documentation-link">' . __( 'Feel free to view details ', 'cherry' ) . '
 							<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>'
@@ -363,7 +363,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 					);
 				}else{
 					$response = array(
-						'message' => __( 'Default options backup has been overwrited', 'cherry' ),
+						'message' => __( 'Default options backup has been overwritten', 'cherry' ),
 						'type' => 'info-notice'
 					);
 				}
