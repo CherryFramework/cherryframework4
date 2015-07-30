@@ -67,8 +67,9 @@ function cherry_structured_post_formats() {
  * @return string $content
  */
 function cherry_aside_infinity( $args, $post_id, $post_type ) {
+	global $post;
 
-	if ( is_singular() ) {
+	if ( ! post_type_supports( $post->post_type, 'post-formats' ) ) {
 		return $args;
 	}
 
@@ -98,6 +99,10 @@ function cherry_aside_infinity( $args, $post_id, $post_type ) {
 function cherry_get_the_link_title( $title, $post_id ) {
 
 	if ( is_admin() ) {
+		return $title;
+	}
+
+	if ( ! post_type_supports( get_post_type( $post_id ), 'post-formats' ) ) {
 		return $title;
 	}
 
@@ -139,8 +144,9 @@ function cherry_get_the_link_url( $args, $post_id, $post_type ) {
  * @return string $content
  */
 function cherry_quote_content( $content ) {
+	global $post;
 
-	if ( is_singular() ) {
+	if ( ! post_type_supports( $post->post_type, 'post-formats' ) ) {
 		return $content;
 	}
 
