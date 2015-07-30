@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cherry Framework\n"
-"POT-Creation-Date: 2015-07-21 15:47+0300\n"
-"PO-Revision-Date: 2015-07-21 15:47+0300\n"
+"POT-Creation-Date: 2015-07-28 16:21+0300\n"
+"PO-Revision-Date: 2015-07-28 16:21+0300\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.3\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1229,11 +1229,11 @@ msgstr ""
 msgid "Interface elements (for UI developers)"
 msgstr "Éléments de l'interface (pour les développeurs d'IU)"
 
-#: ../init/config/menus.php:21
+#: ../init/config/menus.php:22
 msgid "Primary"
 msgstr ""
 
-#: ../init/config/menus.php:22
+#: ../init/config/menus.php:23
 msgid "Secondary"
 msgstr ""
 
@@ -2128,92 +2128,92 @@ msgstr "On"
 msgid "Off"
 msgstr "Off"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:74
-#: ../lib/classes/class-cherry-optionsframework-admin.php:91
+#: ../lib/classes/class-cherry-optionsframework-admin.php:88
+#: ../lib/classes/class-cherry-optionsframework-admin.php:105
 msgid "Theme Cherry Framework"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:75
+#: ../lib/classes/class-cherry-optionsframework-admin.php:89
 msgid "Cherry"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:83
-#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:97
+#: ../lib/classes/class-cherry-optionsframework-admin.php:112
 #: ../lib/classes/class-cherry-statics-page.php:98
 msgid "Feel free to view detailed "
 msgstr "N'hésitez pas à aller voir "
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:84
-#: ../lib/classes/class-cherry-optionsframework-admin.php:99
+#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:113
 #: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Documentation"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:84
-#: ../lib/classes/class-cherry-optionsframework-admin.php:99
+#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:113
 #: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Cherry Framework 4 documentation"
 msgstr "Documentation de Cherry Framework 4"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:92
+#: ../lib/classes/class-cherry-optionsframework-admin.php:106
 msgid "Options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:144
-#: ../lib/classes/class-cherry-optionsframework-admin.php:148
+#: ../lib/classes/class-cherry-optionsframework-admin.php:158
+#: ../lib/classes/class-cherry-optionsframework-admin.php:162
 #: ../lib/classes/class-cherry-statics-page.php:327
 #: ../lib/classes/class-cherry-statics-page.php:331
 msgid "Invalid request"
 msgstr "Requête invalide"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:144
-#: ../lib/classes/class-cherry-optionsframework-admin.php:148
+#: ../lib/classes/class-cherry-optionsframework-admin.php:158
+#: ../lib/classes/class-cherry-optionsframework-admin.php:162
 #: ../lib/classes/class-cherry-statics-page.php:327
 #: ../lib/classes/class-cherry-statics-page.php:331
 msgid "Error. Invalid request"
 msgstr "Erreur. Requête invalide"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:295
+#: ../lib/classes/class-cherry-optionsframework-admin.php:309
 msgid "Options have been saved"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:347
+#: ../lib/classes/class-cherry-optionsframework-admin.php:361
 msgid "Default options backup has been created"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:352
+#: ../lib/classes/class-cherry-optionsframework-admin.php:366
 msgid "Default options backup has been overwrited"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:496
+#: ../lib/classes/class-cherry-optionsframework-admin.php:510
 msgid "Export"
 msgstr "Exporter"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:501
+#: ../lib/classes/class-cherry-optionsframework-admin.php:515
 msgid "Import"
 msgstr "Importer"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:506
+#: ../lib/classes/class-cherry-optionsframework-admin.php:520
 msgid "Default options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:513
+#: ../lib/classes/class-cherry-optionsframework-admin.php:527
 msgid "Save options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:519
+#: ../lib/classes/class-cherry-optionsframework-admin.php:533
 msgid "Restore section"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:524
+#: ../lib/classes/class-cherry-optionsframework-admin.php:538
 msgid "Restore options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:536
+#: ../lib/classes/class-cherry-optionsframework-admin.php:550
 msgid "Select file"
 msgstr "Sélectionner le fichier"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:539
+#: ../lib/classes/class-cherry-optionsframework-admin.php:553
 msgid "Start import"
 msgstr "Lancer l'importation"
 
@@ -2240,19 +2240,19 @@ msgstr ""
 msgid "Default statics backup has been overwrited"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:493
+#: ../lib/classes/class-cherry-statics-page.php:492
 msgid "Save statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:499
+#: ../lib/classes/class-cherry-statics-page.php:498
 msgid "Restore statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:504
+#: ../lib/classes/class-cherry-statics-page.php:503
 msgid "Export statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:509
+#: ../lib/classes/class-cherry-statics-page.php:508
 msgid "Default statics"
 msgstr ""
 
@@ -2408,19 +2408,19 @@ msgstr ""
 "Il semble que nous ne pouvons pas trouver ce que vous cherchez. Peut-être la "
 "recherche peut aider."
 
-#: ../content/aside.tmpl:4 ../content/attachment.tmpl:5
-#: ../content/audio.tmpl:5 ../content/chat.tmpl:5 ../content/content.tmpl:7
-#: ../content/gallery.tmpl:5 ../content/image.tmpl:5 ../content/link.tmpl:5
-#: ../content/page.tmpl:5 ../content/quote.tmpl:4 ../content/standard.tmpl:5
-#: ../content/status.tmpl:6 ../content/video.tmpl:5
+#: ../content/aside.tmpl:4 ../content/attachment.tmpl:5 ../content/audio.tmpl:5
+#: ../content/chat.tmpl:5 ../content/content.tmpl:7 ../content/gallery.tmpl:5
+#: ../content/image.tmpl:5 ../content/link.tmpl:5 ../content/page.tmpl:5
+#: ../content/quote.tmpl:4 ../content/standard.tmpl:5 ../content/status.tmpl:6
+#: ../content/video.tmpl:5
 msgid "Posted on "
 msgstr ""
 
-#: ../content/aside.tmpl:5 ../content/attachment.tmpl:6
-#: ../content/audio.tmpl:6 ../content/chat.tmpl:6 ../content/content.tmpl:8
-#: ../content/gallery.tmpl:6 ../content/image.tmpl:6 ../content/link.tmpl:6
-#: ../content/page.tmpl:6 ../content/quote.tmpl:5 ../content/standard.tmpl:6
-#: ../content/status.tmpl:7 ../content/video.tmpl:6
+#: ../content/aside.tmpl:5 ../content/attachment.tmpl:6 ../content/audio.tmpl:6
+#: ../content/chat.tmpl:6 ../content/content.tmpl:8 ../content/gallery.tmpl:6
+#: ../content/image.tmpl:6 ../content/link.tmpl:6 ../content/page.tmpl:6
+#: ../content/quote.tmpl:5 ../content/standard.tmpl:6 ../content/status.tmpl:7
+#: ../content/video.tmpl:6
 msgid "by "
 msgstr ""
 

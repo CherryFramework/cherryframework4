@@ -651,6 +651,10 @@ function cherry_gallery_shortcode( $result, $attr ) {
 	 */
 	$result = apply_filters( 'cherry_pre_get_gallery_shortcode', false, $attr );
 
+	if ( false !== $result ) {
+		return $result;
+	}
+
 	$post = get_post();
 
 	$atts = shortcode_atts( array(
@@ -661,10 +665,6 @@ function cherry_gallery_shortcode( $result, $attr ) {
 		'exclude'    => '',
 		'link'       => '',
 	), $attr, 'gallery' );
-
-	if ( false !== $result ) {
-		return $result;
-	}
 
 	$id = intval( $atts['id'] );
 
