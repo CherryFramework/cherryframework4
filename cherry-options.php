@@ -1,15 +1,12 @@
 <?php
 
 function cherry_defaults_settings() {
-
-	global $cherry_registered_statics;
-
 	$all_pages     = array();
 	$all_pages_obj = get_pages( 'sort_column=post_parent,menu_order' );
 	$all_pages[''] = __( 'Select a page:', 'cherry' );
 
 	foreach ( $all_pages_obj as $page ) {
-		$all_pages[$page->ID] = $page->post_title;
+		$all_pages[ $page->ID ] = $page->post_title;
 	}
 
 	$maintenance_preview = esc_url(
@@ -28,7 +25,7 @@ function cherry_defaults_settings() {
 		'#static-area-header-top' => __( 'Header top static area', 'cherry' ),
 	) );
 
-	$default_selector = array_keys($sticky_selectors);
+	$default_selector = array_keys( $sticky_selectors );
 	$default_selector = $default_selector[0];
 
 	//////////////////////////////////////////////////////////////////////
@@ -83,17 +80,6 @@ function cherry_defaults_settings() {
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
 		'value'        => '',
-	);
-	///////////////////////////////////////////////////////////////////
-	// Static Area Editor
-	///////////////////////////////////////////////////////////////////
-	$static_area_editor_options = array();
-	$static_area_editor_options['static-area-editor'] = array(
-		'type'        => 'static_area_editor',
-		'title'       => __( 'Static areas', 'cherry' ),
-		'description' => __( "Use static area editor to arrange static blocks. You can drag-n-drop static blocks, remove them or add new ones using 'Create new static' field below.", 'cherry' ),
-		'value'       => $cherry_registered_statics,
-		'options'     => $cherry_registered_statics,
 	);
 
 	//////////////////////////////////////////////////////////////////////
@@ -1502,12 +1488,6 @@ function cherry_defaults_settings() {
 		'priority'     => 10,
 		'options-list' => apply_filters( 'cherry_general_options_list', $general_options ),
 	);
-	/*$sections_array['static-area-editor-section'] = array(
-		'name'         => __( 'Static areas', 'cherry' ),
-		'icon'         => 'dashicons dashicons-menu',
-		'priority'     => 20,
-		'options-list' => apply_filters( 'cherry_static_area_editor_list', $static_area_editor_options ),
-	);*/
 	$sections_array['grid-section'] = array(
 		'name'         => __( 'Grid', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-appearance',
