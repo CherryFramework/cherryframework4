@@ -102,13 +102,7 @@ function cherry_get_the_link_title( $title, $post_id ) {
 		return $title;
 	}
 
-	$post_type = get_post_type( $post_id );
-
-	if ( 'post' !== get_post_type( $post_id ) ) {
-		return $title;
-	}
-
-	if ( ! has_post_format( 'link', $post_id ) ) {
+	if ( 'link' !== get_post_format( $post_id ) ) {
 		return $title;
 	}
 
