@@ -102,7 +102,9 @@ function cherry_get_the_link_title( $title, $post_id ) {
 		return $title;
 	}
 
-	if ( ! post_type_supports( get_post_type( $post_id ), 'post-formats' ) ) {
+	$post_type = get_post_type( $post_id );
+
+	if ( 'post' !== get_post_type( $post_id ) ) {
 		return $title;
 	}
 
@@ -110,7 +112,7 @@ function cherry_get_the_link_title( $title, $post_id ) {
 		return $title;
 	}
 
-	return $title . '<span class="format-link-marker">&rarr;</span>';
+	return $title . '<span class="format-link-marker"></span>';
 }
 
 /**
