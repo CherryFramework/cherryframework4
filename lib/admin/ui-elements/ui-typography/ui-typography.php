@@ -95,7 +95,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 							$html .= '<label for="' . $this->settings['id'] . '-family">' . __( 'Font Family', 'cherry' ) . '</label> ';
 							$html .= '<select id="' . $this->settings['id'] . '-family" class="cherry-ui-select cherry-font-family" name="' . $this->settings['name'] . '[family]">';
 								if( $standart_fonts_array && !empty( $standart_fonts_array ) && is_array( $standart_fonts_array ) ){
-									$html .= '<optgroup label="' . __( 'Standart Webfonts', 'cherry' ) . '" data-font-type="standart">';
+									$html .= '<optgroup label="' . __( 'Standard Webfonts', 'cherry' ) . '" data-font-type="standart">';
 										foreach ($standart_fonts_array as $font_key => $font_value) {
 											$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
 											$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;

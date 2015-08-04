@@ -1,15 +1,12 @@
 <?php
 
 function cherry_defaults_settings() {
-
-	global $cherry_registered_statics;
-
 	$all_pages     = array();
 	$all_pages_obj = get_pages( 'sort_column=post_parent,menu_order' );
 	$all_pages[''] = __( 'Select a page:', 'cherry' );
 
 	foreach ( $all_pages_obj as $page ) {
-		$all_pages[$page->ID] = $page->post_title;
+		$all_pages[ $page->ID ] = $page->post_title;
 	}
 
 	$maintenance_preview = esc_url(
@@ -28,7 +25,7 @@ function cherry_defaults_settings() {
 		'#static-area-header-top' => __( 'Header top static area', 'cherry' ),
 	) );
 
-	$default_selector = array_keys($sticky_selectors);
+	$default_selector = array_keys( $sticky_selectors );
 	$default_selector = $default_selector[0];
 
 	//////////////////////////////////////////////////////////////////////
@@ -83,17 +80,6 @@ function cherry_defaults_settings() {
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
 		'value'        => '',
-	);
-	///////////////////////////////////////////////////////////////////
-	// Static Area Editor
-	///////////////////////////////////////////////////////////////////
-	$static_area_editor_options = array();
-	$static_area_editor_options['static-area-editor'] = array(
-		'type'        => 'static_area_editor',
-		'title'       => __( 'Static areas', 'cherry' ),
-		'description' => __( "Use static area editor to arrange static blocks. You can drag-n-drop static blocks, remove them or add new ones using 'Create new static' field below.", 'cherry' ),
-		'value'       => $cherry_registered_statics,
-		'options'     => $cherry_registered_statics,
 	);
 
 	//////////////////////////////////////////////////////////////////////
@@ -305,7 +291,7 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-post-navigation'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Navigation', 'cherry' ),
-		'description' => __( 'Enable/disable a post navigation block.', 'cherry' ),
+		'description' => __( 'Enable/disable post navigation block.', 'cherry' ),
 		'value'       => 'true',
 	);
 	$post_single_options['blog-post-author-bio'] = array(
@@ -323,7 +309,7 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-comment-status'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Allow comments', 'cherry' ),
-		'description' => __( 'EnaEnable/disable comments for blog posts.', 'cherry' ),
+		'description' => __( 'EEnable/disable comments for blog posts.', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'Make sure comments are enabled in Wordpress \'settings->discussion\'. For posts that have already been published you need to enable comments individually in post settings.', 'cherry' ),
@@ -787,7 +773,7 @@ function cherry_defaults_settings() {
 	$page_options['page-comments-status'] = array(
 		'type'			=> 'switcher',
 		'title'			=> __( 'Page comments', 'cherry' ),
-		'description'	=> __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
+		'description'	=> __( "Enable/disable comments for pages by default. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
 		'value'			=> 'false',
 	);
 
@@ -815,7 +801,7 @@ function cherry_defaults_settings() {
 	$footer_options['typography-footer'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Typography', 'cherry' ),
-		'description'	=> __( 'Typography settings for footer texts.', 'cherry' ),
+		'description'	=> __( 'Typography settings for footer text.', 'cherry' ),
 		'value' => array(
 			'fonttype'		=> 'web',
 			'size'			=> '14',
@@ -901,7 +887,7 @@ function cherry_defaults_settings() {
 	$footer_options['footer-text'] = array(
 		'type'				=> 'textarea',
 		'title'				=> __( 'Footer Info text', 'cherry' ),
-		'description'		=> __( 'Set custom text for Footer info static', 'cherry' ),
+		'description'		=> __( 'Set custom text for Footer static info.', 'cherry' ),
 		'value'				=> '',
 		'multi-upload'		=> true,
 	);
@@ -1290,7 +1276,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Radio buttons', 'cherry'),
 		'label'			=> '',
 		'description'	=> '',
-		'description'	=> __('Adds radio buttons group. Lets user to select one option from the list.', 'cherry'),
+		'description'	=> __('Adds radio buttons group. Lets user select one option from the list.', 'cherry'),
 		'value'			=> 'radio-2',
 		'class'			=> '',
 		'options'		=> array(
@@ -1350,7 +1336,7 @@ function cherry_defaults_settings() {
 		'description'	=> '',
 		'hint'			=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Lets user to add content from Wordpress media library. ', 'cherry'),
+			'content'	=> __('Allows user to add content from Wordpress media library.', 'cherry'),
 		),
 		'value'				=> '',
 		'multi_upload'		=> true,
@@ -1363,7 +1349,7 @@ function cherry_defaults_settings() {
 		'decsription'	=> '',
 		'hint'			=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Lets user to add background image from the media library and define its background settings like background repeat, position, attachment, origin.', 'cherry'),
+			'content'	=> __('Allows user to add background image from the media library and define its background settings like background repeat, position, attachment, origin.', 'cherry'),
 		),
 		'multi_upload'		=> true,
 		'library_type'		=> 'image',
@@ -1715,12 +1701,6 @@ function cherry_defaults_settings() {
 		'priority'     => 10,
 		'options-list' => apply_filters( 'cherry_general_options_list', $general_options ),
 	);
-	/*$sections_array['static-area-editor-section'] = array(
-		'name'         => __( 'Static areas', 'cherry' ),
-		'icon'         => 'dashicons dashicons-menu',
-		'priority'     => 20,
-		'options-list' => apply_filters( 'cherry_static_area_editor_list', $static_area_editor_options ),
-	);*/
 	$sections_array['grid-section'] = array(
 		'name'         => __( 'Grid', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-appearance',

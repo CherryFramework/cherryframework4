@@ -379,7 +379,7 @@ function cherry_get_related_posts() {
 		return;
 	}
 
-	if ( ! is_single() ) {
+	if ( ! is_singular( 'post' ) ) {
 		return;
 	}
 

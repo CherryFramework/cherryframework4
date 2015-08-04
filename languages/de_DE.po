@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cherry Framework\n"
-"POT-Creation-Date: 2015-07-28 16:21+0300\n"
-"PO-Revision-Date: 2015-07-28 16:21+0300\n"
+"POT-Creation-Date: 2015-07-30 15:38+0300\n"
+"PO-Revision-Date: 2015-07-30 15:38+0300\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: de_DE\n"
@@ -318,7 +318,7 @@ msgid "Navigation"
 msgstr "Navigation"
 
 #: ../cherry-options.php:308
-msgid "Enable/disable a post navigation block."
+msgid "Enable/disable post navigation block."
 msgstr ""
 
 #: ../cherry-options.php:313
@@ -350,7 +350,7 @@ msgid "Allow comments"
 msgstr "Kommentare erlauben"
 
 #: ../cherry-options.php:326
-msgid "EnaEnable/disable comments for blog posts."
+msgid "EEnable/disable comments for blog posts."
 msgstr ""
 
 #: ../cherry-options.php:329
@@ -786,12 +786,9 @@ msgstr " Seite \"Kommentare\" "
 
 #: ../cherry-options.php:790
 msgid ""
-"Enable/disable comments by default for pages. For pages that have already "
+"Enable/disable comments for pages by default. For pages that have already "
 "been published you need to enable comments individually in page settings."
 msgstr ""
-"Kommentare standardmäßig für Seiten aktivieren/deaktivieren. Für Seiten, die "
-"bereits veröffentlicht wurden, müssen Sie die Kommentare einzeln in "
-"Seiteneinstellungen aktivieren."
 
 #: ../cherry-options.php:801
 msgid ""
@@ -808,8 +805,8 @@ msgid "Typography"
 msgstr "Typografie"
 
 #: ../cherry-options.php:818
-msgid "Typography settings for footer texts."
-msgstr "Typografie-Einstellungen für Footer Text."
+msgid "Typography settings for footer text."
+msgstr ""
 
 #: ../cherry-options.php:834
 msgid ""
@@ -834,7 +831,7 @@ msgid "Footer Info text"
 msgstr ""
 
 #: ../cherry-options.php:904
-msgid "Set custom text for Footer info static"
+msgid "Set custom text for Footer static info."
 msgstr ""
 
 #: ../cherry-options.php:916
@@ -1073,10 +1070,8 @@ msgid "Radio buttons"
 msgstr " Optionsschaltflächen"
 
 #: ../cherry-options.php:1290
-msgid "Adds radio buttons group. Lets user to select one option from the list."
+msgid "Adds radio buttons group. Lets user select one option from the list."
 msgstr ""
-"Fügt Optionsschaltflächen-Gruppe hinzu. Erlaubt dem Benutzer eine Option aus "
-"der Liste zu wählen."
 
 #: ../cherry-options.php:1307
 msgid "Radio buttons (image)"
@@ -1101,9 +1096,8 @@ msgid "Media library element"
 msgstr "Mediathek Element"
 
 #: ../cherry-options.php:1349
-msgid "Lets user to add content from Wordpress media library. "
+msgid "Allows user to add content from Wordpress media library."
 msgstr ""
-"Ermöglicht dem Benutzer die Inhalte von Wordpress Mediathek hinzuzufügen."
 
 #: ../cherry-options.php:1357
 msgid "Background image"
@@ -1111,12 +1105,9 @@ msgstr "Hintergrundbild"
 
 #: ../cherry-options.php:1362
 msgid ""
-"Lets user to add background image from the media library and define its "
+"Allows user to add background image from the media library and define its "
 "background settings like background repeat, position, attachment, origin."
 msgstr ""
-"Ermöglicht dem Benutzer Hintergrundbilder aus der Medienbibliothek "
-"hinzuzufügen und die Hintergrundeinstellungen wie die Background-Position, -"
-"Attachment, -Repeat festzulegen."
 
 #: ../cherry-options.php:1385
 msgid ""
@@ -1337,8 +1328,8 @@ msgid "Header Menu"
 msgstr "Header Menü"
 
 #: ../init/statics/moto-slider.php:39
-msgid "Select MotoSlider to show in header"
-msgstr "MotoSlider wählen, um ihn im Header zu zeigen"
+msgid "Select MotoSlider to appear in header"
+msgstr ""
 
 #: ../init/statics/moto-slider.php:40
 msgid "Select main theme slider"
@@ -1357,8 +1348,7 @@ msgid "Search Form"
 msgstr "Suchformular"
 
 #: ../lib/admin/class-cherry-admin.php:57
-#: ../lib/admin/class-cherry-admin.php:74
-msgid "Please, select import file"
+msgid "Please, select a file to import"
 msgstr ""
 
 #: ../lib/admin/class-cherry-admin.php:58
@@ -1380,6 +1370,10 @@ msgstr "Alle Optionen sind wiederhergestellt"
 
 #: ../lib/admin/class-cherry-admin.php:62
 msgid "options loaded."
+msgstr ""
+
+#: ../lib/admin/class-cherry-admin.php:74
+msgid "Please, select import file"
 msgstr ""
 
 #: ../lib/admin/class-cherry-admin.php:76
@@ -1825,7 +1819,8 @@ msgid "Category"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:192
-msgid "Loggedin"
+#: ../lib/classes/class-cherry-statics-page.php:240
+msgid "Logged in"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:194
@@ -1897,12 +1892,10 @@ msgid "All category pages"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:554
-#: ../lib/classes/class-cherry-statics-page.php:240
 msgid "Logged In"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:555
-#: ../lib/classes/class-cherry-statics-page.php:241
 msgid "Logged Out"
 msgstr ""
 
@@ -1998,8 +1991,8 @@ msgid "Font Family"
 msgstr "Schriftfamilie"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:98
-msgid "Standart Webfonts"
-msgstr "Standard Webfonts"
+msgid "Standard Webfonts"
+msgstr ""
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:124
 msgid "Google Webfonts"
@@ -2112,8 +2105,8 @@ msgid "W"
 msgstr "W"
 
 #: ../lib/classes/class-cherry-css-parser.php:188
-msgid "Varaible not found"
-msgstr "Variable nicht gefunden"
+msgid "Variable not found"
+msgstr ""
 
 #: ../lib/classes/class-cherry-css-parser.php:231
 msgid "Function does not exist"
@@ -2147,8 +2140,8 @@ msgstr ""
 #: ../lib/classes/class-cherry-optionsframework-admin.php:97
 #: ../lib/classes/class-cherry-optionsframework-admin.php:112
 #: ../lib/classes/class-cherry-statics-page.php:98
-msgid "Feel free to view detailed "
-msgstr "Detaillierter ansehen"
+msgid "Feel free to view details "
+msgstr ""
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:98
 #: ../lib/classes/class-cherry-optionsframework-admin.php:113
@@ -2189,7 +2182,7 @@ msgid "Default options backup has been created"
 msgstr ""
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:366
-msgid "Default options backup has been overwrited"
+msgid "Default options backup has been overwritten"
 msgstr ""
 
 #: ../lib/classes/class-cherry-optionsframework-admin.php:510
@@ -2244,7 +2237,11 @@ msgid "Default statics backup has been created"
 msgstr ""
 
 #: ../lib/classes/class-cherry-statics-page.php:189
-msgid "Default statics backup has been overwrited"
+msgid "Default statics backup has been overwritten"
+msgstr ""
+
+#: ../lib/classes/class-cherry-statics-page.php:241
+msgid "Logged out"
 msgstr ""
 
 #: ../lib/classes/class-cherry-statics-page.php:492
@@ -2444,6 +2441,47 @@ msgstr ""
 #: ../content/quote.tmpl:13 ../content/standard.tmpl:14
 msgid "Posted in "
 msgstr ""
+
+#~ msgid ""
+#~ "Enable/disable comments by default for pages. For pages that have already "
+#~ "been published you need to enable comments individually in page settings."
+#~ msgstr ""
+#~ "Kommentare standardmäßig für Seiten aktivieren/deaktivieren. Für Seiten, "
+#~ "die bereits veröffentlicht wurden, müssen Sie die Kommentare einzeln in "
+#~ "Seiteneinstellungen aktivieren."
+
+#~ msgid "Typography settings for footer texts."
+#~ msgstr "Typografie-Einstellungen für Footer Text."
+
+#~ msgid ""
+#~ "Adds radio buttons group. Lets user to select one option from the list."
+#~ msgstr ""
+#~ "Fügt Optionsschaltflächen-Gruppe hinzu. Erlaubt dem Benutzer eine Option "
+#~ "aus der Liste zu wählen."
+
+#~ msgid "Lets user to add content from Wordpress media library. "
+#~ msgstr ""
+#~ "Ermöglicht dem Benutzer die Inhalte von Wordpress Mediathek hinzuzufügen."
+
+#~ msgid ""
+#~ "Lets user to add background image from the media library and define its "
+#~ "background settings like background repeat, position, attachment, origin."
+#~ msgstr ""
+#~ "Ermöglicht dem Benutzer Hintergrundbilder aus der Medienbibliothek "
+#~ "hinzuzufügen und die Hintergrundeinstellungen wie die Background-"
+#~ "Position, -Attachment, -Repeat festzulegen."
+
+#~ msgid "Select MotoSlider to show in header"
+#~ msgstr "MotoSlider wählen, um ihn im Header zu zeigen"
+
+#~ msgid "Standart Webfonts"
+#~ msgstr "Standard Webfonts"
+
+#~ msgid "Varaible not found"
+#~ msgstr "Variable nicht gefunden"
+
+#~ msgid "Feel free to view detailed "
+#~ msgstr "Detaillierter ansehen"
 
 #~ msgid "Excerpt length"
 #~ msgstr "Die Länge der Kurzfassung"

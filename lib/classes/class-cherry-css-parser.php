@@ -185,7 +185,7 @@ if ( ! class_exists( 'cherry_css_parser' ) ) {
 		 */
 		function replace_vars( $matches ) {
 
-			$not_found = sprintf( '/* %s */', __( 'Varaible not found', 'cherry' ) );
+			$not_found = sprintf( '/* %s */', __( 'Variable not found', 'cherry' ) );
 
 			// check if variable name found
 			if ( empty( $matches[2] ) ) {

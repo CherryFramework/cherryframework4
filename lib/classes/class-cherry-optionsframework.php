@@ -52,8 +52,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 */
 		public function create_themename_option() {
 			// This gets the theme name from the stylesheet (lowercase and without spaces)
-			global $cherry_registered_statics;
-
 			$themename = get_option( 'stylesheet' );
 			$this->themename = preg_replace("/\W/", "_", strtolower($themename) );
 			$cherry_options_settings = get_option('cherry-options');
