@@ -301,7 +301,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
 				global $cherry_options_framework;
 				$post_array = $_POST['post_array'];
-
+				//var_dump($post_array);
 				$options = $cherry_options_framework->create_updated_options( $post_array );
 
 				$cherry_options_framework->save_options( $options );
@@ -313,6 +313,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				do_action( 'cherry-options-updated' );
 
 				wp_send_json( $response );
+				//exit;
 			}
 		}
 
@@ -523,18 +524,18 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 							</div>
 						</div>
 						<div id="wrap-cherry-save-options">
-							<a href="#" id="cherry-save-options" class="button button-secondary_">
+							<a href="javascript:void(0)" id="cherry-save-options" class="button button-secondary_">
 								<?php echo __( 'Save options', 'cherry' ); ?>
 								<div class="cherry-spinner-wordpress spinner-wordpress-type-2"><span class="cherry-inner-circle"></span></div>
 							</a>
 						</div>
 						<div id="wrap-cherry-restore-section">
-							<a href="#" id="cherry-restore-section" class="button button-primary_">
+							<a href="javascript:void(0)" id="cherry-restore-section" class="button button-primary_">
 								<?php echo __( 'Restore section', 'cherry' ); ?>
 							</a>
 						</div>
 						<div id="wrap-cherry-restore-options">
-							<a href="#" id="cherry-restore-options" class="button button-primary_">
+							<a href="javascript:void(0)" id="cherry-restore-options" class="button button-primary_">
 								<?php echo __( 'Restore options', 'cherry' ); ?>
 							</a>
 						</div>

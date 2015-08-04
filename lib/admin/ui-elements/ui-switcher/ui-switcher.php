@@ -26,6 +26,8 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 			'toggle'			=> array(
 				'true_toggle'	=> 'On',
 				'false_toggle'	=> 'Off',
+				'true_slave'	=> '',
+				'false_slave'	=> ''
 			),
 			'class'				=> '',
 		);
@@ -47,11 +49,14 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 		 * @since  4.0.0
 		 */
 		public function render() {
+			$data_attr_line = ( !empty( $this->settings['toggle']['true_slave'] ) ) ? 'data-true-slave="' . $this->settings['toggle']['true_slave'] . '"' : '';
+			$data_attr_line .= ( !empty( $this->settings['toggle']['false_slave'] ) ) ? ' data-false-slave="' . $this->settings['toggle']['false_slave'] . '"' : '';
+
 			$html = '';
 			$html .= '<div class="cherry-switcher-wrap ' . $this->settings['class'] . '">';
 				$html .= '<label class="sw-enable"><span>' . $this->settings['toggle']['true_toggle'] . '</span></label>';
 				$html .= '<label class="sw-disable"><span>' . $this->settings['toggle']['false_toggle']  . '</span></label>';
-				$html .= '<input id="' . $this->settings['id'] . '" type="hidden" class="cherry-input-switcher" name="' . $this->settings['name'] . '" ' . checked( 'true', $this->settings['value'], false ) . ' value="' . esc_html( $this->settings['value'] ) . '" >';
+				$html .= '<input id="' . $this->settings['id'] . '" type="hidden" class="cherry-input-switcher" name="' . $this->settings['name'] . '" ' . checked( 'true', $this->settings['value'], false ) . ' value="' . esc_html( $this->settings['value'] ) . '" ' . $data_attr_line . '>';
 			$html .= '</div>';
 
 			return $html;
