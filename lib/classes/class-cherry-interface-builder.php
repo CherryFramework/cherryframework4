@@ -443,6 +443,9 @@ class Cherry_Interface_Builder {
 
 		$description = $description ? $this->add_description( $description ) : '';
 		$class       = 'cherry-section-' . $this->options['pattern'] . ' ' . $class;
+		$master_class = preg_replace('/\s*,\s*/', ' ', $master);
+		$class .= !empty( $master_class ) && isset( $master_class ) ? $master_class : '';
+
 		$data_master = ( !empty( $master ) ) ? 'data-master="' . $master . '"' : '';
 		$output      = '<div id="wrap-' . $id . '" class="' . $class . '" ' . $data_master . '>';
 		$output      .= $title ? $this->add_title( $title ) : '';

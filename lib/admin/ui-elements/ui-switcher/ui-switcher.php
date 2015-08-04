@@ -51,6 +51,7 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 		public function render() {
 			$data_attr_line = ( !empty( $this->settings['toggle']['true_slave'] ) ) ? 'data-true-slave="' . $this->settings['toggle']['true_slave'] . '"' : '';
 			$data_attr_line .= ( !empty( $this->settings['toggle']['false_slave'] ) ) ? ' data-false-slave="' . $this->settings['toggle']['false_slave'] . '"' : '';
+
 			$html = '';
 			$html .= '<div class="cherry-switcher-wrap ' . $this->settings['class'] . '">';
 				$html .= '<label class="sw-enable"><span>' . $this->settings['toggle']['true_toggle'] . '</span></label>';

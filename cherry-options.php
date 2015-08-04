@@ -1242,7 +1242,9 @@ function cherry_defaults_settings() {
 		'value'			=> 'true',
 		'toggle'		=> array(
 			'true_toggle'	=> __( 'Enabled', 'cherry' ),
-			'false_toggle'	=> __( 'Disabled', 'cherry' )
+			'false_toggle'	=> __( 'Disabled', 'cherry' ),
+			'true_slave'	=> 'switcher-custom-toogle-demo-true-slave',
+			'false_slave'	=> 'switcher-custom-toogle-demo-false-slave'
 		),
 	);
 	$demo_options['stepper-demo'] = array(
@@ -1254,7 +1256,8 @@ function cherry_defaults_settings() {
 		'value'			=> '0',
 		'step_value'	=> '1',
 		'max_value'		=> '50',
-		'min_value'		=> '-50'
+		'min_value'		=> '-50',
+		'master'		=> 'switcher-custom-toogle-demo-true-slave'
 	);
 	$demo_options['slider-demo'] = array(
 		'type'			=> 'slider',
@@ -1316,7 +1319,8 @@ function cherry_defaults_settings() {
 		'options'		=> array(
 			'radio-1' => array(
 				'label' => 'radio image 1',
-				'img_src' => PARENT_URI.'/screenshot.png'
+				'img_src' => PARENT_URI.'/screenshot.png',
+				'slave'	=> 'radio-image-demo-checkbox-2'
 			),
 			'radio-2' => array(
 				'label' => 'radio image 2',
@@ -1493,7 +1497,7 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 // Test options
 //////////////////////////////////////////////////////////////////////
-	/*$test_options = array();
+	$test_options = array();
 
 	$test_options['switcher-test'] = array(
 		'type'			=> 'switcher',
@@ -1510,7 +1514,7 @@ function cherry_defaults_settings() {
 		),
 	);
 
-	$test_options['text-test'] = array(
+	/*$test_options['text-test'] = array(
 		'type'			=> 'text',
 		'title'			=> __('Text input', 'cherry'),
 		'label'			=> '',
@@ -1550,7 +1554,7 @@ function cherry_defaults_settings() {
 			'select-2'	=> 'select 2',
 			'select-3'	=> 'select 3'
 		),
-		'master'			=> 'switcher-test-false-slave'
+		'master'			=> 'switcher-test-true-slave'
 	);
 	$test_options['filterselect-test'] = array(
 		'type'			=> 'select',
@@ -1573,8 +1577,8 @@ function cherry_defaults_settings() {
 			'select-7'	=> 'select 2',
 			'select-8'	=> 'select 8'
 		),
-		'master'			=> 'switcher-test-false-slave'
-	);
+		'master'			=> 'switcher-test-true-slave'
+	);*/
 	$test_options['radio-image-test'] = array(
 		'type'			=> 'radio',
 		'title'			=> __('Radio buttons (image)', 'cherry'),
@@ -1603,6 +1607,7 @@ function cherry_defaults_settings() {
 				'slave'		=> 'radio-image-test-radio-3'
 			),
 		),
+		'master'			=> 'switcher-test-true-slave'
 	);
 	$test_options['text-test-radio-1'] = array(
 		'type'			=> 'text',
@@ -1614,7 +1619,7 @@ function cherry_defaults_settings() {
 			'content'	=> __('Regular single line text input field.', 'cherry'),
 		),
 		'value'			=> 'value',
-		'master'			=> 'radio-image-test-radio-1'
+		'master'			=> 'switcher-test-true-slave, radio-image-test-radio-1'
 	);
 	$test_options['text-test-radio-2'] = array(
 		'type'			=> 'text',
@@ -1626,7 +1631,7 @@ function cherry_defaults_settings() {
 			'content'	=> __('Regular single line text input field.', 'cherry'),
 		),
 		'value'			=> 'value',
-		'master'			=> 'radio-image-test-radio-2'
+		'master'			=> 'switcher-test-true-slave, radio-image-test-radio-2'
 	);
 	$test_options['text-test-radio-3'] = array(
 		'type'			=> 'text',
@@ -1638,7 +1643,65 @@ function cherry_defaults_settings() {
 			'content'	=> __('Regular single line text input field.', 'cherry'),
 		),
 		'value'			=> 'value',
-		'master'			=> 'radio-image-test-radio-3'
+		'master'			=> 'switcher-test-true-slave, radio-image-test-radio-3'
+	);
+
+	/*$test_options['checkbox-text'] = array(
+		'type'			=> 'checkbox',
+		'title'			=> __('Checkbox', 'cherry'),
+		'label'			=> __('Checkbox label', 'cherry'),
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular HTML checkbox.', 'cherry'),
+		),
+		'value'			=> array( 'checkbox-1' ),
+		'options'		=> array(
+			'checkbox-1'	=> 'checkbox value 1',
+			'checkbox-2'	=> array(
+				'label'		=> 'checkbox value 2',
+				'slave'		=> 'checkbox-text-checkbox-2'
+			),
+			'checkbox-3'	=> array(
+				'label'		=> 'checkbox value 3',
+				'slave'		=> 'checkbox-text-checkbox-3'
+			),
+		),
+	);
+	$test_options['text-test-checkbox-1'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 1', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+	);
+	$test_options['text-test-checkbox-2'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 2', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'checkbox-text-checkbox-2'
+	);
+	$test_options['text-test-checkbox-3'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 3', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'checkbox-text-checkbox-3'
 	);*/
 //////////////////////////////////////////////////////////////////////
 // Sections
@@ -1781,12 +1844,6 @@ function cherry_defaults_settings() {
 		'priority'     => 130,
 		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
-	/*$sections_array['test-section'] = array(
-		'name'         => __( 'Test', 'cherry' ),
-		'icon'         => 'dashicons dashicons-editor-help',
-		'priority'     => 140,
-		'options-list' => apply_filters( 'cherry_test_options_list', $test_options ),
-	);*/
 
 	return apply_filters( 'cherry_defaults_settings', $sections_array );
 }
