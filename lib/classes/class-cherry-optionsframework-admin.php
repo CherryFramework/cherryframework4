@@ -94,7 +94,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'position' => 62,
 				'before_content' => '
 					<div class="cherry-info-box">
-						<div class="documentation-link">' . __( 'Feel free to view details ', 'cherry' ) . '
+						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
 							<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>'
@@ -109,7 +109,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'function'		=> array( __CLASS__, 'cherry_options_page_build'),
 				'before_content' => '
 					<div class="cherry-info-box">
-						<div class="documentation-link">' . __( 'Feel free to view details ', 'cherry' ) . '
+						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
 							<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>'
@@ -280,6 +280,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function get_options_section() {
 			if ( !empty($_POST) && array_key_exists('active_section', $_POST) ) {
 				global $cherry_options_framework;
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
 				$html = '';
 				$active_section = $_POST['active_section'];
 
@@ -300,6 +301,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function cherry_save_options(){
 			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
 				global $cherry_options_framework;
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
 				$post_array = $_POST['post_array'];
 				//var_dump($post_array);
 				$options = $cherry_options_framework->create_updated_options( $post_array );
@@ -325,6 +327,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function cherry_restore_section(){
 			if ( !empty($_POST) && array_key_exists('current_section', $_POST) ) {
 				global $cherry_options_framework;
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
 				$current_section = $_POST['current_section'];
 				$cherry_options_framework -> restore_section_settings_array( $current_section );
 
@@ -341,7 +344,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		function cherry_restore_options(){
 			global $cherry_options_framework;
-			$cherry_options_framework -> restore_default_settings_array();
+			$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+			$cherry_options_framework->restore_default_settings_array();
 
 			do_action( 'cherry-options-restored' );
 		}
@@ -354,6 +358,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function default_options_backup(){
 			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
 				global $cherry_options_framework;
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+
 				$post_array = $_POST['post_array'];
 
 				$default_backup_options = get_option( $cherry_options_framework->themename . '_defaults' );
@@ -364,7 +370,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 					);
 				}else{
 					$response = array(
-						'message' => __( 'Default options backup has been overwritten', 'cherry' ),
+						'message' => __( 'Default options backup has been overwrited', 'cherry' ),
 						'type' => 'info-notice'
 					);
 				}
@@ -479,6 +485,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			global $cherry_options_framework;
 
 				$section_index = 0;
+
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
 
 				$cherry_options = $cherry_options_framework->get_current_settings();
 
