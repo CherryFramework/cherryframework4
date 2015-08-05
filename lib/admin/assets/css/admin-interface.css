@@ -229,7 +229,7 @@
 }
 
 .spinner-wordpress-type-3 {
-  background-color: #f62e46;
+  background-color: #fff;
   width: 25px;
   height: 25px;
   border-radius: 30px;
@@ -238,7 +238,7 @@
   right: 6px;
 }
 .spinner-wordpress-type-3.cherry-spinner-wordpress .cherry-inner-circle {
-  background-color: #fff;
+  background-color: #f62e46;
   width: 8px;
   height: 8px;
   top: 4px;
