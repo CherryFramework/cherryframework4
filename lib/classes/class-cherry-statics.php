@@ -372,7 +372,7 @@ class Cherry_Statics {
 			// Prepare a custom CSS class.
 			$extra_class = str_replace( '_', '-', $id );
 			$extra_class = sanitize_html_class( 'static-' . $extra_class );
-			$extra_class = ( empty( $options['class'] ) ) ? $extra_class : $extra_class . ' ' . sanitize_html_class( $options['class'] );
+			$extra_class = ( empty( $options['class'] ) ) ? $extra_class : $extra_class . ' ' . esc_attr( $options['class'] );
 			$extra_class = ( false == $options['collapse'] ) ? $extra_class : 'collapse-col ' . $extra_class;
 			$extra_class = ( empty( $cols_class ) ) ? $extra_class : $cols_class . ' ' . $extra_class;
 
