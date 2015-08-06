@@ -189,7 +189,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 			$major_conditions_array = array(
 				''			=> __( '-- Select --', 'cherry' ),
 				'category'	=> __( 'Category', 'cherry' ),
-				'loggedin'	=> __( 'Loggedin', 'cherry' ),
+				'loggedin'	=> __( 'Logged in', 'cherry' ),
 				'author'	=> __( 'Author', 'cherry' ),
 				'role'		=> __( 'Role', 'cherry' ),
 				'tag'		=> __( 'Tag', 'cherry' ),

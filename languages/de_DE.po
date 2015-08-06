@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Cherry Framework\n"
-"POT-Creation-Date: 2015-07-21 15:46+0300\n"
-"PO-Revision-Date: 2015-07-21 15:46+0300\n"
+"POT-Creation-Date: 2015-07-30 15:38+0300\n"
+"PO-Revision-Date: 2015-07-30 15:38+0300\n"
 "Last-Translator: \n"
 "Language-Team: Cherry Team <support@cherryframework.com>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.2\n"
+"X-Generator: Poedit 1.8.3\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -318,7 +318,7 @@ msgid "Navigation"
 msgstr "Navigation"
 
 #: ../cherry-options.php:308
-msgid "Enable/disable a post navigation block."
+msgid "Enable/disable post navigation block."
 msgstr ""
 
 #: ../cherry-options.php:313
@@ -350,7 +350,7 @@ msgid "Allow comments"
 msgstr "Kommentare erlauben"
 
 #: ../cherry-options.php:326
-msgid "EnaEnable/disable comments for blog posts."
+msgid "EEnable/disable comments for blog posts."
 msgstr ""
 
 #: ../cherry-options.php:329
@@ -786,12 +786,9 @@ msgstr " Seite \"Kommentare\" "
 
 #: ../cherry-options.php:790
 msgid ""
-"Enable/disable comments by default for pages. For pages that have already "
+"Enable/disable comments for pages by default. For pages that have already "
 "been published you need to enable comments individually in page settings."
 msgstr ""
-"Kommentare standardmäßig für Seiten aktivieren/deaktivieren. Für Seiten, die "
-"bereits veröffentlicht wurden, müssen Sie die Kommentare einzeln in "
-"Seiteneinstellungen aktivieren."
 
 #: ../cherry-options.php:801
 msgid ""
@@ -808,8 +805,8 @@ msgid "Typography"
 msgstr "Typografie"
 
 #: ../cherry-options.php:818
-msgid "Typography settings for footer texts."
-msgstr "Typografie-Einstellungen für Footer Text."
+msgid "Typography settings for footer text."
+msgstr ""
 
 #: ../cherry-options.php:834
 msgid ""
@@ -834,7 +831,7 @@ msgid "Footer Info text"
 msgstr ""
 
 #: ../cherry-options.php:904
-msgid "Set custom text for Footer info static"
+msgid "Set custom text for Footer static info."
 msgstr ""
 
 #: ../cherry-options.php:916
@@ -1073,10 +1070,8 @@ msgid "Radio buttons"
 msgstr " Optionsschaltflächen"
 
 #: ../cherry-options.php:1290
-msgid "Adds radio buttons group. Lets user to select one option from the list."
+msgid "Adds radio buttons group. Lets user select one option from the list."
 msgstr ""
-"Fügt Optionsschaltflächen-Gruppe hinzu. Erlaubt dem Benutzer eine Option aus "
-"der Liste zu wählen."
 
 #: ../cherry-options.php:1307
 msgid "Radio buttons (image)"
@@ -1101,9 +1096,8 @@ msgid "Media library element"
 msgstr "Mediathek Element"
 
 #: ../cherry-options.php:1349
-msgid "Lets user to add content from Wordpress media library. "
+msgid "Allows user to add content from Wordpress media library."
 msgstr ""
-"Ermöglicht dem Benutzer die Inhalte von Wordpress Mediathek hinzuzufügen."
 
 #: ../cherry-options.php:1357
 msgid "Background image"
@@ -1111,12 +1105,9 @@ msgstr "Hintergrundbild"
 
 #: ../cherry-options.php:1362
 msgid ""
-"Lets user to add background image from the media library and define its "
+"Allows user to add background image from the media library and define its "
 "background settings like background repeat, position, attachment, origin."
 msgstr ""
-"Ermöglicht dem Benutzer Hintergrundbilder aus der Medienbibliothek "
-"hinzuzufügen und die Hintergrundeinstellungen wie die Background-Position, -"
-"Attachment, -Repeat festzulegen."
 
 #: ../cherry-options.php:1385
 msgid ""
@@ -1231,11 +1222,11 @@ msgstr ""
 msgid "Interface elements (for UI developers)"
 msgstr "Elemente der Benutzeroberfläche (Für UI Entwickler)"
 
-#: ../init/config/menus.php:21
+#: ../init/config/menus.php:22
 msgid "Primary"
 msgstr ""
 
-#: ../init/config/menus.php:22
+#: ../init/config/menus.php:23
 msgid "Secondary"
 msgstr ""
 
@@ -1337,8 +1328,8 @@ msgid "Header Menu"
 msgstr "Header Menü"
 
 #: ../init/statics/moto-slider.php:39
-msgid "Select MotoSlider to show in header"
-msgstr "MotoSlider wählen, um ihn im Header zu zeigen"
+msgid "Select MotoSlider to appear in header"
+msgstr ""
 
 #: ../init/statics/moto-slider.php:40
 msgid "Select main theme slider"
@@ -1357,8 +1348,7 @@ msgid "Search Form"
 msgstr "Suchformular"
 
 #: ../lib/admin/class-cherry-admin.php:57
-#: ../lib/admin/class-cherry-admin.php:74
-msgid "Please, select import file"
+msgid "Please, select a file to import"
 msgstr ""
 
 #: ../lib/admin/class-cherry-admin.php:58
@@ -1380,6 +1370,10 @@ msgstr "Alle Optionen sind wiederhergestellt"
 
 #: ../lib/admin/class-cherry-admin.php:62
 msgid "options loaded."
+msgstr ""
+
+#: ../lib/admin/class-cherry-admin.php:74
+msgid "Please, select import file"
 msgstr ""
 
 #: ../lib/admin/class-cherry-admin.php:76
@@ -1825,7 +1819,8 @@ msgid "Category"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:192
-msgid "Loggedin"
+#: ../lib/classes/class-cherry-statics-page.php:240
+msgid "Logged in"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:194
@@ -1897,12 +1892,10 @@ msgid "All category pages"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:554
-#: ../lib/classes/class-cherry-statics-page.php:240
 msgid "Logged In"
 msgstr ""
 
 #: ../lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:555
-#: ../lib/classes/class-cherry-statics-page.php:241
 msgid "Logged Out"
 msgstr ""
 
@@ -1998,8 +1991,8 @@ msgid "Font Family"
 msgstr "Schriftfamilie"
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:98
-msgid "Standart Webfonts"
-msgstr "Standard Webfonts"
+msgid "Standard Webfonts"
+msgstr ""
 
 #: ../lib/admin/ui-elements/ui-typography/ui-typography.php:124
 msgid "Google Webfonts"
@@ -2112,8 +2105,8 @@ msgid "W"
 msgstr "W"
 
 #: ../lib/classes/class-cherry-css-parser.php:188
-msgid "Varaible not found"
-msgstr "Variable nicht gefunden"
+msgid "Variable not found"
+msgstr ""
 
 #: ../lib/classes/class-cherry-css-parser.php:231
 msgid "Function does not exist"
@@ -2135,92 +2128,92 @@ msgstr "Ein"
 msgid "Off"
 msgstr "Aus"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:74
-#: ../lib/classes/class-cherry-optionsframework-admin.php:91
+#: ../lib/classes/class-cherry-optionsframework-admin.php:88
+#: ../lib/classes/class-cherry-optionsframework-admin.php:105
 msgid "Theme Cherry Framework"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:75
+#: ../lib/classes/class-cherry-optionsframework-admin.php:89
 msgid "Cherry"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:83
-#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:97
+#: ../lib/classes/class-cherry-optionsframework-admin.php:112
 #: ../lib/classes/class-cherry-statics-page.php:98
-msgid "Feel free to view detailed "
-msgstr "Detaillierter ansehen"
+msgid "Feel free to view details "
+msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:84
-#: ../lib/classes/class-cherry-optionsframework-admin.php:99
+#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:113
 #: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Documentation"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:84
-#: ../lib/classes/class-cherry-optionsframework-admin.php:99
+#: ../lib/classes/class-cherry-optionsframework-admin.php:98
+#: ../lib/classes/class-cherry-optionsframework-admin.php:113
 #: ../lib/classes/class-cherry-statics-page.php:99
 msgid "Cherry Framework 4 documentation"
 msgstr "Cherry Framework 4 Dokumentation"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:92
+#: ../lib/classes/class-cherry-optionsframework-admin.php:106
 msgid "Options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:144
-#: ../lib/classes/class-cherry-optionsframework-admin.php:148
+#: ../lib/classes/class-cherry-optionsframework-admin.php:158
+#: ../lib/classes/class-cherry-optionsframework-admin.php:162
 #: ../lib/classes/class-cherry-statics-page.php:327
 #: ../lib/classes/class-cherry-statics-page.php:331
 msgid "Invalid request"
 msgstr "Ungültige Anfrage"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:144
-#: ../lib/classes/class-cherry-optionsframework-admin.php:148
+#: ../lib/classes/class-cherry-optionsframework-admin.php:158
+#: ../lib/classes/class-cherry-optionsframework-admin.php:162
 #: ../lib/classes/class-cherry-statics-page.php:327
 #: ../lib/classes/class-cherry-statics-page.php:331
 msgid "Error. Invalid request"
 msgstr "Fehler. Ungültige Anfrage"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:295
+#: ../lib/classes/class-cherry-optionsframework-admin.php:309
 msgid "Options have been saved"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:347
+#: ../lib/classes/class-cherry-optionsframework-admin.php:361
 msgid "Default options backup has been created"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:352
-msgid "Default options backup has been overwrited"
+#: ../lib/classes/class-cherry-optionsframework-admin.php:366
+msgid "Default options backup has been overwritten"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:496
+#: ../lib/classes/class-cherry-optionsframework-admin.php:510
 msgid "Export"
 msgstr "Exportieren"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:501
+#: ../lib/classes/class-cherry-optionsframework-admin.php:515
 msgid "Import"
 msgstr "Importieren"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:506
+#: ../lib/classes/class-cherry-optionsframework-admin.php:520
 msgid "Default options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:513
+#: ../lib/classes/class-cherry-optionsframework-admin.php:527
 msgid "Save options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:519
+#: ../lib/classes/class-cherry-optionsframework-admin.php:533
 msgid "Restore section"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:524
+#: ../lib/classes/class-cherry-optionsframework-admin.php:538
 msgid "Restore options"
 msgstr ""
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:536
+#: ../lib/classes/class-cherry-optionsframework-admin.php:550
 msgid "Select file"
 msgstr "Datei auswählen"
 
-#: ../lib/classes/class-cherry-optionsframework-admin.php:539
+#: ../lib/classes/class-cherry-optionsframework-admin.php:553
 msgid "Start import"
 msgstr "Import starten"
 
@@ -2244,22 +2237,26 @@ msgid "Default statics backup has been created"
 msgstr ""
 
 #: ../lib/classes/class-cherry-statics-page.php:189
-msgid "Default statics backup has been overwrited"
+msgid "Default statics backup has been overwritten"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:493
+#: ../lib/classes/class-cherry-statics-page.php:241
+msgid "Logged out"
+msgstr ""
+
+#: ../lib/classes/class-cherry-statics-page.php:492
 msgid "Save statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:499
+#: ../lib/classes/class-cherry-statics-page.php:498
 msgid "Restore statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:504
+#: ../lib/classes/class-cherry-statics-page.php:503
 msgid "Export statics"
 msgstr ""
 
-#: ../lib/classes/class-cherry-statics-page.php:509
+#: ../lib/classes/class-cherry-statics-page.php:508
 msgid "Default statics"
 msgstr ""
 
@@ -2415,19 +2412,19 @@ msgstr ""
 "Wir konnten leider nichts finden, wonach Sie gesucht haben. Vielleicht kann "
 "Ihnen die Suchmaschine weiterhelfen. "
 
-#: ../content/aside.tmpl:4 ../content/attachment.tmpl:5
-#: ../content/audio.tmpl:5 ../content/chat.tmpl:5 ../content/content.tmpl:7
-#: ../content/gallery.tmpl:5 ../content/image.tmpl:5 ../content/link.tmpl:5
-#: ../content/page.tmpl:5 ../content/quote.tmpl:4 ../content/standard.tmpl:5
-#: ../content/status.tmpl:6 ../content/video.tmpl:5
+#: ../content/aside.tmpl:4 ../content/attachment.tmpl:5 ../content/audio.tmpl:5
+#: ../content/chat.tmpl:5 ../content/content.tmpl:7 ../content/gallery.tmpl:5
+#: ../content/image.tmpl:5 ../content/link.tmpl:5 ../content/page.tmpl:5
+#: ../content/quote.tmpl:4 ../content/standard.tmpl:5 ../content/status.tmpl:6
+#: ../content/video.tmpl:5
 msgid "Posted on "
 msgstr ""
 
-#: ../content/aside.tmpl:5 ../content/attachment.tmpl:6
-#: ../content/audio.tmpl:6 ../content/chat.tmpl:6 ../content/content.tmpl:8
-#: ../content/gallery.tmpl:6 ../content/image.tmpl:6 ../content/link.tmpl:6
-#: ../content/page.tmpl:6 ../content/quote.tmpl:5 ../content/standard.tmpl:6
-#: ../content/status.tmpl:7 ../content/video.tmpl:6
+#: ../content/aside.tmpl:5 ../content/attachment.tmpl:6 ../content/audio.tmpl:6
+#: ../content/chat.tmpl:6 ../content/content.tmpl:8 ../content/gallery.tmpl:6
+#: ../content/image.tmpl:6 ../content/link.tmpl:6 ../content/page.tmpl:6
+#: ../content/quote.tmpl:5 ../content/standard.tmpl:6 ../content/status.tmpl:7
+#: ../content/video.tmpl:6
 msgid "by "
 msgstr ""
 
@@ -2444,6 +2441,47 @@ msgstr ""
 #: ../content/quote.tmpl:13 ../content/standard.tmpl:14
 msgid "Posted in "
 msgstr ""
+
+#~ msgid ""
+#~ "Enable/disable comments by default for pages. For pages that have already "
+#~ "been published you need to enable comments individually in page settings."
+#~ msgstr ""
+#~ "Kommentare standardmäßig für Seiten aktivieren/deaktivieren. Für Seiten, "
+#~ "die bereits veröffentlicht wurden, müssen Sie die Kommentare einzeln in "
+#~ "Seiteneinstellungen aktivieren."
+
+#~ msgid "Typography settings for footer texts."
+#~ msgstr "Typografie-Einstellungen für Footer Text."
+
+#~ msgid ""
+#~ "Adds radio buttons group. Lets user to select one option from the list."
+#~ msgstr ""
+#~ "Fügt Optionsschaltflächen-Gruppe hinzu. Erlaubt dem Benutzer eine Option "
+#~ "aus der Liste zu wählen."
+
+#~ msgid "Lets user to add content from Wordpress media library. "
+#~ msgstr ""
+#~ "Ermöglicht dem Benutzer die Inhalte von Wordpress Mediathek hinzuzufügen."
+
+#~ msgid ""
+#~ "Lets user to add background image from the media library and define its "
+#~ "background settings like background repeat, position, attachment, origin."
+#~ msgstr ""
+#~ "Ermöglicht dem Benutzer Hintergrundbilder aus der Medienbibliothek "
+#~ "hinzuzufügen und die Hintergrundeinstellungen wie die Background-"
+#~ "Position, -Attachment, -Repeat festzulegen."
+
+#~ msgid "Select MotoSlider to show in header"
+#~ msgstr "MotoSlider wählen, um ihn im Header zu zeigen"
+
+#~ msgid "Standart Webfonts"
+#~ msgstr "Standard Webfonts"
+
+#~ msgid "Varaible not found"
+#~ msgstr "Variable nicht gefunden"
+
+#~ msgid "Feel free to view detailed "
+#~ msgstr "Detaillierter ansehen"
 
 #~ msgid "Excerpt length"
 #~ msgstr "Die Länge der Kurzfassung"

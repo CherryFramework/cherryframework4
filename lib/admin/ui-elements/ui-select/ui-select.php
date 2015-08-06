@@ -80,12 +80,10 @@ if ( ! class_exists( 'UI_Select' ) ) {
 
 			$html .= '<select id="' . $this->settings['id']  . '" class="cherry-ui-select ' . $this->settings['class'] . '" name="' . $name . '" size="' . $this->settings['size'] . '" ' . $multi_state. '>';
 			if( $this->settings['options'] && !empty( $this->settings['options'] ) && is_array( $this->settings['options'] ) ){
-
 				foreach ( $this->settings['options'] as $option => $option_value) {
 					if ( !is_array( $this->settings['value'] ) ) {
 						$this->settings['value'] = array( $this->settings['value'] );
 					}
-
 					if( false === strpos($option, 'optgroup') ){
 						$selected_state = '';
 						if( $this->settings['value'] && !empty( $this->settings['value'] ) ){

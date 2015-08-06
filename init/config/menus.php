@@ -18,6 +18,8 @@ if ( !defined( 'WPINC' ) ) {
 // Register custom menus.
 add_action( 'init', 'cherry_register_menus' );
 function cherry_register_menus() {
-	register_nav_menu( 'primary',   __( 'Primary', 'cherry' ) );
-	register_nav_menu( 'secondary', __( 'Secondary', 'cherry' ) );
+	register_nav_menus( array(
+		'primary'   => __( 'Primary', 'cherry' ),
+		'secondary' => __( 'Secondary', 'cherry' ),
+	) );
 }

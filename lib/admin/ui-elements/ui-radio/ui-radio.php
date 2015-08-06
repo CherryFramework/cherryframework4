@@ -26,14 +26,21 @@ if ( ! class_exists( 'UI_Radio' ) ) {
 			'options'			=> array(
 				'radio-1' => array(
 					'label' => 'Radio 1',
+					'img_src'	=> '',
+					'slave'		=> ''
 				),
 				'radio-2' => array(
 					'label' => 'Radio 2',
+					'img_src'	=> '',
+					'slave'		=> ''
 				),
 				'radio-3' => array(
 					'label' => 'Radio 3',
+					'img_src'	=> '',
+					'slave'		=> ''
 				),
 			),
+			'slave'				=> array(),
 			'class'				=> '',
 		);
 
@@ -66,10 +73,11 @@ if ( ! class_exists( 'UI_Radio' ) ) {
 						$checked = $option == $this->settings['value'] ? ' checked' : '';
 						$radio_id = $this->settings['id'] . '-' . $option;
 						$img = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? '<img src="' . esc_url( $option_value['img_src'] ) . '" alt="' . esc_html( $option_value['label'] ) . '"><span class="check"><i class="dashicons dashicons-yes"></i></span>' : '<span class="cherry-radio-item"><i></i></span>';
+						$data_slave = isset( $option_value['slave'] ) && !empty( $option_value['slave'] ) ? ' data-slave="' . $option_value['slave'] . '"' : '';
 						$class_box = isset( $option_value['img_src'] ) && !empty( $option_value['img_src'] ) ? ' cherry-radio-img' . $checked : ' cherry-radio-item' . $checked;
 
 						$html .= '<div class="' . $class_box . '">';
-						$html .= '<input type="radio" class="cherry-radio-input ' . sanitize_html_class( $this->settings['class'] ) . '" id="' . esc_attr( $radio_id ) . '" name="' . esc_attr( $this->settings['name'] ) . '" ' . checked( $option, $this->settings['value'], false ) . ' value="' . esc_attr( $option ) . '">';
+						$html .= '<input type="radio" id="' . esc_attr( $radio_id ) . '" class="cherry-radio-input ' . sanitize_html_class( $this->settings['class'] ) . '" name="' . esc_attr( $this->settings['name'] ) . '" ' . checked( $option, $this->settings['value'], false ) . ' value="' . esc_attr( $option ) . '"' . $data_slave . '>';
 
 							$label_content = $img . $option_value['label'];
 						$html .= '<label for="' . $radio_id . '">' . $label_content . '</label> ';

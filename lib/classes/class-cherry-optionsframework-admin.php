@@ -280,6 +280,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function get_options_section() {
 			if ( !empty($_POST) && array_key_exists('active_section', $_POST) ) {
 				global $cherry_options_framework;
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
 				$html = '';
 				$active_section = $_POST['active_section'];
 
@@ -300,8 +301,9 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function cherry_save_options(){
 			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
 				global $cherry_options_framework;
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
 				$post_array = $_POST['post_array'];
-
+				//var_dump($post_array);
 				$options = $cherry_options_framework->create_updated_options( $post_array );
 
 				$cherry_options_framework->save_options( $options );
@@ -313,6 +315,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				do_action( 'cherry-options-updated' );
 
 				wp_send_json( $response );
+				//exit;
 			}
 		}
 
@@ -324,6 +327,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function cherry_restore_section(){
 			if ( !empty($_POST) && array_key_exists('current_section', $_POST) ) {
 				global $cherry_options_framework;
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
 				$current_section = $_POST['current_section'];
 				$cherry_options_framework -> restore_section_settings_array( $current_section );
 
@@ -340,7 +344,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		function cherry_restore_options(){
 			global $cherry_options_framework;
-			$cherry_options_framework -> restore_default_settings_array();
+			$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+			$cherry_options_framework->restore_default_settings_array();
 
 			do_action( 'cherry-options-restored' );
 		}
@@ -353,6 +358,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function default_options_backup(){
 			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
 				global $cherry_options_framework;
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+
 				$post_array = $_POST['post_array'];
 
 				$default_backup_options = get_option( $cherry_options_framework->themename . '_defaults' );
@@ -479,6 +486,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 				$section_index = 0;
 
+				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+
 				$cherry_options = $cherry_options_framework->get_current_settings();
 
 				$cherry_options = self::child_priority_sorting($cherry_options);
@@ -523,18 +532,18 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 							</div>
 						</div>
 						<div id="wrap-cherry-save-options">
-							<a href="#" id="cherry-save-options" class="button button-secondary_">
+							<a href="javascript:void(0)" id="cherry-save-options" class="button button-secondary_">
 								<?php echo __( 'Save options', 'cherry' ); ?>
 								<div class="cherry-spinner-wordpress spinner-wordpress-type-2"><span class="cherry-inner-circle"></span></div>
 							</a>
 						</div>
 						<div id="wrap-cherry-restore-section">
-							<a href="#" id="cherry-restore-section" class="button button-primary_">
+							<a href="javascript:void(0)" id="cherry-restore-section" class="button button-primary_">
 								<?php echo __( 'Restore section', 'cherry' ); ?>
 							</a>
 						</div>
 						<div id="wrap-cherry-restore-options">
-							<a href="#" id="cherry-restore-options" class="button button-primary_">
+							<a href="javascript:void(0)" id="cherry-restore-options" class="button button-primary_">
 								<?php echo __( 'Restore options', 'cherry' ); ?>
 							</a>
 						</div>
