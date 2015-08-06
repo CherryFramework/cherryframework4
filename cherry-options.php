@@ -309,7 +309,7 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-comment-status'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Allow comments', 'cherry' ),
-		'description' => __( 'EEnable/disable comments for blog posts.', 'cherry' ),
+		'description' => __( 'Enable/disable comments for blog posts.', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'Make sure comments are enabled in Wordpress \'settings->discussion\'. For posts that have already been published you need to enable comments individually in post settings.', 'cherry' ),
