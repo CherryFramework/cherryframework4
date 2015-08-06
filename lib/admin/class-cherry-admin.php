@@ -60,6 +60,8 @@ class Cherry_Admin {
 				'section_restore' => __( 'section restored.', 'cherry' ),
 				'options_restore' => __( 'All options restored', 'cherry' ),
 				'section_loaded'  => __( 'options loaded.', 'cherry' ),
+				'confirm_button'  => __( 'Yes', 'cherry' ),
+				'cancel_button'   => __( 'No', 'cherry' ),
 				'redirect_url'    => menu_page_url( 'options', false ),
 			);
 

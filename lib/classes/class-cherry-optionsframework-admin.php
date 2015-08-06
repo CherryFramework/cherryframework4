@@ -280,7 +280,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function get_options_section() {
 			if ( !empty($_POST) && array_key_exists('active_section', $_POST) ) {
 				global $cherry_options_framework;
-				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+
 				$html = '';
 				$active_section = $_POST['active_section'];
 
@@ -301,7 +301,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function cherry_save_options(){
 			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
 				global $cherry_options_framework;
-				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+
 				$post_array = $_POST['post_array'];
 				//var_dump($post_array);
 				$options = $cherry_options_framework->create_updated_options( $post_array );
@@ -327,7 +327,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function cherry_restore_section(){
 			if ( !empty($_POST) && array_key_exists('current_section', $_POST) ) {
 				global $cherry_options_framework;
-				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+
 				$current_section = $_POST['current_section'];
 				$cherry_options_framework -> restore_section_settings_array( $current_section );
 
@@ -344,7 +344,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 */
 		function cherry_restore_options(){
 			global $cherry_options_framework;
-			$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
+
 			$cherry_options_framework->restore_default_settings_array();
 
 			do_action( 'cherry-options-restored' );
@@ -358,7 +358,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		function default_options_backup(){
 			if ( !empty($_POST) && array_key_exists('post_array', $_POST) ) {
 				global $cherry_options_framework;
-				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
 
 				$post_array = $_POST['post_array'];
 
@@ -486,8 +485,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 				$section_index = 0;
 
-				$cherry_options_framework->loaded_settings = $cherry_options_framework->load_settings();
-
 				$cherry_options = $cherry_options_framework->get_current_settings();
 
 				$cherry_options = self::child_priority_sorting($cherry_options);
@@ -564,6 +561,14 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 						<span class="spinner"></span>
 					</div>
+				</div>
+				<div id="restore-options-confirm" class="confirm-message" title="<?php echo __('Are you sure?', 'cherry' ) ?>">
+					<span class="dashicons dashicons-info"></span>
+					<p><?php echo __('Current options will be reset to the defaults, page will be refreshed.', 'cherry' ) ?></p>
+				</div>
+				<div id="restore-section-confirm" class="confirm-message" title="<?php echo __('Are you sure?', 'cherry' ) ?>">
+					<span class="dashicons dashicons-info"></span>
+					<p><?php echo __('Active section will be reset to the defaults, page will be refreshed.', 'cherry' ) ?></p>
 				</div>
 				<?php
 		}

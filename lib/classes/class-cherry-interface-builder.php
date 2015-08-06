@@ -642,6 +642,7 @@ class Cherry_Interface_Builder {
 
 			wp_enqueue_script( 'editor');
 			wp_enqueue_script( 'interface-builder' );
+			wp_enqueue_script( 'jquery-ui-dialog' );
 	}
 
 	/**
