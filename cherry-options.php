@@ -1,15 +1,12 @@
 <?php
 
 function cherry_defaults_settings() {
-
-	global $cherry_registered_statics;
-
 	$all_pages     = array();
 	$all_pages_obj = get_pages( 'sort_column=post_parent,menu_order' );
 	$all_pages[''] = __( 'Select a page:', 'cherry' );
 
 	foreach ( $all_pages_obj as $page ) {
-		$all_pages[$page->ID] = $page->post_title;
+		$all_pages[ $page->ID ] = $page->post_title;
 	}
 
 	$maintenance_preview = esc_url(
@@ -28,7 +25,7 @@ function cherry_defaults_settings() {
 		'#static-area-header-top' => __( 'Header top static area', 'cherry' ),
 	) );
 
-	$default_selector = array_keys($sticky_selectors);
+	$default_selector = array_keys( $sticky_selectors );
 	$default_selector = $default_selector[0];
 
 	//////////////////////////////////////////////////////////////////////
@@ -83,17 +80,6 @@ function cherry_defaults_settings() {
 		'editor_mode'  => 'css',
 		'editor_theme' => 'monokai',
 		'value'        => '',
-	);
-	///////////////////////////////////////////////////////////////////
-	// Static Area Editor
-	///////////////////////////////////////////////////////////////////
-	$static_area_editor_options = array();
-	$static_area_editor_options['static-area-editor'] = array(
-		'type'        => 'static_area_editor',
-		'title'       => __( 'Static areas', 'cherry' ),
-		'description' => __( "Use static area editor to arrange static blocks. You can drag-n-drop static blocks, remove them or add new ones using 'Create new static' field below.", 'cherry' ),
-		'value'       => $cherry_registered_statics,
-		'options'     => $cherry_registered_statics,
 	);
 
 	//////////////////////////////////////////////////////////////////////
@@ -239,7 +225,7 @@ function cherry_defaults_settings() {
 		'description' => __( 'Select how you want to display post content in blog listing', 'cherry' ),
 		'hint' => array(
 			'type'    => 'text',
-			'content' => __( 'The following options are available:<br>`full` - display full post content, <br>`part` - display part of the post (you can specify excerpt length below), <br>`none` - hide post content.', 'cherry' ),
+			'content' => __( 'The following options are available:<br>`full` - display full post content, <br>`part` - display part of the post (you can specify content part length below), <br>`none` - hide post content.', 'cherry' ),
 		),
 		'value'       => 'part',
 		'class'       => 'width-full',
@@ -251,8 +237,8 @@ function cherry_defaults_settings() {
 	);
 	$blog_options['blog-excerpt-length'] = array(
 		'type'        => 'slider',
-		'title'       => __( 'Excerpt length', 'cherry' ),
-		'description' => __( 'Specify number of words displayed in excerpt in blog listing.', 'cherry' ),
+		'title'       => __( 'Content Part length', 'cherry' ),
+		'description' => __( 'Specify number of words displayed in blog listing content part. Will not work if post has an excerpt.', 'cherry' ),
 		'max_value'   => 500,
 		'min_value'   => 1,
 		'value'       => 55,
@@ -305,7 +291,7 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-post-navigation'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Navigation', 'cherry' ),
-		'description' => __( 'Enable/disable a post navigation block.', 'cherry' ),
+		'description' => __( 'Enable/disable post navigation block.', 'cherry' ),
 		'value'       => 'true',
 	);
 	$post_single_options['blog-post-author-bio'] = array(
@@ -323,7 +309,7 @@ function cherry_defaults_settings() {
 	$post_single_options['blog-comment-status'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Allow comments', 'cherry' ),
-		'description' => __( 'EnaEnable/disable comments for blog posts.', 'cherry' ),
+		'description' => __( 'Enable/disable comments for blog posts.', 'cherry' ),
 		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'Make sure comments are enabled in Wordpress \'settings->discussion\'. For posts that have already been published you need to enable comments individually in post settings.', 'cherry' ),
@@ -556,7 +542,7 @@ function cherry_defaults_settings() {
 	$pagination_option['pagination-position'] = array(
 		'type'			=> 'select',
 		'title' 		=> __( 'Pagination position', 'cherry' ),
-		'description'	=> __( 'Select where you want to display pagination.', 'cherry' ),
+		'description'	=> __( 'Select your pagination position.', 'cherry' ),
 		'value'			=> 'after',
 		'options'		=> array(
 			'after'		=> __( 'After posts loop', 'cherry' ),
@@ -787,7 +773,7 @@ function cherry_defaults_settings() {
 	$page_options['page-comments-status'] = array(
 		'type'			=> 'switcher',
 		'title'			=> __( 'Page comments', 'cherry' ),
-		'description'	=> __( "Enable/disable comments by default for pages. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
+		'description'	=> __( "Enable/disable comments for pages by default. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
 		'value'			=> 'false',
 	);
 
@@ -815,7 +801,7 @@ function cherry_defaults_settings() {
 	$footer_options['typography-footer'] = array(
 		'type'			=> 'typography',
 		'title'			=> __( 'Typography', 'cherry' ),
-		'description'	=> __( 'Typography settings for footer texts.', 'cherry' ),
+		'description'	=> __( 'Typography settings for footer text.', 'cherry' ),
 		'value' => array(
 			'fonttype'		=> 'web',
 			'size'			=> '14',
@@ -901,7 +887,7 @@ function cherry_defaults_settings() {
 	$footer_options['footer-text'] = array(
 		'type'				=> 'textarea',
 		'title'				=> __( 'Footer Info text', 'cherry' ),
-		'description'		=> __( 'Set custom text for Footer info static', 'cherry' ),
+		'description'		=> __( 'Set custom text for Footer static info.', 'cherry' ),
 		'value'				=> '',
 		'multi-upload'		=> true,
 	);
@@ -1118,7 +1104,7 @@ function cherry_defaults_settings() {
 		'type'        => 'textarea',
 		'title'       => __( 'Message', 'cherry' ),
 		'description' => __( 'Enter the cookie banner message.', 'cherry' ),
-		'value'       => __( 'We use Cookies - By using this site or closing this you agree to our Cookies policy.', 'cherry' ),
+		'value'       => __( 'We use cookies to ensure you get the best experience on our website.', 'cherry' ),
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -1242,8 +1228,10 @@ function cherry_defaults_settings() {
 		'value'			=> 'true',
 		'toggle'		=> array(
 			'true_toggle'	=> __( 'Enabled', 'cherry' ),
-			'false_toggle'	=> __( 'Disabled', 'cherry' )
-		)
+			'false_toggle'	=> __( 'Disabled', 'cherry' ),
+			'true_slave'	=> 'switcher-custom-toogle-demo-true-slave',
+			'false_slave'	=> 'switcher-custom-toogle-demo-false-slave'
+		),
 	);
 	$demo_options['stepper-demo'] = array(
 		'type'			=> 'stepper',
@@ -1254,7 +1242,8 @@ function cherry_defaults_settings() {
 		'value'			=> '0',
 		'step_value'	=> '1',
 		'max_value'		=> '50',
-		'min_value'		=> '-50'
+		'min_value'		=> '-50',
+		'master'		=> 'switcher-custom-toogle-demo-true-slave'
 	);
 	$demo_options['slider-demo'] = array(
 		'type'			=> 'slider',
@@ -1287,7 +1276,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Radio buttons', 'cherry'),
 		'label'			=> '',
 		'description'	=> '',
-		'description'	=> __('Adds radio buttons group. Lets user to select one option from the list.', 'cherry'),
+		'description'	=> __('Adds radio buttons group. Lets user select one option from the list.', 'cherry'),
 		'value'			=> 'radio-2',
 		'class'			=> '',
 		'options'		=> array(
@@ -1316,7 +1305,8 @@ function cherry_defaults_settings() {
 		'options'		=> array(
 			'radio-1' => array(
 				'label' => 'radio image 1',
-				'img_src' => PARENT_URI.'/screenshot.png'
+				'img_src' => PARENT_URI.'/screenshot.png',
+				'slave'	=> 'radio-image-demo-checkbox-2'
 			),
 			'radio-2' => array(
 				'label' => 'radio image 2',
@@ -1346,7 +1336,7 @@ function cherry_defaults_settings() {
 		'description'	=> '',
 		'hint'			=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Lets user to add content from Wordpress media library. ', 'cherry'),
+			'content'	=> __('Allows user to add content from Wordpress media library.', 'cherry'),
 		),
 		'value'				=> '',
 		'multi_upload'		=> true,
@@ -1359,7 +1349,7 @@ function cherry_defaults_settings() {
 		'decsription'	=> '',
 		'hint'			=>  array(
 			'type'		=> 'text',
-			'content'	=> __('Lets user to add background image from the media library and define its background settings like background repeat, position, attachment, origin.', 'cherry'),
+			'content'	=> __('Allows user to add background image from the media library and define its background settings like background repeat, position, attachment, origin.', 'cherry'),
 		),
 		'multi_upload'		=> true,
 		'library_type'		=> 'image',
@@ -1491,6 +1481,215 @@ function cherry_defaults_settings() {
 	);
 
 //////////////////////////////////////////////////////////////////////
+// Test options
+//////////////////////////////////////////////////////////////////////
+	$test_options = array();
+
+	$test_options['switcher-test'] = array(
+		'type'			=> 'switcher',
+		'title'			=> __('Switcher', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'description'	=> __('Analogue of the regular HTML radio buttons. ', 'cherry'),
+		'value'			=> 'true',
+		'toggle'		=> array(
+			'true_toggle'	=> __( 'Enabled', 'cherry' ),
+			'false_toggle'	=> __( 'Disabled', 'cherry' ),
+			'true_slave'	=> 'switcher-test-true-slave',
+			'false_slave'	=> 'switcher-test-false-slave'
+		),
+	);
+
+	/*$test_options['text-test'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'switcher-test-true-slave'
+	);
+	$test_options['textarea-test'] = array(
+		'type'			=> 'textarea',
+		'title'			=> __('Textarea input', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Multiline text input field ( 16 rows x 20 cols ).', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'switcher-test-true-slave'
+	);
+	$test_options['select-test'] = array(
+		'type'			=> 'select',
+		'title'			=> __('Select box', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with single option.', 'cherry'),
+		),
+		'value'			=> 'select-1',
+		'class'			=> '',
+		'options'		=> array(
+			'select-1'	=> 'select 1',
+			'select-2'	=> 'select 2',
+			'select-3'	=> 'select 3'
+		),
+		'master'			=> 'switcher-test-true-slave'
+	);
+	$test_options['filterselect-test'] = array(
+		'type'			=> 'select',
+		'title'			=> __('Filtered select', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'      	=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with filter option.', 'cherry'),
+		),
+		'value'			=> 'select-2',
+		'class'			=> 'cherry-filter-select',
+		'options'		=> array(
+			'select-1'	=> 'select 1',
+			'select-2'	=> 'select 2',
+			'select-3'	=> 'select 3',
+			'select-4'	=> 'select 4',
+			'select-5'	=> 'select 5',
+			'select-6'	=> 'select 6',
+			'select-7'	=> 'select 2',
+			'select-8'	=> 'select 8'
+		),
+		'master'			=> 'switcher-test-true-slave'
+	);*/
+	$test_options['radio-image-test'] = array(
+		'type'			=> 'radio',
+		'title'			=> __('Radio buttons (image)', 'cherry'),
+		'label'			=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Adds image based radio buttons group. Behaves as HTML radio buttons.', 'cherry'),
+		),
+		'description'	=> __('Adds image based radio buttons group. Behaves as HTML radio buttons.', 'cherry'),
+		'value'			=> 'radio-1',
+		'class'			=> '',
+		'options'		=> array(
+			'radio-1' => array(
+				'label'		=> 'radio image 1',
+				'img_src'	=> PARENT_URI.'/screenshot.png',
+				'slave'		=> 'radio-image-test-radio-1'
+			),
+			'radio-2' => array(
+				'label'		=> 'radio image 2',
+				'img_src'	=> PARENT_URI.'/screenshot.png',
+				'slave'		=> 'radio-image-test-radio-2'
+			),
+			'radio-3' => array(
+				'label'		=> 'radio image 3',
+				'img_src'	=> PARENT_URI.'/screenshot.png',
+				'slave'		=> 'radio-image-test-radio-3'
+			),
+		),
+		'master'			=> 'switcher-test-true-slave'
+	);
+	$test_options['text-test-radio-1'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 1', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'switcher-test-true-slave, radio-image-test-radio-1'
+	);
+	$test_options['text-test-radio-2'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 2', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'switcher-test-true-slave, radio-image-test-radio-2'
+	);
+	$test_options['text-test-radio-3'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 3', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'switcher-test-true-slave, radio-image-test-radio-3'
+	);
+
+	/*$test_options['checkbox-text'] = array(
+		'type'			=> 'checkbox',
+		'title'			=> __('Checkbox', 'cherry'),
+		'label'			=> __('Checkbox label', 'cherry'),
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular HTML checkbox.', 'cherry'),
+		),
+		'value'			=> array( 'checkbox-1' ),
+		'options'		=> array(
+			'checkbox-1'	=> 'checkbox value 1',
+			'checkbox-2'	=> array(
+				'label'		=> 'checkbox value 2',
+				'slave'		=> 'checkbox-text-checkbox-2'
+			),
+			'checkbox-3'	=> array(
+				'label'		=> 'checkbox value 3',
+				'slave'		=> 'checkbox-text-checkbox-3'
+			),
+		),
+	);
+	$test_options['text-test-checkbox-1'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 1', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+	);
+	$test_options['text-test-checkbox-2'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 2', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'checkbox-text-checkbox-2'
+	);
+	$test_options['text-test-checkbox-3'] = array(
+		'type'			=> 'text',
+		'title'			=> __('Text input 3', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Regular single line text input field.', 'cherry'),
+		),
+		'value'			=> 'value',
+		'master'			=> 'checkbox-text-checkbox-3'
+	);*/
+//////////////////////////////////////////////////////////////////////
 // Sections
 //////////////////////////////////////////////////////////////////////
 
@@ -1502,12 +1701,6 @@ function cherry_defaults_settings() {
 		'priority'     => 10,
 		'options-list' => apply_filters( 'cherry_general_options_list', $general_options ),
 	);
-	/*$sections_array['static-area-editor-section'] = array(
-		'name'         => __( 'Static areas', 'cherry' ),
-		'icon'         => 'dashicons dashicons-menu',
-		'priority'     => 20,
-		'options-list' => apply_filters( 'cherry_static_area_editor_list', $static_area_editor_options ),
-	);*/
 	$sections_array['grid-section'] = array(
 		'name'         => __( 'Grid', 'cherry' ),
 		'icon'         => 'dashicons dashicons-admin-appearance',

@@ -19,6 +19,7 @@ if ( !defined( 'WPINC' ) ) {
 // Adds common theme items to <head>.
 add_action( 'wp_head', 'cherry_meta_charset',  0 );
 add_action( 'wp_head', 'cherry_meta_viewport', 1 );
+add_action( 'wp_head', 'cherry_meta_profile', 2 );
 add_action( 'wp_head', 'cherry_link_pingback', 3 );
 
 // Removes injected CSS from recent comments widget.
@@ -44,6 +45,10 @@ function cherry_meta_viewport() {
 	if ( 'true' === cherry_get_option( 'grid-responsive' ) ) {
 		echo '<meta name="viewport" content="width=device-width, initial-scale=1" />' . "\n";
 	}
+}
+
+function cherry_meta_profile() {
+	echo '<link rel="profile" href="http://gmpg.org/xfn/11" />' . "\n";
 }
 
 /**

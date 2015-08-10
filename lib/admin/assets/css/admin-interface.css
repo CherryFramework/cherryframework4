@@ -229,7 +229,7 @@
 }
 
 .spinner-wordpress-type-3 {
-  background-color: #f62e46;
+  background-color: #fff;
   width: 25px;
   height: 25px;
   border-radius: 30px;
@@ -238,7 +238,7 @@
   right: 6px;
 }
 .spinner-wordpress-type-3.cherry-spinner-wordpress .cherry-inner-circle {
-  background-color: #fff;
+  background-color: #f62e46;
   width: 8px;
   height: 8px;
   top: 4px;
@@ -392,4 +392,82 @@ div#proxy-settings form:after {
   clear: both;
   visibility: hidden;
 }
->>>>>>> 3195fb7c1e65448030e41ea152cc5207c49cacd6
+.confirm-message {
+  display: none;
+}
+
+body .ui-dialog {
+  background-color: #222222;
+  background-image: none;
+  border-radius: 0;
+  border: none;
+  border-left: 5px solid #ffcc00;
+  padding: 20px 10px 10px 10px;
+}
+body .ui-dialog .ui-dialog-titlebar {
+  background: none;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 8px;
+  padding: 0 0 7 10px;
+  font: inherit;
+  color: #ffcc00;
+  font-size: 20px;
+  line-height: 20px;
+  border-bottom: 1px solid #ffcc00;
+}
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close {
+  display: none;
+}
+body .ui-dialog .ui-dialog-content {
+  padding: 0;
+  color: #fff;
+  font: inherit;
+  margin-bottom: 15px;
+}
+body .ui-dialog .ui-dialog-content span.dashicons {
+  position: relative;
+  margin-right: 10px;
+  width: 40px;
+  height: 40px;
+  color: #ffcc00;
+  float: left;
+}
+body .ui-dialog .ui-dialog-content span.dashicons:before {
+  font-size: 40px;
+}
+body .ui-dialog .ui-dialog-content p {
+  margin: 0;
+}
+body .ui-dialog .ui-dialog-buttonpane {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .ui-button {
+  margin: 0 0 0 10px;
+  border-radius: 6px;
+  color: #fff;
+  border: none;
+  background: #f62e46;
+  -webkit-transition: all 300ms cubic-bezier(0.1, 0.67, 0.26, 1);
+  transition: all 300ms cubic-bezier(0.1, 0.67, 0.26, 1);
+}
+body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .ui-button:hover {
+  background: #AB1F30;
+}
+body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .ui-button:first-child {
+  background: #8bc735;
+}
+body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .ui-button:first-child:hover {
+  background: #68942A;
+}
+body .ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset .ui-button:focus {
+  outline: none;
+}
+
+body .ui-widget-overlay {
+  background-color: #23282D;
+  background-image: none;
+}

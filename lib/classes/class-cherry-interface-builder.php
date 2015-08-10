@@ -145,8 +145,11 @@ class Cherry_Interface_Builder {
 			'hint'					=> '',
 			'toggle'				=> array(
 				'true_toggle'		=> __( 'On', 'cherry' ),
-				'false_toggle'		=> __( 'Off', 'cherry' )
-			)
+				'false_toggle'		=> __( 'Off', 'cherry' ),
+				'true_slave'		=> '',
+				'false_slave'		=> ''
+			),
+			'master'				=> '',
 		);
 		extract( array_merge( $default, $args ) );
 
@@ -421,11 +424,13 @@ class Cherry_Interface_Builder {
 
 				_WP_Editors::editor_js();
 				_WP_Editors::enqueue_scripts();
-			break;
 
+				//Cherry_Shortcodes_Generator::popup();
+
+			break;
 		}
 
-		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $description, $hint );
+		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $description, $master, $hint );
 	}
 
 	/**
@@ -434,11 +439,15 @@ class Cherry_Interface_Builder {
 	 * @since  4.0.0
 	 * @return string
 	 */
-	private function wrap_item( $item, $id, $class, $title, $label, $description, $hint ) {
+	private function wrap_item( $item, $id, $class, $title, $label, $description, $master, $hint ) {
 
 		$description = $description ? $this->add_description( $description ) : '';
 		$class       = 'cherry-section-' . $this->options['pattern'] . ' ' . $class;
-		$output      = '<div id="wrap-' . $id . '" class="' . $class . '">';
+		$master_class = preg_replace('/\s*,\s*/', ' ', $master);
+		$class .= !empty( $master_class ) && isset( $master_class ) ? $master_class : '';
+
+		$data_master = ( !empty( $master ) ) ? 'data-master="' . $master . '"' : '';
+		$output      = '<div id="wrap-' . $id . '" class="' . $class . '" ' . $data_master . '>';
 		$output      .= $title ? $this->add_title( $title ) : '';
 		$hint_html	= '';
 
@@ -633,6 +642,7 @@ class Cherry_Interface_Builder {
 
 			wp_enqueue_script( 'editor');
 			wp_enqueue_script( 'interface-builder' );
+			wp_enqueue_script( 'jquery-ui-dialog' );
 	}
 
 	/**

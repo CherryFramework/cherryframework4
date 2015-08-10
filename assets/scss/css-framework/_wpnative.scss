@@ -168,6 +168,12 @@ img {
 	overflow: hidden;
 }
 
+.format-link-marker {
+	&:after {
+		content: '\002192';
+	}
+}
+
 .byline,
 .updated:not(.published) {
 	display: none;

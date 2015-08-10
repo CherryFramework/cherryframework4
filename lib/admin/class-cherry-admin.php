@@ -54,12 +54,14 @@ class Cherry_Admin {
 			wp_enqueue_script( 'admin-interface', trailingslashit( CHERRY_URI ) . 'admin/assets/js/admin-interface.js', array( 'jquery' ), CHERRY_VERSION, true );
 
 			$messages = array(
-				'no_file'         => __( 'Please, select import file', 'cherry' ),
+				'no_file'         => __( 'Please, select a file to import', 'cherry' ),
 				'invalid_type'    => __( 'Invalid file type', 'cherry' ),
 				'success'         => __( 'Cherry Options imported. ', 'cherry' ),
 				'section_restore' => __( 'section restored.', 'cherry' ),
 				'options_restore' => __( 'All options restored', 'cherry' ),
 				'section_loaded'  => __( 'options loaded.', 'cherry' ),
+				'confirm_button'  => __( 'Yes', 'cherry' ),
+				'cancel_button'   => __( 'No', 'cherry' ),
 				'redirect_url'    => menu_page_url( 'options', false ),
 			);
 

@@ -33,7 +33,7 @@ add_action( 'wp_loaded', 'cherry_structured_post_formats', 1 );
 function cherry_structured_post_formats() {
 	// Add infinity symbol to aside posts.
 	if ( current_theme_supports( 'post-formats', 'aside' ) ) {
-		add_filter( 'the_content', 'cherry_aside_infinity', 9 );
+		add_filter( 'cherry_the_post_content_defaults', 'cherry_aside_infinity', 9, 3 );
 	}
 
 	// Filter the titles of link posts.
@@ -61,17 +61,30 @@ function cherry_structured_post_formats() {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @param  string $content The post content.
+ * @param  array  $args      Array of arguments.
+ * @param  int    $post_id   The post ID.
+ * @param  string $post_type The post type of the current post.
  * @return string $content
  */
-function cherry_aside_infinity( $content ) {
+function cherry_aside_infinity( $args, $post_id, $post_type ) {
+	global $post;
 
-	if ( has_post_format( 'aside' ) && !is_singular() && !post_password_required() ) {
-		$infinity = '<a class="entry-permalink" href="' . get_permalink() . '" title="' . the_title_attribute( array( 'echo' => false ) ) . '">&#8734;</a>';
-		$content .= ' ' . apply_filters( 'cherry_aside_infinity', $infinity );
+	if ( ! post_type_supports( $post->post_type, 'post-formats' ) ) {
+		return $args;
 	}
 
-	return $content;
+	if ( post_password_required() ) {
+		return $args;
+	}
+
+	if ( ! has_post_format( 'aside', $post_id ) ) {
+		return $args;
+	}
+
+	$infinity = '<a class="entry-permalink" href="' . get_permalink() . '" title="' . the_title_attribute( array( 'echo' => false ) ) . '">&#8734;</a>';
+	$args['after'] = ' ' . apply_filters( 'cherry_aside_infinity', $infinity );
+
+	return $args;
 }
 
 /**
@@ -89,11 +102,11 @@ function cherry_get_the_link_title( $title, $post_id ) {
 		return $title;
 	}
 
-	if ( ! has_post_format( 'link', $post_id ) ) {
+	if ( 'link' !== get_post_format( $post_id ) ) {
 		return $title;
 	}
 
-	return $title . '<span class="format-link-marker">&rarr;</span>';
+	return $title . '<span class="format-link-marker"></span>';
 }
 
 /**
@@ -107,7 +120,11 @@ function cherry_get_the_link_title( $title, $post_id ) {
  */
 function cherry_get_the_link_url( $args, $post_id, $post_type ) {
 
-	if ( !has_post_format( 'link' ) ) {
+	if ( ! post_type_supports( $post_type, 'post-formats' ) ) {
+		return $args;
+	}
+
+	if ( ! has_post_format( 'link' ) ) {
 		return $args;
 	}
 
@@ -127,12 +144,17 @@ function cherry_get_the_link_url( $args, $post_id, $post_type ) {
  * @return string $content
  */
 function cherry_quote_content( $content ) {
+	global $post;
+
+	if ( ! post_type_supports( $post->post_type, 'post-formats' ) ) {
+		return $content;
+	}
 
 	if ( post_password_required() ) {
 		return $content;
 	}
 
-	if ( !has_post_format( 'quote' ) ) {
+	if ( ! has_post_format( 'quote' ) ) {
 		return $content;
 	}
 

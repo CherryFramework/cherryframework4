@@ -95,7 +95,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 				'function' => array( __CLASS__, 'cherry_statics_page_build'),
 				'before_content' => '
 					<div class="cherry-info-box">
-						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
+						<div class="documentation-link">' . __( 'Feel free to view details ', 'cherry' ) . '
 							<a href="http://www.cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>
@@ -186,7 +186,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 					);
 				}else{
 					$response = array(
-						'message' => __( 'Default statics backup has been overwrited', 'cherry' ),
+						'message' => __( 'Default statics backup has been overwritten', 'cherry' ),
 						'type' => 'info-notice'
 					);
 				}
@@ -237,8 +237,8 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 						}
 						break;
 					case 'loggedin':
-						$html .= '<option value="loggedin">' . __( 'Logged In', 'cherry' ) . '</option>';
-						$html .= '<option value="loggedout">' . __( 'Logged Out', 'cherry' ) . '</option>';
+						$html .= '<option value="loggedin">' . __( 'Logged in', 'cherry' ) . '</option>';
+						$html .= '<option value="loggedout">' . __( 'Logged out', 'cherry' ) . '</option>';
 						break;
 					case 'author':
 						$html .= '<option value="">' . __( 'All author pages', 'cherry' ) . '</option>';
@@ -470,7 +470,6 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 		public static function cherry_statics_page_build() {
 			global $cherry_registered_statics;
-
 			$statics = self::get_current_statics();
 
 			?>
