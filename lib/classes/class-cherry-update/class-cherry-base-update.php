@@ -83,13 +83,13 @@ if( !class_exists( 'Cherry_Base_Update' ) ) {
 		public function rename_github_folder( $upgrate_dir, $remote_dir, $skin_upgrader ){
 
 			$slug = $this->api[ 'slug' ];
-			$is_theme = isset($skin_upgrader->skin->theme) ? true : false ;
+			$is_theme = isset($skin_upgrader->skin->theme) || isset($skin_upgrader->skin->theme_info) ? true : false ;
 			$is_plugin = isset($skin_upgrader->skin->plugin_info) ? true : false ;
 			$domain_plugin = $is_plugin ? $skin_upgrader->skin->plugin_info[ 'TextDomain' ] : '' ;
 			$title_plugin = $is_plugin ? str_replace(' ', '-', strtolower( $skin_upgrader->skin->plugin_info[ 'Title' ] ) ) : '' ;
 			$name_plugin = $is_plugin ? str_replace(' ', '-', strtolower( $skin_upgrader->skin->plugin_info[ 'Name' ] ) ) : '' ;
 
-			if( $is_theme && $skin_upgrader->skin->theme === $slug
+			if( $is_theme && strpos($upgrate_dir, $slug) !== false
 				|| $is_plugin && $domain_plugin === $slug
 				|| $is_plugin && $title_plugin === $slug
 				|| $is_plugin && $name_plugin === $slug
