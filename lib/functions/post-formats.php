@@ -146,6 +146,10 @@ function cherry_get_the_link_url( $args, $post_id, $post_type ) {
 function cherry_quote_content( $content ) {
 	global $post;
 
+	if ( ! is_object( $post ) ) {
+		return $content;
+	}
+
 	if ( ! post_type_supports( $post->post_type, 'post-formats' ) ) {
 		return $content;
 	}
