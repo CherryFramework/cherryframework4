@@ -79,41 +79,52 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			$this->option_inteface_builder = new Cherry_Interface_Builder(
 				array(
-					'pattern'		=> 'grid',
-					'hidden_items'	=> apply_filters( 'cherry-hidden-options', array() )
+					'pattern'      => 'grid',
+					'hidden_items' => apply_filters( 'cherry-hidden-options', array() ),
 				)
 			);
 
-			$cherry_page_builder -> add_parent_menu_item (array(
-				'page_title' => __( 'Theme Cherry Framework', 'cherry' ),
+			// Gets a WP_Theme object for a theme.
+			$current_theme_obj = wp_get_theme();
+
+			$cherry_page_builder->add_parent_menu_item( array(
+				'page_title' => sprintf( __( 'Theme %s', 'cherry' ), $current_theme_obj->get( 'Name' ) ),
 				'menu_title' => __( 'Cherry', 'cherry' ),
 				'capability' => 'edit_theme_options',
-				'menu_slug' => 'cherry',
-				'function' => array( __CLASS__, 'cherry_options_page_build'),
-				'icon_url' => PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.svg',
-				'position' => 62,
-				'before_content' => '
-					<div class="cherry-info-box">
-						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
-							<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
-						</div>
-					</div>'
-			));
+				'menu_slug'  => 'cherry',
+				'function'   => array( __CLASS__, 'cherry_options_page_build' ),
+				'icon_url'   => PARENT_URI . '/lib/admin/assets/images/svg/cherry-icon.svg',
+				'position'   => 62,
+			) );
 
-			$cherry_page_builder -> add_child_menu_item (array(
-				'parent_slug'	=> 'cherry',
-				'page_title'	=> __( 'Theme Cherry Framework', 'cherry' ),
-				'menu_title'	=> __( 'Options', 'cherry' ),
-				'capability'	=> 'edit_theme_options',
-				'menu_slug'		=> 'options',
-				'function'		=> array( __CLASS__, 'cherry_options_page_build'),
-				'before_content' => '
-					<div class="cherry-info-box">
-						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . '
-							<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
-						</div>
-					</div>'
-			));
+			$document_link = '<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>';
+
+			/**
+			 * Filters a link to the framework/theme documentation.
+			 *
+			 * @since 4.0.2
+			 * @var   string
+			 */
+			$document_link = apply_filters( 'cherry_documentation_link', $document_link );
+
+			$before_content = '';
+
+			if ( ! empty( $document_link ) ) {
+				$before_content = '<div class="cherry-info-box">
+						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . $document_link .
+						'</div>
+					</div>';
+			}
+
+			$cherry_page_builder->add_child_menu_item( array(
+				'parent_slug'    => 'cherry',
+				'page_title'     => sprintf( __( 'Theme %s', 'cherry' ), $current_theme_obj->get( 'Name' ) ),
+				'menu_title'     => __( 'Options', 'cherry' ),
+				'capability'     => 'edit_theme_options',
+				'menu_slug'      => 'options',
+				'function'       => array( __CLASS__, 'cherry_options_page_build' ),
+				'before_content' => $before_content,
+			) );
 
 			// Settings need to be registered after admin_init
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
