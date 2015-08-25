@@ -51,9 +51,10 @@ add_filter( 'cherry_pre_get_the_post_avatar',    'cherry_option_post_avatar',   
 // Add favicon tags to page
 add_action( 'wp_head', 'cherry_favicon_tags' );
 
-// Add popup video and image classes to embeded images into editor
+// Add popup video and image classes to embeded images into editor.
 add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 );
-// Add mobile menu trigger to Primary nav menu
+
+// Add mobile menu trigger to `Primary` nav menu.
 add_filter( 'wp_nav_menu', 'cherry_add_mobile_menu_trigger', 10, 2 );
 
 
@@ -510,12 +511,12 @@ function cherry_safe_add_class( $html, $link, $class ) {
 }
 
 /**
- * Add mobile triiger for standard menu
+ * Add mobile triger for standard menu.
  *
- * @since  4.0.0
+ * @since 4.0.0
  *
- * @param  string $menu menu output
- * @param  object $args menu arguments object
+ * @param string $menu Menu output.
+ * @param object $args Menu arguments object.
  */
 function cherry_add_mobile_menu_trigger( $menu, $args ) {
 

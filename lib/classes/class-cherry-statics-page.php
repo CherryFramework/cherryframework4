@@ -82,25 +82,25 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 		}
 
-		private function init(){
+		private function init() {
 			// Add the options page and menu item.
 			global $cherry_page_builder;
 
-			$cherry_page_builder -> add_child_menu_item (array(
-				'parent_slug'	=> 'cherry',
-				'page_title' => __( 'Statics editor', 'cherry' ),
-				'menu_title' => __( 'Statics editor', 'cherry' ),
-				'capability' => 'edit_theme_options',
-				'menu_slug' => 'statics',
-				'function' => array( __CLASS__, 'cherry_statics_page_build'),
+			$cherry_page_builder->add_child_menu_item( array(
+				'parent_slug'    => 'cherry',
+				'page_title'     => __( 'Static Area Builder', 'cherry' ),
+				'menu_title'     => __( 'Static Area Builder', 'cherry' ),
+				'capability'     => 'edit_theme_options',
+				'menu_slug'      => 'statics',
+				'function'       => array( __CLASS__, 'cherry_statics_page_build' ),
 				'before_content' => '
 					<div class="cherry-info-box">
 						<div class="documentation-link">' . __( 'Feel free to view details ', 'cherry' ) . '
 							<a href="http://www.cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
 						</div>
 					</div>
-					<div class="cherry-info-box">' . __( "Use static area editor to arrange static blocks. You can drag-n-drop static blocks to arrange them or add new ones.", 'cherry' ) . '</div>'
-			));
+					<div class="cherry-info-box">' . __( "Use static area builder to arrange static blocks. You can drag-n-drop static blocks to arrange them or add new ones.", 'cherry' ) . '</div>'
+			) );
 
 
 			// Settings need to be registered after admin_init
