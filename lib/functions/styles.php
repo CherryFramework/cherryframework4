@@ -33,6 +33,13 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 10 );
  * @since  4.0.0
  */
 function cherry_register_styles() {
+	$defaults = array(
+		'handle'  => '',
+		'src'     => '',
+		'deps'    => null,
+		'version' => '1.0',
+		'media'   => 'all',
+	);
 
 	// Get framework styles.
 	$styles = cherry_get_styles();
@@ -41,18 +48,8 @@ function cherry_register_styles() {
 	foreach ( $styles as $id => $style ) {
 
 		if ( 'style' == $id && wp_style_is( CHERRY_DYNAMIC_CSS_HANDLE, 'registered' ) ) {
-			$deps = array( CHERRY_DYNAMIC_CSS_HANDLE );
-		} else {
-			$deps = null;
+			$defaults['deps'] = array( CHERRY_DYNAMIC_CSS_HANDLE );
 		}
-
-		$defaults = array(
-			'handle'  => '',
-			'src'     => '',
-			'deps'    => $deps,
-			'version' => '1.0',
-			'media'   => 'all'
-		);
 
 		$style = wp_parse_args( $style, $defaults );
 
