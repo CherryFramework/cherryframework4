@@ -199,14 +199,14 @@ add_action( 'wp_enqueue_scripts', 'cherry_post_inline_styles', 101 );
  * @since 4.0.0
  */
 function cherry_post_inline_styles() {
-
-	$cherry_styles = cherry_get_styles();
-	$post_id       = get_the_id();
-	$post_type     = get_post_type( $post_id );
+	$post_id   = get_queried_object_id();
+	$post_type = get_post_type( $post_id );
 
 	if ( ! $post_type || ! post_type_supports( $post_type, 'cherry-post-style' ) ) {
 		return;
 	}
+
+	$cherry_styles = cherry_get_styles();
 
 	if ( wp_style_is( CHERRY_DYNAMIC_CSS_HANDLE, 'enqueued' ) ) {
 		$handle = CHERRY_DYNAMIC_CSS_HANDLE;
