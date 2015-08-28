@@ -100,7 +100,6 @@ function cherry_get_styles() {
 		$drop_downs = array(
 			'handle'  => get_template() . '-drop-downs',
 			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
-			'deps'    => array( 'dashicons' ),
 			'version' => CHERRY_VERSION,
 		);
 
