@@ -106,7 +106,7 @@ function cherry_get_styles() {
 		$drop_downs = array(
 			'handle'  => get_template() . '-drop-downs',
 			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
-			'version' => CHERRY_VERSION,
+			'version' => '1.0.0',
 		);
 
 		// Is responsive site?
@@ -138,12 +138,12 @@ function cherry_get_styles() {
 			'magnific-popup'  => array(
 				'handle'  => 'magnific-popup',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/magnific-popup.css',
-				'version' => CHERRY_VERSION,
+				'version' => '1.0.0',
 			),
 			'slick' => array(
 				'handle'  => 'slick',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/slick.css',
-				'version' => CHERRY_VERSION,
+				'version' => '1.5.0',
 			),
 			'main' => array(
 				'handle'  => $prefix . 'main',
