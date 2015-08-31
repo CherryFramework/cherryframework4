@@ -1,7 +1,7 @@
 <?php
 /**
- * Utils Functions
- * Enqueue util scripts, CSS util functions
+ * Utils functions.
+ * Enqueue util scripts, CSS util functions.
  *
  * @package    Cherry_Framework
  * @subpackage Functions
@@ -20,31 +20,31 @@ if ( !defined( 'WPINC' ) ) {
 add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts' );
 
 /**
- * Enqueue utility scripts
+ * Enqueue utility scripts.
  * @since  4.0.0
  */
 function cherry_enqueue_utility_scripts() {
 	global $is_chrome;
 
-	$cherry_url = trailingslashit( CHERRY_URI );
+	$cherry_uri = trailingslashit( CHERRY_URI );
 
 	if ( 'false' != cherry_get_option( 'general-smoothscroll' ) ) {
 		wp_register_script(
 			'jquery-easing',
-			esc_url( $cherry_url . 'assets/js/jquery.easing.1.3.min.js' ),
+			esc_url( $cherry_uri . 'assets/js/jquery.easing.1.3.min.js' ),
 			array( 'jquery' ),
-			'3.1.0',
+			'1.3.0',
 			true
 		);
 		wp_register_script(
 			'jquery-smoothscroll',
-			esc_url( $cherry_url . 'assets/js/jquery.smoothscroll.js' ),
+			esc_url( $cherry_uri . 'assets/js/jquery.smoothscroll.js' ),
 			array( 'jquery', 'jquery-easing' ),
 			'3.0.6',
 			true
 		);
 
-		if ( !wp_is_mobile() && $is_chrome ){
+		if ( ! wp_is_mobile() && $is_chrome ) {
 			wp_enqueue_script( 'jquery-smoothscroll' );
 		}
 	}
@@ -52,7 +52,7 @@ function cherry_enqueue_utility_scripts() {
 	if ( 'false' != cherry_get_option( 'header-sticky' ) ) {
 		wp_enqueue_script(
 			'cherry-stick-up',
-			esc_url( $cherry_url . 'assets/js/jquery.cherry.stickup.min.js' ),
+			esc_url( $cherry_uri . 'assets/js/jquery.cherry.stickup.min.js' ),
 			array( 'jquery' ),
 			'1.0.0',
 			true
@@ -64,13 +64,12 @@ function cherry_enqueue_utility_scripts() {
 		) {
 		wp_enqueue_script(
 			'cherry-cookie-banner',
-			esc_url( $cherry_url . 'assets/js/jquery.cherry.cookie.banner.js' ),
+			esc_url( $cherry_uri . 'assets/js/jquery.cherry.cookie.banner.js' ),
 			array( 'jquery' ),
-			CHERRY_VERSION,
+			'1.0.0',
 			true
 		);
-		wp_localize_script(
-			'cherry-cookie-banner', 'cookie_banner_args', array(
+		wp_localize_script( 'cherry-cookie-banner', 'cookie_banner_args', array(
 				'name'    => 'cherry_cookie_banner',
 				'value'   => '1',
 				'options' => array(

@@ -27,10 +27,10 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_scripts', 5 );
 add_action( 'wp_enqueue_scripts', 'cherry_prepare_sticky_vars' );
 
 /**
- * Get cherry default scripts data
+ * Retrieve an array of the core framework's default scripts.
  *
  * @since  4.0.0
- * @return array  cherry default scripts data
+ * @return array Default scripts.
  */
 function cherry_default_scripts() {
 
@@ -38,14 +38,14 @@ function cherry_default_scripts() {
 		'slick' => array(
 			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.slick.min.js' ),
 			'deps'      => array( 'jquery' ),
-			'ver'       => CHERRY_VERSION,
-			'in_footer' => true
+			'ver'       => '1.5.0',
+			'in_footer' => true,
 		),
 		'magnific-popup' => array(
 			'src'       => esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/jquery.magnific-popup.min.js' ),
 			'deps'      => array( 'jquery' ),
-			'ver'       => CHERRY_VERSION,
-			'in_footer' => true
+			'ver'       => '1.0.0',
+			'in_footer' => true,
 		)
 	);
 
@@ -68,7 +68,7 @@ function cherry_register_scripts() {
 	// Gets a defaults framework scripts.
 	$default_scripts = cherry_default_scripts();
 
-	if ( isset( $supports[0] ) && is_array( $supports[0] ) ) {
+	if ( ! empty( $supports[0] ) && is_array( $supports[0] ) ) {
 
 		foreach ( $default_scripts as $id => $data ) {
 			if ( in_array( $id, $supports[0] ) ) {
@@ -129,32 +129,31 @@ function cherry_enqueue_scripts() {
 }
 
 /**
- * Prepare JS variables for sticky header script
+ * Prepare JS variables for `stickup` script.
  *
  * @since 4.0.0
  */
 function cherry_prepare_sticky_vars() {
-	$is_sticky = cherry_get_option( 'header-sticky', 'false' );
+	$is_sticky       = cherry_get_option( 'header-sticky', 'false' );
+	$sticky_selector = cherry_get_option( 'header-sticky-selector', '.site-header' );
 
-	$defaults = array(
+	$defaults = apply_filters( 'cherry_header_sticky_args', array(
 		'correctionSelector' => '#wpadminbar',
 		'listenSelector'     => '.listenSelector',
 		'pseudo'             => true,
-	);
+		'active'             => false,
+	) );
 
-	$options_args = array(
+	$args = array(
 		'active' => ( 'true' == $is_sticky && ! wp_is_mobile() ) ? true : false
 	);
 
-	$args            = apply_filters( 'cherry_header_sticky_args', $defaults );
-	$sticky_selector = cherry_get_option( 'header-sticky-selector', '.site-header' );
+	$args = wp_parse_args( $args, $defaults );
 
-	$args = array_merge( $args, $options_args );
-
-	$data = array(
+	$data = apply_filters( 'cherry_prepare_sticky_vars', array(
 		'selector' => $sticky_selector,
 		'args'     => $args,
-	);
+	) );
 
 	wp_localize_script( 'cherry-script', 'sticky_data', $data );
 }
