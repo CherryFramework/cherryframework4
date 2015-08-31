@@ -681,12 +681,14 @@ function cherry_defaults_settings() {
 		'display_input' => true,
 		'options'       => array(
 			'image' => array(
-				'label'   => 'Image logo',
-				'img_src' => '',
+				'label'		=> 'Image logo',
+				'img_src'	=> '',
+				'slave'		=> 'logo-type-image'
 			),
 			'text' => array(
 				'label'   => 'Text logo',
 				'img_src' => '',
+				'slave'		=> 'logo-type-text'
 			)
 		)
 	);
@@ -696,6 +698,7 @@ function cherry_defaults_settings() {
 		'description' => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
 		'value'        => '',
 		'multi-upload' => true,
+		'master'		=> 'logo-type-image'
 	);
 	$logo_options['typography-header-logo'] = array(
 		'type'  => 'typography',
@@ -711,7 +714,8 @@ function cherry_defaults_settings() {
 			'style'         => '',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
-		)
+		),
+		'master'		=> 'logo-type-text'
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -839,6 +843,13 @@ function cherry_defaults_settings() {
 		'min_value' => 970,
 		'value'     => 1310,
 	);
+	$footer_options['footer-text'] = array(
+		'type'				=> 'textarea',
+		'title'				=> __( 'Footer Info text', 'cherry' ),
+		'description'		=> __( 'Set custom text for Footer static info.', 'cherry' ),
+		'value'				=> '',
+		'multi-upload'		=> true,
+	);
 	// Footer Logo options
 	//////////////////////////////////////////////////////////////////////
 	$footer_logo_options = array();
@@ -854,10 +865,12 @@ function cherry_defaults_settings() {
 			'image' => array(
 				'label'   => 'Image logo',
 				'img_src' => '',
+				'slave'		=> 'footer-logo-type-image'
 			),
 			'text' => array(
 				'label'   => 'Text logo',
 				'img_src' => '',
+				'slave'		=> 'footer-logo-type-text'
 			)
 		)
 	);
@@ -867,6 +880,7 @@ function cherry_defaults_settings() {
 		'description' => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
 		'value'        => '',
 		'multi-upload' => true,
+		'master'	=> 'footer-logo-type-image'
 	);
 	$footer_logo_options['typography-footer-logo'] = array(
 		'type'  => 'typography',
@@ -882,14 +896,8 @@ function cherry_defaults_settings() {
 			'style'         => '',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
-		)
-	);
-	$footer_options['footer-text'] = array(
-		'type'				=> 'textarea',
-		'title'				=> __( 'Footer Info text', 'cherry' ),
-		'description'		=> __( 'Set custom text for Footer static info.', 'cherry' ),
-		'value'				=> '',
-		'multi-upload'		=> true,
+		),
+		'master'	=> 'footer-logo-type-text'
 	);
 //////////////////////////////////////////////////////////////////////
 // Typography options
