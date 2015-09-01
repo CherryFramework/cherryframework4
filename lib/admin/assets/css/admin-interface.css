@@ -440,6 +440,7 @@ div#proxy-settings form:after {
   clear: both;
   visibility: hidden;
 }
+
 .confirm-message {
   display: none;
 }

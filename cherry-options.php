@@ -1120,7 +1120,31 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
 
-	$demo_options['text-demo'] = array(
+	$demo_options['typography-demo'] = array(
+		'type'			=> 'typography',
+		'title'			=> __('Typography', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'max_value '	=> 500,
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+		),
+		'max_value '	=> 500,
+		'value'			=> array(
+			'fonttype'		=> 'web',
+			'family'		=> 'Abril Fatface',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'size'			=> '20',
+			'lineheight'	=> '20',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined',
+			'color'			=> '#222222',
+		)
+	);
+
+	/*$demo_options['text-demo'] = array(
 		'type'			=> 'text',
 		'title'			=> __('Text input', 'cherry'),
 		'label'			=> '',
@@ -1372,29 +1396,7 @@ function cherry_defaults_settings() {
 			'origin'		=> 'padding-box',
 		)
 	);
-	$demo_options['typography-demo'] = array(
-		'type'			=> 'typography',
-		'title'			=> __('Typography', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'max_value '	=> 500,
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
-		),
-		'max_value '	=> 500,
-		'value'			=> array(
-			'fonttype'		=> 'web',
-			'family'		=> 'Abril Fatface',
-			'character'		=> 'latin-ext',
-			'style'			=> 'italic',
-			'size'			=> '20',
-			'lineheight'	=> '20',
-			'letterspacing' => '0',
-			'align'			=> 'notdefined',
-			'color'			=> '#222222',
-		)
-	);
+
 	$demo_options['ace-editor-demo'] = array(
 		'type'			=> 'ace-editor',
 		'title'			=> __('CSS Editor', 'cherry'),
@@ -1486,7 +1488,7 @@ function cherry_defaults_settings() {
 			'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
 		),
 		'value'			=> 'Lorem ipsum',
-	);
+	);*/
 
 //////////////////////////////////////////////////////////////////////
 // Test options
@@ -1508,7 +1510,7 @@ function cherry_defaults_settings() {
 		),
 	);
 
-	/*$test_options['text-test'] = array(
+	$test_options['text-test'] = array(
 		'type'			=> 'text',
 		'title'			=> __('Text input', 'cherry'),
 		'label'			=> '',
@@ -1572,7 +1574,7 @@ function cherry_defaults_settings() {
 			'select-8'	=> 'select 8'
 		),
 		'master'			=> 'switcher-test-true-slave'
-	);*/
+	);
 	$test_options['radio-image-test'] = array(
 		'type'			=> 'radio',
 		'title'			=> __('Radio buttons (image)', 'cherry'),
@@ -1640,7 +1642,7 @@ function cherry_defaults_settings() {
 		'master'			=> 'switcher-test-true-slave, radio-image-test-radio-3'
 	);
 
-	/*$test_options['checkbox-text'] = array(
+	$test_options['checkbox-text'] = array(
 		'type'			=> 'checkbox',
 		'title'			=> __('Checkbox', 'cherry'),
 		'label'			=> __('Checkbox label', 'cherry'),
@@ -1696,7 +1698,7 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> 'value',
 		'master'			=> 'checkbox-text-checkbox-3'
-	);*/
+	);
 //////////////////////////////////////////////////////////////////////
 // Sections
 //////////////////////////////////////////////////////////////////////

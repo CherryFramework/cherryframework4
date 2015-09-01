@@ -59,6 +59,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 			$this->standart_font_url = self::get_current_file_url() . '/assets/fonts/standard-fonts.json';
 
 			$this->defaults_settings['id'] = 'cherry-ui-typography-'.uniqid();
+
 			$this->settings = wp_parse_args( $args, $this->defaults_settings );
 			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
 
@@ -87,7 +88,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 			$character_array = array();
 			$style_array = array();
 			$fonttype = '';
-			$html .= '<div class="cherry-ui-typography-wrap">';
+			$html .= '<div class="cherry-ui-typography-wrap" data-id=' . $this->settings['id'] . ' data-name=' . $this->settings['name'] . '>';
 			//Font Family
 				$html .= '<div class="cherry-column-section">';
 					$html .= '<div class="inner">';
@@ -296,6 +297,53 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		}
 
 		/**
+		 * Get font variants ui_select
+		 *
+		 * @param  string 		font name
+		 * @return string 		html
+		 *
+		 * @since  4.0.0
+		 */
+		public function get_font_variants( $id, $name, $font ){
+			$variants = array();
+
+			foreach ( $this->get_standart_font() as $key => $font_settings ) {
+				if( $font == $font_settings['family'] ){
+					$variants = $font_settings['variants'];
+				}
+			}
+			foreach ( $this->get_google_font() as $key => $font_settings ) {
+				if( $font == $font_settings['family'] ){
+					$variants = $font_settings['variants'];
+				}
+			}
+
+			foreach ($variants as $variant_key => $variant_value) {
+				$text_piece_1 = preg_replace ( '/[0-9]/s', '', $variant_value );
+				$text_piece_2 = preg_replace ( '/[A-Za-z]/s', ' ', $variant_value );
+				$value_text = ucwords( $text_piece_2 . ' ' . $text_piece_1 );
+				$variants_array[ $variant_value ] = $value_text;
+			}
+
+			if( $variants && !empty( $variants ) && is_array( $variants )){
+				$html = '<label for="' . $this->settings['id'] . '-style">' . __( 'Font Style', 'cherry' ) . '</label> ';
+				$ui_style_select = new UI_Select(
+					array(
+						'id'			=> $id . '-style',
+						'name'			=> $name . '[style]',
+						'value'			=> '',
+						'options'		=> $variants_array,
+						'class'			=> 'cherry-font-style'
+					)
+				);
+				$html .= $ui_style_select->render();
+			}
+
+			return $html;
+		}
+
+
+		/**
 		 * Get single font URL by font data
 		 *
 		 * @since  4.0.0
@@ -494,6 +542,24 @@ function get_google_font_link() {
 
 		$google_font_url = $google_fonts->get_single_font_url( array( 'family' => $font_family, 'style' => $font_style, 'character' => $font_character, 'fonttype' => 'web' ) );
 		echo $google_font_url;
+		exit;
+	}
+}
+
+
+add_action( 'wp_ajax_get_fonts_variants', 'get_fonts_variants' );
+
+function get_fonts_variants() {
+	if ( !empty($_POST) && array_key_exists('font', $_POST) && array_key_exists('id', $_POST) && array_key_exists('name', $_POST) ) {
+		$font = $_POST['font'];
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+
+		$ui_typography = new UI_Typography;
+
+		$variants_select = $ui_typography->get_font_variants( $id, $name, $font );
+
+		echo $variants_select;
 		exit;
 	}
 }
