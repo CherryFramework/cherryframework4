@@ -958,7 +958,7 @@ function cherry_defaults_settings() {
 			'size'          => '12',
 			'lineheight'    => '18',
 			'color'         => '#777777',
-			'family'        => 'Arial',
+			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
 			'style'         => 'regular',
 			'letterspacing' => '',
@@ -971,13 +971,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H1 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '36',
 			'lineheight'    => '40',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
 		)
@@ -988,13 +988,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H2 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '30',
 			'lineheight'    => '33',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1005,13 +1005,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H3 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '24',
 			'lineheight'    => '26',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1022,13 +1022,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H4 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '18',
 			'lineheight'    => '20',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1039,13 +1039,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H5 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '14',
 			'lineheight'    => '16',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1056,13 +1056,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H6 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '12',
 			'lineheight'    => '14',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1120,31 +1120,7 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
 
-	$demo_options['typography-demo'] = array(
-		'type'			=> 'typography',
-		'title'			=> __('Typography', 'cherry'),
-		'label'			=> '',
-		'decsription'	=> '',
-		'max_value '	=> 500,
-		'hint'			=>  array(
-			'type'		=> 'text',
-			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
-		),
-		'max_value '	=> 500,
-		'value'			=> array(
-			'fonttype'		=> 'web',
-			'family'		=> 'Abril Fatface',
-			'character'		=> 'latin-ext',
-			'style'			=> 'italic',
-			'size'			=> '20',
-			'lineheight'	=> '20',
-			'letterspacing' => '0',
-			'align'			=> 'notdefined',
-			'color'			=> '#222222',
-		)
-	);
-
-	/*$demo_options['text-demo'] = array(
+	$demo_options['text-demo'] = array(
 		'type'			=> 'text',
 		'title'			=> __('Text input', 'cherry'),
 		'label'			=> '',
@@ -1397,6 +1373,30 @@ function cherry_defaults_settings() {
 		)
 	);
 
+	$demo_options['typography-demo'] = array(
+		'type'			=> 'typography',
+		'title'			=> __('Typography', 'cherry'),
+		'label'			=> '',
+		'decsription'	=> '',
+		'max_value '	=> 500,
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Provides typography configuration options such as Google Font family name, font size, line height, style, letter spacing, characters sets, text align and color. Below options you can see font preview.', 'cherry'),
+		),
+		'max_value '	=> 500,
+		'value'			=> array(
+			'fonttype'		=> 'web',
+			'family'		=> 'Abril Fatface',
+			'character'		=> 'latin-ext',
+			'style'			=> 'italic',
+			'size'			=> '20',
+			'lineheight'	=> '20',
+			'letterspacing' => '0',
+			'align'			=> 'notdefined',
+			'color'			=> '#222222',
+		)
+	);
+
 	$demo_options['ace-editor-demo'] = array(
 		'type'			=> 'ace-editor',
 		'title'			=> __('CSS Editor', 'cherry'),
@@ -1488,7 +1488,7 @@ function cherry_defaults_settings() {
 			'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
 		),
 		'value'			=> 'Lorem ipsum',
-	);*/
+	);
 
 //////////////////////////////////////////////////////////////////////
 // Test options

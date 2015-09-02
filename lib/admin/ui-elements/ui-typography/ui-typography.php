@@ -88,19 +88,20 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 			$character_array = array();
 			$style_array = array();
 			$fonttype = '';
-			$html .= '<div class="cherry-ui-typography-wrap" data-id=' . $this->settings['id'] . ' data-name=' . $this->settings['name'] . '>';
+
+			$html .= '<div class="cherry-ui-typography-wrap" data-id="' . $this->settings['id'] . '" data-name="' . $this->settings['name'] . '">';
 			//Font Family
 				$html .= '<div class="cherry-column-section">';
 					$html .= '<div class="inner">';
 						$html .= '<div class="field-font-family">';
 							$html .= '<label for="' . $this->settings['id'] . '-family">' . __( 'Font Family', 'cherry' ) . '</label> ';
-							$html .= '<select id="' . $this->settings['id'] . '-family" class="cherry-ui-select cherry-font-family" name="' . $this->settings['name'] . '[family]">';
+							$html .= '<select id="' . $this->settings['id'] . '-family" class="cherry-ui-select cherry-font-family cherry-filter-select" name="' . $this->settings['name'] . '[family]" style="width: 100%">';
 								if( $standart_fonts_array && !empty( $standart_fonts_array ) && is_array( $standart_fonts_array ) ){
 									$html .= '<optgroup label="' . __( 'Standard Webfonts', 'cherry' ) . '" data-font-type="standart">';
 										foreach ($standart_fonts_array as $font_key => $font_value) {
 											$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
-											$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
-											$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
+											//$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
+											//$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
 
 											$selected_state = '';
 											if( $this->settings['value']['family'] && !empty( $this->settings['value']['family'] ) ){
@@ -117,7 +118,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 												}
 											}
 
-											$html .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" data-style="' . $style . '" data-character="' . $character . '" ' . $selected_state . '>'. esc_html( $font_value['family'] ) .'</option>';
+											$html .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" ' . $selected_state . '>'. esc_html( $font_value['family'] ) .'</option>';
 										}
 									$html .= '</optgroup>';
 								}
@@ -125,10 +126,10 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 									$html .= '<optgroup label="' . __( 'Google Webfonts', 'cherry' ) . '" data-font-type="web">';
 										foreach ( $google_fonts_array as $font_key => $font_value ) {
 											$category = is_array($font_value['category']) ? implode(",", $font_value['category']): $font_value['category'] ;
-											$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
-											$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
+											//$style = is_array($font_value['variants']) ? implode(",", $font_value['variants']): $font_value['variants'] ;
+											//$character = is_array($font_value['subsets']) ? implode(",", $font_value['subsets']): $font_value['subsets'] ;
 
-											foreach ($font_value['variants'] as $style_key => $style_value) {
+											/*foreach ($font_value['variants'] as $style_key => $style_value) {
 												if(!array_key_exists ($style_value, $style_array)){
 													$text_piece_1 = preg_replace ('/[0-9]/s', '', $style_value);
 													$text_piece_2 = preg_replace ('/[A-Za-z]/s', ' ', $style_value);
@@ -136,14 +137,14 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 													$style_array[$style_value] = $value_text;
 												}
 											}
-
 											foreach ($font_value['subsets'] as $character_key => $character_value) {
 												if(!array_key_exists ($character_value, $character_array)){
 													$value_text = str_replace('-ext', ' Extended', $character_value);
 													$value_text = ucwords($value_text);
 													$character_array[$character_value] = $value_text;
 												}
-											}
+											}*/
+
 											$selected_state = '';
 											if( $this->settings['value']['family'] && !empty( $this->settings['value']['family'] ) ){
 												if ( !is_array( $this->settings['value']['family'] ) ) {
@@ -158,41 +159,18 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 													}
 												}
 											}
-											$html .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" data-style="' . $style . '" data-character="' . $character . '" ' . $selected_state . '>'. esc_html( $font_value['family'] ) .'</option>';
+											$html .= '<option value="' . $font_value['family'] . '" data-category="' . $category . '" ' . $selected_state . '>'. esc_html( $font_value['family'] ) .'</option>';
 										}
 									$html .= '</optgroup>';
 								}
 							$html .= '</select>';
 						$html .= '</div>';
 						$html .= '<div class="field-font-style">';
-							if( $style_array && !empty( $style_array ) && is_array( $style_array )){
-								$html .= '<label for="' . $this->settings['id'] . '-style">' . __( 'Font Style', 'cherry' ) . '</label> ';
-								$ui_style_select = new UI_Select(
-									array(
-										'id'			=> $this->settings['id'] . '-style',
-										'name'			=> $this->settings['name'] . '[style]',
-										'value'			=> $this->settings['value']['style'],
-										'options'		=> $style_array,
-										'class'			=> 'cherry-font-style'
-									)
-								);
-								$html .= $ui_style_select->render();
-							}
+							$html .= $this->get_font_variants( $this->settings['id'], $this->settings['name'], $this->settings['value']['style'], $this->settings['value']['family'][0] );
 						$html .= '</div>';
 						$html .= '<div class="field-font-character">';
-							if( $character_array && !empty( $character_array ) && is_array( $character_array )){
-								$html .= '<label for="' . $this->settings['id'] . '-character">' . __( 'Character Sets', 'cherry' ) . '</label> ';
-								$ui_character_select = new UI_Select(
-									array(
-										'id'			=> $this->settings['id'] . '-character',
-										'name'			=> $this->settings['name'] . '[character]',
-										'value'			=> $this->settings['value']['character'],
-										'options'		=> $character_array,
-										'class'			=> 'cherry-font-character'
-									)
-								);
-								$html .= $ui_character_select->render();
-							}
+							$value = isset( $this->settings['value']['character'] ) ? $this->settings['value']['character'] : 'latin';
+							$html .= $this->get_font_subsets( $this->settings['id'], $this->settings['name'], $value, $this->settings['value']['family'][0] );
 						$html .= '</div>';
 					$html .= '</div>';
 				$html .= '</div>';
@@ -268,7 +246,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 									'name'			=> $this->settings['name'] . '[align]',
 									'value'			=> $this->settings['value']['align'],
 									'options'		=> $text_align,
-									'class'			=> 'cherry-text-align'
+									'class'			=> 'cherry-text-align cherry-filter-select'
 								)
 							);
 							$html .= $ui_align_select->render();
@@ -304,11 +282,13 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		 *
 		 * @since  4.0.0
 		 */
-		public function get_font_variants( $id, $name, $font ){
+		public function get_font_variants( $id, $name, $value, $font ){
 			$variants = array();
 
+			$value = isset( $value ) ? $value : 'regular';
+
 			foreach ( $this->get_standart_font() as $key => $font_settings ) {
-				if( $font == $font_settings['family'] ){
+				if( stripslashes( $font ) == stripslashes( $font_settings['family'] ) ){
 					$variants = $font_settings['variants'];
 				}
 			}
@@ -325,23 +305,74 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 				$variants_array[ $variant_value ] = $value_text;
 			}
 
-			if( $variants && !empty( $variants ) && is_array( $variants )){
-				$html = '<label for="' . $this->settings['id'] . '-style">' . __( 'Font Style', 'cherry' ) . '</label> ';
+			if( $variants_array && !empty( $variants_array ) && is_array( $variants_array )){
+				$html = '<label for="' . $id . '">' . __( 'Font Style', 'cherry' ) . '</label> ';
 				$ui_style_select = new UI_Select(
 					array(
 						'id'			=> $id . '-style',
 						'name'			=> $name . '[style]',
-						'value'			=> '',
+						'value'			=> $value,
 						'options'		=> $variants_array,
-						'class'			=> 'cherry-font-style'
+						'class'			=> 'cherry-font-style cherry-filter-select'
 					)
 				);
 				$html .= $ui_style_select->render();
+
+				return $html;
 			}
 
-			return $html;
+			return false;
 		}
 
+		/**
+		 * Get font subsets ui_select
+		 *
+		 * @param  string 		font name
+		 * @return string 		html
+		 *
+		 * @since  4.0.0
+		 */
+		public function get_font_subsets( $id, $name, $value, $font ){
+			$variants = array();
+
+			$value = isset( $value ) ? $value : array( 'latin' );
+
+			foreach ( $this->get_standart_font() as $key => $font_settings ) {
+				if( stripslashes( $font ) == stripslashes( $font_settings['family'] ) ){
+					$subsets = $font_settings['subsets'];
+				}
+			}
+			foreach ( $this->get_google_font() as $key => $font_settings ) {
+				if( $font == $font_settings['family'] ){
+					$subsets = $font_settings['subsets'];
+				}
+			}
+
+			foreach ( $subsets as $subset_key => $subset_value) {
+					$value_text = str_replace( '-ext', ' Extended', $subset_value );
+					$value_text = ucwords( $value_text );
+					$character_array[ $subset_value ] = $value_text;
+			}
+
+			if( $character_array && !empty( $character_array ) && is_array( $character_array )){
+				$html = '<label for="' . $id . '-character">' . __( 'Character Sets', 'cherry' ) . '</label> ';
+				$ui_character_select = new UI_Select(
+					array(
+						'id'			=> $id . '-character',
+						'name'			=> $name . '[character]',
+						'value'			=> $value,
+						'options'		=> $character_array,
+						'multiple'		=> true,
+						'class'			=> 'cherry-font-character cherry-multi-select'
+					)
+				);
+				$html .= $ui_character_select->render();
+
+				return $html;
+			}
+
+			return false;
+		}
 
 		/**
 		 * Get single font URL by font data
@@ -536,11 +567,13 @@ function get_google_font_link() {
 		$font_data = $_POST['font_data'];
 		$font_family = (string)$font_data['family'];
 		$font_style = (string)$font_data['style'];
-		$font_character = (string)$font_data['character'];
+
+		$font_character = is_array( $font_data['character'] ) ? implode(",", $font_data['character']) : (string)$font_data['character'];
 
 		$google_fonts = new UI_Typography;
 
 		$google_font_url = $google_fonts->get_single_font_url( array( 'family' => $font_family, 'style' => $font_style, 'character' => $font_character, 'fonttype' => 'web' ) );
+
 		echo $google_font_url;
 		exit;
 	}
@@ -556,10 +589,25 @@ function get_fonts_variants() {
 		$name = $_POST['name'];
 
 		$ui_typography = new UI_Typography;
+		$html = $ui_typography->get_font_variants( $id, $name, 'regular', $font );
 
-		$variants_select = $ui_typography->get_font_variants( $id, $name, $font );
+		echo $html;
+		exit;
+	}
+}
 
-		echo $variants_select;
+add_action( 'wp_ajax_get_fonts_subsets', 'get_fonts_subsets' );
+
+function get_fonts_subsets() {
+	if ( !empty($_POST) && array_key_exists('font', $_POST) && array_key_exists('id', $_POST) && array_key_exists('name', $_POST) ) {
+		$font = $_POST['font'];
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+
+		$ui_typography = new UI_Typography;
+		$html = $ui_typography->get_font_subsets( $id, $name, 'latin', $font );
+
+		echo $html;
 		exit;
 	}
 }
