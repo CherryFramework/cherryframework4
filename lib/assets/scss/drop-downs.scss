@@ -40,21 +40,24 @@
 	li {
 		.cherry-navigation-arrow & {
 			> a::after {
-				content: '';
+				content: '' !important;
 				display: inline-block;
 				vertical-align: top;
 				width: 0;
 				height: 0;
 				border-style: solid;
-				border-width: 5px 5px 0 5px;
+				border-width: 0;
 				border-color: transparent;
 				border-top-color: inherit;
 				margin: .3em 0 0 4px;
+				padding: 0 !important;
 			}
-			a {
-				&:only-child {
+		}
+		&.menu-item-has-children {
+			.cherry-navigation-arrow & {
+				> a {
 					&::after {
-						border-width: 0;
+						border-width: 5px 5px 0 5px;
 					}
 				}
 			}
@@ -92,16 +95,16 @@
 		.cherry-navigation-arrow & {
 			li {
 				> a::after {
-					border-width: 5px 0 5px 5px;
+					border-width: 0;
 					border-color: transparent;
 					border-left-color: inherit;
 					margin-top: .15em;
 				}
-			}
-			a {
-				&:only-child {
-					&::after {
-						border-width: 0;
+				&.menu-item-has-children {
+					> a {
+						&::after {
+							border-width: 5px 0 5px 5px;
+						}
 					}
 				}
 			}
