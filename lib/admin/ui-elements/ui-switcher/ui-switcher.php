@@ -29,6 +29,7 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 				'true_slave'	=> '',
 				'false_slave'	=> ''
 			),
+			'style'				=> 'normal', //large, normal, small
 			'class'				=> '',
 		);
 		/**
@@ -53,7 +54,7 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 			$data_attr_line .= ( !empty( $this->settings['toggle']['false_slave'] ) ) ? ' data-false-slave="' . $this->settings['toggle']['false_slave'] . '"' : '';
 
 			$html = '';
-			$html .= '<div class="cherry-switcher-wrap ' . $this->settings['class'] . '">';
+			$html .= '<div class="cherry-switcher-wrap size-' . $this->settings['style'] . ' ' . $this->settings['class'] . '">';
 				$html .= '<label class="sw-enable"><span>' . $this->settings['toggle']['true_toggle'] . '</span></label>';
 				$html .= '<label class="sw-disable"><span>' . $this->settings['toggle']['false_toggle']  . '</span></label>';
 				$html .= '<input id="' . $this->settings['id'] . '" type="hidden" class="cherry-input-switcher" name="' . $this->settings['name'] . '" ' . checked( 'true', $this->settings['value'], false ) . ' value="' . esc_html( $this->settings['value'] ) . '" ' . $data_attr_line . '>';

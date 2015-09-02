@@ -78,7 +78,7 @@ if ( ! class_exists( 'UI_Select' ) ) {
 			( $this->settings['multiple'] ) ? $multi_state = 'multiple="multiple"' : $multi_state = '' ;
 			( $this->settings['multiple'] ) ? $name = $this->settings['name'] . '[]' : $name = $this->settings['name'] ;
 
-			$html .= '<select id="' . $this->settings['id']  . '" class="cherry-ui-select ' . $this->settings['class'] . '" name="' . $name . '" size="' . $this->settings['size'] . '" ' . $multi_state. '>';
+			$html .= '<select id="' . $this->settings['id']  . '" class="cherry-ui-select ' . $this->settings['class'] . '" name="' . $name . '" size="' . $this->settings['size'] . '" ' . $multi_state. ' style="width: 100%">';
 			if( $this->settings['options'] && !empty( $this->settings['options'] ) && is_array( $this->settings['options'] ) ){
 				foreach ( $this->settings['options'] as $option => $option_value) {
 					if ( !is_array( $this->settings['value'] ) ) {

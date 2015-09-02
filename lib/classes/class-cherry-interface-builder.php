@@ -430,7 +430,7 @@ class Cherry_Interface_Builder {
 			break;
 		}
 
-		return $this->wrap_item( $output, $id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $description, $master, $hint );
+		return $this->wrap_item( $output, $id, $item_id, 'cherry-section cherry-' . $type . ' ' . $this->options['class']['section'], $title, $label, $description, $master, $hint );
 	}
 
 	/**
@@ -439,17 +439,31 @@ class Cherry_Interface_Builder {
 	 * @since  4.0.0
 	 * @return string
 	 */
-	private function wrap_item( $item, $id, $class, $title, $label, $description, $master, $hint ) {
+	private function wrap_item( $item, $id, $item_id, $class, $title, $label, $description, $master, $hint ) {
 
 		$description = $description ? $this->add_description( $description ) : '';
 		$class       = 'cherry-section-' . $this->options['pattern'] . ' ' . $class;
 		$master_class = preg_replace('/\s*,\s*/', ' ', $master);
 		$class .= !empty( $master_class ) && isset( $master_class ) ? $master_class : '';
-
-		$data_master = ( !empty( $master ) ) ? 'data-master="' . $master . '"' : '';
-		$output      = '<div id="wrap-' . $id . '" class="' . $class . '" ' . $data_master . '>';
-		$output      .= $title ? $this->add_title( $title ) : '';
 		$hint_html	= '';
+		$data_master = ( !empty( $master ) ) ? 'data-master="' . $master . '"' : '';
+		$output = '<div id="wrap-' . $id . '" class="' . $class . '" ' . $data_master . '>';
+		$output .= $title ? $this->add_title( $title ) : '';
+
+		$export_check = new UI_Switcher(
+			array(
+				'id'	=> $id . '-exclusion',
+				'name'	=> 'exclusion[' . $item_id . ']',
+				'value'	=> 'false',
+				'class'	=> 'exclusion-switcher',
+				'style'	=> 'small',
+				'toggle'		=> array(
+					'true_toggle'	=> __( 'Yes', 'cherry' ),
+					'false_toggle'	=> __( 'No', 'cherry' ),
+				),
+			)
+		);
+		$output .= sprintf('<div class="exclusion-check"><span>%1$s</span>%2$s</div>', __( 'Use for partial export', 'cherry' ), $export_check->render() );
 
 		if ( $this->options['pattern'] == 'inline' ) :
 
@@ -642,6 +656,7 @@ class Cherry_Interface_Builder {
 
 			wp_enqueue_script( 'editor');
 			wp_enqueue_script( 'interface-builder' );
+			wp_enqueue_script( 'jquery-ui-dialog' );
 	}
 
 	/**

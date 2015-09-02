@@ -54,13 +54,17 @@ class Cherry_Admin {
 			wp_enqueue_script( 'admin-interface', trailingslashit( CHERRY_URI ) . 'admin/assets/js/admin-interface.js', array( 'jquery' ), CHERRY_VERSION, true );
 
 			$messages = array(
-				'no_file'         => __( 'Please, select a file to import', 'cherry' ),
-				'invalid_type'    => __( 'Invalid file type', 'cherry' ),
-				'success'         => __( 'Cherry Options imported. ', 'cherry' ),
-				'section_restore' => __( 'section restored.', 'cherry' ),
-				'options_restore' => __( 'All options restored', 'cherry' ),
-				'section_loaded'  => __( 'options loaded.', 'cherry' ),
-				'redirect_url'    => menu_page_url( 'options', false ),
+				'no_file'            => __( 'Please, select a file to import', 'cherry' ),
+				'invalid_type'       => __( 'Invalid file type', 'cherry' ),
+				'success'            => __( 'Cherry Options imported. ', 'cherry' ),
+				'section_restore'    => __( 'section restored.', 'cherry' ),
+				'options_restore'    => __( 'All options restored', 'cherry' ),
+				'section_loaded'     => __( 'options loaded.', 'cherry' ),
+				'confirm_button'     => __( 'Yes', 'cherry' ),
+				'cancel_button'      => __( 'No', 'cherry' ),
+				'partial_empty'      => __( 'Neither option is not selected', 'cherry' ),
+				'download_started'   => __( 'File download started...', 'cherry' ),
+				'redirect_url'       => menu_page_url( 'options', false ),
 			);
 
 			wp_localize_script( 'admin-interface', 'cherry_options_page_data', $messages );

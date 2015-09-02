@@ -18,7 +18,8 @@ if ( !defined( 'WPINC' ) ) {
 if ( ! class_exists( 'UI_Repeater' ) ) {
 	class UI_Repeater {
 
-		private $settings = array();
+		private $name              = '';
+		private $settings          = array();
 		private $defaults_settings = array(
 			'id'		=> 'cherry-ui-repeater-id',
 			'name'		=> 'cherry-ui-repeater-name',
@@ -48,9 +49,9 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 		 * @since  4.0.0
 		 */
 		function __construct( $args = array() ) {
-
 			$this->defaults_settings['id'] = 'cherry-ui-repeater-'.uniqid();
-			$this->settings = wp_parse_args( $args, $this->defaults_settings );
+			$this->settings                = wp_parse_args( $args, $this->defaults_settings );
+			$this->name                    = $this->get_option_name();
 
 			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
 
@@ -77,9 +78,12 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 						$html .= '<div class="col">';
 							$html .= '<input class="' . $this->settings['class'] . 'link-label" name="" type="text" placeholder="' . __( 'Link label', 'cherry' ) . '" value="">';
 						$html .= '</div>';
+						$html .= '<input class="' . $this->settings['class'] . 'network-id" name="" type="hidden" value="">';
+
 						$html .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
 					$html .= '</div>';
 					if( is_array( $this->settings['value'] ) ){
+						$count = 0;
 						foreach ( $this->settings['value']  as $handle => $handleArray ) {
 							$html .= '<div class="cherry-repeater-item">';
 								$html .= '<div class="col">';
@@ -91,6 +95,10 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 								$html .= '<div class="col">';
 									$html .= '<input class="' . $this->settings['class'] . 'link-label" name="' . $this->settings['name'] . '[' . $handle. '][link-label]" type="text" placeholder="' . __( 'Link label', 'cherry' ) . '" value="' . esc_html( $handleArray['link-label'] ) . '">';
 								$html .= '</div>';
+
+								$value = ! empty( $handleArray['network-id'] ) ? $handleArray['network-id'] : 'network-' . $count++;
+								$html .= '<input name="' . $this->settings['name'] . '[][network-id]" type="hidden" value="' . $value . '">';
+
 								$html .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
 							$html .= '</div>';
 						}
@@ -102,6 +110,18 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 			$html .= '</div>';
 
 			return $html;
+		}
+
+		public function get_option_name() {
+
+			if ( empty( $this->settings['name'] ) ) {
+				return;
+			}
+
+			$option_name = explode( '[', $this->settings['name'] );
+			$option_name = empty( $option_name[1] ) ? trim( $option_name[0], ']' ) : trim( $option_name[1], ']' );
+
+			return $option_name;
 		}
 
 		/**

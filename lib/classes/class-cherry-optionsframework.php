@@ -20,7 +20,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 	class Cherry_Options_Framework {
 
 		public $current_section_name = '';
-		public $loaded_settings;
+		public static $loaded_settings;
 		public $themename = '';
 		public static $is_db_options_exist = null;
 		private static $instance = null;
@@ -63,8 +63,8 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			//$this->loaded_settings = $this->load_settings();
 
 			if( !self::is_db_options_exist() ){
-				$this->loaded_settings = $this->load_settings();
-				$options               = $this->get_default_options( $this->loaded_settings );
+				//$this->loaded_settings = $this->load_settings();
+				$options = $this->get_default_options( $this->load_settings() );
 				$this->save_options( $options );
 			}
 		}
@@ -118,7 +118,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 4.0.0
 		 */
 		public function get_section_name_by_id($section_id) {
-			$default_settings = $this->loaded_settings;
+			$default_settings = $this->load_settings();
 			$result = $default_settings[$section_id]['name'];
 			return $result;
 		}
@@ -130,7 +130,8 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 */
 		public function get_type_by_id($option_id) {
 			$result = '';
-			$default_settings = $this->loaded_settings;
+
+			$default_settings = $this->load_settings();
 			foreach ($default_settings as $sectionName => $sectionSettings) {
 				foreach ($sectionSettings['options-list'] as $optionId => $optionSettings) {
 					if($option_id == $optionId){
@@ -148,7 +149,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 * @since 4.0.0
 		 */
 		public function create_options_array() {
-			$default_set = $this->loaded_settings;
+			$default_set = $this->load_settings();
 
 			foreach ( $default_set as $key => $value ) {
 				$setname = $key;
@@ -189,7 +190,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 					$option_list = $value['options-list'];
 						foreach ($option_list as $key => $value) {
 							$type = $this->get_type_by_id($key);
-
 							switch ($type) {
 								case 'checkbox':
 									if (isset($post_array[$key])) {
@@ -294,6 +294,9 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		 */
 		static function load_settings() {
 			$result_settings = null;
+				if( !empty( self::$loaded_settings ) ){
+					return  self::$loaded_settings;
+				}
 				// Load options from options.php file (if it exists)
 				$location = apply_filters( 'default_set_file_location', array('cherry-options.php') );
 				if ( $optionsfile = locate_template( $location, true ) ) {
@@ -301,6 +304,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 						$result_settings = cherry_defaults_settings();
 					}
 				}
+				self::$loaded_settings = $result_settings;
 			return $result_settings;
 		}
 		/**
@@ -311,7 +315,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 		public function merged_settings() {
 			$result_settings = null;
 
-			$default_settings = $this->loaded_settings;
+			$default_settings = $this->load_settings();
 			$loaded_settings = $this->load_options();
 
 			foreach ( $default_settings as $key => $value ) {
@@ -338,7 +342,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 			if( self::$is_db_options_exist ){
 				$result_settings = $this->merged_settings();
 			}else{
-				$result_settings = $this->loaded_settings;
+				$result_settings = $this->load_settings();
 			}
 
 			return $result_settings;

@@ -1,1 +1,52 @@
-.cherry-ui-typography-wrap .field-font-family,.cherry-ui-typography-wrap .field-font-style,.cherry-ui-typography-wrap .field-font-character,.cherry-ui-typography-wrap .field-font-align{margin-bottom:5px;clear:both}.cherry-ui-typography-wrap .field-font-family .cherry-filter-select,.cherry-ui-typography-wrap .field-font-style .cherry-filter-select,.cherry-ui-typography-wrap .field-font-character .cherry-filter-select,.cherry-ui-typography-wrap .field-font-align .cherry-filter-select{width:100%}.cherry-ui-typography-wrap .field-font-family:last-child,.cherry-ui-typography-wrap .field-font-style:last-child,.cherry-ui-typography-wrap .field-font-character:last-child,.cherry-ui-typography-wrap .field-font-align:last-child{margin-bottom:0}.cherry-ui-typography-wrap .field-font-size,.cherry-ui-typography-wrap .field-font-lineheight,.cherry-ui-typography-wrap .field-font-letter-spacing,.cherry-ui-typography-wrap .field-font-color{float:left;overflow:hidden;margin-right:10px}.cherry-ui-typography-wrap .field-font-size:last-child,.cherry-ui-typography-wrap .field-font-lineheight:last-child,.cherry-ui-typography-wrap .field-font-letter-spacing:last-child,.cherry-ui-typography-wrap .field-font-color:last-child{margin-right:0}.cherry-ui-typography-wrap .cherry-column-section{width:50%;float:left;padding-right:10px;padding-left:0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.cherry-ui-typography-wrap .cherry-column-section .inner{background:#fff;padding:10px 15px;-webkit-box-shadow:0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);box-shadow:0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24)}.cherry-ui-typography-wrap .cherry-column-section:nth-child(2n){padding-right:0;padding-left:10px}.cherry-ui-typography-wrap .cherry-font-preview{width:100%;display:none;padding:15px 10px;margin-top:20px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;clear:both;-webkit-transition:background-color;transition:background-color;-webkit-box-shadow:0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);box-shadow:0 1px 6px rgba(0,0,0,0.12),0 1px 4px rgba(0,0,0,0.24);border-radius:0;border:none}
+.cherry-ui-typography-wrap .field-font-family, .cherry-ui-typography-wrap .field-font-style, .cherry-ui-typography-wrap .field-font-character, .cherry-ui-typography-wrap .field-font-align {
+  margin-bottom: 5px;
+  clear: both;
+}
+.cherry-ui-typography-wrap .field-font-family .cherry-filter-select, .cherry-ui-typography-wrap .field-font-style .cherry-filter-select, .cherry-ui-typography-wrap .field-font-character .cherry-filter-select, .cherry-ui-typography-wrap .field-font-align .cherry-filter-select {
+  width: 100%;
+}
+.cherry-ui-typography-wrap .field-font-family:last-child, .cherry-ui-typography-wrap .field-font-style:last-child, .cherry-ui-typography-wrap .field-font-character:last-child, .cherry-ui-typography-wrap .field-font-align:last-child {
+  margin-bottom: 0;
+}
+.cherry-ui-typography-wrap .field-font-size, .cherry-ui-typography-wrap .field-font-lineheight, .cherry-ui-typography-wrap .field-font-letter-spacing, .cherry-ui-typography-wrap .field-font-color {
+  float: left;
+  overflow: hidden;
+  margin-right: 10px;
+}
+.cherry-ui-typography-wrap .field-font-size:last-child, .cherry-ui-typography-wrap .field-font-lineheight:last-child, .cherry-ui-typography-wrap .field-font-letter-spacing:last-child, .cherry-ui-typography-wrap .field-font-color:last-child {
+  margin-right: 0;
+}
+.cherry-ui-typography-wrap .cherry-column-section {
+  width: 50%;
+  float: left;
+  padding-right: 10px;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+.cherry-ui-typography-wrap .cherry-column-section .inner {
+  background: #fff;
+  padding: 10px 15px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+.cherry-ui-typography-wrap .cherry-column-section:nth-child(2n) {
+  padding-right: 0;
+  padding-left: 10px;
+}
+.cherry-ui-typography-wrap .cherry-column-section .field-font-family, .cherry-ui-typography-wrap .cherry-column-section .field-font-style, .cherry-ui-typography-wrap .cherry-column-section .field-font-character, .cherry-ui-typography-wrap .cherry-column-section .field-font-align {
+  position: relative;
+}
+.cherry-ui-typography-wrap .cherry-column-section .field-font-family label, .cherry-ui-typography-wrap .cherry-column-section .field-font-style label, .cherry-ui-typography-wrap .cherry-column-section .field-font-character label, .cherry-ui-typography-wrap .cherry-column-section .field-font-align label {
+  display: block;
+}
+.cherry-ui-typography-wrap .cherry-font-preview {
+  width: 100%;
+  display: none;
+  padding: 15px 10px;
+  margin-top: 20px;
+  box-sizing: border-box;
+  clear: both;
+  transition: background-color;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+  border-radius: 0;
+  border: none;
+}
