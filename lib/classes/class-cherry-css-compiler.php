@@ -581,7 +581,8 @@ function cherry_reset_compiled_css() {
 		return false;
 	}
 
-	cherry_css_compiler::reset_compiled_css();
+	$compiler = cherry_css_compiler::get_instance();
+	$compiler->reset_compiled_css();
 }
 
 /**
