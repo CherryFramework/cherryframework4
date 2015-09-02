@@ -201,6 +201,29 @@ img {
 }
 
 /*--------------------------------------------------------------
+# Entry
+--------------------------------------------------------------*/
+.chat {
+	&-transcript {}
+	&-row {
+		padding-bottom: 0.5em;
+	}
+	&-speaker-xxx {}
+	&-author {
+		cite {
+			font-weight: bold;
+			text-transform: uppercase;
+		}
+	}
+	&-text {
+		padding-left: 2em;
+		p {
+			margin-top: 0;
+		}
+	}
+}
+
+/*--------------------------------------------------------------
 # Asides
 --------------------------------------------------------------*/
 .blog .format-aside .entry-title,

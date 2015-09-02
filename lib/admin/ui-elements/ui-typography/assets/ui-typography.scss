@@ -32,6 +32,12 @@
 			padding-right: 0;
 			padding-left: 10px;
 		}
+		.field-font-family, .field-font-style, .field-font-character, .field-font-align{
+			position: relative;
+				label{
+					display: block;
+				}
+		}
 	}
 	.cherry-font-preview{
 		width: 100%;

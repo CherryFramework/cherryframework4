@@ -581,5 +581,19 @@ function cherry_reset_compiled_css() {
 		return false;
 	}
 
-	cherry_css_compiler::reset_compiled_css();
+	$compiler = cherry_css_compiler::get_instance();
+	$compiler->reset_compiled_css();
+}
+
+/**
+ * Delete compiled file when the bulk upgrader process is complete.
+ *
+ * @since 4.0.2
+ */
+add_action( 'upgrader_process_complete', 'cherry_reset_css_after_upgrader', 10, 2 );
+function cherry_reset_css_after_upgrader( $instance, $data ) {
+
+	if ( ! empty( $data['type'] ) && 'theme' === $data['type'] ) {
+		cherry_reset_compiled_css();
+	}
 }

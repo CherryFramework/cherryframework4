@@ -141,6 +141,8 @@ class cherry_enqueue_fonts {
 
 		$option_val = cherry_get_option( $option, false );
 
+
+
 		if ( ! $option_val || ! is_array( $option_val ) ) {
 			return;
 		}
@@ -151,15 +153,19 @@ class cherry_enqueue_fonts {
 
 		$font = $option_val['family'];
 
+		if( !is_array( $option_val['character'] ) ){
+			$option_val['character'] = array( $option_val['character'] );
+		}
+
 		if ( ! isset( $this->fonts_data[$font] ) ) {
 			$this->fonts_data[$font] = array(
 				'style'     => array( $option_val['style'] ),
-				'character' => array( $option_val['character'] )
+				'character' => $option_val['character']
 			);
 		} else {
 			$this->fonts_data[$font] = array(
 				'style'     => array_merge( $this->fonts_data[$font]['style'], array( $option_val['style'] ) ),
-				'character' => array_merge( $this->fonts_data[$font]['character'], array( $option_val['character'] ) )
+				'character' => array_merge( $this->fonts_data[$font]['character'], $option_val['character'] )
 			);
 		}
 	}

@@ -23,6 +23,9 @@ add_action( 'wp_enqueue_scripts', 'cherry_register_styles', 2 );
 // Load Cherry Framework styles.
 add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 10 );
 
+// Add post specific inline CSS.
+add_action( 'wp_enqueue_scripts', 'cherry_post_inline_styles', 101 );
+
 /**
  * Registers stylesheets for the framework. This function merely registers styles with WordPress using
  * the wp_register_style() function. It does not load any stylesheets on the site. If a theme wants to
@@ -33,6 +36,13 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_styles', 10 );
  * @since  4.0.0
  */
 function cherry_register_styles() {
+	$defaults = array(
+		'handle'  => '',
+		'src'     => '',
+		'deps'    => null,
+		'version' => '1.0',
+		'media'   => 'all',
+	);
 
 	// Get framework styles.
 	$styles = cherry_get_styles();
@@ -41,18 +51,8 @@ function cherry_register_styles() {
 	foreach ( $styles as $id => $style ) {
 
 		if ( 'style' == $id && wp_style_is( CHERRY_DYNAMIC_CSS_HANDLE, 'registered' ) ) {
-			$deps = array( CHERRY_DYNAMIC_CSS_HANDLE );
-		} else {
-			$deps = null;
+			$defaults['deps'] = array( CHERRY_DYNAMIC_CSS_HANDLE );
 		}
-
-		$defaults = array(
-			'handle'  => '',
-			'src'     => '',
-			'deps'    => $deps,
-			'version' => '1.0',
-			'media'   => 'all'
-		);
 
 		$style = wp_parse_args( $style, $defaults );
 
@@ -94,17 +94,19 @@ function cherry_get_styles() {
 	// Get the active theme stylesheet version.
 	$version = wp_get_theme()->get( 'Version' );
 
+	// Prepare set of stylesheets.
+	$styles = array();
+
 	// Get the theme-supported stylesheets.
 	$supports = get_theme_support( 'cherry-styles' );
 
 	// If the theme support for any styles.
-	if ( is_array( $supports[0] ) ) :
+	if ( ! empty( $supports[0] ) && is_array( $supports[0] ) ) :
 
 		$drop_downs = array(
 			'handle'  => get_template() . '-drop-downs',
 			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
-			'deps'    => array( 'dashicons' ),
-			'version' => CHERRY_VERSION,
+			'version' => '1.0.0',
 		);
 
 		// Is responsive site?
@@ -136,12 +138,12 @@ function cherry_get_styles() {
 			'magnific-popup'  => array(
 				'handle'  => 'magnific-popup',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/magnific-popup.css',
-				'version' => CHERRY_VERSION,
+				'version' => '1.0.0',
 			),
 			'slick' => array(
 				'handle'  => 'slick',
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/slick.css',
-				'version' => CHERRY_VERSION,
+				'version' => '1.5.0',
 			),
 			'main' => array(
 				'handle'  => $prefix . 'main',
@@ -154,21 +156,15 @@ function cherry_get_styles() {
 				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
 				'version' => CHERRY_VERSION,
 			),
-			'style' => array(
-				'handle'  => $prefix . 'style',
-				'src'     => get_stylesheet_uri(),
-				'version' => $version,
-			),
 		) );
 
-		$styles = array();
 		foreach ( $supports[0] as $s ) {
 
 			if ( empty( $defaults[ $s ] ) ) {
 				continue;
 			}
 
-			if ( !is_array( $defaults[ $s ] ) ) {
+			if ( ! is_array( $defaults[ $s ] ) ) {
 				continue;
 			}
 
@@ -193,19 +189,14 @@ function cherry_get_styles() {
 	return apply_filters( 'cherry_get_styles', $styles );
 }
 
-// add post specific inline CSS
-add_action( 'wp_enqueue_scripts', 'cherry_post_inline_styles', 101 );
-
 /**
  * Get post specific CSS styles and paste it to head
  *
  * @since 4.0.0
  */
 function cherry_post_inline_styles() {
-
-	$cherry_styles = cherry_get_styles();
-	$post_id       = get_the_id();
-	$post_type     = get_post_type( $post_id );
+	$post_id   = get_queried_object_id();
+	$post_type = get_post_type( $post_id );
 
 	if ( ! $post_type || ! post_type_supports( $post_type, 'cherry-post-style' ) ) {
 		return;
@@ -214,7 +205,8 @@ function cherry_post_inline_styles() {
 	if ( wp_style_is( CHERRY_DYNAMIC_CSS_HANDLE, 'enqueued' ) ) {
 		$handle = CHERRY_DYNAMIC_CSS_HANDLE;
 	} else {
-		$handle = isset( $cherry_styles['style'] ) ? $cherry_styles['style']['handle'] : false;
+		$cherry_styles = cherry_get_styles();
+		$handle        = isset( $cherry_styles['style'] ) ? $cherry_styles['style']['handle'] : false;
 	}
 
 	if ( ! $handle ) {
@@ -241,5 +233,4 @@ function cherry_post_inline_styles() {
 	}
 
 	wp_add_inline_style( $handle, sanitize_text_field( $custom_bg ) );
-
 }

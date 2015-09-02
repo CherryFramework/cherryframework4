@@ -681,12 +681,14 @@ function cherry_defaults_settings() {
 		'display_input' => true,
 		'options'       => array(
 			'image' => array(
-				'label'   => 'Image logo',
-				'img_src' => '',
+				'label'		=> 'Image logo',
+				'img_src'	=> '',
+				'slave'		=> 'logo-type-image'
 			),
 			'text' => array(
 				'label'   => 'Text logo',
 				'img_src' => '',
+				'slave'		=> 'logo-type-text'
 			)
 		)
 	);
@@ -696,6 +698,7 @@ function cherry_defaults_settings() {
 		'description' => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
 		'value'        => '',
 		'multi-upload' => true,
+		'master'		=> 'logo-type-image'
 	);
 	$logo_options['typography-header-logo'] = array(
 		'type'  => 'typography',
@@ -711,7 +714,8 @@ function cherry_defaults_settings() {
 			'style'         => '',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
-		)
+		),
+		'master'		=> 'logo-type-text'
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -839,6 +843,13 @@ function cherry_defaults_settings() {
 		'min_value' => 970,
 		'value'     => 1310,
 	);
+	$footer_options['footer-text'] = array(
+		'type'				=> 'textarea',
+		'title'				=> __( 'Footer Info text', 'cherry' ),
+		'description'		=> __( 'Set custom text for Footer static info.', 'cherry' ),
+		'value'				=> '',
+		'multi-upload'		=> true,
+	);
 	// Footer Logo options
 	//////////////////////////////////////////////////////////////////////
 	$footer_logo_options = array();
@@ -854,10 +865,12 @@ function cherry_defaults_settings() {
 			'image' => array(
 				'label'   => 'Image logo',
 				'img_src' => '',
+				'slave'		=> 'footer-logo-type-image'
 			),
 			'text' => array(
 				'label'   => 'Text logo',
 				'img_src' => '',
+				'slave'		=> 'footer-logo-type-text'
 			)
 		)
 	);
@@ -867,6 +880,7 @@ function cherry_defaults_settings() {
 		'description' => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
 		'value'        => '',
 		'multi-upload' => true,
+		'master'	=> 'footer-logo-type-image'
 	);
 	$footer_logo_options['typography-footer-logo'] = array(
 		'type'  => 'typography',
@@ -882,14 +896,8 @@ function cherry_defaults_settings() {
 			'style'         => '',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
-		)
-	);
-	$footer_options['footer-text'] = array(
-		'type'				=> 'textarea',
-		'title'				=> __( 'Footer Info text', 'cherry' ),
-		'description'		=> __( 'Set custom text for Footer static info.', 'cherry' ),
-		'value'				=> '',
-		'multi-upload'		=> true,
+		),
+		'master'	=> 'footer-logo-type-text'
 	);
 //////////////////////////////////////////////////////////////////////
 // Typography options
@@ -950,7 +958,7 @@ function cherry_defaults_settings() {
 			'size'          => '12',
 			'lineheight'    => '18',
 			'color'         => '#777777',
-			'family'        => 'Arial',
+			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
 			'style'         => 'regular',
 			'letterspacing' => '',
@@ -963,13 +971,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H1 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '36',
 			'lineheight'    => '40',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
 		)
@@ -980,13 +988,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H2 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '30',
 			'lineheight'    => '33',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -997,13 +1005,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H3 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '24',
 			'lineheight'    => '26',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1014,13 +1022,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H4 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '18',
 			'lineheight'    => '20',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1031,13 +1039,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H5 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '14',
 			'lineheight'    => '16',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1048,13 +1056,13 @@ function cherry_defaults_settings() {
 		'max_value'   => 500,
 		'description' => __( 'H6 heading font settings.', 'cherry' ),
 		'value'       => array(
-			'fonttype'      => 'web',
+			'fonttype'      => 'standart',
 			'size'          => '12',
 			'lineheight'    => '14',
 			'color'         => '#333333',
 			'family'        => 'Arial, Helvetica',
 			'character'     => 'latin-ext',
-			'style'         => 'normal',
+			'style'         => 'regular',
 			'letterspacing' => '0',
 			'align'         => 'notdefined',
 		)
@@ -1364,6 +1372,7 @@ function cherry_defaults_settings() {
 			'origin'		=> 'padding-box',
 		)
 	);
+
 	$demo_options['typography-demo'] = array(
 		'type'			=> 'typography',
 		'title'			=> __('Typography', 'cherry'),
@@ -1387,6 +1396,7 @@ function cherry_defaults_settings() {
 			'color'			=> '#222222',
 		)
 	);
+
 	$demo_options['ace-editor-demo'] = array(
 		'type'			=> 'ace-editor',
 		'title'			=> __('CSS Editor', 'cherry'),
@@ -1500,7 +1510,7 @@ function cherry_defaults_settings() {
 		),
 	);
 
-	/*$test_options['text-test'] = array(
+	$test_options['text-test'] = array(
 		'type'			=> 'text',
 		'title'			=> __('Text input', 'cherry'),
 		'label'			=> '',
@@ -1564,7 +1574,7 @@ function cherry_defaults_settings() {
 			'select-8'	=> 'select 8'
 		),
 		'master'			=> 'switcher-test-true-slave'
-	);*/
+	);
 	$test_options['radio-image-test'] = array(
 		'type'			=> 'radio',
 		'title'			=> __('Radio buttons (image)', 'cherry'),
@@ -1632,7 +1642,7 @@ function cherry_defaults_settings() {
 		'master'			=> 'switcher-test-true-slave, radio-image-test-radio-3'
 	);
 
-	/*$test_options['checkbox-text'] = array(
+	$test_options['checkbox-text'] = array(
 		'type'			=> 'checkbox',
 		'title'			=> __('Checkbox', 'cherry'),
 		'label'			=> __('Checkbox label', 'cherry'),
@@ -1688,7 +1698,7 @@ function cherry_defaults_settings() {
 		),
 		'value'			=> 'value',
 		'master'			=> 'checkbox-text-checkbox-3'
-	);*/
+	);
 //////////////////////////////////////////////////////////////////////
 // Sections
 //////////////////////////////////////////////////////////////////////
