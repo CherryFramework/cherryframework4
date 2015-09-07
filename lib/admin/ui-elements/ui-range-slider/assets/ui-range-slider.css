@@ -10,14 +10,18 @@
 .cherry-range-slider-wrap .cherry-range-slider-holder .cherry-range-slider-unit {
   margin: 5px 15px;
   font-size: 1.5em;
+  border: 1px solid #dddcdc;
+  border-radius: 15px;
 }
 .cherry-range-slider-wrap .cherry-range-slider-holder .cherry-range-slider-unit .ui-slider-range {
   background: #2a445d;
 }
 .cherry-range-slider-wrap .cherry-range-slider-holder .cherry-range-slider-unit .ui-slider-handle {
   border: 1px solid #dddcdc;
-  top: -7px;
   background: #f7f7f7;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+  border-radius: 15px;
+  background-color: #fff;
 }
 .cherry-range-slider-wrap .cherry-range-slider-holder .cherry-range-slider-unit .ui-slider-handle.ui-state-hover {
   border: 1px solid #dddcdc;
