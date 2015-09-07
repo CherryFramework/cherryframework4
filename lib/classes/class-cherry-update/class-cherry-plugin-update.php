@@ -64,7 +64,8 @@ if( !class_exists( 'Cherry_Plugin_Update' ) ) {
 				$plugins_string = '';
 
 				foreach ( $plugins as $plugin_key => $plugin_value ) {
-					if( strpos( $plugin_key, 'cherry-' ) !== false ){
+					$plugin_key = strtolower( $plugin_key );
+					if( strpos( $plugin_key, 'cherry' ) !== false ){
 						$plugins_string .= '"' . $plugin_value ->update ->slug . '" : "' . $plugin_value ->update ->url .'", ';
 					}
 				}
