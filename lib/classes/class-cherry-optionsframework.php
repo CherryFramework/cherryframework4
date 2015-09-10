@@ -398,7 +398,7 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 
 			$setting = get_option( 'cherry-options' );
 			if(self::is_db_options_exist()){
-				$options_array = get_option( $setting['id'] );
+				$options_array = apply_filters('cherry_option_value_source_array', get_option( $setting['id'] ) );
 				if ( $options_array ) {
 					foreach ( $options_array as $sections_name => $section_value ) {
 						if( !empty( $section_value[ 'options-list' ] ) ){
