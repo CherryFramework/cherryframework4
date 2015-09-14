@@ -59,8 +59,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			// add options to allowed MIME types
 			add_filter( 'upload_mimes', array( $this, 'add_options_mime' ) );
 
-			$this->init();
-
 			$url = add_query_arg(
 				array( 'action' => 'cherry_export_options' ),
 				admin_url( 'admin-ajax.php' )
@@ -69,6 +67,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			self::$options_partial_export_url = admin_url( 'admin-ajax.php' ).'?action=cherry_partial_export';
 
+			$this->init();
 
 			// add shortcode button for wp editor
 			if( class_exists( 'Cherry_Shortcodes' ) ){
@@ -85,17 +84,15 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			}
 		}
 
-
-
 		private function init(){
 			global $cherry_options_framework, $submenu, $cherry_page_builder;
 
-			$this->option_inteface_builder = new Cherry_Interface_Builder(
+			/*$this->option_inteface_builder = new Cherry_Interface_Builder(
 				array(
 					'pattern'      => 'grid',
 					'hidden_items' => apply_filters( 'cherry-hidden-options', array() ),
 				)
-			);
+			);*/
 
 			// Gets a WP_Theme object for a theme.
 			$current_theme_obj = wp_get_theme();
@@ -375,7 +372,14 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				$cherry_options = $cherry_options_framework->get_current_settings();
 				$current_section_options = $cherry_options[$active_section];
 
-				$html .= $this->option_inteface_builder->multi_output_items($current_section_options['options-list']);
+				$option_inteface_builder = new Cherry_Interface_Builder(
+					array(
+						'pattern'      => 'grid',
+						'hidden_items' => apply_filters( 'cherry-hidden-options', array() ),
+					)
+				);
+
+				$html .= $option_inteface_builder->multi_output_items($current_section_options['options-list']);
 				printf( '<div class="options-group %1$s">%2$s</div>', $active_section, $html );
 				exit;
 			}
@@ -571,13 +575,18 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		public static function cherry_options_page_build() {
 			global $cherry_options_framework;
 
-				$section_index = 0;
+			$option_inteface_builder = new Cherry_Interface_Builder();
 
-				$cherry_options = $cherry_options_framework->get_current_settings();
+			$option_inteface_builder->enqueue_builder_scripts();
+			$option_inteface_builder->enqueue_builder_styles();
 
-				$cherry_options = self::child_priority_sorting($cherry_options);
+			$section_index = 0;
 
-				$cherry_options = self::priority_sorting($cherry_options);
+			$cherry_options = $cherry_options_framework->get_current_settings();
+
+			$cherry_options = self::child_priority_sorting($cherry_options);
+
+			$cherry_options = self::priority_sorting($cherry_options);
 
 				?>
 			<?php settings_errors( 'cherry-options' ); ?>
