@@ -123,6 +123,9 @@ class Cherry_Layouts {
 			'class'       => array( 'section' => 'single-section' ),
 		) );
 
+		$builder->enqueue_builder_scripts();
+		$builder->enqueue_builder_styles();
+
 		printf( '<div class="post-layout">%s</div>', $builder->add_form_item( $args ) );
 
 		/**

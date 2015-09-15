@@ -135,6 +135,9 @@ class Cherry_Grid_Type {
 			'class'       => array( 'section' => 'single-section' ),
 		) );
 
+		$builder->enqueue_builder_scripts();
+		$builder->enqueue_builder_styles();
+
 		$output = '';
 
 		foreach ( $this->options as $id => $item ) {

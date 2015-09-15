@@ -11,13 +11,16 @@
 				margin: 5px 15px;
 				font-size: 1.5em;
 				border: 1px solid #dddcdc;
+				border-radius: 15px;
 					.ui-slider-range{
 						background: #2a445d;
+						border-radius: 15px;
 					}
 					.ui-slider-handle{
 						border: 1px solid #dddcdc;
-						top: -7px;
 						background: #f7f7f7;
+						border-radius: 15px;
+						box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
 							&.ui-state-hover{
 								border: 1px solid #dddcdc;
 								background: #f4f4f4;

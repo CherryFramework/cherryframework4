@@ -56,9 +56,6 @@ class Cherry_Interface_Builder {
 	 * @param array $args
 	 */
 	public function __construct( $args = array() ) {
-		// Register admin javascript and stylesheet.
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_builder_scripts' ), 1 );
-		add_action( 'admin_enqueue_scripts', array( $this, 'register_builder_styles' ), 1 );
 
 		// Load admin javascript and stylesheet.
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_builder_scripts' ) );
@@ -612,51 +609,34 @@ class Cherry_Interface_Builder {
 	}
 
 	/**
-	 * Register admin-specific javascript.
-	 *
-	 * @since 4.0.0
-	 */
-	public function register_builder_scripts() {
-		wp_register_script( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/js/interface-builder.js', array( 'jquery' ), CHERRY_VERSION, true );
-	}
-
-	/**
-	 * Register admin-specific stylesheet.
-	 *
-	 * @since 4.0.0
-	 */
-	public function register_builder_styles() {
-		wp_register_style( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/css/interface-builder.css', array(), CHERRY_VERSION, 'all' );
-	}
-
-	/**
 	 * Enqueue admin-specific javascript.
 	 *
 	 * @since 4.0.0
 	 */
-	public function enqueue_builder_scripts( $hook_suffix ) {
-			UI_Text::enqueue_assets();
-			UI_Textarea::enqueue_assets();
-			UI_Select::enqueue_assets();
-			UI_Checkbox::enqueue_assets();
-			UI_Radio::enqueue_assets();
-			UI_Switcher::enqueue_assets();
-			UI_Colorpicker::enqueue_assets();
-			UI_Repeater::enqueue_assets();
-			UI_Media::enqueue_assets();
-			UI_Stepper::enqueue_assets();
-			UI_Slider::enqueue_assets();
-			UI_Range_Slider::enqueue_assets();
-			UI_Background::enqueue_assets();
-			UI_Typography::enqueue_assets();
-			UI_Ace_Editor::enqueue_assets();
-			UI_Layout_Editor::enqueue_assets();
-			UI_Static_Area_Editor::enqueue_assets();
-			UI_Tooltip::enqueue_assets();
+	public function enqueue_builder_scripts( $hook_suffix = false ) {
+		UI_Text::enqueue_assets();
+		UI_Textarea::enqueue_assets();
+		UI_Select::enqueue_assets();
+		UI_Checkbox::enqueue_assets();
+		UI_Radio::enqueue_assets();
+		UI_Switcher::enqueue_assets();
+		UI_Colorpicker::enqueue_assets();
+		UI_Repeater::enqueue_assets();
+		UI_Media::enqueue_assets();
+		UI_Stepper::enqueue_assets();
+		UI_Slider::enqueue_assets();
+		UI_Range_Slider::enqueue_assets();
+		UI_Background::enqueue_assets();
+		UI_Typography::enqueue_assets();
+		UI_Ace_Editor::enqueue_assets();
+		UI_Layout_Editor::enqueue_assets();
+		UI_Static_Area_Editor::enqueue_assets();
+		UI_Tooltip::enqueue_assets();
 
-			wp_enqueue_script( 'editor');
-			wp_enqueue_script( 'interface-builder' );
-			wp_enqueue_script( 'jquery-ui-dialog' );
+		wp_enqueue_script( 'editor');
+		wp_enqueue_script( 'jquery-ui-dialog' );
+
+		wp_enqueue_script( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/js/interface-builder.js', array( 'jquery' ), CHERRY_VERSION, true );
 	}
 
 	/**
@@ -664,7 +644,7 @@ class Cherry_Interface_Builder {
 	 *
 	 * @since 4.0.0
 	 */
-	public function enqueue_builder_styles( $hook_suffix ) {
-		wp_enqueue_style( 'interface-builder' );
+	public function enqueue_builder_styles( $hook_suffix = false ) {
+		wp_enqueue_style( 'interface-builder', trailingslashit( CHERRY_URI ) . 'admin/assets/css/interface-builder.css', array(), CHERRY_VERSION );
 	}
 }
