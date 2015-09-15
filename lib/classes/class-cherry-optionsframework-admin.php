@@ -576,7 +576,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			global $cherry_options_framework;
 
 			$option_inteface_builder = new Cherry_Interface_Builder();
-
 			$option_inteface_builder->enqueue_builder_scripts();
 			$option_inteface_builder->enqueue_builder_styles();
 

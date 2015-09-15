@@ -131,6 +131,9 @@ class Cherry_Post_Style {
 			'class'       => array( 'section' => 'single-section' ),
 		) );
 
+		$builder->enqueue_builder_scripts();
+		$builder->enqueue_builder_styles();
+
 		$content = '';
 
 		foreach ( $fields as $field ) {
