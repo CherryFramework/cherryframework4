@@ -668,7 +668,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 
 			wp_enqueue_script(
 				'ui-static-area-editor.min',
-				self::get_current_file_url() . '/assets/min/ui-static-area-editor.min.js',
+				self::get_current_file_url() . '/assets/ui-static-area-editor.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
 				true
