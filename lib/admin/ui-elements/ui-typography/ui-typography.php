@@ -542,7 +542,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		public static function enqueue_assets(){
 			wp_enqueue_script(
 				'ui-typography.min',
-				self::get_current_file_url() . '/assets/ui-typography.js',
+				self::get_current_file_url() . '/assets/min/ui-typography.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
 				true

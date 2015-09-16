@@ -63,7 +63,7 @@ class Cherry_Interface_Builder {
 
 		$this->options = $this->processed_input_data( $this->options, $args );
 
-		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-text/ui-text.php' );
+	/*	require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-text/ui-text.php' );
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-textarea/ui-textarea.php' );
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-select/ui-select.php' );
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-checkbox/ui-checkbox.php' );
@@ -80,7 +80,7 @@ class Cherry_Interface_Builder {
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-ace-editor/ui-ace-editor.php' );
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-layout-editor/ui-layout-editor.php' );
 		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-static-area-editor/ui-static-area-editor.php' );
-		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-tooltip/ui-tooltip.php' );
+		require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-tooltip/ui-tooltip.php' );*/
 	}
 
 	/**
@@ -630,7 +630,6 @@ class Cherry_Interface_Builder {
 		UI_Typography::enqueue_assets();
 		UI_Ace_Editor::enqueue_assets();
 		UI_Layout_Editor::enqueue_assets();
-		UI_Static_Area_Editor::enqueue_assets();
 		UI_Tooltip::enqueue_assets();
 
 		wp_enqueue_script( 'editor');

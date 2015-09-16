@@ -82,6 +82,24 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				cherry_query_asset( 'css', $admin_styles );
 				cherry_query_asset( 'js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-widget', 'jquery-ui-mouse', 'simple-slider', 'farbtastic', 'magnific-popup', 'cherry-shortcodes-generator' ) );*/
 			}
+
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-text/ui-text.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-textarea/ui-textarea.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-select/ui-select.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-checkbox/ui-checkbox.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-radio/ui-radio.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-switcher/ui-switcher.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-colorpicker/ui-colorpicker.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-repeater/ui-repeater.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-media/ui-media.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-stepper/ui-stepper.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-slider/ui-slider.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-range-slider/ui-range-slider.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-background/ui-background.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-typography/ui-typography.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-ace-editor/ui-ace-editor.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-layout-editor/ui-layout-editor.php' );
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-tooltip/ui-tooltip.php' );
 		}
 
 		private function init(){
