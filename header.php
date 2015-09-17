@@ -8,11 +8,9 @@
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-
 <head>
 <?php wp_head(); ?>
 </head>
-
 <body <?php cherry_attr( 'body' ); ?>>
 
 	<?php do_action( 'cherry_body_start' ); ?>

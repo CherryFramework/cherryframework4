@@ -56,6 +56,8 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 
 			add_action( 'wp_ajax_get_minor_select', array( $this, 'get_minor_select' ) );
 
+			//add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_builder_scripts' ) );
+
 			$this->init();
 
 			$url = add_query_arg(
@@ -484,6 +486,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 							'options'		=> $cherry_registered_statics
 						)
 					);
+
 					echo $ui_statics->render();
 				?>
 					<div class="submit-wrapper">
