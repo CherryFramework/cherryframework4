@@ -13,6 +13,27 @@ You can learn more about Cherry Framework 4 features from the [official document
 
 ##Change log##
 
+#### v4.0.3 ####
+
+* UPD: Including assets for a `Interface Builder` and `Static Page`
+* UPD: UI-elements optimization
+
+#### v4.0.2 ####
+
+* NEW: Feature - formatting the `chat` post format
+* ADD: Support microformats (xfn)
+* ADD: Options visibility
+* ADD: Hidden value for `ui-repeater` element
+* UPD: Rename `blank.pot` to `cherry.pot`
+* UPD: Custom menu registration
+* UPD: Optimazed slow queries in DB
+* UPD: .po files
+* UPD: Compressed a third-party css
+* FIX: Sanitize for a custom static classes
+* FIX: php-notice on 404-page
+* FIX: Prevent PHP errors caused by CSS compiler
+* DEL: Unnecessary using var `global $cherry_registered_statics`
+
 #### v4.0.1 ####
 
 * ADD: statics visibility feature
