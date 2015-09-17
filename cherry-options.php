@@ -496,7 +496,7 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options['breadcrumbs-show-title'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Page title', 'cherry' ),
-		'description' => __( 'Enable/disable page title in breadcrumbs.', 'cherry' ),
+		'description' => __( 'Show / hide current page title in breadcrumb navigation.', 'cherry' ),
 		'value'       => 'true',
 	);
 	$breadcrumbs_options['breadcrumbs-display'] = array(
@@ -517,7 +517,11 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options['breadcrumbs-show-on-front'] = array(
 		'type'			=> 'switcher',
 		'title' 		=> __( 'Home page breadcrumbs', 'cherry' ),
-		'description'	=> __( 'Enable/disable breadcrumbs on home page.', 'cherry' ),
+		'hint'			=> array(
+			'type'		=> 'text',
+			'content'	=> __( '', 'cherry' )
+		),
+		'description'	=> __( 'If option defined in page setting, this global option will not be counted.', 'cherry' ),
 		'value'			=> 'false'
 	);
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
