@@ -496,43 +496,38 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options['breadcrumbs-show-title'] = array(
 		'type'        => 'switcher',
 		'title'       => __( 'Page title', 'cherry' ),
-		'description' => __( 'Enable/disable page title in breadcrumbs.', 'cherry' ),
+		'description' => __( 'Show / hide current page title in breadcrumb navigation.', 'cherry' ),
 		'value'       => 'true',
 	);
 	$breadcrumbs_options['breadcrumbs-display'] = array(
-		'type'			=> 'checkbox',
-		'title'			=> __( 'Breadcrumbs mobile', 'cherry' ),
-		'hint'			=> array(
-			'type'		=> 'text',
-			'content'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' )
-		),
-		'description'	=> __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' ),
-		'class'			=> '',
-		'value'			=> array( 'tablet', 'mobile' ),
-		'options'		=> array(
-			'tablet'	=> __( 'Tablet', 'cherry' ),
-			'mobile'	=> __( 'Mobile', 'cherry' ),
+		'type'        => 'checkbox',
+		'title'       => __( 'Breadcrumbs mobile', 'cherry' ),
+		'description' => __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' ),
+		'value'       => array( 'tablet', 'mobile' ),
+		'options'     => array(
+			'tablet' => __( 'Tablet', 'cherry' ),
+			'mobile' => __( 'Mobile', 'cherry' ),
 		)
 	);
 	$breadcrumbs_options['breadcrumbs-show-on-front'] = array(
-		'type'			=> 'switcher',
-		'title' 		=> __( 'Home page breadcrumbs', 'cherry' ),
-		'description'	=> __( 'Enable/disable breadcrumbs on home page.', 'cherry' ),
-		'value'			=> 'false'
+		'type'        => 'switcher',
+		'title'       => __( 'Home page breadcrumbs', 'cherry' ),
+		'description' => __( 'If option defined in page setting, this global option will not be counted.', 'cherry' ),
+		'value'       => 'false'
 	);
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
-		'type'			=> 'text',
-		'title'			=> __( 'Item separator', 'cherry' ),
-		'description'	=> __( 'Breadcrumbs separator symbol.', 'cherry' ),
-		'value'			=> '&#47;',
-		'default_value'	=> '&#47;',
-		'class'			=> 'width-full'
+		'type'          => 'text',
+		'title'         => __( 'Item separator', 'cherry' ),
+		'description'   => __( 'Breadcrumbs separator symbol.', 'cherry' ),
+		'value'         => '&#47;',
+		'default_value' => '&#47;',
+		'class'         => 'width-full'
 	);
 	$breadcrumbs_options['breadcrumbs-prefix-path'] = array(
-		'type'			=> 'text',
-		'title'			=> __( 'Breadcrumbs prefix', 'cherry' ),
-		'description'	=> __( 'Text displayed before breadcrumbs navigation.', 'cherry' ),
-		'value'			=> __( 'You are here:', 'cherry' ),
+		'type'        => 'text',
+		'title'       => __( 'Breadcrumbs prefix', 'cherry' ),
+		'description' => __( 'Text displayed before breadcrumbs navigation.', 'cherry' ),
+		'value'       => __( 'You are here:', 'cherry' ),
 	);
 
 	// Page navigation options

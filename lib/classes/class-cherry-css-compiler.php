@@ -434,6 +434,13 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 
 			ob_start();
 
+			/**
+			 * Allow 3rd party plugins and child themes pass own CSS to parser with lower priority to default CSS
+			 *
+			 * @since  4.0.4
+			 */
+			do_action( 'cherry_dynamic_styles_before' );
+
 			$parent_css = PARENT_DIR . '/init/css/dynamic-style.css';
 			$child_css  = CHILD_DIR . '/init/css/dynamic-style.css';
 
