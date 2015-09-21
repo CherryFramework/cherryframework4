@@ -160,7 +160,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'before_content' => $before_content,
 			) );
 
-			$cherry_page_builder->add_child_menu_item( array(
+			/*$cherry_page_builder->add_child_menu_item( array(
 				'parent_slug'    => 'cherry',
 				'page_title'     => sprintf( __( 'Theme %s', 'cherry' ), $current_theme_obj->get( 'Name' ) ),
 				'menu_title'     => __( 'Test', 'cherry' ),
@@ -168,7 +168,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'menu_slug'      => 'test',
 				'function'       => array( __CLASS__, 'cherry_options_test' ),
 				'before_content' => ''
-			) );
+			) );*/
 
 			// Settings need to be registered after admin_init
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
