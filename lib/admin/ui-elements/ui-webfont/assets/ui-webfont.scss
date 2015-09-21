@@ -1,0 +1,107 @@
+.cherry-ui-webfont-wrap{
+	.add-font-wrap, .font-list{
+		background: #fff;
+		padding: 10px;
+		box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+	}
+	.add-font-wrap{
+		margin-bottom: 20px;
+		.font-family{
+			float: left;
+			margin-right: 20px;
+		}
+		.add-button{
+			width: 38px;
+			height: 38px;
+			padding: 2px;
+			border-radius: 6px;
+			text-decoration: none;
+			outline: none;
+			background-color: #8bc735;
+			display: inline-block;
+
+				&:hover{
+
+				}
+				&:focus{
+					box-shadow: none;
+				}
+				span{
+					width: 38px;
+					height: 38px;
+					color: #fff;
+					font-size: 32px;
+					line-height: 43px;
+					text-indent: -2px;
+				}
+		}
+	}
+	.font-list{
+		.font-item{
+			position: relative;
+			border: 1px solid #d4d5d6;
+			background-color: #f2f3f4;
+			padding: 5px;
+			border-radius: 6px;
+			width: 50%;
+			display: inline-block;
+			box-sizing: border-box;
+			.font-variants, .font-subsets{
+				width: 100%;
+					label{
+						display: block;
+					}
+			}
+			.remove-button{
+				width: 15px;
+				height: 15px;
+				border-radius: 3px;
+				text-decoration: none;
+				outline: none;
+				background-color: #f62e46;
+				display: block;
+				position: absolute;
+				top: 4px;
+				right: 4px;
+					&:focus{
+						box-shadow: none;
+					}
+					span{
+						width: 15px;
+						height: 15px;
+						color: #fff;
+						font-size: 15px;
+						line-height: 15px;
+					}
+			}
+		}
+	}
+}
+
+.ajax-loader{
+	animation-name: rotate;
+	animation-duration: 2.8s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: 3;
+	animation-play-state: paused;
+}
+.ajax-loader.loading{
+	animation-play-state: running;
+}
+@keyframes rotate {
+	0% {
+		transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+	}
+	25% {
+	transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+	}
+	50% {
+		transform: perspective(120px) rotateX(-180deg) rotateY(180deg);
+	}
+	75% {
+		transform: perspective(120px) rotateX(0deg) rotateY(180deg);
+	}
+	100% {
+		transform: perspective(120px) rotateX(0deg) rotateY(360deg);
+	}
+}

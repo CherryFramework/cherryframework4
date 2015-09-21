@@ -100,6 +100,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-ace-editor/ui-ace-editor.php' );
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-layout-editor/ui-layout-editor.php' );
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-tooltip/ui-tooltip.php' );
+
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-webfont/ui-webfont.php' );
 		}
 
 		private function init(){
@@ -158,6 +160,15 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'before_content' => $before_content,
 			) );
 
+			$cherry_page_builder->add_child_menu_item( array(
+				'parent_slug'    => 'cherry',
+				'page_title'     => sprintf( __( 'Theme %s', 'cherry' ), $current_theme_obj->get( 'Name' ) ),
+				'menu_title'     => __( 'Test', 'cherry' ),
+				'capability'     => 'edit_theme_options',
+				'menu_slug'      => 'test',
+				'function'       => array( __CLASS__, 'cherry_options_test' ),
+				'before_content' => ''
+			) );
 
 			// Settings need to be registered after admin_init
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
@@ -584,6 +595,15 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				}
 			}
 			return $base_array;
+		}
+
+		public static function cherry_options_test() {
+			$html = '';
+
+			$ui_webfont = new UI_Webfont;
+			$html .= $ui_webfont->render();
+
+			echo $html;
 		}
 
 		/**
