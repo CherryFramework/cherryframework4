@@ -1492,6 +1492,24 @@ function cherry_defaults_settings() {
 			),
 		)
 	);
+	$demo_options['webfont-demo'] = array(
+		'type'			=> 'webfont',
+		'title'			=> __('Webfont', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'value'			=> array(
+			array(
+				'family'	=> 'Abril Fatface',
+				'style'		=> 'regular',
+				'character'	=> 'latin'
+			),
+			array(
+				'family'	=> 'Arvo',
+				'style'		=> array('regular', 'italic'),
+				'character'	=> 'latin'
+			),
+		)
+	);
 	$demo_options['editordemo'] = array(
 		'type'			=> 'editor',
 		'title'			=> __('WYSIWYG editor', 'cherry'),
