@@ -1115,7 +1115,26 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 	$demo_options = array();
 
-	$demo_options['text-demo'] = array(
+	$demo_options['webfont-demo'] = array(
+		'type'			=> 'webfont',
+		'title'			=> __('Webfont', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'value'			=> array(
+			array(
+				'family'	=> 'Abril Fatface',
+				'style'		=> 'regular',
+				'character'	=> 'latin'
+			),
+			array(
+				'family'	=> 'Arvo',
+				'style'		=> array('regular', 'italic'),
+				'character'	=> 'latin'
+			),
+		)
+	);
+
+	/*$demo_options['text-demo'] = array(
 		'type'			=> 'text',
 		'title'			=> __('Text input', 'cherry'),
 		'label'			=> '',
@@ -1473,6 +1492,7 @@ function cherry_defaults_settings() {
 			),
 		)
 	);
+
 	$demo_options['editordemo'] = array(
 		'type'			=> 'editor',
 		'title'			=> __('WYSIWYG editor', 'cherry'),
@@ -1483,7 +1503,7 @@ function cherry_defaults_settings() {
 			'content'	=> __('Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page editing area.', 'cherry'),
 		),
 		'value'			=> 'Lorem ipsum',
-	);
+	);*/
 
 //////////////////////////////////////////////////////////////////////
 // Test options

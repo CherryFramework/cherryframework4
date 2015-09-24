@@ -32,7 +32,18 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 		private $defaults_settings = array(
 			'id'			=> 'cherry-ui-typography-id',
 			'name'			=> 'cherry-ui-typography-name',
-			'value'			=> array(),
+			'value'			=> array(
+				0 => array(
+					'family'	=> 'Abril Fatface',
+					'style'		=> 'regular',
+					'character'	=> 'latin'
+				),
+				1 => array(
+					'family'	=> 'Arvo',
+					'style'		=> array('regular', 'italic'),
+					'character'	=> 'latin'
+				),
+			),
 			'class'			=> '',
 		);
 
@@ -64,33 +75,16 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 			$html = '';
 
 			$google_fonts_array = $this->get_google_font();
-			$standart_fonts_array = $this->get_standart_font();
 			$all_fonts_array = array();
 			$html .= '<div class="cherry-ui-webfont-wrap" data-id="' . $this->settings['id'] . '" data-name="' . $this->settings['name'] . '">';
 				$html .= '<div class="add-font-wrap">';
 					$html .= '<div class="font-family">';
-						$all_fonts_array = array(
-							'optgroup-1' => array(
-								'label'			=> __( 'Standard Webfonts', 'cherry' ),
-								'group_options' => array()
-							),
-							'optgroup-2' => array(
-								'label'			=> __( 'Google Webfonts', 'cherry' ),
-								'group_options' => array()
-							)
-						);
 
-						if( $standart_fonts_array && !empty( $standart_fonts_array ) && is_array( $standart_fonts_array ) ){
-							foreach ( $standart_fonts_array as $font_key => $font_value ) {
-								$all_fonts_array[ 'optgroup-1' ][ 'group_options' ][ $font_value['family'] ] = esc_html( $font_value['family'] );
-							}
-						}
 						if( $google_fonts_array && !empty( $google_fonts_array ) && is_array( $google_fonts_array ) ){
 							foreach ( $google_fonts_array as $font_key => $font_value ) {
-								$all_fonts_array[ 'optgroup-2' ][ 'group_options' ][ $font_value['family'] ] = esc_html( $font_value['family'] );
+								$all_fonts_array[ $font_value['family'] ] = esc_html( $font_value['family'] );
 							}
 						}
-
 						$ui_font_select = new UI_Select(
 							array(
 								'id'			=> $this->settings['id'] . '-font-family',
@@ -102,10 +96,37 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 						);
 						$html .= $ui_font_select->render();
 					$html .= '</div>';
-					$html .= '<a class="add-button ajax-loader" href="javascript:void(0)"><span class="dashicons dashicons-plus"></span></a>';
+					$html .= '<div class="add-button-holder">';
+						$html .= '<a class="add-button ajax-loader" href="javascript:void(0)"><span class="dashicons dashicons-plus"></span></a>';
+					$html .= '</div>';
 					$html .= '<div class="clear"></div>';
 				$html .= '</div>';
 				$html .= '<div class="font-list">';
+					if( $this->settings['value'] && !empty( $this->settings['value'] ) && is_array( $this->settings['value'] ) ){
+						foreach ( $this->settings['value'] as $key => $font_settings ) {
+							$html .= '<div class="font-item">';
+								$html .= '<div class="inner">';
+									$html .= '<div class="font-family-label"><span>' . $font_settings['family'] . '</span></div>';
+									$html .= '<input class="font-family" name="' . $this->settings['name'] . '['. $key .'][family]" value="' . stripslashes_deep( $font_settings['family'] ) . '"  type="hidden" />';
+									$html .= '<input class="fonttype" name="' . $this->settings['name'] . '['. $key .'][fonttype]" value="web"  type="hidden" />';
+									$html .= '<div class="font-variants">';
+										$html .= '<div class="select-inner">';
+											$style = ( isset( $font_settings['style'] ) ) ? $font_settings['style'] : array('regular');
+											$html .= $this->get_font_variants( $this->settings['id'], $this->settings['name'], $style, $font_settings['family'], $key );
+										$html .= '</div>';
+									$html .= '</div>';
+									$html .= '<div class="font-subsets">';
+										$html .= '<div class="select-inner">';
+											$character = ( isset( $font_settings['character'] ) ) ? $font_settings['character'] : array('latin');
+											$html .= $this->get_font_subsets( $this->settings['id'], $this->settings['name'], $character, $font_settings['family'], $key );
+										$html .= '</div>';
+									$html .= '</div>';
+									$html .= '<a class="remove-button" href="javascript:void(0)"><span class="dashicons dashicons-trash"></span></a>';
+									$html .= '<div class="clear"></div>';
+								$html .= '</div>';
+							$html .= '</div>';
+						}
+					}
 				$html .= '</div>';
 			$html .= '</div>';
 
@@ -120,16 +141,11 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 		 *
 		 * @since  4.0.0
 		 */
-		public function get_font_variants( $id, $name, $value, $font ){
+		public function get_font_variants( $id, $name, $value, $font, $font_item_length ){
 			$variants = array();
 
 			$value = isset( $value ) ? $value : 'regular';
 
-			foreach ( $this->get_standart_font() as $key => $font_settings ) {
-				if( stripslashes( $font ) == stripslashes( $font_settings['family'] ) ){
-					$variants = $font_settings['variants'];
-				}
-			}
 			foreach ( $this->get_google_font() as $key => $font_settings ) {
 				if( $font == $font_settings['family'] ){
 					$variants = $font_settings['variants'];
@@ -144,11 +160,11 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 			}
 
 			if( $variants_array && !empty( $variants_array ) && is_array( $variants_array )){
-				$html = '<label for="' . $id . '">' . __( 'Font Style', 'cherry' ) . '</label> ';
+				$html = '<label for="' . $id . '-' . $font_item_length . '-style"><span>' . __( 'Font Style', 'cherry' ) . '</span></label> ';
 				$ui_style_select = new UI_Select(
 					array(
-						'id'			=> $id . '-style',
-						'name'			=> $name . '[style]',
+						'id'			=> $id . '-' . $font_item_length . '-style',
+						'name'			=> $name . '[' . $font_item_length . '][style]',
 						'value'			=> $value,
 						'options'		=> $variants_array,
 						'multiple'		=> true,
@@ -171,16 +187,11 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 		 *
 		 * @since  4.0.0
 		 */
-		public function get_font_subsets( $id, $name, $value, $font ){
+		public function get_font_subsets( $id, $name, $value, $font, $font_item_length ){
 			$variants = array();
 
 			$value = isset( $value ) ? $value : array( 'latin' );
 
-			foreach ( $this->get_standart_font() as $key => $font_settings ) {
-				if( stripslashes( $font ) == stripslashes( $font_settings['family'] ) ){
-					$subsets = $font_settings['subsets'];
-				}
-			}
 			foreach ( $this->get_google_font() as $key => $font_settings ) {
 				if( $font == $font_settings['family'] ){
 					$subsets = $font_settings['subsets'];
@@ -194,11 +205,11 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 			}
 
 			if( $character_array && !empty( $character_array ) && is_array( $character_array )){
-				$html = '<label for="' . $id . '-character">' . __( 'Character Sets', 'cherry' ) . '</label> ';
+				$html = '<label for="' . $id . '-' . $font_item_length . '-character"><span>' . __( 'Character Sets', 'cherry' ) . '</span></label> ';
 				$ui_character_select = new UI_Select(
 					array(
-						'id'			=> $id . '-character',
-						'name'			=> $name . '[character]',
+						'id'			=> $id . '-' . $font_item_length . '-character',
+						'name'			=> $name . '[' . $font_item_length . '][character]',
 						'value'			=> $value,
 						'options'		=> $character_array,
 						'multiple'		=> true,
@@ -374,21 +385,28 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 add_action( 'wp_ajax_get_fonts_variants_subsets', 'get_fonts_variants_subsets' );
 
 function get_fonts_variants_subsets() {
-	if ( !empty($_POST) && array_key_exists('font', $_POST) && array_key_exists('id', $_POST) && array_key_exists('name', $_POST) ) {
+	if ( !empty($_POST) && array_key_exists('font', $_POST) && array_key_exists('id', $_POST) && array_key_exists('name', $_POST) && array_key_exists('font_item_length', $_POST) ) {
 		$font = $_POST['font'];
 		$id = $_POST['id'];
 		$name = $_POST['name'];
+		$font_item_length = $_POST['font_item_length'];
 
 		$ui_webfont = new UI_Webfont;
-		$html = '<div class="font-item">';
+		$html = '<div class="font-item add-item-effect">';
 			$html .= '<div class="inner">';
+				$html .= '<div class="font-family-label"><span>' . $font . '</span></div>';
+				$html .= '<input class="font-family" name="' . $name . '['. $font_item_length .'][family]" value="' . stripslashes_deep( $font ) . '"  type="hidden" />';
 				$html .= '<div class="font-variants">';
-					$html .= $ui_webfont->get_font_variants( $id, $name, 'regular', $font );
+					$html .= '<div class="select-inner">';
+						$html .= $ui_webfont->get_font_variants( $id, $name, 'regular', $font, $font_item_length );
+					$html .= '</div>';
 				$html .= '</div>';
 				$html .= '<div class="font-subsets">';
-					$html .= $ui_webfont->get_font_subsets( $id, $name, 'latin', $font );
+					$html .= '<div class="select-inner">';
+						$html .= $ui_webfont->get_font_subsets( $id, $name, 'latin', $font, $font_item_length );
+					$html .= '</div>';
 				$html .= '</div>';
-				$html .= '<a class="remove-button" href="javascript:void(0)"><span class="dashicons dashicons-no"></span></a>';
+				$html .= '<a class="remove-button" href="javascript:void(0)"><span class="dashicons dashicons-trash"></span></a>';
 				$html .= '<div class="clear"></div>';
 			$html .= '</div>';
 		$html .= '</div>';
@@ -397,19 +415,3 @@ function get_fonts_variants_subsets() {
 		exit;
 	}
 }
-/*
-add_action( 'wp_ajax_get_fonts_subsets', 'get_fonts_subsets' );
-
-function get_fonts_subsets() {
-	if ( !empty($_POST) && array_key_exists('font', $_POST) && array_key_exists('id', $_POST) && array_key_exists('name', $_POST) ) {
-		$font = $_POST['font'];
-		$id = $_POST['id'];
-		$name = $_POST['name'];
-
-		$ui_webfont = new UI_Webfont;
-		$html = $ui_webfont->get_font_subsets( $id, $name, 'latin', $font );
-
-		echo $html;
-		exit;
-	}
-}*/
