@@ -75,6 +75,7 @@ class cherry_enqueue_fonts {
 	function prepare_fonts() {
 
 		$font_url = get_transient( 'cherry_google_fonts_url' );
+		$font_url = false;
 
 		if ( ! $font_url ) {
 
@@ -145,28 +146,46 @@ class cherry_enqueue_fonts {
 			return;
 		}
 
-		if ( ! $this->is_google_font( $option_val ) ) {
-			return;
-		}
-
-		$font = $option_val['family'];
-
-		if( !is_array( $option_val['character'] ) ){
-			$option_val['character'] = array( $option_val['character'] );
-		}
-		if ( ! isset( $this->fonts_data[$font] ) ) {
-			$this->fonts_data[$font] = array(
-				'style'     => array( $option_val['style'] ),
-				'character' => $option_val['character']
-			);
-		} else {
-			$this->fonts_data[$font] = array(
-				'style'     => array_merge( $this->fonts_data[$font]['style'], array( $option_val['style'] ) ),
-				'character' => array_merge( $this->fonts_data[$font]['character'], $option_val['character'] )
-			);
+		if( array_key_exists( 'family' , $option_val)){
+			$this->push_font( $option_val );
+		}else{
+			foreach ($option_val as $font_data ) {
+				$this->push_font( $font_data );
+			}
 		}
 	}
 
+	/**
+	 * Get single typography/webfont option value from database and store it in object property
+	 *
+	 * @since  4.0.0
+	 *
+	 * @param  string  $option  option name to get from database
+	 */
+	function push_font( $font_data ) {
+
+		if ( ! $this->is_google_font( $font_data ) ) {
+			return;
+		}
+		$font = $font_data['family'];
+
+		if( !is_array( $font_data['character'] ) ){
+			$font_data['character'] = array( $font_data['character'] );
+		}
+		if ( ! isset( $this->fonts_data[$font] ) ) {
+			$style_set = is_array( $font_data['style'] ) ? $font_data['style'] : array( $font_data['style'] );
+			$this->fonts_data[$font] = array(
+				'style'     => $style_set,
+				'character' => $font_data['character']
+			);
+		} else {
+			$style_set = is_array( $font_data['style'] ) ? $font_data['style'] : array( $font_data['style'] );
+			$this->fonts_data[$font] = array(
+				'style'     => array_merge( $this->fonts_data[$font]['style'], $style_set ),
+				'character' => array_merge( $this->fonts_data[$font]['character'], $font_data['character'] )
+			);
+		}
+	}
 	/**
 	 * Check if selected font is google font
 	 *
@@ -176,11 +195,9 @@ class cherry_enqueue_fonts {
 	 * @return boolean
 	 */
 	public function is_google_font( $data ) {
-
 		if ( ! isset( $data['fonttype'] ) ) {
 			return false;
 		}
-
 		return ( 'web' == $data['fonttype'] );
 
 	}
@@ -228,7 +245,7 @@ class cherry_enqueue_fonts {
 			return;
 		}
 
-		if ( 'typography' == $item['type'] ) {
+		if ( 'typography' == $item['type'] || 'webfont' == $item['type'] ) {
 			$this->typography_options_set[] = $key;
 		}
 

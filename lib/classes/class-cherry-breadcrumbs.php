@@ -256,10 +256,21 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		 * @since  4.0.0
 		 */
 		public function default_labels() {
+			$page_on_front_id       = get_option( 'page_on_front' );
+			$use_custom_front_title = cherry_get_option( 'breadcrumbs-home-title', 'true' );
+			$use_custom_front_title = ( 'true' == $use_custom_front_title ) ? true : false;
+
+			if ( $page_on_front_id ) {
+				$page_on_front_title = get_the_title( $page_on_front_id );
+			}
+
+			if ( $use_custom_front_title ) {
+				$page_on_front_title = cherry_get_option( 'breadcrumbs-custom-home-title', __( 'Home', 'cherry' ) );
+			}
 
 			$labels = array(
 				'browse'              => __( 'Browse:',                             'cherry' ),
-				'home'                => __( 'Home',                                'cherry' ),
+				'home'                => $page_on_front_title,
 				'error_404'           => __( '404 Not Found',                       'cherry' ),
 				'archives'            => __( 'Archives',                            'cherry' ),
 				/* Translators: %s is the search query. The HTML entities are opening and closing curly quotes. */

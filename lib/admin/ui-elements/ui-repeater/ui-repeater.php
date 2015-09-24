@@ -82,6 +82,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 
 						$html .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
 					$html .= '</div>';
+
 					if( is_array( $this->settings['value'] ) ){
 						$count = 0;
 						foreach ( $this->settings['value']  as $handle => $handleArray ) {
@@ -96,11 +97,12 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 									$html .= '<input class="' . $this->settings['class'] . 'link-label" name="' . $this->settings['name'] . '[' . $handle. '][link-label]" type="text" placeholder="' . __( 'Link label', 'cherry' ) . '" value="' . esc_html( $handleArray['link-label'] ) . '">';
 								$html .= '</div>';
 
-								$value = ! empty( $handleArray['network-id'] ) ? $handleArray['network-id'] : 'network-' . $count++;
-								$html .= '<input name="' . $this->settings['name'] . '[][network-id]" type="hidden" value="' . $value . '">';
+								$value = ! empty( $handleArray['network-id'] ) ? $handleArray['network-id'] : 'network-' . $count;
+								$html .= '<input name="' . $this->settings['name'] . '[' . $count . '][network-id]" type="hidden" value="' . $value . '">';
 
 								$html .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
 							$html .= '</div>';
+							$count++;
 						}
 					}
 				$html .= '</div>';

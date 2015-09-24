@@ -100,6 +100,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-ace-editor/ui-ace-editor.php' );
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-layout-editor/ui-layout-editor.php' );
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-tooltip/ui-tooltip.php' );
+
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-webfont/ui-webfont.php' );
 		}
 
 		private function init(){
@@ -157,7 +159,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'function'       => array( __CLASS__, 'cherry_options_page_build' ),
 				'before_content' => $before_content,
 			) );
-
 
 			// Settings need to be registered after admin_init
 			add_action( 'admin_init', array( $this, 'settings_init' ) );

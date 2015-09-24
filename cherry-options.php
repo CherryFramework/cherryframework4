@@ -515,6 +515,25 @@ function cherry_defaults_settings() {
 		'description' => __( 'If option defined in page setting, this global option will not be counted.', 'cherry' ),
 		'value'       => 'false'
 	);
+	$breadcrumbs_options['breadcrumbs-home-title'] = array(
+		'type'        => 'switcher',
+		'title'       => __( 'Customize a Home page title?', 'cherry' ),
+		'value'       => 'true',
+		'toggle'      => array(
+			'true_toggle'  => __( 'Yes', 'cherry' ),
+			'false_toggle' => __( 'No', 'cherry' ),
+			'true_slave'   => 'breadcrumbs-home-title-true-slave',
+			'false_slave'  => 'breadcrumbs-home-title-false-slave',
+		),
+	);
+	$breadcrumbs_options['breadcrumbs-custom-home-title'] = array(
+		'type'          => 'text',
+		'title'         => __( 'Home page title', 'cherry' ),
+		'description'   => __( 'This is a customized title for a Home page.', 'cherry' ),
+		'value'         => __( 'Home', 'cherry' ),
+		'class'         => 'width-full',
+		'master'        => 'breadcrumbs-home-title-true-slave',
+	);
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
 		'type'          => 'text',
 		'title'         => __( 'Item separator', 'cherry' ),
@@ -1470,6 +1489,24 @@ function cherry_defaults_settings() {
 				'external-link'	=> 'https://vimeo.com/',
 				'font-class'	=> 'dashicons-admin-media',
 				'link-label'	=> 'custom text',
+			),
+		)
+	);
+	$demo_options['webfont-demo'] = array(
+		'type'			=> 'webfont',
+		'title'			=> __('Webfont', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'value'			=> array(
+			array(
+				'family'	=> 'Abril Fatface',
+				'style'		=> 'regular',
+				'character'	=> 'latin'
+			),
+			array(
+				'family'	=> 'Arvo',
+				'style'		=> array('regular', 'italic'),
+				'character'	=> 'latin'
 			),
 		)
 	);
