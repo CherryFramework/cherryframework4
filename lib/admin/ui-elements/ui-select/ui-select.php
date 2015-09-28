@@ -137,7 +137,7 @@ if ( ! class_exists( 'UI_Select' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'select2',
+				'select-2',
 				self::get_current_file_url() . '/assets/select2.js',
 				array( 'jquery' ),
 				'0.2.9',
@@ -153,7 +153,7 @@ if ( ! class_exists( 'UI_Select' ) ) {
 			);
 
 			wp_enqueue_style(
-				'select2',
+				'select-2',
 				self::get_current_file_url() . '/assets/select2.css',
 				array(),
 				'0.2.9',

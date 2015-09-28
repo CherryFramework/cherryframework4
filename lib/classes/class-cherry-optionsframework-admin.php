@@ -56,6 +56,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			add_action( 'wp_ajax_cherry_partial_export_url', array( $this, 'cherry_partial_export_url' ) );
 			add_action( 'wp_ajax_cherry_partial_export', array( $this, 'partial_export' ) );
 
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_builder_styles' ), 99 );
+
 			// add options to allowed MIME types
 			add_filter( 'upload_mimes', array( $this, 'add_options_mime' ) );
 
@@ -588,6 +590,17 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
+		 * Enqueue admin-specific stylesheet.
+		 *
+		 * @since 4.0.0
+		 */
+		public function enqueue_builder_styles( $hook_suffix = false ) {
+			if( 'cherry_page_options' === $hook_suffix ){
+				wp_dequeue_style('yit-plugin-style');
+			}
+		}
+
+		/**
 		 *
 		 * @since 4.0.0
 		 */
@@ -684,7 +697,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				</div>
 				<?php
 		}
-
 
 		/**
 		 * Is a given string a color formatted in hexidecimal notation?
