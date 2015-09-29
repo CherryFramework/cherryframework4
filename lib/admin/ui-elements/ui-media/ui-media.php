@@ -144,7 +144,7 @@ if ( ! class_exists( 'UI_Media' ) ) {
 			wp_enqueue_media();
 
 			wp_enqueue_script(
-				'ui-media.min',
+				'ui-media-min',
 				self::get_current_file_url() . '/assets/min/ui-media.min.js',
 				array( 'jquery', 'jquery-ui-sortable' ),
 				'1.0.0',
@@ -152,8 +152,8 @@ if ( ! class_exists( 'UI_Media' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ui-media',
-				self::get_current_file_url() . '/assets/ui-media.css',
+				'ui-media-min',
+				self::get_current_file_url() . '/assets/min/ui-media.min.css',
 				array(),
 				'1.0.0',
 				'all'

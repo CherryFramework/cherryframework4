@@ -146,7 +146,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'cherry-repeater-plugin.min',
+				'cherry-repeater-plugin-min',
 				self::get_current_file_url() . '/assets/min/cherry-repeater-plugin.min.js',
 				array( 'jquery', 'jquery-ui-sortable' ),
 				'1.0.0',
@@ -154,7 +154,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 			);
 
 			wp_enqueue_script(
-				'ui-repeater.min',
+				'ui-repeater-min',
 				self::get_current_file_url() . '/assets/min/ui-repeater.min.js',
 				array( 'jquery' ),
 				'1.0.0',
@@ -162,8 +162,8 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ui-repeater',
-				self::get_current_file_url() . '/assets/ui-repeater.css',
+				'ui-repeater-min',
+				self::get_current_file_url() . '/assets/min/ui-repeater.min.css',
 				array(),
 				'1.0.0',
 				'all'

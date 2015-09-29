@@ -47,7 +47,6 @@ select.cherry-ui-select:focus {
 }
 .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search {
   margin: 0;
-  display: inline-block;
   width: 20px;
 }
 .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search .select2-search__field {

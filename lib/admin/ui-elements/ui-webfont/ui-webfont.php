@@ -362,16 +362,16 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-webfont.min',
-				self::get_current_file_url() . '/assets/ui-webfont.js',
+				'ui-webfont-min',
+				self::get_current_file_url() . '/assets/min/ui-webfont.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
 				true
 			);
 
 			wp_enqueue_style(
-				'ui-webfont',
-				self::get_current_file_url() . '/assets/ui-webfont.css',
+				'ui-webfont-min',
+				self::get_current_file_url() . '/assets/min/ui-webfont.min.css',
 				array(),
 				'1.0.0',
 				'all'

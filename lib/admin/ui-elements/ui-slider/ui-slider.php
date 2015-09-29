@@ -97,7 +97,7 @@ if ( ! class_exists( 'UI_Slider' ) ) {
 		public static function enqueue_assets(){
 
 			wp_enqueue_script(
-				'ui-slider.min',
+				'ui-slider-min',
 				self::get_current_file_url() . '/assets/min/ui-slider.min.js',
 				array( 'jquery', 'jquery-ui-slider' ),
 				CHERRY_VERSION,
@@ -113,8 +113,8 @@ if ( ! class_exists( 'UI_Slider' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ui-slider',
-				self::get_current_file_url() . '/assets/ui-slider.css',
+				'ui-slider-min',
+				self::get_current_file_url() . '/assets/min/ui-slider.min.css',
 				array(),
 				CHERRY_VERSION,
 				'all'

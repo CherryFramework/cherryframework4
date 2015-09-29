@@ -84,15 +84,15 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-switcher.min',
+				'ui-switcher-min',
 				self::get_current_file_url() . '/assets/min/ui-switcher.min.js',
 				array( 'jquery' ),
 				'1.0.0',
 				true
 			);
 			wp_enqueue_style(
-				'ui-switcher',
-				self::get_current_file_url() . '/assets/ui-switcher.css',
+				'ui-switcher-min',
+				self::get_current_file_url() . '/assets/min/ui-switcher.min.css',
 				array(),
 				'1.0.0',
 				'all'

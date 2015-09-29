@@ -137,36 +137,33 @@ if ( ! class_exists( 'UI_Select' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'select-2',
+				'ui-select-select2',
 				self::get_current_file_url() . '/assets/select2.js',
 				array( 'jquery' ),
 				'0.2.9',
 				true
 			);
-
 			wp_enqueue_script(
-				'ui-select.min',
+				'ui-select-min',
 				self::get_current_file_url() . '/assets/min/ui-select.min.js',
 				array( 'jquery' ),
 				'1.0.0',
 				true
 			);
-
 			wp_enqueue_style(
-				'select-2',
+				'ui-select-select2',
 				self::get_current_file_url() . '/assets/select2.css',
 				array(),
 				'0.2.9',
 				'all'
 			);
 			wp_enqueue_style(
-				'ui-select',
-				self::get_current_file_url() . '/assets/ui-select.css',
+				'ui-select-min',
+				self::get_current_file_url() . '/assets/min/ui-select.min.css',
 				array(),
 				'1.0.0',
 				'all'
 			);
 		}
-
 	}
 }

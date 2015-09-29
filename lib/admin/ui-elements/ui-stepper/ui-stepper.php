@@ -79,15 +79,15 @@ if ( ! class_exists( 'UI_Stepper' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-stepper.min',
+				'ui-stepper-min',
 				self::get_current_file_url() . '/assets/min/ui-stepper.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
 				true
 			);
 			wp_enqueue_style(
-				'ui-stepper-css',
-				self::get_current_file_url() . '/assets/ui-stepper.css',
+				'ui-stepper-min',
+				self::get_current_file_url() . '/assets/min/ui-stepper.min.css',
 				array(),
 				CHERRY_VERSION,
 				'all'

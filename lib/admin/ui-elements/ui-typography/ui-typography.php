@@ -541,7 +541,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-typography.min',
+				'ui-typography-min',
 				self::get_current_file_url() . '/assets/min/ui-typography.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
@@ -549,8 +549,8 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ui-typography',
-				self::get_current_file_url() . '/assets/ui-typography.css',
+				'ui-typography-min',
+				self::get_current_file_url() . '/assets/min/ui-typography.min.css',
 				array(),
 				'1.0.0',
 				'all'

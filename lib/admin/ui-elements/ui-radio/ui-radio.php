@@ -111,7 +111,7 @@ if ( ! class_exists( 'UI_Radio' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-radio.min',
+				'ui-radio-min',
 				self::get_current_file_url() . '/assets/min/ui-radio.min.js',
 				array( 'jquery' ),
 				'1.0.0',
@@ -119,8 +119,8 @@ if ( ! class_exists( 'UI_Radio' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ui-radio',
-				self::get_current_file_url() . '/assets/ui-radio.css',
+				'ui-radio-min',
+				self::get_current_file_url() . '/assets/min/ui-radio.min.css',
 				array(),
 				'1.0.0',
 				'all'

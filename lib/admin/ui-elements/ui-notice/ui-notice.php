@@ -91,15 +91,15 @@ if ( ! class_exists( 'UI_Notice' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-notice-js',
+				'ui-notice-min',
 				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-notice/assets/min/ui-notice.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
 				true
 			);
 			wp_enqueue_style(
-				'ui-notice-css',
-				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-notice/assets/min/ui-notice.css',
+				'ui-notice-min',
+				trailingslashit( CHERRY_URI ) . 'admin/ui-elements/ui-notice/assets/min/ui-notice.min.css',
 				array(),
 				CHERRY_VERSION,
 				'all'
