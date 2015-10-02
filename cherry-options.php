@@ -1218,6 +1218,29 @@ function cherry_defaults_settings() {
 			'select-8'	=> 'Item 8'
 		)
 	);
+	$demo_options['multiselect-demo-1'] = array(
+		'type'			=> 'select',
+		'title'			=> __('Multi-select box', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with multiple select capability.', 'cherry'),
+		),
+		'multiple'		=> true,
+		'value'			=> array('select-1','select-2'),
+		'class'			=> 'cherry-multi-select',
+		'options'		=> array(
+			'select-1'	=> 'Item 1',
+			'select-2'	=> 'Item 2',
+			'select-3'	=> 'Item 3',
+			'select-4'	=> 'Item 4',
+			'select-5'	=> 'Item 5',
+			'select-6'	=> 'Item 6',
+			'select-7'	=> 'Item 7',
+			'select-8'	=> 'Item 8'
+		)
+	);
 	$demo_options['checkbox-demo'] = array(
 		'type'			=> 'checkbox',
 		'title'			=> __('Checkbox', 'cherry'),
