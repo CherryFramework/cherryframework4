@@ -201,6 +201,21 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 										$options[$section_name]['options-list'][$key] = array_filter( $post_array[$key] );
 									}
 									break;
+								case 'webfont':
+									if (isset($post_array[$key])) {
+										$checked_fonts = array();
+										if( !empty( $post_array[ $key ] ) && is_array( $post_array[ $key ] ) ){
+											foreach ( $post_array[ $key ] as $font_key => $font ) {
+												$font['style'] = array_filter( $font['style'] );
+												$font['style'] = !empty( $font['style'] ) ? $font['style'] : array( 'regular' );
+												$font['character'] = array_filter( $font['character'] );
+												$font['character'] = !empty( $font['character'] ) ? $font['character'] : array( 'latin' );
+												$checked_fonts[$font_key] = $font;
+											}
+										}
+										$options[$section_name]['options-list'][$key] = $checked_fonts;
+									}
+									break;
 								case 'checkbox':
 									if (isset($post_array[$key])) {
 										$check_value = array();
