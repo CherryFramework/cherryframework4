@@ -1201,6 +1201,10 @@ img {
 .widget select {
   max-width: 100%;
 }
+.widget_calendar th, .widget_calendar tbody td {
+  text-align: center;
+  padding: .25em 0;
+}
 
 /*--------------------------------------------------------------
 # Content

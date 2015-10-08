@@ -129,6 +129,12 @@ img {
 	select {
 		max-width: 100%;
 	}
+	&_calendar {
+		th, tbody td {
+			text-align: center;
+			padding: .25em 0;
+		}
+	}
 }
 
 /*--------------------------------------------------------------
