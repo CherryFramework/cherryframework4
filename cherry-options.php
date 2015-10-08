@@ -1085,6 +1085,13 @@ function cherry_defaults_settings() {
 			'align'         => 'notdefined',
 		)
 	);
+	$typography_options['webfonts'] = array(
+		'type'			=> 'webfont',
+		'title'			=> __('Webfonts', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'value'			=> array()
+	);
 //////////////////////////////////////////////////////////////////////
 // Optimization options
 //////////////////////////////////////////////////////////////////////
@@ -1200,6 +1207,29 @@ function cherry_defaults_settings() {
 		)
 	);
 	$demo_options['multiselect-demo'] = array(
+		'type'			=> 'select',
+		'title'			=> __('Multi-select box', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'hint'			=>  array(
+			'type'		=> 'text',
+			'content'	=> __('Select box with multiple select capability.', 'cherry'),
+		),
+		'multiple'		=> true,
+		'value'			=> array('select-1','select-2'),
+		'class'			=> 'cherry-multi-select',
+		'options'		=> array(
+			'select-1'	=> 'Item 1',
+			'select-2'	=> 'Item 2',
+			'select-3'	=> 'Item 3',
+			'select-4'	=> 'Item 4',
+			'select-5'	=> 'Item 5',
+			'select-6'	=> 'Item 6',
+			'select-7'	=> 'Item 7',
+			'select-8'	=> 'Item 8'
+		)
+	);
+	$demo_options['multiselect-demo-1'] = array(
 		'type'			=> 'select',
 		'title'			=> __('Multi-select box', 'cherry'),
 		'label'			=> '',
@@ -1501,18 +1531,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Webfont', 'cherry'),
 		'label'			=> '',
 		'description'	=> '',
-		'value'			=> array(
-			array(
-				'family'	=> 'Abril Fatface',
-				'style'		=> 'regular',
-				'character'	=> 'latin'
-			),
-			array(
-				'family'	=> 'Arvo',
-				'style'		=> array('regular', 'italic'),
-				'character'	=> 'latin'
-			),
-		)
+		'value'			=> array()
 	);
 	$demo_options['editordemo'] = array(
 		'type'			=> 'editor',

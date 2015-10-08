@@ -416,7 +416,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				global $cherry_options_framework;
 
 				$post_array = $_POST['post_array'];
-				//var_dump($post_array);
+
 				$options = $cherry_options_framework->create_updated_options( $post_array );
 
 				$cherry_options_framework->save_options( $options );
