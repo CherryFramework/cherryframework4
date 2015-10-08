@@ -504,10 +504,14 @@ function cherry_defaults_settings() {
 		'title'       => __( 'Breadcrumbs mobile', 'cherry' ),
 		'description' => __( 'Enable/disable breadcrumbs on mobile devices.', 'cherry' ),
 		'value'       => array( 'tablet', 'mobile' ),
+		'hint'        => array(
+			'type'    => 'text',
+			'content' => __( 'Mobile &mdash; Extra small devices, phones (&lt;768px) <br>Tablet &mdash; Small devices, tablets (&lt;991px)', 'cherry' ),
+		),
 		'options'     => array(
-			'tablet' => __( 'Tablet', 'cherry' ),
 			'mobile' => __( 'Mobile', 'cherry' ),
-		)
+			'tablet' => __( 'Tablet', 'cherry' ),
+		),
 	);
 	$breadcrumbs_options['breadcrumbs-show-on-front'] = array(
 		'type'        => 'switcher',
