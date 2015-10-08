@@ -1081,6 +1081,13 @@ function cherry_defaults_settings() {
 			'align'         => 'notdefined',
 		)
 	);
+	$typography_options['webfonts'] = array(
+		'type'			=> 'webfont',
+		'title'			=> __('Webfonts', 'cherry'),
+		'label'			=> '',
+		'description'	=> '',
+		'value'			=> array()
+	);
 //////////////////////////////////////////////////////////////////////
 // Optimization options
 //////////////////////////////////////////////////////////////////////
@@ -1520,18 +1527,7 @@ function cherry_defaults_settings() {
 		'title'			=> __('Webfont', 'cherry'),
 		'label'			=> '',
 		'description'	=> '',
-		'value'			=> array(
-			array(
-				'family'	=> 'Abril Fatface',
-				'style'		=> 'regular',
-				'character'	=> 'latin'
-			),
-			array(
-				'family'	=> 'Arvo',
-				'style'		=> array('regular', 'italic'),
-				'character'	=> 'latin'
-			),
-		)
+		'value'			=> array()
 	);
 	$demo_options['editordemo'] = array(
 		'type'			=> 'editor',
