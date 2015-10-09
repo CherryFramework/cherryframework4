@@ -72,7 +72,7 @@ function cherry_footer_load_template() {
  */
 function cherry_content_wrap() {
 
-	if ( !did_action( 'cherry_content' ) ) {
+	if ( ! did_action( 'cherry_content' ) ) {
 
 		$wrapper = '';
 
@@ -85,12 +85,12 @@ function cherry_content_wrap() {
 				if ( is_single() ) {
 					$layout = apply_filters( 'cherry_get_single_post_layout', cherry_get_option( 'single-post-layout' ), $object_id );
 				} else {
-					$layout = cherry_get_option( 'page-layout' );
+					$layout = apply_filters( 'cherry_get_archive_page_layout', cherry_get_option( 'page-layout' ), $object_id );
 				}
 
 			}
 
-			$class         = sanitize_html_class( $layout .'-wrapper' );
+			$class         = sanitize_html_class( $layout . '-wrapper' );
 			$wrapper_class = apply_filters( 'cherry_content_sidebar_wrapper_class', $class );
 			$wrapper       = sprintf( '<div class="%s">', $wrapper_class );
 		}

@@ -174,13 +174,12 @@ if ( ! class_exists( 'UI_Background' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_style(
-				'ui-background',
-				self::get_current_file_url() . '/assets/ui-background.css',
+				'ui-background-min',
+				self::get_current_file_url() . '/assets/min/ui-background.min.css',
 				array(),
 				'1.0.0',
 				'all'
 			);
 		}
-
 	}
 }

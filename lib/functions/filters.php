@@ -285,7 +285,7 @@ function cherry_hide_sidebar( $display, $id ) {
 		if ( is_single() ) {
 			$layout = apply_filters( 'cherry_get_single_post_layout', cherry_get_option( 'single-post-layout' ), $object_id );
 		} else {
-			$layout = cherry_get_option( 'page-layout' );
+			$layout = apply_filters( 'cherry_get_archive_page_layout', cherry_get_option( 'page-layout' ), $object_id );
 		}
 
 	}

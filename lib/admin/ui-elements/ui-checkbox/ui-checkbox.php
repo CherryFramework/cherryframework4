@@ -132,7 +132,7 @@ if ( ! class_exists( 'UI_Checkbox' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-checkbox.min',
+				'ui-checkbox-min',
 				self::get_current_file_url() . '/assets/min/ui-checkbox.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
@@ -140,8 +140,8 @@ if ( ! class_exists( 'UI_Checkbox' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ui-checkbox',
-				self::get_current_file_url() . '/assets/ui-checkbox.css',
+				'ui-checkbox-min',
+				self::get_current_file_url() . '/assets/min/ui-checkbox.min.css',
 				array(),
 				'1.0.0',
 				'all'

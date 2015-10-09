@@ -196,7 +196,7 @@ if ( ! class_exists( 'UI_Layout_Editor' ) ) {
 		public static function enqueue_assets(){
 
 			wp_enqueue_script(
-				'ui-layout-editor.min',
+				'ui-layout-editor-min',
 				self::get_current_file_url() . '/assets/min/ui-layout-editor.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
@@ -204,8 +204,8 @@ if ( ! class_exists( 'UI_Layout_Editor' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ui-layout-editor',
-				self::get_current_file_url() . '/assets/ui-layout-editor.css',
+				'ui-layout-editor-min',
+				self::get_current_file_url() . '/assets/min/ui-layout-editor.min.css',
 				array(),
 				'1.0.0',
 				'all'

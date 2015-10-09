@@ -144,6 +144,8 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 		public function get_font_variants( $id, $name, $value, $font, $font_item_length ){
 			$variants = array();
 
+			//$value = is_array( $value ) ? array_filter( $value ) : $value;
+			//$value = !empty( $value ) ? $value : 'regular';
 			$value = isset( $value ) ? $value : 'regular';
 
 			foreach ( $this->get_google_font() as $key => $font_settings ) {
@@ -190,7 +192,9 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 		public function get_font_subsets( $id, $name, $value, $font, $font_item_length ){
 			$variants = array();
 
-			$value = isset( $value ) ? $value : array( 'latin' );
+			//$value = is_array( $value ) ? array_filter( $value ) : $value;
+			//$value = !empty( $value ) ? $value : 'latin';
+			$value = isset( $value ) ? $value : 'latin';
 
 			foreach ( $this->get_google_font() as $key => $font_settings ) {
 				if( $font == $font_settings['family'] ){
@@ -362,16 +366,16 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-webfont.min',
-				self::get_current_file_url() . '/assets/ui-webfont.js',
+				'ui-webfont-min',
+				self::get_current_file_url() . '/assets/min/ui-webfont.min.js',
 				array( 'jquery' ),
 				CHERRY_VERSION,
 				true
 			);
 
 			wp_enqueue_style(
-				'ui-webfont',
-				self::get_current_file_url() . '/assets/ui-webfont.css',
+				'ui-webfont-min',
+				self::get_current_file_url() . '/assets/min/ui-webfont.min.css',
 				array(),
 				'1.0.0',
 				'all'
@@ -396,6 +400,7 @@ function get_fonts_variants_subsets() {
 			$html .= '<div class="inner">';
 				$html .= '<div class="font-family-label"><span>' . $font . '</span></div>';
 				$html .= '<input class="font-family" name="' . $name . '['. $font_item_length .'][family]" value="' . stripslashes_deep( $font ) . '"  type="hidden" />';
+				$html .= '<input class="fonttype" name="' . $name . '['. $font_item_length .'][fonttype]" value="web"  type="hidden" />';
 				$html .= '<div class="font-variants">';
 					$html .= '<div class="select-inner">';
 						$html .= $ui_webfont->get_font_variants( $id, $name, 'regular', $font, $font_item_length );

@@ -25,6 +25,7 @@ if ( ! class_exists( 'UI_Select' ) ) {
 			'multiple'		=> false,
 			'size'			=> 1,
 			'value'			=> 'select-8',
+			'null_option'	=> 'None',
 			'options'		=> array(
 				'select-1'	=> 'select 1',
 				'select-2'	=> 'select 2',
@@ -80,11 +81,14 @@ if ( ! class_exists( 'UI_Select' ) ) {
 
 			$html .= '<select id="' . $this->settings['id']  . '" class="cherry-ui-select ' . $this->settings['class'] . '" name="' . $name . '" size="' . $this->settings['size'] . '" ' . $multi_state. ' style="width: 100%">';
 			if( $this->settings['options'] && !empty( $this->settings['options'] ) && is_array( $this->settings['options'] ) ){
+				if( ( $this->settings['multiple'] ) ){
+					$html .= '<option value="" default class="null-option">' . $this->settings['null_option'] . '</option>';
+				}
 				foreach ( $this->settings['options'] as $option => $option_value) {
 					if ( !is_array( $this->settings['value'] ) ) {
 						$this->settings['value'] = array( $this->settings['value'] );
 					}
-					if( false === strpos($option, 'optgroup') ){
+					if( false === strpos( $option, 'optgroup' ) ){
 						$selected_state = '';
 						if( $this->settings['value'] && !empty( $this->settings['value'] ) ){
 							foreach ( $this->settings['value'] as $key => $value) {
@@ -137,36 +141,33 @@ if ( ! class_exists( 'UI_Select' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'select2',
+				'ui-select-select2',
 				self::get_current_file_url() . '/assets/select2.js',
 				array( 'jquery' ),
 				'0.2.9',
 				true
 			);
-
 			wp_enqueue_script(
-				'ui-select.min',
+				'ui-select-min',
 				self::get_current_file_url() . '/assets/min/ui-select.min.js',
 				array( 'jquery' ),
 				'1.0.0',
 				true
 			);
-
 			wp_enqueue_style(
-				'select2',
+				'ui-select-select2',
 				self::get_current_file_url() . '/assets/select2.css',
 				array(),
 				'0.2.9',
 				'all'
 			);
 			wp_enqueue_style(
-				'ui-select',
-				self::get_current_file_url() . '/assets/ui-select.css',
+				'ui-select-min',
+				self::get_current_file_url() . '/assets/min/ui-select.min.css',
 				array(),
 				'1.0.0',
 				'all'
 			);
 		}
-
 	}
 }
