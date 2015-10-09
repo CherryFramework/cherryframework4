@@ -172,6 +172,9 @@ img {
 }
 .entry-meta {
 	overflow: hidden;
+	.entry-thumbnail.large + & {
+		overflow: inherit;
+	}
 }
 
 .format-link-marker {

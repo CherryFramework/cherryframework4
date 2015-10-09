@@ -1249,6 +1249,9 @@ img {
 .entry-meta {
   overflow: hidden;
 }
+.entry-thumbnail.large + .entry-meta {
+  overflow: inherit;
+}
 
 .format-link-marker:after {
   content: '\002192';
