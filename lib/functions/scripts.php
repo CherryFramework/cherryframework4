@@ -80,7 +80,7 @@ function cherry_register_scripts() {
 
 	wp_register_script(
 		'cherry-script',
-		esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/script.js' ),
+		esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/script.min.js' ),
 		array( 'jquery' ),
 		CHERRY_VERSION,
 		true
