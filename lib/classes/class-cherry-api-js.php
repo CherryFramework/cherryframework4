@@ -42,7 +42,7 @@ if ( !class_exists( 'Cherry_Api_Js' ) ) {
 		public function enqueue_cherry_api_scripts() {
 
 			if ( 'framework' === $this->options[ 'product_type' ] ) {
-				$src     = esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/cherry-api.js' );
+				$src     = esc_url( trailingslashit( CHERRY_URI ) . 'assets/js/cherry-api.min.js' );
 				$version = CHERRY_VERSION;
 
 			} else {

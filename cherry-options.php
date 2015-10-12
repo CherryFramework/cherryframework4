@@ -796,7 +796,7 @@ function cherry_defaults_settings() {
 		'type'			=> 'switcher',
 		'title'			=> __( 'Page comments', 'cherry' ),
 		'description'	=> __( "Enable/disable comments for pages by default. For pages that have already been published you need to enable comments individually in page settings.", 'cherry' ),
-		'value'			=> 'false',
+		'value'			=> 'true',
 	);
 
 //////////////////////////////////////////////////////////////////////
