@@ -198,8 +198,9 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			$breadcrumb .= "\n\t\t" . '<div class="' . esc_attr( $this->css['content'] ) . '">';
 
 			/* Add 'browse' label if it should be shown. */
-			if ( true === $this->args['show_browse'] ) {
-				$breadcrumb .= "\n\t\t\t" . '<div class="' . esc_attr( $this->css['browse'] ) . '">' . $this->args['labels']['browse'] . '</div> ';
+			if ( true === $this->args['show_browse'] && ! empty( $this->args['labels']['browse'] ) ) {
+				$browse      = $this->prepare_label( $this->args['labels']['browse'] );
+				$breadcrumb .= "\n\t\t\t" . '<div class="' . esc_attr( $this->css['browse'] ) . '">' . $browse . '</div> ';
 			}
 
 			$breadcrumb .= "\n\t\t" . '<div class="' . esc_attr( $this->css['wrap'] ) . '">';
@@ -209,6 +210,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 				? $this->args['separator']
 				: '/';
 
+			$separator = $this->prepare_label( $separator );
 			$separator = '<div class="' . esc_attr( $this->css['separator'] ) . '">' . $separator . '</div>';
 			$separator = sprintf( $this->args['item_format'], $separator, $this->css['item'] );
 
@@ -265,7 +267,9 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			}
 
 			if ( $use_custom_front_title ) {
-				$page_on_front_title = cherry_get_option( 'breadcrumbs-custom-home-title', __( 'Home', 'cherry' ) );
+				$default             = __( 'Home', 'cherry' );
+				$page_on_front_title = cherry_get_option( 'breadcrumbs-custom-home-title', $default );
+				$page_on_front_title = $this->prepare_label( $page_on_front_title, $default );
 			}
 
 			$labels = array(
@@ -399,7 +403,7 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		 */
 		public function _add_item( $format = 'link_format', $label, $url = '', $class = '' ) {
 
-			$title = esc_attr( $label );
+			$title = esc_attr( wp_strip_all_tags( $label ) );
 			$css   = ( 'target_format' == $format ) ? 'target' : 'link';
 
 			if ( $class ) {
@@ -1408,6 +1412,46 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 			foreach ( $matches as $match ) {
 				$this->_process_single_tag( $match, $post_id );
 			}
+		}
+
+		/**
+		 * Try to escape font icon from passed label and return it if found, or return label
+		 *
+		 * @since  4.0.4
+		 * @param  string      $label    passed label.
+		 * @param  bool|string $fallback optional fallback text to add inside icon tag/
+		 * @return string
+		 */
+		public function prepare_label( $label, $fallback = false ) {
+
+			$prefix = 'icon:';
+
+			// Return simple text label if icon not found
+			if ( false === strpos( $label, $prefix ) ) {
+				return $label;
+			}
+
+			$label = str_replace( $prefix, '', $label );
+			$label = str_replace( '.', '', $label );
+
+			if ( false !== $fallback ) {
+				$fallback = sprintf(
+					apply_filters( 'cherry_breadcrumbs_icon_fallback', '<span class="hidden">%s</span>', $fallback ),
+					esc_attr( $fallback )
+				);
+			}
+
+			// Check if is Font Awesome icon
+			if ( 0 === strpos( $label, 'fa-' ) ) {
+				return sprintf( '<i class="fa %1$s">%2$s</i>', esc_attr( $label ), $fallback );
+			}
+
+			// Return default icon
+			return sprintf(
+				apply_filters( 'cherry_breadcrumbs_default_icon_format', '<span class="%1$s">%2$s</span>', $label, $fallback ),
+				esc_attr( $label ), $fallback
+			);
+
 		}
 
 	}
