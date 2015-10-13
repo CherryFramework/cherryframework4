@@ -188,7 +188,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load WooCommerce compatibility module
 			require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-woocommerce.php' );
 
-			// Load Icons gateway for shortcodes ultimate ( only if SU active )
+			// Load Icons gateway for `Cherry Shortcodes` (only if plugin active).
 			if ( in_array(
 				'cherry-shortcodes/cherry-shortcodes.php',
 				apply_filters( 'active_plugins', get_option( 'active_plugins' ) )
