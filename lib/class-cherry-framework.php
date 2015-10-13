@@ -87,10 +87,10 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			do_action( 'cherry_constants_before' );
 
 			/** Sets the framework version number. */
-			$template = get_template();
-			$framework = wp_get_theme($template);
+			$template  = get_template();
+			$framework = wp_get_theme( $template );
 
-			define( 'CHERRY_VERSION', $framework -> get( 'Version' ) );
+			define( 'CHERRY_VERSION', $framework->get( 'Version' ) );
 
 			/** Sets the path to the parent theme directory. */
 			define( 'PARENT_DIR', get_template_directory() );

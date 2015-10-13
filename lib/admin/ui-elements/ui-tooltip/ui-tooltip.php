@@ -87,7 +87,7 @@ if ( ! class_exists( 'UI_Tooltip' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-tooltip.min',
+				'ui-tooltip-min',
 				self::get_current_file_url() . '/assets/min/ui-tooltip.min.js',
 				array( 'jquery', 'jquery-ui-tooltip' ),
 				CHERRY_VERSION,
@@ -95,8 +95,8 @@ if ( ! class_exists( 'UI_Tooltip' ) ) {
 			);
 
 			wp_enqueue_style(
-				'ui-tooltip',
-				self::get_current_file_url() . '/assets/ui-tooltip.css',
+				'ui-tooltip-min',
+				self::get_current_file_url() . '/assets/min/ui-tooltip.min.css',
 				array(),
 				'1.0.0',
 				'all'

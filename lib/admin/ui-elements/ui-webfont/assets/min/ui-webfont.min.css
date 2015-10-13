@@ -1,0 +1,200 @@
+.cherry-ui-webfont-wrap .add-font-wrap, .cherry-ui-webfont-wrap .font-list {
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+.cherry-ui-webfont-wrap .add-font-wrap {
+  margin-bottom: 20px;
+}
+.cherry-ui-webfont-wrap .add-font-wrap .font-family {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.cherry-ui-webfont-wrap .add-font-wrap .add-button-holder {
+  text-align: center;
+}
+.cherry-ui-webfont-wrap .add-font-wrap .add-button {
+  width: 38px;
+  height: 38px;
+  padding: 2px;
+  border-radius: 6px;
+  text-decoration: none;
+  outline: none;
+  background-color: #8bc735;
+  display: inline-block;
+  transition: all 300ms ease-in-out;
+}
+.cherry-ui-webfont-wrap .add-font-wrap .add-button:focus {
+  box-shadow: none;
+}
+.cherry-ui-webfont-wrap .add-font-wrap .add-button span {
+  width: 38px;
+  height: 38px;
+  color: #fff;
+  font-size: 32px;
+  line-height: 43px;
+  text-indent: -2px;
+}
+.cherry-ui-webfont-wrap .font-list .font-item {
+  width: 50%;
+  position: relative;
+  display: inline-block;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner {
+  border: 1px solid #d4d5d6;
+  background-color: #f2f3f4;
+  padding: 5px;
+  margin: 5px;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .font-family-label {
+  margin-bottom: 5px;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .font-family-label span {
+  font-size: 20px;
+  line-height: 25px;
+  color: #fff;
+  background-color: #8bc735;
+  padding: 3px 5px;
+  display: inline-block;
+  border-radius: 3px;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .font-variants, .cherry-ui-webfont-wrap .font-list .font-item .inner .font-subsets {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .font-variants label, .cherry-ui-webfont-wrap .font-list .font-item .inner .font-subsets label {
+  display: block;
+  margin-bottom: 5px;
+  cursor: inherit;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .font-variants label span, .cherry-ui-webfont-wrap .font-list .font-item .inner .font-subsets label span {
+  display: inline-block;
+  padding: 2px 3px;
+  color: #fff;
+  background-color: #ffcc00;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: italic;
+  border-radius: 3px;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .font-variants {
+  margin-bottom: 5px;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .remove-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  text-decoration: none;
+  outline: none;
+  background-color: #f62e46;
+  display: block;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .remove-button:focus {
+  box-shadow: none;
+}
+.cherry-ui-webfont-wrap .font-list .font-item .inner .remove-button span {
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  font-size: 22px;
+  line-height: 26px;
+}
+
+.ajax-loader {
+  animation-duration: 2.8s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+}
+
+.ajax-loader.loading {
+  animation-name: rotate;
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+
+  25% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+  }
+
+  50% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(180deg);
+  }
+
+  75% {
+    transform: perspective(120px) rotateX(0deg) rotateY(180deg);
+  }
+
+  100% {
+    transform: perspective(120px) rotateX(0deg) rotateY(360deg);
+  }
+}
+.shake-effect .inner {
+  animation-name: glow-effect-1;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+}
+
+.add-item-effect .inner {
+  animation-name: glow-effect-2;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 2;
+}
+
+@keyframes shake-effect {
+  0% {
+    transform: translateX(0px) translateY(0px);
+  }
+
+  25% {
+    transform: translateX(-5px) translateY(5px);
+  }
+
+  50% {
+    transform: translateX(3px) translateY(3px);
+  }
+
+  75% {
+    transform: translateX(-5px) translateY(0px);
+  }
+
+  100% {
+    transform: translateX(0px) translateY(0px);
+  }
+}
+@keyframes glow-effect-1 {
+  0% {
+    box-shadow: 0px 0px 0px rgba(246, 46, 70, 0);
+  }
+
+  50% {
+    box-shadow: 0px 0px 10px #f62e46;
+  }
+
+  100% {
+    box-shadow: 0px 0px 0px rgba(246, 46, 70, 0);
+  }
+}
+@keyframes glow-effect-2 {
+  0% {
+    box-shadow: 0px 0px 0px rgba(139, 199, 53, 0);
+  }
+
+  50% {
+    box-shadow: 0px 0px 10px #8bc735;
+  }
+
+  100% {
+    box-shadow: 0px 0px 0px rgba(139, 199, 53, 0);
+  }
+}

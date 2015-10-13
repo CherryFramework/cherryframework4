@@ -18,6 +18,7 @@
 			</key>
 			<key name="breadcrumbs-subsection">
 				<key name="options-list">
+					<key name="breadcrumbs-custom-home-title" />
 					<key name="breadcrumbs-prefix-path" />
 				</key>
 			</key>

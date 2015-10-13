@@ -1201,6 +1201,10 @@ img {
 .widget select {
   max-width: 100%;
 }
+.widget_calendar th, .widget_calendar tbody td {
+  text-align: center;
+  padding: .25em 0;
+}
 
 /*--------------------------------------------------------------
 # Content
@@ -1244,6 +1248,9 @@ img {
 
 .entry-meta {
   overflow: hidden;
+}
+.entry-thumbnail.large + .entry-meta {
+  overflow: inherit;
 }
 
 .format-link-marker:after {

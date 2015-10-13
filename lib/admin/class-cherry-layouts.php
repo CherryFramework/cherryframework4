@@ -215,6 +215,11 @@ class Cherry_Layouts {
 		);
 
 		$layouts = cherry_get_options( 'page-layout' );
+
+		if ( ! is_array( $layouts ) ) {
+			$layouts = array();
+		}
+
 		$layouts = array_merge( $default, $layouts);
 
 		return apply_filters( 'cherry_layouts_get_layouts', $layouts );

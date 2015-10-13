@@ -112,7 +112,7 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
-				'ui-range-slider.min',
+				'ui-range-slider-min',
 				self::get_current_file_url() . '/assets/min/ui-range-slider.min.js',
 				array( 'jquery', 'jquery-ui-slider' ),
 				CHERRY_VERSION,
@@ -126,8 +126,8 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 				'all'
 			);
 			wp_enqueue_style(
-				'ui-range-slider',
-				self::get_current_file_url() . '/assets/ui-range-slider.css',
+				'ui-range-slider-min',
+				self::get_current_file_url() . '/assets/min/ui-range-slider.min.css',
 				array(),
 				CHERRY_VERSION,
 				'all'

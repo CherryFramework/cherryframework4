@@ -399,6 +399,18 @@ class Cherry_Interface_Builder {
 				$output .= $ui_layout_editor->render();
 			break;
 
+			case 'webfont':
+				$ui_webfont = new UI_Webfont(
+					array(
+						'id'			=> $id,
+						'name'			=> $name,
+						'value'			=> $value,
+						'class'			=> $class,
+					)
+				);
+				$output .= $ui_webfont->render();
+			break;
+
 			case 'editor':
 				//$wrap = false;
 				ob_start();
@@ -441,7 +453,7 @@ class Cherry_Interface_Builder {
 		$description = $description ? $this->add_description( $description ) : '';
 		$class       = 'cherry-section-' . $this->options['pattern'] . ' ' . $class;
 		$master_class = preg_replace('/\s*,\s*/', ' ', $master);
-		$class .= !empty( $master_class ) && isset( $master_class ) ? $master_class : '';
+		$class .= !empty( $master_class ) && isset( $master_class ) ? ' ' . $master_class : '';
 		$hint_html	= '';
 		$data_master = ( !empty( $master ) ) ? 'data-master="' . $master . '"' : '';
 		$output = '<div id="wrap-' . $id . '" class="' . $class . '" ' . $data_master . '>';
@@ -631,6 +643,7 @@ class Cherry_Interface_Builder {
 		UI_Ace_Editor::enqueue_assets();
 		UI_Layout_Editor::enqueue_assets();
 		UI_Tooltip::enqueue_assets();
+		UI_Webfont::enqueue_assets();
 
 		wp_enqueue_script( 'editor');
 		wp_enqueue_script( 'jquery-ui-dialog' );

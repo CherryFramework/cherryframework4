@@ -19,12 +19,19 @@ class cherry_moto_slider_static extends cherry_register_static {
 	 * Callback-method for registered static.
 	 *
 	 * @since 4.0.0
+	 * @since 4.0.4 - prevent PHP errors if MotoPress slider not installed
 	 */
 	public function callback() {
 		$alias = cherry_get_option( 'moto-slider-alias' );
+
 		if ( ! $alias ) {
 			return;
 		}
+
+		if ( ! function_exists( 'motoPressSlider' ) ) {
+			return;
+		}
+
 		motoPressSlider($alias);
 	}
 	/**

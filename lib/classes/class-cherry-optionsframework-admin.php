@@ -56,6 +56,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			add_action( 'wp_ajax_cherry_partial_export_url', array( $this, 'cherry_partial_export_url' ) );
 			add_action( 'wp_ajax_cherry_partial_export', array( $this, 'partial_export' ) );
 
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_builder_styles' ), 99 );
+
 			// add options to allowed MIME types
 			add_filter( 'upload_mimes', array( $this, 'add_options_mime' ) );
 
@@ -100,6 +102,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-ace-editor/ui-ace-editor.php' );
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-layout-editor/ui-layout-editor.php' );
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-tooltip/ui-tooltip.php' );
+
+			require_once( trailingslashit( CHERRY_ADMIN ) . 'ui-elements/ui-webfont/ui-webfont.php' );
 		}
 
 		private function init(){
@@ -157,7 +161,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				'function'       => array( __CLASS__, 'cherry_options_page_build' ),
 				'before_content' => $before_content,
 			) );
-
 
 			// Settings need to be registered after admin_init
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
@@ -413,7 +416,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				global $cherry_options_framework;
 
 				$post_array = $_POST['post_array'];
-				//var_dump($post_array);
+
 				$options = $cherry_options_framework->create_updated_options( $post_array );
 
 				$cherry_options_framework->save_options( $options );
@@ -587,6 +590,17 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		}
 
 		/**
+		 * Enqueue admin-specific stylesheet.
+		 *
+		 * @since 4.0.0
+		 */
+		public function enqueue_builder_styles( $hook_suffix = false ) {
+			if( 'cherry_page_options' === $hook_suffix ){
+				wp_dequeue_style('yit-plugin-style');
+			}
+		}
+
+		/**
 		 *
 		 * @since 4.0.0
 		 */
@@ -683,7 +697,6 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				</div>
 				<?php
 		}
-
 
 		/**
 		 * Is a given string a color formatted in hexidecimal notation?

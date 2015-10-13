@@ -242,6 +242,11 @@ class Cherry_Grid_Type {
 		);
 
 		$grid_type = cherry_get_options( "{$item['id']}-grid-type" );
+
+		if ( ! is_array( $grid_type ) ) {
+			$grid_type = array();
+		}
+
 		$grid_type = array_merge( $default, $grid_type );
 
 		return apply_filters( 'cherry_grid_type_get_types', $grid_type, $item['id'] );
