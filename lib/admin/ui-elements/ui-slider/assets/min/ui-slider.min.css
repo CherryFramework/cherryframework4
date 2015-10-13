@@ -12,6 +12,7 @@
   font-size: 1.5em;
   border: 1px solid #dddcdc;
   border-radius: 15px;
+  background-color: #fff;
 }
 .cherry-slider-wrap .cherry-slider-holder .cherry-slider-unit .ui-slider-range {
   background: #2a445d;
