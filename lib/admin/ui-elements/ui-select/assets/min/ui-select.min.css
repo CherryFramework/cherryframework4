@@ -46,13 +46,14 @@ select.cherry-ui-select:focus {
   margin-bottom: 3px;
 }
 .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search {
-  margin: 0;
-  width: 20px;
+  margin: 5px;
 }
 .select2 .selection .select2-selection.select2-selection--multiple .select2-selection__rendered .select2-search .select2-search__field {
+  padding: 0;
   margin: 0;
   border: none;
   box-shadow: none;
+  line-height: 30px;
 }
 
 .select2-container .select2-dropdown {
