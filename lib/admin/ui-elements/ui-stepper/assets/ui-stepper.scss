@@ -1,3 +1,7 @@
+.cherry-ui-stepper{
+	position: relative;
+	max-width: 100px;
+}
 .cherry-ui-stepper-input{
 	max-width: 100px;
 	border: 1px solid #dddcdc;
@@ -12,7 +16,10 @@
 .cherry-stepper-controls{
 	display: inline-block;
 	vertical-align: top;
-	margin: 3px 0 0 -24px;
+	//margin: 3px 0 0 -24px;
+	position: absolute;
+	right: 2px;
+	top: 2px;
 	.step-up{
 		border-radius: 0 3px 0 0;
 		border-bottom: 0;
