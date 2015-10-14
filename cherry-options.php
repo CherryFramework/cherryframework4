@@ -1089,7 +1089,7 @@ function cherry_defaults_settings() {
 		'type'			=> 'webfont',
 		'title'			=> __('Webfonts', 'cherry'),
 		'label'			=> '',
-		'description'	=> '',
+		'description'	=> __( 'Define custom Font style and Character Sets for selected web font.', 'cherry' ),
 		'value'			=> array()
 	);
 //////////////////////////////////////////////////////////////////////
