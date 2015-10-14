@@ -6,8 +6,7 @@
 }
 
 /* Default */
-.menu-primary,
-.menu-secondary {
+.menu-primary {
 	clear: both;
 	display: block;
 	float: left;
@@ -124,17 +123,6 @@
 }
 
 /* Skin */
-.menu-primary,
-.menu-secondary {
-	> ul {
-		> li {
-			margin-left: 15px;
-			&:first-child {
-				margin-left: 0;
-			}
-		}
-	}
-}
 .menu-primary {
 	padding: 20px 0;
 	.sub-menu {
@@ -142,6 +130,14 @@
 		a {
 			color: #fff;
 			margin: 5px;
+		}
+	}
+	> ul {
+		> li {
+			margin-left: 15px;
+			&:first-child {
+				margin-left: 0;
+			}
 		}
 	}
 }
