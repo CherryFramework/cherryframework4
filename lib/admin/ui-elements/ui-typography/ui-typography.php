@@ -89,7 +89,6 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 			$character_array = array();
 			$style_array = array();
 			$fonttype = '';
-			var_dump($this->settings['value']);
 			$html .= '<div class="cherry-ui-typography-wrap" data-id="' . $this->settings['id'] . '" data-name="' . $this->settings['name'] . '">';
 			//Font Family
 				$html .= '<div class="cherry-column-section">';
