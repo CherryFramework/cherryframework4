@@ -8,6 +8,44 @@ img {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+.menu-secondary {
+	clear: both;
+	display: block;
+	float: left;
+	width: 100%;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding-left: 0;
+	}
+	li {
+		float: left;
+		position: relative;
+
+		&:hover > a,
+		&.focus > a {
+			text-decoration: underline;
+		}
+		&.current_page_item > a,
+		&.current-menu-item > a,
+		&.current_page_ancestor > a {
+			text-decoration: underline;
+		}
+	}
+	a {
+		display: block;
+		text-decoration: none;
+	}
+	> ul {
+		> li {
+			margin-left: 15px;
+			&:first-child {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
