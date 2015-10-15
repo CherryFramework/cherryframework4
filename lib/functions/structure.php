@@ -77,19 +77,7 @@ function cherry_content_wrap() {
 		$wrapper = '';
 
 		if ( false !== cherry_display_sidebar( apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' ) ) ) {
-			$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
-			$layout    = apply_filters( 'cherry_get_page_layout', get_post_meta( $object_id, 'cherry_layout', true ) );
-
-			if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
-
-				if ( is_single() ) {
-					$layout = apply_filters( 'cherry_get_single_post_layout', cherry_get_option( 'single-post-layout' ), $object_id );
-				} else {
-					$layout = apply_filters( 'cherry_get_archive_page_layout', cherry_get_option( 'page-layout' ), $object_id );
-				}
-
-			}
-
+			$layout        = cherry_current_page()->get_property( 'layout' );
 			$class         = sanitize_html_class( $layout . '-wrapper' );
 			$wrapper_class = apply_filters( 'cherry_content_sidebar_wrapper_class', $class );
 			$wrapper       = sprintf( '<div class="%s">', $wrapper_class );
