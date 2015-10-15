@@ -13,6 +13,23 @@ You can learn more about Cherry Framework 4 features from the [official document
 
 ##Change log##
 
+#### v4.0.4 ####
+
+* NEW: Option for `Home` page title in breadcrumbs
+* NEW: Macros-logic for comment item
+* ADD: Filter `cherry_dynamic_styles_before` to add custom dynamic style before main
+* ADD: Filter to archive `page-layout` option
+* ADD: `Breadcrumbs mobile` option hint
+* ADD: Allow to use font icons for breadcrumbs labels
+* UPD: Compressed utils-scripts
+* UPD: Moved style for `Secodary Menu` to the `_wpnative.scss` file
+* FIX: PHP-errors if `MotoPress Slider` not activated
+* FIX: PHP-notices in `Cherry_Layouts` and `Cherry_Grid_Type` metaboxes
+* FIX: Interface elements
+* FIX: `WooCommerce` compatibility
+* FIX: Style for a `calendar` widget
+* FIX: Style for `gallery` item with long caption
+
 #### v4.0.3 ####
 
 * UPD: Including assets for a `Interface Builder` and `Static Page`
