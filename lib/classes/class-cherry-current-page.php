@@ -197,7 +197,23 @@ if ( ! class_exists( 'Cherry_Current_Page' ) ) {
 		 */
 		public function get_background_header() {
 
+			if ( isset( $this->current_page->background_header ) ) {
+				return $this->current_page->background_header;
+			}
 
+			$styles = get_post_meta( $this->page_object, 'cherry_style', true );
+
+			if ( ! $styles ) {
+				return false;
+			}
+
+			$custom_bg = '';
+
+			if ( isset( $styles['header-background'] ) ) {
+				return $styles['header-background'];
+			}
+
+			return false;
 
 		}
 

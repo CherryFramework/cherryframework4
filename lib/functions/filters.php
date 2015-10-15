@@ -101,85 +101,88 @@ function cherry_add_page_control_classes( $classes, $class, $post_id ) {
 	return $classes;
 }
 
+/**
+ * Get header container class
+ *
+ * @since  4.0.0
+ * @param  string $class user-defined container class.
+ * @return string
+ */
 function cherry_get_header_classes( $class ) {
-	$classes   = array();
-	$classes[] = $class;
 
-	$grid_type = cherry_current_page()->get_property( 'grid', 'header' );
+	$classes      = array();
+	$classes[]    = $class;
 
-	switch ( $grid_type ) {
-		case 'wide':
-			$classes[] = 'wide';
-			break;
+	$grid_classes = cherry_prepare_grid_classes( 'header' );
+	$classes      = array_merge( $classes, $grid_classes );
 
-		case 'boxed':
-			$classes[] = 'boxed';
-
-			// Boxed & Container width.
-			$container_width = intval( cherry_get_option( 'grid-container-width' ) );
-			$boxed_width     = intval( cherry_get_option( 'header-boxed-width' ) );
-
-			if ( $boxed_width < $container_width ) {
-				$boxed_width = $container_width;
-			} else {
-				$classes[] = 'extra-boxed';
-			}
-
-			break;
-
-		default:
-			break;
-	}
-
-	$classes = apply_filters( 'cherry_get_header_classes', $classes, $class );
-	$classes = array_unique( $classes );
+	$classes      = apply_filters( 'cherry_get_header_classes', $classes, $class );
+	$classes      = array_unique( $classes );
 
 	return join( ' ', $classes );
 }
 
+/**
+ * Get main content container class
+ *
+ * @since  4.0.0
+ * @param  string $class user-defined container class.
+ * @return string
+ */
 function cherry_get_content_classes( $class ) {
-	$classes   = array();
-	$classes[] = $class;
 
-	$grid_type = cherry_current_page()->get_property( 'grid', 'content' );
+	$classes      = array();
+	$classes[]    = $class;
 
-	switch ( $grid_type ) {
-		case 'wide':
-			$classes[] = 'wide';
-			break;
+	$grid_classes = cherry_prepare_grid_classes( 'content' );
+	$classes      = array_merge( $classes, $grid_classes );
 
-		case 'boxed':
-			$classes[] = 'boxed';
-
-			// Boxed & Container width.
-			$container_width = intval( cherry_get_option( 'grid-container-width' ) );
-			$boxed_width     = intval( cherry_get_option( 'content-boxed-width' ) );
-
-			if ( $boxed_width < $container_width ) {
-				$boxed_width = $container_width;
-			} else {
-				$classes[] = 'extra-boxed';
-			}
-
-			break;
-
-		default:
-			break;
-	}
-
-	$classes = apply_filters( 'cherry_get_content_classes', $classes, $class );
-	$classes = array_unique( $classes );
+	$classes      = apply_filters( 'cherry_get_content_classes', $classes, $class );
+	$classes      = array_unique( $classes );
 
 	return join( ' ', $classes );
 }
 
+/**
+ * Get footer container class
+ *
+ * @since  4.0.0
+ * @param  string $class user-defined container class.
+ * @return string
+ */
 function cherry_get_footer_classes( $class ) {
-	$classes   = array();
-	$classes[] = $class;
 
-	$grid_type = cherry_current_page()->get_property( 'grid', 'footer' );
+	$classes      = array();
+	$classes[]    = $class;
+
+	$grid_classes = cherry_prepare_grid_classes( 'footer' );
+	$classes      = array_merge( $classes, $grid_classes );
+
+	$classes      = apply_filters( 'cherry_get_footer_classes', $classes, $class );
+	$classes      = array_unique( $classes );
+
+	return join( ' ', $classes );
+}
+
+/**
+ * Prepare grid-related classes for container by location
+ *
+ * @since  4.0.5
+ * @param  string $location currrent location (header, content or footer).
+ * @return array
+ */
+function cherry_prepare_grid_classes( $location = null ) {
+
+	$classes = array();
+
+	if ( ! $location ) {
+		return $classes;
+	}
+
+	$grid_type = cherry_current_page()->get_property( 'grid', $location );
 
 	switch ( $grid_type ) {
+
 		case 'wide':
 			$classes[] = 'wide';
 			break;
@@ -189,11 +192,9 @@ function cherry_get_footer_classes( $class ) {
 
 			// Boxed & Container width.
 			$container_width = intval( cherry_get_option( 'grid-container-width' ) );
-			$boxed_width     = intval( cherry_get_option( 'footer-boxed-width' ) );
+			$boxed_width     = intval( cherry_get_option( $location . '-boxed-width' ) );
 
-			if ( $boxed_width < $container_width ) {
-				$boxed_width = $container_width;
-			} else {
+			if ( $boxed_width >= $container_width ) {
 				$classes[] = 'extra-boxed';
 			}
 
@@ -203,10 +204,7 @@ function cherry_get_footer_classes( $class ) {
 			break;
 	}
 
-	$classes = apply_filters( 'cherry_get_footer_classes', $classes, $class );
-	$classes = array_unique( $classes );
-
-	return join( ' ', $classes );
+	return $classes;
 }
 
 function cherry_get_container_classes( $class ) {
