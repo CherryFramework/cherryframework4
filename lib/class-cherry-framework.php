@@ -66,8 +66,11 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the framework includes.
 			add_action( 'after_setup_theme', array( $this, 'includes' ), 12 );
 
+			// Load the framework public files.
+			add_action( 'after_setup_theme', array( $this, 'load_public' ), 13 );
+
 			// Load the framework extensions.
-			add_action( 'after_setup_theme', array( $this, 'extensions' ), 13 );
+			add_action( 'after_setup_theme', array( $this, 'extensions' ), 14 );
 
 			// Load admin files.
 			add_action( 'wp_loaded', array( $this, 'admin' ) );
@@ -314,6 +317,23 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 
 			// Load if supported.
 			// require_if_theme_supports();
+		}
+
+		/**
+		 * Load only frontend-related files
+		 *
+		 * @since  4.0.5
+		 * @return void
+		 */
+		function load_public() {
+
+			if ( is_admin() ) {
+				return;
+			}
+
+			// Load current page object class
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-current-page.php' );
+
 		}
 
 		/**

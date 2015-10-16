@@ -479,13 +479,20 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 		$result[] = 'color:' . $color;
 	}
 
-	$ext_families = ! empty( $data['category'] ) ? ', ' . $data['category'] : ', sans-serif';
+	$family   = stripcslashes( $data['family'] );
+	$family   = explode( ',', $family );
+
+	array_walk( $family, 'cherry_typography_prepare_family' );
+
+	$family[] = ! empty( $data['category'] ) ? $data['category'] : 'sans-serif';
+	$family   = array_unique( $family );
 
 	$font_style  = false;
 	$font_weight = false;
 	$font_size   = $data['size'] . 'px';
 	$line_height = $data['lineheight'] . 'px';
-	$font_family = "'" . $data['family'] . "'" . $ext_families;
+
+	$font_family = implode( ', ', $family );
 
 	preg_match( '/^(\d*)(\w*)/i', $data['style'], $matches );
 
@@ -498,16 +505,32 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 		$font_style,
 		$font_weight,
 		$font_size . '/' . $line_height,
-		$font_family
+		$font_family,
 	);
 
 	$font = implode( ' ', array_filter( $font ) );
 
-	$result[] = 'font:' . ltrim($font);
+	$result[] = 'font:' . ltrim( $font );
 
 	$result = implode( ';', $result ) . ';';
 
 	return $result;
+}
+
+/**
+ * Prepare font family for passing into typography function
+ *
+ * @since  4.0.5
+ *
+ * @param  string &$item array item
+ * @param  int    $index array item index
+ * @return void
+ */
+function cherry_typography_prepare_family( &$item, $index ) {
+	$item = trim( $item );
+	if ( strpos( $item, ' ' ) ) {
+		$item = '"' . $item . '"';
+	}
 }
 
 /**

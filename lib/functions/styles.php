@@ -213,19 +213,13 @@ function cherry_post_inline_styles() {
 		return;
 	}
 
-	$object_id = apply_filters( 'cherry_current_object_id', $post_id );
-	$styles    = get_post_meta( $object_id, 'cherry_style', true );
+	$header_bg = cherry_current_page()->get_property( 'background', 'header' );
 
-	if ( ! $styles ) {
+	if ( ! $header_bg ) {
 		return;
 	}
 
-	$custom_bg = '';
-
-	if ( isset( $styles['header-background'] ) ) {
-		$custom_bg .= cherry_get_background_css( '.site-header', $styles['header-background'] );
-	}
-
+	$custom_bg = cherry_get_background_css( '.site-header', $header_bg );
 	$custom_bg = apply_filters( 'cherry_post_inline_styles', $custom_bg, $post_id );
 
 	if ( ! $custom_bg ) {

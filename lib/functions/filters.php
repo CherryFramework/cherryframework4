@@ -101,106 +101,88 @@ function cherry_add_page_control_classes( $classes, $class, $post_id ) {
 	return $classes;
 }
 
+/**
+ * Get header container class
+ *
+ * @since  4.0.0
+ * @param  string $class user-defined container class.
+ * @return string
+ */
 function cherry_get_header_classes( $class ) {
-	$classes   = array();
-	$classes[] = $class;
 
-	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+	$classes      = array();
+	$classes[]    = $class;
 
-	// Gets a single value.
-	$grid_type = apply_filters( 'cherry_get_page_grid_type', get_post_meta( $object_id, 'cherry_grid_type', true ) );
+	$grid_classes = cherry_prepare_grid_classes( 'header' );
+	$classes      = array_merge( $classes, $grid_classes );
 
-	if ( empty( $grid_type['header'] ) || ( 'default-grid-type' == $grid_type['header'] ) ) {
-		$grid_type['header'] = cherry_get_option( 'header-grid-type' );
-	}
-
-	switch ( $grid_type['header'] ) {
-		case 'wide':
-			$classes[] = 'wide';
-			break;
-
-		case 'boxed':
-			$classes[] = 'boxed';
-
-			// Boxed & Container width.
-			$container_width = intval( cherry_get_option( 'grid-container-width' ) );
-			$boxed_width     = intval( cherry_get_option( 'header-boxed-width' ) );
-
-			if ( $boxed_width < $container_width ) {
-				$boxed_width = $container_width;
-			} else {
-				$classes[] = 'extra-boxed';
-			}
-
-			break;
-
-		default:
-			break;
-	}
-
-	$classes = apply_filters( 'cherry_get_header_classes', $classes, $class );
-	$classes = array_unique( $classes );
+	$classes      = apply_filters( 'cherry_get_header_classes', $classes, $class );
+	$classes      = array_unique( $classes );
 
 	return join( ' ', $classes );
 }
 
+/**
+ * Get main content container class
+ *
+ * @since  4.0.0
+ * @param  string $class user-defined container class.
+ * @return string
+ */
 function cherry_get_content_classes( $class ) {
-	$classes   = array();
-	$classes[] = $class;
 
-	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+	$classes      = array();
+	$classes[]    = $class;
 
-	// Gets a single value.
-	$grid_type = apply_filters( 'cherry_get_page_grid_type', get_post_meta( $object_id, 'cherry_grid_type', true ) );
+	$grid_classes = cherry_prepare_grid_classes( 'content' );
+	$classes      = array_merge( $classes, $grid_classes );
 
-	if ( empty( $grid_type['content'] ) || ( 'default-grid-type' == $grid_type['content'] ) ) {
-		$grid_type['content'] = cherry_get_option( 'content-grid-type' );
-	}
-
-	switch ( $grid_type['content'] ) {
-		case 'wide':
-			$classes[] = 'wide';
-			break;
-
-		case 'boxed':
-			$classes[] = 'boxed';
-
-			// Boxed & Container width.
-			$container_width = intval( cherry_get_option( 'grid-container-width' ) );
-			$boxed_width     = intval( cherry_get_option( 'content-boxed-width' ) );
-
-			if ( $boxed_width < $container_width ) {
-				$boxed_width = $container_width;
-			} else {
-				$classes[] = 'extra-boxed';
-			}
-
-			break;
-
-		default:
-			break;
-	}
-
-	$classes = apply_filters( 'cherry_get_content_classes', $classes, $class );
-	$classes = array_unique( $classes );
+	$classes      = apply_filters( 'cherry_get_content_classes', $classes, $class );
+	$classes      = array_unique( $classes );
 
 	return join( ' ', $classes );
 }
 
+/**
+ * Get footer container class
+ *
+ * @since  4.0.0
+ * @param  string $class user-defined container class.
+ * @return string
+ */
 function cherry_get_footer_classes( $class ) {
-	$classes   = array();
-	$classes[] = $class;
 
-	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+	$classes      = array();
+	$classes[]    = $class;
 
-	// Gets a single value.
-	$grid_type = apply_filters( 'cherry_get_page_grid_type', get_post_meta( $object_id, 'cherry_grid_type', true ) );
+	$grid_classes = cherry_prepare_grid_classes( 'footer' );
+	$classes      = array_merge( $classes, $grid_classes );
 
-	if ( empty( $grid_type['footer'] ) || ( 'default-grid-type' == $grid_type['footer'] ) ) {
-		$grid_type['footer'] = cherry_get_option( 'footer-grid-type' );
+	$classes      = apply_filters( 'cherry_get_footer_classes', $classes, $class );
+	$classes      = array_unique( $classes );
+
+	return join( ' ', $classes );
+}
+
+/**
+ * Prepare grid-related classes for container by location
+ *
+ * @since  4.0.5
+ * @param  string $location currrent location (header, content or footer).
+ * @return array
+ */
+function cherry_prepare_grid_classes( $location = null ) {
+
+	$classes = array();
+
+	if ( ! $location ) {
+		return $classes;
 	}
 
-	switch ( $grid_type['footer'] ) {
+	$grid_type = cherry_current_page()->get_property( 'grid', $location );
+
+	switch ( $grid_type ) {
+
 		case 'wide':
 			$classes[] = 'wide';
 			break;
@@ -210,11 +192,9 @@ function cherry_get_footer_classes( $class ) {
 
 			// Boxed & Container width.
 			$container_width = intval( cherry_get_option( 'grid-container-width' ) );
-			$boxed_width     = intval( cherry_get_option( 'footer-boxed-width' ) );
+			$boxed_width     = intval( cherry_get_option( $location . '-boxed-width' ) );
 
-			if ( $boxed_width < $container_width ) {
-				$boxed_width = $container_width;
-			} else {
+			if ( $boxed_width >= $container_width ) {
 				$classes[] = 'extra-boxed';
 			}
 
@@ -224,25 +204,15 @@ function cherry_get_footer_classes( $class ) {
 			break;
 	}
 
-	$classes = apply_filters( 'cherry_get_footer_classes', $classes, $class );
-	$classes = array_unique( $classes );
-
-	return join( ' ', $classes );
+	return $classes;
 }
 
 function cherry_get_container_classes( $class ) {
 	$classes = array();
 
-	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
+	$grid_type = cherry_current_page()->get_property( 'grid', 'content' );
 
-	// Gets a single value.
-	$grid_type = apply_filters( 'cherry_get_page_grid_type', get_post_meta( $object_id, 'cherry_grid_type', true ) );
-
-	if ( empty( $grid_type['content'] ) || ( 'default-grid-type' == $grid_type['content'] ) ) {
-		$grid_type['content'] = cherry_get_option( 'content-grid-type' );
-	}
-
-	switch ( $grid_type['content'] ) {
+	switch ( $grid_type ) {
 		case 'wide':
 			$classes[] = 'container-fluid';
 			break;
@@ -277,18 +247,7 @@ function cherry_hide_sidebar( $display, $id ) {
 		return $display;
 	}
 
-	$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
-	$layout    = apply_filters( 'cherry_get_page_layout', get_post_meta( $object_id, 'cherry_layout', true ) );
-
-	if ( ! $layout || ( 'default-layout' == $layout ) ) {
-
-		if ( is_single() ) {
-			$layout = apply_filters( 'cherry_get_single_post_layout', cherry_get_option( 'single-post-layout' ), $object_id );
-		} else {
-			$layout = apply_filters( 'cherry_get_archive_page_layout', cherry_get_option( 'page-layout' ), $object_id );
-		}
-
-	}
+	$layout = cherry_current_page()->get_property( 'layout' );
 
 	if ( 'no-sidebar' == $layout ) {
 		return false;
