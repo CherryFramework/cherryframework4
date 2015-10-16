@@ -15,7 +15,7 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
-// Add all image sizes to the image editor to insert into post.
+// Add `cherry-thumb-s` image size to the image editor to insert into post.
 add_filter( 'image_size_names_choose', 'cherry_image_size_names_choose' );
 
 // Adds ID3 tags for media display.
@@ -40,7 +40,7 @@ add_filter( 'shortcode_atts_video', 'cherry_video_atts' );
 function cherry_image_size_names_choose( $sizes ) {
 
 	// If the theme as set a custom post thumbnail size, give it a nice name.
-	if ( has_image_size( 'post-thumbnail' ) ) {
+	if ( ! has_image_size( 'post-thumbnail' ) ) {
 		$sizes['cherry-thumb-s'] = __( 'Post Thumbnail', 'cherry' );
 	}
 
