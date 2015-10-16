@@ -25,13 +25,13 @@ if ( !defined( 'WPINC' ) ) {
  * @return bool          Whether post has an image attached.
  */
 function cherry_has_post_thumbnail( $post_id = null ) {
-	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
-	$post_type = get_post_type( $post_id );
 
-	if ( !current_theme_supports( 'post-thumbnails' ) ) {
+	if ( ! current_theme_supports( 'post-thumbnails' ) ) {
 		return false;
 	}
 
+	$post_id           = ( null === $post_id ) ? get_the_ID() : $post_id;
+	$post_type         = get_post_type( $post_id );
 	$thumbnail_support = post_type_supports( $post_type, 'thumbnail' );
 
 	if ( 'attachment' === $post_type ) {

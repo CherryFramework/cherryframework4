@@ -11,7 +11,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -21,7 +21,7 @@ add_filter( 'image_size_names_choose', 'cherry_image_size_names_choose' );
 // Adds ID3 tags for media display.
 add_filter( 'wp_get_attachment_id3_keys', 'cherry_attachment_id3_keys', 5, 3 );
 
-// Filter the [video] shortcode attributes.
+// Filter the `[video]` shortcode attributes.
 add_filter( 'shortcode_atts_video', 'cherry_video_atts' );
 
 /**
@@ -90,28 +90,26 @@ function cherry_video_atts( $atts ) {
 	}
 
 	// Check if post has an image attached.
-	if ( !cherry_has_post_thumbnail() ) {
+	if ( ! cherry_has_post_thumbnail() ) {
 		return $atts;
 	}
 
-	// Only run if the user didn't set a 'poster' image.
-	if ( empty( $atts['poster'] ) ) :
+	// Only run if the user didn't set a `poster` image.
+	if ( ! empty( $atts['poster'] ) ) {
+		return $atts;
+	}
 
-		$thumbnail_id = get_post_thumbnail_id();
+	$thumbnail_id = get_post_thumbnail_id();
 
-		if ( !empty( $thumbnail_id ) ) :
+	if ( empty( $thumbnail_id ) ) {
+		return $atts;
+	}
 
-			$src = wp_get_attachment_image_src( $thumbnail_id, 'full', false );
+	$src = wp_get_attachment_image_src( $thumbnail_id, 'full', false );
 
-			if ( is_array( $src ) && !empty( $src ) ) {
-
-				$atts['poster'] = $src[0];
-
-			}
-
-		endif;
-
-	endif;
+	if ( is_array( $src ) && ! empty( $src ) ) {
+		$atts['poster'] = $src[0];
+	}
 
 	return $atts;
 }
