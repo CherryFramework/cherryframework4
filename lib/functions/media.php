@@ -21,9 +21,6 @@ add_filter( 'image_size_names_choose', 'cherry_image_size_names_choose' );
 // Adds ID3 tags for media display.
 add_filter( 'wp_get_attachment_id3_keys', 'cherry_attachment_id3_keys', 5, 3 );
 
-// Filters the [audio] shortcode.
-//add_filter( 'wp_audio_shortcode', 'cherry_audio_shortcode', 10, 4 );
-
 // Filter the [video] shortcode attributes.
 add_filter( 'shortcode_atts_video', 'cherry_video_atts' );
 
@@ -75,39 +72,6 @@ function cherry_attachment_id3_keys( $fields, $attachment, $context ) {
 	}
 
 	return $fields;
-}
-
-/**
- * Adds a featured image (if one exists) next to the audio player.
- *
- * @since  4.0.0
- * @param  string  $html
- * @param  array   $atts
- * @param  object  $audio
- * @param  object  $post_id
- * @return string
- */
-function cherry_audio_shortcode( $html, $atts, $audio, $post_id ) {
-
-	// Don't show in the admin.
-	if ( is_admin() ) {
-		return $html;
-	}
-
-	// Check if post has an image attached.
-	if ( !cherry_has_post_thumbnail() ) {
-		return $html;
-	}
-
-	$image = get_the_post_thumbnail( get_the_ID(), 'full', array( 'class' => 'aligncenter' ) );
-
-	if ( !empty( $image ) ) {
-
-		$html = $image . $html;
-
-	}
-
-	return $html;
 }
 
 /**
