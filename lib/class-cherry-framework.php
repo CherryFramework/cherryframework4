@@ -90,10 +90,10 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			do_action( 'cherry_constants_before' );
 
 			/** Sets the framework version number. */
-			$template = get_template();
-			$framework = wp_get_theme($template);
+			$template  = get_template();
+			$framework = wp_get_theme( $template );
 
-			define( 'CHERRY_VERSION', $framework -> get( 'Version' ) );
+			define( 'CHERRY_VERSION', $framework->get( 'Version' ) );
 
 			/** Sets the path to the parent theme directory. */
 			define( 'PARENT_DIR', get_template_directory() );
@@ -191,7 +191,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load WooCommerce compatibility module
 			require_once( trailingslashit( CHERRY_EXTENSIONS ) . 'class-cherry-woocommerce.php' );
 
-			// Load Icons gateway for shortcodes ultimate ( only if SU active )
+			// Load Icons gateway for `Cherry Shortcodes` (only if plugin active).
 			if ( in_array(
 				'cherry-shortcodes/cherry-shortcodes.php',
 				apply_filters( 'active_plugins', get_option( 'active_plugins' ) )

@@ -29,6 +29,7 @@ function cherry_comments_default_list() {
 	$defaults = array(
 		'style'       => 'ol',
 		'type'        => 'all',
+		'avatar_size' => 48,
 		'short_ping'  => true,
 		'callback'    => 'cherry_rewrite_comment_item',
 	);
@@ -73,12 +74,15 @@ function cherry_comments_nav( $position ='' ) {
  * A custom function to use to open and display each comment.
  *
  * @since  4.0.4
- * @param object $comment Comment to display.
- * @param array  $args    An array of arguments.
- * @param int    $depth   Depth of comment.
+ * @param object $_comment Comment to display.
+ * @param array  $args     An array of arguments.
+ * @param int    $depth    Depth of comment.
  */
-function cherry_rewrite_comment_item( $comment, $args, $depth ) {
-	$GLOBALS['comment'] = $comment;
+function cherry_rewrite_comment_item( $_comment, $args, $depth ) {
+	global $comment;
+
+	$_comment->cherry_comment_list_args = $args;
+	$comment = $_comment;
 
 	$tag = ( 'div' === $args['style'] ) ? 'div' : 'li'; ?>
 
@@ -108,7 +112,9 @@ function cherry_rewrite_comment_item( $comment, $args, $depth ) {
 function cherry_get_the_post_comment_author_avatar( $args ) {
 	global $comment;
 
-	$size = 48;
+	if ( ! empty( $comment->cherry_comment_list_args['avatar_size'] ) ) {
+		$size = $comment->cherry_comment_list_args['avatar_size'];
+	}
 
 	if ( ! empty( $args['size'] ) ) {
 		$size = intval( $args['size'] );

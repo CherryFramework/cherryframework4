@@ -1075,6 +1075,38 @@ img {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+.menu-secondary {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%;
+}
+.menu-secondary ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.menu-secondary li {
+  float: left;
+  position: relative;
+}
+.menu-secondary li:hover > a, .menu-secondary li.focus > a {
+  text-decoration: underline;
+}
+.menu-secondary li.current_page_item > a, .menu-secondary li.current-menu-item > a, .menu-secondary li.current_page_ancestor > a {
+  text-decoration: underline;
+}
+.menu-secondary a {
+  display: block;
+  text-decoration: none;
+}
+.menu-secondary > ul > li {
+  margin-left: 15px;
+}
+.menu-secondary > ul > li:first-child {
+  margin-left: 0;
+}
+
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
