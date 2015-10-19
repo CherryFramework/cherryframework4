@@ -151,3 +151,39 @@ function cherry_video_atts( $atts ) {
 
 	return $atts;
 }
+
+/**
+ * Check if the attachment is an 'audio'.
+ *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
+ * @since  4.0.0
+ * @param  int   $post_id Attachment ID.
+ * @return bool
+ */
+function cherry_attachment_is_audio( $post_id = null ) {
+	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
+	$mime_type = get_post_mime_type( $post_id );
+
+	list( $type, $subtype ) = false !== strpos( $mime_type, '/' ) ? explode( '/', $mime_type ) : array( $mime_type, '' );
+
+	return 'audio' === $type ? true : false;
+}
+
+/**
+ * Check if the attachment is a 'video'.
+ *
+ * @author Justin Tadlock <justin@justintadlock.com>
+ * @author Cherry Team <support@cherryframework.com>
+ * @since  4.0.0
+ * @param  int   $post_id Attachment ID.
+ * @return bool
+ */
+function cherry_attachment_is_video( $post_id = null ) {
+	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
+	$mime_type = get_post_mime_type( $post_id );
+
+	list( $type, $subtype ) = false !== strpos( $mime_type, '/' ) ? explode( '/', $mime_type ) : array( $mime_type, '' );
+
+	return 'video' === $type ? true : false;
+}
