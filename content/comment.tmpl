@@ -1,7 +1,7 @@
 <footer class="comment-meta">
 	<div class="comment-author vcard">
 		%%COMMENT_AUTHOR_AVATAR%%
-		%%COMMENT_AUTHOR_LINK%% <span class="says"><?php _e( 'says:', 'cherry' ); ?></span>
+		<?php printf( '%s <span class="says">' . __( 'says:', 'cherry' ) . '</span>', '%%COMMENT_AUTHOR_LINK%%' ); ?>
 	</div>
 	<div class="comment-metadata">
 		%%COMMENT_DATE%%
