@@ -146,46 +146,41 @@ function cherry_get_attachment_metadata( $post_id = 0, $echo = true ) {
 	// Get the attachment metadata.
 	$metadata = wp_get_attachment_metadata( $post_id );
 
-	if ( !$metadata ) {
+	if ( ! $metadata ) {
 		return;
 	}
 
-	if ( is_array( $metadata ) ) :
-
-		if ( function_exists( "cherry_{$type}_meta" ) ) :
-
-			$items = call_user_func( "cherry_{$type}_meta", $post_id, $metadata );
-
-			if ( true !== $echo ) {
-				return $items;
-			}
-
-		endif;
-
-	endif;
-
-	if ( isset( $items ) && !empty( $items ) ) {
-		$display = '';
-
-		foreach ( $items as $item ) {
-
-			$display .= sprintf( '<li><span class="prep">%1$s</span> <span class="data">%2$s</span></li>',
-				$item[1],
-				$item[0]
-			);
-
-		}
-
-		$display = '<ul class="media-meta">' . $display . '</ul>';
+	if ( ! function_exists( "cherry_{$type}_meta" ) ) {
+		return;
 	}
 
-	if ( isset( $display ) ) {
-		$title = sprintf( __( '%s Info', 'cherry' ), $type );
+	$items = call_user_func( "cherry_{$type}_meta", $post_id, $metadata );
 
-		printf( '<div class="attachment-meta"><div class="media-info"><h3 class="media-title">%1$s</h3>%2$s</div></div>',
-			$title,
-			$display
+	if ( empty( $items ) ) {
+		return;
+	}
+
+	if ( true !== $echo ) {
+		return $items;
+	}
+
+	$display = '';
+
+	foreach ( (array) $items as $item ) {
+
+		$display .= sprintf( '<li><strong class="prep">%1$s</strong>:&nbsp;<span class="data">%2$s</span></li>',
+			esc_html( $item[1] ),
+			$item[0]
 		);
+
 	}
+
+	$display = '<ul class="media-meta">' . $display . '</ul>';
+	$title   = sprintf( __( '%s Info', 'cherry' ), $type );
+
+	printf( '<div class="attachment-meta"><div class="media-info"><h3 class="media-title">%1$s</h3>%2$s</div></div>',
+		$title,
+		$display
+	);
 
 }

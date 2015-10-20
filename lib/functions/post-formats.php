@@ -188,43 +188,46 @@ function cherry_quote_content( $content ) {
  */
 function cherry_attachment_content( $p ) {
 
-	if ( is_attachment() ) :
+	if ( ! is_attachment() ) {
+		return $p;
+	}
 
-		$attr    = array( 'align' => 'aligncenter', 'width' => '', 'caption' => '' );
-		$post_id = get_the_ID();
+	$post_id = get_the_ID();
 
-		if ( wp_attachment_is_image( $post_id ) ) {
+	$attr = array(
+		'align'   => 'aligncenter',
+		'width'   => '',
+		'caption' => '',
+	);
 
-			$src = wp_get_attachment_image_src( get_the_ID(), 'full' );
+	if ( wp_attachment_is_image( $post_id ) ) {
 
-			if ( is_array( $src ) && !empty( $src ) ) :
+		$src = wp_get_attachment_image_src( $post_id, 'full' );
 
-				$attr['width'] = esc_attr( $src[1] );
-				$content       = wp_get_attachment_image( get_the_ID(), 'full', false, array( 'class' => 'aligncenter' ) );
+		if ( is_array( $src ) && ! empty( $src ) ) :
 
-			endif;
+			$attr['width'] = esc_attr( $src[1] );
+			$content       = wp_get_attachment_image( $post_id, 'full', false, array( 'class' => 'aligncenter' ) );
 
-		} elseif ( cherry_attachment_is_audio( $post_id  ) || cherry_attachment_is_video( $post_id  ) ) {
+		endif;
 
-			$attr['width'] = cherry_get_content_width();
-			$content       = $p;
+	} elseif ( cherry_attachment_is_audio( $post_id ) || cherry_attachment_is_video( $post_id ) ) {
 
-		} else {
-			return $p;
-		}
+		$attr['width'] = cherry_get_content_width();
+		$content       = $p;
 
-		if ( !has_excerpt() ) {
-			return $content;
-		}
+	} else {
+		return $p;
+	}
 
-		$attr['caption'] = get_the_excerpt();
-		$output          = img_caption_shortcode( $attr, $content );
+	if ( ! has_excerpt() ) {
+		return $content;
+	}
 
-		return $output;
+	$attr['caption'] = get_the_excerpt();
+	$output          = img_caption_shortcode( $attr, $content );
 
-	endif;
-
-	return $p;
+	return $output;
 }
 
 /**
@@ -237,6 +240,7 @@ function cherry_attachment_content( $p ) {
  * @link http://www.turtlepod.org
  * @author Justin Tadlock
  * @link http://justintadlock.com
+ * @author Cherry Team <support@cherryframework.com>
  * @copyright Copyright (c) 2012
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link http://justintadlock.com/archives/2012/08/21/post-formats-chat
@@ -350,6 +354,7 @@ function cherry_format_chat_content( $content ) {
  * @link http://www.turtlepod.org
  * @author Justin Tadlock
  * @link http://justintadlock.com
+ * @author Cherry Team <support@cherryframework.com>
  * @copyright Copyright (c) 2012
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  * @link http://justintadlock.com/archives/2012/08/21/post-formats-chat
