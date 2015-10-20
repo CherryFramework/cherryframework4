@@ -154,6 +154,5 @@ function cherry_prepare_sticky_vars() {
 		'selector' => $sticky_selector,
 		'args'     => $args,
 	) );
-
 	wp_localize_script( 'cherry-script', 'sticky_data', $data );
 }

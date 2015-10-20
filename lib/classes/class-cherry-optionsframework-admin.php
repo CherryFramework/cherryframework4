@@ -245,11 +245,23 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				$export_array = $_POST['export_array'];
 				$_wpnonce = $_POST['_wpnonce'];
 
+				$result_array = array();
+
 				$validate = check_ajax_referer( 'cherry_partial_export', $_wpnonce, false );
 				if ( ! $validate ) {
 					wp_die( __( 'Invalid request', 'cherry' ), __( 'Error. Invalid request', 'cherry' ) );
 				}
 
+				$result_array['options'] = $export_array;
+
+				$cherry_options_settings = get_option('cherry-options');
+				$current_statics = get_option( $cherry_options_settings['id'] . '_statics' );
+				if( isset( $current_statics ) && !empty( $current_statics ) ){
+					$result_array['statics'] = $export_array;
+				}
+				var_dump($result_array);
+
+				exit();
 				set_transient( 'cherry_partial_export_array', $export_array, HOUR_IN_SECONDS );
 				echo esc_url( self::$options_partial_export_url );
 				exit();
