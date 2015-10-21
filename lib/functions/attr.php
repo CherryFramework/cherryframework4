@@ -148,27 +148,25 @@ function cherry_attr_sidebar( $attr, $context ) {
 	$sidebar_main      = apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' );
 	$sidebar_secondary = apply_filters( 'cherry_get_secondary_sidebar', 'sidebar-secondary' );
 
+	$attr['class'] = "{$context} widget-area";
+	$attr['role']  = 'complementary';
+
 	if ( did_action( 'cherry_footer' ) ) {
-		$attr['class'] = "$context widget-area";
-		$attr['role']  = 'complementary';
 		return $attr;
 	}
 
 	switch ( $context ) {
 		case $sidebar_main:
-			$attr['class'] = "cherry-sidebar-main $context widget-area";
+			$attr['class'] = "cherry-sidebar-main {$attr['class']}";
 			break;
 
 		case $sidebar_secondary:
-			$attr['class'] = "cherry-sidebar-secondary $context widget-area";
+			$attr['class'] = "cherry-sidebar-secondary {$attr['class']}";
 			break;
 
 		default:
-			$attr['class'] = "$context widget-area";
 			break;
 	}
-
-	$attr['role'] = 'complementary';
 
 	return $attr;
 }
@@ -182,15 +180,13 @@ function cherry_attr_sidebar( $attr, $context ) {
  * @return array
  */
 function cherry_attr_menu( $attr, $context ) {
+	$attr['class'] = 'menu';
+	$attr['role']  = 'navigation';
 
-	if ( !empty( $context ) ) {
+	if ( ! empty( $context ) ) {
 		$attr['id']    = "menu-{$context}";
 		$attr['class'] = "menu-{$context} menu";
-	} else {
-		$attr['class'] = 'menu';
 	}
-
-	$attr['role']  = 'navigation';
 
 	return $attr;
 }
@@ -229,7 +225,7 @@ function cherry_attr_post( $attr ) {
 	$attr['class'] = implode( ' ', get_post_class( $classes ) );
 
 	// Make sure we have a real post first.
-	if ( !empty( $post ) ) {
+	if ( ! empty( $post ) ) {
 		$attr['id'] = 'post-' . get_the_ID();
 	} else {
 		$attr['id'] = 'post-0';
@@ -248,7 +244,7 @@ function cherry_attr_post( $attr ) {
  */
 function cherry_attr_entry_terms( $attr, $context ) {
 
-	if ( !empty( $context ) ) {
+	if ( ! empty( $context ) ) {
 		$attr['class'] = 'entry-terms ' . sanitize_html_class( $context );
 	}
 
