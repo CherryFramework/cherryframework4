@@ -161,7 +161,7 @@ function cherry_get_the_post_comment_date( $args ) {
 function cherry_get_the_post_comment_link_edit( $args ) {
 	global $comment;
 
-	$text = __( 'Edit' );
+	$text = __( 'Edit', 'cherry' );
 
 	if ( ! empty( $args['text'] ) ) {
 		$text = esc_attr( $args['text'] );
