@@ -1,7 +1,9 @@
 Cherry Framework 4
 ==================================
 
-Cherry Framework 4 is a theme configuration framework for WordPress CMS. Framework itself contain a starter parent theme, theme configuration options, post formats templates etc. Cherry Framework parent theme is based on [_s](https://github.com/automattic/_s) started theme for WordPress with enhanced functionality and extended possibilities.
+Cherry Framework 4 - is a theme configuration framework for WordPress CMS.
+
+Framework itself contain a starter parent theme, theme configuration options, post formats templates etc. Cherry Framework 4 parent theme is based on [_s](https://github.com/automattic/_s).
 
 From the box Cherry Framework 4 offers:
 * __Theme configuration options__ (layout options, blog settings, styling options, navigation options, typography settings etc.).
