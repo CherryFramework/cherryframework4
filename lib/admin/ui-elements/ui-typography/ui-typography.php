@@ -268,7 +268,9 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 				);
 				$html .= $ui_preview_textarea->render();
 
-				$html .= '<input class="cherry-font-category" name="' . $this->settings['name'] . '[category]" value="' . $this->settings['value']['category'] . '"  type="hidden" />';
+				$category = isset( $this->settings['value']['category'] ) ? $this->settings['value']['category'] : 'sans-serif' ;
+
+				$html .= '<input class="cherry-font-category" name="' . $this->settings['name'] . '[category]" value="' . $category . '"  type="hidden" />';
 				$html .= '<input class="font-type" name="' . $this->settings['name'] . '[fonttype]" type="hidden" value="' . esc_html( $fonttype ) . '">';
 			$html .= '</div>';
 			return $html;
