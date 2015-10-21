@@ -611,6 +611,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		public function enqueue_builder_styles( $hook_suffix = false ) {
 			if( 'cherry_page_options' === $hook_suffix ){
 				wp_dequeue_style('yit-plugin-style');
+				wp_dequeue_style('woocommerce_admin_styles');
 			}
 		}
 
