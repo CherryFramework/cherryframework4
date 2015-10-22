@@ -314,6 +314,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load current page object class
 			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-current-page.php' );
 
+			// Load grabber for CSS printed directly to page content
+			require_once( trailingslashit( CHERRY_CLASSES ) . 'class-cherry-css-grabber.php' );
+
 			// Load the post format functionality if post formats are supported.
 			require_if_theme_supports( 'post-formats', trailingslashit( CHERRY_FUNCTIONS ) . 'post-formats.php' );
 		}
