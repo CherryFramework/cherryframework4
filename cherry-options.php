@@ -1886,7 +1886,7 @@ function cherry_defaults_settings() {
 	$sections_array['demo-section'] = array(
 		'name'         => __( 'Interface elements (for UI developers)', 'cherry' ),
 		'icon'         => 'dashicons dashicons-editor-help',
-		'priority'     => 130,
+		'priority'     => 999,
 		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
 
