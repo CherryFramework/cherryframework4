@@ -29,12 +29,11 @@ add_action( 'cherry_entry_after', 'cherry_get_author_bio', 15 );
 add_action( 'cherry_entry_after', 'cherry_get_related_posts', 20 );
 
 /**
- * Add breadcrumbs output to template
+ * Add breadcrumbs output to template.
  *
  * @since 4.0.0
  */
 function cherry_get_breadcrumbs() {
-
 	$show       = cherry_get_option( 'breadcrumbs', 'true' );
 	$show       = ( 'true' == $show ) ? true : false;
 	$show_title = cherry_get_option( 'breadcrumbs-show-title', 'false' );
@@ -80,21 +79,20 @@ function cherry_get_breadcrumbs() {
 }
 
 /**
- * Display pged navigation for posts loop when applicable.
+ * Display paged navigation for posts loop when applicable.
  *
  * @since  4.0.0
  */
 function cherry_paging_nav() {
-
 	$current_hook = current_filter();
 	$position     = cherry_get_option( 'pagination-position', 'after' );
 
-	// if position in option set only 'before' and this is not 'cherry_loop_before' hook - do anything
+	// If position in option set only 'before' and this is not 'cherry_loop_before' hook - do anything.
 	if ( 'before' == $position && 'cherry_loop_before' != $current_hook ) {
 		return;
 	}
 
-	// if position in option set only 'after' and this is not 'cherry_loop_after' hook - do anything
+	// If position in option set only 'after' and this is not 'cherry_loop_after' hook - do anything.
 	if ( 'after' == $position && 'cherry_loop_after' != $current_hook ) {
 		return;
 	}
@@ -110,7 +108,7 @@ function cherry_paging_nav() {
 	$prev_next = ( 'true' == $prev_next ) ? true : false;
 	$show_all  = ( 'true' == $show_all ) ? true : false;
 
-	// get slider args from options
+	// Get slider args from options.
 	$options_args = array(
 		'prev_next'          => $prev_next,
 		'prev_text'          => cherry_get_option( 'pagination-previous-page' ),
@@ -118,22 +116,21 @@ function cherry_paging_nav() {
 		'screen_reader_text' => cherry_get_option( 'pagination-label' ),
 		'show_all'           => $show_all,
 		'end_size'           => cherry_get_option( 'pagination-end-size', 1 ),
-		'mid_size'           => cherry_get_option( 'pagination-mid-size', 2 )
+		'mid_size'           => cherry_get_option( 'pagination-mid-size', 2 ),
 	);
 
-	// get additional pagination args
+	// Get additional pagination args.
 	$custom_args = apply_filters(
 		'cherry_pagination_custom_args',
 		array(
 			'add_fragment' => '',
-			'add_args'     => false
+			'add_args'     => false,
 		)
 	);
 
 	$args = array_merge( $options_args, $custom_args );
 
 	if ( function_exists( 'the_posts_pagination' ) ) {
-		// Previous/next page navigation.
 		the_posts_pagination( $args );
 	}
 
@@ -143,12 +140,21 @@ function cherry_paging_nav() {
  * Display navigation to next/previous post when applicable.
  *
  * @since 4.0.0
+ * @since 4.0.5 Using a native WordPress function `the_post_navigation`.
  */
 function cherry_post_nav() {
 	$post_type         = get_post_type();
 	$navigation_status = cherry_get_option( 'blog-post-navigation', 'true' );
 
-	if ( 'page' == $post_type || ! is_singular( $post_type ) || is_attachment() || 'false' == $navigation_status ) {
+	if ( ( 'page' === $post_type )
+		|| ! is_singular( $post_type )
+		|| is_attachment()
+		|| ( 'false' === $navigation_status ) ) {
+		return;
+	}
+
+	if ( function_exists( 'the_post_navigation' ) ) {
+		the_post_navigation();
 		return;
 	}
 
@@ -156,7 +162,7 @@ function cherry_post_nav() {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 	$next     = get_adjacent_post( false, '', false );
 
-	if ( !$next && !$previous ) {
+	if ( ! $next && ! $previous ) {
 		return;
 	} ?>
 	<nav class="navigation post-navigation" role="navigation">

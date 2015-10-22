@@ -17,7 +17,7 @@ if ( !defined( 'WPINC' ) ) {
 }
 
 /**
- * Outputs the link back to the site.
+ * Display the link back to the site.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
@@ -25,39 +25,53 @@ if ( !defined( 'WPINC' ) ) {
  * @return void
  */
 function cherry_site_link() {
-	/**
-	 * Filter the displayed the link to the site.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_site_link', cherry_get_site_link() );
+	echo cherry_get_site_link();
 }
 
 /**
- * Returns a link back to the site.
+ * Retrieve the link back to the site.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @since  4.0.5  Add a filter `cherry_site_link_format`.
  * @param  string $class optional CSS class added to site-link
  * @return string
  */
 function cherry_get_site_link( $class = 'site-link' ) {
+	$title = get_bloginfo( 'name' );
+
+	if ( ! $title ) {
+		return false;
+	}
 
 	$class = esc_attr( $class );
+
 	if ( ! $class ) {
 		$class = 'site-link';
 	}
 
-	$title = get_bloginfo( 'name' );
-	if ( !$title ) {
-		return false;
-	}
-	return sprintf( '<a class="%s" href="%s" rel="home">%s</a>', $class, esc_url( home_url( '/' ) ), $title );
+	/**
+	 * Filter the link format to the site.
+	 *
+	 * @since 4.0.5
+	 * @param string $format
+	 * @param string $class
+	 * @param string $url
+	 * @param string $title
+	 */
+	$format = apply_filters( 'cherry_site_link_format',
+		'<a class="%s" href="%s" rel="home">%s</a>',
+		$class,
+		esc_url( home_url( '/' ) ),
+		$title
+	);
+
+	return sprintf( $format, $class, esc_url( home_url( '/' ) ), $title );
 }
 
 /**
- * Displays a link to WordPress.org.
+ * Display a link to WordPress.org.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
@@ -65,31 +79,41 @@ function cherry_get_site_link( $class = 'site-link' ) {
  * @return void
  */
 function cherry_wp_link() {
-	/**
-	 * Filter the displayed the link to the WordPress.org.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_wp_link', cherry_get_wp_link() );
+	echo cherry_get_wp_link();
 }
 
 /**
- * Returns a link to WordPress.org.
+ * Return a link to WordPress.org.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @since  4.0.5  Add a filter `cherry_wp_link_format`.
  * @return string
  */
 function cherry_get_wp_link() {
-	return sprintf(
+	/**
+	 * Filter a link format to the WordPress.org.
+	 *
+	 * @since 4.0.5
+	 * @param string $format
+	 * @param string $url
+	 * @param string $text
+	 */
+	$format = apply_filters( 'cherry_wp_link_format',
 		'<a class="wp-link" href="%s" rel="nofollow">%s</a>',
-		__( 'http://wordpress.org/', 'cherry' ), 'WordPress'
+		esc_url( __( 'https://wordpress.org/', 'cherry' ) ),
+		esc_html__( 'WordPress', 'cherry' )
+	);
+
+	return sprintf( $format,
+		esc_url( __( 'https://wordpress.org/', 'cherry' ) ),
+		esc_html__( 'WordPress', 'cherry' )
 	);
 }
 
 /**
- * Displays a link to the parent theme URI.
+ * Display a link to the parent theme URI.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
@@ -97,37 +121,51 @@ function cherry_get_wp_link() {
  * @return void
  */
 function cherry_theme_link() {
-	/**
-	 * Filter the displayed the link to the parent theme URI.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_theme_link', cherry_get_theme_link() );
+	echo cherry_get_theme_link();
 }
 
 /**
- * Returns a link to the parent theme URI.
+ * Return a link to the parent theme URI.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @since  4.0.5  Add a filter `cherry_theme_link_format`.
  * @return string
  */
 function cherry_get_theme_link() {
+	$allowed = array( 'abbr' => array( 'title' => true ), 'acronym' => array( 'title' => true ), 'code' => true, 'em' => true, 'strong' => true );
+
 	$theme = wp_get_theme( get_template() );
 	$uri   = $theme->get( 'ThemeURI' );
-	$name  = $theme->display( 'Name', false, true );
+	$name  = wp_kses( $theme->display( 'Name' ), $allowed );
 	$title = sprintf( __( '%s WordPress Theme', 'cherry' ), $name );
 
-	return sprintf( '<a class="theme-link" href="%s" title="%s" rel="nofollow">%s</a>', esc_url( $uri ), esc_attr( $title ), $name );
+	/**
+	 * Filter a link format to the parent theme URI.
+	 *
+	 * @since 4.0.5
+	 * @param string $format
+	 * @param string $url
+	 * @param string $title
+	 * @param string $name
+	 */
+	$format = apply_filters( 'cherry_theme_link_format',
+		'<a class="theme-link" href="%s" title="%s" rel="nofollow">%s</a>',
+		esc_url( $uri ),
+		esc_attr( $title ),
+		$name
+	);
+
+	return sprintf( $format, esc_url( $uri ), esc_attr( $title ), $name );
 }
 
 /**
- * Get link HTML by page slug
+ * Retrieve a link HTML by page slug.
  *
  * @since 4.0.0
- *
- * @param string $slug page slug
+ * @since 4.0.5  Add a filter `cherry_get_link_by_slug_format`.
+ * @param string $slug Page slug.
  */
 function cherry_get_link_by_slug( $slug = null ) {
 
@@ -141,15 +179,28 @@ function cherry_get_link_by_slug( $slug = null ) {
 		return;
 	}
 
-	$format = '<a href="%s">%s</a>';
-	$result = sprintf( $format, get_permalink( $page->ID ), $page->post_title );
+	$url   = get_permalink( $page->ID );
+	$title = $page->post_title;
 
-	return $result;
+	/**
+	 * Filter the link format to the parent theme URI.
+	 *
+	 * @since 4.0.5
+	 * @param string $format
+	 * @param string $url
+	 * @param string $title
+	 */
+	$format = apply_filters( 'cherry_get_link_by_slug_format',
+		'<a href="%s">%s</a>',
+		esc_url( $url ),
+		esc_html( $title )
+	);
 
+	return sprintf( $format, esc_url( $url ), esc_html( $title ) );
 }
 
 /**
- * Outputs the site logo.
+ * Display the site logo.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
@@ -157,16 +208,11 @@ function cherry_get_link_by_slug( $slug = null ) {
  * @return void
  */
 function cherry_site_logo() {
-	/**
-	 * Filter the displayed the site title.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_site_logo', cherry_get_site_title() );
+	echo cherry_get_site_title();
 }
 
 /**
- * Returns the linked site logo wrapped in an '<h1>' tag.
+ * Retrieve the linked site logo wrapped in a HTML-tag.
  *
  * @since  4.0.0
  * @return string
@@ -229,19 +275,24 @@ function cherry_get_site_logo( $location = 'header' ) {
 
 	$logo = $logo_content ? sprintf( '<%3$s class="%1$s">%2$s</%3$s>', join( ' ', $logo_class ), $logo_content, $tag ) : '';
 
+	/**
+	 * Filter the linked site logo wrapped in a HTML-tag.
+	 *
+	 * @since 4.0.0
+	 * @param string $logo
+	 * @param string $location
+	 */
 	return apply_filters( 'cherry_get_site_logo', $logo, $location );
 }
 
 /**
- * Get image logo with retina ready img tag
+ * Retrieve a image logo with retina ready `<img>` tag.
  *
  * @since  4.0.0
- *
- * @param  array  $images  logo images array - default and 2x for retina
- * @return string          logo html markup
+ * @param  array  $images Logo images array - default and 2x for retina.
+ * @return string         Logo HTML-markup.
  */
 function cherry_get_retina_logo( $images ) {
-
 	$img1x    = null;
 	$img2x    = null;
 	$width1x  = 0;
@@ -284,6 +335,12 @@ function cherry_get_retina_logo( $images ) {
 
 	}
 
+	/**
+	 * Filter the HTML-markup for image logo.
+	 *
+	 * @since 4.0.0
+	 * @param string $logo_format
+	 */
 	$logo_format = apply_filters(
 		'cherry_retina_logo_image_format',
 		'<a href="%1$s" rel="home"><img src="%2$s" alt="%4$s" srcset="%3$s 2x" width="%5$s" height="%6$s"></a>'
@@ -295,11 +352,10 @@ function cherry_get_retina_logo( $images ) {
 	);
 
 	return $logo_content;
-
 }
 
 /**
- * Outputs the site description.
+ * Display the site description.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
@@ -307,38 +363,56 @@ function cherry_get_retina_logo( $images ) {
  * @return void
  */
 function cherry_site_description() {
-	/**
-	 * Filter the displayed the site description.
-	 *
-	 * @since 4.0.0
-	 */
-	echo apply_filters( 'cherry_site_description', cherry_get_site_description() );
+	echo cherry_get_site_description();
 }
 
 /**
- * Returns the site description wrapped in an '<div>' tag.
+ * Return the site description wrapped in an '<div>' tag.
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @since  4.0.5 Add a filter `cherry_site_description_format`.
  * @return string
  */
 function cherry_get_site_description() {
+	$desc = get_bloginfo( 'description' );
 
-	if ( $desc = get_bloginfo( 'description' ) ) {
+	if ( ! empty( $desc ) ) {
+
+		/**
+		 * Filter the site description format.
+		 *
+		 * @since 4.0.5
+		 * @param string $format
+		 * @param string $class
+		 * @param string $desc
+		 */
+		$format = apply_filters( 'cherry_site_description_format',
+			'<div class="%s">%s</div>',
+			'site-description',
+			$desc
+		);
+
 		$desc = sprintf( '<div class="%s">%s</div>', 'site-description', $desc );
 	}
 
+	/**
+	 * Filter the site description.
+	 *
+	 * @since 4.0.5
+	 * @param string $format
+	 */
 	return apply_filters( 'cherry_get_site_description', $desc );
 }
 
 /**
- * Get favicons from theme options
+ * Get favicons from theme options.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @return string
  */
 function cherry_get_favicon_tags() {
-
 	$result = apply_filters( 'cherry_pre_get_favicon_tags', false );
 
 	if ( false != $result ) {
@@ -450,11 +524,10 @@ function cherry_get_favicon_tags() {
 	}
 
 	return $result;
-
 }
 
 /**
- * Print favicons tags
+ * Display a favicons tags.
  *
  * @since 4.0.0
  */
