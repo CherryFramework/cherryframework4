@@ -74,6 +74,18 @@ class cherry_enqueue_fonts {
 	 */
 	function prepare_fonts() {
 
+		$font_url = $this->get_fonts_url();
+		wp_enqueue_style( 'cherry-google-fonts', $font_url );
+	}
+
+	/**
+	 * Return theme Google fonts URL to enqueue it
+	 *
+	 * @since  4.1.0
+	 * @return string
+	 */
+	public function get_fonts_url() {
+
 		$font_url = get_transient( 'cherry_google_fonts_url' );
 		$font_url = false;
 
@@ -96,7 +108,8 @@ class cherry_enqueue_fonts {
 			set_transient( 'cherry_google_fonts_url', $font_url, WEEK_IN_SECONDS );
 		}
 
-		wp_enqueue_style( 'cherry-google-fonts', $font_url );
+		return $font_url;
+
 	}
 
 	/**
