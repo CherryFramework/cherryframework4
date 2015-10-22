@@ -109,6 +109,9 @@ div.exclusion-check > span {
   display: inline-block;
   visibility: hidden;
 }
+.export-import-wrapper .use-statics-wrap {
+  margin-top: 10px;
+}
 .export-import-wrapper #cherry-partial-export-options {
   position: relative;
   -webkit-transition: all 300ms ease-in-out 300ms;

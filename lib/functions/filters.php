@@ -473,6 +473,7 @@ function cherry_safe_add_class( $html, $link, $class ) {
  * Add mobile triger for standard menu.
  *
  * @since 4.0.0
+ * @since 4.0.5 Added the `aria-controls` attribute.
  *
  * @param string $menu Menu output.
  * @param object $args Menu arguments object.
@@ -488,7 +489,7 @@ function cherry_add_mobile_menu_trigger( $menu, $args ) {
 	}
 
 	$label   = apply_filters( 'cherry_menu_mobile_label', __( 'Menu', 'cherry' ) );
-	$trigger = '<button class="menu-primary_trigger" aria-expanded="false">' . esc_textarea( $label ) . '</button>';
+	$trigger = '<button class="menu-primary_trigger" aria-expanded="false" aria-controls="nav-menu">' . esc_textarea( $label ) . '</button>';
 
 	return $trigger . $menu;
 }
