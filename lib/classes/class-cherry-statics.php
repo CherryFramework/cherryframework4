@@ -256,6 +256,14 @@ class Cherry_Statics {
 		$theme_options = get_option( 'cherry-options' );
 		$args          = get_option( $theme_options['id'] . '_statics' );
 
+		/**
+		 * Filters returned current saved static settings.
+		 *
+		 * @since 4.0.0
+		 * @param array    current static settings.
+		 */
+		$args = apply_filters( 'cherry_static_current_statics', $args );
+
 		if ( ! $args ) {
 			$args = $cherry_registered_statics;
 		}
