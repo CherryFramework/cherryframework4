@@ -620,7 +620,7 @@ if ( ! class_exists( 'UI_Static_Area_Editor' ) ) {
 						usort( $taxonomies, array( __CLASS__, 'strcasecmp_name' ) );
 
 						foreach ( $taxonomies as $taxonomy ) {
-							$result_array['optgroup-'.$taxonomy->labels->name]['label'] = __( $taxonomy->labels->name . ':', 'cherry' );
+							$result_array['optgroup-'.$taxonomy->labels->name]['label'] = sprintf( __( '%s:', 'cherry' ), $taxonomy->labels->name );
 							$result_array['optgroup-'.$taxonomy->labels->name]['group_options'][ esc_attr( $taxonomy->name ) ] = 'All ' . esc_html( $taxonomy->name ) . ' pages';
 							$terms = get_terms( array( $taxonomy->name ), array( 'number' => 250, 'hide_empty' => false ) );
 							foreach ( $terms as $term ) {

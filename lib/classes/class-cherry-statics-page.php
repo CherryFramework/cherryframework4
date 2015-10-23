@@ -298,7 +298,7 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 							usort( $taxonomies, array( __CLASS__, 'strcasecmp_name' ) );
 
 							foreach ( $taxonomies as $taxonomy ) {
-								$html .= '<optgroup label="' . __( $taxonomy->labels->name . ':', 'cherry' ) . '">';
+								$html .= '<optgroup label="' .  sprintf( __( '%s:', 'cherry' ), $taxonomy->labels->name ) . '">';
 									$html .= '<option value="' . esc_attr( $taxonomy->name ) . '">' . 'All ' . esc_html( $taxonomy->name ) . ' pages' . '</option>';
 									$terms = get_terms( array( $taxonomy->name ), array( 'number' => 250, 'hide_empty' => false ) );
 									foreach ( $terms as $term ) {
