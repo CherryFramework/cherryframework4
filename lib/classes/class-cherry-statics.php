@@ -259,8 +259,8 @@ class Cherry_Statics {
 		/**
 		 * Filters returned current saved static settings.
 		 *
-		 * @since 4.0.0
-		 * @param array    current static settings.
+		 * @since 4.0.5
+		 * @param array   $args current static settings.
 		 */
 		$args = apply_filters( 'cherry_static_current_statics', $args );
 
