@@ -31,12 +31,11 @@ new cherry_footer_logo_static(
 		'id'      => 'footer_logo',
 		'name'    => __( 'Footer Logo', 'cherry' ),
 		'options' => array(
-			'col-xs'   => 'col-xs-12',
-			'col-sm'   => 'col-sm-12',
-			'col-md'   => 'col-md-6',
-			'col-lg'   => 'col-lg-6',
-			'position' => 1,
-			'area'     => 'footer-top',
+			'col-xs' => 'col-xs-12',
+			'col-sm' => 'col-sm-12',
+			'col-md' => 'col-md-6',
+			'col-lg' => 'col-lg-6',
+			'area'   => 'available-statics',
 		)
 	)
 );

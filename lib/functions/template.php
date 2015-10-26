@@ -161,7 +161,7 @@ function cherry_parse_tmpl( $template_names ) {
  * @return string
  */
 function cherry_do_content( $matches ) {
-	if ( !is_array( $matches ) ) {
+	if ( ! is_array( $matches ) ) {
 		return '';
 	}
 
@@ -196,16 +196,16 @@ function cherry_do_content( $matches ) {
 		return $pre;
 	}
 
-	if ( !function_exists( $function_name ) || !is_callable( $function_name ) ) {
+	if ( ! function_exists( $function_name ) || ! is_callable( $function_name ) ) {
 		return '';
 	}
 
-	if ( !isset( $attr['where'] ) ) {
+	if ( ! isset( $attr['where'] ) ) {
 		return call_user_func( $function_name, $attr );
 	}
 
 	if ( ( ( 'loop' === $attr['where'] ) && is_singular() )
-		|| ( ( 'single' === $attr['where'] ) && !is_singular() )
+		|| ( ( 'single' === $attr['where'] ) && ! is_singular() )
 		) {
 		return '';
 	}
@@ -295,11 +295,11 @@ function cherry_get_menu_template( $name = '' ) {
 function cherry_get_comments_template() {
 	$post_type = get_post_type();
 
-	if ( !post_type_supports( $post_type, 'comments' ) ) {
+	if ( ! post_type_supports( $post_type, 'comments' ) ) {
 		return;
 	}
 
-	if ( !is_singular( $post_type ) ) {
+	if ( ! is_singular( $post_type ) ) {
 		return;
 	}
 
