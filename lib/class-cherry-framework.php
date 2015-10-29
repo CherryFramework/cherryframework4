@@ -11,13 +11,14 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-if ( !class_exists( 'Cherry_Framework' ) ) {
+if ( ! class_exists( 'Cherry_Framework' ) ) {
 	/**
 	 * The Cherry_Framework class launches the framework.
+	 *
 	 * It's the organizational structure behind the entire framework.
 	 * This class should be loaded and initialized before anything
 	 * else within the theme is called to properly use the framework.
@@ -236,7 +237,7 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		/**
 		 * Adds theme supported features.
 		 *
-		 * @since  4.0.0
+		 * @since 4.0.0
 		 */
 		function theme_support() {
 
@@ -264,9 +265,9 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 		}
 
 		/**
-		 * Load only frontend-related files
+		 * Load only frontend-related files.
 		 *
-		 * @since  4.0.5
+		 * @since 4.0.5
 		 * @return void
 		 */
 		function load_public() {
@@ -365,6 +366,5 @@ if ( !class_exists( 'Cherry_Framework' ) ) {
 			// Load the main admin file.
 			require_once( trailingslashit( CHERRY_ADMIN ) . 'class-cherry-admin.php' );
 		}
-
 	}
 }
