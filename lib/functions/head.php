@@ -12,14 +12,14 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
 // Adds common theme items to <head>.
 add_action( 'wp_head', 'cherry_meta_charset',  0 );
 add_action( 'wp_head', 'cherry_meta_viewport', 1 );
-add_action( 'wp_head', 'cherry_meta_profile', 2 );
+add_action( 'wp_head', 'cherry_meta_profile',  2 );
 add_action( 'wp_head', 'cherry_link_pingback', 3 );
 
 // Removes injected CSS from recent comments widget.
@@ -31,6 +31,7 @@ add_filter( 'wp_head', 'cherry_remove_recent_comments_style', 1 );
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @return string `<meta>` tag for document charset.
  */
 function cherry_meta_charset() {
 	printf( '<meta charset="%s" />' . "\n", get_bloginfo( 'charset' ) );
@@ -39,7 +40,9 @@ function cherry_meta_charset() {
 /**
  * Adds the meta viewport to the header.
  *
- * @since 4.0.0
+ * @author Cherry Team <support@cherryframework.com>
+ * @since  4.0.0
+ * @return string `<meta>` tag for viewport.
  */
 function cherry_meta_viewport() {
 	if ( 'true' === cherry_get_option( 'grid-responsive' ) ) {
@@ -47,6 +50,13 @@ function cherry_meta_viewport() {
 	}
 }
 
+/**
+ * Adds support microformats (xfn).
+ *
+ * @author Cherry Team <support@cherryframework.com>
+ * @since  4.0.2
+ * @return string `<link>` tag.
+ */
 function cherry_meta_profile() {
 	echo '<link rel="profile" href="http://gmpg.org/xfn/11" />' . "\n";
 }
@@ -57,6 +67,7 @@ function cherry_meta_profile() {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @return string `<link>` tag
  */
 function cherry_link_pingback() {
 	if ( 'open' === get_option( 'default_ping_status' ) ) {
@@ -65,7 +76,7 @@ function cherry_link_pingback() {
 }
 
 /**
- * Remove inline CSS used by Recent Comments widget.
+ * Remove inline CSS used by `Recent Comments` widget.
  *
  * @since 4.0.0
  */

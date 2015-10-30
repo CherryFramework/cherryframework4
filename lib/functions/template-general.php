@@ -12,7 +12,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -55,10 +55,10 @@ function cherry_get_site_link( $class = 'site-link' ) {
 	 * Filter the link format to the site.
 	 *
 	 * @since 4.0.5
-	 * @param string $format
-	 * @param string $class
-	 * @param string $url
-	 * @param string $title
+	 * @param string $format Link format.
+	 * @param string $class  CSS-class.
+	 * @param string $url    Link URL.
+	 * @param string $title  Site title.
 	 */
 	$format = apply_filters( 'cherry_site_link_format',
 		'<a class="%s" href="%s" rel="home">%s</a>',
@@ -96,9 +96,9 @@ function cherry_get_wp_link() {
 	 * Filter a link format to the WordPress.org.
 	 *
 	 * @since 4.0.5
-	 * @param string $format
-	 * @param string $url
-	 * @param string $text
+	 * @param string $format Link format.
+	 * @param string $url    Link URL.
+	 * @param string $text   Link text.
 	 */
 	$format = apply_filters( 'cherry_wp_link_format',
 		'<a class="wp-link" href="%s" rel="nofollow">%s</a>',
@@ -145,10 +145,10 @@ function cherry_get_theme_link() {
 	 * Filter a link format to the parent theme URI.
 	 *
 	 * @since 4.0.5
-	 * @param string $format
-	 * @param string $url
-	 * @param string $title
-	 * @param string $name
+	 * @param string $format Link format.
+	 * @param string $url    Link URL.
+	 * @param string $title  Title attribute.
+	 * @param string $name   Link text
 	 */
 	$format = apply_filters( 'cherry_theme_link_format',
 		'<a class="theme-link" href="%s" title="%s" rel="nofollow">%s</a>',
@@ -186,9 +186,9 @@ function cherry_get_link_by_slug( $slug = null ) {
 	 * Filter the link format to the parent theme URI.
 	 *
 	 * @since 4.0.5
-	 * @param string $format
-	 * @param string $url
-	 * @param string $title
+	 * @param string $format Link format.
+	 * @param string $url    Link URL.
+	 * @param string $title  Link text.
 	 */
 	$format = apply_filters( 'cherry_get_link_by_slug_format',
 		'<a href="%s">%s</a>',
@@ -246,6 +246,13 @@ function cherry_get_site_logo( $location = 'header' ) {
 			break;
 	}
 
+	/**
+	 * Filter a CSS-classes for logo.
+	 *
+	 * @since 4.0.0
+	 * @param array  $logo_class Set of CSS-classes.
+	 * @param string $location   Logo location.
+	 */
 	$logo_class = apply_filters( 'cherry_logo_classes', $logo_class, $location );
 	$logo_class = array_unique( $logo_class );
 	$logo_class = array_map( 'sanitize_html_class', $logo_class );
@@ -260,6 +267,13 @@ function cherry_get_site_logo( $location = 'header' ) {
 
 			$img = wp_get_attachment_url( $images[0] );
 
+			/**
+			 * Filter a format for image logo.
+			 *
+			 * @since 4.0.0
+			 * @param array  $format   Logo format (image).
+			 * @param string $location Logo location.
+			 */
 			$logo_image_format = apply_filters(
 				'cherry_logo_image_format',
 				'<a href="%1$s" rel="home"><img src="%2$s" alt="%3$s"></a>',
@@ -279,8 +293,8 @@ function cherry_get_site_logo( $location = 'header' ) {
 	 * Filter the linked site logo wrapped in a HTML-tag.
 	 *
 	 * @since 4.0.0
-	 * @param string $logo
-	 * @param string $location
+	 * @param string $logo     HTML-formatted logo.
+	 * @param string $location Logo location.
 	 */
 	return apply_filters( 'cherry_get_site_logo', $logo, $location );
 }
@@ -339,7 +353,7 @@ function cherry_get_retina_logo( $images ) {
 	 * Filter the HTML-markup for image logo.
 	 *
 	 * @since 4.0.0
-	 * @param string $logo_format
+	 * @param string $logo_format Logo format.
 	 */
 	$logo_format = apply_filters(
 		'cherry_retina_logo_image_format',
@@ -384,9 +398,9 @@ function cherry_get_site_description() {
 		 * Filter the site description format.
 		 *
 		 * @since 4.0.5
-		 * @param string $format
-		 * @param string $class
-		 * @param string $desc
+		 * @param string $format Format.
+		 * @param string $class  CSS-class.
+		 * @param string $desc   Text.
 		 */
 		$format = apply_filters( 'cherry_site_description_format',
 			'<div class="%s">%s</div>',
@@ -401,7 +415,7 @@ function cherry_get_site_description() {
 	 * Filter the site description.
 	 *
 	 * @since 4.0.5
-	 * @param string $format
+	 * @param string $desc Description.
 	 */
 	return apply_filters( 'cherry_get_site_description', $desc );
 }
@@ -413,6 +427,13 @@ function cherry_get_site_description() {
  * @return string
  */
 function cherry_get_favicon_tags() {
+	/**
+	 * Filter the favicons before it is retrieved.
+	 *
+	 * @since 4.0.0
+	 * @param bool|mixed $result Value to return instead of the favicon.
+	 *                           Default false to skip it.
+	 */
 	$result = apply_filters( 'cherry_pre_get_favicon_tags', false );
 
 	if ( false != $result ) {
@@ -432,8 +453,8 @@ function cherry_get_favicon_tags() {
 		array(
 			'type'  => 'image/x-icon',
 			'rel'   => 'shortcut icon',
-			'sizes' => false
-		)
+			'sizes' => false,
+		),
 	);
 
 	$favicons = explode( ',', $favicons );
@@ -443,22 +464,22 @@ function cherry_get_favicon_tags() {
 		$icons[] = array(
 			'type'  => false,
 			'rel'   => 'apple-touch-icon-precomposed',
-			'sizes' => 57
+			'sizes' => 57,
 		);
 		$icons[] = array(
 			'type'  => false,
 			'rel'   => 'apple-touch-icon-precomposed',
-			'sizes' => 72
+			'sizes' => 72,
 		);
 		$icons[] = array(
 			'type'  => false,
 			'rel'   => 'apple-touch-icon-precomposed',
-			'sizes' => 114
+			'sizes' => 114,
 		);
 		$icons[] = array(
 			'type'  => false,
 			'rel'   => 'apple-touch-icon-precomposed',
-			'sizes' => 144
+			'sizes' => 144,
 		);
 	}
 
@@ -520,7 +541,6 @@ function cherry_get_favicon_tags() {
 		}
 
 		$result .= sprintf( $device_format, $icon_data['rel'], $icon_data['sizes'], $icon2x );
-
 	}
 
 	return $result;

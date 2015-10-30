@@ -11,7 +11,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -19,12 +19,10 @@ if ( !defined( 'WPINC' ) ) {
  * Gets the parent theme textdomain. This allows the framework to recognize the proper textdomain of the
  * parent theme.
  *
- * Important! Do not use this for translation functions in your theme. Hardcode your textdomain string. Your
- * theme's textdomain should match your theme's folder name.
- *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @global object $cherry
  * @return string $cherry->textdomain The textdomain of the theme.
  */
 function cherry_get_parent_textdomain() {
@@ -47,20 +45,19 @@ function cherry_get_parent_textdomain() {
  * Gets the child theme textdomain. This allows the framework to recognize the proper textdomain of the
  * child theme.
  *
- * Important! Do not use this for translation functions in your theme. Hardcode your textdomain string. Your
- * theme's textdomain should match your theme's folder name.
- *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @global object $cherry
  * @return string $cherry->child_theme_textdomain The textdomain of the child theme.
  */
 function cherry_get_child_textdomain() {
 	global $cherry;
 
 	// If a child theme isn't active, return an empty string.
-	if ( !is_child_theme() )
+	if ( ! is_child_theme() ) {
 		return '';
+	}
 
 	// If the global textdomain isn't set, define it. Plugin/theme authors may also define a custom textdomain.
 	if ( empty( $cherry->child_textdomain ) ) {
