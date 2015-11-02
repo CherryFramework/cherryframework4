@@ -8,7 +8,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -27,6 +27,9 @@ add_action( 'cherry_entry_after', 'cherry_get_author_bio', 15 );
 
 // Add `Related Post` section.
 add_action( 'cherry_entry_after', 'cherry_get_related_posts', 20 );
+
+// Add `Maintenance Mode`.
+add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
 
 /**
  * Add breadcrumbs output to template.
@@ -54,6 +57,12 @@ function cherry_get_breadcrumbs() {
 	$show_on_front = cherry_get_option( 'breadcrumbs-show-on-front', 'false' );
 	$show_on_front = ( 'true' == $show_on_front ) ? true : false;
 
+	/**
+	 * Filter a custom arguments.
+	 *
+	 * @since 4.0.0
+	 * @param array $user_args Arguments.
+	 */
 	$user_args = apply_filters( 'cherry_breadcrumbs_custom_args', array() );
 
 	$wrapper_format = '<div class="row">
@@ -69,7 +78,7 @@ function cherry_get_breadcrumbs() {
 		'show_title'     => $show_title,
 		'show_items'     => $show,
 		'labels'         => $browse_label,
-		'wrapper_format' => $wrapper_format
+		'wrapper_format' => $wrapper_format,
 	);
 
 	$args = array_merge( $options_args, $user_args );
@@ -81,7 +90,7 @@ function cherry_get_breadcrumbs() {
 /**
  * Display paged navigation for posts loop when applicable.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_paging_nav() {
 	$current_hook = current_filter();
@@ -119,7 +128,12 @@ function cherry_paging_nav() {
 		'mid_size'           => cherry_get_option( 'pagination-mid-size', 2 ),
 	);
 
-	// Get additional pagination args.
+	/**
+	 * Filters additional pagination args.
+	 *
+	 * @since 4.0.0
+	 * @param array $custom_args Pagination arguments.
+	 */
 	$custom_args = apply_filters(
 		'cherry_pagination_custom_args',
 		array(
@@ -133,7 +147,6 @@ function cherry_paging_nav() {
 	if ( function_exists( 'the_posts_pagination' ) ) {
 		the_posts_pagination( $args );
 	}
-
 }
 
 /**
@@ -182,8 +195,8 @@ function cherry_post_nav() {
  * Retrieves an attachment ID based on an attachment file URL.
  *
  * @since  4.0.0
- * @param  string  $url
- * @return int
+ * @param  string $url Attachment URL.
+ * @return int         Attachment ID.
  */
 function cherry_get_attachment_id_from_url( $url ) {
 	global $wpdb;
@@ -196,15 +209,14 @@ function cherry_get_attachment_id_from_url( $url ) {
 }
 
 /**
- * Get related posts data array
+ * Retrieve a related posts data array.
  *
- * @since 4.0.0
- *
- * @param array $args    arguments list
- * @param int   $post_id post ID to get related for
+ * @since  4.0.0
+ * @param  array $args    Arguments list.
+ * @param  int   $post_id Post ID to get related for.
+ * @return array          Array with related posts data.
  */
 function cherry_get_related_post_list( $args = array(), $post_id = null ) {
-
 	$post_id   = ( null !== $post_id ) ? $post_id : get_the_id();
 	$post_type = get_post_type( $post_id );
 
@@ -221,12 +233,13 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 	/**
 	 * Early filter related query output to rewrite it from child theme or third party plugins.
 	 *
-	 * @since  4.0.0
-	 * @param  bool   false     false by default
-	 * @param  array  $args     arguments list
-	 * @param  int    $post_id  ost ID to get related for
+	 * @since 4.0.0
+	 * @param bool  false    False by default.
+	 * @param array $args    Arguments list.
+	 * @param int   $post_id Post ID to get related for.
 	 */
 	$related_query = apply_filters( 'cherry_pre_get_related_query', false, $args, $post_id );
+
 	if ( false !== $related_query ) {
 		return $related_query;
 	}
@@ -235,22 +248,25 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 		'post_type'           => $post_type,
 		'post__not_in'        => array( $post_id ),
 		'ignore_sticky_posts' => true,
-		'posts_per_page'      => $args['num']
+		'posts_per_page'      => $args['num'],
 	);
 
 	$related_query_args = $default_query_args;
 	$search_query       = false;
 
-	// if passed taxonomies to search posts in - process post terms
+	// If passed taxonomies to search posts in - process post terms.
 	if ( false !== $args['get_by_tax'] && true !== $args['get_by_title'] ) {
 
 		$taxes     = explode( ',', $args['get_by_tax'] );
 		$tax_query = array();
+
 		foreach ( $taxes as $tax ) {
 			$post_terms = wp_get_post_terms( $post_id, $tax );
+
 			if ( is_wp_error( $post_terms ) ) {
 				continue;
 			}
+
 			$terms = wp_list_pluck( $post_terms, 'term_id' );
 			$tax_query[] = array(
 				'taxonomy' => $tax,
@@ -268,12 +284,11 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 		}
 
 		$related_query_args['tax_query'] = $tax_query;
-
 	}
 
 	$date_query = false;
 
-	// if limited posts age
+	// If limited posts age.
 	if ( false !== $args['age'] && 0 != intval( $args['age'] ) ) {
 
 		$age = intval( $args['age'] );
@@ -282,14 +297,14 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 
 		$date_query = array(
 			array(
-				'after' => date( 'F j, Y', $age_after )
+				'after' => date( 'F j, Y', $age_after ),
 			)
 		);
 
 		$related_query_args['date_query'] = $date_query;
 	}
 
-	// if enabled search related by title
+	// If enabled search related by title.
 	if ( false !== $args['get_by_title'] ) {
 
 		preg_match( '/^(\w+)\W+(\w+)/i', get_the_title( $post_id ), $matches );
@@ -318,7 +333,6 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 		}
 
 		$search_query = new WP_Query( $search_args );
-
 	}
 
 	$related_query = new WP_Query( $related_query_args );
@@ -328,16 +342,14 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 	} else {
 		return $related_query;
 	}
-
 }
 
 /**
- * Get related posts
+ * Display a related posts.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_get_related_posts() {
-
 	global $post;
 
 	if ( 'false' == cherry_get_option( 'blog-related-posts' ) ) {
@@ -348,6 +360,12 @@ function cherry_get_related_posts() {
 		return;
 	}
 
+	/**
+	 * Filter a related posts arguments.
+	 *
+	 * @since 4.0.0
+	 * @param array $related_args Arguments.
+	 */
 	$related_args = apply_filters( 'cherry_related_posts_args', array(
 		'num'      => 4,
 		'relation' => 'OR',
@@ -368,7 +386,10 @@ function cherry_get_related_posts() {
 	);
 
 	/**
-	 * Filter related posts output arguments
+	 * Filter related posts output arguments.
+	 *
+	 * @since 4.0.0
+	 * @param array $default_args Default arguments.
 	 */
 	$args = apply_filters( 'cherry_related_posts_output_args', $default_args );
 	$args = wp_parse_args( $args, $default_args );
@@ -382,12 +403,15 @@ function cherry_get_related_posts() {
 		// Sets up global post data.
 		setup_postdata( $post );
 
-		$item_body = cherry_parse_tmpl(
-			apply_filters(
-				'cherry_related_post_template_hierarchy',
-				array( 'content/related-post.tmpl' )
-			)
-		);
+		/**
+		 * Filter a template for related post.
+		 *
+		 * @since 4.0.0
+		 * @param array $templates Set of templates.
+		 */
+		$templates = apply_filters( 'cherry_related_post_template_hierarchy', array( 'content/related-post.tmpl' ) );
+
+		$item_body = cherry_parse_tmpl( $templates );
 
 		$content .= sprintf( $args['format_item'], $args['wrapper_item'], $item_body, floor( 12 / $related_args['num'] ) );
 	}
@@ -403,9 +427,14 @@ function cherry_get_related_posts() {
 	);
 
 	echo $result;
-
 }
 
+/**
+ * Display a `Author Bio` (Written by username) section.
+ *
+ * @since  4.0.1
+ * @return string
+ */
 function cherry_get_author_bio() {
 	$author_bio_status = ( 'false' == cherry_get_option( 'blog-post-author-bio' ) || ( ! is_singular('post') ) ) ? false : true;
 
@@ -413,7 +442,7 @@ function cherry_get_author_bio() {
 	 * Filters a author bio status.
 	 *
 	 * @since 4.0.1
-	 * @var   bool
+	 * @param bool|mixed $result Value to return instead of the author bio status.
 	 */
 	$pre = apply_filters( 'cherry_pre_get_author_bio', $author_bio_status );
 
@@ -425,32 +454,37 @@ function cherry_get_author_bio() {
 		'wrap' => '<div class="author-bio clearfix">%s</div>',
 	);
 
+	/**
+	 * Filter a default arguments.
+	 *
+	 * @since 4.0.1
+	 * @param array $defaults Arguments.
+	 */
 	$args = apply_filters( 'cherry_get_author_bio_defaults', $defaults );
 	$args = wp_parse_args( $args, $defaults );
 
-	$output = cherry_parse_tmpl(
-		apply_filters(
-			'cherry_author_bio_template_hierarchy',
-			array( 'content/author-bio.tmpl' )
-		)
-	);
+	/**
+	 * Filter a set of templates for author bio.
+	 *
+	 * @since 4.0.1
+	 * @param array $templates Set of templates.
+	 */
+	$templates = apply_filters( 'cherry_author_bio_template_hierarchy', array( 'content/author-bio.tmpl' ) );
+
+	$output = cherry_parse_tmpl( $templates );
 
 	printf( $args['wrap'], $output );
 }
 
-add_action( 'cherry_body_start', 'cherry_maintenance_mode', 0 );
-
 /**
- * Maintenance mode
+ * Dispaly a `Maintenance mode`.
  *
  * @since 4.0.0
  */
 function cherry_maintenance_mode() {
-
 	$enabled = cherry_get_option( 'general-maintenance-mode', false );
 
-	if (
-		isset( $_GET['maintenance-preview'] )
+	if ( isset( $_GET['maintenance-preview'] )
 		&& isset( $_GET['nonce'] )
 		&& wp_verify_nonce( $_GET['nonce'], 'cherry-maintenance-preview' )
 	) {
@@ -467,13 +501,17 @@ function cherry_maintenance_mode() {
 		return;
 	}
 
-	$result = cherry_parse_tmpl(
-		apply_filters(
-			'cherry_maintenance_mode_template_hierarchy',
-			array( 'content/maintenance.tmpl' )
-		)
-	);
+	/**
+	 * Filter a set of templates for `Maintenance mode`.
+	 *
+	 * @since 4.0.1
+	 * @param array $templates Set of templates.
+	 */
+	$templates = apply_filters( 'cherry_maintenance_mode_template_hierarchy', array( 'content/maintenance.tmpl' ) );
 
+	$result = cherry_parse_tmpl( $templates );
+
+	/** This filter is documented in wp-includes/post-template.php */
 	echo apply_filters( 'the_content', $result );
 
 	wp_footer(); ?>
@@ -484,12 +522,12 @@ function cherry_maintenance_mode() {
 }
 
 /**
- * Get site logo and description to show it via template macros
+ * Retrieve a site logo and description to show it via template macros.
  *
  * @since 4.0.0
+ * @return string Site logo and description.
  */
 function cherry_get_the_post_logo() {
-
 	$result = '';
 
 	if ( cherry_get_site_logo() || cherry_get_site_description() ) {
@@ -498,19 +536,18 @@ function cherry_get_the_post_logo() {
 			cherry_get_site_logo(),
 			cherry_get_site_description()
 		);
-
 	}
 
 	return $result;
 }
 
 /**
- * Get maintenance page content to show it via template macros
+ * Retrieve a maintenance page content to show it via template macros.
  *
  * @since 4.0.0
+ * @return string Page content.
  */
 function cherry_get_the_post_maintenance_content() {
-
 	$page_id = cherry_get_option( 'general-maintenance-page', false );
 
 	if ( ! $page_id ) {
