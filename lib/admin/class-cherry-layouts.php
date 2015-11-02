@@ -1,6 +1,6 @@
 <?php
 /**
- * `Layout` metabox.
+ * Adds the layout meta box to the edit post screen.
  *
  * @package    Cherry_Framework
  * @subpackage Admin
@@ -10,13 +10,20 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
+
+/**
+ * Class for creating `Layout` metabox.
+ *
+ * @since 4.0.0
+ */
 class Cherry_Layouts {
 
 	/**
 	 * Holds the instances of this class.
 	 *
 	 * @since 4.0.0
-	 * @var   object
+	 * @access private
+	 * @var object
 	 */
 	private static $instance = null;
 
@@ -27,11 +34,11 @@ class Cherry_Layouts {
 	 */
 	public function __construct() {
 
-		if ( !class_exists( 'Cherry_Interface_Builder' ) ) {
+		if ( ! class_exists( 'Cherry_Interface_Builder' ) ) {
 			return;
 		}
 
-		if ( !class_exists( 'Cherry_Options_Framework' ) ) {
+		if ( ! class_exists( 'Cherry_Options_Framework' ) ) {
 			return;
 		}
 
@@ -39,7 +46,7 @@ class Cherry_Layouts {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
 
 		// Saves the post format on the post editing page.
-		add_action( 'save_post',      array( $this, 'save_post'      ), 10, 2 );
+		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
 	}
 
 	/**
@@ -66,6 +73,7 @@ class Cherry_Layouts {
 			 * Filter the array of 'add_meta_box' parametrs.
 			 *
 			 * @since 4.0.0
+			 * @param array $metabox Parameters for creating new metabox.
 			 */
 			$metabox = apply_filters( 'cherry_layouts_metabox_params', array(
 				'id'            => 'cherry-layouts-metabox',
@@ -132,8 +140,8 @@ class Cherry_Layouts {
 		 * Fires after `Layouts` fields of metabox.
 		 *
 		 * @since 4.0.0
-		 * @param object $post
-		 * @param array  $metabox
+		 * @param object $post    The post object
+		 * @param array  $metabox Metabox information.
 		 */
 		do_action( 'cherry_layouts_metabox_after', $post, $metabox );
 	}
@@ -148,13 +156,13 @@ class Cherry_Layouts {
 	 */
 	public function save_post( $post_id, $post = '' ) {
 
-		if ( !is_object( $post ) ) {
+		if ( ! is_object( $post ) ) {
 			$post = get_post();
 		}
 
 		// Verify the nonce for the post formats meta box.
-		if ( !isset( $_POST['cherry-layouts-nonce'] )
-			|| !wp_verify_nonce( $_POST['cherry-layouts-nonce'], basename( __FILE__ ) )
+		if ( ! isset( $_POST['cherry-layouts-nonce'] )
+			|| ! wp_verify_nonce( $_POST['cherry-layouts-nonce'], basename( __FILE__ ) )
 			) {
 			return $post_id;
 		}
@@ -222,6 +230,12 @@ class Cherry_Layouts {
 
 		$layouts = array_merge( $default, $layouts);
 
+		/**
+		 * Filter the available layouts.
+		 *
+		 * @since 4.0.0
+		 * @param array $grid_types Layout options.
+		 */
 		return apply_filters( 'cherry_layouts_get_layouts', $layouts );
 	}
 
@@ -238,7 +252,7 @@ class Cherry_Layouts {
 		$layout = get_post_meta( $post_id, 'cherry_layout', true );
 
 		// Return the layout if one is found. Otherwise, return 'default-layout'.
-		return ( !empty( $layout ) ? $layout : 'default-layout' );
+		return ( ! empty( $layout ) ? $layout : 'default-layout' );
 	}
 
 	/**
