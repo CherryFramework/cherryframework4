@@ -1,6 +1,17 @@
 <?php
+/**
+ * API for creating static areas and statics.
+ *
+ * @package    Cherry_Framework
+ * @subpackage Class
+ * @author     Cherry Team <support@cherryframework.com>
+ * @copyright  Copyright (c) 2012 - 2015, Cherry Team
+ * @link       http://www.cherryframework.com
+ * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ */
+
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -8,6 +19,8 @@ if ( !defined( 'WPINC' ) ) {
  * Builds the definition for a single static area and returns the ID.
  *
  * @since  4.0.0
+ * @param  array  $args Arguments.
+ * @return string       Static Area ID.
  */
 function cherry_register_static_area( $args = array() ) {
 	Cherry_Statics::register_static_area( $args );
@@ -16,7 +29,9 @@ function cherry_register_static_area( $args = array() ) {
 /**
  * Removes a static area from the list.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @param  string $id Static area ID.
+ * @return void
  */
 function cherry_unregister_static_area( $id = '' ) {
 	Cherry_Statics::unregister_static_area( $id );
@@ -25,7 +40,9 @@ function cherry_unregister_static_area( $id = '' ) {
 /**
  * Register static for use in static area.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @param  array $args Arguments.
+ * @return void
  */
 function cherry_register_static( $args = array() ) {
 	Cherry_Statics::register_static( $args );
@@ -34,7 +51,9 @@ function cherry_register_static( $args = array() ) {
 /**
  * Removes static from static area.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @param  string $id Static ID.
+ * @return void
  */
 function cherry_unregister_static( $id = '' ) {
 	Cherry_Statics::unregister_static( $id );
@@ -42,17 +61,34 @@ function cherry_unregister_static( $id = '' ) {
 
 /**
  * Display static area.
+ *
+ * @since 4.0.0
+ * @param int|string $index Static area ID.
  */
 function cherry_static_area( $index = 1 ) {
 	Cherry_Statics::static_area( $index );
 }
 
+/**
+ * Class for creating static areas and statics.
+ *
+ * @since 4.0.0
+ */
 class Cherry_Statics {
 
+	/**
+	 * Set of visible statics.
+	 *
+	 * @since 4.0.0
+	 * @access public
+	 * @var array $visible_statics Array with statics.
+	 */
 	public static $visible_statics = array();
 
 	/**
 	 * Constructor.
+	 *
+	 * @since 4.0.0
 	 */
 	public function __construct() {}
 
@@ -74,8 +110,9 @@ class Cherry_Statics {
 	 *     row           - Add or not a row wrapper?
 	 *
 	 * @since  4.0.0
-	 * @param  string|array $args Arguments for the static area being registered.
-	 * @return string             Static Area ID added to $cherry_registered_static_areas global.
+	 * @global array        $cherry_registered_static_areas Registered static areas.
+	 * @param  string|array $args                           Arguments for the static area being registered.
+	 * @return string                                       Static Area ID added to $cherry_registered_static_areas global.
 	 */
 	public static function register_static_area( $args = array() ) {
 		global $cherry_registered_static_areas;
@@ -119,11 +156,13 @@ class Cherry_Statics {
 	/**
 	 * Removes a static area from the list.
 	 *
-	 * @since 4.0.0
-	 * @param string $id The ID of the static area when it was added.
+	 * @since  4.0.0
+	 * @global array  $cherry_registered_static_areas Registered static areas.
+	 * @param  string $id                             The ID of the static area when it was added.
 	 */
 	public static function unregister_static_area( $id = '' ) {
-		if ( !$id ) {
+
+		if ( ! $id ) {
 			return;
 		}
 
@@ -137,8 +176,9 @@ class Cherry_Statics {
 	/**
 	 * Register static for use in static area.
 	 *
-	 * @since 4.0.0
-	 * @param array $args Static Options.
+	 * @since  4.0.0
+	 * @global array $cherry_registered_statics Registered statics.
+	 * @param  array $args                      Static Options.
 	 */
 	public static function register_static( $args = array() ) {
 		global $cherry_registered_statics;
@@ -175,7 +215,7 @@ class Cherry_Statics {
 		$static['options'] = $options;
 		$id                = strtolower( $static['id'] );
 
-		if ( !isset( $static['options']['position'] )) {
+		if ( ! isset( $static['options']['position'] )) {
 			$static['options'] = wp_parse_args( $static['options'], array( 'position' => $i ) );
 		}
 
@@ -189,7 +229,7 @@ class Cherry_Statics {
 
 		$static['callback'] = $callback;
 
-		if ( !isset( $cherry_registered_statics[ $id ] ) ) {
+		if ( ! isset( $cherry_registered_statics[ $id ] ) ) {
 
 			/**
 			 * Fires once for each registered static.
@@ -208,11 +248,13 @@ class Cherry_Statics {
 	/**
 	 * Remove static from static area.
 	 *
-	 * @since 4.0.0
-	 * @param int|string $id Static ID.
+	 * @since  4.0.0
+	 * @global array      $cherry_registered_statics Registered statics.
+	 * @param  int|string $id                        Static ID.
 	 */
 	public static function unregister_static( $id = '' ) {
-		if ( !$id ) {
+
+		if ( ! $id ) {
 			return;
 		}
 
@@ -227,8 +269,10 @@ class Cherry_Statics {
 	 * Display static area.
 	 *
 	 * @since  4.0.0
-	 * @param  int|string $index Optional, default is 1. Index, name or ID of static area.
-	 * @return bool              True, if static area was found and called. False if not found or not called.
+	 * @global array      $cherry_registered_static_areas Registered static areas.
+	 * @global array      $cherry_registered_statics      Registered statics.
+	 * @param  int|string $index                          Optional, default is 1. Index, name or ID of static area.
+	 * @return bool                                       True, if static area was found and called. False if not found or not called.
 	 */
 	public static function static_area( $index = 1 ) {
 		global $cherry_registered_static_areas, $cherry_registered_statics;
@@ -242,12 +286,12 @@ class Cherry_Statics {
 		if ( empty( $cherry_registered_static_areas[ $index ] ) ) {
 
 			/**
-			 * Filters returned boolean variable when a static area is not found
+			 * Filter a returned boolean variable when a static area is not found
 			 * or static area without params.
 			 *
 			 * @since 4.0.0
-			 * @param bool
-			 * @param int   $index Index, name or ID of static area.
+			 * @param bool|mixed $result Value to return when current static area are empty.
+			 * @param int        $index  Index, name or ID of static area.
 			 */
 			return apply_filters( 'cherry_static_area_has_statics', false, $index );
 		}
@@ -257,10 +301,10 @@ class Cherry_Statics {
 		$args          = get_option( $theme_options['id'] . '_statics' );
 
 		/**
-		 * Filters returned current saved static settings.
+		 * Filter a current saved static settings.
 		 *
 		 * @since 4.0.5
-		 * @param array   $args current static settings.
+		 * @param array $args Current static settings.
 		 */
 		$args = apply_filters( 'cherry_static_current_statics', $args );
 
@@ -275,11 +319,11 @@ class Cherry_Statics {
 		if ( ! self::is_active_static_area( $index, $args ) ) {
 
 			/**
-			 * Filters returned boolean variable when a static area is empty.
+			 * Filter a returned boolean variable when a static area is empty.
 			 *
 			 * @since 4.0.0
 			 * @param bool
-			 * @param int   $index Index, name or ID of static area.
+			 * @param int  $index Index, name or ID of static area.
 			 */
 			return apply_filters( 'cherry_is_active_static_area', false, $index );
 		}
@@ -306,16 +350,17 @@ class Cherry_Statics {
 		printf( '<div id="static-area-%1$s" class="%s static-area">', $index );
 
 		/**
-		 * Filters a HTML tag (open) for container.
+		 * Filter a HTML tag (open) for container.
 		 *
 		 * @since 4.0.0
-		 * @param int   $index Index, name, or ID of the static area.
+		 * @param string $container_open HTML tag.
+		 * @param int    $index          Index, name, or ID of the static area.
 		 */
 		$container_open  = apply_filters( 'cherry_static_area_container_open', '<div class="%1$s">', $index );
 		$container_class = ( true === $fluid ) ? 'container-fluid' : 'container';
 
 		/**
-		 * Filters a CSS-class for container.
+		 * Filter a CSS-class for container.
 		 *
 		 * @since 4.0.0
 		 * @param string $container_class CSS-class name.
@@ -327,18 +372,20 @@ class Cherry_Statics {
 		printf( $container_open, $container_class );
 
 		/**
-		 * Filters a HTML tag (open) for row.
+		 * Filter a HTML tag (open) for row.
 		 *
 		 * @since 4.0.0
-		 * @param int   $index Index, name, or ID of the static area.
+		 * @param string $row_open HTML tag.
+		 * @param int    $index    Index, name, or ID of the static area.
 		 */
 		$row_open = apply_filters( 'cherry_static_area_row_open', '<div class="%1$s">', $index );
 
 		/**
-		 * Filters a CSS-class for row.
+		 * Filter a CSS-class for row.
 		 *
 		 * @since 4.0.0
-		 * @param int   $index Index, name, or ID of the static area.
+		 * @param string $row_class CSS-class name.
+		 * @param int    $index     Index, name, or ID of the static area.
 		 */
 		$row_class = apply_filters( 'cherry_static_area_row_class', 'row', $index );
 
@@ -364,7 +411,15 @@ class Cherry_Statics {
 			}
 
 			$options = $data['options'];
-			$cols    = apply_filters( 'cherry_static_options_cols', array(
+
+			/**
+			 * Filter a columns CSS-class prefixes.
+			 *
+			 * @since 4.0.0
+			 * @param array      $cols CSS-class prefixes.
+			 * @param int|string $id   Static ID.
+			 */
+			$cols = apply_filters( 'cherry_static_options_cols', array(
 				'col-xs',
 				'col-sm',
 				'col-md',
@@ -399,10 +454,11 @@ class Cherry_Statics {
 		endforeach;
 
 		/**
-		 * Filters a HTML tag (close) for row.
+		 * Filter a HTML tag (close) for row.
 		 *
 		 * @since 4.0.0
-		 * @param int   $index Index, name, or ID of the static area.
+		 * @param string $row_close HTML tag.
+		 * @param int    $index     Index, name, or ID of the static area.
 		 */
 		$row_close = apply_filters( 'cherry_static_area_row_close', '</div>', $index );
 
@@ -410,10 +466,11 @@ class Cherry_Statics {
 		echo $row_close;
 
 		/**
-		 * Filters a HTML tag (close) for container.
+		 * Filter a HTML tag (close) for container.
 		 *
 		 * @since 4.0.0
-		 * @param int   $index Index, name, or ID of the static area.
+		 * @param string $container_close HTML tag.
+		 * @param int    $index           Index, name, or ID of the static area.
 		 */
 		$container_close = apply_filters( 'cherry_static_area_container_close', '</div>', $index );
 
@@ -437,6 +494,15 @@ class Cherry_Statics {
 		return true;
 	}
 
+	/**
+	 * Prepare a CSS-class for columns.
+	 *
+	 * @since  4.0.0
+	 * @param  string &$col_value CSS-class prefix.
+	 * @param  string $col_key    Key for current value.
+	 * @param  array  $options    Static options.
+	 * @return void
+	 */
 	public static function prepare_column_class( &$col_value, $col_key, $options ) {
 
 		if ( empty( $options[ $col_value ] ) ) {
@@ -455,10 +521,10 @@ class Cherry_Statics {
 	/**
 	 * Whether a static area is in use (not empty).
 	 *
-	 * @since 4.0.0
-	 *
-	 * @param  mixed $index Static area id.
-	 * @return bool         true if the static area is in use, false otherwise.
+	 * @since  4.0.0
+	 * @param  mixed $index         Static area id.
+	 * @param  mixed $saved_statics Saved static options.
+	 * @return bool                 True if the static area is in use, false otherwise.
 	 */
 	public static function is_active_static_area( $index, $saved_statics ) {
 
@@ -488,8 +554,7 @@ class Cherry_Statics {
 	/**
 	 * Determine whether the static should be displayed based on conditions set by the user.
 	 *
-	 * @since 4.0.0
-	 *
+	 * @since  4.0.0
 	 * @author JP Bot
 	 * @author Cherry Team <support@cherryframework.com>
 	 * @param  array $static The static settings.
@@ -502,53 +567,56 @@ class Cherry_Statics {
 			return true;
 		}
 
-		// Store the results of all in-page condition lookups so that multiple widgets with
-		// the same visibility conditions don't result in duplicate DB queries.
+		/**
+		 * Store the results of all in-page condition lookups so that multiple widgets
+		 * with the same visibility conditions don't result in duplicate DB queries.
+		 */
 		static $condition_result_cache = array();
 
 		$condition_result = false;
 
 		foreach ( $static['conditions']['rules'] as $rule ) {
-			$condition_key = $rule['major'] . ":" . $rule['minor'];
+			$condition_key = $rule['major'] . ':' . $rule['minor'];
 
 			if ( isset( $condition_result_cache[ $condition_key ] ) ) {
+
 				$condition_result = $condition_result_cache[ $condition_key ];
-			}
-			else {
+			} else {
+
 				switch ( $rule['major'] ) {
 					case 'date':
 						switch ( $rule['minor'] ) {
 							case '':
 								$condition_result = is_date();
-							break;
+								break;
 							case 'month':
 								$condition_result = is_month();
-							break;
+								break;
 							case 'day':
 								$condition_result = is_day();
-							break;
+								break;
 							case 'year':
 								$condition_result = is_year();
-							break;
+								break;
 						}
 					break;
 					case 'page':
 						switch ( $rule['minor'] ) {
 							case '404':
 								$condition_result = is_404();
-							break;
+								break;
 							case 'search':
 								$condition_result = is_search();
-							break;
+								break;
 							case 'archive':
 								$condition_result = is_archive();
-							break;
+								break;
 							case 'posts':
 								$condition_result = $wp_query->is_posts_page;
-							break;
+								break;
 							case 'front':
 								$condition_result = is_front_page() && !is_paged();
-							break;
+								break;
 							default:
 								$post_type = substr( $rule['minor'], 10 );
 
@@ -561,47 +629,52 @@ class Cherry_Statics {
 									// $rule['minor'] is a page slug.
 									$condition_result = is_page( $rule['minor'] );
 								}
-							break;
+								break;
 						}
-					break;
+						break;
 					case 'tag':
-						if ( ! $rule['minor'] && is_tag() )
+						if ( ! $rule['minor'] && is_tag() ) {
 							$condition_result = true;
-						else if ( is_singular() && $rule['minor'] && has_tag( $rule['minor'] ) )
+						} else if ( is_singular() && $rule['minor'] && has_tag( $rule['minor'] ) ) {
 							$condition_result = true;
-						else {
+						} else {
 							$tag = get_term_by( 'slug', $rule['minor'], 'post_tag' );
 
 							if ( $tag && is_tag( $tag->slug ) )
 								$condition_result = true;
 						}
-					break;
+						break;
 					case 'category':
-						if ( ! $rule['minor'] && is_category() )
+						if ( ! $rule['minor'] && is_category() ) {
 							$condition_result = true;
-						else if ( is_category( $rule['minor'] ) )
+						} else if ( is_category( $rule['minor'] ) ) {
 							$condition_result = true;
-						else if ( is_singular() && $rule['minor'] && in_array( 'category', get_post_taxonomies() ) && has_category( $rule['minor'] ) )
+						} else if ( is_singular() && $rule['minor'] && in_array( 'category', get_post_taxonomies() ) && has_category( $rule['minor'] ) ) {
 							$condition_result = true;
-					break;
+						}
+						break;
 					case 'loggedin':
 						$condition_result = is_user_logged_in();
+
 						if ( 'loggedin' !== $rule['minor'] ) {
 							$condition_result = ! $condition_result;
 						}
-					break;
+						break;
 					case 'author':
 						$post = get_post();
-						if ( ! $rule['minor'] && is_author() )
+
+						if ( ! $rule['minor'] && is_author() ) {
 							$condition_result = true;
-						else if ( $rule['minor'] && is_author( $rule['minor'] ) )
+						} else if ( $rule['minor'] && is_author( $rule['minor'] ) ) {
 							$condition_result = true;
-						else if ( is_singular() && $rule['minor'] && $rule['minor'] == $post->post_author )
+						} else if ( is_singular() && $rule['minor'] && $rule['minor'] == $post->post_author ) {
 							$condition_result = true;
-					break;
+						}
+						break;
 					case 'role':
 						if( is_user_logged_in() ) {
 							global $current_user;
+
 							get_currentuserinfo();
 
 							$user_roles = $current_user->roles;
@@ -615,32 +688,32 @@ class Cherry_Statics {
 						} else {
 							$condition_result = false;
 						}
-					break;
+						break;
 					case 'taxonomy':
 						// $term[0] = taxonomy name; $term[1] = term slug
 						$term = explode( '_tax_', $rule['minor'] );
 
 						if ( ! isset( $term[1] ) ) {
 
-							if ( ! $rule['minor'] && is_tax() )
+							if ( ! $rule['minor'] && is_tax() ) {
 								$condition_result = true;
-							else if ( is_tax( $rule['minor'] ) )
+							} else if ( is_tax( $rule['minor'] ) ) {
 								$condition_result = true;
+							}
 
 						} else {
 
-							if ( is_tax( $term[0], $term[1] ) )
+							if ( is_tax( $term[0], $term[1] ) ) {
 								$condition_result = true;
-							else if ( is_singular() && $term[1] && has_term( $term[1], $term[0] ) )
+							} else if ( is_singular() && $term[1] && has_term( $term[1], $term[0] ) ) {
 								$condition_result = true;
-							else if ( is_singular() && $post_id = get_the_ID() ) {
+							} else if ( is_singular() && $post_id = get_the_ID() ) {
 								$terms = get_the_terms( $post_id, $rule['minor'] );
 
 								if ( $terms && ! is_wp_error( $terms ) ) {
 									$condition_result = true;
 								}
 							}
-
 						}
 
 					break;
@@ -651,10 +724,10 @@ class Cherry_Statics {
 				}
 			}
 
-			if ( $condition_result )
+			if ( $condition_result ) {
 				break;
+			}
 		}
-
 
 		$result = true;
 
@@ -665,10 +738,10 @@ class Cherry_Statics {
 		}
 
 		/**
-		 * Filters a some condition rules.
+		 * Filter a some condition rule.
 		 *
 		 * @since 4.0.0
-		 * @param bool  $result
+		 * @param bool  $result Condition rule result.
 		 * @param array $static Static options.
 		 */
 		return apply_filters( 'cherry_is_visible_static', $result, $static );
@@ -678,8 +751,9 @@ class Cherry_Statics {
 	 * Custom compare function.
 	 *
 	 * @since  4.0.0
-	 * @param  int $a
-	 * @param  int $b
+	 * @param  int $a Operand 1.
+	 * @param  int $b Operand 2.
+	 * @return int    Result.
 	 */
 	public static function compare( $a, $b ) {
 
@@ -689,5 +763,4 @@ class Cherry_Statics {
 
 		return ( $a['options']['position'] < $b['options']['position'] ) ? -1 : 1;
 	}
-
 }

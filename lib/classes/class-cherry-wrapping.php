@@ -11,7 +11,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -23,20 +23,20 @@ add_filter( 'template_include', array( 'Cherry_Wrapping', 'wrap' ), 99 );
 add_filter( 'cherry_wrap_base', 'cherry_wrap_base_cpts' );
 
 /**
- * Function return the full path to the main template file.
+ * Retrieve the full path to the main template file.
  *
  * @since  4.0.0
- * @return string
+ * @return string Path to the file.
  */
 function cherry_template_path() {
 	return Cherry_Wrapping::$main_template;
 }
 
 /**
- * Function return the base name of the template file.
+ * Retrieve the base name of the template file.
  *
  * @since  4.0.0
- * @return string
+ * @return string File name.
  */
 function cherry_template_base() {
 	return Cherry_Wrapping::$base;
@@ -59,7 +59,8 @@ class Cherry_Wrapping {
 	 * Stores the full path to the main template file.
 	 *
 	 * @since 4.0.0
-	 * @var   string
+	 * @access public
+	 * @var string $main_template Full path to the main template.
 	 */
 	public static $main_template;
 
@@ -67,7 +68,8 @@ class Cherry_Wrapping {
 	 * Stores the base name of the template file; e.g. 'page' for 'page.php' etc.
 	 *
 	 * @since 4.0.0
-	 * @var   string
+	 * @access public
+	 * @var string $base Template name.
 	 */
 	public static $base;
 
@@ -90,7 +92,6 @@ class Cherry_Wrapping {
 			$str = substr( $template, 0, -4 );
 			array_unshift( $this->templates, sprintf( $str . '-%s.php', self::$base ) );
 		}
-
 	}
 
 	/**
@@ -128,10 +129,9 @@ class Cherry_Wrapping {
  * Filters to $templates array, before returning the full path
  * to the most specific existing base template.
  *
- * @since 4.0.0
- *
- * @param  array $templates
- * @return array
+ * @since  4.0.0
+ * @param  array $templates Set of templates.
+ * @return array            Filtered set of templates.
  */
 function cherry_wrap_base_cpts( $templates ) {
 	$post_type = get_post_type();
@@ -140,6 +140,7 @@ function cherry_wrap_base_cpts( $templates ) {
 		array_unshift( $templates, 'base-' . $post_type . '.php' );
 	}
 
-	// Return modified array with base-$cpt.php at the front of the queue
+	// Return modified array with base-$cpt.php at the front of the queue.
 	return $templates;
 }
+
