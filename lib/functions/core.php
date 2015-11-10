@@ -234,7 +234,7 @@ function cherry_get_document_language() {
 
 function cherry_get_document_link() {
 	$cherry_document_link_attr = array(
-				'lang'       =>  cherry_get_document_language(),
+				'lang'       =>  cherry_get_document_language(),  
 				'project'    =>  'wordpress',
 				'title'      =>  __( 'Documentation', 'cherry' ),
 				'target'     => '_blank',
@@ -247,7 +247,7 @@ function cherry_get_document_link() {
 
 	$document_link = apply_filters( 'cherry_documentation_link', $document_link );
 
-	return $document_link;
+	return $document_link; 
 }
 
 
