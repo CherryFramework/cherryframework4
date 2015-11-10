@@ -206,7 +206,7 @@ function cherry_file_uri( $path ) {
  * @since  4.0.5
  */
 
-function get_document_language() {
+function cherry_get_document_language() {
 	$local_lang = get_locale();
 
 	$languages = array(
@@ -234,7 +234,7 @@ function get_document_language() {
 
 function cherry_get_document_link() {
 	$cherry_document_link_attr = array(
-				'lang'       =>  get_document_language(),
+				'lang'       =>  cherry_get_document_language(),
 				'project'    =>  'wordpress',
 				'title'      =>  __( 'Documentation', 'cherry' ),
 				'target'     => '_blank',
@@ -243,7 +243,7 @@ function cherry_get_document_link() {
 
 	$cherry_document_link_attr = apply_filters( 'cherry_document_link_attr', $cherry_document_link_attr );
 
-	$document_link = '<a href="http://cherryframework.com/documentation/cf4/index.php?project=' . $cherry_document_link_attr['project'] . '&lang=' . $cherry_document_link_attr['lang'] . '" title"' . $cherry_document_link_attr['documentation'] . '" target="' . $cherry_document_link_attr['target'] . '">'. $cherry_document_link_attr['text_link'] . '</a>';
+	$document_link = '<a href="http://cherryframework.com/documentation/cf4/index.php?project=' . $cherry_document_link_attr['project'] . '&lang=' . $cherry_document_link_attr['lang'] . '" title"' . $cherry_document_link_attr['title'] . '" target="' . $cherry_document_link_attr['target'] . '">'. $cherry_document_link_attr['text_link'] . '</a>';
 
 	$document_link = apply_filters( 'cherry_documentation_link', $document_link );
 
