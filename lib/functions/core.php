@@ -199,3 +199,55 @@ function cherry_file_uri( $path ) {
 
 	return trailingslashit( PARENT_URI ) . $path;
 }
+
+/**
+ * Add options to get localisation language
+ *
+ * @since  4.0.5
+ */
+
+function get_document_language() {
+	$local_lang = get_locale();
+
+	$languages = array(
+		'cs_CZ',
+		'de_DE',
+		'es_ES',
+		'fr_FR',
+		'it_IT',
+		'ja',
+		'nl_NL',
+		'pl_PL',
+		'ru_RU',
+		'sk_SK',
+		'uk',
+		'vi',
+		'zh_CN'
+	);
+
+	if (!$local_lang || $local_lang ==='' || !in_array($local_lang, $languages)) {
+		$local_lang = 'en_US';
+	}
+	return $local_lang;
+}
+
+
+/**
+ * Add options to check installed plugins
+ *
+ * @since  4.0.5
+ */
+
+function check_plugins() {
+	if(is_plugin_active('monstroid/index.php')) {
+		$project = 'monstroid';
+	}
+	elseif (is_plugin_active('woocommerce/woocommerce.php')) {
+		$project = 'woocommerce';
+	}
+	else {
+			$project = 'wordpress';
+	}
+
+	return $project;
+}

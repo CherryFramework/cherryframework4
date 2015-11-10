@@ -133,14 +133,25 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				)
 			);
 
-			$document_link = '<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>';
+			$cherry_document_link_attr = array(
+				'lang'       =>  get_document_language(),
+				'project'    =>  'wordpress',
+				'title'      =>  __( 'Documentation', 'cherry' ),
+				'target'     => '_blank',
+				'text_link'  => __( 'Cherry Framework 4 documentation', 'cherry' )
+			);
 
+			$cherry_document_link_attr = apply_filters( 'cherry_document_link_attr', $cherry_document_link_attr );
+
+			$document_link = '<a href="http://cherryframework.com/documentation/cf4/index.php?lang=' . $cherry_document_link_attr['lang'] . '&project=' . $cherry_document_link_attr['project'] . '" title"' . $cherry_document_link_attr['documentation'] . '" target="' . $cherry_document_link_attr['target'] . '">'. $cherry_document_link_attr['text_link'] . '</a>';
 			/**
 			 * Filters a link to the framework/theme documentation.
 			 *
 			 * @since 4.0.2
 			 * @var   string
 			 */
+
+
 			$document_link = apply_filters( 'cherry_documentation_link', $document_link );
 
 			$before_content = '';

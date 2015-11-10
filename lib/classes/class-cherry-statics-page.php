@@ -88,6 +88,19 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 			// Add the options page and menu item.
 			global $cherry_page_builder;
 
+			$cherry_document_link_attr = array(
+				'lang'       =>  get_document_language(),
+				'project'    =>  'wordpress',
+				'title'      =>  __( 'Documentation', 'cherry' ),
+				'target'     => '_blank',
+				'text_link'  => __( 'Cherry Framework 4 documentation', 'cherry' )
+			);
+
+			$cherry_document_link_attr = apply_filters( 'cherry_document_link_attr', $cherry_document_link_attr );
+
+			$document_link = '<a href="http://cherryframework.com/documentation/cf4/index.php?lang=' . $cherry_document_link_attr['lang'] . '&project=' . $cherry_document_link_attr['project'] . '" title"' . $cherry_document_link_attr['documentation'] . '" target="' . $cherry_document_link_attr['target'] . '">'. $cherry_document_link_attr['text_link'] . '</a>';
+			
+			$document_link = apply_filters( 'cherry_documentation_link', $document_link );
 			$cherry_page_builder->add_child_menu_item( array(
 				'parent_slug'    => 'cherry',
 				'page_title'     => __( 'Static Area Builder', 'cherry' ),
@@ -97,9 +110,8 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 				'function'       => array( __CLASS__, 'cherry_statics_page_build' ),
 				'before_content' => '
 					<div class="cherry-info-box">
-						<div class="documentation-link">' . __( 'Feel free to view details ', 'cherry' ) . '
-							<a href="http://www.cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>
-						</div>
+						<div class="documentation-link">' . __( 'Feel free to view detailed ', 'cherry' ) . $document_link .
+						'</div>
 					</div>
 					<div class="cherry-info-box">' . __( "Use static area builder to arrange static blocks. You can drag-n-drop static blocks to arrange them or add new ones.", 'cherry' ) . '</div>'
 			) );
