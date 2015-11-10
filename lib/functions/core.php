@@ -225,29 +225,30 @@ function get_document_language() {
 		'zh_CN'
 	);
 
-	if (!$local_lang || $local_lang ==='' || !in_array($local_lang, $languages)) {
+	/*if (!$local_lang || $local_lang ==='' || !in_array($local_lang, $languages)) {
 		$local_lang = 'en_US';
-	}
+	}*/ // temporary 
+	$local_lang = 'en_US';
 	return $local_lang;
 }
 
+function cherry_get_document_link() {
+	$cherry_document_link_attr = array(
+				'lang'       =>  get_document_language(),
+				'project'    =>  'wordpress',
+				'title'      =>  __( 'Documentation', 'cherry' ),
+				'target'     => '_blank',
+				'text_link'  => __( 'Cherry Framework 4 documentation', 'cherry' )
+			);
 
-/**
- * Add options to check installed plugins
- *
- * @since  4.0.5
- */
+	$cherry_document_link_attr = apply_filters( 'cherry_document_link_attr', $cherry_document_link_attr );
 
-function check_plugins() {
-	if(is_plugin_active('monstroid/index.php')) {
-		$project = 'monstroid';
-	}
-	elseif (is_plugin_active('woocommerce/woocommerce.php')) {
-		$project = 'woocommerce';
-	}
-	else {
-			$project = 'wordpress';
-	}
+	$document_link = '<a href="http://cherryframework.com/documentation/cf4/index.php?project=' . $cherry_document_link_attr['project'] . '&lang=' . $cherry_document_link_attr['lang'] . '" title"' . $cherry_document_link_attr['documentation'] . '" target="' . $cherry_document_link_attr['target'] . '">'. $cherry_document_link_attr['text_link'] . '</a>';
 
-	return $project;
+	$document_link = apply_filters( 'cherry_documentation_link', $document_link );
+
+	return $document_link;
 }
+
+
+			
