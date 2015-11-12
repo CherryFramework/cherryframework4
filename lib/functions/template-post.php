@@ -559,10 +559,20 @@ function cherry_get_the_post_image( $args ) {
 				return false;
 			}
 
-			$thumb = '<img src="' . esc_url( $img[0] ) . '" class="' . $args['container_class'] . '-img" width="' . $_wp_additional_image_sizes[ $args['size'] ]['width'] . '">';
+			if ( has_excerpt( $post_id ) ) {
+				$alt = trim( strip_tags( get_the_excerpt() ) );
+			} else {
+				$alt = trim( strip_tags( get_the_title( $post_id ) ) );
+			}
+
+			$thumb = sprintf( '<img src="%s" class="%s" width="%d" alt="%s">',
+				esc_url( $img[0] ),
+				$args['container_class'] . '-img',
+				$_wp_additional_image_sizes[ $args['size'] ]['width'],
+				esc_attr( $alt )
+			);
 			$thumb = $args['before'] . $thumb . $args['after'];
 			$url   = $img[0];
-
 		}
 	}
 

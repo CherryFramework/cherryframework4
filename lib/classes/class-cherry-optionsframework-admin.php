@@ -494,7 +494,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 					);
 				}else{
 					$response = array(
-						'message' => __( 'Default options backup has been overwrited', 'cherry' ),
+						'message' => __( 'Default options backup has been overwrite', 'cherry' ),
 						'type' => 'info-notice'
 					);
 				}

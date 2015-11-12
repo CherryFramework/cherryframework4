@@ -1,0 +1,5349 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cherry Framework\n"
+"POT-Creation-Date: 2015-11-09 18:25+0200\n"
+"PO-Revision-Date: 2015-11-09 18:25+0200\n"
+"Last-Translator: \n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:21
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or use search."
+msgstr ""
+
+#: cherry-options.php:6
+msgid "Select a page:"
+msgstr ""
+
+#: cherry-options.php:23 cherry-options.php:1837
+#: lib/admin/class-cherry-grid-type.php:49
+msgid "Header"
+msgstr ""
+
+#: cherry-options.php:24
+msgid "Main menu"
+msgstr ""
+
+#: cherry-options.php:25
+msgid "Header top static area"
+msgstr ""
+
+#: cherry-options.php:37
+msgid "Favicon image"
+msgstr ""
+
+#: cherry-options.php:38
+msgid ""
+"Icon image that is displayed in the browser address bar and browser tab "
+"heading."
+msgstr ""
+
+#: cherry-options.php:41
+msgid ""
+"Max icon size: 32x32 px <br>You can also upload favicon for retina displays. "
+"Max retina icon size: 152x152 px"
+msgstr ""
+
+#: cherry-options.php:52
+#, php-format
+msgid "Maintenance mode. <a href=\"%s\" target=\"_blank\">Preview</a>"
+msgstr ""
+
+#: cherry-options.php:55
+msgid "Enable/disable maintenance mode."
+msgstr ""
+
+#: cherry-options.php:58
+msgid ""
+"Logged in administrator gets full access to the site, while regular visitors "
+"will\\won't be redirected to the page chosen below."
+msgstr ""
+
+#: cherry-options.php:64
+msgid "Maintenance page"
+msgstr ""
+
+#: cherry-options.php:65
+msgid ""
+"Select page that regular visitors will see if maintenance mode is enabled."
+msgstr ""
+
+#: cherry-options.php:72
+msgid "Document smooth scroll"
+msgstr ""
+
+#: cherry-options.php:73
+msgid ""
+"Enable/disable smooth vertical mousewheel scrolling (Chrome browser only)."
+msgstr ""
+
+#: cherry-options.php:78
+msgid "User CSS"
+msgstr ""
+
+#: cherry-options.php:79
+msgid "Define custom CSS styling."
+msgstr ""
+
+#: cherry-options.php:91
+msgid "Responsive grid"
+msgstr ""
+
+#: cherry-options.php:92
+msgid "Enable/disable responsive grid. "
+msgstr ""
+
+#: cherry-options.php:95
+msgid ""
+"If for any reason you want to disable responsive layout for your site, you "
+"are able to turn it off here."
+msgstr ""
+
+#: cherry-options.php:101
+msgid "Container width"
+msgstr ""
+
+#: cherry-options.php:102
+msgid "Width of header/content/footer container in pixels."
+msgstr ""
+
+#: cherry-options.php:112
+msgid "Pages"
+msgstr ""
+
+#: cherry-options.php:115 cherry-options.php:151
+msgid ""
+"You can choose if you want to display sidebars and how you want to display "
+"them."
+msgstr ""
+
+#: cherry-options.php:121 cherry-options.php:157
+msgid "Left sidebar"
+msgstr ""
+
+#: cherry-options.php:125 cherry-options.php:161
+msgid "Right sidebar"
+msgstr ""
+
+#: cherry-options.php:129 cherry-options.php:165
+msgid "Left and right sidebar"
+msgstr ""
+
+#: cherry-options.php:133 cherry-options.php:169
+msgid "Two sidebars on the left"
+msgstr ""
+
+#: cherry-options.php:137 cherry-options.php:173
+msgid "Two sidebars on the right"
+msgstr ""
+
+#: cherry-options.php:141 cherry-options.php:177
+msgid "No sidebar"
+msgstr ""
+
+#: cherry-options.php:148
+msgid "Blog posts"
+msgstr ""
+
+#: cherry-options.php:190
+msgid "Featured Media"
+msgstr ""
+
+#: cherry-options.php:191
+msgid ""
+"Displays Featured Image, Gallery, Audio, Video in blog posts listing "
+"depending on post type."
+msgstr ""
+
+#: cherry-options.php:196
+msgid "Featured Image Size"
+msgstr ""
+
+#: cherry-options.php:199 cherry-options.php:202
+msgid "Set dimensions for post featured images."
+msgstr ""
+
+#: cherry-options.php:205 cherry-options.php:274
+msgid "Small"
+msgstr ""
+
+#: cherry-options.php:206 cherry-options.php:275
+msgid "Large"
+msgstr ""
+
+#: cherry-options.php:211
+msgid "Featured Image Alignment"
+msgstr ""
+
+#: cherry-options.php:212
+msgid "Set alignment for post featured images."
+msgstr ""
+
+# @ su
+#: cherry-options.php:216 cherry-options.php:233 cherry-options.php:285
+msgid "None"
+msgstr "Geen"
+
+# @ su
+#: cherry-options.php:217 cherry-options.php:286
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:80
+msgid "Left"
+msgstr "Links"
+
+# @ su
+#: cherry-options.php:218 cherry-options.php:287
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:81
+msgid "Right"
+msgstr "Rechts"
+
+# @ su
+#: cherry-options.php:219 cherry-options.php:288
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:82
+msgid "Center"
+msgstr "Midden"
+
+#: cherry-options.php:224
+msgid "Post content"
+msgstr ""
+
+#: cherry-options.php:225
+msgid "Select how you want to display post content in blog listing"
+msgstr ""
+
+#: cherry-options.php:228
+msgid ""
+"The following options are available:<br>`full` - display full post content, "
+"<br>`part` - display part of the post (you can specify content part length "
+"below), <br>`none` - hide post content."
+msgstr ""
+
+#: cherry-options.php:234
+msgid "Part"
+msgstr ""
+
+#: cherry-options.php:235
+msgid "Full"
+msgstr ""
+
+#: cherry-options.php:240
+msgid "Content Part length"
+msgstr ""
+
+#: cherry-options.php:241
+msgid ""
+"Specify number of words displayed in blog listing content part. Will not "
+"work if post has an excerpt."
+msgstr ""
+
+#: cherry-options.php:248
+msgid "More button"
+msgstr ""
+
+#: cherry-options.php:249
+msgid "Enable/Disable read more button in blog listing."
+msgstr ""
+
+#: cherry-options.php:254
+msgid "More button label"
+msgstr ""
+
+#: cherry-options.php:255
+msgid "Specify read more button label text. "
+msgstr ""
+
+#: cherry-options.php:256
+msgid "read more"
+msgstr ""
+
+#: cherry-options.php:263
+msgid "Featured Image"
+msgstr ""
+
+#: cherry-options.php:264
+msgid "Display featured image on the single post page."
+msgstr ""
+
+#: cherry-options.php:269
+msgid "Size of Featured Image"
+msgstr ""
+
+#: cherry-options.php:270
+msgid "Set dimensions for single post featured images."
+msgstr ""
+
+#: cherry-options.php:280
+msgid "Alignment of Featured Image"
+msgstr ""
+
+#: cherry-options.php:281
+msgid "Set alignment for single post featured images."
+msgstr ""
+
+#: cherry-options.php:293 cherry-options.php:1817
+msgid "Navigation"
+msgstr ""
+
+#: cherry-options.php:294
+msgid "Enable/disable post navigation block."
+msgstr ""
+
+#: cherry-options.php:299
+msgid "Author bio"
+msgstr ""
+
+#: cherry-options.php:300
+msgid ""
+"Enable/disable author bio block. Author bio block is displayed on the post "
+"page."
+msgstr ""
+
+#: cherry-options.php:305
+msgid "Related posts"
+msgstr ""
+
+#: cherry-options.php:306
+msgid ""
+"Enable/disable related posts block. Related posts block is displayed on the "
+"post page."
+msgstr ""
+
+#: cherry-options.php:311
+msgid "Allow comments"
+msgstr ""
+
+#: cherry-options.php:312
+msgid "Enable/disable comments for blog posts."
+msgstr ""
+
+#: cherry-options.php:315
+msgid ""
+"Make sure comments are enabled in Wordpress 'settings->discussion'. For "
+"posts that have already been published you need to enable comments "
+"individually in post settings."
+msgstr ""
+
+#: cherry-options.php:321
+msgid "Gallery slider"
+msgstr ""
+
+#: cherry-options.php:322
+msgid ""
+"Replace default Wordpress gallery shortcode with enhanced jQuery carousel."
+msgstr ""
+
+#: cherry-options.php:327
+msgid "Lightbox for images in a content"
+msgstr ""
+
+#: cherry-options.php:328
+msgid "Automatically adds lightbox for images in a post content."
+msgstr ""
+
+# @ su
+#: cherry-options.php:336
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:196
+#: lib/functions/template-media.php:141
+msgid "Date"
+msgstr "Datum"
+
+#: cherry-options.php:337
+msgid "Show/Hide post publication date."
+msgstr ""
+
+#: cherry-options.php:342
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:193
+msgid "Author"
+msgstr ""
+
+#: cherry-options.php:343
+msgid "Show/Hide post author."
+msgstr ""
+
+#: cherry-options.php:348
+msgid "Comments"
+msgstr ""
+
+#: cherry-options.php:349
+msgid "Show/Hide number of comments."
+msgstr ""
+
+#: cherry-options.php:354
+msgid "Categories"
+msgstr ""
+
+#: cherry-options.php:355
+msgid "Show/Hide post categories."
+msgstr ""
+
+#: cherry-options.php:360
+msgid "Tags"
+msgstr ""
+
+#: cherry-options.php:361
+msgid "Show/Hide post tags."
+msgstr ""
+
+#: cherry-options.php:372
+msgid "Body background"
+msgstr ""
+
+#: cherry-options.php:373
+msgid "Set background for body container. "
+msgstr ""
+
+#: cherry-options.php:376
+msgid ""
+"You can specify background image or color, set background repeat, position "
+"and attachment. "
+msgstr ""
+
+#: cherry-options.php:397
+msgid "Primary color"
+msgstr ""
+
+#: cherry-options.php:402
+msgid "Secondary color"
+msgstr ""
+
+#: cherry-options.php:407
+msgid "Success color"
+msgstr ""
+
+#: cherry-options.php:412
+msgid "Info color"
+msgstr ""
+
+#: cherry-options.php:417
+msgid "Warning color"
+msgstr ""
+
+#: cherry-options.php:422
+msgid "Danger color"
+msgstr ""
+
+#: cherry-options.php:427
+msgid "Primary gray color"
+msgstr ""
+
+#: cherry-options.php:447
+msgid "Header Menu Typography"
+msgstr ""
+
+#: cherry-options.php:448
+msgid "Main header navigation typography settings."
+msgstr ""
+
+#: cherry-options.php:463
+msgid "Footer Menu Typography"
+msgstr ""
+
+#: cherry-options.php:464
+msgid "Main footer navigation typography settings."
+msgstr ""
+
+#: cherry-options.php:479
+msgid "Arrows markup"
+msgstr ""
+
+#: cherry-options.php:480
+msgid "Do you want to generate arrow mark-up?"
+msgstr ""
+
+#: cherry-options.php:491 cherry-options.php:1823
+msgid "Breadcrumbs"
+msgstr ""
+
+#: cherry-options.php:492
+msgid "Enable/disable breadcrumbs navigation."
+msgstr ""
+
+#: cherry-options.php:498
+msgid "Page title"
+msgstr ""
+
+#: cherry-options.php:499
+msgid "Show / hide current page title in breadcrumb navigation."
+msgstr ""
+
+#: cherry-options.php:504
+msgid "Breadcrumbs mobile"
+msgstr ""
+
+#: cherry-options.php:505
+msgid "Enable/disable breadcrumbs on mobile devices."
+msgstr ""
+
+#: cherry-options.php:509
+msgid ""
+"Mobile &mdash; Extra small devices, phones (&lt;768px) <br>Tablet &mdash; "
+"Small devices, tablets (&lt;991px)"
+msgstr ""
+
+#: cherry-options.php:512
+msgid "Mobile"
+msgstr ""
+
+#: cherry-options.php:513
+msgid "Tablet"
+msgstr ""
+
+#: cherry-options.php:518
+msgid "Home page breadcrumbs"
+msgstr ""
+
+#: cherry-options.php:519
+msgid ""
+"If option defined in page setting, this global option will not be counted."
+msgstr ""
+
+#: cherry-options.php:524
+msgid "Customize a Home page title?"
+msgstr ""
+
+# @ su
+#: cherry-options.php:527 cherry-options.php:1107 cherry-options.php:1132
+#: lib/admin/class-cherry-admin.php:63
+#: lib/classes/class-cherry-interface-builder.php:470
+msgid "Yes"
+msgstr "Ja"
+
+# @ su
+#: cherry-options.php:528 cherry-options.php:1108 cherry-options.php:1133
+#: lib/admin/class-cherry-admin.php:64
+#: lib/classes/class-cherry-interface-builder.php:471
+msgid "No"
+msgstr "Nee"
+
+#: cherry-options.php:535
+msgid "Home page title"
+msgstr ""
+
+#: cherry-options.php:536
+msgid "This is a customized title for a Home page."
+msgstr ""
+
+#: cherry-options.php:537 lib/classes/class-cherry-breadcrumbs.php:270
+msgid "Home"
+msgstr ""
+
+#: cherry-options.php:543
+msgid "Item separator"
+msgstr ""
+
+#: cherry-options.php:544
+msgid "Breadcrumbs separator symbol."
+msgstr ""
+
+#: cherry-options.php:551
+msgid "Breadcrumbs prefix"
+msgstr ""
+
+#: cherry-options.php:552
+msgid "Text displayed before breadcrumbs navigation."
+msgstr ""
+
+#: cherry-options.php:553
+msgid "You are here:"
+msgstr ""
+
+#: cherry-options.php:562
+msgid "Pagination position"
+msgstr ""
+
+#: cherry-options.php:563
+msgid "Select your pagination position."
+msgstr ""
+
+#: cherry-options.php:566
+msgid "After posts loop"
+msgstr ""
+
+#: cherry-options.php:567
+msgid "Before posts loop"
+msgstr ""
+
+#: cherry-options.php:568
+msgid "Both"
+msgstr ""
+
+#: cherry-options.php:573
+msgid "Prev/next buttons"
+msgstr ""
+
+#: cherry-options.php:574
+msgid "Show/hide previous and next buttons in pagination."
+msgstr ""
+
+#: cherry-options.php:579
+msgid "Pagination label"
+msgstr ""
+
+#: cherry-options.php:580
+msgid ""
+"Pagination label. Displayed before pagination buttons. Text or HTML can be "
+"used."
+msgstr ""
+
+#: cherry-options.php:581 lib/functions/template-post.php:279
+msgid "Pages:"
+msgstr ""
+
+#: cherry-options.php:585
+msgid "Prev button label"
+msgstr ""
+
+#: cherry-options.php:586
+msgid "Previous button label text. Text or HTML can be used."
+msgstr ""
+
+#: cherry-options.php:591
+msgid "Next button label"
+msgstr ""
+
+#: cherry-options.php:592
+msgid "Next button label text. Text or HTML can be used."
+msgstr ""
+
+#: cherry-options.php:597
+msgid "Show all the pages"
+msgstr ""
+
+#: cherry-options.php:598
+msgid ""
+"If set to On, then it will show all of the pages instead of a short list of "
+"the pages near the current page."
+msgstr ""
+
+#: cherry-options.php:603
+msgid "End size"
+msgstr ""
+
+#: cherry-options.php:604
+msgid "How many pages to display either at the top or at the end of the list."
+msgstr ""
+
+#: cherry-options.php:612
+msgid "Mid size"
+msgstr ""
+
+#: cherry-options.php:613
+msgid ""
+"How many numbers to display to either side of current page, but not "
+"including current page."
+msgstr ""
+
+# @ su
+#: cherry-options.php:626 cherry-options.php:745 cherry-options.php:808
+msgid "Background"
+msgstr "Achtergrond"
+
+#: cherry-options.php:629 cherry-options.php:633
+msgid ""
+"Header background settings. You can select background color, upload header "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:649 cherry-options.php:766 cherry-options.php:841
+msgid "Grid type"
+msgstr ""
+
+#: cherry-options.php:650
+msgid ""
+"Select layout pattern for header website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: cherry-options.php:655 cherry-options.php:772 cherry-options.php:847
+msgid "Wide"
+msgstr ""
+
+#: cherry-options.php:659 cherry-options.php:776 cherry-options.php:851
+msgid "Boxed"
+msgstr ""
+
+#: cherry-options.php:666 cherry-options.php:783 cherry-options.php:858
+msgid "Boxed width"
+msgstr ""
+
+#: cherry-options.php:667
+msgid ""
+"Header width for `boxed` layout. Should not be more than `Grid -> Container "
+"width` value."
+msgstr ""
+
+#: cherry-options.php:674
+msgid "Sticky header"
+msgstr ""
+
+#: cherry-options.php:675
+msgid "Enable\\disable fixed header that sticks to the top."
+msgstr ""
+
+#: cherry-options.php:680
+msgid "Sticky selector"
+msgstr ""
+
+#: cherry-options.php:681
+msgid ""
+"Select the block selector that will be used to build sticky panel. You can "
+"use tag name, class name, or id."
+msgstr ""
+
+#: cherry-options.php:690 cherry-options.php:876
+msgid "Logo type"
+msgstr ""
+
+#: cherry-options.php:691
+msgid "Select whether you want your main logo to be an image or text. "
+msgstr ""
+
+#: cherry-options.php:694
+msgid ""
+"If you select \"image\", you can choose logo image from the media library in "
+"the next option, and if you select \"text\", your WordPress Site Title will "
+"be shown instead."
+msgstr ""
+
+#: cherry-options.php:715 cherry-options.php:897
+msgid "Logo image"
+msgstr ""
+
+#: cherry-options.php:716 cherry-options.php:898
+msgid ""
+"Click Choose Media button to select logo image from the media library or "
+"upload your image."
+msgstr ""
+
+#: cherry-options.php:723 cherry-options.php:905
+msgid "Logo typography"
+msgstr ""
+
+#: cherry-options.php:724 cherry-options.php:906
+msgid ""
+"Configuration settings for text logo. Here you can select logo font family, "
+"size, color, etc."
+msgstr ""
+
+#: cherry-options.php:748 cherry-options.php:750
+msgid ""
+"Page background settings. You can select background color, upload footer "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:767
+msgid ""
+"Select layout pattern for main website container. Wide layout will fit "
+"window width. Boxed layout will have fixed width and left/right indents. "
+msgstr ""
+
+#: cherry-options.php:784
+msgid ""
+"Main content width for `boxed` layout. Should not be more than `Grid -> "
+"Container width` value."
+msgstr ""
+
+#: cherry-options.php:791
+msgid "Featured Images"
+msgstr ""
+
+#: cherry-options.php:792
+msgid "Enable/disable featured images for pages."
+msgstr ""
+
+#: cherry-options.php:797
+msgid "Page comments"
+msgstr ""
+
+#: cherry-options.php:798
+msgid ""
+"Enable/disable comments for pages by default. For pages that have already "
+"been published you need to enable comments individually in page settings."
+msgstr ""
+
+#: cherry-options.php:809
+msgid ""
+"Footer background settings. You can select background color, upload footer "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:825 cherry-options.php:1426 cherry-options.php:1869
+msgid "Typography"
+msgstr ""
+
+#: cherry-options.php:826
+msgid "Typography settings for footer text."
+msgstr ""
+
+#: cherry-options.php:842
+msgid ""
+"Select layout pattern for footer website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: cherry-options.php:859
+msgid ""
+"Footer width for `boxed` layout. Should not be more than `Grid -> Container "
+"width` value."
+msgstr ""
+
+#: cherry-options.php:866
+msgid "Footer Info text"
+msgstr ""
+
+#: cherry-options.php:867
+msgid "Set custom text for Footer static info."
+msgstr ""
+
+#: cherry-options.php:877
+msgid "Select whether you want your footer logo to be an image or text."
+msgstr ""
+
+#: cherry-options.php:928
+msgid "Body text"
+msgstr ""
+
+#: cherry-options.php:929
+msgid "Main website text typography options."
+msgstr ""
+
+#: cherry-options.php:944
+msgid "Link color"
+msgstr ""
+
+#: cherry-options.php:945
+msgid "Color of links."
+msgstr ""
+
+#: cherry-options.php:950
+msgid "Link hover color"
+msgstr ""
+
+#: cherry-options.php:951
+msgid "Color of links on hover."
+msgstr ""
+
+#: cherry-options.php:956
+msgid "Input text"
+msgstr ""
+
+#: cherry-options.php:957
+msgid "Styling text in forms."
+msgstr ""
+
+#: cherry-options.php:972
+msgid "Breadcrumbs typography"
+msgstr ""
+
+#: cherry-options.php:973
+msgid "Styling text in breadcrumbs."
+msgstr ""
+
+#: cherry-options.php:988
+msgid "Heading 1"
+msgstr ""
+
+#: cherry-options.php:990
+msgid "H1 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1005
+msgid "Heading 2"
+msgstr ""
+
+#: cherry-options.php:1007
+msgid "H2 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1022
+msgid "Heading 3"
+msgstr ""
+
+#: cherry-options.php:1024
+msgid "H3 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1039
+msgid "Heading 4"
+msgstr ""
+
+#: cherry-options.php:1041
+msgid "H4 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1056
+msgid "Heading 5"
+msgstr ""
+
+#: cherry-options.php:1058
+msgid "H5 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1073
+msgid "Heading 6"
+msgstr ""
+
+#: cherry-options.php:1075
+msgid "H6 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1090
+msgid "Webfonts"
+msgstr ""
+
+#: cherry-options.php:1092
+msgid "Define custom Font style and Character Sets for selected web font."
+msgstr ""
+
+#: cherry-options.php:1103
+msgid "Concatenate/minify CSS"
+msgstr ""
+
+#: cherry-options.php:1104
+msgid ""
+"Select if you want to merge\\minify CSS files for performance optimization."
+msgstr ""
+
+#: cherry-options.php:1114
+msgid "Output dynamic CSS into separate file or into style tag."
+msgstr ""
+
+#: cherry-options.php:1129
+msgid "Display Cookie Banner?"
+msgstr ""
+
+# @ su
+#: cherry-options.php:1138
+msgid "Message"
+msgstr "Bericht"
+
+#: cherry-options.php:1139
+msgid "Enter the cookie banner message."
+msgstr ""
+
+#: cherry-options.php:1140
+msgid "We use cookies to ensure you get the best experience on our website."
+msgstr ""
+
+#: cherry-options.php:1150 cherry-options.php:1570
+msgid "Text input"
+msgstr ""
+
+#: cherry-options.php:1155 cherry-options.php:1575 cherry-options.php:1670
+#: cherry-options.php:1682 cherry-options.php:1694 cherry-options.php:1729
+#: cherry-options.php:1740 cherry-options.php:1752
+msgid "Regular single line text input field."
+msgstr ""
+
+#: cherry-options.php:1161 cherry-options.php:1582
+msgid "Textarea input"
+msgstr ""
+
+#: cherry-options.php:1166 cherry-options.php:1587
+msgid "Multiline text input field ( 16 rows x 20 cols )."
+msgstr ""
+
+#: cherry-options.php:1172 cherry-options.php:1594
+msgid "Select box"
+msgstr ""
+
+#: cherry-options.php:1177 cherry-options.php:1599
+msgid "Select box with single option."
+msgstr ""
+
+#: cherry-options.php:1189 cherry-options.php:1612
+msgid "Filtered select"
+msgstr ""
+
+#: cherry-options.php:1194 cherry-options.php:1617
+msgid "Select box with filter option."
+msgstr ""
+
+#: cherry-options.php:1211 cherry-options.php:1234
+msgid "Multi-select box"
+msgstr ""
+
+#: cherry-options.php:1216 cherry-options.php:1239
+msgid "Select box with multiple select capability."
+msgstr ""
+
+# @ textdomain
+#: cherry-options.php:1257 cherry-options.php:1702
+msgid "Checkbox"
+msgstr "Vinkbox"
+
+#: cherry-options.php:1258 cherry-options.php:1703
+msgid "Checkbox label"
+msgstr ""
+
+#: cherry-options.php:1262 cherry-options.php:1707
+msgid "Regular HTML checkbox."
+msgstr ""
+
+#: cherry-options.php:1272 cherry-options.php:1555
+msgid "Switcher"
+msgstr ""
+
+#: cherry-options.php:1275 cherry-options.php:1558
+msgid "Analogue of the regular HTML radio buttons. "
+msgstr ""
+
+#: cherry-options.php:1280
+msgid "Switcher (alternative)"
+msgstr ""
+
+#: cherry-options.php:1283
+msgid "Alternative switcher with custom labels."
+msgstr ""
+
+# @ su
+#: cherry-options.php:1286 cherry-options.php:1561
+msgid "Enabled"
+msgstr "Geactiveerd"
+
+# @ su
+#: cherry-options.php:1287 cherry-options.php:1562
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+#: cherry-options.php:1294
+msgid "Stepper"
+msgstr ""
+
+#: cherry-options.php:1297
+msgid "Adds a number input used to define numeric values."
+msgstr ""
+
+# @ su
+#: cherry-options.php:1306
+msgid "Slider"
+msgstr "Slider"
+
+#: cherry-options.php:1309
+msgid "Draggable slider with stepper. Used to define some numeric value."
+msgstr ""
+
+#: cherry-options.php:1316
+msgid "Slider (ranged)"
+msgstr ""
+
+#: cherry-options.php:1321
+msgid "Draggable slider with range capability. Used to define numeric range."
+msgstr ""
+
+#: cherry-options.php:1332
+msgid "Radio buttons"
+msgstr ""
+
+#: cherry-options.php:1335
+msgid "Adds radio buttons group. Lets user select one option from the list."
+msgstr ""
+
+#: cherry-options.php:1352 cherry-options.php:1635
+msgid "Radio buttons (image)"
+msgstr ""
+
+#: cherry-options.php:1356 cherry-options.php:1358 cherry-options.php:1639
+#: cherry-options.php:1641
+msgid "Adds image based radio buttons group. Behaves as HTML radio buttons."
+msgstr ""
+
+#: cherry-options.php:1379
+msgid "Colorpicker"
+msgstr ""
+
+#: cherry-options.php:1384
+msgid "Adds a color picker."
+msgstr ""
+
+#: cherry-options.php:1390
+msgid "Media library element"
+msgstr ""
+
+#: cherry-options.php:1395
+msgid "Allows user to add content from Wordpress media library."
+msgstr ""
+
+#: cherry-options.php:1403
+msgid "Background image"
+msgstr ""
+
+#: cherry-options.php:1408
+msgid ""
+"Allows user to add background image from the media library and define its "
+"background settings like background repeat, position, attachment, origin."
+msgstr ""
+
+#: cherry-options.php:1432
+msgid ""
+"Provides typography configuration options such as Google Font family name, "
+"font size, line height, style, letter spacing, characters sets, text align "
+"and color. Below options you can see font preview."
+msgstr ""
+
+#: cherry-options.php:1450
+msgid "CSS Editor"
+msgstr ""
+
+#: cherry-options.php:1455
+msgid "Embedded CSS editor with syntax highlighting."
+msgstr ""
+
+#: cherry-options.php:1461
+msgid "title layout editor"
+msgstr ""
+
+#: cherry-options.php:1463
+msgid "description layout editor"
+msgstr ""
+
+#: cherry-options.php:1504
+msgid "Links repeater"
+msgstr ""
+
+#: cherry-options.php:1509
+msgid ""
+"This option allows you to create a custom links list. For each link you can "
+"define URL, class and label."
+msgstr ""
+
+#: cherry-options.php:1531
+msgid "Webfont"
+msgstr ""
+
+#: cherry-options.php:1538
+msgid "WYSIWYG editor"
+msgstr ""
+
+#: cherry-options.php:1543
+msgid ""
+"Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page "
+"editing area."
+msgstr ""
+
+#: cherry-options.php:1665 cherry-options.php:1724
+msgid "Text input 1"
+msgstr ""
+
+#: cherry-options.php:1677 cherry-options.php:1735
+msgid "Text input 2"
+msgstr ""
+
+#: cherry-options.php:1689 cherry-options.php:1747
+msgid "Text input 3"
+msgstr ""
+
+#: cherry-options.php:1764
+msgid "General"
+msgstr ""
+
+#: cherry-options.php:1770
+msgid "Grid"
+msgstr ""
+
+#: cherry-options.php:1776
+msgid "Layouts"
+msgstr ""
+
+#: cherry-options.php:1784
+msgid "Blog"
+msgstr ""
+
+#: cherry-options.php:1790
+msgid "Post"
+msgstr ""
+
+#: cherry-options.php:1797
+msgid "Meta"
+msgstr ""
+
+#: cherry-options.php:1804
+msgid "Styling"
+msgstr ""
+
+#: cherry-options.php:1810
+msgid "Color scheme"
+msgstr ""
+
+# @ su
+#: cherry-options.php:1830
+msgid "Pagination"
+msgstr "Paginering"
+
+#: cherry-options.php:1843 cherry-options.php:1862
+#: init/statics/header-logo.php:35
+msgid "Logo"
+msgstr ""
+
+#: cherry-options.php:1850
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:197
+msgid "Page"
+msgstr ""
+
+#: cherry-options.php:1856 lib/admin/class-cherry-grid-type.php:57
+msgid "Footer"
+msgstr ""
+
+#: cherry-options.php:1875
+msgid "Optimization"
+msgstr ""
+
+#: cherry-options.php:1881
+msgid "Cookie Banner"
+msgstr ""
+
+#: cherry-options.php:1887
+msgid "Interface elements (for UI developers)"
+msgstr ""
+
+#: init/config/menus.php:22
+msgid "Primary"
+msgstr ""
+
+#: init/config/menus.php:23
+msgid "Secondary"
+msgstr ""
+
+#: init/config/sidebars.php:25
+msgid "Main Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:26
+msgid ""
+"This is the main sidebar if you are using a two or three column site layout "
+"option."
+msgstr ""
+
+#: init/config/sidebars.php:33
+msgid "Secondary Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:34
+msgid ""
+"This is the secondary sidebar if you are using a three column site layout "
+"option."
+msgstr ""
+
+#: init/config/sidebars.php:41 init/statics/header-sidebar.php:32
+msgid "Header Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:42
+msgid "A sidebar located in the header of the site."
+msgstr ""
+
+#: init/config/sidebars.php:49
+msgid "Footer Sidebar 1"
+msgstr ""
+
+#: init/config/sidebars.php:50 init/config/sidebars.php:58
+#: init/config/sidebars.php:66 init/config/sidebars.php:74
+msgid "A sidebar located in the footer of the site."
+msgstr ""
+
+#: init/config/sidebars.php:57
+msgid "Footer Sidebar 2"
+msgstr ""
+
+#: init/config/sidebars.php:65
+msgid "Footer Sidebar 3"
+msgstr ""
+
+#: init/config/sidebars.php:73
+msgid "Footer Sidebar 4"
+msgstr ""
+
+#: init/config/static-areas.php:24
+msgid "Header Top"
+msgstr ""
+
+#: init/config/static-areas.php:30
+msgid "Header Bottom"
+msgstr ""
+
+#: init/config/static-areas.php:36
+msgid "Showcase Area"
+msgstr ""
+
+#: init/config/static-areas.php:42
+msgid "Footer Top"
+msgstr ""
+
+#: init/config/static-areas.php:48
+msgid "Footer Bottom"
+msgstr ""
+
+#: init/statics/example.php:29
+msgid "Example"
+msgstr ""
+
+#: init/statics/footer-info.php:71
+msgid "Footer Info"
+msgstr ""
+
+#: init/statics/footer-logo.php:32
+msgid "Footer Logo"
+msgstr ""
+
+#: init/statics/footer-menu.php:31
+msgid "Footer Menu"
+msgstr ""
+
+#: init/statics/footer-sidebars.php:64
+msgid "Footer Sidebars"
+msgstr ""
+
+#: init/statics/header-menu.php:33
+msgid "Header Menu"
+msgstr ""
+
+#: init/statics/moto-slider.php:46
+msgid "Select MotoSlider to appear in header"
+msgstr ""
+
+#: init/statics/moto-slider.php:47
+msgid "Select main theme slider"
+msgstr ""
+
+#: init/statics/moto-slider.php:67
+msgid "No Moto Sliders was found "
+msgstr ""
+
+#: init/statics/moto-slider.php:85
+msgid "MotoPress Slider"
+msgstr ""
+
+#: init/statics/search-form.php:32
+msgid "Search Form"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:57
+msgid "Please, select a file to import"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:58 lib/admin/class-cherry-admin.php:79
+msgid "Invalid file type"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:59
+msgid "Cherry Options imported. "
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:60
+msgid "section restored."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:61
+msgid "All options restored"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:62
+msgid "options loaded."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:65
+msgid "Neither option is not selected"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:66
+msgid "File download started..."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:78
+msgid "Please, select import file"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:80
+msgid "Statics settings imported. "
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:81
+msgid "Statics restored"
+msgstr ""
+
+# @ su
+#: lib/admin/class-cherry-grid-type.php:53
+msgid "Content"
+msgstr "Inhoud"
+
+#: lib/admin/class-cherry-grid-type.php:92
+msgid "Grid Type"
+msgstr ""
+
+# @ su
+#: lib/admin/class-cherry-grid-type.php:239
+#: lib/admin/class-cherry-layouts.php:212
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:79
+msgid "Inherit"
+msgstr "Ge-erft"
+
+#: lib/admin/class-cherry-layouts.php:72
+msgid "Layout"
+msgstr ""
+
+# @ su
+#: lib/admin/class-cherry-post-style.php:69
+msgid "Style"
+msgstr "Stijl"
+
+#: lib/admin/class-cherry-post-style.php:118
+msgid "Header background"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:62
+msgid "No repeat"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:63
+msgid "Repeat All"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:64
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:65
+msgid "Repeat Vertically"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:68
+msgid "Top Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:69
+msgid "Top Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:70
+msgid "Top Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:71
+msgid "Middle Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:72
+msgid "Middle Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:73
+msgid "Middle Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:74
+msgid "Bottom Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:75
+msgid "Bottom Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:76
+msgid "Bottom Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:79
+#: lib/admin/ui-elements/ui-background/ui-background.php:84
+#: lib/admin/ui-elements/ui-background/ui-background.php:90
+#: lib/admin/ui-elements/ui-background/ui-background.php:96
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:78
+msgid "Not defined"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:80
+msgid "Scroll Normally"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:81
+msgid "Fixed in Place"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:85
+#: lib/admin/ui-elements/ui-background/ui-background.php:97
+msgid "Padding box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:86
+#: lib/admin/ui-elements/ui-background/ui-background.php:98
+msgid "Border box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:87
+#: lib/admin/ui-elements/ui-background/ui-background.php:99
+msgid "Content box"
+msgstr ""
+
+# @ su
+#: lib/admin/ui-elements/ui-background/ui-background.php:91
+msgid "Auto"
+msgstr "Automatisch"
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:92
+msgid "Cover"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:93
+msgid "Contain"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:126
+msgid "Background Settings"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:128
+msgid "Background Color"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:142
+#, php-format
+msgid "Background %s"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:89
+msgid "position"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:91
+msgid "margin"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:97
+msgid "border"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:103
+msgid "padding"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:109
+msgid "size"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:121
+msgid "solid"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:122
+msgid "dashed"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:123
+msgid "dotted"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:124
+msgid "double"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:125
+msgid "groove"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:126
+msgid "ridge"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:127
+msgid "inset"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:128
+msgid "outset"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:129
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:126
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:141
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:156
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:171
+msgid "none"
+msgstr ""
+
+# @ su
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:132
+msgid "Border style"
+msgstr "Rand stijl"
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:147
+msgid "Border radius"
+msgstr ""
+
+# @ su
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:159
+msgid "Border color"
+msgstr "Rand kleur"
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:73
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:91
+msgid "External link"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:76
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:94
+msgid "Font class"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:79
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:97
+msgid "Link label"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:127
+msgid "col-xs-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:128
+msgid "col-xs-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:129
+msgid "col-xs-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:130
+msgid "col-xs-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:131
+msgid "col-xs-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:132
+msgid "col-xs-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:133
+msgid "col-xs-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:134
+msgid "col-xs-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:135
+msgid "col-xs-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:136
+msgid "col-xs-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:137
+msgid "col-xs-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:138
+msgid "col-xs-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:142
+msgid "col-sm-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:143
+msgid "col-sm-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:144
+msgid "col-sm-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:145
+msgid "col-sm-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:146
+msgid "col-sm-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:147
+msgid "col-sm-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:148
+msgid "col-sm-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:149
+msgid "col-sm-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:150
+msgid "col-sm-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:151
+msgid "col-sm-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:152
+msgid "col-sm-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:153
+msgid "col-sm-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:157
+msgid "col-md-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:158
+msgid "col-md-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:159
+msgid "col-md-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:160
+msgid "col-md-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:161
+msgid "col-md-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:162
+msgid "col-md-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:163
+msgid "col-md-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:164
+msgid "col-md-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:165
+msgid "col-md-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:166
+msgid "col-md-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:167
+msgid "col-md-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:168
+msgid "col-md-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:172
+msgid "col-lg-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:173
+msgid "col-lg-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:174
+msgid "col-lg-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:175
+msgid "col-lg-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:176
+msgid "col-lg-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:177
+msgid "col-lg-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:178
+msgid "col-lg-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:179
+msgid "col-lg-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:180
+msgid "col-lg-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:181
+msgid "col-lg-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:182
+msgid "col-lg-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:183
+msgid "col-lg-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:186
+msgid "Show"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:187
+msgid "Hide"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:190
+msgid "-- Select --"
+msgstr ""
+
+# @ su
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:191
+msgid "Category"
+msgstr "Categorie"
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:192
+#: lib/classes/class-cherry-statics-page.php:242
+msgid "Logged in"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:194
+msgid "Role"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:195
+msgid "Tag"
+msgstr ""
+
+# @ su
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:198
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:212
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:379
+msgid ".col-xs-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:225
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:392
+msgid ".col-sm-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:238
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:405
+msgid ".col-md-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:251
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:418
+msgid ".col-lg-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:264
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:431
+msgid "Custom class"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:278
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:445
+msgid "Conditions"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:289
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:456
+msgid "if"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:305
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:336
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:472
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:503
+msgid "is"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:356
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:523
+msgid "Add rule"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:371
+msgid "Available statics"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:544
+#: lib/classes/class-cherry-statics-page.php:232
+msgid "All category pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:554
+msgid "Logged In"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:555
+msgid "Logged Out"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:560
+#: lib/classes/class-cherry-statics-page.php:246
+msgid "All author pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:576
+#: lib/classes/class-cherry-statics-page.php:258
+msgid "All tag pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:586
+#: lib/classes/class-cherry-statics-page.php:268
+msgid "All date archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:587
+#: lib/classes/class-cherry-statics-page.php:269
+msgid "Daily archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:588
+#: lib/classes/class-cherry-statics-page.php:270
+msgid "Monthly archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:589
+#: lib/classes/class-cherry-statics-page.php:271
+msgid "Yearly archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:594
+#: lib/classes/class-cherry-statics-page.php:275
+msgid "Front page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:595
+#: lib/classes/class-cherry-statics-page.php:276
+msgid "Posts page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:596
+#: lib/classes/class-cherry-statics-page.php:277
+msgid "Archive page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:597
+#: lib/classes/class-cherry-statics-page.php:278
+msgid "404 error page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:598
+#: lib/classes/class-cherry-statics-page.php:279
+msgid "Search results"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:601
+#: lib/classes/class-cherry-statics-page.php:281
+msgid "Post type:"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:608
+#: lib/classes/class-cherry-statics-page.php:288
+msgid "Static page:"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:617
+#: lib/classes/class-cherry-statics-page.php:296
+msgid "All taxonomy pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:623
+#: lib/classes/class-cherry-statics-page.php:301
+msgid ":"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
+msgid "Step Up"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
+msgid "Step Down"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:83
+msgid "Justify"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:97
+msgid "Font Family"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:100
+msgid "Standard Webfonts"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:126
+msgid "Google Webfonts"
+msgstr ""
+
+# @ su
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:180
+msgid "Size"
+msgstr "Grootte"
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:197
+msgid "Line-height"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:213
+msgid "Letter-spacing"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:229
+msgid "Font color"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:242
+msgid "Text align"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:311
+#: lib/admin/ui-elements/ui-webfont/ui-webfont.php:165
+msgid "Font Style"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:360
+#: lib/admin/ui-elements/ui-webfont/ui-webfont.php:212
+msgid "Character Sets"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:276
+msgid "Browse:"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:278
+msgid "404 Not Found"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:279
+msgid "Archives"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:281
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:283
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:285
+#, php-format
+msgid "Minute %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:287
+#, php-format
+msgid "Week %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:911
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:930
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:950
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:969
+#: lib/classes/class-cherry-breadcrumbs.php:1023
+#: lib/classes/class-cherry-breadcrumbs.php:1065
+#: lib/classes/class-cherry-breadcrumbs.php:1105
+#: lib/classes/class-cherry-breadcrumbs.php:1312
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:974
+#: lib/classes/class-cherry-breadcrumbs.php:1069
+#: lib/classes/class-cherry-breadcrumbs.php:1323
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:979
+#: lib/classes/class-cherry-breadcrumbs.php:1336
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:1027
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
+#: lib/classes/class-cherry-css-parser.php:188
+msgid "Variable not found"
+msgstr ""
+
+#: lib/classes/class-cherry-css-parser.php:231
+msgid "Function does not exist"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:132
+msgid "Choose Media"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:133
+msgid "Remove Media"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:144
+msgid "On"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:145
+msgid "Off"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:475
+msgid "Use for partial export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:125
+#: lib/classes/class-cherry-optionsframework-admin.php:157
+#, php-format
+msgid "Theme %s"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:126
+msgid "Cherry"
+msgstr ""
+
+# @ su
+#: lib/classes/class-cherry-optionsframework-admin.php:136
+#: lib/classes/class-cherry-statics-page.php:101
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: lib/classes/class-cherry-optionsframework-admin.php:136
+#: lib/classes/class-cherry-statics-page.php:101
+msgid "Cherry Framework 4 documentation"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:150
+msgid "Feel free to view detailed "
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:158
+msgid "Options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:205
+#: lib/classes/class-cherry-optionsframework-admin.php:209
+#: lib/classes/class-cherry-optionsframework-admin.php:253
+#: lib/classes/class-cherry-optionsframework-admin.php:278
+#: lib/classes/class-cherry-statics-page.php:329
+#: lib/classes/class-cherry-statics-page.php:333
+msgid "Invalid request"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:205
+#: lib/classes/class-cherry-optionsframework-admin.php:209
+#: lib/classes/class-cherry-optionsframework-admin.php:253
+#: lib/classes/class-cherry-optionsframework-admin.php:278
+#: lib/classes/class-cherry-statics-page.php:329
+#: lib/classes/class-cherry-statics-page.php:333
+msgid "Error. Invalid request"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:438
+msgid "Options have been saved"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:494
+msgid "Default options backup has been created"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:499
+msgid "Default options backup has been overwrite"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:659
+msgid "Export/Import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:664
+msgid "Default options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:671
+msgid "Save options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:677
+msgid "Restore section"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:682
+msgid "Restore options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:689
+#: lib/classes/class-cherry-optionsframework-admin.php:690
+msgid "Export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:692
+msgid "Partial export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:700
+msgid "Attach statics settings"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:709
+msgid "Import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:713
+msgid "Select file"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:714
+msgid "Start import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:719
+#: lib/classes/class-cherry-optionsframework-admin.php:723
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:721
+msgid "Current options will be reset to the defaults, page will be refreshed."
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:725
+msgid "Active section will be reset to the defaults, page will be refreshed."
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:93
+#: lib/classes/class-cherry-statics-page.php:94
+msgid "Static Area Builder"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:100
+msgid "Feel free to view details "
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:104
+msgid ""
+"Use static area builder to arrange static blocks. You can drag-n-drop static "
+"blocks to arrange them or add new ones."
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:142
+msgid "Statics have been saved"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:186
+msgid "Default statics backup has been created"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:191
+msgid "Default statics backup has been overwritten"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:243
+msgid "Logged out"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:495
+msgid "Save statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:501
+msgid "Restore statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:506
+msgid "Export statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:511
+msgid "Default statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics.php:95
+#, php-format
+msgid "Static Area %d"
+msgstr ""
+
+#: lib/classes/class-cherry-statics.php:158
+#, php-format
+msgid "Static %d"
+msgstr ""
+
+#: lib/functions/core.php:156
+#, php-format
+msgid "File %s doesn't exist"
+msgstr ""
+
+#: lib/functions/core.php:157
+msgid "Doing it wrong"
+msgstr ""
+
+# @ su
+#: lib/functions/filters.php:491
+msgid "Menu"
+msgstr "Menu"
+
+#: lib/functions/media.php:41
+msgid "Post Thumbnail"
+msgstr ""
+
+#: lib/functions/media.php:63
+msgid "File Size"
+msgstr ""
+
+#: lib/functions/media.php:64
+msgid "Mime Type"
+msgstr ""
+
+#: lib/functions/media.php:65
+msgid "Run Time"
+msgstr ""
+
+#: lib/functions/media.php:70
+msgid "Genre"
+msgstr ""
+
+#: lib/functions/media.php:71
+msgid "Year"
+msgstr ""
+
+#: lib/functions/structure.php:179
+#, php-format
+msgid "%s Info"
+msgstr ""
+
+#: lib/functions/template-comments.php:65
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: lib/functions/template-comments.php:66
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: lib/functions/template-comments.php:164
+msgid "Edit"
+msgstr ""
+
+#: lib/functions/template-general.php:105
+#: lib/functions/template-general.php:110
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: lib/functions/template-general.php:106
+#: lib/functions/template-general.php:111
+msgid "WordPress"
+msgstr ""
+
+#: lib/functions/template-general.php:142
+#, php-format
+msgid "%s WordPress Theme"
+msgstr ""
+
+#: lib/functions/template-media.php:110
+#, php-format
+msgid "%1$s &#215; %2$s"
+msgstr ""
+
+#: lib/functions/template-media.php:110 lib/functions/template-media.php:135
+msgid "Dimensions"
+msgstr ""
+
+#: lib/functions/template-media.php:134
+#, php-format
+msgid "%1$s &times; %2$s"
+msgstr ""
+
+#: lib/functions/template-media.php:146
+msgid "Camera"
+msgstr ""
+
+#: lib/functions/template-media.php:151
+msgid "Aperture"
+msgstr ""
+
+#: lib/functions/template-media.php:158
+#, php-format
+msgid "%s mm"
+msgstr ""
+
+#: lib/functions/template-media.php:158
+msgid "Focal Length"
+msgstr ""
+
+#: lib/functions/template-media.php:165
+msgid "International Organization for Standardization"
+msgstr ""
+
+#: lib/functions/template-media.php:165
+msgid "ISO"
+msgstr ""
+
+#: lib/functions/template-tags.php:376
+msgid "Related Posts"
+msgstr ""
+
+#: templates/comments.php:23
+#, php-format
+msgid "Comment"
+msgid_plural "Comments (%s)"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/comments.php:40
+msgid "Comments are closed."
+msgstr ""
+
+#: templates/none.php:5
+msgid "Nothing Found"
+msgstr ""
+
+#: templates/none.php:12
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: templates/none.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: templates/none.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+# @ su
+#~ msgid "Title"
+#~ msgstr "Titel"
+
+# @ su
+#~ msgid "Image"
+#~ msgstr "Image"
+
+# @ su
+#~ msgid "Button"
+#~ msgstr "Drukknop"
+
+# @ su
+#~ msgid "Permalink"
+#~ msgstr "Permalink"
+
+# @ su
+#~ msgid "Template"
+#~ msgstr "Template"
+
+# @ su
+#~ msgid "Preview"
+#~ msgstr "Voorbeeld"
+
+# @ su
+#~ msgid "Posts not found"
+#~ msgstr "Bericht niet gevonden"
+
+# @ su
+#~ msgid "Order"
+#~ msgstr "Volgorde"
+
+# @ su
+#~ msgid "Order by"
+#~ msgstr "Sorteer op"
+
+# @ su
+#~ msgid "List"
+#~ msgstr "Lijst"
+
+# @ su
+#~ msgid "Posts per page"
+#~ msgstr "Berichten per pagina"
+
+# @ su
+#~ msgid ""
+#~ "Specify number of posts that you want to show. Enter -1 to get all posts"
+#~ msgstr ""
+#~ "Geeft het aantal berichten op die u wilt tonen. 1 voor alle berichten"
+
+# @ su
+#~ msgid "Class"
+#~ msgstr "Klasse"
+
+# @ su
+#~ msgid "Extra CSS class"
+#~ msgstr "Extra CSS klasse"
+
+# @ textdomain
+#~ msgid "Saving"
+#~ msgstr "Bewaren"
+
+# @ su
+#~ msgid "Settings"
+#~ msgstr "Instellingen"
+
+# @ su
+#~ msgid "Media"
+#~ msgstr "Media"
+
+# @ textdomain
+#~ msgid "Saved"
+#~ msgstr "Bewaard"
+
+# @ su
+#~ msgid "Vertical"
+#~ msgstr "Vertikaal"
+
+# @ su
+#~ msgid "Width"
+#~ msgstr "Breedte"
+
+# @ su
+#~ msgid "or"
+#~ msgstr "of"
+
+# @ su
+#~ msgid "Height"
+#~ msgstr "Hoogte"
+
+# @ su
+# @ textdomain
+#~ msgid "Label"
+#~ msgstr "Label"
+
+# @ su
+#~ msgid "Icon"
+#~ msgstr "Icon"
+
+# @ su
+#~ msgid "All"
+#~ msgstr "Alles"
+
+# @ su
+#~ msgid "Limit"
+#~ msgstr "Limiet"
+
+# @ su
+#~ msgid "Descending"
+#~ msgstr "Oplopend"
+
+# @ su
+#~ msgid "Ascending"
+#~ msgstr "Aflopend"
+
+# @ su
+#~ msgid "Posts order"
+#~ msgstr "Volgorde berichten"
+
+# @ su
+#~ msgid "Post ID"
+#~ msgstr "ID bericht"
+
+# @ su
+#~ msgid "Post author"
+#~ msgstr "Auteur bericht"
+
+# @ su
+#~ msgid "Post title"
+#~ msgstr "Bericht titel"
+
+# @ su
+#~ msgid "Post slug"
+#~ msgstr "Slug van het bericht"
+
+# @ su
+#~ msgid "Last modified date"
+#~ msgstr "Datum laatste wijziging"
+
+# @ su
+#~ msgid "Random"
+#~ msgstr "Willekeurig"
+
+# @ su
+#~ msgid "Comments number"
+#~ msgstr "Aantal commentaar"
+
+# @ su
+#~ msgid "Order posts by"
+#~ msgstr "Sorteer berichten op"
+
+# @ su
+# @ textdomain
+#~ msgid "Choose file"
+#~ msgstr "Kies bestand"
+
+# @ su
+#~ msgid "Insert"
+#~ msgstr "Voeg in"
+
+# @ su
+#~ msgid "Select images"
+#~ msgstr "Selecteer images"
+
+# @ su
+#~ msgid "Add selected images"
+#~ msgstr "Voeg geselecteerde images toe"
+
+#~ msgid "Please enter a name for new preset"
+#~ msgstr "Geef een naam op voor de nieuwe preset"
+
+# @ su
+#~ msgid "New preset"
+#~ msgstr "Nieuwe voorinstelling"
+
+# @ su
+#~ msgid "Other"
+#~ msgstr "Andere"
+
+# @ su
+#~ msgid "Solid"
+#~ msgstr "Solide"
+
+# @ su
+#~ msgid "Dotted"
+#~ msgstr "Gestippeld"
+
+# @ su
+#~ msgid "Dashed"
+#~ msgstr "Onderbroken"
+
+# @ su
+#~ msgid "Double"
+#~ msgstr "Dubbel"
+
+# @ su
+#~ msgid "Groove"
+#~ msgstr "Groove"
+
+# @ su
+#~ msgid "Ridge"
+#~ msgstr "Rand"
+
+# @ su
+#~ msgid "Row"
+#~ msgstr "Rij"
+
+# @ su
+#~ msgid "Type"
+#~ msgstr "Soort"
+
+# @ su
+#~ msgid "Anchor"
+#~ msgstr "Anker"
+
+# @ su
+#~ msgid "Row for flexible columns"
+#~ msgstr "Rij met flexibele kolommen"
+
+# @ su
+#~ msgid "Column"
+#~ msgstr "Kolom"
+
+# @ su
+#~ msgid "Offset"
+#~ msgstr "Offset"
+
+# @ su
+#~ msgid "Column content"
+#~ msgstr "Inhoud kolom"
+
+# @ su
+#~ msgid "Flexible and responsive columns"
+#~ msgstr "Flexibele en mee-bewegende kolomen"
+
+# @ su
+#~ msgid "Spacer"
+#~ msgstr "Spacer"
+
+# @ su
+#~ msgid "You can upload custom icon for this button or pick a built-in icon"
+#~ msgstr ""
+#~ "U kunt een eigen icon uploaden voor deze knop of een ingebouwde knop "
+#~ "kiezen"
+
+# @ su
+#~ msgid "Icon size"
+#~ msgstr "Icon grootte"
+
+# @ su
+#~ msgid "Box"
+#~ msgstr "Kader"
+
+# @ su
+#~ msgid "Text color"
+#~ msgstr "Tekst kleur"
+
+# @ su
+#~ msgid "Title text color"
+#~ msgstr "Kleur van de titel-tekst"
+
+# @ su
+#~ msgid "Dropcap"
+#~ msgstr "Dropcap"
+
+# @ su
+#~ msgid "Align"
+#~ msgstr "Uitlijnen"
+
+# @ su
+#~ msgid "Button text"
+#~ msgstr "Tekst drukknop"
+
+# @ su
+#~ msgid "Link"
+#~ msgstr "Link"
+
+# @ su
+#~ msgid "Button link"
+#~ msgstr "Link drukknop"
+
+# @ su
+#~ msgid "Default"
+#~ msgstr "Standaard"
+
+# @ su
+#~ msgid "Success"
+#~ msgstr "Succes"
+
+# @ su
+#~ msgid "Info"
+#~ msgstr "Informatie"
+
+# @ su
+#~ msgid "Warning"
+#~ msgstr "Waarschuwing"
+
+# @ su
+#~ msgid "Inline"
+#~ msgstr "Inline"
+
+# @ su
+#~ msgid "Centered"
+#~ msgstr "Gecentreerd"
+
+# @ su
+#~ msgid "Is button centered on the page"
+#~ msgstr "Is de drukknop op de pagina gecentreerd?"
+
+# @ su
+#~ msgid "Fluid"
+#~ msgstr "Vloeiend"
+
+# @ su
+#~ msgid "Top"
+#~ msgstr "Boven"
+
+# @ su
+#~ msgid "Bottom"
+#~ msgstr "Onder"
+
+# @ su
+#~ msgid "Description"
+#~ msgstr "Omschrijving"
+
+# @ su
+#~ msgid "Button background color"
+#~ msgstr "Achtergrond kleur drukknop"
+
+# @ su
+#~ msgid "Button text color"
+#~ msgstr "Tekst kleur drukknop"
+
+# @ su
+#~ msgid "Same tab"
+#~ msgstr "Dezelfde tab"
+
+# @ su
+#~ msgid "New tab"
+#~ msgstr "Nieuwe tab"
+
+# @ su
+#~ msgid "Target"
+#~ msgstr "Doel"
+
+# @ su
+#~ msgid "Button link target"
+#~ msgstr "Doel van de drukknop-link"
+
+# @ su
+#~ msgid "Styled button"
+#~ msgstr "Gestijlde drukknop"
+
+# @ su
+#~ msgid "Post types"
+#~ msgstr "Bericht typen"
+
+# @ su
+#~ msgid "Select post types. Hold Ctrl key to select multiple post types"
+#~ msgstr ""
+#~ "Selecteer bericht-type. Houd Ctrl-toets ingedrukt om meerdere typen te "
+#~ "selecteren"
+
+# @ su
+#~ msgid "Select taxonomy to show posts from"
+#~ msgstr "Selecteer taxonomie voor te tonen berichten"
+
+# @ su
+#~ msgid "Terms"
+#~ msgstr "Termen"
+
+# @ su
+#~ msgid "Select terms to show posts from"
+#~ msgstr "Selecteer de termen waarvan u de berichten wilt zien"
+
+# @ su
+#~ msgid "Taxonomy term operator"
+#~ msgstr "Taxonomie termen operator"
+
+# @ su
+#~ msgid "Authors"
+#~ msgstr "Auteurs"
+
+# @ su
+#~ msgid "Specify offset to start posts loop not from first post"
+#~ msgstr ""
+#~ "Specificeer waar u de loop wilt starten als dit niet het eerste bericht "
+#~ "is "
+
+# @ su
+#~ msgid "Post parent"
+#~ msgstr "Bericht-ouder"
+
+# @ su
+#~ msgid "Menu order"
+#~ msgstr "Volgorde menu"
+
+# @ su
+#~ msgid "Published"
+#~ msgstr "Gepubliceerd"
+
+# @ su
+#~ msgid "Pending"
+#~ msgstr "Afwachtend"
+
+# @ su
+#~ msgid "Draft"
+#~ msgstr "Concept"
+
+# @ su
+#~ msgid "Auto-draft"
+#~ msgstr "Auto-concept"
+
+# @ su
+#~ msgid "Future post"
+#~ msgstr "Toekomstige berichten"
+
+# @ su
+#~ msgid "Private post"
+#~ msgstr "Privé bericht"
+
+# @ su
+#~ msgid "Trashed"
+#~ msgstr "Weggegooid"
+
+# @ su
+#~ msgid "Any"
+#~ msgstr "Elke"
+
+# @ su
+#~ msgid "Post status"
+#~ msgstr "Status bericht"
+
+# @ su
+#~ msgid "Show only posts with selected status"
+#~ msgstr "Toon enkel berichten met de geselecteerde status"
+
+# @ su
+#~ msgid "Ignore sticky"
+#~ msgstr "Negeer sticky-status"
+
+# @ su
+#~ msgid "Posts"
+#~ msgstr "Berichten"
+
+# @ su
+#~ msgid "Post ID's"
+#~ msgstr "ID's berichten"
+
+# @ su
+#~ msgid "Enter comma separated ID's of the posts that you want to show"
+#~ msgstr ""
+#~ "Geef de ID's (komma-gescheiden) van de berichten op die u wilt tonen."
+
+# @ su
+#~ msgid "Custom posts query with customizable template"
+#~ msgstr "Aangepaste berichten opvragen met een aanpasbaar template"
+
+# @ su
+#~ msgid "Tabs"
+#~ msgstr "Tabs"
+
+# @ su
+#~ msgid "Simple"
+#~ msgstr "Simpel"
+
+# @ su
+#~ msgid "Active tab"
+#~ msgstr "Actieve tab"
+
+# @ su
+#~ msgid "Select which tab is open by default"
+#~ msgstr "Selecteer de standaard open tab"
+
+# @ su
+#~ msgid "Show tabs vertically"
+#~ msgstr "Toon de tabs vertikaal"
+
+# @ su
+#~ msgid ""
+#~ "[%prefix_tab title=\"Title 1\"]Content 1[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 2\"]Content 2[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 3\"]Content 3[/%prefix_tab]"
+#~ msgstr ""
+#~ "[%prefix_tab title=\"Title 1\"]Content 1[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 2\"]Content 2[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 3\"]Content 3[/%prefix_tab]"
+
+# @ su
+#~ msgid "Tabs container"
+#~ msgstr "Tabs container"
+
+# @ su
+#~ msgid "Tab"
+#~ msgstr "Tab"
+
+# @ su
+#~ msgid "Tab name"
+#~ msgstr "Tab naam"
+
+# @ su
+#~ msgid "Enter tab name"
+#~ msgstr "Geef tab-naam op"
+
+# @ su
+#~ msgid "Is this tab disabled"
+#~ msgstr "Is deze tab uitgeschakeld?"
+
+# @ su
+#~ msgid ""
+#~ "You can use unique anchor for this tab to access it with hash in page "
+#~ "url. For example: type here <b%value>Hello</b> and then use url like "
+#~ "http://example.com/page-url#Hello. This tab will be activated and "
+#~ "scrolled in"
+#~ msgstr ""
+#~ "U kunt een uniek anker voor deze tab gebruiken om het met een # in de "
+#~ "pagina URL te bereiken. Bij voorbeeld: geef in <b%value>Hallo</b> en "
+#~ "gebruik dan een URL zoals http://voorbeeld.com/pagina-url#Hallo. De tab "
+#~ "zal worden geactiveerd en de inhoud toont de betreffende plek in het "
+#~ "document."
+
+# @ su
+#~ msgid "Tab content"
+#~ msgstr "Tab inhoud"
+
+# @ su
+#~ msgid "Single tab"
+#~ msgstr "Enkele tab"
+
+# @ su
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+# @ su
+#~ msgid "Spoiler title"
+#~ msgstr "Spoiler titel"
+
+# @ su
+#~ msgid "Text in spoiler title"
+#~ msgstr "Spoiler titel-tekst"
+
+# @ su
+#~ msgid "Open"
+#~ msgstr "Open"
+
+# @ su
+#~ msgid "Is spoiler content visible by default"
+#~ msgstr "Is de spoiler inhoud standaard zichtbaar?"
+
+# @ su
+#~ msgid "Choose style for this spoiler"
+#~ msgstr "Kies de stijl voor deze spoiler"
+
+# @ su
+#~ msgid "Hidden content"
+#~ msgstr "Verborgen inhoud"
+
+# @ su
+#~ msgid "Spoiler with hidden content"
+#~ msgstr "Spoiler met verborgen inhoud"
+
+# @ su
+#~ msgid "Accordion"
+#~ msgstr "Accordion"
+
+# @ su
+#~ msgid "Accordion with spoilers"
+#~ msgstr "Accordion met spoilers"
+
+# @ su
+#~ msgid "Map height"
+#~ msgstr "Kaart hoogte"
+
+# @ su
+#~ msgid "Poster"
+#~ msgstr "Aanbieder"
+
+# @ su
+#~ msgid "Controls"
+#~ msgstr "Besturing"
+
+# @ su
+# @ textdomain
+#~ msgid "Media manager"
+#~ msgstr "Media beheer"
+
+# @ su
+#~ msgid "Icon picker"
+#~ msgstr "Icon kiezer"
+
+# @ su
+#~ msgid "Filter icons"
+#~ msgstr "Filter Icons"
+
+# @ su
+#~ msgid "Please wait"
+#~ msgstr "Even wachten"
+
+# @ su
+#~ msgid "Untitled gallery"
+#~ msgstr "Gallerie zonder naam"
+
+# @ su
+#~ msgid "Galleries not found"
+#~ msgstr "Gallerij niet gevonden"
+
+# @ su
+#~ msgid "Manage galleries"
+#~ msgstr "Onderhoud gallerijen"
+
+# @ su
+#~ msgid "Reload galleries"
+#~ msgstr "Herlaad gallerijen"
+
+# @ su
+#~ msgid "Horizontal offset"
+#~ msgstr "Horizontale offset"
+
+# @ su
+#~ msgid "Vertical offset"
+#~ msgstr "Vertikale offset"
+
+# @ su
+#~ msgid "Blur"
+#~ msgstr "Vervaging"
+
+# @ su
+#~ msgid "Color"
+#~ msgstr "Kleur"
+
+# @ su
+#~ msgid "Border width"
+#~ msgstr "Rand breedte"
+
+# @ su
+#~ msgid "Media library"
+#~ msgstr "Media bibliotheek"
+
+# @ su
+#~ msgid "Recent posts"
+#~ msgstr "Recente berichten"
+
+# @ su
+#~ msgid "Select images source"
+#~ msgstr "Selecteer image bron"
+
+# @ su
+#~ msgid "Select taxonomy"
+#~ msgstr "Selecteer taxonomy"
+
+# @ su
+#~ msgid "Add images"
+#~ msgstr "Voeg images toe"
+
+# @ su
+#~ msgid ""
+#~ "Click the button above and select images.<br>You can select multimple "
+#~ "images with Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Klik op de button hierboven en selecteer de images.<br/>U kunt meerdere "
+#~ "images kiezen met Ctrl (Cmd)"
+
+# @ su
+#~ msgid ""
+#~ "Select categories to retrieve posts from.<br>You can select multiple "
+#~ "categories with Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Selecteer een categorie voor het tonen van berichten.<br/>Selecteer "
+#~ "meerdere categorieën met de Ctrl (Cmd) toets "
+
+# @ su
+#~ msgid ""
+#~ "Select taxonomy and it's terms.<br>You can select multiple terms with "
+#~ "Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Selecteer taxonomie en de termen.<br/>Selecteer meerdere termen met de "
+#~ "Ctrl (Cmd) toets"
+
+# @ su
+#~ msgid "Insert shortcode"
+#~ msgstr "Voeg shortcode in"
+
+# @ su
+#~ msgid "Search for shortcodes"
+#~ msgstr "Zoek naar een shortcode"
+
+# @ su
+#~ msgid "Filter by type"
+#~ msgstr "Filter op type"
+
+# @ su
+#~ msgid "Shortcode not specified"
+#~ msgstr "Shortcode niet gespecificeerd"
+
+# @ su
+#~ msgid "Live preview"
+#~ msgstr "Toon shortcode in actie"
+
+# @ su
+#~ msgid "Click to return to the shortcodes list"
+#~ msgstr "Klik om terug te keren naar de shortcode-lijst"
+
+# @ su
+#~ msgid "All shortcodes"
+#~ msgstr "Alle shortcodes"
+
+# @ su
+#~ msgid "Click to set this value"
+#~ msgstr "Klik om deze waarde in te stellen"
+
+# @ su
+#~ msgid "Access denied"
+#~ msgstr "Toegang geweigerd"
+
+#~ msgid "Presets"
+#~ msgstr "Voorinstellingen"
+
+#~ msgid "Save current settings as preset"
+#~ msgstr "Bewaar huidige instellingen als voorinstelling"
+
+# @ su
+#~ msgid "Presets not found"
+#~ msgstr "Voorinstellingen niet gevonden"
+
+# @ su
+#~ msgid "Tab title"
+#~ msgstr "Tab titel"
+
+# @ textdomain
+#~ msgid "Plugin Settings"
+#~ msgstr "Plugin instellingen"
+
+# @ textdomain
+#~ msgid "Use selected file"
+#~ msgstr "Gebruik geselecteerd bestand"
+
+# @ textdomain
+#~ msgid "Save changes"
+#~ msgstr "Bewaar veranderingen"
+
+# @ textdomain
+#~ msgid ""
+#~ "This action will delete all your settings. Are you sure? This action "
+#~ "cannot be undone!"
+#~ msgstr ""
+#~ "Deze actie verwijdert al uw instellingen. Weet u het zeker? Deze actie is "
+#~ "onherroepelijk!"
+
+# @ textdomain
+#~ msgid "Restore default settings"
+#~ msgstr "herstel standaard instellingen"
+
+# @ textdomain
+#~ msgid "Text field"
+#~ msgstr "Tekst veld"
+
+# @ textdomain
+#~ msgid "Textarea field"
+#~ msgstr "Tekstgebied veld"
+
+# @ textdomain
+#~ msgid "Color picker"
+#~ msgstr "Kleuren kiezer"
+
+# @ textdomain
+#~ msgid "Pick a color"
+#~ msgstr "Kies een kleur"
+
+# @ textdomain
+#~ msgid ""
+#~ "For full functionality of this page it is reccomended to enable "
+#~ "javascript."
+#~ msgstr ""
+#~ "Voor de volledige functionaliteit van deze pagina is het aangeraden "
+#~ "javascript aan te zetten."
+
+# @ textdomain
+#~ msgid "Settings saved successfully"
+#~ msgstr "Instellingen succesvol bewaard"
+
+# @ textdomain
+#~ msgid "Settings reseted successfully"
+#~ msgstr "Instellingen succesvol hersteld"
+
+# @ textdomain
+#~ msgid "option type %s is not callable"
+#~ msgstr "optie type %s is niet aanroepbaar"
+
+# @ su
+#~ msgid "Title:"
+#~ msgstr "Titel:"
+
+# @ su
+#~ msgid "Square"
+#~ msgstr "Rechthoek"
+
+# @ su
+#~ msgid "Rounded corners"
+#~ msgstr "Ronde hoeken"
+
+# @ su
+#~ msgid ""
+#~ "IN - posts that have any of selected categories terms<br/>NOT IN - posts "
+#~ "that is does not have any of selected terms<br/>AND - posts that have all "
+#~ "selected terms"
+#~ msgstr ""
+#~ "IN - berichten die een van de geselecteerde categorieën bevatten<br/>NOT "
+#~ "IN - berichten die geen van de geselecteerde categorieën bevatten<br/>AND "
+#~ "- berichten die alle geselecteerde categorieën bevatten."
+
+# @ su
+#~ msgid "Show childrens of entered post (enter post ID)"
+#~ msgstr "Toon subpagina's van het opgegeven bericht (geef bericht-ID)"
+
+# @ su
+#~ msgid "Select Yes to ignore posts that is sticked"
+#~ msgstr "Selecteer Ja om sticky berichten te negeren"
+
+# @ su
+#~ msgid "Choose style for this tabs"
+#~ msgstr "Kies de stijl voor deze tabs"
+
+# @ su
+#~ msgid ""
+#~ "You can use unique anchor for this spoiler to access it with hash in page "
+#~ "url. For example: type here <b%value>Hello</b> and then use url like "
+#~ "http://example.com/page-url#Hello. This spoiler will be open and scrolled "
+#~ "in"
+#~ msgstr ""
+#~ "U kunt een uniek anker voor deze spoiler gebruiken om het met een # in de "
+#~ "pagina URL te bereiken. Bij voorbeeld: geef in <b%value>Hallo</b> en "
+#~ "gebruik dan een URL zoals http://voorbeeld.com/pagina-url#Hallo. De "
+#~ "spoiler zal worden geactiveerd en de inhoud toont de betreffende plek in "
+#~ "het document."
+
+# @ su
+#~ msgid "Welcome to Shortcodes Ultimate"
+#~ msgstr "Welkom bij Shortcodes Ultimate"
+
+# @ su
+#~ msgid "A real swiss army knife for WordPress"
+#~ msgstr "Een echt Switsers mes voor WordPress"
+
+# @ su
+#~ msgid "Project homepage"
+#~ msgstr "Project home pagina"
+
+# @ su
+#~ msgid "Support forum"
+#~ msgstr "Ondersteuning (Forum)"
+
+# @ su
+#~ msgid "Changelog"
+#~ msgstr "Logbestand veranderingen"
+
+# @ su
+#~ msgid "Fork on GitHub"
+#~ msgstr "Vork op GitHub"
+
+# @ su
+#~ msgid "Plugin features"
+#~ msgstr "Plugin mogelijkheden"
+
+# @ su
+#~ msgid "40+ amazing shortcodes"
+#~ msgstr "40+ verbazinwekkende shortcodes"
+
+# @ su
+#~ msgid "Power of CSS3 transitions"
+#~ msgstr "Kracht van CSS3 overgangen"
+
+# @ su
+#~ msgid "Handy shortcodes generator"
+#~ msgstr "Handige shortcodes generator"
+
+# @ su
+#~ msgid "International"
+#~ msgstr "Internationaal"
+
+# @ su
+#~ msgid "Documented API"
+#~ msgstr "Documentatie API"
+
+# @ su
+#~ msgid "What is a shortcode?"
+#~ msgstr "Wat is een shortcode?"
+
+# @ su
+#~ msgid ""
+#~ "<strong>Shortcode</strong> is a WordPress-specific code that lets you do "
+#~ "nifty things with very little effort."
+#~ msgstr ""
+#~ "<strong>Shortcode</strong> is een WordPress-specifieke code die u leuke "
+#~ "dingen laat doen met weinig moeite."
+
+# @ su
+#~ msgid ""
+#~ "Shortcodes can embed files or create objects that would normally require "
+#~ "lots of complicated, ugly code in just one line. Shortcode = shortcut."
+#~ msgstr ""
+#~ "Shortcodes kunnen bestanden bevatten of obejecten maken, die normaal veel "
+#~ "en complexe code nodig maken. Shortcode=de kortste route"
+
+# @ su
+#~ msgid "How does it works"
+#~ msgstr "Hoe werkt het"
+
+# @ su
+#~ msgid "More videos"
+#~ msgstr "Meer video's"
+
+# @ su
+#~ msgid "Shortcodes Ultimate Tutorial"
+#~ msgstr "Shortcodes Ultimate Handleiding"
+
+# @ su
+#~ msgid "How to use special widget"
+#~ msgstr "Hoe gebruikt u een speciale widget"
+
+# @ su
+#~ msgid "How to create Carousel"
+#~ msgstr "Hoe maakt u een Caroussel "
+
+# @ su
+#~ msgid "How to create image gallery"
+#~ msgstr "Hoe maakt u een image gallerij"
+
+# @ textdomain
+#~ msgid "You can overview the original styles to override it"
+#~ msgstr "U kunt de originele stijlen bekijken en overschrijven"
+
+# @ textdomain
+#~ msgid "You can use next variables in your custom CSS"
+#~ msgstr "U kunt de volgende variabelen in uw CSS gebruiken"
+
+# @ textdomain
+#~ msgid "home url"
+#~ msgstr "home URL"
+
+# @ textdomain
+#~ msgid "theme url"
+#~ msgstr "thema URL"
+
+# @ textdomain
+#~ msgid "plugin url"
+#~ msgstr "Plugin URL"
+
+# @ su
+#~ msgid "Maker"
+#~ msgstr "Maker"
+
+# @ su
+#~ msgid ""
+#~ "This add-on allows you to create custom shortcodes. You can easily create "
+#~ "any shortcode with different parameters or even override default "
+#~ "shortcodes"
+#~ msgstr ""
+#~ "Deze Add-on maakt het mogelijk om uw eigen shortcodes te maken. U kunt "
+#~ "eenvoudig elke shortcode maken met verschillende parameters of zelfs de "
+#~ "standaard shortcodes vervangen"
+
+# @ su
+#~ msgid "Skins"
+#~ msgstr "Skins"
+
+# @ su
+#~ msgid ""
+#~ "Set of additional skins for Shrtcodes Ultimate. It includes skins for "
+#~ "accordeons/spoilers, tabs and some other shortcodes"
+#~ msgstr ""
+#~ "Een set van extra skins voor Shortcodes Ultimate. Het bevat skins voor "
+#~ "accordions/spoilers, tabs en enkele andere shortcodes"
+
+# @ su
+#~ msgid "Shortcodes Ultimate Add-ons"
+#~ msgstr "Shortcodes Ultimate Add-ons"
+
+# @ su
+#~ msgid "Learn more"
+#~ msgstr "Meer weten"
+
+# @ su
+#~ msgid "Other WordPress Plugins"
+#~ msgstr "Andere WordPress Plugins"
+
+# @ su
+#~ msgid "Choose files"
+#~ msgstr "Kies bestanden"
+
+# @ su
+#~ msgid "Add selected files"
+#~ msgstr "Voeg geselecteerde bestanden toe"
+
+# @ su
+#~ msgid "This button is not clickable"
+#~ msgstr "Deze knop is niet functioneel"
+
+# @ su
+#~ msgid ""
+#~ "This shortcode doesn't work in live preview. Please insert it into editor "
+#~ "and preview on the site."
+#~ msgstr ""
+#~ "Deze shortcode werkt niet in live preview. Plaats het in de editor en "
+#~ "bekijk het op de site."
+
+# @ su
+#~ msgid "Gallery"
+#~ msgstr "Gallerie"
+
+# @ su
+#~ msgid "Basic examples"
+#~ msgstr "Basis voorbeelden"
+
+# @ su
+#~ msgid "Accordions, spoilers, different styles, anchors"
+#~ msgstr "Accordions, spoilers, verschillende stijlen, ankers"
+
+# @ su
+#~ msgid "Tabs, vertical tabs, tab anchors"
+#~ msgstr "Tabs, vertikale tabs, tab ankers"
+
+# @ su
+#~ msgid "Column layouts"
+#~ msgstr "Kolom layouts"
+
+# @ su
+#~ msgid ""
+#~ "Media elements, YouTube, Vimeo, Screenr and self-hosted videos, audio "
+#~ "player"
+#~ msgstr ""
+#~ "Media elementen, YouTube, Vimeo, Screenr en video's opgeslagen op de "
+#~ "eigen website en een audio speler"
+
+# @ su
+#~ msgid "Unlimited buttons"
+#~ msgstr "Ongelimiteerde drukknoppen"
+
+# @ su
+#~ msgid "Animations"
+#~ msgstr "Animaties"
+
+# @ su
+#~ msgid "Advanced examples"
+#~ msgstr "Geavanceerde voorbeelden"
+
+# @ su
+#~ msgid "Interacting with posts shortcode"
+#~ msgstr "Werkt met berichten shortcode"
+
+# @ su
+#~ msgid "Nested shortcodes, shortcodes inside of attributes"
+#~ msgstr "Geneste shortcodes, shortcodes binnen attributen"
+
+# @ su
+#~ msgid "Heading"
+#~ msgstr "Heading"
+
+# @ su
+#~ msgid "Choose style for this heading"
+#~ msgstr "Kies de stijl voor deze titel"
+
+# @ su
+#~ msgid "Install additional styles"
+#~ msgstr "Installeer extra stijlen"
+
+# @ su
+#~ msgid "Select heading size (pixels)"
+#~ msgstr "Selecteer heading grootte (pixels)"
+
+# @ su
+#~ msgid "Heading text alignment"
+#~ msgstr "Uitlijning heading tekst"
+
+# @ su
+#~ msgid "Margin"
+#~ msgstr "Marge"
+
+# @ su
+#~ msgid "Bottom margin (pixels)"
+#~ msgstr "Marge onderkant (pixels)"
+
+# @ su
+#~ msgid "Heading text"
+#~ msgstr "Heading tekst"
+
+# @ su
+#~ msgid "Styled heading"
+#~ msgstr "Gestijlde heading"
+
+# @ su
+#~ msgid "Fancy"
+#~ msgstr "Opvallend"
+
+# @ su
+#~ msgid "Plus"
+#~ msgstr "Plus"
+
+# @ su
+#~ msgid "Plus circle"
+#~ msgstr "Plus cirkel"
+
+# @ su
+#~ msgid "Plus square 1"
+#~ msgstr "Plus vierkant 1"
+
+# @ su
+#~ msgid "Plus square 2"
+#~ msgstr "Plus vierkant 2"
+
+# @ su
+#~ msgid "Arrow"
+#~ msgstr "Pijl"
+
+# @ su
+#~ msgid "Arrow circle 1"
+#~ msgstr "Pijl cirkel 1"
+
+# @ su
+#~ msgid "Arrow circle 2"
+#~ msgstr "Pijl cirkel 2"
+
+# @ su
+#~ msgid "Chevron"
+#~ msgstr "Chevron"
+
+# @ su
+#~ msgid "Chevron circle"
+#~ msgstr "Chevron cirkel"
+
+# @ su
+#~ msgid "Caret"
+#~ msgstr "Dakje"
+
+# @ su
+#~ msgid "Caret square"
+#~ msgstr "Dakje vierkant"
+
+# @ su
+#~ msgid "Folder 1"
+#~ msgstr "Map 1"
+
+# @ su
+#~ msgid "Folder 2"
+#~ msgstr "Map 2"
+
+# @ su
+#~ msgid "Icons for spoiler"
+#~ msgstr "Icons voor de spoiler"
+
+# @ su
+#~ msgid ""
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]"
+#~ msgstr ""
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]"
+
+# @ su
+#~ msgid "Divider"
+#~ msgstr "Verdeler"
+
+# @ su
+#~ msgid "Show TOP link"
+#~ msgstr "Toon de TOP-link"
+
+# @ su
+#~ msgid "Show link to top of the page or not"
+#~ msgstr "Toon de link in de kop van de pagina of niet?"
+
+# @ su
+#~ msgid "Go to top"
+#~ msgstr "Ga naar boven"
+
+# @ su
+#~ msgid "Link text"
+#~ msgstr "Link tekst"
+
+# @ su
+#~ msgid "Text for the GO TOP link"
+#~ msgstr "Tekst voor de GA NAAR BOVEN link"
+
+# @ su
+#~ msgid "Content divider with optional TOP link"
+#~ msgstr "Inhoud verdeler met optionele TOP link"
+
+# @ su
+#~ msgid "Height of the spacer in pixels"
+#~ msgstr "Hoogte van de spacer in pixels"
+
+# @ su
+#~ msgid "Empty space with adjustable height"
+#~ msgstr "Lege ruimte met instelbare hoogte"
+
+# @ su
+#~ msgid "Highlight"
+#~ msgstr "Uitgelicht"
+
+# @ su
+#~ msgid "Highlighted text background color"
+#~ msgstr "Uitgelichte tekst-achtergrond kleur"
+
+# @ su
+#~ msgid "Highlighted text color"
+#~ msgstr "Uitgelichte tekst kleur"
+
+# @ su
+#~ msgid "Highlighted text"
+#~ msgstr "Uitgelichte tekst"
+
+# @ su
+#~ msgid "Important"
+#~ msgstr "Belangrijk"
+
+# @ su
+#~ msgid "Black"
+#~ msgstr "Zwart"
+
+# @ su
+#~ msgid "Style of the label"
+#~ msgstr "Stijl van het label"
+
+# @ su
+#~ msgid "Styled label"
+#~ msgstr "Gestijlde label"
+
+# @ su
+#~ msgid "Quote"
+#~ msgstr "Citaat"
+
+# @ su
+#~ msgid "Choose style for this quote"
+#~ msgstr "Kies de stijl voor dit citaat"
+
+# @ su
+#~ msgid "Cite"
+#~ msgstr "Aanhaling"
+
+# @ su
+#~ msgid "Quote author name"
+#~ msgstr "Naam van de quote-auteur"
+
+# @ su
+#~ msgid "Cite url"
+#~ msgstr "URL van de aanhaling"
+
+# @ su
+#~ msgid "Url of the quote author. Leave empty to disable link"
+#~ msgstr "URL van de quote-auteur. Laat leeg om geen link te tonen"
+
+# @ su
+#~ msgid "Blockquote alternative"
+#~ msgstr "Alternatieve blockquote"
+
+# @ su
+#~ msgid "Pullquote"
+#~ msgstr "Zij-quote"
+
+# @ su
+#~ msgid "Pullquote alignment (float)"
+#~ msgstr "Uitlijning van de zij-quote (float)"
+
+# @ su
+#~ msgid "Flat"
+#~ msgstr "Zonder opmaak"
+
+# @ su
+#~ msgid "Light"
+#~ msgstr "Eenvoudig"
+
+# @ su
+#~ msgid "Dropcap style preset"
+#~ msgstr "Voor-instelling dropcap stijl"
+
+# @ su
+#~ msgid "Choose dropcap size"
+#~ msgstr "Kies een dropap grootte"
+
+# @ su
+#~ msgid "D"
+#~ msgstr "D"
+
+# @ su
+#~ msgid "Frame"
+#~ msgstr "Frame"
+
+# @ su
+#~ msgid "Frame alignment"
+#~ msgstr "Frame uitlijning"
+
+# @ su
+#~ msgid "Styled image frame"
+#~ msgstr "Gestijlde image frame "
+
+# @ su
+#~ msgid ""
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]"
+#~ msgstr ""
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]"
+
+# @ su
+#~ msgid "Full width"
+#~ msgstr "Volledige breedte"
+
+# @ su
+#~ msgid "One half"
+#~ msgstr "1/2"
+
+# @ su
+#~ msgid "One third"
+#~ msgstr "1/3"
+
+# @ su
+#~ msgid "Two third"
+#~ msgstr "2/3"
+
+# @ su
+#~ msgid "One fourth"
+#~ msgstr "1/4"
+
+# @ su
+#~ msgid "Three fourth"
+#~ msgstr "3/4"
+
+# @ su
+#~ msgid "One fifth"
+#~ msgstr "1/5"
+
+# @ su
+#~ msgid "Two fifth"
+#~ msgstr "2/5"
+
+# @ su
+#~ msgid "Three fifth"
+#~ msgstr "3/5"
+
+# @ su
+#~ msgid "Four fifth"
+#~ msgstr "4/5"
+
+# @ su
+#~ msgid "One sixth"
+#~ msgstr "1/6"
+
+# @ su
+#~ msgid "Five sixth"
+#~ msgstr "5/6"
+
+# @ su
+#~ msgid "Select column width. This width will be calculated depend page width"
+#~ msgstr ""
+#~ "Selecteer de kolom breedte. De breedte is afhankelijk van de pagina "
+#~ "breedte"
+
+# @ su
+#~ msgid "Is this column centered on the page"
+#~ msgstr "Is deze kolom op de pagina gecentreerd?"
+
+# @ su
+#~ msgid "You can upload custom icon for this list or pick a built-in icon"
+#~ msgstr ""
+#~ "U kunt een eigen icon uploaden voor deze lijst of een ingebouwde icon "
+#~ "uitkiezen"
+
+# @ su
+#~ msgid "Icon color"
+#~ msgstr "Icon kleur"
+
+# @ su
+#~ msgid ""
+#~ "This color will be applied to the selected icon. Does not works with "
+#~ "uploaded icons"
+#~ msgstr ""
+#~ "Deze kleur zal worden toegepast op de gekozen icon. Dit werkt niet met "
+#~ "eigen icons"
+
+# @ su
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "</ul>"
+
+# @ su
+#~ msgid "Styled unordered list"
+#~ msgstr "Gestijlde, niet-gesorteerde lijst"
+
+# @ su
+#~ msgid "Soft"
+#~ msgstr "Zacht"
+
+# @ su
+#~ msgid "Glass"
+#~ msgstr "Glas"
+
+# @ su
+#~ msgid "Bubbles"
+#~ msgstr "Luchtbellen"
+
+# @ su
+#~ msgid "Noise"
+#~ msgstr "Druk"
+
+# @ su
+#~ msgid "Stroked"
+#~ msgstr "Gestreept"
+
+# @ su
+#~ msgid "3D"
+#~ msgstr "3D"
+
+# @ su
+#~ msgid "Button background style preset"
+#~ msgstr "Stijl van de drukknop achtergrond (voorinstelling)"
+
+# @ su
+#~ msgid "Button size"
+#~ msgstr "Grootte drukknop"
+
+# @ su
+#~ msgid "Fluid buttons has 100% width"
+#~ msgstr "Vloeiende drukknoppen hebben een breedte van 100%"
+
+# @ su
+#~ msgid "Round"
+#~ msgstr "Rond"
+
+# @ su
+#~ msgid "Radius"
+#~ msgstr "Radius"
+
+# @ su
+#~ msgid ""
+#~ "Radius of button corners. Auto-radius calculation based on button size"
+#~ msgstr ""
+#~ "Radius van drukknop-hoeken. Auto-radius berekent de koek op basis van de "
+#~ "drukknop-grootte"
+
+# @ su
+#~ msgid "Text shadow"
+#~ msgstr "Tekst schaduw"
+
+# @ su
+#~ msgid "Button text shadow"
+#~ msgstr "Drukknop tekst-schaduw"
+
+# @ su
+#~ msgid ""
+#~ "Small description under button text. This option is incompatible with "
+#~ "icon."
+#~ msgstr ""
+#~ "Kote omschrijving under drukknop tekst. Deze optie is niet compatibel met "
+#~ "een icon."
+
+# @ su
+#~ msgid "onClick"
+#~ msgstr "Op klik"
+
+# @ su
+#~ msgid "Advanced JavaScript code for onClick action"
+#~ msgstr "Geavanceerde JavaScript code voor de klik-actie"
+
+# @ su
+#~ msgid "Service"
+#~ msgstr "Service"
+
+# @ su
+#~ msgid "Service title"
+#~ msgstr "Titel van de service"
+
+# @ su
+#~ msgid "Service name"
+#~ msgstr "Naam van de service"
+
+# @ su
+#~ msgid "You can upload custom icon for this box"
+#~ msgstr "U kunt uw eigen icon uploaden"
+
+# @ su
+#~ msgid "Size of the uploaded icon in pixels"
+#~ msgstr "Grootte van de toegevoegde icon in pixels"
+
+# @ su
+#~ msgid "Service description"
+#~ msgstr "Omschrijving van de service"
+
+# @ su
+#~ msgid "Service box with title"
+#~ msgstr "Service box met titel"
+
+# @ su
+#~ msgid "Box title"
+#~ msgstr "Box titel"
+
+# @ su
+#~ msgid "Text for the box title"
+#~ msgstr "Tekst voor de box-titel"
+
+# @ su
+#~ msgid "Box style preset"
+#~ msgstr "Voorinstelling box-stijl"
+
+# @ su
+#~ msgid "Color for the box title and borders"
+#~ msgstr "Kleur voor de titel en de randen van de box"
+
+# @ su
+#~ msgid "Color for the box title text"
+#~ msgstr "Kleur voor de titel van de box-tekst"
+
+# @ su
+#~ msgid "Box corners radius"
+#~ msgstr "Radius van de box-randen"
+
+# @ su
+#~ msgid "Box content"
+#~ msgstr "Box inhoud"
+
+# @ su
+#~ msgid "Colored box with caption"
+#~ msgstr "Gekleurde box met onderschrift"
+
+# @ su
+#~ msgid "Note"
+#~ msgstr "Notitie"
+
+# @ su
+#~ msgid "Note background color"
+#~ msgstr "Kleur achtergrond notitie"
+
+# @ su
+#~ msgid "Note text color"
+#~ msgstr "Kleur van de notitie-tekst"
+
+# @ su
+#~ msgid "Note corners radius"
+#~ msgstr "Radius van de notitie-randen"
+
+# @ su
+#~ msgid "Note text"
+#~ msgstr "Notitie tekst"
+
+# @ su
+#~ msgid "Colored box"
+#~ msgstr "Gekleurde box"
+
+# @ su
+#~ msgid "Lightbox"
+#~ msgstr "Lightbox"
+
+# @ su
+#~ msgid "Iframe"
+#~ msgstr "iframe"
+
+# @ su
+#~ msgid "Inline (html content)"
+#~ msgstr "Inline (HTML inhoud)"
+
+# @ su
+#~ msgid "Content type"
+#~ msgstr "Inhoud type"
+
+# @ su
+#~ msgid "Select type of the lightbox window content"
+#~ msgstr "Selecteer het type lightbox-venster inhoud"
+
+# @ su
+#~ msgid "Content source"
+#~ msgstr "Inhoud bron"
+
+# @ su
+#~ msgid ""
+#~ "Insert here URL or CSS selector. Use URL for Iframe and Image content "
+#~ "types. Use CSS selector for Inline content type.<br />Example values:<br /"
+#~ "><b%value>http://www.youtube.com/watch?v=XXXXXXXXX</b> - YouTube video "
+#~ "(iframe)<br /><b%value>http://example.com/wp-content/uploads/image.jpg</"
+#~ "b> - uploaded image (image)<br /><b%value>http://example.com/</b> - any "
+#~ "web page (iframe)<br /><b%value>#contact-form</b> - any HTML content "
+#~ "(inline)"
+#~ msgstr ""
+#~ "Voeg hier een URL of een CSS selector toe. Gebruik een URL voor iframe en "
+#~ "Image types. Gebruik een CSS selector voor inline inhoud types.<br /"
+#~ ">Voorbeeld waarden:<br /><b%value>http://www.youtube.com/watch?"
+#~ "v=XXXXXXXX</b> - YouTube video (iframe)<br /><b%value>http://example.com/"
+#~ "wp-content/uploads/image.jpg</b> - een uploaded beeldbestand (image)<br /"
+#~ "><b%value>http://example.com/</b> - een web-pagina (iframe)<br /><b"
+#~ "%value>#contact-form</b> - HTML inhoud (inline)"
+
+# @ su
+#~ msgid "[%prefix_button] Click Here to Watch the Video [/%prefix_button]"
+#~ msgstr "[%prefix_button] Klik hier om de video te zien [/%prefix_button]"
+
+# @ su
+#~ msgid "Lightbox window with custom content"
+#~ msgstr "Lightbox venster met aangepaste inhoud"
+
+# @ su
+#~ msgid "Tooltip"
+#~ msgstr "Tooltip"
+
+# @ su
+#~ msgid "Basic: Light"
+#~ msgstr "Basis: licht"
+
+# @ su
+#~ msgid "Basic: Dark"
+#~ msgstr "Basis: Donker"
+
+# @ su
+#~ msgid "Basic: Yellow"
+#~ msgstr "Basis: Geel"
+
+# @ su
+#~ msgid "Basic: Green"
+#~ msgstr "Basis: Groen"
+
+# @ su
+#~ msgid "Basic: Red"
+#~ msgstr "Basis: Rood"
+
+# @ su
+#~ msgid "Basic: Blue"
+#~ msgstr "Basis: Blaauw"
+
+# @ su
+#~ msgid "Youtube"
+#~ msgstr "Youtube"
+
+# @ su
+#~ msgid "Tipsy"
+#~ msgstr "Aangeschoten"
+
+# @ su
+#~ msgid "Bootstrap"
+#~ msgstr "Bootstrap"
+
+# @ su
+#~ msgid "jTools"
+#~ msgstr "jTools (hulpmiddelen)"
+
+# @ su
+#~ msgid "Tipped"
+#~ msgstr "Getipt"
+
+# @ su
+#~ msgid "Cluetip"
+#~ msgstr "Cluetip"
+
+# @ su
+#~ msgid "Tooltip window style"
+#~ msgstr "Tooltip venster stijl"
+
+# @ su
+#~ msgid "Position"
+#~ msgstr "Positie"
+
+# @ su
+#~ msgid "Tooltip position"
+#~ msgstr "Tooltip positie"
+
+# @ su
+#~ msgid "Shadow"
+#~ msgstr "Schaduw"
+
+# @ su
+#~ msgid ""
+#~ "Add shadow to tooltip. This option is only works with basic styes, e.g. "
+#~ "blue, green etc."
+#~ msgstr ""
+#~ "Voeg schaduw aan de tooltip toe. Deze optie werkt alleen met de basis "
+#~ "stijlen, zoals Blauw, groen, enz."
+
+# @ su
+#~ msgid ""
+#~ "Use rounded for tooltip. This option is only works with basic styes, e.g. "
+#~ "blue, green etc."
+#~ msgstr ""
+#~ "Gebruik ronde hoeken bij de tooltip. Deze optie werkt alleen met basis "
+#~ "stijlen, zoals blauw, groen, enz."
+
+# @ su
+#~ msgid "Font size"
+#~ msgstr "Font grootte"
+
+# @ su
+#~ msgid "Tooltip font size"
+#~ msgstr "Tooltip font grootte"
+
+# @ su
+#~ msgid "Tooltip title"
+#~ msgstr "Tooltip titel"
+
+# @ su
+#~ msgid ""
+#~ "Enter title for tooltip window. Leave this field empty to hide the title"
+#~ msgstr ""
+#~ "Geef een titel op voor het tooltip venster. Laat dit veld leeg om de "
+#~ "titel te verbergen"
+
+# @ su
+#~ msgid "Tooltip text"
+#~ msgstr "Tooltip tekst"
+
+# @ su
+#~ msgid "Tooltip content"
+#~ msgstr "Tooltip inhoud"
+
+# @ su
+#~ msgid "Enter tooltip content here"
+#~ msgstr "Geef tooltip inhoud hier in"
+
+# @ su
+#~ msgid "Show and hide on mouse hover"
+#~ msgstr "Toon en verberg bij muis-over"
+
+# @ su
+#~ msgid "Show and hide by mouse click"
+#~ msgstr "Toon en verberg na muis-klik"
+
+# @ su
+#~ msgid "Always visible"
+#~ msgstr "Altijd zichtbaar"
+
+# @ su
+#~ msgid "Behavior"
+#~ msgstr "Gedrag"
+
+# @ su
+#~ msgid "Select tooltip behavior"
+#~ msgstr "Selecteer tooltip gedrag"
+
+# @ su
+#~ msgid "Close button"
+#~ msgstr "Sluit drukknop"
+
+# @ su
+#~ msgid "Show close button"
+#~ msgstr "Toon sluit drukknop"
+
+# @ su
+#~ msgid "[%prefix_button] Hover me to open tooltip [/%prefix_button]"
+#~ msgstr ""
+#~ "[%prefix_button] Ga over me heen om de tooltip te openen [/%prefix_button]"
+
+# @ su
+#~ msgid "Tooltip window with custom content"
+#~ msgstr "Tooltip venster met eigen inhoud"
+
+# @ su
+#~ msgid "Private"
+#~ msgstr "Privé"
+
+# @ su
+#~ msgid "Private note text"
+#~ msgstr "Tekst privé-notitie "
+
+# @ su
+#~ msgid "Private note for post authors"
+#~ msgstr "Privé-notitie voor auteuren"
+
+# @ su
+#~ msgid "YouTube"
+#~ msgstr "YouTube"
+
+# @ su
+#~ msgid "Url"
+#~ msgstr "URL"
+
+# @ su
+#~ msgid ""
+#~ "Url of YouTube page with video. Ex: http://youtube.com/watch?v=XXXXXX"
+#~ msgstr ""
+#~ "URL van de Youtube pagina met de video: BV: http://youtube.com/watch?"
+#~ "v=XXXXXX"
+
+# @ su
+#~ msgid "Player width"
+#~ msgstr "Breedte speler"
+
+# @ su
+#~ msgid "Player height"
+#~ msgstr "Hoogte speler"
+
+# @ su
+#~ msgid "Responsive"
+#~ msgstr "Responsief"
+
+# @ su
+#~ msgid "Ignore width and height parameters and make player responsive"
+#~ msgstr "Negeer breedte en hoogte parameters en maak de speler responsief"
+
+# @ su
+#~ msgid "Autoplay"
+#~ msgstr "Autoplay"
+
+# @ su
+#~ msgid "Play video automatically when page is loaded"
+#~ msgstr "Speel de video automatisch wanneer de pagina wordt geladen"
+
+# @ su
+#~ msgid "YouTube video"
+#~ msgstr "YouTube video"
+
+# @ su
+#~ msgid "YouTube Advanced"
+#~ msgstr "YouTube geavanceerd"
+
+# @ su
+#~ msgid "Playlist"
+#~ msgstr "Speellijst"
+
+# @ su
+#~ msgid ""
+#~ "Value is a comma-separated list of video IDs to play. If you specify a "
+#~ "value, the first video that plays will be the VIDEO_ID specified in the "
+#~ "URL path, and the videos specified in the playlist parameter will play "
+#~ "thereafter"
+#~ msgstr ""
+#~ "De waarde is een komma-gescheiden lijst van te spelen video ID's. Als u "
+#~ "een waarde kiest. zal de eerste video met de VIDEO_ID in het URL-pad "
+#~ "worden gespeeld en daarna de video's die in de speellijst parameter zijn "
+#~ "opgenomen "
+
+# @ su
+#~ msgid "0 - Hide controls"
+#~ msgstr "0 - Verberg besturing"
+
+# @ su
+#~ msgid "1 - Show controls"
+#~ msgstr "1 - Toon besturing"
+
+# @ su
+#~ msgid "2 - Show controls when playback is started"
+#~ msgstr "2 - Toon besturing wanneer het afspelen is gestart"
+
+# @ su
+#~ msgid ""
+#~ "This parameter indicates whether the video player controls will display"
+#~ msgstr "Deze parameter laat zien of de speler-besturing wordt getoond"
+
+# @ su
+#~ msgid "0 - Do not hide controls"
+#~ msgstr "0 - Laat besturing zien"
+
+# @ su
+#~ msgid "1 - Hide all controls on mouse out"
+#~ msgstr "1 - Verberg de besturing bij muis-weg"
+
+# @ su
+#~ msgid "2 - Hide progress bar on mouse out"
+#~ msgstr "2 - Verberg voortgangsbalk bij muis-weg"
+
+# @ su
+#~ msgid "Autohide"
+#~ msgstr "Automatisch verbergen"
+
+# @ su
+#~ msgid ""
+#~ "This parameter indicates whether the video controls will automatically "
+#~ "hide after a video begins playing"
+#~ msgstr ""
+#~ "Met deze parameter stelt u in of de besturing automatisch wordt verborgen "
+#~ "na een video wordt opgestart"
+
+# @ su
+#~ msgid "Show title bar"
+#~ msgstr "Toon titel regel"
+
+# @ su
+#~ msgid ""
+#~ "If you set the parameter value to NO, then the player will not display "
+#~ "information like the video title and uploader before the video starts "
+#~ "playing."
+#~ msgstr ""
+#~ "Als u de parameter waarde op NO instelt, zal de speler geen informatie "
+#~ "als de titel en de uploader weergeven voordat deze begint weer te geven."
+
+# @ su
+#~ msgid "Loop"
+#~ msgstr "Voortdurend herhalen"
+
+# @ su
+#~ msgid ""
+#~ "Setting of YES will cause the player to play the initial video again and "
+#~ "again"
+#~ msgstr "De JA instelling stelt de herhaal-modus van de speler in"
+
+# @ su
+#~ msgid "Related videos"
+#~ msgstr "Gerelateerde video's"
+
+# @ su
+#~ msgid ""
+#~ "This parameter indicates whether the player should show related videos "
+#~ "when playback of the initial video ends"
+#~ msgstr ""
+#~ "Met deze parameter stelt u in of na het afspelen gerelateerde video's "
+#~ "worden getoond"
+
+# @ su
+#~ msgid "Show full-screen button"
+#~ msgstr "Toon knop voor \"Volledig Scherm\""
+
+# @ su
+#~ msgid ""
+#~ "Setting this parameter to NO prevents the fullscreen button from "
+#~ "displaying"
+#~ msgstr ""
+#~ "De NEE instelling van de parameter voorkomt het tonen van de drukknop "
+#~ "\"Volledig Scherm\""
+
+# @ su
+#~ msgid ""
+#~ "This parameter lets you use a YouTube player that does not show a YouTube "
+#~ "logo. Set the parameter value to YES to prevent the YouTube logo from "
+#~ "displaying in the control bar. Note that a small YouTube text label will "
+#~ "still display in the upper-right corner of a paused video when the user's "
+#~ "mouse pointer hovers over the player"
+#~ msgstr ""
+#~ "Deze parameter laat u een YouTube speler gebruiken zonder YouTube-logo. "
+#~ "Stel in op JA om het logo te voorkomen. Let er op dat desondanks een "
+#~ "YouTube tekstlabel zichtbaar zal zijn als men met de muis over de speler "
+#~ "beweegt"
+
+# @ su
+#~ msgid "Dark theme"
+#~ msgstr "Donker thema"
+
+# @ su
+#~ msgid "Light theme"
+#~ msgstr "Licht thema"
+
+# @ su
+#~ msgid "Theme"
+#~ msgstr "Thema"
+
+# @ su
+#~ msgid ""
+#~ "This parameter indicates whether the embedded player will display player "
+#~ "controls (like a play button or volume control) within a dark or light "
+#~ "control bar"
+#~ msgstr ""
+#~ "Deze parameter geeft aan hoe de speler de besturing toont (zoals de "
+#~ "afspeel - en volume-toets) in een donkere of juist lichte balk"
+
+# @ su
+#~ msgid "YouTube video player with advanced settings"
+#~ msgstr "YouTube video speler met geavanceerde instellingen"
+
+# @ su
+#~ msgid "Vimeo"
+#~ msgstr "Vimeo"
+
+# @ su
+#~ msgid "Url of Vimeo page with video"
+#~ msgstr "URL van de Vimeo-pagina met de video"
+
+# @ su
+#~ msgid "Vimeo video"
+#~ msgstr "Vimeo video"
+
+# @ su
+#~ msgid "Screenr"
+#~ msgstr "Screenr"
+
+# @ su
+#~ msgid "Url of Screenr page with video"
+#~ msgstr "URL van de Screenr-pagina met de video"
+
+# @ su
+#~ msgid "Screenr video"
+#~ msgstr "Screenr video"
+
+# @ su
+#~ msgid "Audio"
+#~ msgstr "Audio"
+
+# @ su
+#~ msgid "File"
+#~ msgstr "Bestand"
+
+# @ su
+#~ msgid "Audio file url. Supported formats: mp3, ogg"
+#~ msgstr "URL van het audio-bestand. Ondersteunde formaten: mp3, ogg"
+
+# @ su
+#~ msgid ""
+#~ "Player width. You can specify width in percents and player will be "
+#~ "responsive. Example values: <b%value>200px</b>, <b%value>100&#37;</b>"
+#~ msgstr ""
+#~ "Breedte van de speler. U kunt de breedte opgeven in procenten; de speler "
+#~ "is dan responsief. Voorbeeld waarden: <b%value>200px</b>, <b"
+#~ "%value>100&#37;</b>"
+
+# @ su
+#~ msgid "Play file automatically when page is loaded"
+#~ msgstr "Speel bestand automatisch wanneer de pagina is geladen"
+
+# @ su
+#~ msgid "Repeat when playback is ended"
+#~ msgstr "Herhaal wanneer einde is bereikt."
+
+# @ su
+#~ msgid "Custom audio player"
+#~ msgstr "Eigen audio-speler"
+
+# @ su
+#~ msgid "Video"
+#~ msgstr "Video"
+
+# @ su
+#~ msgid "Url to mp4/flv video-file"
+#~ msgstr "URL naar het mp4/flv video-bestand"
+
+# @ su
+#~ msgid "Url to poster image, that will be shown before playback"
+#~ msgstr ""
+#~ "URL naar een image van de aanbieder die wordt getoond voor het afspelen"
+
+# @ su
+#~ msgid "Player title"
+#~ msgstr "Titel speler"
+
+# @ su
+#~ msgid "Show player controls (play/pause etc.) or not"
+#~ msgstr "Toon de speler-besturing (play/pause etc.) of niet"
+
+# @ su
+#~ msgid "Custom video player"
+#~ msgstr "Aangepaste video-speler"
+
+# @ su
+#~ msgid "Table"
+#~ msgstr "Tabel"
+
+# @ su
+#~ msgid "CSV file"
+#~ msgstr "CSV-bestand"
+
+# @ su
+#~ msgid "Upload CSV file if you want to create HTML-table from file"
+#~ msgstr ""
+#~ "Laadt een CSV-bestand als u een HTML-tabel wilt maken vanuit een bestand"
+
+# @ su
+#~ msgid ""
+#~ "<table>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "</table>"
+#~ msgstr ""
+#~ "<table>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "</table>"
+
+# @ su
+#~ msgid "Styled table from HTML or CSV file"
+#~ msgstr "Gestijlde tabel uit een HTML - of een CSV-bestand"
+
+# @ su
+#~ msgid "ID"
+#~ msgstr "ID"
+
+# @ su
+#~ msgid "Post or page ID"
+#~ msgstr "Bericht of pagina ID"
+
+# @ su
+#~ msgid "Link target. blank - link will be opened in new window/tab"
+#~ msgstr ""
+#~ "Link-doel: blank - de link wordt geopend in een nieuw(e) venster/tab"
+
+# @ su
+#~ msgid "Permalink to specified post/page"
+#~ msgstr "Permalink naar een aangegeven bericht of pagina"
+
+# @ su
+#~ msgid "Members"
+#~ msgstr "Leden"
+
+# @ su
+#~ msgid "This content is for registered users only. Please %login%."
+#~ msgstr ""
+#~ "Deze inhoud is alleen voor geregistreerde gebruikers bestemd. %login% AUB."
+
+# @ su
+#~ msgid "Message for not logged users"
+#~ msgstr "Bericht voor niet ingelogde gebruikers"
+
+# @ su
+#~ msgid "Box color"
+#~ msgstr "Box-kleur"
+
+# @ su
+#~ msgid "This color will applied only to box for not logged users"
+#~ msgstr ""
+#~ "Deze kleur wordt alleen aan de box gegeven als de gebruiker niet is "
+#~ "ingelogd"
+
+# @ su
+#~ msgid "login"
+#~ msgstr "Inloggen"
+
+# @ su
+#~ msgid "Login link text"
+#~ msgstr "Login link-tekst"
+
+# @ su
+#~ msgid "Text for the login link"
+#~ msgstr "Tekst voor de login-link"
+
+# @ su
+#~ msgid "Login link url"
+#~ msgstr "Login link URL"
+
+# @ su
+#~ msgid "Content for logged members"
+#~ msgstr "Inhoud voor ingelogde gebruikers"
+
+# @ su
+#~ msgid "Content for logged in members only"
+#~ msgstr "Inhoud alleen voor ingelogde gebruikers"
+
+# @ su
+#~ msgid "Guests"
+#~ msgstr "Gasten"
+
+# @ su
+#~ msgid "Content for guests"
+#~ msgstr "Inhoud voor gasten"
+
+# @ su
+#~ msgid "Content for guests only"
+#~ msgstr "Inhoud alleen voor gasten"
+
+# @ su
+#~ msgid "RSS Feed"
+#~ msgstr "RSS Feed"
+
+# @ su
+#~ msgid "Url to RSS-feed"
+#~ msgstr "URL naar RSS-feed"
+
+# @ su
+#~ msgid "Number of items to show"
+#~ msgstr "Aantal artikelen dat wordt getoond"
+
+# @ su
+#~ msgid "Feed grabber"
+#~ msgstr "Feed grabber"
+
+# @ su
+#~ msgid "Menu name"
+#~ msgstr "Naam van menu"
+
+# @ su
+#~ msgid "Custom menu name. Ex: Main menu"
+#~ msgstr "Aangepaste naam van menu: bijv. Hoofd Menu"
+
+# @ su
+#~ msgid "Custom menu by name"
+#~ msgstr "Aangepast menu op naam"
+
+# @ su
+#~ msgid "Sub pages"
+#~ msgstr "Sub-pagina's"
+
+# @ su
+#~ msgid "Depth"
+#~ msgstr "Diepte"
+
+# @ su
+#~ msgid "Max depth level of children pages"
+#~ msgstr "Maximaal diepte-niveau voor sub-pagina's"
+
+# @ su
+#~ msgid "Parent ID"
+#~ msgstr "Ouder-ID"
+
+# @ su
+#~ msgid "ID of the parent page. Leave blank to use current page"
+#~ msgstr "ID van ouder-pagina. Laat leeg om de huidige pagina te gebruiken"
+
+# @ su
+#~ msgid "List of sub pages"
+#~ msgstr "Lijst van de sub-pagina's"
+
+# @ su
+#~ msgid "Siblings"
+#~ msgstr "Opvolgende"
+
+# @ su
+#~ msgid "Max depth level"
+#~ msgstr "Maximaal diepte niveau"
+
+# @ su
+#~ msgid "List of cureent page siblings"
+#~ msgstr "Lijst sub-pagina's van huidige pagina "
+
+# @ su
+#~ msgid "Document"
+#~ msgstr "Document"
+
+# @ su
+#~ msgid "Url to uploaded document. Supported formats: doc, xls, pdf etc."
+#~ msgstr "URL naar het bestand. Ondersteunde formaten: doc, xls, pdf, enz."
+
+# @ su
+#~ msgid "Viewer width"
+#~ msgstr "Viewer breedte"
+
+# @ su
+#~ msgid "Viewer height"
+#~ msgstr "Viewer hoogte"
+
+# @ su
+#~ msgid "Ignore width and height parameters and make viewer responsive"
+#~ msgstr ""
+#~ "Negeer de parameters voor breedte en hoogte en maak de speler responsief"
+
+# @ su
+#~ msgid "Document viewer by Google"
+#~ msgstr "Documenten viewer voor Google"
+
+# @ su
+#~ msgid "Gmap"
+#~ msgstr "Gmap"
+
+# @ su
+#~ msgid "Map width"
+#~ msgstr "Kaart breedte"
+
+# @ su
+#~ msgid "Ignore width and height parameters and make map responsive"
+#~ msgstr ""
+#~ "Negeer parameters van de breedte en de hoogte en maak de kaart responsief"
+
+# @ su
+#~ msgid "Marker"
+#~ msgstr "Markeer"
+
+# @ su
+#~ msgid "Address for the marker. You can type it in any language"
+#~ msgstr "Het adres voor de marker. U kunt elke taal gebruiken."
+
+# @ su
+#~ msgid "Maps by Google"
+#~ msgstr "Kaarten door Google"
+
+# @ su
+#~ msgid "Source"
+#~ msgstr "Bron"
+
+# @ su
+#~ msgid ""
+#~ "Choose images source. You can use images from Media library or retrieve "
+#~ "it from posts (thumbnails) posted under specified blog category. You can "
+#~ "also pick any custom taxonomy"
+#~ msgstr ""
+#~ "Kies image bron. U kunt images gebruiken uit de Media-bibliotheek of deze "
+#~ "uit berichten halen (thumbnails) die zijn gepost onder een specifieke "
+#~ "categorie. U kunt elke taxonomie kiezen."
+
+# @ su
+#~ msgid "Full-size image"
+#~ msgstr "Volledige grootte image"
+
+# @ su
+#~ msgid "Attachment page"
+#~ msgstr "Bijgevoegde pagina"
+
+# @ su
+#~ msgid "Post permalink"
+#~ msgstr "Bericht permalink"
+
+# @ su
+#~ msgid "Links"
+#~ msgstr "Linken"
+
+# @ su
+#~ msgid "Select which links will be used for images in this gallery"
+#~ msgstr ""
+#~ "Selecteer welke links worden gebruikt voor de images in deze gallerij"
+
+# @ su
+#~ msgid "Same window"
+#~ msgstr "Hetzelfde venster"
+
+# @ su
+#~ msgid "New window"
+#~ msgstr "Nieuw venster"
+
+# @ su
+#~ msgid "Links target"
+#~ msgstr "Links doel"
+
+# @ su
+#~ msgid "Open links in"
+#~ msgstr "Open de linken in"
+
+# @ su
+#~ msgid "Slider width (in pixels)"
+#~ msgstr "Slider breedte (in pixels)"
+
+# @ su
+#~ msgid "Slider height (in pixels)"
+#~ msgstr "Slider hoogte (in pixels)"
+
+# @ su
+#~ msgid "Ignore width and height parameters and make slider responsive"
+#~ msgstr ""
+#~ "Negeer de parameters voor breedte en hoogte en maak de slider responsief"
+
+# @ su
+#~ msgid "Show titles"
+#~ msgstr "Toon titels"
+
+# @ su
+#~ msgid "Display slide titles"
+#~ msgstr "Toon dia-titels"
+
+# @ su
+#~ msgid "Is slider centered on the page"
+#~ msgstr "Wordt de slider op de pagina gecentreerd?"
+
+# @ su
+#~ msgid "Arrows"
+#~ msgstr "Pijlen"
+
+# @ su
+#~ msgid "Show left and right arrows"
+#~ msgstr "Toon links - en rechts pijlen"
+
+# @ su
+#~ msgid "Show pagination"
+#~ msgstr "Toon paginering"
+
+# @ su
+#~ msgid "Mouse wheel control"
+#~ msgstr "Muis-wiel controle"
+
+# @ su
+#~ msgid "Allow to change slides with mouse wheel"
+#~ msgstr "Sta het wisselen van dia's met de muis-wiel toe"
+
+# @ su
+#~ msgid ""
+#~ "Choose interval between slide animations. Set to 0 to disable autoplay"
+#~ msgstr ""
+#~ "Kies de interval tussen de dia overgangen. Kies 0 om automatisch in te "
+#~ "stellen"
+
+# @ su
+#~ msgid "Speed"
+#~ msgstr "Snelheid"
+
+# @ su
+#~ msgid "Specify animation speed"
+#~ msgstr "Geef animatie snelheid op"
+
+# @ su
+#~ msgid "Customizable image slider"
+#~ msgstr "Instelbare image slider"
+
+# @ su
+#~ msgid "Carousel"
+#~ msgstr "Carrousel"
+
+# @ su
+#~ msgid "Original image"
+#~ msgstr "Originele image"
+
+# @ su
+#~ msgid "Carousel width (in pixels)"
+#~ msgstr "Carrousel breedte (in pixels)"
+
+# @ su
+#~ msgid "Carousel height (in pixels)"
+#~ msgstr "Carrousel hoogte (in pixels)"
+
+# @ su
+#~ msgid "Ignore width and height parameters and make carousel responsive"
+#~ msgstr ""
+#~ "Negeer de parameters voor breedte en hoogte en maak de carrousel "
+#~ "responsief"
+
+# @ su
+#~ msgid "Items to show"
+#~ msgstr "Te tonen items"
+
+# @ su
+#~ msgid "How much carousel items is visible"
+#~ msgstr "Hoeveel carrousel-items zijn zichtbaar"
+
+# @ su
+#~ msgid "Scroll number"
+#~ msgstr "Scroll aantal"
+
+# @ su
+#~ msgid "How much items are scrolled in one transition"
+#~ msgstr "Hoeveel items per pagina"
+
+# @ su
+#~ msgid "Display titles for each item"
+#~ msgstr "Toon titels van elk item"
+
+# @ su
+#~ msgid "Is carousel centered on the page"
+#~ msgstr "Is de carrousel gecentreerd?"
+
+# @ su
+#~ msgid "Allow to rotate carousel with mouse wheel"
+#~ msgstr ""
+#~ "Sta het roteren van de carrousel door het scroll-wiel van de muis toe"
+
+# @ su
+#~ msgid ""
+#~ "Choose interval between auto animations. Set to 0 to disable autoplay"
+#~ msgstr ""
+#~ "Kies de interval tussen de automatische animaties. Stel in op 0 om "
+#~ "automatisch uit te schakelen"
+
+# @ su
+#~ msgid "Customizable image carousel"
+#~ msgstr "Aanpasbaar carrousel-image"
+
+# @ su
+#~ msgid "Single item width (in pixels)"
+#~ msgstr "Breedte van een enkel element (in pixels)"
+
+# @ su
+#~ msgid "Single item height (in pixels)"
+#~ msgstr "Hoogte van een enkel element (in pixels)"
+
+# @ su
+#~ msgid "Never"
+#~ msgstr "Nooit"
+
+# @ su
+#~ msgid "On mouse over"
+#~ msgstr "Bij muis-over"
+
+# @ su
+#~ msgid "Always"
+#~ msgstr "Altijd"
+
+# @ su
+#~ msgid "Title display mode"
+#~ msgstr "Modus: Toon titel "
+
+# @ su
+#~ msgid "Customizable image gallery"
+#~ msgstr "Aanpasbare images gallerij"
+
+# @ su
+#~ msgid ""
+#~ "<b>Do not change this field value if you do not understand description "
+#~ "below.</b><br/>Relative path to the template file. Default templates is "
+#~ "placed under the plugin directory (templates folder). You can copy it "
+#~ "under your theme directory and modify as you want. You can use following "
+#~ "default templates that already available in the plugin directory:<br/><b"
+#~ "%value>templates/default-loop.php</b> - posts loop<br/><b%value>templates/"
+#~ "teaser-loop.php</b> - posts loop with thumbnail and title<br/><b"
+#~ "%value>templates/single-post.php</b> - single post template<br/><b"
+#~ "%value>templates/list-loop.php</b> - unordered list with posts titles"
+#~ msgstr ""
+#~ "<b> Verandert u van dit veld de waarde niet, als u onderstaande "
+#~ "beschrijving niet begrijpt. </ b> <br/> Relatief pad naar het "
+#~ "sjabloonbestand. Standaard templates worden geplaatst onder de plugin map "
+#~ "(folder templates). U kunt ze naar uw thema-map kopiëren en wijzigen als "
+#~ "u wilt. U kunt gebruik maken van onderstaande standaard templates die al "
+#~ "beschikbaar zijn in de plugin map: <br/><b%value>templates/default-loop."
+#~ "php</b> - berichten lus <br/> <b%value>templates/teaser-loop.php</b> - "
+#~ "berichten lus met miniaturen en titel <br/> <b%value>templates/single-"
+#~ "post.php</b> - enkele berichtensjabloon <br/> <b%value>templates/list-"
+#~ "loop.php</b>  - ongeordende lijst met berichten titels"
+
+# @ su
+#~ msgid "Choose the authors whose posts you want to show"
+#~ msgstr "Kies de auteurs van wie u de post wilt laten zien"
+
+# @ su
+#~ msgid "Meta key"
+#~ msgstr "Meta sleutel"
+
+# @ su
+#~ msgid "Enter meta key name to show posts that have this key"
+#~ msgstr ""
+#~ "Geef een META sleutel naam op om de betreffende berichten te laten zien"
+
+# @ su
+#~ msgid "Meta key values"
+#~ msgstr "Waarden META-sleutels"
+
+# @ su
+#~ msgid "Dummy text"
+#~ msgstr "Test tekst"
+
+# @ su
+#~ msgid "Paragraphs"
+#~ msgstr "Paragrafen"
+
+# @ su
+#~ msgid "Words"
+#~ msgstr "Woorden"
+
+# @ su
+#~ msgid "Bytes"
+#~ msgstr "Bytes"
+
+# @ su
+#~ msgid "What"
+#~ msgstr "Welke"
+
+# @ su
+#~ msgid "What to generate"
+#~ msgstr "Wat te genereren?"
+
+# @ su
+#~ msgid "Amount"
+#~ msgstr "Hoeveelheid"
+
+# @ su
+#~ msgid ""
+#~ "How many items (paragraphs or words) to generate. Minimum words amount is "
+#~ "5"
+#~ msgstr ""
+#~ "Hoeveel paragrafen of woorden wilt u genereren. Minimum hoeveelheid is 5"
+
+# @ su
+#~ msgid "Cache"
+#~ msgstr "Cache"
+
+# @ su
+#~ msgid ""
+#~ "Generated text will be cached. Be careful with this option. If you "
+#~ "disable it and insert many dummy_text shortcodes the page load time will "
+#~ "be highly increased"
+#~ msgstr ""
+#~ "Gegenereerde tekst zal tijdelijk worden opgeslagen. Wees met deze optie "
+#~ "voorzichtig. Als u deze uitschakeld en veel test-tekst shortcodes "
+#~ "invoegt, zal het laden van de pagina aanzienlijk worden vertraagd."
+
+# @ su
+#~ msgid "Text placeholder"
+#~ msgstr "Tekst plaatshouder"
+
+# @ su
+#~ msgid "Dummy image"
+#~ msgstr "Test image"
+
+# @ su
+#~ msgid "Image width"
+#~ msgstr "Image breedte"
+
+# @ su
+#~ msgid "Image height"
+#~ msgstr "Image hoogte"
+
+# @ su
+#~ msgid "Abstract"
+#~ msgstr "Abstract"
+
+# @ su
+#~ msgid "Animals"
+#~ msgstr "Dieren"
+
+# @ su
+#~ msgid "Business"
+#~ msgstr "Zakelijk"
+
+# @ su
+#~ msgid "Cats"
+#~ msgstr "Poesen"
+
+# @ su
+#~ msgid "City"
+#~ msgstr "Plaats"
+
+# @ su
+#~ msgid "Food"
+#~ msgstr "Eten"
+
+# @ su
+#~ msgid "Night life"
+#~ msgstr "Nacht leven"
+
+# @ su
+#~ msgid "Fashion"
+#~ msgstr "Mode"
+
+# @ su
+#~ msgid "People"
+#~ msgstr "Mensen"
+
+# @ su
+#~ msgid "Nature"
+#~ msgstr "Natuur"
+
+# @ su
+#~ msgid "Sports"
+#~ msgstr "Sporten"
+
+# @ su
+#~ msgid "Technics"
+#~ msgstr "Techniek"
+
+# @ su
+#~ msgid "Transport"
+#~ msgstr "Transport"
+
+# @ su
+#~ msgid "Select the theme for this image"
+#~ msgstr "Selecteer het thema voor deze image"
+
+# @ su
+#~ msgid "Image placeholder with random image"
+#~ msgstr "Image plaatshouder met willekeurige image"
+
+# @ su
+#~ msgid "Animation"
+#~ msgstr "Animatie"
+
+# @ su
+#~ msgid "Select animation type"
+#~ msgstr "Selecteer animatie type"
+
+# @ su
+#~ msgid "Duration"
+#~ msgstr "Duur"
+
+# @ su
+#~ msgid "Animation duration (seconds)"
+#~ msgstr "Aninmatie duur (seconden)"
+
+# @ su
+#~ msgid "Delay"
+#~ msgstr "Vertraging"
+
+# @ su
+#~ msgid "Animation delay (seconds)"
+#~ msgstr "Animatie vertraging (seconden)"
+
+# @ su
+#~ msgid ""
+#~ "This parameter determines what HTML tag will be used for animation "
+#~ "wrapper. Turn this option to YES and animated element will be wrapped in "
+#~ "SPAN instead of DIV. Useful for inline animations, like buttons"
+#~ msgstr ""
+#~ "Deze parameter bepaalt welke HTML tag wordt gebruikt voor de animatie "
+#~ "wrapper. Zet op JA en de animatie wordt geplaatst binnen SPAN in plaats "
+#~ "van DIV tags. Handig voor inline animaties, zoals drukknoppen."
+
+# @ su
+#~ msgid "Animated content"
+#~ msgstr "Bewegende inhoud"
+
+# @ su
+#~ msgid "Wrapper for animation. Any nested element will be animated"
+#~ msgstr "Houder voor animatie. Elk genest element wordt geanimeerd"
+
+# @ su
+#~ msgid "Plugin settings"
+#~ msgstr "Instellingen Plugin"
+
+# @ su
+#~ msgid "Plugin homepage"
+#~ msgstr "Home-pagina Plugin"
+
+# @ su
+#~ msgid "Support forums"
+#~ msgstr "Forum"
+
+# @ su
+#~ msgid "Shortcodes Ultimate"
+#~ msgstr "Shortcodes Ultimate"
+
+# @ su
+#~ msgid "Shortcodes"
+#~ msgstr "Shortcodes"
+
+# @ su
+#~ msgid "About"
+#~ msgstr "Over"
+
+# @ su
+#~ msgid "Custom formatting"
+#~ msgstr "Aangepaste formatering"
+
+# @ su
+#~ msgid ""
+#~ "Disable this option if you have some problems with other plugins or "
+#~ "content formatting"
+#~ msgstr ""
+#~ "Schakel deze optie uit, wanneer u problemen heeft met andere plugins of "
+#~ "met het formateren van de inhoud"
+
+# @ su
+#~ msgid "Documentation article"
+#~ msgstr "Documentatie artikel"
+
+# @ su
+#~ msgid "Skip default values"
+#~ msgstr "Sla standaard waarden over"
+
+# @ su
+#~ msgid ""
+#~ "Enable this option and the generator will insert a shortcode without "
+#~ "default attribute values that you have not changed. As a result, the "
+#~ "generated code will be shorter."
+#~ msgstr ""
+#~ "Kies deze optie en de generator zal een shortcode invoegen zonder de "
+#~ "standaard attributen die u niet heeft veranderd. Als resultaat zal de "
+#~ "gegenereerde code korter zijn."
+
+# @ su
+#~ msgid "Shortcodes prefix"
+#~ msgstr "Shortcodes voorinstellingen"
+
+#~ msgid ""
+#~ "This prefix will be added to all shortcodes by this plugin. For example, "
+#~ "type here %s and you'll get shortcodes like %s and %s. Please keep in "
+#~ "mind: this option is not affects your already inserted shortcodes and if "
+#~ "you'll change this value your old shortcodes will be broken"
+#~ msgstr ""
+#~ "Dit voorvoegsel zal door deze plugin aan aale shortcodes worden "
+#~ "toegevoegd. Bij voorbeeld, geef in %s en u krijgt shortcodes als %s en "
+#~ "%s. Hou in de gaten, dat deze optie geen invloed heeft op reeds "
+#~ "ingevoegde shortcodes en als u deze waarde verandert worden al uw "
+#~ "shortcodes onbruikbaar."
+
+# @ su
+#~ msgid "Skin"
+#~ msgstr "Skin"
+
+# @ su
+#~ msgid "Choose global skin for shortcodes"
+#~ msgstr "Kies een algemene skin voor een shortcode"
+
+# @ su
+#~ msgid "Custom CSS"
+#~ msgstr "Aangepaste CSS"
+
+# @ su
+#~ msgid "Examples"
+#~ msgstr "Voorbeelden"
+
+# @ su
+#~ msgid "Add-ons"
+#~ msgstr "Add-ons"
+
+# @ su
+#~ msgid "Vladimir Anokhin"
+#~ msgstr "Vladimir Anokhin"
+
+# @ su
+#~ msgid "Supercharge your WordPress theme with mega pack of shortcodes"
+#~ msgstr "Geef uw WordPress thema een boost met een mega pak aan shortcodes"
+
+# @ su
+#~ msgid "Where to start?"
+#~ msgstr "Waar te beginnen?"
+
+# @ su
+#~ msgid ""
+#~ "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not "
+#~ "fully compatible with your PHP version (%s).<br />Reccomended PHP version "
+#~ "&ndash; %s (or higher).</p><a href=\"%s\">&larr; Return to the plugins "
+#~ "screen</a> <a href=\"%s\"%s>Continue and activate anyway &rarr;</a>"
+#~ msgstr ""
+#~ "<h1>Oje! Plugin is niet geactiveerd&hellip;</h1> <p>Shortcodes Ultimate "
+#~ "is niet geheel compatibel met uw PHP-versie (%s).<br />Geadviseerde PHP-"
+#~ "versie &ndash; %s (or higher).</p><a href=\"%s\">&larr; Keer terug naar "
+#~ "het plugin-scherm</a> <a href=\"%s\"%s>Ga door en activeer sowieso &rarr;"
+#~ "</a>"
+
+# @ su
+#~ msgid ""
+#~ "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not "
+#~ "fully compatible with your version of WordPress (%s).<br />Reccomended "
+#~ "WordPress version &ndash; %s (or higher).</p><a href=\"%s\">&larr; Return "
+#~ "to the plugins screen</a> <a href=\"%s\"%s>Continue and activate anyway "
+#~ "&rarr;</a>"
+#~ msgstr ""
+#~ "<h1>Oje! Plugin is niet geactiveerd&hellip;</h1> <p>Shortcodes Ultimate "
+#~ "is niet geheel compatibel met uw versie van WordPress (%s).<br /"
+#~ ">Geadviseerde WordPress versie &ndash; %s (or higher).</p><a href=\"%s"
+#~ "\">&larr; Keer terug naar het plugin-scherm</a> <a href=\"%s\"%s>Ga door "
+#~ "en activeer sowieso &rarr;</a>"
+
+# @ su
+#~ msgid "This is box title"
+#~ msgstr "Dit is de box-titel"
+
+# @ su
+#~ msgid "please specify correct source"
+#~ msgstr "Geef een correcte bron op"
+
+# @ su
+#~ msgid "please specify correct url"
+#~ msgstr "Geef een correcte URL op"
+
+# @ su
+#~ msgid "This menu doesn't exists, or has no elements"
+#~ msgstr "Dit menu bestaat niet of heeft geen items"
+
+# @ su
+#~ msgid "images not found"
+#~ msgstr "Images niet gevonden"
+
+# @ su
+#~ msgid "template not found"
+#~ msgstr "Template niet gevonden"
+
+# @ su
+#~ msgid "Example code does not found, please check it later"
+#~ msgstr "Voorbeeld code niet gevonden, probeer het later opnieuw"
+
+# @ su
+#~ msgid "Get the code"
+#~ msgstr "Haal de code"
+
+# @ su
+#~ msgid ""
+#~ "Hello, my name is Vladimir Anokhin, and I am developer of plugin "
+#~ "<b>Shortcodes Ultimate</b>.<br>If you like this plugin, please write a "
+#~ "few words about it at the wordpress.org or twitter. It will help other "
+#~ "people find this useful plugin more quickly.<br><b>Thank you!</b>"
+#~ msgstr ""
+#~ "Hallo, mijn naam is Vladimir Anokhin. Ik ben de ontwikkelaar van de "
+#~ "plugin <b>Shortcodes Ultimate</b>.<br>Als u deze plugin op prijs stelt, "
+#~ "schrijft u er alstublieft een paar woorden over op wordpress.org of "
+#~ "Twitter. Het helpt anderen om deze plugin sneller te vinden."
+#~ "<br><b>Hartelijk dank!</b>"
+
+# @ su
+#~ msgid "Rate plugin"
+#~ msgstr "Waardeer plugin"
+
+# @ su
+#~ msgid "Shortcodes Ultimate - must have WordPress plugin #shortcodesultimate"
+#~ msgstr ""
+#~ "Shortcodes Ultimate - een hebbeding-WordPress plugin #shortcodesultimate"
+
+# @ su
+#~ msgid "Tweet"
+#~ msgstr "Tweet"
+
+# @ su
+#~ msgid "No, thanks"
+#~ msgstr "Nee, dank u wel"
+
+# @ su
+#~ msgid "Remind me later"
+#~ msgstr "Herinner me later"
+
+# @ su
+#~ msgid "Special Shortcodes Ultimate widget"
+#~ msgstr "Speciale widget Shortcodes Ultimate"
+
+# @ su
+#~ msgid "Posted"
+#~ msgstr "verstuurd"
+
+# @ su
+#~ msgid "0 comments"
+#~ msgstr "0 commentaren"
+
+# @ su
+#~ msgid "1 comment"
+#~ msgstr "1 commentaar"
+
+# @ su
+#~ msgid "%n comments"
+#~ msgstr "%n commentaren"

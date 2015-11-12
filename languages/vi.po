@@ -1,0 +1,4667 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cherry Framework\n"
+"POT-Creation-Date: 2015-11-09 18:27+0200\n"
+"PO-Revision-Date: 2015-11-09 18:27+0200\n"
+"Last-Translator: \n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:21
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or use search."
+msgstr ""
+
+#: cherry-options.php:6
+msgid "Select a page:"
+msgstr ""
+
+#: cherry-options.php:23 cherry-options.php:1837
+#: lib/admin/class-cherry-grid-type.php:49
+msgid "Header"
+msgstr ""
+
+#: cherry-options.php:24
+msgid "Main menu"
+msgstr ""
+
+#: cherry-options.php:25
+msgid "Header top static area"
+msgstr ""
+
+#: cherry-options.php:37
+msgid "Favicon image"
+msgstr ""
+
+#: cherry-options.php:38
+msgid ""
+"Icon image that is displayed in the browser address bar and browser tab "
+"heading."
+msgstr ""
+
+#: cherry-options.php:41
+msgid ""
+"Max icon size: 32x32 px <br>You can also upload favicon for retina displays. "
+"Max retina icon size: 152x152 px"
+msgstr ""
+
+#: cherry-options.php:52
+#, php-format
+msgid "Maintenance mode. <a href=\"%s\" target=\"_blank\">Preview</a>"
+msgstr ""
+
+#: cherry-options.php:55
+msgid "Enable/disable maintenance mode."
+msgstr ""
+
+#: cherry-options.php:58
+msgid ""
+"Logged in administrator gets full access to the site, while regular visitors "
+"will\\won't be redirected to the page chosen below."
+msgstr ""
+
+#: cherry-options.php:64
+msgid "Maintenance page"
+msgstr ""
+
+#: cherry-options.php:65
+msgid ""
+"Select page that regular visitors will see if maintenance mode is enabled."
+msgstr ""
+
+#: cherry-options.php:72
+msgid "Document smooth scroll"
+msgstr ""
+
+#: cherry-options.php:73
+msgid ""
+"Enable/disable smooth vertical mousewheel scrolling (Chrome browser only)."
+msgstr ""
+
+#: cherry-options.php:78
+msgid "User CSS"
+msgstr ""
+
+#: cherry-options.php:79
+msgid "Define custom CSS styling."
+msgstr ""
+
+#: cherry-options.php:91
+msgid "Responsive grid"
+msgstr ""
+
+#: cherry-options.php:92
+msgid "Enable/disable responsive grid. "
+msgstr ""
+
+#: cherry-options.php:95
+msgid ""
+"If for any reason you want to disable responsive layout for your site, you "
+"are able to turn it off here."
+msgstr ""
+
+#: cherry-options.php:101
+msgid "Container width"
+msgstr ""
+
+#: cherry-options.php:102
+msgid "Width of header/content/footer container in pixels."
+msgstr ""
+
+#: cherry-options.php:112
+msgid "Pages"
+msgstr ""
+
+#: cherry-options.php:115 cherry-options.php:151
+msgid ""
+"You can choose if you want to display sidebars and how you want to display "
+"them."
+msgstr ""
+
+#: cherry-options.php:121 cherry-options.php:157
+msgid "Left sidebar"
+msgstr ""
+
+#: cherry-options.php:125 cherry-options.php:161
+msgid "Right sidebar"
+msgstr ""
+
+#: cherry-options.php:129 cherry-options.php:165
+msgid "Left and right sidebar"
+msgstr ""
+
+#: cherry-options.php:133 cherry-options.php:169
+msgid "Two sidebars on the left"
+msgstr ""
+
+#: cherry-options.php:137 cherry-options.php:173
+msgid "Two sidebars on the right"
+msgstr ""
+
+#: cherry-options.php:141 cherry-options.php:177
+msgid "No sidebar"
+msgstr ""
+
+#: cherry-options.php:148
+msgid "Blog posts"
+msgstr ""
+
+#: cherry-options.php:190
+msgid "Featured Media"
+msgstr ""
+
+#: cherry-options.php:191
+msgid ""
+"Displays Featured Image, Gallery, Audio, Video in blog posts listing "
+"depending on post type."
+msgstr ""
+
+#: cherry-options.php:196
+msgid "Featured Image Size"
+msgstr ""
+
+#: cherry-options.php:199 cherry-options.php:202
+msgid "Set dimensions for post featured images."
+msgstr ""
+
+#: cherry-options.php:205 cherry-options.php:274
+msgid "Small"
+msgstr ""
+
+#: cherry-options.php:206 cherry-options.php:275
+msgid "Large"
+msgstr ""
+
+#: cherry-options.php:211
+msgid "Featured Image Alignment"
+msgstr ""
+
+#: cherry-options.php:212
+msgid "Set alignment for post featured images."
+msgstr ""
+
+#: cherry-options.php:216 cherry-options.php:233 cherry-options.php:285
+msgid "None"
+msgstr "Không có"
+
+#: cherry-options.php:217 cherry-options.php:286
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:80
+msgid "Left"
+msgstr "Trái"
+
+#: cherry-options.php:218 cherry-options.php:287
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:81
+msgid "Right"
+msgstr "Đúng"
+
+#: cherry-options.php:219 cherry-options.php:288
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:82
+msgid "Center"
+msgstr "Trung tâm"
+
+#: cherry-options.php:224
+msgid "Post content"
+msgstr ""
+
+#: cherry-options.php:225
+msgid "Select how you want to display post content in blog listing"
+msgstr ""
+
+#: cherry-options.php:228
+msgid ""
+"The following options are available:<br>`full` - display full post content, "
+"<br>`part` - display part of the post (you can specify content part length "
+"below), <br>`none` - hide post content."
+msgstr ""
+
+#: cherry-options.php:234
+msgid "Part"
+msgstr ""
+
+#: cherry-options.php:235
+msgid "Full"
+msgstr ""
+
+#: cherry-options.php:240
+msgid "Content Part length"
+msgstr ""
+
+#: cherry-options.php:241
+msgid ""
+"Specify number of words displayed in blog listing content part. Will not "
+"work if post has an excerpt."
+msgstr ""
+
+#: cherry-options.php:248
+msgid "More button"
+msgstr ""
+
+#: cherry-options.php:249
+msgid "Enable/Disable read more button in blog listing."
+msgstr ""
+
+#: cherry-options.php:254
+msgid "More button label"
+msgstr ""
+
+#: cherry-options.php:255
+msgid "Specify read more button label text. "
+msgstr ""
+
+#: cherry-options.php:256
+msgid "read more"
+msgstr ""
+
+#: cherry-options.php:263
+msgid "Featured Image"
+msgstr ""
+
+#: cherry-options.php:264
+msgid "Display featured image on the single post page."
+msgstr ""
+
+#: cherry-options.php:269
+msgid "Size of Featured Image"
+msgstr ""
+
+#: cherry-options.php:270
+msgid "Set dimensions for single post featured images."
+msgstr ""
+
+#: cherry-options.php:280
+msgid "Alignment of Featured Image"
+msgstr ""
+
+#: cherry-options.php:281
+msgid "Set alignment for single post featured images."
+msgstr ""
+
+#: cherry-options.php:293 cherry-options.php:1817
+msgid "Navigation"
+msgstr ""
+
+#: cherry-options.php:294
+msgid "Enable/disable post navigation block."
+msgstr ""
+
+#: cherry-options.php:299
+msgid "Author bio"
+msgstr ""
+
+#: cherry-options.php:300
+msgid ""
+"Enable/disable author bio block. Author bio block is displayed on the post "
+"page."
+msgstr ""
+
+#: cherry-options.php:305
+msgid "Related posts"
+msgstr ""
+
+#: cherry-options.php:306
+msgid ""
+"Enable/disable related posts block. Related posts block is displayed on the "
+"post page."
+msgstr ""
+
+#: cherry-options.php:311
+msgid "Allow comments"
+msgstr ""
+
+#: cherry-options.php:312
+msgid "Enable/disable comments for blog posts."
+msgstr ""
+
+#: cherry-options.php:315
+msgid ""
+"Make sure comments are enabled in Wordpress 'settings->discussion'. For "
+"posts that have already been published you need to enable comments "
+"individually in post settings."
+msgstr ""
+
+#: cherry-options.php:321
+msgid "Gallery slider"
+msgstr ""
+
+#: cherry-options.php:322
+msgid ""
+"Replace default Wordpress gallery shortcode with enhanced jQuery carousel."
+msgstr ""
+
+#: cherry-options.php:327
+msgid "Lightbox for images in a content"
+msgstr ""
+
+#: cherry-options.php:328
+msgid "Automatically adds lightbox for images in a post content."
+msgstr ""
+
+#: cherry-options.php:336
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:196
+#: lib/functions/template-media.php:141
+msgid "Date"
+msgstr "Ngày"
+
+#: cherry-options.php:337
+msgid "Show/Hide post publication date."
+msgstr ""
+
+#: cherry-options.php:342
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:193
+msgid "Author"
+msgstr ""
+
+#: cherry-options.php:343
+msgid "Show/Hide post author."
+msgstr ""
+
+#: cherry-options.php:348
+msgid "Comments"
+msgstr ""
+
+#: cherry-options.php:349
+msgid "Show/Hide number of comments."
+msgstr ""
+
+#: cherry-options.php:354
+msgid "Categories"
+msgstr ""
+
+#: cherry-options.php:355
+msgid "Show/Hide post categories."
+msgstr ""
+
+#: cherry-options.php:360
+msgid "Tags"
+msgstr ""
+
+#: cherry-options.php:361
+msgid "Show/Hide post tags."
+msgstr ""
+
+#: cherry-options.php:372
+msgid "Body background"
+msgstr ""
+
+#: cherry-options.php:373
+msgid "Set background for body container. "
+msgstr ""
+
+#: cherry-options.php:376
+msgid ""
+"You can specify background image or color, set background repeat, position "
+"and attachment. "
+msgstr ""
+
+#: cherry-options.php:397
+msgid "Primary color"
+msgstr ""
+
+#: cherry-options.php:402
+msgid "Secondary color"
+msgstr ""
+
+#: cherry-options.php:407
+msgid "Success color"
+msgstr ""
+
+#: cherry-options.php:412
+msgid "Info color"
+msgstr ""
+
+#: cherry-options.php:417
+msgid "Warning color"
+msgstr ""
+
+#: cherry-options.php:422
+msgid "Danger color"
+msgstr ""
+
+#: cherry-options.php:427
+msgid "Primary gray color"
+msgstr ""
+
+#: cherry-options.php:447
+msgid "Header Menu Typography"
+msgstr ""
+
+#: cherry-options.php:448
+msgid "Main header navigation typography settings."
+msgstr ""
+
+#: cherry-options.php:463
+msgid "Footer Menu Typography"
+msgstr ""
+
+#: cherry-options.php:464
+msgid "Main footer navigation typography settings."
+msgstr ""
+
+#: cherry-options.php:479
+msgid "Arrows markup"
+msgstr ""
+
+#: cherry-options.php:480
+msgid "Do you want to generate arrow mark-up?"
+msgstr ""
+
+#: cherry-options.php:491 cherry-options.php:1823
+msgid "Breadcrumbs"
+msgstr ""
+
+#: cherry-options.php:492
+msgid "Enable/disable breadcrumbs navigation."
+msgstr ""
+
+#: cherry-options.php:498
+msgid "Page title"
+msgstr ""
+
+#: cherry-options.php:499
+msgid "Show / hide current page title in breadcrumb navigation."
+msgstr ""
+
+#: cherry-options.php:504
+msgid "Breadcrumbs mobile"
+msgstr ""
+
+#: cherry-options.php:505
+msgid "Enable/disable breadcrumbs on mobile devices."
+msgstr ""
+
+#: cherry-options.php:509
+msgid ""
+"Mobile &mdash; Extra small devices, phones (&lt;768px) <br>Tablet &mdash; "
+"Small devices, tablets (&lt;991px)"
+msgstr ""
+
+#: cherry-options.php:512
+msgid "Mobile"
+msgstr ""
+
+#: cherry-options.php:513
+msgid "Tablet"
+msgstr ""
+
+#: cherry-options.php:518
+msgid "Home page breadcrumbs"
+msgstr ""
+
+#: cherry-options.php:519
+msgid ""
+"If option defined in page setting, this global option will not be counted."
+msgstr ""
+
+#: cherry-options.php:524
+msgid "Customize a Home page title?"
+msgstr ""
+
+#: cherry-options.php:527 cherry-options.php:1107 cherry-options.php:1132
+#: lib/admin/class-cherry-admin.php:63
+#: lib/classes/class-cherry-interface-builder.php:470
+msgid "Yes"
+msgstr "Có"
+
+#: cherry-options.php:528 cherry-options.php:1108 cherry-options.php:1133
+#: lib/admin/class-cherry-admin.php:64
+#: lib/classes/class-cherry-interface-builder.php:471
+msgid "No"
+msgstr "Không"
+
+#: cherry-options.php:535
+msgid "Home page title"
+msgstr ""
+
+#: cherry-options.php:536
+msgid "This is a customized title for a Home page."
+msgstr ""
+
+#: cherry-options.php:537 lib/classes/class-cherry-breadcrumbs.php:270
+msgid "Home"
+msgstr ""
+
+#: cherry-options.php:543
+msgid "Item separator"
+msgstr ""
+
+#: cherry-options.php:544
+msgid "Breadcrumbs separator symbol."
+msgstr ""
+
+#: cherry-options.php:551
+msgid "Breadcrumbs prefix"
+msgstr ""
+
+#: cherry-options.php:552
+msgid "Text displayed before breadcrumbs navigation."
+msgstr ""
+
+#: cherry-options.php:553
+msgid "You are here:"
+msgstr ""
+
+#: cherry-options.php:562
+msgid "Pagination position"
+msgstr ""
+
+#: cherry-options.php:563
+msgid "Select your pagination position."
+msgstr ""
+
+#: cherry-options.php:566
+msgid "After posts loop"
+msgstr ""
+
+#: cherry-options.php:567
+msgid "Before posts loop"
+msgstr ""
+
+#: cherry-options.php:568
+msgid "Both"
+msgstr ""
+
+#: cherry-options.php:573
+msgid "Prev/next buttons"
+msgstr ""
+
+#: cherry-options.php:574
+msgid "Show/hide previous and next buttons in pagination."
+msgstr ""
+
+#: cherry-options.php:579
+msgid "Pagination label"
+msgstr ""
+
+#: cherry-options.php:580
+msgid ""
+"Pagination label. Displayed before pagination buttons. Text or HTML can be "
+"used."
+msgstr ""
+
+#: cherry-options.php:581 lib/functions/template-post.php:279
+msgid "Pages:"
+msgstr ""
+
+#: cherry-options.php:585
+msgid "Prev button label"
+msgstr ""
+
+#: cherry-options.php:586
+msgid "Previous button label text. Text or HTML can be used."
+msgstr ""
+
+#: cherry-options.php:591
+msgid "Next button label"
+msgstr ""
+
+#: cherry-options.php:592
+msgid "Next button label text. Text or HTML can be used."
+msgstr ""
+
+#: cherry-options.php:597
+msgid "Show all the pages"
+msgstr ""
+
+#: cherry-options.php:598
+msgid ""
+"If set to On, then it will show all of the pages instead of a short list of "
+"the pages near the current page."
+msgstr ""
+
+#: cherry-options.php:603
+msgid "End size"
+msgstr ""
+
+#: cherry-options.php:604
+msgid "How many pages to display either at the top or at the end of the list."
+msgstr ""
+
+#: cherry-options.php:612
+msgid "Mid size"
+msgstr ""
+
+#: cherry-options.php:613
+msgid ""
+"How many numbers to display to either side of current page, but not "
+"including current page."
+msgstr ""
+
+#: cherry-options.php:626 cherry-options.php:745 cherry-options.php:808
+msgid "Background"
+msgstr "Nền"
+
+#: cherry-options.php:629 cherry-options.php:633
+msgid ""
+"Header background settings. You can select background color, upload header "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:649 cherry-options.php:766 cherry-options.php:841
+msgid "Grid type"
+msgstr ""
+
+#: cherry-options.php:650
+msgid ""
+"Select layout pattern for header website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: cherry-options.php:655 cherry-options.php:772 cherry-options.php:847
+msgid "Wide"
+msgstr ""
+
+#: cherry-options.php:659 cherry-options.php:776 cherry-options.php:851
+msgid "Boxed"
+msgstr ""
+
+#: cherry-options.php:666 cherry-options.php:783 cherry-options.php:858
+msgid "Boxed width"
+msgstr ""
+
+#: cherry-options.php:667
+msgid ""
+"Header width for `boxed` layout. Should not be more than `Grid -> Container "
+"width` value."
+msgstr ""
+
+#: cherry-options.php:674
+msgid "Sticky header"
+msgstr ""
+
+#: cherry-options.php:675
+msgid "Enable\\disable fixed header that sticks to the top."
+msgstr ""
+
+#: cherry-options.php:680
+msgid "Sticky selector"
+msgstr ""
+
+#: cherry-options.php:681
+msgid ""
+"Select the block selector that will be used to build sticky panel. You can "
+"use tag name, class name, or id."
+msgstr ""
+
+#: cherry-options.php:690 cherry-options.php:876
+msgid "Logo type"
+msgstr ""
+
+#: cherry-options.php:691
+msgid "Select whether you want your main logo to be an image or text. "
+msgstr ""
+
+#: cherry-options.php:694
+msgid ""
+"If you select \"image\", you can choose logo image from the media library in "
+"the next option, and if you select \"text\", your WordPress Site Title will "
+"be shown instead."
+msgstr ""
+
+#: cherry-options.php:715 cherry-options.php:897
+msgid "Logo image"
+msgstr ""
+
+#: cherry-options.php:716 cherry-options.php:898
+msgid ""
+"Click Choose Media button to select logo image from the media library or "
+"upload your image."
+msgstr ""
+
+#: cherry-options.php:723 cherry-options.php:905
+msgid "Logo typography"
+msgstr ""
+
+#: cherry-options.php:724 cherry-options.php:906
+msgid ""
+"Configuration settings for text logo. Here you can select logo font family, "
+"size, color, etc."
+msgstr ""
+
+#: cherry-options.php:748 cherry-options.php:750
+msgid ""
+"Page background settings. You can select background color, upload footer "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:767
+msgid ""
+"Select layout pattern for main website container. Wide layout will fit "
+"window width. Boxed layout will have fixed width and left/right indents. "
+msgstr ""
+
+#: cherry-options.php:784
+msgid ""
+"Main content width for `boxed` layout. Should not be more than `Grid -> "
+"Container width` value."
+msgstr ""
+
+#: cherry-options.php:791
+msgid "Featured Images"
+msgstr ""
+
+#: cherry-options.php:792
+msgid "Enable/disable featured images for pages."
+msgstr ""
+
+#: cherry-options.php:797
+msgid "Page comments"
+msgstr ""
+
+#: cherry-options.php:798
+msgid ""
+"Enable/disable comments for pages by default. For pages that have already "
+"been published you need to enable comments individually in page settings."
+msgstr ""
+
+#: cherry-options.php:809
+msgid ""
+"Footer background settings. You can select background color, upload footer "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:825 cherry-options.php:1426 cherry-options.php:1869
+msgid "Typography"
+msgstr ""
+
+#: cherry-options.php:826
+msgid "Typography settings for footer text."
+msgstr ""
+
+#: cherry-options.php:842
+msgid ""
+"Select layout pattern for footer website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: cherry-options.php:859
+msgid ""
+"Footer width for `boxed` layout. Should not be more than `Grid -> Container "
+"width` value."
+msgstr ""
+
+#: cherry-options.php:866
+msgid "Footer Info text"
+msgstr ""
+
+#: cherry-options.php:867
+msgid "Set custom text for Footer static info."
+msgstr ""
+
+#: cherry-options.php:877
+msgid "Select whether you want your footer logo to be an image or text."
+msgstr ""
+
+#: cherry-options.php:928
+msgid "Body text"
+msgstr ""
+
+#: cherry-options.php:929
+msgid "Main website text typography options."
+msgstr ""
+
+#: cherry-options.php:944
+msgid "Link color"
+msgstr ""
+
+#: cherry-options.php:945
+msgid "Color of links."
+msgstr ""
+
+#: cherry-options.php:950
+msgid "Link hover color"
+msgstr ""
+
+#: cherry-options.php:951
+msgid "Color of links on hover."
+msgstr ""
+
+#: cherry-options.php:956
+msgid "Input text"
+msgstr ""
+
+#: cherry-options.php:957
+msgid "Styling text in forms."
+msgstr ""
+
+#: cherry-options.php:972
+msgid "Breadcrumbs typography"
+msgstr ""
+
+#: cherry-options.php:973
+msgid "Styling text in breadcrumbs."
+msgstr ""
+
+#: cherry-options.php:988
+msgid "Heading 1"
+msgstr ""
+
+#: cherry-options.php:990
+msgid "H1 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1005
+msgid "Heading 2"
+msgstr ""
+
+#: cherry-options.php:1007
+msgid "H2 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1022
+msgid "Heading 3"
+msgstr ""
+
+#: cherry-options.php:1024
+msgid "H3 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1039
+msgid "Heading 4"
+msgstr ""
+
+#: cherry-options.php:1041
+msgid "H4 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1056
+msgid "Heading 5"
+msgstr ""
+
+#: cherry-options.php:1058
+msgid "H5 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1073
+msgid "Heading 6"
+msgstr ""
+
+#: cherry-options.php:1075
+msgid "H6 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1090
+msgid "Webfonts"
+msgstr ""
+
+#: cherry-options.php:1092
+msgid "Define custom Font style and Character Sets for selected web font."
+msgstr ""
+
+#: cherry-options.php:1103
+msgid "Concatenate/minify CSS"
+msgstr ""
+
+#: cherry-options.php:1104
+msgid ""
+"Select if you want to merge\\minify CSS files for performance optimization."
+msgstr ""
+
+#: cherry-options.php:1114
+msgid "Output dynamic CSS into separate file or into style tag."
+msgstr ""
+
+#: cherry-options.php:1129
+msgid "Display Cookie Banner?"
+msgstr ""
+
+#: cherry-options.php:1138
+msgid "Message"
+msgstr "Tin nhắn"
+
+#: cherry-options.php:1139
+msgid "Enter the cookie banner message."
+msgstr ""
+
+#: cherry-options.php:1140
+msgid "We use cookies to ensure you get the best experience on our website."
+msgstr ""
+
+#: cherry-options.php:1150 cherry-options.php:1570
+msgid "Text input"
+msgstr ""
+
+#: cherry-options.php:1155 cherry-options.php:1575 cherry-options.php:1670
+#: cherry-options.php:1682 cherry-options.php:1694 cherry-options.php:1729
+#: cherry-options.php:1740 cherry-options.php:1752
+msgid "Regular single line text input field."
+msgstr ""
+
+#: cherry-options.php:1161 cherry-options.php:1582
+msgid "Textarea input"
+msgstr ""
+
+#: cherry-options.php:1166 cherry-options.php:1587
+msgid "Multiline text input field ( 16 rows x 20 cols )."
+msgstr ""
+
+#: cherry-options.php:1172 cherry-options.php:1594
+msgid "Select box"
+msgstr ""
+
+#: cherry-options.php:1177 cherry-options.php:1599
+msgid "Select box with single option."
+msgstr ""
+
+#: cherry-options.php:1189 cherry-options.php:1612
+msgid "Filtered select"
+msgstr ""
+
+#: cherry-options.php:1194 cherry-options.php:1617
+msgid "Select box with filter option."
+msgstr ""
+
+#: cherry-options.php:1211 cherry-options.php:1234
+msgid "Multi-select box"
+msgstr ""
+
+#: cherry-options.php:1216 cherry-options.php:1239
+msgid "Select box with multiple select capability."
+msgstr ""
+
+#: cherry-options.php:1257 cherry-options.php:1702
+msgid "Checkbox"
+msgstr "Hộp kiểm"
+
+#: cherry-options.php:1258 cherry-options.php:1703
+msgid "Checkbox label"
+msgstr ""
+
+#: cherry-options.php:1262 cherry-options.php:1707
+msgid "Regular HTML checkbox."
+msgstr ""
+
+#: cherry-options.php:1272 cherry-options.php:1555
+msgid "Switcher"
+msgstr ""
+
+#: cherry-options.php:1275 cherry-options.php:1558
+msgid "Analogue of the regular HTML radio buttons. "
+msgstr ""
+
+#: cherry-options.php:1280
+msgid "Switcher (alternative)"
+msgstr ""
+
+#: cherry-options.php:1283
+msgid "Alternative switcher with custom labels."
+msgstr ""
+
+#: cherry-options.php:1286 cherry-options.php:1561
+msgid "Enabled"
+msgstr "Kích hoạt"
+
+#: cherry-options.php:1287 cherry-options.php:1562
+msgid "Disabled"
+msgstr "Khuyết tật"
+
+#: cherry-options.php:1294
+msgid "Stepper"
+msgstr ""
+
+#: cherry-options.php:1297
+msgid "Adds a number input used to define numeric values."
+msgstr ""
+
+#: cherry-options.php:1306
+msgid "Slider"
+msgstr "Thanh trượt"
+
+#: cherry-options.php:1309
+msgid "Draggable slider with stepper. Used to define some numeric value."
+msgstr ""
+
+#: cherry-options.php:1316
+msgid "Slider (ranged)"
+msgstr ""
+
+#: cherry-options.php:1321
+msgid "Draggable slider with range capability. Used to define numeric range."
+msgstr ""
+
+#: cherry-options.php:1332
+msgid "Radio buttons"
+msgstr ""
+
+#: cherry-options.php:1335
+msgid "Adds radio buttons group. Lets user select one option from the list."
+msgstr ""
+
+#: cherry-options.php:1352 cherry-options.php:1635
+msgid "Radio buttons (image)"
+msgstr ""
+
+#: cherry-options.php:1356 cherry-options.php:1358 cherry-options.php:1639
+#: cherry-options.php:1641
+msgid "Adds image based radio buttons group. Behaves as HTML radio buttons."
+msgstr ""
+
+#: cherry-options.php:1379
+msgid "Colorpicker"
+msgstr ""
+
+#: cherry-options.php:1384
+msgid "Adds a color picker."
+msgstr ""
+
+#: cherry-options.php:1390
+msgid "Media library element"
+msgstr ""
+
+#: cherry-options.php:1395
+msgid "Allows user to add content from Wordpress media library."
+msgstr ""
+
+#: cherry-options.php:1403
+msgid "Background image"
+msgstr ""
+
+#: cherry-options.php:1408
+msgid ""
+"Allows user to add background image from the media library and define its "
+"background settings like background repeat, position, attachment, origin."
+msgstr ""
+
+#: cherry-options.php:1432
+msgid ""
+"Provides typography configuration options such as Google Font family name, "
+"font size, line height, style, letter spacing, characters sets, text align "
+"and color. Below options you can see font preview."
+msgstr ""
+
+#: cherry-options.php:1450
+msgid "CSS Editor"
+msgstr ""
+
+#: cherry-options.php:1455
+msgid "Embedded CSS editor with syntax highlighting."
+msgstr ""
+
+#: cherry-options.php:1461
+msgid "title layout editor"
+msgstr ""
+
+#: cherry-options.php:1463
+msgid "description layout editor"
+msgstr ""
+
+#: cherry-options.php:1504
+msgid "Links repeater"
+msgstr ""
+
+#: cherry-options.php:1509
+msgid ""
+"This option allows you to create a custom links list. For each link you can "
+"define URL, class and label."
+msgstr ""
+
+#: cherry-options.php:1531
+msgid "Webfont"
+msgstr ""
+
+#: cherry-options.php:1538
+msgid "WYSIWYG editor"
+msgstr ""
+
+#: cherry-options.php:1543
+msgid ""
+"Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page "
+"editing area."
+msgstr ""
+
+#: cherry-options.php:1665 cherry-options.php:1724
+msgid "Text input 1"
+msgstr ""
+
+#: cherry-options.php:1677 cherry-options.php:1735
+msgid "Text input 2"
+msgstr ""
+
+#: cherry-options.php:1689 cherry-options.php:1747
+msgid "Text input 3"
+msgstr ""
+
+#: cherry-options.php:1764
+msgid "General"
+msgstr ""
+
+#: cherry-options.php:1770
+msgid "Grid"
+msgstr ""
+
+#: cherry-options.php:1776
+msgid "Layouts"
+msgstr ""
+
+#: cherry-options.php:1784
+msgid "Blog"
+msgstr ""
+
+#: cherry-options.php:1790
+msgid "Post"
+msgstr ""
+
+#: cherry-options.php:1797
+msgid "Meta"
+msgstr ""
+
+#: cherry-options.php:1804
+msgid "Styling"
+msgstr ""
+
+#: cherry-options.php:1810
+msgid "Color scheme"
+msgstr ""
+
+#: cherry-options.php:1830
+msgid "Pagination"
+msgstr "Số trang"
+
+#: cherry-options.php:1843 cherry-options.php:1862
+#: init/statics/header-logo.php:35
+msgid "Logo"
+msgstr ""
+
+#: cherry-options.php:1850
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:197
+msgid "Page"
+msgstr ""
+
+#: cherry-options.php:1856 lib/admin/class-cherry-grid-type.php:57
+msgid "Footer"
+msgstr ""
+
+#: cherry-options.php:1875
+msgid "Optimization"
+msgstr ""
+
+#: cherry-options.php:1881
+msgid "Cookie Banner"
+msgstr ""
+
+#: cherry-options.php:1887
+msgid "Interface elements (for UI developers)"
+msgstr ""
+
+#: init/config/menus.php:22
+msgid "Primary"
+msgstr ""
+
+#: init/config/menus.php:23
+msgid "Secondary"
+msgstr ""
+
+#: init/config/sidebars.php:25
+msgid "Main Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:26
+msgid ""
+"This is the main sidebar if you are using a two or three column site layout "
+"option."
+msgstr ""
+
+#: init/config/sidebars.php:33
+msgid "Secondary Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:34
+msgid ""
+"This is the secondary sidebar if you are using a three column site layout "
+"option."
+msgstr ""
+
+#: init/config/sidebars.php:41 init/statics/header-sidebar.php:32
+msgid "Header Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:42
+msgid "A sidebar located in the header of the site."
+msgstr ""
+
+#: init/config/sidebars.php:49
+msgid "Footer Sidebar 1"
+msgstr ""
+
+#: init/config/sidebars.php:50 init/config/sidebars.php:58
+#: init/config/sidebars.php:66 init/config/sidebars.php:74
+msgid "A sidebar located in the footer of the site."
+msgstr ""
+
+#: init/config/sidebars.php:57
+msgid "Footer Sidebar 2"
+msgstr ""
+
+#: init/config/sidebars.php:65
+msgid "Footer Sidebar 3"
+msgstr ""
+
+#: init/config/sidebars.php:73
+msgid "Footer Sidebar 4"
+msgstr ""
+
+#: init/config/static-areas.php:24
+msgid "Header Top"
+msgstr ""
+
+#: init/config/static-areas.php:30
+msgid "Header Bottom"
+msgstr ""
+
+#: init/config/static-areas.php:36
+msgid "Showcase Area"
+msgstr ""
+
+#: init/config/static-areas.php:42
+msgid "Footer Top"
+msgstr ""
+
+#: init/config/static-areas.php:48
+msgid "Footer Bottom"
+msgstr ""
+
+#: init/statics/example.php:29
+msgid "Example"
+msgstr ""
+
+#: init/statics/footer-info.php:71
+msgid "Footer Info"
+msgstr ""
+
+#: init/statics/footer-logo.php:32
+msgid "Footer Logo"
+msgstr ""
+
+#: init/statics/footer-menu.php:31
+msgid "Footer Menu"
+msgstr ""
+
+#: init/statics/footer-sidebars.php:64
+msgid "Footer Sidebars"
+msgstr ""
+
+#: init/statics/header-menu.php:33
+msgid "Header Menu"
+msgstr ""
+
+#: init/statics/moto-slider.php:46
+msgid "Select MotoSlider to appear in header"
+msgstr ""
+
+#: init/statics/moto-slider.php:47
+msgid "Select main theme slider"
+msgstr ""
+
+#: init/statics/moto-slider.php:67
+msgid "No Moto Sliders was found "
+msgstr ""
+
+#: init/statics/moto-slider.php:85
+msgid "MotoPress Slider"
+msgstr ""
+
+#: init/statics/search-form.php:32
+msgid "Search Form"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:57
+msgid "Please, select a file to import"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:58 lib/admin/class-cherry-admin.php:79
+msgid "Invalid file type"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:59
+msgid "Cherry Options imported. "
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:60
+msgid "section restored."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:61
+msgid "All options restored"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:62
+msgid "options loaded."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:65
+msgid "Neither option is not selected"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:66
+msgid "File download started..."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:78
+msgid "Please, select import file"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:80
+msgid "Statics settings imported. "
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:81
+msgid "Statics restored"
+msgstr ""
+
+#: lib/admin/class-cherry-grid-type.php:53
+msgid "Content"
+msgstr "Nội dung"
+
+#: lib/admin/class-cherry-grid-type.php:92
+msgid "Grid Type"
+msgstr ""
+
+#: lib/admin/class-cherry-grid-type.php:239
+#: lib/admin/class-cherry-layouts.php:212
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:79
+msgid "Inherit"
+msgstr "Kế thừa"
+
+#: lib/admin/class-cherry-layouts.php:72
+msgid "Layout"
+msgstr ""
+
+#: lib/admin/class-cherry-post-style.php:69
+msgid "Style"
+msgstr "Phong cách"
+
+#: lib/admin/class-cherry-post-style.php:118
+msgid "Header background"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:62
+msgid "No repeat"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:63
+msgid "Repeat All"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:64
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:65
+msgid "Repeat Vertically"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:68
+msgid "Top Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:69
+msgid "Top Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:70
+msgid "Top Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:71
+msgid "Middle Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:72
+msgid "Middle Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:73
+msgid "Middle Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:74
+msgid "Bottom Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:75
+msgid "Bottom Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:76
+msgid "Bottom Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:79
+#: lib/admin/ui-elements/ui-background/ui-background.php:84
+#: lib/admin/ui-elements/ui-background/ui-background.php:90
+#: lib/admin/ui-elements/ui-background/ui-background.php:96
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:78
+msgid "Not defined"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:80
+msgid "Scroll Normally"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:81
+msgid "Fixed in Place"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:85
+#: lib/admin/ui-elements/ui-background/ui-background.php:97
+msgid "Padding box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:86
+#: lib/admin/ui-elements/ui-background/ui-background.php:98
+msgid "Border box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:87
+#: lib/admin/ui-elements/ui-background/ui-background.php:99
+msgid "Content box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:91
+msgid "Auto"
+msgstr "Tự động"
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:92
+msgid "Cover"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:93
+msgid "Contain"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:126
+msgid "Background Settings"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:128
+msgid "Background Color"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:142
+#, php-format
+msgid "Background %s"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:89
+msgid "position"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:91
+msgid "margin"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:97
+msgid "border"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:103
+msgid "padding"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:109
+msgid "size"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:121
+msgid "solid"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:122
+msgid "dashed"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:123
+msgid "dotted"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:124
+msgid "double"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:125
+msgid "groove"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:126
+msgid "ridge"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:127
+msgid "inset"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:128
+msgid "outset"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:129
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:126
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:141
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:156
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:171
+msgid "none"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:132
+msgid "Border style"
+msgstr "Phong cách biên giới"
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:147
+msgid "Border radius"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:159
+msgid "Border color"
+msgstr "Biên giới màu sắc"
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:73
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:91
+msgid "External link"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:76
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:94
+msgid "Font class"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:79
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:97
+msgid "Link label"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:127
+msgid "col-xs-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:128
+msgid "col-xs-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:129
+msgid "col-xs-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:130
+msgid "col-xs-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:131
+msgid "col-xs-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:132
+msgid "col-xs-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:133
+msgid "col-xs-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:134
+msgid "col-xs-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:135
+msgid "col-xs-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:136
+msgid "col-xs-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:137
+msgid "col-xs-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:138
+msgid "col-xs-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:142
+msgid "col-sm-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:143
+msgid "col-sm-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:144
+msgid "col-sm-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:145
+msgid "col-sm-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:146
+msgid "col-sm-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:147
+msgid "col-sm-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:148
+msgid "col-sm-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:149
+msgid "col-sm-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:150
+msgid "col-sm-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:151
+msgid "col-sm-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:152
+msgid "col-sm-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:153
+msgid "col-sm-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:157
+msgid "col-md-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:158
+msgid "col-md-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:159
+msgid "col-md-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:160
+msgid "col-md-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:161
+msgid "col-md-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:162
+msgid "col-md-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:163
+msgid "col-md-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:164
+msgid "col-md-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:165
+msgid "col-md-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:166
+msgid "col-md-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:167
+msgid "col-md-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:168
+msgid "col-md-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:172
+msgid "col-lg-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:173
+msgid "col-lg-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:174
+msgid "col-lg-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:175
+msgid "col-lg-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:176
+msgid "col-lg-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:177
+msgid "col-lg-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:178
+msgid "col-lg-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:179
+msgid "col-lg-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:180
+msgid "col-lg-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:181
+msgid "col-lg-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:182
+msgid "col-lg-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:183
+msgid "col-lg-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:186
+msgid "Show"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:187
+msgid "Hide"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:190
+msgid "-- Select --"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:191
+msgid "Category"
+msgstr "Thể loại"
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:192
+#: lib/classes/class-cherry-statics-page.php:242
+msgid "Logged in"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:194
+msgid "Role"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:195
+msgid "Tag"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:198
+msgid "Taxonomy"
+msgstr "Phân loại"
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:212
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:379
+msgid ".col-xs-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:225
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:392
+msgid ".col-sm-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:238
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:405
+msgid ".col-md-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:251
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:418
+msgid ".col-lg-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:264
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:431
+msgid "Custom class"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:278
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:445
+msgid "Conditions"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:289
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:456
+msgid "if"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:305
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:336
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:472
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:503
+msgid "is"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:356
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:523
+msgid "Add rule"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:371
+msgid "Available statics"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:544
+#: lib/classes/class-cherry-statics-page.php:232
+msgid "All category pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:554
+msgid "Logged In"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:555
+msgid "Logged Out"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:560
+#: lib/classes/class-cherry-statics-page.php:246
+msgid "All author pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:576
+#: lib/classes/class-cherry-statics-page.php:258
+msgid "All tag pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:586
+#: lib/classes/class-cherry-statics-page.php:268
+msgid "All date archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:587
+#: lib/classes/class-cherry-statics-page.php:269
+msgid "Daily archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:588
+#: lib/classes/class-cherry-statics-page.php:270
+msgid "Monthly archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:589
+#: lib/classes/class-cherry-statics-page.php:271
+msgid "Yearly archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:594
+#: lib/classes/class-cherry-statics-page.php:275
+msgid "Front page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:595
+#: lib/classes/class-cherry-statics-page.php:276
+msgid "Posts page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:596
+#: lib/classes/class-cherry-statics-page.php:277
+msgid "Archive page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:597
+#: lib/classes/class-cherry-statics-page.php:278
+msgid "404 error page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:598
+#: lib/classes/class-cherry-statics-page.php:279
+msgid "Search results"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:601
+#: lib/classes/class-cherry-statics-page.php:281
+msgid "Post type:"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:608
+#: lib/classes/class-cherry-statics-page.php:288
+msgid "Static page:"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:617
+#: lib/classes/class-cherry-statics-page.php:296
+msgid "All taxonomy pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:623
+#: lib/classes/class-cherry-statics-page.php:301
+msgid ":"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
+msgid "Step Up"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
+msgid "Step Down"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:83
+msgid "Justify"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:97
+msgid "Font Family"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:100
+msgid "Standard Webfonts"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:126
+msgid "Google Webfonts"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:180
+msgid "Size"
+msgstr "Kích thước"
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:197
+msgid "Line-height"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:213
+msgid "Letter-spacing"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:229
+msgid "Font color"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:242
+msgid "Text align"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:311
+#: lib/admin/ui-elements/ui-webfont/ui-webfont.php:165
+msgid "Font Style"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:360
+#: lib/admin/ui-elements/ui-webfont/ui-webfont.php:212
+msgid "Character Sets"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:276
+msgid "Browse:"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:278
+msgid "404 Not Found"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:279
+msgid "Archives"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:281
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:283
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:285
+#, php-format
+msgid "Minute %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:287
+#, php-format
+msgid "Week %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:911
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:930
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:950
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:969
+#: lib/classes/class-cherry-breadcrumbs.php:1023
+#: lib/classes/class-cherry-breadcrumbs.php:1065
+#: lib/classes/class-cherry-breadcrumbs.php:1105
+#: lib/classes/class-cherry-breadcrumbs.php:1312
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:974
+#: lib/classes/class-cherry-breadcrumbs.php:1069
+#: lib/classes/class-cherry-breadcrumbs.php:1323
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:979
+#: lib/classes/class-cherry-breadcrumbs.php:1336
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:1027
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
+#: lib/classes/class-cherry-css-parser.php:188
+msgid "Variable not found"
+msgstr ""
+
+#: lib/classes/class-cherry-css-parser.php:231
+msgid "Function does not exist"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:132
+msgid "Choose Media"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:133
+msgid "Remove Media"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:144
+msgid "On"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:145
+msgid "Off"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:475
+msgid "Use for partial export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:125
+#: lib/classes/class-cherry-optionsframework-admin.php:157
+#, php-format
+msgid "Theme %s"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:126
+msgid "Cherry"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:136
+#: lib/classes/class-cherry-statics-page.php:101
+msgid "Documentation"
+msgstr "Tài liệu"
+
+#: lib/classes/class-cherry-optionsframework-admin.php:136
+#: lib/classes/class-cherry-statics-page.php:101
+msgid "Cherry Framework 4 documentation"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:150
+msgid "Feel free to view detailed "
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:158
+msgid "Options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:205
+#: lib/classes/class-cherry-optionsframework-admin.php:209
+#: lib/classes/class-cherry-optionsframework-admin.php:253
+#: lib/classes/class-cherry-optionsframework-admin.php:278
+#: lib/classes/class-cherry-statics-page.php:329
+#: lib/classes/class-cherry-statics-page.php:333
+msgid "Invalid request"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:205
+#: lib/classes/class-cherry-optionsframework-admin.php:209
+#: lib/classes/class-cherry-optionsframework-admin.php:253
+#: lib/classes/class-cherry-optionsframework-admin.php:278
+#: lib/classes/class-cherry-statics-page.php:329
+#: lib/classes/class-cherry-statics-page.php:333
+msgid "Error. Invalid request"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:438
+msgid "Options have been saved"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:494
+msgid "Default options backup has been created"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:499
+msgid "Default options backup has been overwrite"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:659
+msgid "Export/Import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:664
+msgid "Default options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:671
+msgid "Save options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:677
+msgid "Restore section"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:682
+msgid "Restore options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:689
+#: lib/classes/class-cherry-optionsframework-admin.php:690
+msgid "Export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:692
+msgid "Partial export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:700
+msgid "Attach statics settings"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:709
+msgid "Import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:713
+msgid "Select file"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:714
+msgid "Start import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:719
+#: lib/classes/class-cherry-optionsframework-admin.php:723
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:721
+msgid "Current options will be reset to the defaults, page will be refreshed."
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:725
+msgid "Active section will be reset to the defaults, page will be refreshed."
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:93
+#: lib/classes/class-cherry-statics-page.php:94
+msgid "Static Area Builder"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:100
+msgid "Feel free to view details "
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:104
+msgid ""
+"Use static area builder to arrange static blocks. You can drag-n-drop static "
+"blocks to arrange them or add new ones."
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:142
+msgid "Statics have been saved"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:186
+msgid "Default statics backup has been created"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:191
+msgid "Default statics backup has been overwritten"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:243
+msgid "Logged out"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:495
+msgid "Save statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:501
+msgid "Restore statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:506
+msgid "Export statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:511
+msgid "Default statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics.php:95
+#, php-format
+msgid "Static Area %d"
+msgstr ""
+
+#: lib/classes/class-cherry-statics.php:158
+#, php-format
+msgid "Static %d"
+msgstr ""
+
+#: lib/functions/core.php:156
+#, php-format
+msgid "File %s doesn't exist"
+msgstr ""
+
+#: lib/functions/core.php:157
+msgid "Doing it wrong"
+msgstr ""
+
+#: lib/functions/filters.php:491
+msgid "Menu"
+msgstr "Thực đơn"
+
+#: lib/functions/media.php:41
+msgid "Post Thumbnail"
+msgstr ""
+
+#: lib/functions/media.php:63
+msgid "File Size"
+msgstr ""
+
+#: lib/functions/media.php:64
+msgid "Mime Type"
+msgstr ""
+
+#: lib/functions/media.php:65
+msgid "Run Time"
+msgstr ""
+
+#: lib/functions/media.php:70
+msgid "Genre"
+msgstr ""
+
+#: lib/functions/media.php:71
+msgid "Year"
+msgstr ""
+
+#: lib/functions/structure.php:179
+#, php-format
+msgid "%s Info"
+msgstr ""
+
+#: lib/functions/template-comments.php:65
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: lib/functions/template-comments.php:66
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: lib/functions/template-comments.php:164
+msgid "Edit"
+msgstr ""
+
+#: lib/functions/template-general.php:105
+#: lib/functions/template-general.php:110
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: lib/functions/template-general.php:106
+#: lib/functions/template-general.php:111
+msgid "WordPress"
+msgstr ""
+
+#: lib/functions/template-general.php:142
+#, php-format
+msgid "%s WordPress Theme"
+msgstr ""
+
+#: lib/functions/template-media.php:110
+#, php-format
+msgid "%1$s &#215; %2$s"
+msgstr ""
+
+#: lib/functions/template-media.php:110 lib/functions/template-media.php:135
+msgid "Dimensions"
+msgstr ""
+
+#: lib/functions/template-media.php:134
+#, php-format
+msgid "%1$s &times; %2$s"
+msgstr ""
+
+#: lib/functions/template-media.php:146
+msgid "Camera"
+msgstr ""
+
+#: lib/functions/template-media.php:151
+msgid "Aperture"
+msgstr ""
+
+#: lib/functions/template-media.php:158
+#, php-format
+msgid "%s mm"
+msgstr ""
+
+#: lib/functions/template-media.php:158
+msgid "Focal Length"
+msgstr ""
+
+#: lib/functions/template-media.php:165
+msgid "International Organization for Standardization"
+msgstr ""
+
+#: lib/functions/template-media.php:165
+msgid "ISO"
+msgstr ""
+
+#: lib/functions/template-tags.php:376
+msgid "Related Posts"
+msgstr ""
+
+#: templates/comments.php:23
+#, php-format
+msgid "Comment"
+msgid_plural "Comments (%s)"
+msgstr[0] ""
+
+#: templates/comments.php:40
+msgid "Comments are closed."
+msgstr ""
+
+#: templates/none.php:5
+msgid "Nothing Found"
+msgstr ""
+
+#: templates/none.php:12
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: templates/none.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: templates/none.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#~ msgid "Title"
+#~ msgstr "Tiêu đề"
+
+#~ msgid "Image"
+#~ msgstr "Hình ảnh"
+
+#~ msgid "Button"
+#~ msgstr "Nút"
+
+#~ msgid "Permalink"
+#~ msgstr "Permalink"
+
+#~ msgid "Template"
+#~ msgstr "Tiêu bản"
+
+#~ msgid "Preview"
+#~ msgstr "Xem trước"
+
+#~ msgid "Posts not found"
+#~ msgstr "Bài viết không tìm thấy"
+
+#~ msgid "Order"
+#~ msgstr "Đặt hàng"
+
+#~ msgid "Order by"
+#~ msgstr "Đặt hàng bởi"
+
+#~ msgid "List"
+#~ msgstr "Danh sách"
+
+#~ msgid "Posts per page"
+#~ msgstr "Bài viết mỗi trang"
+
+#~ msgid ""
+#~ "Specify number of posts that you want to show. Enter -1 to get all posts"
+#~ msgstr ""
+#~ "Chỉ định số lượng các bài viết mà bạn muốn hiển thị. Nhập -1 để có được "
+#~ "tất cả các bài viết"
+
+#~ msgid "Class"
+#~ msgstr "Lớp học"
+
+#~ msgid "Extra CSS class"
+#~ msgstr "Thêm lớp CSS"
+
+#~ msgid "Saving"
+#~ msgstr "Tiết kiệm"
+
+#~ msgid "Settings"
+#~ msgstr "Cài đặt"
+
+#~ msgid "Media"
+#~ msgstr "Phương tiện truyền thông"
+
+#~ msgid "Saved"
+#~ msgstr "Lưu"
+
+#~ msgid "Vertical"
+#~ msgstr "Thẳng đứng"
+
+#~ msgid "Width"
+#~ msgstr "Chiều rộng"
+
+#~ msgid "or"
+#~ msgstr "hoặc"
+
+#~ msgid "Height"
+#~ msgstr "Chiều cao"
+
+#~ msgid "Label"
+#~ msgstr "Nhãn"
+
+#~ msgid "Icon"
+#~ msgstr "Biểu tượng"
+
+#~ msgid "All"
+#~ msgstr "Tất cả"
+
+#~ msgid "Limit"
+#~ msgstr "Giới hạn"
+
+#~ msgid "Descending"
+#~ msgstr "Giảm dần"
+
+#~ msgid "Ascending"
+#~ msgstr "Tăng dần"
+
+#~ msgid "Posts order"
+#~ msgstr "Thứ tự bài viết"
+
+#~ msgid "Post ID"
+#~ msgstr "Bài đăng ID"
+
+#~ msgid "Post author"
+#~ msgstr "Tác giả đăng bài"
+
+#~ msgid "Post title"
+#~ msgstr "Tiêu đề bài viết"
+
+#~ msgid "Post slug"
+#~ msgstr "Bài đăng slug"
+
+#~ msgid "Last modified date"
+#~ msgstr "Sửa đổi lần cuối ngày"
+
+#~ msgid "Random"
+#~ msgstr "Ngẫu nhiên"
+
+#~ msgid "Comments number"
+#~ msgstr "Số ý kiến"
+
+#~ msgid "Order posts by"
+#~ msgstr "Thứ tự các bài viết của"
+
+#~ msgid "Choose file"
+#~ msgstr "Chọn tập tin"
+
+#~ msgid "Insert"
+#~ msgstr "Chèn"
+
+#~ msgid "Select images"
+#~ msgstr "Chọn hình ảnh"
+
+#~ msgid "Add selected images"
+#~ msgstr "Thêm hình ảnh được chọn"
+
+#~ msgid "Please enter a name for new preset"
+#~ msgstr "Vui lòng nhập một tên mới cài sẵn"
+
+#~ msgid "New preset"
+#~ msgstr "Mới cài sẵn"
+
+#~ msgid "Other"
+#~ msgstr "Khác"
+
+#~ msgid "Solid"
+#~ msgstr "Rắn"
+
+#~ msgid "Dotted"
+#~ msgstr "Rải rác"
+
+#~ msgid "Dashed"
+#~ msgstr "Tiêu tan"
+
+#~ msgid "Double"
+#~ msgstr "Đôi"
+
+#~ msgid "Groove"
+#~ msgstr "Đường rãnh"
+
+#~ msgid "Ridge"
+#~ msgstr "Ridge"
+
+#~ msgid "Row"
+#~ msgstr "Hàng"
+
+#~ msgid "Type"
+#~ msgstr "Loại"
+
+#~ msgid "Anchor"
+#~ msgstr "Neo"
+
+#~ msgid "Row for flexible columns"
+#~ msgstr "Hàng cho cột linh hoạt"
+
+#~ msgid "Column"
+#~ msgstr "Cột"
+
+#~ msgid "Offset"
+#~ msgstr "Bù đắp"
+
+#~ msgid "Column content"
+#~ msgstr "Cột nội dung"
+
+#~ msgid "Flexible and responsive columns"
+#~ msgstr "Linh hoạt và đáp ứng cột"
+
+#~ msgid "Spacer"
+#~ msgstr "Spacer"
+
+#~ msgid "You can upload custom icon for this button or pick a built-in icon"
+#~ msgstr ""
+#~ "Bạn có thể tải lên biểu tượng tuỳ chỉnh cho nút này hoặc chọn một biểu "
+#~ "tượng được xây dựng trong"
+
+#~ msgid "Icon size"
+#~ msgstr "Kích cỡ biểu tượng"
+
+#~ msgid "Box"
+#~ msgstr "Hộp"
+
+#~ msgid "Text color"
+#~ msgstr "Văn bản màu"
+
+#~ msgid "Title text color"
+#~ msgstr "Tiêu đề văn bản màu"
+
+#~ msgid "Dropcap"
+#~ msgstr "Dropcap"
+
+#~ msgid "Align"
+#~ msgstr "Sắp xếp"
+
+#~ msgid "Button text"
+#~ msgstr "Nút văn bản"
+
+#~ msgid "Link"
+#~ msgstr "Liên kết"
+
+#~ msgid "Button link"
+#~ msgstr "Nút liên kết"
+
+#~ msgid "Default"
+#~ msgstr "Mặc định"
+
+#~ msgid "Success"
+#~ msgstr "Thành công"
+
+#~ msgid "Info"
+#~ msgstr "Thông tin"
+
+#~ msgid "Warning"
+#~ msgstr "Cảnh báo"
+
+#~ msgid "Inline"
+#~ msgstr "Inline"
+
+#~ msgid "Centered"
+#~ msgstr "Trung tâm"
+
+#~ msgid "Is button centered on the page"
+#~ msgstr "Có nút trung tâm trên trang"
+
+#~ msgid "Fluid"
+#~ msgstr "Chất lỏng"
+
+#~ msgid "Top"
+#~ msgstr "Đầu trang"
+
+#~ msgid "Bottom"
+#~ msgstr "Dưới cùng"
+
+#~ msgid "Description"
+#~ msgstr "Mô tả"
+
+#~ msgid "Button background color"
+#~ msgstr "Nút màu nền"
+
+#~ msgid "Button text color"
+#~ msgstr "Nút màu chữ"
+
+#~ msgid "Same tab"
+#~ msgstr "Cùng một thẻ"
+
+#~ msgid "New tab"
+#~ msgstr "Tab mới"
+
+#~ msgid "Target"
+#~ msgstr "Mục tiêu"
+
+#~ msgid "Button link target"
+#~ msgstr "Nút liên kết mục tiêu"
+
+#~ msgid "Styled button"
+#~ msgstr "Theo kiểu nút"
+
+#~ msgid "Post types"
+#~ msgstr "Đăng loại"
+
+#~ msgid "Select post types. Hold Ctrl key to select multiple post types"
+#~ msgstr "Chọn các loại bài viết. Giữ phím Ctrl để chọn nhiều bài đăng loại"
+
+#~ msgid "Select taxonomy to show posts from"
+#~ msgstr "Chọn phân loại để hiển thị bài viết từ"
+
+#~ msgid "Terms"
+#~ msgstr "Điều khoản"
+
+#~ msgid "Select terms to show posts from"
+#~ msgstr "Chọn các điều khoản cho bài viết từ"
+
+#~ msgid "Taxonomy term operator"
+#~ msgstr "Phân loại hạn điều hành"
+
+#~ msgid "Authors"
+#~ msgstr "Tác giả"
+
+#~ msgid "Specify offset to start posts loop not from first post"
+#~ msgstr ""
+#~ "Xác định đối tượng dời hình để bắt đầu bài viết vòng lặp không phải từ "
+#~ "bài viết đầu tiên"
+
+#~ msgid "Post parent"
+#~ msgstr "Phụ huynh Post"
+
+#~ msgid "Menu order"
+#~ msgstr "Đơn đặt hàng"
+
+#~ msgid "Published"
+#~ msgstr "Xuất bản"
+
+#~ msgid "Pending"
+#~ msgstr "Đang chờ giải quyết"
+
+#~ msgid "Draft"
+#~ msgstr "Dự thảo"
+
+#~ msgid "Auto-draft"
+#~ msgstr "Dự thảo tự động"
+
+#~ msgid "Future post"
+#~ msgstr "Đăng trong tương lai"
+
+#~ msgid "Private post"
+#~ msgstr "Riêng bài viết"
+
+#~ msgid "Trashed"
+#~ msgstr "Vào thùng rác"
+
+#~ msgid "Any"
+#~ msgstr "Bất kỳ"
+
+#~ msgid "Post status"
+#~ msgstr "Đăng trạng thái"
+
+#~ msgid "Show only posts with selected status"
+#~ msgstr "Hiển thị bài viết chỉ với đã chọn trạng thái"
+
+#~ msgid "Ignore sticky"
+#~ msgstr "Bỏ qua dính"
+
+#~ msgid "Posts"
+#~ msgstr "Bài viết"
+
+#~ msgid "Post ID's"
+#~ msgstr "Bài đăng ID"
+
+#~ msgid "Enter comma separated ID's of the posts that you want to show"
+#~ msgstr "Nhập dấu phẩy ngăn cách ID của các bài viết mà bạn muốn hiển thị"
+
+#~ msgid "Custom posts query with customizable template"
+#~ msgstr "Tùy chỉnh bài viết truy vấn với tùy biến mẫu"
+
+#~ msgid "Tabs"
+#~ msgstr "Tab"
+
+#~ msgid "Simple"
+#~ msgstr "Đơn giản"
+
+#~ msgid "Active tab"
+#~ msgstr "Tab hoạt động"
+
+#~ msgid "Select which tab is open by default"
+#~ msgstr "Chọn tab đó là mở theo mặc định"
+
+#~ msgid "Show tabs vertically"
+#~ msgstr "Hiển thị tab theo chiều dọc"
+
+#~ msgid ""
+#~ "[%prefix_tab title=\"Title 1\"]Content 1[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 2\"]Content 2[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 3\"]Content 3[/%prefix_tab]"
+#~ msgstr ""
+#~ "[%prefix_tab tiêu đề =\"Tiêu đề 1\"] nội dung 1 [/%prefix_tab]\n"
+#~ "[%prefix_tab tiêu đề =\"Tiêu đề 2\"] nội dung 2 [/%prefix_tab]\n"
+#~ "[%prefix_tab tiêu đề =\"Tiêu đề 3\"] nội dung 3 [/%prefix_tab]"
+
+#~ msgid "Tabs container"
+#~ msgstr "Tab container"
+
+#~ msgid "Tab"
+#~ msgstr "Tab"
+
+#~ msgid "Tab name"
+#~ msgstr "Tab tên"
+
+#~ msgid "Enter tab name"
+#~ msgstr "Tên thẻ"
+
+#~ msgid "Is this tab disabled"
+#~ msgstr "Tab này vô hiệu hóa"
+
+#~ msgid ""
+#~ "You can use unique anchor for this tab to access it with hash in page "
+#~ "url. For example: type here <b%value>Hello</b> and then use url like "
+#~ "http://example.com/page-url#Hello. This tab will be activated and "
+#~ "scrolled in"
+#~ msgstr ""
+#~ "Bạn có thể sử dụng duy nhất neo cho tab này để truy cập nó với băm trong "
+#~ "url trang. Ví dụ: gõ vào đây <b%giá trị> Xin chào </b> và sau đó sử dụng "
+#~ "url như http://example.com/page-url#Hello. Tab này sẽ được kích hoạt và "
+#~ "cuộn trong"
+
+#~ msgid "Tab content"
+#~ msgstr "Tab nội dung"
+
+#~ msgid "Single tab"
+#~ msgstr "Đơn tab"
+
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgid "Spoiler title"
+#~ msgstr "Spoiler tiêu đề"
+
+#~ msgid "Text in spoiler title"
+#~ msgstr "Văn bản trong tiêu đề spoiler"
+
+#~ msgid "Open"
+#~ msgstr "Mở"
+
+#~ msgid "Is spoiler content visible by default"
+#~ msgstr "Là nội dung spoiler hiện hữu"
+
+#~ msgid "Choose style for this spoiler"
+#~ msgstr "Chọn phong cách cho spoiler này"
+
+#~ msgid "Hidden content"
+#~ msgstr "Ẩn nội dung"
+
+#~ msgid "Spoiler with hidden content"
+#~ msgstr "Spoiler với nội dung ẩn"
+
+#~ msgid "Accordion"
+#~ msgstr "Accordion"
+
+#~ msgid "Accordion with spoilers"
+#~ msgstr "Accordion với tấm lái ngang"
+
+#~ msgid "Map height"
+#~ msgstr "Ánh xạ độ cao"
+
+#~ msgid "Poster"
+#~ msgstr "Áp phích"
+
+#~ msgid "Controls"
+#~ msgstr "Điều khiển"
+
+#~ msgid "Media manager"
+#~ msgstr "Quản lý phương tiện truyền thông"
+
+#~ msgid "Icon picker"
+#~ msgstr "Chọn biểu tượng"
+
+#~ msgid "Filter icons"
+#~ msgstr "Lọc biểu tượng"
+
+#~ msgid "Please wait"
+#~ msgstr "Hãy chờ"
+
+#~ msgid "Untitled gallery"
+#~ msgstr "Chưa có tiêu đề thư viện ảnh"
+
+#~ msgid "Galleries not found"
+#~ msgstr "Phòng trưng bày không tìm thấy"
+
+#~ msgid "Manage galleries"
+#~ msgstr "Quản lý phòng trưng bày"
+
+#~ msgid "Reload galleries"
+#~ msgstr "Tải lại phòng trưng bày"
+
+#~ msgid "Horizontal offset"
+#~ msgstr "Đối tượng dời hình ngang"
+
+#~ msgid "Vertical offset"
+#~ msgstr "Đối tượng dời hình thẳng đứng"
+
+#~ msgid "Blur"
+#~ msgstr "Mờ"
+
+#~ msgid "Color"
+#~ msgstr "Màu sắc"
+
+#~ msgid "Border width"
+#~ msgstr "Chiều rộng biên giới"
+
+#~ msgid "Media library"
+#~ msgstr "Thư viện phương tiện"
+
+#~ msgid "Recent posts"
+#~ msgstr "Bài viết mới nhất"
+
+#~ msgid "Select images source"
+#~ msgstr "Chọn hình ảnh nguồn"
+
+#~ msgid "Select taxonomy"
+#~ msgstr "Chọn phân loại"
+
+#~ msgid "Add images"
+#~ msgstr "Thêm hình ảnh"
+
+#~ msgid ""
+#~ "Click the button above and select images.<br>You can select multimple "
+#~ "images with Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Nhấp vào nút ở trên và chọn hình ảnh.<br>Bạn có thể chọn hình ảnh "
+#~ "multimple với phím Ctrl (Cmd)"
+
+#~ msgid ""
+#~ "Select categories to retrieve posts from.<br>You can select multiple "
+#~ "categories with Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Chọn thể loại để lấy các bài viết từ. <b> Bạn có thể chọn nhiều chuyên "
+#~ "mục với phím Ctrl (Cmd)"
+
+#~ msgid ""
+#~ "Select taxonomy and it's terms.<br>You can select multiple terms with "
+#~ "Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Chọn phân loại và điều khoản. <br> bạn có thể chọn nhiều cụm từ với phím "
+#~ "Ctrl (Cmd)"
+
+#~ msgid "Insert shortcode"
+#~ msgstr "Chèn shortcode"
+
+#~ msgid "Search for shortcodes"
+#~ msgstr "Tìm kiếm Shortcodes"
+
+#~ msgid "Filter by type"
+#~ msgstr "Lọc theo loại"
+
+#~ msgid "Shortcode not specified"
+#~ msgstr "Shortcode không xác định"
+
+#~ msgid "Live preview"
+#~ msgstr "Xem trước trực tiếp"
+
+#~ msgid "Click to return to the shortcodes list"
+#~ msgstr "Nhấn vào đây để trở về danh sách Shortcodes"
+
+#~ msgid "All shortcodes"
+#~ msgstr "Tất cả các Shortcodes"
+
+#~ msgid "Click to set this value"
+#~ msgstr "Nhấn vào đây để đặt giá trị này"
+
+#~ msgid "Access denied"
+#~ msgstr "Truy cập bị từ chối"
+
+#~ msgid "Presets"
+#~ msgstr "Cài đặt trước"
+
+#~ msgid "Save current settings as preset"
+#~ msgstr "Lưu thiết lập hiện thời là cài sẵn"
+
+#~ msgid "Presets not found"
+#~ msgstr "Các cài đặt trước không tìm thấy"
+
+#~ msgid "Tab title"
+#~ msgstr "Tab tiêu đề"
+
+#~ msgid "Plugin Settings"
+#~ msgstr "Cài đặt plugin"
+
+#~ msgid "Use selected file"
+#~ msgstr "Sử dụng tệp đã chọn"
+
+#~ msgid "Save changes"
+#~ msgstr "Lưu thay đổi"
+
+#~ msgid ""
+#~ "This action will delete all your settings. Are you sure? This action "
+#~ "cannot be undone!"
+#~ msgstr ""
+#~ "Hành động này sẽ xóa mọi thiết đặt của bạn. Bạn có chắc không? Hành động "
+#~ "này không thể hoàn tác!"
+
+#~ msgid "Restore default settings"
+#~ msgstr "Khôi phục thiết đặt mặc định"
+
+#~ msgid "Text field"
+#~ msgstr "Trường văn bản"
+
+#~ msgid "Textarea field"
+#~ msgstr "Lĩnh vực Textarea"
+
+#~ msgid "Color picker"
+#~ msgstr "Chọn màu"
+
+#~ msgid "Pick a color"
+#~ msgstr "Chọn một màu"
+
+#~ msgid ""
+#~ "For full functionality of this page it is reccomended to enable "
+#~ "javascript."
+#~ msgstr ""
+#~ "Cho các chức năng đầy đủ của trang này, nó được đề nghị bật javascript."
+
+#~ msgid "Settings saved successfully"
+#~ msgstr "Cài đặt lưu thành công"
+
+#~ msgid "Settings reseted successfully"
+#~ msgstr "Cài đặt reseted thành công"
+
+#~ msgid "option type %s is not callable"
+#~ msgstr "lựa chọn loại %s không phải là callable"
+
+#~ msgid "Title:"
+#~ msgstr "Tiêu đề:"
+
+#~ msgid "Square"
+#~ msgstr "Vuông"
+
+#~ msgid "Rounded corners"
+#~ msgstr "Làm tròn góc"
+
+#~ msgid ""
+#~ "IN - posts that have any of selected categories terms<br/>NOT IN - posts "
+#~ "that is does not have any of selected terms<br/>AND - posts that have all "
+#~ "selected terms"
+#~ msgstr ""
+#~ "TRONG - bài viết có bất kỳ thể loại điều khoản được lựa chọn <br/> không "
+#~ "trong - bài viết là không có bất kỳ điều khoản đã chọn <br/> AND - bài "
+#~ "viết có tất cả các điều khoản được chọn"
+
+#~ msgid "Show childrens of entered post (enter post ID)"
+#~ msgstr "Hiển thị cho trẻ em đăng nhập (nhập đăng ID)"
+
+#~ msgid "Select Yes to ignore posts that is sticked"
+#~ msgstr "Chọn có để bỏ qua bài viết là sticked"
+
+#~ msgid "Choose style for this tabs"
+#~ msgstr "Chọn phong cách cho các tab này"
+
+#~ msgid ""
+#~ "You can use unique anchor for this spoiler to access it with hash in page "
+#~ "url. For example: type here <b%value>Hello</b> and then use url like "
+#~ "http://example.com/page-url#Hello. This spoiler will be open and scrolled "
+#~ "in"
+#~ msgstr ""
+#~ "Bạn có thể sử dụng duy nhất neo cho spoiler này để truy cập nó với băm "
+#~ "trong url trang. Ví dụ: gõ vào đây <b%giá trị> Xin chào </b> và sau đó sử "
+#~ "dụng url như http://example.com/page-url#Hello. Spoiler này sẽ được mở và "
+#~ "cuộn trong"
+
+#~ msgid "Welcome to Shortcodes Ultimate"
+#~ msgstr "Chào mừng đến với Shortcodes Ultimate"
+
+#~ msgid "A real swiss army knife for WordPress"
+#~ msgstr "Một con dao quân đội Thụy sĩ thực sự cho WordPress (ý là đa năng)"
+
+#~ msgid "Project homepage"
+#~ msgstr "Trang chủ dự án"
+
+#~ msgid "Support forum"
+#~ msgstr "Hỗ trợ diễn đàn"
+
+#~ msgid "Changelog"
+#~ msgstr "Thay đổi"
+
+#~ msgid "Fork on GitHub"
+#~ msgstr "Lấy trên GitHub"
+
+#~ msgid "Plugin features"
+#~ msgstr "Tính năng"
+
+#~ msgid "40+ amazing shortcodes"
+#~ msgstr "40 + Shortcodes tuyệt vời"
+
+#~ msgid "Power of CSS3 transitions"
+#~ msgstr "Sức mạnh của transitions CSS3"
+
+#~ msgid "Handy shortcodes generator"
+#~ msgstr "Bộ sinh Shortcodes tiện dụng"
+
+#~ msgid "International"
+#~ msgstr "Quốc tế"
+
+#~ msgid "Documented API"
+#~ msgstr "Tài liệu API"
+
+#~ msgid "What is a shortcode?"
+#~ msgstr "Một shortcode là gì?"
+
+#~ msgid ""
+#~ "<strong>Shortcode</strong> is a WordPress-specific code that lets you do "
+#~ "nifty things with very little effort."
+#~ msgstr ""
+#~ "<strong>Shortcode</strong> là mã dành riêng cho WordPress cho phép bạn "
+#~ "làm việc thuận tiện với nỗ lực rất ít."
+
+#~ msgid ""
+#~ "Shortcodes can embed files or create objects that would normally require "
+#~ "lots of complicated, ugly code in just one line. Shortcode = shortcut."
+#~ msgstr ""
+#~ "Shortcodes có thể nhúng tập tin hoặc tạo ra các đối tượng thường đòi hỏi "
+#~ "rất nhiều phức tạp mã trong chỉ cần một dòng. Shortcode = phím tắt."
+
+#~ msgid "How does it works"
+#~ msgstr "Nó hoạt động như thế nào"
+
+#~ msgid "More videos"
+#~ msgstr "Thêm video"
+
+#~ msgid "Shortcodes Ultimate Tutorial"
+#~ msgstr "Shortcodes Ultimate Hướng dẫn"
+
+#~ msgid "How to use special widget"
+#~ msgstr "Làm thế nào để sử dụng tiện ích"
+
+#~ msgid "How to create Carousel"
+#~ msgstr "Làm thế nào để tạo Carousel"
+
+#~ msgid "How to create image gallery"
+#~ msgstr "Làm thế nào để tạo thư viện hình ảnh"
+
+#~ msgid "You can overview the original styles to override it"
+#~ msgstr "Bạn có thể tổng quan các phong cách ban đầu để ghi đè lên nó"
+
+#~ msgid "You can use next variables in your custom CSS"
+#~ msgstr "Bạn có thể sử dụng biến trong CSS tùy chỉnh của bạn"
+
+#~ msgid "home url"
+#~ msgstr "home url"
+
+#~ msgid "theme url"
+#~ msgstr "thêm đề url"
+
+#~ msgid "plugin url"
+#~ msgstr "plugin url"
+
+#~ msgid "Maker"
+#~ msgstr "Hãng sản xuất"
+
+#~ msgid ""
+#~ "This add-on allows you to create custom shortcodes. You can easily create "
+#~ "any shortcode with different parameters or even override default "
+#~ "shortcodes"
+#~ msgstr ""
+#~ "Tiện ích này cho phép bạn tạo tùy chỉnh Shortcodes. Bạn có thể dễ dàng "
+#~ "tạo ra bất kỳ shortcode với thông số khác nhau hoặc thậm chí ghi đè mặc "
+#~ "định Shortcodes"
+
+#~ msgid "Skins"
+#~ msgstr "Skins"
+
+#~ msgid ""
+#~ "Set of additional skins for Shrtcodes Ultimate. It includes skins for "
+#~ "accordeons/spoilers, tabs and some other shortcodes"
+#~ msgstr ""
+#~ "Tập hợp bổ sung giao diện cho Shrtcodes Ultimate. Nó bao gồm giao diện "
+#~ "cho accordeons/spoilers, tab và một số Shortcodes khác"
+
+#~ msgid "Shortcodes Ultimate Add-ons"
+#~ msgstr "Shortcodes Ultimate tiện ích"
+
+#~ msgid "Learn more"
+#~ msgstr "Tìm hiểu thêm"
+
+#~ msgid "Other WordPress Plugins"
+#~ msgstr "WordPress Plugins khác"
+
+#~ msgid "Choose files"
+#~ msgstr "Chọn tập tin"
+
+#~ msgid "Add selected files"
+#~ msgstr "Thêm các tệp đã chọn"
+
+#~ msgid "This button is not clickable"
+#~ msgstr "Nút này không phải là nhấp"
+
+#~ msgid ""
+#~ "This shortcode doesn't work in live preview. Please insert it into editor "
+#~ "and preview on the site."
+#~ msgstr ""
+#~ "Shortcode này không hoạt động trong bản xem trước sống. Hãy đưa nó vào "
+#~ "trình soạn thảo và xem trước trên trang web."
+
+#~ msgid "Gallery"
+#~ msgstr "Thư viện ảnh"
+
+#~ msgid "Basic examples"
+#~ msgstr "Ví dụ cơ bản"
+
+#~ msgid "Accordions, spoilers, different styles, anchors"
+#~ msgstr "Đàn phong cầm, tấm lái ngang, phong cách khác nhau, neo"
+
+#~ msgid "Tabs, vertical tabs, tab anchors"
+#~ msgstr "Tab, dọc tab, tab neo"
+
+#~ msgid "Column layouts"
+#~ msgstr "Cột bố trí"
+
+#~ msgid ""
+#~ "Media elements, YouTube, Vimeo, Screenr and self-hosted videos, audio "
+#~ "player"
+#~ msgstr ""
+#~ "Yếu tố phương tiện truyền thông, YouTube, Vimeo, Screenr và tự lưu trữ "
+#~ "video, máy nghe nhạc"
+
+#~ msgid "Unlimited buttons"
+#~ msgstr "Không giới hạn nút"
+
+#~ msgid "Animations"
+#~ msgstr "Hình ảnh động"
+
+#~ msgid "Advanced examples"
+#~ msgstr "Nâng cao ví dụ"
+
+#~ msgid "Interacting with posts shortcode"
+#~ msgstr "Tương tác với bài viết shortcode"
+
+#~ msgid "Nested shortcodes, shortcodes inside of attributes"
+#~ msgstr "Shortcodes lồng nhau, các Shortcodes bên trong của thuộc tính"
+
+#~ msgid "Heading"
+#~ msgstr "Tiêu đề"
+
+#~ msgid "Choose style for this heading"
+#~ msgstr "Chọn phong cách cho nhóm này"
+
+#~ msgid "Install additional styles"
+#~ msgstr "Cài đặt bổ sung phong cách"
+
+#~ msgid "Select heading size (pixels)"
+#~ msgstr "Chọn nhóm kích thước (pixel)"
+
+#~ msgid "Heading text alignment"
+#~ msgstr "Căn chỉnh văn bản tiêu đề"
+
+#~ msgid "Margin"
+#~ msgstr "Lợi nhuận"
+
+#~ msgid "Bottom margin (pixels)"
+#~ msgstr "Đáy lề (pixel)"
+
+#~ msgid "Heading text"
+#~ msgstr "Tiêu đề văn bản"
+
+#~ msgid "Styled heading"
+#~ msgstr "Theo kiểu nhóm"
+
+#~ msgid "Fancy"
+#~ msgstr "Ưa thích"
+
+#~ msgid "Plus"
+#~ msgstr "Plus"
+
+#~ msgid "Plus circle"
+#~ msgstr "Cộng với vòng tròn"
+
+#~ msgid "Plus square 1"
+#~ msgstr "Cộng với square 1"
+
+#~ msgid "Plus square 2"
+#~ msgstr "Cộng với square 2"
+
+#~ msgid "Arrow"
+#~ msgstr "Mũi tên"
+
+#~ msgid "Arrow circle 1"
+#~ msgstr "Mũi tên vòng tròn 1"
+
+#~ msgid "Arrow circle 2"
+#~ msgstr "Mũi tên vòng tròn 2"
+
+#~ msgid "Chevron"
+#~ msgstr "Chevron"
+
+#~ msgid "Chevron circle"
+#~ msgstr "Chevron vòng tròn"
+
+#~ msgid "Caret"
+#~ msgstr "Caret"
+
+#~ msgid "Caret square"
+#~ msgstr "Caret square"
+
+#~ msgid "Folder 1"
+#~ msgstr "Thư mục 1"
+
+#~ msgid "Folder 2"
+#~ msgstr "Thư mục 2"
+
+#~ msgid "Icons for spoiler"
+#~ msgstr "Biểu tượng cho spoiler"
+
+#~ msgid ""
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]"
+#~ msgstr ""
+#~ "[%prefix_spoiler] nội dung [/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler] nội dung [/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler] nội dung [/%prefix_spoiler]"
+
+#~ msgid "Divider"
+#~ msgstr "Dải phân cách"
+
+#~ msgid "Show TOP link"
+#~ msgstr "Hiển thị liên kết đầu trang"
+
+#~ msgid "Show link to top of the page or not"
+#~ msgstr "Hiển thị các liên kết để đầu trang hay không"
+
+#~ msgid "Go to top"
+#~ msgstr "Về đầu trang"
+
+#~ msgid "Link text"
+#~ msgstr "Văn bản liên kết"
+
+#~ msgid "Text for the GO TOP link"
+#~ msgstr "Các văn bản cho các liên kết đi đầu"
+
+#~ msgid "Content divider with optional TOP link"
+#~ msgstr "Nội dung chia với tùy chọn đầu liên kết"
+
+#~ msgid "Height of the spacer in pixels"
+#~ msgstr "Chiều cao của spacer bằng pixel"
+
+#~ msgid "Empty space with adjustable height"
+#~ msgstr "Các không gian trống rỗng với điều chỉnh chiều cao"
+
+#~ msgid "Highlight"
+#~ msgstr "Điểm nổi bật"
+
+#~ msgid "Highlighted text background color"
+#~ msgstr "Đánh dấu màu nền văn bản"
+
+#~ msgid "Highlighted text color"
+#~ msgstr "Văn bản được đánh dấu màu"
+
+#~ msgid "Highlighted text"
+#~ msgstr "Văn bản được đánh dấu"
+
+#~ msgid "Important"
+#~ msgstr "Quan trọng"
+
+#~ msgid "Black"
+#~ msgstr "Đen"
+
+#~ msgid "Style of the label"
+#~ msgstr "Phong cách của nhãn"
+
+#~ msgid "Styled label"
+#~ msgstr "Theo kiểu nhãn"
+
+#~ msgid "Quote"
+#~ msgstr "Trích dẫn"
+
+#~ msgid "Choose style for this quote"
+#~ msgstr "Chọn phong cách cho báo này"
+
+#~ msgid "Cite"
+#~ msgstr "Trích dẫn"
+
+#~ msgid "Quote author name"
+#~ msgstr "Trích dẫn tên tác giả"
+
+#~ msgid "Cite url"
+#~ msgstr "Trích dẫn các url"
+
+#~ msgid "Url of the quote author. Leave empty to disable link"
+#~ msgstr "URL của tác giả trích dẫn. Để trống để vô hiệu hoá liên kết"
+
+#~ msgid "Blockquote alternative"
+#~ msgstr "Blockquote thay thế"
+
+#~ msgid "Pullquote"
+#~ msgstr "Pullquote"
+
+#~ msgid "Pullquote alignment (float)"
+#~ msgstr "Pullquote liên kết (nổi)"
+
+#~ msgid "Flat"
+#~ msgstr "Phẳng"
+
+#~ msgid "Light"
+#~ msgstr "Ánh sáng"
+
+#~ msgid "Dropcap style preset"
+#~ msgstr "Dropcap phong cách cài sẵn"
+
+#~ msgid "Choose dropcap size"
+#~ msgstr "Chọn kích thước dropcap"
+
+#~ msgid "D"
+#~ msgstr "D"
+
+#~ msgid "Frame"
+#~ msgstr "Khung"
+
+#~ msgid "Frame alignment"
+#~ msgstr "Khung chỉnh"
+
+#~ msgid "Styled image frame"
+#~ msgstr "Theo kiểu hình ảnh khung"
+
+#~ msgid ""
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]"
+#~ msgstr ""
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]"
+
+#~ msgid "Full width"
+#~ msgstr "Toàn bộ chiều rộng"
+
+#~ msgid "One half"
+#~ msgstr "Một nửa"
+
+#~ msgid "One third"
+#~ msgstr "Một phần ba"
+
+#~ msgid "Two third"
+#~ msgstr "Hai ba"
+
+#~ msgid "One fourth"
+#~ msgstr "1/4"
+
+#~ msgid "Three fourth"
+#~ msgstr "Ba tư"
+
+#~ msgid "One fifth"
+#~ msgstr "1/5"
+
+#~ msgid "Two fifth"
+#~ msgstr "Hai năm"
+
+#~ msgid "Three fifth"
+#~ msgstr "Ba năm"
+
+#~ msgid "Four fifth"
+#~ msgstr "Bốn năm"
+
+#~ msgid "One sixth"
+#~ msgstr "1/6"
+
+#~ msgid "Five sixth"
+#~ msgstr "Năm sáu"
+
+#~ msgid "Select column width. This width will be calculated depend page width"
+#~ msgstr ""
+#~ "Chọn cột chiều rộng. Chiều rộng này sẽ được tính toán phụ thuộc trang "
+#~ "chiều rộng"
+
+#~ msgid "Is this column centered on the page"
+#~ msgstr "Cột này có trung tâm trên trang"
+
+#~ msgid "You can upload custom icon for this list or pick a built-in icon"
+#~ msgstr ""
+#~ "Bạn có thể tải lên biểu tượng tuỳ chỉnh cho danh sách này hay chọn một "
+#~ "biểu tượng được xây dựng trong"
+
+#~ msgid "Icon color"
+#~ msgstr "Biểu tượng màu sắc"
+
+#~ msgid ""
+#~ "This color will be applied to the selected icon. Does not works with "
+#~ "uploaded icons"
+#~ msgstr ""
+#~ "Màu này sẽ được áp dụng cho biểu tượng được chọn. Không làm việc với tải "
+#~ "lên biểu tượng"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "</ul>"
+
+#~ msgid "Styled unordered list"
+#~ msgstr "Theo kiểu danh sách có thứ tự"
+
+#~ msgid "Soft"
+#~ msgstr "Mềm"
+
+#~ msgid "Glass"
+#~ msgstr "Thủy tinh"
+
+#~ msgid "Bubbles"
+#~ msgstr "Bong bóng"
+
+#~ msgid "Noise"
+#~ msgstr "Tiếng ồn"
+
+#~ msgid "Stroked"
+#~ msgstr "Vuốt ve"
+
+#~ msgid "3D"
+#~ msgstr "3D"
+
+#~ msgid "Button background style preset"
+#~ msgstr "Nút nền phong cách cài sẵn"
+
+#~ msgid "Button size"
+#~ msgstr "Nút kích thước"
+
+#~ msgid "Fluid buttons has 100% width"
+#~ msgstr "Chất lỏng nút có 100% chiều rộng"
+
+#~ msgid "Round"
+#~ msgstr "Vòng"
+
+#~ msgid "Radius"
+#~ msgstr "Bán kính"
+
+#~ msgid ""
+#~ "Radius of button corners. Auto-radius calculation based on button size"
+#~ msgstr ""
+#~ "Bán kính của nút góc. Bán kính tự động tính toán dựa trên nút kích thước"
+
+#~ msgid "Text shadow"
+#~ msgstr "Văn bản bóng"
+
+#~ msgid "Button text shadow"
+#~ msgstr "Nút văn bản bóng"
+
+#~ msgid ""
+#~ "Small description under button text. This option is incompatible with "
+#~ "icon."
+#~ msgstr ""
+#~ "Mô tả nhỏ dưới nút văn bản. Tùy chọn này là không tương thích với biểu "
+#~ "tượng."
+
+#~ msgid "onClick"
+#~ msgstr "tự động trượt"
+
+#~ msgid "Advanced JavaScript code for onClick action"
+#~ msgstr "Mã JavaScript nâng cao cho hành động nhiều cấp"
+
+#~ msgid "Service"
+#~ msgstr "Dịch vụ"
+
+#~ msgid "Service title"
+#~ msgstr "Tiêu đề dịch vụ"
+
+#~ msgid "Service name"
+#~ msgstr "Tên dịch vụ"
+
+#~ msgid "You can upload custom icon for this box"
+#~ msgstr "Bạn có thể tải lên biểu tượng tuỳ chỉnh cho hộp này"
+
+#~ msgid "Size of the uploaded icon in pixels"
+#~ msgstr "Kích thước của biểu tượng được tải lên trong pixel"
+
+#~ msgid "Service description"
+#~ msgstr "Mô tả Dịch vụ"
+
+#~ msgid "Service box with title"
+#~ msgstr "Dịch vụ hộp với tiêu đề"
+
+#~ msgid "Box title"
+#~ msgstr "Tiêu đề hộp"
+
+#~ msgid "Text for the box title"
+#~ msgstr "Các văn bản cho tiêu đề hộp"
+
+#~ msgid "Box style preset"
+#~ msgstr "Hộp phong cách cài sẵn"
+
+#~ msgid "Color for the box title and borders"
+#~ msgstr "Màu cho tiêu đề hộp và biên giới"
+
+#~ msgid "Color for the box title text"
+#~ msgstr "Màu sắc cho văn bản tiêu đề hộp"
+
+#~ msgid "Box corners radius"
+#~ msgstr "Bán kính góc hộp"
+
+#~ msgid "Box content"
+#~ msgstr "Nội dung hộp"
+
+#~ msgid "Colored box with caption"
+#~ msgstr "Hộp màu với các chú thích"
+
+#~ msgid "Note"
+#~ msgstr "Lưu ý"
+
+#~ msgid "Note background color"
+#~ msgstr "Lưu ý màu nền"
+
+#~ msgid "Note text color"
+#~ msgstr "Lưu ý màu chữ"
+
+#~ msgid "Note corners radius"
+#~ msgstr "Lưu ý góc bán kính"
+
+#~ msgid "Note text"
+#~ msgstr "Văn bản lưu ý"
+
+#~ msgid "Colored box"
+#~ msgstr "Hộp màu"
+
+#~ msgid "Lightbox"
+#~ msgstr "Lightbox"
+
+#~ msgid "Iframe"
+#~ msgstr "Khung nội tuyến"
+
+#~ msgid "Inline (html content)"
+#~ msgstr "Nội tuyến (nội dung html)"
+
+#~ msgid "Content type"
+#~ msgstr "Loại nội dung"
+
+#~ msgid "Select type of the lightbox window content"
+#~ msgstr "Chọn loại nội dung cửa sổ lightbox"
+
+#~ msgid "Content source"
+#~ msgstr "Nội dung nguồn"
+
+#~ msgid ""
+#~ "Insert here URL or CSS selector. Use URL for Iframe and Image content "
+#~ "types. Use CSS selector for Inline content type.<br />Example values:<br /"
+#~ "><b%value>http://www.youtube.com/watch?v=XXXXXXXXX</b> - YouTube video "
+#~ "(iframe)<br /><b%value>http://example.com/wp-content/uploads/image.jpg</"
+#~ "b> - uploaded image (image)<br /><b%value>http://example.com/</b> - any "
+#~ "web page (iframe)<br /><b%value>#contact-form</b> - any HTML content "
+#~ "(inline)"
+#~ msgstr ""
+#~ "Chèn ở đây URL hoặc CSS selector. Sử dụng URL cho khung nội tuyến và hình "
+#~ "ảnh các loại nội dung. Sử dụng CSS selector cho nội tuyến nội dung loại. "
+#~ "<br/> giá trị ví dụ: <br/><b%giá trị> http://www.youtube.com/watch?"
+#~ "v=XXXXXXXXX</b>-YouTube video (khung nội tuyến) <br/><b%giá trị> http://"
+#~ "example.com/wp-content/uploads/image.jpg</b> - được tải lên hình ảnh "
+#~ "(hình ảnh) <br/><b%giá trị> http://example.com/</b>-bất kỳ trang web "
+#~ "(khung nội tuyến) <br/><b%giá trị> #contact-mẫu </b> - bất kỳ nội dung "
+#~ "HTML (inline)"
+
+#~ msgid "[%prefix_button] Click Here to Watch the Video [/%prefix_button]"
+#~ msgstr "[%prefix_button] Click vào đây để xem Video [/%prefix_button]"
+
+#~ msgid "Lightbox window with custom content"
+#~ msgstr "Lightbox cửa sổ với nội dung tuỳ chỉnh"
+
+#~ msgid "Tooltip"
+#~ msgstr "Chú thích"
+
+#~ msgid "Basic: Light"
+#~ msgstr "Cơ bản: ánh sáng"
+
+#~ msgid "Basic: Dark"
+#~ msgstr "Cơ bản: tối"
+
+#~ msgid "Basic: Yellow"
+#~ msgstr "Cơ bản: vàng"
+
+#~ msgid "Basic: Green"
+#~ msgstr "Cơ bản: màu xanh lá cây"
+
+#~ msgid "Basic: Red"
+#~ msgstr "Cơ bản: Red"
+
+#~ msgid "Basic: Blue"
+#~ msgstr "Cơ bản: xanh"
+
+#~ msgid "Youtube"
+#~ msgstr "YouTube"
+
+#~ msgid "Tipsy"
+#~ msgstr "Tipsy"
+
+#~ msgid "Bootstrap"
+#~ msgstr "Khởi động"
+
+#~ msgid "jTools"
+#~ msgstr "jTools"
+
+#~ msgid "Tipped"
+#~ msgstr "Tipped"
+
+#~ msgid "Cluetip"
+#~ msgstr "Cluetip"
+
+#~ msgid "Tooltip window style"
+#~ msgstr "Tooltip cửa sổ phong cách"
+
+#~ msgid "Position"
+#~ msgstr "Vị trí"
+
+#~ msgid "Tooltip position"
+#~ msgstr "Vị trí tooltip"
+
+#~ msgid "Shadow"
+#~ msgstr "Bóng"
+
+#~ msgid ""
+#~ "Add shadow to tooltip. This option is only works with basic styes, e.g. "
+#~ "blue, green etc."
+#~ msgstr ""
+#~ "Thêm bóng chú thích. Tùy chọn này là chỉ hoạt động cơ bản styes, ví dụ "
+#~ "như màu xanh, màu xanh lá cây vv."
+
+#~ msgid ""
+#~ "Use rounded for tooltip. This option is only works with basic styes, e.g. "
+#~ "blue, green etc."
+#~ msgstr ""
+#~ "Sử dụng làm tròn cho tooltip. Tùy chọn này là chỉ hoạt động cơ bản styes, "
+#~ "ví dụ như màu xanh, màu xanh lá cây vv."
+
+#~ msgid "Font size"
+#~ msgstr "Kích thước phông chữ"
+
+#~ msgid "Tooltip font size"
+#~ msgstr "Kích thước phông chữ tooltip"
+
+#~ msgid "Tooltip title"
+#~ msgstr "Tiêu đề tooltip"
+
+#~ msgid ""
+#~ "Enter title for tooltip window. Leave this field empty to hide the title"
+#~ msgstr ""
+#~ "Nhập tiêu đề cho tooltip cửa sổ. Để lĩnh vực này trống để ẩn tiêu đề"
+
+#~ msgid "Tooltip text"
+#~ msgstr "Chú thích văn bản"
+
+#~ msgid "Tooltip content"
+#~ msgstr "Chú thích nội dung"
+
+#~ msgid "Enter tooltip content here"
+#~ msgstr "Nhập tooltip nội dung ở đây"
+
+#~ msgid "Show and hide on mouse hover"
+#~ msgstr "Hiển thị và ẩn trên di chuột con chuột"
+
+#~ msgid "Show and hide by mouse click"
+#~ msgstr "Hiển thị và ẩn bằng cách click chuột"
+
+#~ msgid "Always visible"
+#~ msgstr "Luôn luôn có thể nhìn thấy"
+
+#~ msgid "Behavior"
+#~ msgstr "Hành vi"
+
+#~ msgid "Select tooltip behavior"
+#~ msgstr "Chọn hành vi tooltip"
+
+#~ msgid "Close button"
+#~ msgstr "Nút đóng"
+
+#~ msgid "Show close button"
+#~ msgstr "Hiển thị nút đóng"
+
+#~ msgid "[%prefix_button] Hover me to open tooltip [/%prefix_button]"
+#~ msgstr "[%prefix_button] di chuột tôi mở tooltip [/%prefix_button]"
+
+#~ msgid "Tooltip window with custom content"
+#~ msgstr "Tooltip cửa sổ với nội dung tuỳ chỉnh"
+
+#~ msgid "Private"
+#~ msgstr "Cá nhân"
+
+#~ msgid "Private note text"
+#~ msgstr "Văn bản lưu ý riêng"
+
+#~ msgid "Private note for post authors"
+#~ msgstr "Các lưu ý riêng cho tác giả đăng bài"
+
+#~ msgid "YouTube"
+#~ msgstr "YouTube"
+
+#~ msgid "Url"
+#~ msgstr "URL"
+
+#~ msgid ""
+#~ "Url of YouTube page with video. Ex: http://youtube.com/watch?v=XXXXXX"
+#~ msgstr ""
+#~ "Trang URL YouTube với video. Ví dụ: http://youtube.com/watch?v=XXXXXX"
+
+#~ msgid "Player width"
+#~ msgstr "Chiều rộng của cầu thủ"
+
+#~ msgid "Player height"
+#~ msgstr "Chiều cao máy nghe nhạc"
+
+#~ msgid "Responsive"
+#~ msgstr "Đáp ứng"
+
+#~ msgid "Ignore width and height parameters and make player responsive"
+#~ msgstr ""
+#~ "Bỏ qua các tham số chiều rộng và chiều cao và làm cho máy nghe nhạc đáp "
+#~ "ứng"
+
+#~ msgid "Autoplay"
+#~ msgstr "Phát tự động"
+
+#~ msgid "Play video automatically when page is loaded"
+#~ msgstr "Chơi video tự động khi trang được nạp"
+
+#~ msgid "YouTube video"
+#~ msgstr "YouTube video"
+
+#~ msgid "YouTube Advanced"
+#~ msgstr "YouTube nâng cao"
+
+#~ msgid "Playlist"
+#~ msgstr "Danh sách bài hát"
+
+#~ msgid ""
+#~ "Value is a comma-separated list of video IDs to play. If you specify a "
+#~ "value, the first video that plays will be the VIDEO_ID specified in the "
+#~ "URL path, and the videos specified in the playlist parameter will play "
+#~ "thereafter"
+#~ msgstr ""
+#~ "Giá trị là phẩy danh sách ID video để chơi. Nếu bạn chỉ định một giá trị, "
+#~ "video đầu tiên vở kịch đồng hồ sẽ chỉ VIDEO_ID được chỉ định trong đường "
+#~ "dẫn URL, và các đoạn video được chỉ định trong tham số danh sách bài hát "
+#~ "sẽ chơi sau đó"
+
+#~ msgid "0 - Hide controls"
+#~ msgstr "0 - Ẩn điều khiển"
+
+#~ msgid "1 - Show controls"
+#~ msgstr "1 - Hiển thị điều khiển"
+
+#~ msgid "2 - Show controls when playback is started"
+#~ msgstr "2 - Hiển thị điều khiển khi phát lại bắt đầu"
+
+#~ msgid ""
+#~ "This parameter indicates whether the video player controls will display"
+#~ msgstr ""
+#~ "Tham số này chỉ ra cho dù các điều khiển máy nghe nhạc video sẽ hiển thị"
+
+#~ msgid "0 - Do not hide controls"
+#~ msgstr "0 - Không giấu điều khiển"
+
+#~ msgid "1 - Hide all controls on mouse out"
+#~ msgstr "1 - Ẩn tất cả các điều khiển trên chuột ra"
+
+#~ msgid "2 - Hide progress bar on mouse out"
+#~ msgstr "2 - Ẩn thanh tiến trình trên chuột ra"
+
+#~ msgid "Autohide"
+#~ msgstr "Tự động ẩn"
+
+#~ msgid ""
+#~ "This parameter indicates whether the video controls will automatically "
+#~ "hide after a video begins playing"
+#~ msgstr ""
+#~ "Tham số này chỉ ra cho dù các điều khiển video sẽ tự động ẩn sau khi "
+#~ "video bắt đầu chơi"
+
+#~ msgid "Show title bar"
+#~ msgstr "Hiển thị thanh tiêu đề"
+
+#~ msgid ""
+#~ "If you set the parameter value to NO, then the player will not display "
+#~ "information like the video title and uploader before the video starts "
+#~ "playing."
+#~ msgstr ""
+#~ "Nếu bạn đặt giá trị tham số không, sau đó người chơi sẽ không hiển thị "
+#~ "các thông tin như tên phim và tải lên trước khi video bắt đầu phát."
+
+#~ msgid "Loop"
+#~ msgstr "Loop"
+
+#~ msgid ""
+#~ "Setting of YES will cause the player to play the initial video again and "
+#~ "again"
+#~ msgstr ""
+#~ "Thiết lập của có sẽ gây ra các cầu thủ để chơi video ban đầu một lần nữa "
+#~ "và một lần nữa"
+
+#~ msgid "Related videos"
+#~ msgstr "Video liên quan"
+
+#~ msgid ""
+#~ "This parameter indicates whether the player should show related videos "
+#~ "when playback of the initial video ends"
+#~ msgstr ""
+#~ "Tham số này chỉ ra cho dù người chơi nên hiển thị các video có liên quan "
+#~ "khi phát lại video kết thúc ban đầu"
+
+#~ msgid "Show full-screen button"
+#~ msgstr "Hiển thị toàn màn hình nút"
+
+#~ msgid ""
+#~ "Setting this parameter to NO prevents the fullscreen button from "
+#~ "displaying"
+#~ msgstr "Cài đặt tham số này không ngăn cản nút toàn màn hình hiển thị"
+
+#~ msgid ""
+#~ "This parameter lets you use a YouTube player that does not show a YouTube "
+#~ "logo. Set the parameter value to YES to prevent the YouTube logo from "
+#~ "displaying in the control bar. Note that a small YouTube text label will "
+#~ "still display in the upper-right corner of a paused video when the user's "
+#~ "mouse pointer hovers over the player"
+#~ msgstr ""
+#~ "Tham số này cho phép bạn sử dụng một máy nghe nhạc YouTube không hiển thị "
+#~ "biểu trưng YouTube. Đặt giá trị tham số có để ngăn chặn các biểu tượng "
+#~ "YouTube hiển thị trong thanh điều khiển. Lưu ý rằng nhãn văn bản YouTube "
+#~ "nhỏ vẫn sẽ hiển thị ở góc trên bên phải của video đã tạm dừng khi con trỏ "
+#~ "chuột của người dùng di chuyển lên trên máy nghe nhạc"
+
+#~ msgid "Dark theme"
+#~ msgstr "Chủ đề tối"
+
+#~ msgid "Light theme"
+#~ msgstr "Chủ đề ánh sáng"
+
+#~ msgid "Theme"
+#~ msgstr "Chủ đề"
+
+#~ msgid ""
+#~ "This parameter indicates whether the embedded player will display player "
+#~ "controls (like a play button or volume control) within a dark or light "
+#~ "control bar"
+#~ msgstr ""
+#~ "Tham số này chỉ ra cho dù trình phát được nhúng sẽ hiển thị điều khiển "
+#~ "máy nghe nhạc (giống như một chơi nút hoặc khối lượng kiểm soát) trong "
+#~ "vòng một thanh điều khiển tối hoặc ánh sáng"
+
+#~ msgid "YouTube video player with advanced settings"
+#~ msgstr "Máy nghe nhạc video YouTube với cài đặt nâng cao"
+
+#~ msgid "Vimeo"
+#~ msgstr "Vimeo"
+
+#~ msgid "Url of Vimeo page with video"
+#~ msgstr "URL Vimeo trang với video"
+
+#~ msgid "Vimeo video"
+#~ msgstr "Vimeo video"
+
+#~ msgid "Screenr"
+#~ msgstr "Screenr"
+
+#~ msgid "Url of Screenr page with video"
+#~ msgstr "URL của Screenr trang với video"
+
+#~ msgid "Screenr video"
+#~ msgstr "Screenr video"
+
+#~ msgid "Audio"
+#~ msgstr "Âm thanh"
+
+#~ msgid "File"
+#~ msgstr "Tập tin"
+
+#~ msgid "Audio file url. Supported formats: mp3, ogg"
+#~ msgstr "Tập tin âm thanh url. Hỗ trợ định dạng: mp3, ogg"
+
+#~ msgid ""
+#~ "Player width. You can specify width in percents and player will be "
+#~ "responsive. Example values: <b%value>200px</b>, <b%value>100&#37;</b>"
+#~ msgstr ""
+#~ "Chiều rộng của cầu thủ. Bạn có thể chỉ định chiều rộng trong phần trăm và "
+#~ "cầu thủ sẽ được đáp ứng. Giá trị ví dụ: <b%value>200px</b>, <b"
+#~ "%value>100&#37;</b>"
+
+#~ msgid "Play file automatically when page is loaded"
+#~ msgstr "Phát tệp tự động khi trang được nạp"
+
+#~ msgid "Repeat when playback is ended"
+#~ msgstr "Lặp lại khi phát lại kết thúc"
+
+#~ msgid "Custom audio player"
+#~ msgstr "Tùy chỉnh máy nghe nhạc"
+
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgid "Url to mp4/flv video-file"
+#~ msgstr "URL để mp4/flv video-tập tin"
+
+#~ msgid "Url to poster image, that will be shown before playback"
+#~ msgstr "URL cho hình ảnh poster, mà sẽ được hiển thị trước khi phát lại"
+
+#~ msgid "Player title"
+#~ msgstr "Tiêu đề người chơi"
+
+#~ msgid "Show player controls (play/pause etc.) or not"
+#~ msgstr "Hiển thị điều khiển máy nghe nhạc (chơi/tạm dừng vv) hay không"
+
+#~ msgid "Custom video player"
+#~ msgstr "Tùy chỉnh máy nghe nhạc video"
+
+#~ msgid "Table"
+#~ msgstr "Bàn"
+
+#~ msgid "CSV file"
+#~ msgstr "Tệp CSV"
+
+#~ msgid "Upload CSV file if you want to create HTML-table from file"
+#~ msgstr "Tải lên tệp CSV Nếu bạn muốn tạo bảng HTML từ tập tin"
+
+#~ msgid ""
+#~ "<table>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "</table>"
+#~ msgstr ""
+#~ "<table>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "</table>"
+
+#~ msgid "Styled table from HTML or CSV file"
+#~ msgstr "Theo kiểu bảng từ tập tin HTML hoặc CSV"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Post or page ID"
+#~ msgstr "Bài viết hoặc trang ID"
+
+#~ msgid "Link target. blank - link will be opened in new window/tab"
+#~ msgstr "Liên kết mục tiêu. trống - liên kết sẽ được mở trong cửa sổ/tab mới"
+
+#~ msgid "Permalink to specified post/page"
+#~ msgstr "Permalink để đăng bài/trang được chỉ định"
+
+#~ msgid "Members"
+#~ msgstr "Thành viên"
+
+#~ msgid "This content is for registered users only. Please %login%."
+#~ msgstr ""
+#~ "Nội dung này là dành cho người dùng đăng ký. Xin vui lòng đăng nhập %."
+
+#~ msgid "Message for not logged users"
+#~ msgstr "Thông báo cho người dùng không đăng nhập"
+
+#~ msgid "Box color"
+#~ msgstr "Hộp màu"
+
+#~ msgid "This color will applied only to box for not logged users"
+#~ msgstr "Màu này sẽ áp dụng chỉ cho hộp cho người dùng không đăng nhập"
+
+#~ msgid "login"
+#~ msgstr "đăng nhập"
+
+#~ msgid "Login link text"
+#~ msgstr "Đăng nhập liên kết văn bản"
+
+#~ msgid "Text for the login link"
+#~ msgstr "Các văn bản liên kết đăng nhập"
+
+#~ msgid "Login link url"
+#~ msgstr "Đăng nhập liên kết url"
+
+#~ msgid "Content for logged members"
+#~ msgstr "Nội dung cho các thành viên đăng nhập"
+
+#~ msgid "Content for logged in members only"
+#~ msgstr "Nội dung cho các thành viên đăng nhập chỉ có"
+
+#~ msgid "Guests"
+#~ msgstr "Khách"
+
+#~ msgid "Content for guests"
+#~ msgstr "Nội dung cho khách"
+
+#~ msgid "Content for guests only"
+#~ msgstr "Nội dung cho khách chỉ có"
+
+#~ msgid "RSS Feed"
+#~ msgstr "Nguồn cấp dữ liệu RSS"
+
+#~ msgid "Url to RSS-feed"
+#~ msgstr "URL nguồn cấp dữ liệu RSS"
+
+#~ msgid "Number of items to show"
+#~ msgstr "Số lượng mục để hiển thị"
+
+#~ msgid "Feed grabber"
+#~ msgstr "Nguồn cấp dữ liệu cài đặt đơn giản"
+
+#~ msgid "Menu name"
+#~ msgstr "Tên menu"
+
+#~ msgid "Custom menu name. Ex: Main menu"
+#~ msgstr "Tùy chỉnh menu tên. Ví dụ: Menu chính"
+
+#~ msgid "Custom menu by name"
+#~ msgstr "Tùy chỉnh menu bằng tên"
+
+#~ msgid "Sub pages"
+#~ msgstr "Trang phụ"
+
+#~ msgid "Depth"
+#~ msgstr "Chiều sâu"
+
+#~ msgid "Max depth level of children pages"
+#~ msgstr "Mức độ sâu tối đa của trang trẻ em"
+
+#~ msgid "Parent ID"
+#~ msgstr "Phụ huynh ID"
+
+#~ msgid "ID of the parent page. Leave blank to use current page"
+#~ msgstr "ID trang gia đình. Để trống để sử dụng trang hiện tại"
+
+#~ msgid "List of sub pages"
+#~ msgstr "Danh sách các trang phụ"
+
+#~ msgid "Siblings"
+#~ msgstr "Anh chị em"
+
+#~ msgid "Max depth level"
+#~ msgstr "Max sâu cấp"
+
+#~ msgid "List of cureent page siblings"
+#~ msgstr "Danh sách các anh chị em trang cureent"
+
+#~ msgid "Document"
+#~ msgstr "Tài liệu"
+
+#~ msgid "Url to uploaded document. Supported formats: doc, xls, pdf etc."
+#~ msgstr "URL để tải lên các tài liệu. Hỗ trợ định dạng: doc, xls, pdf vv."
+
+#~ msgid "Viewer width"
+#~ msgstr "Chiều rộng xem"
+
+#~ msgid "Viewer height"
+#~ msgstr "Xem chiều cao"
+
+#~ msgid "Ignore width and height parameters and make viewer responsive"
+#~ msgstr ""
+#~ "Bỏ qua các tham số chiều rộng và chiều cao và làm cho người xem đáp ứng"
+
+#~ msgid "Document viewer by Google"
+#~ msgstr "Xem tài liệu của Google"
+
+#~ msgid "Gmap"
+#~ msgstr "Gmap"
+
+#~ msgid "Map width"
+#~ msgstr "Bản đồ chiều rộng"
+
+#~ msgid "Ignore width and height parameters and make map responsive"
+#~ msgstr ""
+#~ "Bỏ qua các tham số chiều rộng và chiều cao và làm cho bản đồ đáp ứng"
+
+#~ msgid "Marker"
+#~ msgstr "Đánh dấu"
+
+#~ msgid "Address for the marker. You can type it in any language"
+#~ msgstr "Địa chỉ cho các điểm đánh dấu. Bạn có thể gõ nó ở bất kỳ ngôn ngữ"
+
+#~ msgid "Maps by Google"
+#~ msgstr "Bản đồ của Google"
+
+#~ msgid "Source"
+#~ msgstr "Nguồn"
+
+#~ msgid ""
+#~ "Choose images source. You can use images from Media library or retrieve "
+#~ "it from posts (thumbnails) posted under specified blog category. You can "
+#~ "also pick any custom taxonomy"
+#~ msgstr ""
+#~ "Chọn hình ảnh nguồn. Bạn có thể sử dụng hình ảnh từ thư viện phương tiện "
+#~ "truyền thông hoặc lấy nó từ bài viết (hình thu nhỏ) được đăng theo thể "
+#~ "loại blog đã chỉ định. Bạn cũng có thể chọn bất kỳ phân loại tuỳ chỉnh"
+
+#~ msgid "Full-size image"
+#~ msgstr "Đầy đủ kích thước hình ảnh"
+
+#~ msgid "Attachment page"
+#~ msgstr "Tập tin đính kèm trang"
+
+#~ msgid "Post permalink"
+#~ msgstr "Đăng permalink"
+
+#~ msgid "Links"
+#~ msgstr "Liên kết"
+
+#~ msgid "Select which links will be used for images in this gallery"
+#~ msgstr ""
+#~ "Chọn liên kết đó sẽ được sử dụng cho các hình ảnh trong bộ sưu tập này"
+
+#~ msgid "Same window"
+#~ msgstr "Cùng một cửa sổ"
+
+#~ msgid "New window"
+#~ msgstr "Cửa sổ mới"
+
+#~ msgid "Links target"
+#~ msgstr "Liên kết mục tiêu"
+
+#~ msgid "Open links in"
+#~ msgstr "Mở nối kết trong"
+
+#~ msgid "Slider width (in pixels)"
+#~ msgstr "Trượt chiều rộng (bằng pixel)"
+
+#~ msgid "Slider height (in pixels)"
+#~ msgstr "Trượt chiều cao (theo điểm ảnh)"
+
+#~ msgid "Ignore width and height parameters and make slider responsive"
+#~ msgstr ""
+#~ "Bỏ qua các tham số chiều rộng và chiều cao và làm cho thanh trượt đáp ứng"
+
+#~ msgid "Show titles"
+#~ msgstr "Hiển thị tiêu đề"
+
+#~ msgid "Display slide titles"
+#~ msgstr "Hiển thị slide tiêu đề"
+
+#~ msgid "Is slider centered on the page"
+#~ msgstr "Thanh trượt có trung tâm trên trang"
+
+#~ msgid "Arrows"
+#~ msgstr "Mũi tên"
+
+#~ msgid "Show left and right arrows"
+#~ msgstr "Hiển thị các mũi tên trái và phải"
+
+#~ msgid "Show pagination"
+#~ msgstr "Hiển thị số trang"
+
+#~ msgid "Mouse wheel control"
+#~ msgstr "Chuột bánh xe điều khiển"
+
+#~ msgid "Allow to change slides with mouse wheel"
+#~ msgstr "Cho phép để thay đổi trang trình bày với bánh xe chuột"
+
+#~ msgid ""
+#~ "Choose interval between slide animations. Set to 0 to disable autoplay"
+#~ msgstr ""
+#~ "Chọn khoảng thời gian giữa các slide hình ảnh động. Đặt là 0 để vô hiệu "
+#~ "hóa autoplay"
+
+#~ msgid "Speed"
+#~ msgstr "Tốc độ"
+
+#~ msgid "Specify animation speed"
+#~ msgstr "Chỉ rõ tốc độ hoạt hình"
+
+#~ msgid "Customizable image slider"
+#~ msgstr "Tùy chỉnh hình ảnh trượt"
+
+#~ msgid "Carousel"
+#~ msgstr "Carousel"
+
+#~ msgid "Original image"
+#~ msgstr "Hình ảnh ban đầu"
+
+#~ msgid "Carousel width (in pixels)"
+#~ msgstr "Carousel chiều rộng (bằng pixel)"
+
+#~ msgid "Carousel height (in pixels)"
+#~ msgstr "Carousel chiều cao (theo điểm ảnh)"
+
+#~ msgid "Ignore width and height parameters and make carousel responsive"
+#~ msgstr ""
+#~ "Bỏ qua các tham số chiều rộng và chiều cao và làm cho carousel đáp ứng"
+
+#~ msgid "Items to show"
+#~ msgstr "Mục để hiển thị"
+
+#~ msgid "How much carousel items is visible"
+#~ msgstr "Bao nhiêu mục carousel là có thể nhìn thấy"
+
+#~ msgid "Scroll number"
+#~ msgstr "Di chuyển số"
+
+#~ msgid "How much items are scrolled in one transition"
+#~ msgstr "Bao nhiêu mục được cuộn trong một quá trình chuyển đổi"
+
+#~ msgid "Display titles for each item"
+#~ msgstr "Hiển thị tiêu đề cho mỗi mục"
+
+#~ msgid "Is carousel centered on the page"
+#~ msgstr "Carousel là tập trung vào trang"
+
+#~ msgid "Allow to rotate carousel with mouse wheel"
+#~ msgstr "Cho phép để xoay carousel nhãn mouse wheel"
+
+#~ msgid ""
+#~ "Choose interval between auto animations. Set to 0 to disable autoplay"
+#~ msgstr ""
+#~ "Chọn khoảng thời gian giữa các hình ảnh động tự động. Đặt là 0 để vô hiệu "
+#~ "hóa autoplay"
+
+#~ msgid "Customizable image carousel"
+#~ msgstr "Tùy chỉnh hình ảnh carousel"
+
+#~ msgid "Single item width (in pixels)"
+#~ msgstr "Mục chiều rộng (bằng pixel)"
+
+#~ msgid "Single item height (in pixels)"
+#~ msgstr "Mục chiều cao (theo điểm ảnh)"
+
+#~ msgid "Never"
+#~ msgstr "Không bao giờ"
+
+#~ msgid "On mouse over"
+#~ msgstr "Trên chuột lên"
+
+#~ msgid "Always"
+#~ msgstr "Luôn luôn"
+
+#~ msgid "Title display mode"
+#~ msgstr "Chế độ hiển thị tiêu đề"
+
+#~ msgid "Customizable image gallery"
+#~ msgstr "Thư viện hình ảnh tùy chỉnh"
+
+#~ msgid ""
+#~ "<b>Do not change this field value if you do not understand description "
+#~ "below.</b><br/>Relative path to the template file. Default templates is "
+#~ "placed under the plugin directory (templates folder). You can copy it "
+#~ "under your theme directory and modify as you want. You can use following "
+#~ "default templates that already available in the plugin directory:<br/><b"
+#~ "%value>templates/default-loop.php</b> - posts loop<br/><b%value>templates/"
+#~ "teaser-loop.php</b> - posts loop with thumbnail and title<br/><b"
+#~ "%value>templates/single-post.php</b> - single post template<br/><b"
+#~ "%value>templates/list-loop.php</b> - unordered list with posts titles"
+#~ msgstr ""
+#~ "<b> Do không thay đổi lĩnh vực này có giá trị nếu bạn không hiểu mô tả "
+#~ "dưới đây. </b><br/> các đường dẫn tương đối để tập tin mẫu. Mặc định mẫu "
+#~ "được đặt dưới thư mục plugin (mẫu thư mục). Bạn có thể sao chép nó dưới "
+#~ "thư mục chủ đề của bạn và sửa đổi như bạn muốn. Bạn có thể sử dụng theo "
+#~ "mặc định mẫu đó đã có sẵn trong thư mục plugin: <br/><b%giá trị> mẫu/mặc "
+#~ "định-loop.php </b> - bài viết loop <br/><b%giá trị> mẫu/trí tuệ-loop.php "
+#~ "</b> - vòng lặp với hình thu nhỏ và tiêu đề bài viết <br/>< b % giá trị > "
+#~ "mẫu/đơn-post.php </b> - đơn đăng bài mẫu <br/><b%giá trị> mẫu/danh sách-"
+#~ "loop.php </b> - unordered danh sách với tiêu đề bài viết"
+
+#~ msgid "Choose the authors whose posts you want to show"
+#~ msgstr "Chọn các tác giả bài viết mà bạn muốn hiển thị"
+
+#~ msgid "Meta key"
+#~ msgstr "Meta phím"
+
+#~ msgid "Enter meta key name to show posts that have this key"
+#~ msgstr "Nhập tên chính meta để hiển thị các bài viết có chìa khóa này"
+
+#~ msgid "Meta key values"
+#~ msgstr "Giá trị quan trọng meta"
+
+#~ msgid "Dummy text"
+#~ msgstr "Giả văn bản"
+
+#~ msgid "Paragraphs"
+#~ msgstr "Đoạn văn"
+
+#~ msgid "Words"
+#~ msgstr "Từ"
+
+#~ msgid "Bytes"
+#~ msgstr "Byte"
+
+#~ msgid "What"
+#~ msgstr "Cái gì"
+
+#~ msgid "What to generate"
+#~ msgstr "Những gì để tạo ra"
+
+#~ msgid "Amount"
+#~ msgstr "Số lượng"
+
+#~ msgid ""
+#~ "How many items (paragraphs or words) to generate. Minimum words amount is "
+#~ "5"
+#~ msgstr ""
+#~ "Làm thế nào nhiều mặt hàng (đoạn văn hoặc từ) để tạo ra. Số tiền tối "
+#~ "thiểu từ là 5"
+
+#~ msgid "Cache"
+#~ msgstr "Bộ nhớ cache"
+
+#~ msgid ""
+#~ "Generated text will be cached. Be careful with this option. If you "
+#~ "disable it and insert many dummy_text shortcodes the page load time will "
+#~ "be highly increased"
+#~ msgstr ""
+#~ "Tạo ra văn bản sẽ được lưu trữ. Hãy cẩn thận với tùy chọn này. Nếu bạn vô "
+#~ "hiệu hóa nó và chèn nhiều dummy_text Shortcodes thời gian tải trang sẽ "
+#~ "được tăng lên cao"
+
+#~ msgid "Text placeholder"
+#~ msgstr "Văn bản giữ chỗ"
+
+#~ msgid "Dummy image"
+#~ msgstr "Giả hình ảnh"
+
+#~ msgid "Image width"
+#~ msgstr "Chiều rộng hình ảnh"
+
+#~ msgid "Image height"
+#~ msgstr "Chiều cao hình ảnh"
+
+#~ msgid "Abstract"
+#~ msgstr "Tóm tắt"
+
+#~ msgid "Animals"
+#~ msgstr "Động vật"
+
+#~ msgid "Business"
+#~ msgstr "Kinh doanh"
+
+#~ msgid "Cats"
+#~ msgstr "Mèo"
+
+#~ msgid "City"
+#~ msgstr "Thành phố"
+
+#~ msgid "Food"
+#~ msgstr "Thực phẩm"
+
+#~ msgid "Night life"
+#~ msgstr "Cuộc sống ban đêm"
+
+#~ msgid "Fashion"
+#~ msgstr "Thời trang"
+
+#~ msgid "People"
+#~ msgstr "Người"
+
+#~ msgid "Nature"
+#~ msgstr "Thiên nhiên"
+
+#~ msgid "Sports"
+#~ msgstr "Thể thao"
+
+#~ msgid "Technics"
+#~ msgstr "Máy móc"
+
+#~ msgid "Transport"
+#~ msgstr "Giao thông vận tải"
+
+#~ msgid "Select the theme for this image"
+#~ msgstr "Chọn chủ đề cho hình ảnh này"
+
+#~ msgid "Image placeholder with random image"
+#~ msgstr "Giữ chỗ hình ảnh với hình ảnh ngẫu nhiên"
+
+#~ msgid "Animation"
+#~ msgstr "Hoạt hình"
+
+#~ msgid "Select animation type"
+#~ msgstr "Chọn loại hoạt hình"
+
+#~ msgid "Duration"
+#~ msgstr "Thời gian"
+
+#~ msgid "Animation duration (seconds)"
+#~ msgstr "Hoạt hình thời gian (phút)"
+
+#~ msgid "Delay"
+#~ msgstr "Chậm trễ"
+
+#~ msgid "Animation delay (seconds)"
+#~ msgstr "Hình ảnh động chậm trễ (giây)"
+
+#~ msgid ""
+#~ "This parameter determines what HTML tag will be used for animation "
+#~ "wrapper. Turn this option to YES and animated element will be wrapped in "
+#~ "SPAN instead of DIV. Useful for inline animations, like buttons"
+#~ msgstr ""
+#~ "Tham số này xác định những gì thẻ HTML sẽ được sử dụng cho hoạt hình bao "
+#~ "bọc. Bật tùy chọn này để có và các yếu tố hoạt hình sẽ được bọc trong "
+#~ "khoảng thay vì có ích DIV. cho hình ảnh động nội tuyến, giống như nút"
+
+#~ msgid "Animated content"
+#~ msgstr "Nội dung phim hoạt hình"
+
+#~ msgid "Wrapper for animation. Any nested element will be animated"
+#~ msgstr "Wrapper cho hoạt hình. Bất kỳ yếu tố lồng nhau sẽ được hoạt hình"
+
+#~ msgid "Plugin settings"
+#~ msgstr "Cài đặt plugin"
+
+#~ msgid "Plugin homepage"
+#~ msgstr "Trang chủ plugin"
+
+#~ msgid "Support forums"
+#~ msgstr "Hỗ trợ diễn đàn"
+
+#~ msgid "Shortcodes Ultimate"
+#~ msgstr "Cuối cùng Shortcodes"
+
+#~ msgid "Shortcodes"
+#~ msgstr "Shortcodes"
+
+#~ msgid "About"
+#~ msgstr "Về"
+
+#~ msgid "Custom formatting"
+#~ msgstr "Tuỳ định dạng"
+
+#~ msgid ""
+#~ "Disable this option if you have some problems with other plugins or "
+#~ "content formatting"
+#~ msgstr ""
+#~ "Vô hiệu hóa tùy chọn này nếu bạn có một số vấn đề với các plugin khác "
+#~ "hoặc các nội dung định dạng"
+
+#~ msgid "Documentation article"
+#~ msgstr "Tài liệu hướng dẫn bài viết"
+
+#~ msgid "Skip default values"
+#~ msgstr "Bỏ qua các giá trị mặc định"
+
+#~ msgid ""
+#~ "Enable this option and the generator will insert a shortcode without "
+#~ "default attribute values that you have not changed. As a result, the "
+#~ "generated code will be shorter."
+#~ msgstr ""
+#~ "Bật tùy chọn này và các máy phát điện sẽ chèn một shortcode mà không có "
+#~ "giá trị thuộc tính mặc định mà bạn đã không thay đổi. Kết quả là, mã được "
+#~ "tạo ra sẽ ngắn hơn."
+
+#~ msgid "Shortcodes prefix"
+#~ msgstr "Tiền tố Shortcodes"
+
+#~ msgid ""
+#~ "This prefix will be added to all shortcodes by this plugin. For example, "
+#~ "type here %s and you'll get shortcodes like %s and %s. Please keep in "
+#~ "mind: this option is not affects your already inserted shortcodes and if "
+#~ "you'll change this value your old shortcodes will be broken"
+#~ msgstr ""
+#~ "Tiền tố này sẽ được thêm vào tất cả các Shortcodes bởi plugin này. Ví dụ: "
+#~ "nhập ở đây %s và bạn sẽ nhận được Shortcodes như %s và %s. Xin lưu ý: tùy "
+#~ "chọn này là không ảnh hưởng đến Shortcodes của bạn đã được chèn vào và "
+#~ "nếu bạn sẽ thay đổi giá trị này của bạn Shortcodes cũ sẽ bị phá vỡ"
+
+#~ msgid "Skin"
+#~ msgstr "Da"
+
+#~ msgid "Choose global skin for shortcodes"
+#~ msgstr "Chọn da toàn cầu cho Shortcodes"
+
+#~ msgid "Custom CSS"
+#~ msgstr "Tuỳ chỉnh CSS"
+
+#~ msgid "Examples"
+#~ msgstr "Ví dụ"
+
+#~ msgid "Add-ons"
+#~ msgstr "Tiện ích"
+
+#~ msgid "Vladimir Anokhin"
+#~ msgstr "Vladimir Anokhin"
+
+#~ msgid "Supercharge your WordPress theme with mega pack of shortcodes"
+#~ msgstr "Supercharge WordPress theme của bạn với mega gói của Shortcodes"
+
+#~ msgid "Where to start?"
+#~ msgstr "Bắt đầu từ đâu?"
+
+#~ msgid ""
+#~ "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not "
+#~ "fully compatible with your PHP version (%s).<br />Reccomended PHP version "
+#~ "&ndash; %s (or higher).</p><a href=\"%s\">&larr; Return to the plugins "
+#~ "screen</a> <a href=\"%s\"%s>Continue and activate anyway &rarr;</a>"
+#~ msgstr ""
+#~ "<h1> Oops! Plugin không được kích hoạt &hellip; </h1><p> Shortcodes "
+#~ "Ultimate là không hoàn toàn tương thích với phiên bản PHP của bạn (%s). "
+#~ "<br /> Reccomended PHP phiên bản &ndash; %s (hoặc cao hơn). </p><a href="
+#~ "\"%s\">&larr; Trở về màn hình plugins </a ><a href=\"%s\"%s> tiếp tục và "
+#~ "kích hoạt dù sao &rarr;</a>"
+
+#~ msgid ""
+#~ "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not "
+#~ "fully compatible with your version of WordPress (%s).<br />Reccomended "
+#~ "WordPress version &ndash; %s (or higher).</p><a href=\"%s\">&larr; Return "
+#~ "to the plugins screen</a> <a href=\"%s\"%s>Continue and activate anyway "
+#~ "&rarr;</a>"
+#~ msgstr ""
+#~ "<h1> Oops! Plugin không được kích hoạt &hellip; </h1><p> Shortcodes "
+#~ "Ultimate là không hoàn toàn tương thích với phiên bản PHP của bạn (%s). "
+#~ "<br/> Reccomended PHP phiên bản &ndash; %s (hoặc cao hơn). </p><a href="
+#~ "\"%s\">&larr; Trở về màn hình plugins </a ><a href=\"%s\"%s> tiếp tục và "
+#~ "kích hoạt dù sao &rarr;</a>"
+
+#~ msgid "This is box title"
+#~ msgstr "Đây là tiêu đề hộp"
+
+#~ msgid "please specify correct source"
+#~ msgstr "Xin vui lòng xác định chính xác nguồn"
+
+#~ msgid "please specify correct url"
+#~ msgstr "Xin vui lòng chỉ định url chính xác"
+
+#~ msgid "This menu doesn't exists, or has no elements"
+#~ msgstr "Đơn này không tồn tại, hoặc đã không có yếu tố"
+
+#~ msgid "images not found"
+#~ msgstr "hình ảnh không tìm thấy"
+
+#~ msgid "template not found"
+#~ msgstr "mẫu không tìm thấy"
+
+#~ msgid "Example code does not found, please check it later"
+#~ msgstr "Ví dụ mã không tìm thấy, xin vui lòng kiểm tra xem nó sau này"
+
+#~ msgid "Get the code"
+#~ msgstr "Lấy mã"
+
+#~ msgid ""
+#~ "Hello, my name is Vladimir Anokhin, and I am developer of plugin "
+#~ "<b>Shortcodes Ultimate</b>.<br>If you like this plugin, please write a "
+#~ "few words about it at the wordpress.org or twitter. It will help other "
+#~ "people find this useful plugin more quickly.<br><b>Thank you!</b>"
+#~ msgstr ""
+#~ "Xin chào, tên tôi là Vladimir Anokhin, và tôi là nhà phát triển của "
+#~ "plugin <b> Shortcodes Ultimate </b>.<br> nếu bạn thích plugin này, xin "
+#~ "vui lòng viết một vài từ về nó tại wordpress.org hay twitter. Nó sẽ giúp "
+#~ "đỡ người khác tìm thấy các plugin hữu ích này nhanh hơn. <br><b>cảm ơn "
+#~ "bạn!</b>"
+
+#~ msgid "Rate plugin"
+#~ msgstr "Tỷ lệ plugin"
+
+#~ msgid "Shortcodes Ultimate - must have WordPress plugin #shortcodesultimate"
+#~ msgstr "Cuối cùng Shortcodes - phải có WordPress plugin #shortcodesultimate"
+
+#~ msgid "Tweet"
+#~ msgstr "Tweet"
+
+#~ msgid "No, thanks"
+#~ msgstr "Không, cảm ơn"
+
+#~ msgid "Remind me later"
+#~ msgstr "Nhắc tôi sau"
+
+#~ msgid "Special Shortcodes Ultimate widget"
+#~ msgstr "Tiện ích Shortcodes Ultimate đặc biệt"
+
+#~ msgid "Posted"
+#~ msgstr "Đăng"
+
+#~ msgid "0 comments"
+#~ msgstr "0 ý kiến"
+
+#~ msgid "1 comment"
+#~ msgstr "1 Thảo luận"
+
+#~ msgid "%n comments"
+#~ msgstr "%n ý kiến"
