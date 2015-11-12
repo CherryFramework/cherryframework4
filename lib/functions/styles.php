@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -69,7 +69,7 @@ function cherry_register_styles() {
 /**
  * Tells WordPress to load the styles needed for the framework using the wp_enqueue_style() function.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_enqueue_styles() {
 	// Get framework styles.
@@ -82,7 +82,7 @@ function cherry_enqueue_styles() {
 }
 
 /**
- * Get post specific CSS styles and paste it to head
+ * Get post specific CSS styles and paste it to head.
  *
  * @since 4.0.0
  */
@@ -112,6 +112,14 @@ function cherry_post_inline_styles() {
 	}
 
 	$custom_bg = cherry_get_background_css( '.site-header', $header_bg );
+
+	/**
+	 * Filter a custom background style.
+	 *
+	 * @since 4.0.0
+	 * @param string $custom_bg Background style.
+	 * @param int    $post_id   The post ID.
+	 */
 	$custom_bg = apply_filters( 'cherry_post_inline_styles', $custom_bg, $post_id );
 
 	if ( ! $custom_bg ) {

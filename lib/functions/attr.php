@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -31,9 +31,9 @@ add_filter( 'cherry_attr_entry-terms', 'cherry_attr_entry_terms', 9, 2 );
 /**
  * Outputs an HTML element's attributes.
  *
- * @since  4.0.0
- * @param  string $slug    The slug/ID of the element (e.g., 'sidebar').
- * @param  string $context A specific context (e.g., 'primary').
+ * @since 4.0.0
+ * @param string $slug    The slug/ID of the element (e.g., 'sidebar').
+ * @param string $context A specific context (e.g., 'primary').
  */
 function cherry_attr( $slug, $context = '' ) {
 	echo cherry_get_attr( $slug, $context );
@@ -67,7 +67,7 @@ function cherry_get_attr( $slug, $context = '' ) {
  * <body> element attributes.
  *
  * @since  4.0.0
- * @param  array $attr
+ * @param  array $attr Set of attributes.
  * @return array
  */
 function cherry_attr_body( $attr ) {
@@ -81,7 +81,7 @@ function cherry_attr_body( $attr ) {
  * Page <header> element attributes.
  *
  * @since  4.0.0
- * @param  array $attr
+ * @param  array $attr Set of attributes.
  * @return array
  */
 function cherry_attr_header( $attr ) {
@@ -96,7 +96,7 @@ function cherry_attr_header( $attr ) {
  * Page <footer> element attributes.
  *
  * @since  4.0.0
- * @param  array $attr
+ * @param  array $attr Set of attributes.
  * @return array
  */
 function cherry_attr_footer( $attr ) {
@@ -111,7 +111,7 @@ function cherry_attr_footer( $attr ) {
  * Main content container of the page attributes.
  *
  * @since  4.0.0
- * @param  array $attr
+ * @param  array $attr Set of attributes.
  * @return array
  */
 function cherry_attr_main( $attr ) {
@@ -126,7 +126,7 @@ function cherry_attr_main( $attr ) {
  * Main content container of the page attributes.
  *
  * @since  4.0.0
- * @param  array $attr
+ * @param  array $attr Set of attributes.
  * @return array
  */
 function cherry_attr_content( $attr ) {
@@ -140,8 +140,8 @@ function cherry_attr_content( $attr ) {
  * Sidebar attributes.
  *
  * @since  4.0.0
- * @param  array  $attr
- * @param  string $context
+ * @param  array  $attr    Set of attributes.
+ * @param  string $context A specific context (e.g., 'main').
  * @return array
  */
 function cherry_attr_sidebar( $attr, $context ) {
@@ -175,8 +175,8 @@ function cherry_attr_sidebar( $attr, $context ) {
  * Nav menu attributes.
  *
  * @since  4.0.0
- * @param  array  $attr
- * @param  string $context
+ * @param  array  $attr    Set of attributes.
+ * @param  string $context A specific context (e.g., 'primary').
  * @return array
  */
 function cherry_attr_menu( $attr, $context ) {
@@ -195,7 +195,7 @@ function cherry_attr_menu( $attr, $context ) {
  * Post <article> element attributes.
  *
  * @since  4.0.0
- * @param  array $attr
+ * @param  array $attr Set of attributes.
  * @return array
  */
 function cherry_attr_post( $attr ) {
@@ -204,23 +204,39 @@ function cherry_attr_post( $attr ) {
 	$classes      = array();
 	$classes[]    = 'clearfix';
 
-	if ( 'true' == cherry_get_option( 'blog-post-date' ) )     $meta_classes[] = 'cherry-has-entry-date';
-	if ( 'true' == cherry_get_option( 'blog-post-author' ) )   $meta_classes[] = 'cherry-has-entry-author';
-	if ( 'true' == cherry_get_option( 'blog-post-comments' ) ) $meta_classes[] = 'cherry-has-entry-comments';
-	if ( 'true' == cherry_get_option( 'blog-categories' ) )    $meta_classes[] = 'cherry-has-entry-cats';
-	if ( 'true' == cherry_get_option( 'blog-tags' ) )          $meta_classes[] = 'cherry-has-entry-tags';
+	if ( 'true' == cherry_get_option( 'blog-post-date' ) ) {
+		$meta_classes[] = 'cherry-has-entry-date';
+	}
 
+	if ( 'true' == cherry_get_option( 'blog-post-author' ) ) {
+		$meta_classes[] = 'cherry-has-entry-author';
+	}
+
+	if ( 'true' == cherry_get_option( 'blog-post-comments' ) ) {
+		$meta_classes[] = 'cherry-has-entry-comments';
+	}
+
+	if ( 'true' == cherry_get_option( 'blog-categories' ) ) {
+		$meta_classes[] = 'cherry-has-entry-cats';
+	}
+
+	if ( 'true' == cherry_get_option( 'blog-tags' ) ) {
+		$meta_classes[] = 'cherry-has-entry-tags';
+	}
+
+	$meta_classes = array_unique( $meta_classes );
 
 	if ( is_singular() ) {
 
-		if ( is_single() ) {
+		// Single post.
+		if ( 'post' == get_post_type() ) {
 			$classes = wp_parse_args( $classes, $meta_classes );
 		}
 
 	} else {
+		// Blog, Search page, Archive pages.
 		$classes = wp_parse_args( $classes, $meta_classes );
 	}
-
 
 	$attr['class'] = implode( ' ', get_post_class( $classes ) );
 
@@ -238,8 +254,8 @@ function cherry_attr_post( $attr ) {
  * Post terms (tags, categories, etc.) attributes.
  *
  * @since  4.0.0
- * @param  array  $attr
- * @param  string $context
+ * @param  array  $attr    Set of attributes.
+ * @param  string $context A specific context (e.g., 'primary').
  * @return array
  */
 function cherry_attr_entry_terms( $attr, $context ) {

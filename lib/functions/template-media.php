@@ -12,7 +12,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -24,7 +24,7 @@ if ( !defined( 'WPINC' ) ) {
  * @since  4.0.0
  * @param  int   $post_id  Attachment ID.
  * @param  array $metadata The attachment metadata.
- * @return array
+ * @return array           Audio metadata.
  */
 function cherry_audio_meta( $post_id, $metadata ) {
 
@@ -68,6 +68,12 @@ function cherry_audio_meta( $post_id, $metadata ) {
 		$items['mime_type'] = array( esc_html( $metadata['mime_type'] ), $id3_keys['mime_type'] );
 	}
 
+	/**
+	 * Filter audio metadata.
+	 *
+	 * @since 4.0.0
+	 * @param array $items Metadata.
+	 */
 	return apply_filters( 'cherry_audio_meta', $items );
 }
 
@@ -79,7 +85,7 @@ function cherry_audio_meta( $post_id, $metadata ) {
  * @since  4.0.0
  * @param  int   $post_id  Attachment ID.
  * @param  array $metadata The attachment metadata.
- * @return array
+ * @return array           Video metadata.
  */
 function cherry_video_meta( $post_id, $metadata ) {
 
@@ -110,6 +116,12 @@ function cherry_video_meta( $post_id, $metadata ) {
 		$items['dimensions'] = array( sprintf( __( '%1$s &#215; %2$s', 'cherry' ), number_format_i18n( absint( $metadata['width'] ) ), number_format_i18n( absint( $metadata['height'] ) ) ), __( 'Dimensions', 'cherry' ) );
 	}
 
+	/**
+	 * Filter video metadata.
+	 *
+	 * @since 4.0.0
+	 * @param array $items Metadata.
+	 */
 	return apply_filters( 'cherry_video_meta', $items );
 }
 
@@ -121,7 +133,7 @@ function cherry_video_meta( $post_id, $metadata ) {
  * @since  4.0.0
  * @param  int   $post_id  Attachment ID.
  * @param  array $metadata The attachment metadata.
- * @return array
+ * @return array           Image metadata.
  */
 function cherry_image_meta( $post_id, $metadata ) {
 	$items = array();
@@ -132,7 +144,7 @@ function cherry_image_meta( $post_id, $metadata ) {
 		$items['dimensions'] = array(
 			// Translators: Media dimensions - 1 is width and 2 is height.
 			'<a href="' . esc_url( wp_get_attachment_url() ) . '">' . sprintf( __( '%1$s &times; %2$s', 'cherry' ), number_format_i18n( absint( $metadata['width'] ) ), number_format_i18n( absint( $metadata['height'] ) ) ) . '</a>',
-			__( 'Dimensions', 'cherry' )
+			__( 'Dimensions', 'cherry' ),
 		);
 	}
 
@@ -162,9 +174,15 @@ function cherry_image_meta( $post_id, $metadata ) {
 	if ( ! empty( $metadata['image_meta']['iso'] ) ) {
 		$items['iso'] = array(
 			absint( $metadata['image_meta']['iso'] ),
-			'<abbr title="' . __( 'International Organization for Standardization', 'cherry' ) . '">' . __( 'ISO', 'cherry' ) . '</abbr>'
+			'<abbr title="' . __( 'International Organization for Standardization', 'cherry' ) . '">' . __( 'ISO', 'cherry' ) . '</abbr>',
 		);
 	}
 
+	/**
+	 * Filter image metadata.
+	 *
+	 * @since 4.0.0
+	 * @param array $items Metadata.
+	 */
 	return apply_filters( 'cherry_image_meta', $items );
 }

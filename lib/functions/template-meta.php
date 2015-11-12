@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -21,7 +21,7 @@ if ( !defined( 'WPINC' ) ) {
  * Display the post date.
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Arguments.
  */
 function cherry_the_post_date( $args ) {
 	echo cherry_get_the_post_date( $args );
@@ -31,8 +31,8 @@ function cherry_the_post_date( $args ) {
  * Retrieve the post date.
  *
  * @since  4.0.0
- * @param  array $args
- * @return string
+ * @param  array $args Arguments.
+ * @return string      Post date.
  */
 function cherry_get_the_post_date( $args ) {
 	$post_id   = get_the_ID();
@@ -56,18 +56,24 @@ function cherry_get_the_post_date( $args ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	// If $human_time is passed in, allow for '%s ago' where '%s' is the return value of human_time_diff().
-	if ( !empty( $args['human_time'] ) ) :
+	if ( ! empty( $args['human_time'] ) ) {
 
 		$time = sprintf( $args['human_time'], human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) );
+	} else {
 
-	else : // Else, just grab the time based on the format.
-
+		// Else, just grab the time based on the format.
 		$time = get_the_time( $args['format'] );
-
-	endif;
+	}
 
 	$output = '<span class="posted-on">' . $args['before'] . '<time class="entry-date published" datetime="' . get_the_time( 'Y-m-d\TH:i:sP' ) . '">' . $time . '</time>' . $args['after'] . '</span>';
 
+	/**
+	 * Filter a post date.
+	 *
+	 * @since 4.0.0
+	 * @param string $output Post date.
+	 * @param array  $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_date', $output, $args );
 }
 
@@ -75,7 +81,7 @@ function cherry_get_the_post_date( $args ) {
  * Display an individual post's author with a link to his or her archive.
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Arguments.
  */
 function cherry_the_post_author( $args ) {
 	echo cherry_get_the_post_author( $args );
@@ -85,8 +91,8 @@ function cherry_the_post_author( $args ) {
  * Retrieve an individual post's author with a link to his or her archive.
  *
  * @since  4.0.0
- * @param  array $args
- * @return string
+ * @param  array  $args Arguments.
+ * @return string       Post's author.
  */
 function cherry_get_the_post_author( $args ) {
 	$post_id   = get_the_ID();
@@ -120,6 +126,13 @@ function cherry_get_the_post_author( $args ) {
 
 	$output = '<span class="author vcard">' . $output . '</span>';
 
+	/**
+	 * Filter a post's author.
+	 *
+	 * @since  4.0.0
+	 * @return string $output Post's author.
+	 * @param  array  $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_author', $output, $args );
 }
 
@@ -127,7 +140,7 @@ function cherry_get_the_post_author( $args ) {
  * Display a post's number of comments.
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Arguments.
  */
 function cherry_the_post_comments( $args ) {
 	echo cherry_get_the_post_comments( $args );
@@ -137,14 +150,14 @@ function cherry_the_post_comments( $args ) {
  * Retrieve a post's number of comments.
  *
  * @since  4.0.0
- * @param  array $args
- * @return string
+ * @param  array  $args Arguments.
+ * @return string       Number of comments.
  */
 function cherry_get_the_post_comments( $args ) {
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
-	if ( !post_type_supports( $post_type, 'comments' ) ) {
+	if ( ! post_type_supports( $post_type, 'comments' ) ) {
 		return;
 	}
 
@@ -168,11 +181,11 @@ function cherry_get_the_post_comments( $args ) {
 
 	$args = wp_parse_args( $args, $defaults );
 
-	if ( !comments_open() ) {
+	if ( ! comments_open() ) {
 		return;
 	}
 
-	if ( !get_comments_number() && ( false === $args['zero'] ) ) {
+	if ( ! get_comments_number() && ( false === $args['zero'] ) ) {
 		return;
 	}
 
@@ -182,6 +195,13 @@ function cherry_get_the_post_comments( $args ) {
 	$comments = sprintf( '<a href="%s">%s</a>', get_comments_link(), $comments );
 	$output   = '<span class="comments-link">' . $args['before'] . $comments . $args['after'] . '</span>';
 
+	/**
+	 * Filter a post's number of comments.
+	 *
+	 * @since  4.0.0
+	 * @return string $output Post's number of comments.
+	 * @param  array  $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_comments', $output, $args );
 }
 
@@ -189,7 +209,7 @@ function cherry_get_the_post_comments( $args ) {
  * Retrieve a post's taxonomy.
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Arguments.
  */
 function cherry_the_post_taxonomy( $args ) {
 	echo cherry_get_the_post_taxonomy( $args );
@@ -199,8 +219,8 @@ function cherry_the_post_taxonomy( $args ) {
  * Retrieve a post's taxonomy.
  *
  * @since  4.0.0
- * @param  array $args
- * @return string
+ * @param  array  $args Arguments.
+ * @return string       Taxonomy.
  */
 function cherry_get_the_post_taxonomy( $args ) {
 	$post_id   = get_the_ID();
@@ -250,6 +270,13 @@ function cherry_get_the_post_taxonomy( $args ) {
 
 	$output = sprintf( '<span class="entry-terms_wrap %1$s_wrap">%2$s</span>', sanitize_html_class( $args['name'] ), $output );
 
+	/**
+	 * Filters a post's taxonomy.
+	 *
+	 * @since  4.0.0
+	 * @return string $output Post's taxonomy.
+	 * @param  array  $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_taxonomy', $output, $args );
 }
 
@@ -257,7 +284,7 @@ function cherry_get_the_post_taxonomy( $args ) {
  * Retrieve a single meta data for a author (user).
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Arguments.
  */
 function cherry_the_post_author_meta( $args ) {
 	echo cherry_get_the_post_author_meta( $args );
@@ -266,8 +293,9 @@ function cherry_the_post_author_meta( $args ) {
 /**
  * Display a single meta data for a author (user).
  *
- * @since 4.0.0
- * @param array $args
+ * @since  4.0.0
+ * @param  array $args Arguments.
+ * @return string      Author meta.
  */
 function cherry_get_the_post_author_meta( $args ) {
 	$post_id   = get_the_ID();
@@ -293,6 +321,13 @@ function cherry_get_the_post_author_meta( $args ) {
 	$meta   = $args['before'] . get_the_author_meta( $args['field'] ) . $args['after'];
 	$output = sprintf( $args['wrap'], sanitize_html_class( $args['field'] ), $meta );
 
+	/**
+	 * Filters a single meta data for a author.
+	 *
+	 * @since  4.0.0
+	 * @return string $output Author meta.
+	 * @param  array  $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_author_meta', $output, $args );
 }
 
@@ -300,7 +335,7 @@ function cherry_get_the_post_author_meta( $args ) {
  * Retrieve a link to all posts by an author.
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Arguments.
  */
 function cherry_the_author_posts_link() {
 	echo cherry_get_the_post_author_posts_link();
@@ -309,8 +344,9 @@ function cherry_the_author_posts_link() {
 /**
  * Display a link to all posts by an author.
  *
- * @since 4.0.0
- * @param array $args
+ * @since  4.0.0
+ * @param  array $args Arguments.
+ * @return string      An HTML link to the author page.
  */
 function cherry_get_the_post_author_posts_link() {
 	ob_start();

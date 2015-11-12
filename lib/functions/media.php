@@ -31,7 +31,7 @@ add_filter( 'shortcode_atts_video', 'cherry_video_atts' );
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @param  array  $sizes Selectable image sizes.
+ * @param  array $sizes Selectable image sizes.
  * @return array
  */
 function cherry_image_size_names_choose( $sizes ) {
@@ -51,9 +51,9 @@ function cherry_image_size_names_choose( $sizes ) {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @param  array   $fields
- * @param  object  $attachment
- * @param  string  $context
+ * @param  array  $fields     Key/value pairs of field keys to labels.
+ * @param  object $attachment Attachment object.
+ * @param  string $context    The context. Accepts 'edit', 'display'. Default 'display'.
  * @return array
  */
 function cherry_attachment_id3_keys( $fields, $attachment, $context ) {
@@ -79,7 +79,7 @@ function cherry_attachment_id3_keys( $fields, $attachment, $context ) {
  * it's used as the "poster" attribute in the [video] shortcode.
  *
  * @since  4.0.0
- * @param  array  $atts
+ * @param  array $atts Shortcode attributes.
  * @return array
  */
 function cherry_video_atts( $atts ) {

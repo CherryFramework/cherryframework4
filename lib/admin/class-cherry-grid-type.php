@@ -1,6 +1,6 @@
 <?php
 /**
- * `Grid Type` metabox.
+ * Adds the grid type meta box to the edit post screen.
  *
  * @package    Cherry_Framework
  * @subpackage Admin
@@ -10,13 +10,20 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
+
+/**
+ * Class for creating `Grid Type` metabox.
+ *
+ * @since 4.0.0
+ */
 class Cherry_Grid_Type {
 
 	/**
 	 * Holds the instances of this class.
 	 *
 	 * @since 4.0.0
-	 * @var   object
+	 * @access private
+	 * @var object
 	 */
 	private static $instance = null;
 
@@ -24,7 +31,8 @@ class Cherry_Grid_Type {
 	 * Options.
 	 *
 	 * @since 4.0.0
-	 * @var   array
+	 * @access private
+	 * @var array
 	 */
 	private $options = array();
 
@@ -35,11 +43,11 @@ class Cherry_Grid_Type {
 	 */
 	public function __construct() {
 
-		if ( !class_exists( 'Cherry_Interface_Builder' ) ) {
+		if ( ! class_exists( 'Cherry_Interface_Builder' ) ) {
 			return;
 		}
 
-		if ( !class_exists( 'Cherry_Options_Framework' ) ) {
+		if ( ! class_exists( 'Cherry_Options_Framework' ) ) {
 			return;
 		}
 
@@ -86,6 +94,7 @@ class Cherry_Grid_Type {
 			 * Filter the array of 'add_meta_box' parametrs.
 			 *
 			 * @since 4.0.0
+			 * @param array $metabox Parameters for creating new metabox.
 			 */
 			$metabox = apply_filters( 'cherry_grid_type_metabox_params', array(
 				'id'            => 'cherry-grid-type-metabox',
@@ -159,8 +168,8 @@ class Cherry_Grid_Type {
 		 * Fires after `Grid Type` fields of metabox.
 		 *
 		 * @since 4.0.0
-		 * @param object $post
-		 * @param array  $metabox
+		 * @param object $post    The post object
+		 * @param array  $metabox Metabox information.
 		 */
 		do_action( 'cherry_grid_type_metabox_after', $post, $metabox );
 	}
@@ -175,13 +184,13 @@ class Cherry_Grid_Type {
 	 */
 	public function save_post( $post_id, $post = '' ) {
 
-		if ( !is_object( $post ) ) {
+		if ( ! is_object( $post ) ) {
 			$post = get_post();
 		}
 
 		// Verify the nonce for the post formats meta box.
-		if ( !isset( $_POST['cherry-grid-type-nonce'] )
-			|| !wp_verify_nonce( $_POST['cherry-grid-type-nonce'], basename( __FILE__ ) )
+		if ( ! isset( $_POST['cherry-grid-type-nonce'] )
+			|| ! wp_verify_nonce( $_POST['cherry-grid-type-nonce'], basename( __FILE__ ) )
 			) {
 			return $post_id;
 		}
@@ -196,7 +205,7 @@ class Cherry_Grid_Type {
 		$cherry_meta = array_map( 'sanitize_text_field' , $_POST['grid-type'] );
 
 		// Get the submitted post grid type.
-		if ( !empty( $cherry_meta ) ) {
+		if ( ! empty( $cherry_meta ) ) {
 			$new_meta_value = $cherry_meta;
 		} else {
 			$new_meta_value = '';
@@ -229,7 +238,8 @@ class Cherry_Grid_Type {
 	 * Gets all the available grid types for the theme.
 	 *
 	 * @since  4.0.0
-	 * @return array Either theme-supported grid types or the default grid types.
+	 * @param  array $item Specific array with options.
+	 * @return array       Either theme-supported grid types or the default grid types.
 	 */
 	public function get_grid_types( $item ) {
 
@@ -241,15 +251,22 @@ class Cherry_Grid_Type {
 			),
 		);
 
-		$grid_type = cherry_get_options( "{$item['id']}-grid-type" );
+		$grid_types = cherry_get_options( "{$item['id']}-grid-type" );
 
-		if ( ! is_array( $grid_type ) ) {
-			$grid_type = array();
+		if ( ! is_array( $grid_types ) ) {
+			$grid_types = array();
 		}
 
-		$grid_type = array_merge( $default, $grid_type );
+		$grid_types = array_merge( $default, $grid_types );
 
-		return apply_filters( 'cherry_grid_type_get_types', $grid_type, $item['id'] );
+		/**
+		 * Filter the available grid types.
+		 *
+		 * @since 4.0.0
+		 * @param array  $grid_types Grid type options.
+		 * @param string $id         Option ID.
+		 */
+		return apply_filters( 'cherry_grid_type_get_types', $grid_types, $item['id'] );
 	}
 
 	/**
@@ -271,9 +288,9 @@ class Cherry_Grid_Type {
 	 * Update/set the post grid type based on the given post ID and grid type.
 	 *
 	 * @since  4.0.0
-	 * @param  int    $post_id The ID of the post to set the grid type for.
-	 * @param  string $grid_type  The name of the grid type to set.
-	 * @return bool            True on successful update, false on failure.
+	 * @param  int    $post_id   The ID of the post to set the grid type for.
+	 * @param  string $grid_type The name of the grid type to set.
+	 * @return bool              True on successful update, false on failure.
 	 */
 	public function set_post_grid_type( $post_id, $grid_type ) {
 		return update_post_meta( $post_id, 'cherry_grid_type', $grid_type );
@@ -283,8 +300,8 @@ class Cherry_Grid_Type {
 	 * Deletes a post grid type.
 	 *
 	 * @since  4.0.0
-	 * @param  int    $post_id The ID of the post to delete the grid type for.
-	 * @return bool            True on successful delete, false on failure.
+	 * @param  int   $post_id The ID of the post to delete the grid type for.
+	 * @return bool           True on successful delete, false on failure.
 	 */
 	public function delete_post_grid_type( $post_id ) {
 		return delete_post_meta( $post_id, 'cherry_grid_type' );

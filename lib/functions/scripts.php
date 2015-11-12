@@ -1,7 +1,7 @@
 <?php
 /**
  * Functions for handling JavaScript in the framework. Themes can add support for the
- * 'cherry-scripts' feature to allow the framework to handle loading the scripts into
+ * `cherry-scripts` feature to allow the framework to handle loading the scripts into
  * the theme header or footer at an appropriate time.
  *
  * @package    Cherry_Framework
@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -46,7 +46,7 @@ function cherry_default_scripts() {
 			'deps'      => array( 'jquery' ),
 			'ver'       => '1.0.0',
 			'in_footer' => true,
-		)
+		),
 	);
 
 	return $default_scripts;
@@ -137,6 +137,12 @@ function cherry_prepare_sticky_vars() {
 	$is_sticky       = cherry_get_option( 'header-sticky', 'false' );
 	$sticky_selector = cherry_get_option( 'header-sticky-selector', '.site-header' );
 
+	/**
+	 * Filter a default arguments for `sticky` script.
+	 *
+	 * @since 4.0.0
+	 * @param array $data Default arguments.
+	 */
 	$defaults = apply_filters( 'cherry_header_sticky_args', array(
 		'correctionSelector' => '#wpadminbar',
 		'listenSelector'     => '.listenSelector',
@@ -145,11 +151,17 @@ function cherry_prepare_sticky_vars() {
 	) );
 
 	$args = array(
-		'active' => ( 'true' == $is_sticky && ! wp_is_mobile() ) ? true : false
+		'active' => ( 'true' == $is_sticky && ! wp_is_mobile() ) ? true : false,
 	);
 
 	$args = wp_parse_args( $args, $defaults );
 
+	/**
+	 * Filter a variables for `sticky` script.
+	 *
+	 * @since 4.0.0
+	 * @param array $data Variables for `sticky`.
+	 */
 	$data = apply_filters( 'cherry_prepare_sticky_vars', array(
 		'selector' => $sticky_selector,
 		'args'     => $args,

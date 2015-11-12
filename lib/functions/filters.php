@@ -15,23 +15,23 @@ if ( !defined( 'WPINC' ) ) {
 	die;
 }
 
-// Filters the classes that are assigned to the body HTML element.
+// Filter the classes that are assigned to the body HTML element.
 add_filter( 'body_class', 'cherry_add_body_control_classes', 10, 2 );
 
-// Filters the list of CSS classes for the current page.
+// Filter the list of CSS classes for the current page.
 add_filter( 'post_class', 'cherry_add_page_control_classes', 10, 3 );
 
-// Filters the containers class.
+// Filter the containers class.
 add_filter( 'cherry_get_header_class',    'cherry_get_header_classes' );
 add_filter( 'cherry_get_content_class',   'cherry_get_content_classes' );
 add_filter( 'cherry_get_footer_class',    'cherry_get_footer_classes' );
 add_filter( 'cherry_get_container_class', 'cherry_get_container_classes' );
 
-// Filters a sidebar visibility.
+// Filter a sidebar visibility.
 add_filter( 'cherry_display_sidebar',      'cherry_hide_sidebar', 9, 2 );
 add_filter( 'cherry_display_sidebar_args', 'cherry_add_display_sidebar_args', 9, 2 );
 
-// Filters an excerpt params.
+// Filter an excerpt params.
 add_filter( 'excerpt_length', 'cherry_excerpt_length', 999 );
 add_filter( 'excerpt_more',   '__return_empty_string', 999 );
 

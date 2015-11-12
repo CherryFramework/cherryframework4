@@ -12,7 +12,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -23,16 +23,17 @@ add_filter( 'wp_footer', 'cherry_cookie_banner' );
 add_action( 'wp', 'cherry_setup_author' );
 
 /**
- * Get our wp_nav_menu() fallback, wp_page_menu(), to show a home link.
+ * Get our `wp_nav_menu()` fallback, `wp_page_menu()`, to show a home link.
  *
  * @author Automattic
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
  * @param  array $args Configuration arguments.
- * @return array
+ * @return array       An array of page menu arguments.
  */
 function cherry_page_menu_args( $args ) {
 	$args['show_home'] = true;
+
 	return $args;
 }
 
@@ -46,6 +47,7 @@ function cherry_page_menu_args( $args ) {
  * @return array
  */
 function cherry_body_classes( $classes ) {
+
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
@@ -77,6 +79,12 @@ function cherry_setup_author() {
 	}
 }
 
+/**
+ * Display the cookie banner.
+ *
+ * @since  4.0.0
+ * @return string HTML-markup for cookie banner.
+ */
 function cherry_cookie_banner() {
 
 	if ( 'false' == cherry_get_option( 'cookie-banner-visibility' ) ) {
@@ -105,6 +113,12 @@ function cherry_cookie_banner() {
 	<?php $output = ob_get_contents();
 	ob_end_clean();
 
+	/**
+	 * Filter a cookie banner.
+	 *
+	 * @since 4.0.0
+	 * @param $output HTML-markup for cookie banner.
+	 */
 	$output = apply_filters( 'cherry_cookie_banner', $output );
 
 	printf( '%s', $output );

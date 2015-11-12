@@ -469,13 +469,25 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 }
 
 /**
- * Get cherry option value
+ * Retrieve option value based on name of option.
  *
- * @since 1.0.0
+ * @since  4.0.0
+ * @since  4.0.5 Added the `cherry_option_` filter.
+ * @param  string $name    Name of option to retrieve.
+ * @param  mixed  $default Default value to return if the option does not exist.
+ * @return mixed           Value set for the option.
  */
 function cherry_get_option( $name, $default = false ) {
 	$options_framework = Cherry_Options_Framework::get_instance();
-	return $options_framework->get_option_value( $name, $default );
+	$value             = $options_framework->get_option_value( $name, $default );
+
+	/**
+	 * Filter the value of an existing option.
+	 *
+	 * @since 4.0.5
+	 * @param mixed $value Value of the option.
+	 */
+	return apply_filters( 'cherry_option_' . $name, $value );
 }
 
 function cherry_get_options( $name ) {

@@ -133,15 +133,13 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 				)
 			);
 
-			$document_link = '<a href="http://cherryframework.com/documentation/cf4/" title="' . __( 'Documentation', 'cherry' ) . '" target="_blank">' . __( 'Cherry Framework 4 documentation', 'cherry' ) . '</a>';
-
 			/**
 			 * Filters a link to the framework/theme documentation.
 			 *
 			 * @since 4.0.2
 			 * @var   string
 			 */
-			$document_link = apply_filters( 'cherry_documentation_link', $document_link );
+			$document_link = cherry_get_document_link();
 
 			$before_content = '';
 
