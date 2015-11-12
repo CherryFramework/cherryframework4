@@ -1,0 +1,4846 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cherry Shortcodes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-09 18:24+0200\n"
+"PO-Revision-Date: 2015-11-09 18:24+0200\n"
+"Last-Translator: punc00 <punc00@hotmail.com>\n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.8.6\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:21
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or use search."
+msgstr ""
+
+#: cherry-options.php:6
+msgid "Select a page:"
+msgstr ""
+
+#: cherry-options.php:23 cherry-options.php:1837
+#: lib/admin/class-cherry-grid-type.php:49
+msgid "Header"
+msgstr ""
+
+#: cherry-options.php:24
+msgid "Main menu"
+msgstr ""
+
+#: cherry-options.php:25
+msgid "Header top static area"
+msgstr ""
+
+#: cherry-options.php:37
+msgid "Favicon image"
+msgstr ""
+
+#: cherry-options.php:38
+msgid ""
+"Icon image that is displayed in the browser address bar and browser tab "
+"heading."
+msgstr ""
+
+#: cherry-options.php:41
+msgid ""
+"Max icon size: 32x32 px <br>You can also upload favicon for retina displays. "
+"Max retina icon size: 152x152 px"
+msgstr ""
+
+#: cherry-options.php:52
+#, php-format
+msgid "Maintenance mode. <a href=\"%s\" target=\"_blank\">Preview</a>"
+msgstr ""
+
+#: cherry-options.php:55
+msgid "Enable/disable maintenance mode."
+msgstr ""
+
+#: cherry-options.php:58
+msgid ""
+"Logged in administrator gets full access to the site, while regular visitors "
+"will\\won't be redirected to the page chosen below."
+msgstr ""
+
+#: cherry-options.php:64
+msgid "Maintenance page"
+msgstr ""
+
+#: cherry-options.php:65
+msgid ""
+"Select page that regular visitors will see if maintenance mode is enabled."
+msgstr ""
+
+#: cherry-options.php:72
+msgid "Document smooth scroll"
+msgstr ""
+
+#: cherry-options.php:73
+msgid ""
+"Enable/disable smooth vertical mousewheel scrolling (Chrome browser only)."
+msgstr ""
+
+#: cherry-options.php:78
+msgid "User CSS"
+msgstr ""
+
+#: cherry-options.php:79
+msgid "Define custom CSS styling."
+msgstr ""
+
+#: cherry-options.php:91
+msgid "Responsive grid"
+msgstr ""
+
+#: cherry-options.php:92
+msgid "Enable/disable responsive grid. "
+msgstr ""
+
+#: cherry-options.php:95
+msgid ""
+"If for any reason you want to disable responsive layout for your site, you "
+"are able to turn it off here."
+msgstr ""
+
+#: cherry-options.php:101
+msgid "Container width"
+msgstr ""
+
+#: cherry-options.php:102
+msgid "Width of header/content/footer container in pixels."
+msgstr ""
+
+#: cherry-options.php:112
+msgid "Pages"
+msgstr ""
+
+#: cherry-options.php:115 cherry-options.php:151
+msgid ""
+"You can choose if you want to display sidebars and how you want to display "
+"them."
+msgstr ""
+
+#: cherry-options.php:121 cherry-options.php:157
+msgid "Left sidebar"
+msgstr ""
+
+#: cherry-options.php:125 cherry-options.php:161
+msgid "Right sidebar"
+msgstr ""
+
+#: cherry-options.php:129 cherry-options.php:165
+msgid "Left and right sidebar"
+msgstr ""
+
+#: cherry-options.php:133 cherry-options.php:169
+msgid "Two sidebars on the left"
+msgstr ""
+
+#: cherry-options.php:137 cherry-options.php:173
+msgid "Two sidebars on the right"
+msgstr ""
+
+#: cherry-options.php:141 cherry-options.php:177
+msgid "No sidebar"
+msgstr ""
+
+#: cherry-options.php:148
+msgid "Blog posts"
+msgstr ""
+
+#: cherry-options.php:190
+msgid "Featured Media"
+msgstr ""
+
+#: cherry-options.php:191
+msgid ""
+"Displays Featured Image, Gallery, Audio, Video in blog posts listing "
+"depending on post type."
+msgstr ""
+
+#: cherry-options.php:196
+msgid "Featured Image Size"
+msgstr ""
+
+#: cherry-options.php:199 cherry-options.php:202
+msgid "Set dimensions for post featured images."
+msgstr ""
+
+#: cherry-options.php:205 cherry-options.php:274
+msgid "Small"
+msgstr ""
+
+#: cherry-options.php:206 cherry-options.php:275
+msgid "Large"
+msgstr ""
+
+#: cherry-options.php:211
+msgid "Featured Image Alignment"
+msgstr ""
+
+#: cherry-options.php:212
+msgid "Set alignment for post featured images."
+msgstr ""
+
+#: cherry-options.php:216 cherry-options.php:233 cherry-options.php:285
+msgid "None"
+msgstr "Žádné"
+
+#: cherry-options.php:217 cherry-options.php:286
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:80
+msgid "Left"
+msgstr "Nalevo"
+
+#: cherry-options.php:218 cherry-options.php:287
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:81
+msgid "Right"
+msgstr "napravo"
+
+#: cherry-options.php:219 cherry-options.php:288
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:82
+msgid "Center"
+msgstr "Uprostřed"
+
+#: cherry-options.php:224
+msgid "Post content"
+msgstr "Obsah článku"
+
+#: cherry-options.php:225
+msgid "Select how you want to display post content in blog listing"
+msgstr ""
+
+#: cherry-options.php:228
+msgid ""
+"The following options are available:<br>`full` - display full post content, "
+"<br>`part` - display part of the post (you can specify content part length "
+"below), <br>`none` - hide post content."
+msgstr ""
+
+#: cherry-options.php:234
+msgid "Part"
+msgstr ""
+
+#: cherry-options.php:235
+msgid "Full"
+msgstr ""
+
+#: cherry-options.php:240
+msgid "Content Part length"
+msgstr ""
+
+#: cherry-options.php:241
+msgid ""
+"Specify number of words displayed in blog listing content part. Will not "
+"work if post has an excerpt."
+msgstr ""
+
+#: cherry-options.php:248
+msgid "More button"
+msgstr ""
+
+#: cherry-options.php:249
+msgid "Enable/Disable read more button in blog listing."
+msgstr ""
+
+#: cherry-options.php:254
+msgid "More button label"
+msgstr ""
+
+#: cherry-options.php:255
+msgid "Specify read more button label text. "
+msgstr ""
+
+#: cherry-options.php:256
+msgid "read more"
+msgstr ""
+
+#: cherry-options.php:263
+msgid "Featured Image"
+msgstr ""
+
+#: cherry-options.php:264
+msgid "Display featured image on the single post page."
+msgstr ""
+
+#: cherry-options.php:269
+msgid "Size of Featured Image"
+msgstr ""
+
+#: cherry-options.php:270
+msgid "Set dimensions for single post featured images."
+msgstr ""
+
+#: cherry-options.php:280
+msgid "Alignment of Featured Image"
+msgstr ""
+
+#: cherry-options.php:281
+msgid "Set alignment for single post featured images."
+msgstr ""
+
+#: cherry-options.php:293 cherry-options.php:1817
+msgid "Navigation"
+msgstr ""
+
+#: cherry-options.php:294
+msgid "Enable/disable post navigation block."
+msgstr ""
+
+#: cherry-options.php:299
+msgid "Author bio"
+msgstr ""
+
+#: cherry-options.php:300
+msgid ""
+"Enable/disable author bio block. Author bio block is displayed on the post "
+"page."
+msgstr ""
+
+#: cherry-options.php:305
+msgid "Related posts"
+msgstr ""
+
+#: cherry-options.php:306
+msgid ""
+"Enable/disable related posts block. Related posts block is displayed on the "
+"post page."
+msgstr ""
+
+#: cherry-options.php:311
+msgid "Allow comments"
+msgstr ""
+
+#: cherry-options.php:312
+msgid "Enable/disable comments for blog posts."
+msgstr ""
+
+#: cherry-options.php:315
+msgid ""
+"Make sure comments are enabled in Wordpress 'settings->discussion'. For "
+"posts that have already been published you need to enable comments "
+"individually in post settings."
+msgstr ""
+
+#: cherry-options.php:321
+msgid "Gallery slider"
+msgstr ""
+
+#: cherry-options.php:322
+msgid ""
+"Replace default Wordpress gallery shortcode with enhanced jQuery carousel."
+msgstr ""
+
+#: cherry-options.php:327
+msgid "Lightbox for images in a content"
+msgstr ""
+
+#: cherry-options.php:328
+msgid "Automatically adds lightbox for images in a post content."
+msgstr ""
+
+#: cherry-options.php:336
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:196
+#: lib/functions/template-media.php:141
+msgid "Date"
+msgstr "Datum"
+
+#: cherry-options.php:337
+msgid "Show/Hide post publication date."
+msgstr ""
+
+#: cherry-options.php:342
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:193
+msgid "Author"
+msgstr ""
+
+#: cherry-options.php:343
+msgid "Show/Hide post author."
+msgstr ""
+
+#: cherry-options.php:348
+msgid "Comments"
+msgstr ""
+
+#: cherry-options.php:349
+msgid "Show/Hide number of comments."
+msgstr ""
+
+#: cherry-options.php:354
+msgid "Categories"
+msgstr ""
+
+#: cherry-options.php:355
+msgid "Show/Hide post categories."
+msgstr ""
+
+#: cherry-options.php:360
+msgid "Tags"
+msgstr ""
+
+#: cherry-options.php:361
+msgid "Show/Hide post tags."
+msgstr ""
+
+#: cherry-options.php:372
+msgid "Body background"
+msgstr ""
+
+#: cherry-options.php:373
+msgid "Set background for body container. "
+msgstr ""
+
+#: cherry-options.php:376
+msgid ""
+"You can specify background image or color, set background repeat, position "
+"and attachment. "
+msgstr ""
+
+#: cherry-options.php:397
+msgid "Primary color"
+msgstr ""
+
+#: cherry-options.php:402
+msgid "Secondary color"
+msgstr ""
+
+#: cherry-options.php:407
+msgid "Success color"
+msgstr ""
+
+#: cherry-options.php:412
+msgid "Info color"
+msgstr ""
+
+#: cherry-options.php:417
+msgid "Warning color"
+msgstr ""
+
+#: cherry-options.php:422
+msgid "Danger color"
+msgstr ""
+
+#: cherry-options.php:427
+msgid "Primary gray color"
+msgstr ""
+
+#: cherry-options.php:447
+msgid "Header Menu Typography"
+msgstr ""
+
+#: cherry-options.php:448
+msgid "Main header navigation typography settings."
+msgstr ""
+
+#: cherry-options.php:463
+msgid "Footer Menu Typography"
+msgstr ""
+
+#: cherry-options.php:464
+msgid "Main footer navigation typography settings."
+msgstr ""
+
+#: cherry-options.php:479
+msgid "Arrows markup"
+msgstr ""
+
+#: cherry-options.php:480
+msgid "Do you want to generate arrow mark-up?"
+msgstr ""
+
+#: cherry-options.php:491 cherry-options.php:1823
+msgid "Breadcrumbs"
+msgstr ""
+
+#: cherry-options.php:492
+msgid "Enable/disable breadcrumbs navigation."
+msgstr ""
+
+#: cherry-options.php:498
+msgid "Page title"
+msgstr ""
+
+#: cherry-options.php:499
+msgid "Show / hide current page title in breadcrumb navigation."
+msgstr ""
+
+#: cherry-options.php:504
+msgid "Breadcrumbs mobile"
+msgstr ""
+
+#: cherry-options.php:505
+msgid "Enable/disable breadcrumbs on mobile devices."
+msgstr ""
+
+#: cherry-options.php:509
+msgid ""
+"Mobile &mdash; Extra small devices, phones (&lt;768px) <br>Tablet &mdash; "
+"Small devices, tablets (&lt;991px)"
+msgstr ""
+
+#: cherry-options.php:512
+msgid "Mobile"
+msgstr ""
+
+#: cherry-options.php:513
+msgid "Tablet"
+msgstr ""
+
+#: cherry-options.php:518
+msgid "Home page breadcrumbs"
+msgstr ""
+
+#: cherry-options.php:519
+msgid ""
+"If option defined in page setting, this global option will not be counted."
+msgstr ""
+
+#: cherry-options.php:524
+msgid "Customize a Home page title?"
+msgstr ""
+
+#: cherry-options.php:527 cherry-options.php:1107 cherry-options.php:1132
+#: lib/admin/class-cherry-admin.php:63
+#: lib/classes/class-cherry-interface-builder.php:470
+msgid "Yes"
+msgstr "Ano"
+
+#: cherry-options.php:528 cherry-options.php:1108 cherry-options.php:1133
+#: lib/admin/class-cherry-admin.php:64
+#: lib/classes/class-cherry-interface-builder.php:471
+msgid "No"
+msgstr "Ne"
+
+#: cherry-options.php:535
+msgid "Home page title"
+msgstr ""
+
+#: cherry-options.php:536
+msgid "This is a customized title for a Home page."
+msgstr ""
+
+#: cherry-options.php:537 lib/classes/class-cherry-breadcrumbs.php:270
+msgid "Home"
+msgstr ""
+
+#: cherry-options.php:543
+msgid "Item separator"
+msgstr ""
+
+#: cherry-options.php:544
+msgid "Breadcrumbs separator symbol."
+msgstr ""
+
+#: cherry-options.php:551
+msgid "Breadcrumbs prefix"
+msgstr ""
+
+#: cherry-options.php:552
+msgid "Text displayed before breadcrumbs navigation."
+msgstr ""
+
+#: cherry-options.php:553
+msgid "You are here:"
+msgstr ""
+
+#: cherry-options.php:562
+msgid "Pagination position"
+msgstr ""
+
+#: cherry-options.php:563
+msgid "Select your pagination position."
+msgstr ""
+
+#: cherry-options.php:566
+msgid "After posts loop"
+msgstr ""
+
+#: cherry-options.php:567
+msgid "Before posts loop"
+msgstr ""
+
+#: cherry-options.php:568
+msgid "Both"
+msgstr ""
+
+#: cherry-options.php:573
+msgid "Prev/next buttons"
+msgstr ""
+
+#: cherry-options.php:574
+msgid "Show/hide previous and next buttons in pagination."
+msgstr ""
+
+#: cherry-options.php:579
+msgid "Pagination label"
+msgstr ""
+
+#: cherry-options.php:580
+msgid ""
+"Pagination label. Displayed before pagination buttons. Text or HTML can be "
+"used."
+msgstr ""
+
+#: cherry-options.php:581 lib/functions/template-post.php:279
+msgid "Pages:"
+msgstr ""
+
+#: cherry-options.php:585
+msgid "Prev button label"
+msgstr ""
+
+#: cherry-options.php:586
+msgid "Previous button label text. Text or HTML can be used."
+msgstr ""
+
+#: cherry-options.php:591
+msgid "Next button label"
+msgstr ""
+
+#: cherry-options.php:592
+msgid "Next button label text. Text or HTML can be used."
+msgstr ""
+
+#: cherry-options.php:597
+msgid "Show all the pages"
+msgstr ""
+
+#: cherry-options.php:598
+msgid ""
+"If set to On, then it will show all of the pages instead of a short list of "
+"the pages near the current page."
+msgstr ""
+
+#: cherry-options.php:603
+msgid "End size"
+msgstr ""
+
+#: cherry-options.php:604
+msgid "How many pages to display either at the top or at the end of the list."
+msgstr ""
+
+#: cherry-options.php:612
+msgid "Mid size"
+msgstr ""
+
+#: cherry-options.php:613
+msgid ""
+"How many numbers to display to either side of current page, but not "
+"including current page."
+msgstr ""
+
+#: cherry-options.php:626 cherry-options.php:745 cherry-options.php:808
+msgid "Background"
+msgstr "Pozadí"
+
+#: cherry-options.php:629 cherry-options.php:633
+msgid ""
+"Header background settings. You can select background color, upload header "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:649 cherry-options.php:766 cherry-options.php:841
+msgid "Grid type"
+msgstr ""
+
+#: cherry-options.php:650
+msgid ""
+"Select layout pattern for header website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: cherry-options.php:655 cherry-options.php:772 cherry-options.php:847
+msgid "Wide"
+msgstr ""
+
+#: cherry-options.php:659 cherry-options.php:776 cherry-options.php:851
+msgid "Boxed"
+msgstr ""
+
+#: cherry-options.php:666 cherry-options.php:783 cherry-options.php:858
+msgid "Boxed width"
+msgstr ""
+
+#: cherry-options.php:667
+msgid ""
+"Header width for `boxed` layout. Should not be more than `Grid -> Container "
+"width` value."
+msgstr ""
+
+#: cherry-options.php:674
+msgid "Sticky header"
+msgstr ""
+
+#: cherry-options.php:675
+msgid "Enable\\disable fixed header that sticks to the top."
+msgstr ""
+
+#: cherry-options.php:680
+msgid "Sticky selector"
+msgstr ""
+
+#: cherry-options.php:681
+msgid ""
+"Select the block selector that will be used to build sticky panel. You can "
+"use tag name, class name, or id."
+msgstr ""
+
+#: cherry-options.php:690 cherry-options.php:876
+msgid "Logo type"
+msgstr ""
+
+#: cherry-options.php:691
+msgid "Select whether you want your main logo to be an image or text. "
+msgstr ""
+
+#: cherry-options.php:694
+msgid ""
+"If you select \"image\", you can choose logo image from the media library in "
+"the next option, and if you select \"text\", your WordPress Site Title will "
+"be shown instead."
+msgstr ""
+
+#: cherry-options.php:715 cherry-options.php:897
+msgid "Logo image"
+msgstr ""
+
+#: cherry-options.php:716 cherry-options.php:898
+msgid ""
+"Click Choose Media button to select logo image from the media library or "
+"upload your image."
+msgstr ""
+
+#: cherry-options.php:723 cherry-options.php:905
+msgid "Logo typography"
+msgstr ""
+
+#: cherry-options.php:724 cherry-options.php:906
+msgid ""
+"Configuration settings for text logo. Here you can select logo font family, "
+"size, color, etc."
+msgstr ""
+
+#: cherry-options.php:748 cherry-options.php:750
+msgid ""
+"Page background settings. You can select background color, upload footer "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:767
+msgid ""
+"Select layout pattern for main website container. Wide layout will fit "
+"window width. Boxed layout will have fixed width and left/right indents. "
+msgstr ""
+
+#: cherry-options.php:784
+msgid ""
+"Main content width for `boxed` layout. Should not be more than `Grid -> "
+"Container width` value."
+msgstr ""
+
+#: cherry-options.php:791
+msgid "Featured Images"
+msgstr ""
+
+#: cherry-options.php:792
+msgid "Enable/disable featured images for pages."
+msgstr ""
+
+#: cherry-options.php:797
+msgid "Page comments"
+msgstr ""
+
+#: cherry-options.php:798
+msgid ""
+"Enable/disable comments for pages by default. For pages that have already "
+"been published you need to enable comments individually in page settings."
+msgstr ""
+
+#: cherry-options.php:809
+msgid ""
+"Footer background settings. You can select background color, upload footer "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:825 cherry-options.php:1426 cherry-options.php:1869
+msgid "Typography"
+msgstr ""
+
+#: cherry-options.php:826
+msgid "Typography settings for footer text."
+msgstr ""
+
+#: cherry-options.php:842
+msgid ""
+"Select layout pattern for footer website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: cherry-options.php:859
+msgid ""
+"Footer width for `boxed` layout. Should not be more than `Grid -> Container "
+"width` value."
+msgstr ""
+
+#: cherry-options.php:866
+msgid "Footer Info text"
+msgstr ""
+
+#: cherry-options.php:867
+msgid "Set custom text for Footer static info."
+msgstr ""
+
+#: cherry-options.php:877
+msgid "Select whether you want your footer logo to be an image or text."
+msgstr ""
+
+#: cherry-options.php:928
+msgid "Body text"
+msgstr ""
+
+#: cherry-options.php:929
+msgid "Main website text typography options."
+msgstr ""
+
+#: cherry-options.php:944
+msgid "Link color"
+msgstr ""
+
+#: cherry-options.php:945
+msgid "Color of links."
+msgstr ""
+
+#: cherry-options.php:950
+msgid "Link hover color"
+msgstr ""
+
+#: cherry-options.php:951
+msgid "Color of links on hover."
+msgstr ""
+
+#: cherry-options.php:956
+msgid "Input text"
+msgstr ""
+
+#: cherry-options.php:957
+msgid "Styling text in forms."
+msgstr ""
+
+#: cherry-options.php:972
+msgid "Breadcrumbs typography"
+msgstr ""
+
+#: cherry-options.php:973
+msgid "Styling text in breadcrumbs."
+msgstr ""
+
+#: cherry-options.php:988
+msgid "Heading 1"
+msgstr ""
+
+#: cherry-options.php:990
+msgid "H1 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1005
+msgid "Heading 2"
+msgstr ""
+
+#: cherry-options.php:1007
+msgid "H2 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1022
+msgid "Heading 3"
+msgstr ""
+
+#: cherry-options.php:1024
+msgid "H3 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1039
+msgid "Heading 4"
+msgstr ""
+
+#: cherry-options.php:1041
+msgid "H4 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1056
+msgid "Heading 5"
+msgstr ""
+
+#: cherry-options.php:1058
+msgid "H5 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1073
+msgid "Heading 6"
+msgstr ""
+
+#: cherry-options.php:1075
+msgid "H6 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1090
+msgid "Webfonts"
+msgstr ""
+
+#: cherry-options.php:1092
+msgid "Define custom Font style and Character Sets for selected web font."
+msgstr ""
+
+#: cherry-options.php:1103
+msgid "Concatenate/minify CSS"
+msgstr ""
+
+#: cherry-options.php:1104
+msgid ""
+"Select if you want to merge\\minify CSS files for performance optimization."
+msgstr ""
+
+#: cherry-options.php:1114
+msgid "Output dynamic CSS into separate file or into style tag."
+msgstr ""
+
+#: cherry-options.php:1129
+msgid "Display Cookie Banner?"
+msgstr ""
+
+#: cherry-options.php:1138
+msgid "Message"
+msgstr "Zpráva"
+
+#: cherry-options.php:1139
+msgid "Enter the cookie banner message."
+msgstr ""
+
+#: cherry-options.php:1140
+msgid "We use cookies to ensure you get the best experience on our website."
+msgstr ""
+
+#: cherry-options.php:1150 cherry-options.php:1570
+msgid "Text input"
+msgstr ""
+
+#: cherry-options.php:1155 cherry-options.php:1575 cherry-options.php:1670
+#: cherry-options.php:1682 cherry-options.php:1694 cherry-options.php:1729
+#: cherry-options.php:1740 cherry-options.php:1752
+msgid "Regular single line text input field."
+msgstr ""
+
+#: cherry-options.php:1161 cherry-options.php:1582
+msgid "Textarea input"
+msgstr ""
+
+#: cherry-options.php:1166 cherry-options.php:1587
+msgid "Multiline text input field ( 16 rows x 20 cols )."
+msgstr ""
+
+#: cherry-options.php:1172 cherry-options.php:1594
+msgid "Select box"
+msgstr ""
+
+#: cherry-options.php:1177 cherry-options.php:1599
+msgid "Select box with single option."
+msgstr ""
+
+#: cherry-options.php:1189 cherry-options.php:1612
+msgid "Filtered select"
+msgstr ""
+
+#: cherry-options.php:1194 cherry-options.php:1617
+msgid "Select box with filter option."
+msgstr ""
+
+#: cherry-options.php:1211 cherry-options.php:1234
+msgid "Multi-select box"
+msgstr ""
+
+#: cherry-options.php:1216 cherry-options.php:1239
+msgid "Select box with multiple select capability."
+msgstr ""
+
+#: cherry-options.php:1257 cherry-options.php:1702
+msgid "Checkbox"
+msgstr "Zaškrtávací políčko"
+
+#: cherry-options.php:1258 cherry-options.php:1703
+msgid "Checkbox label"
+msgstr ""
+
+#: cherry-options.php:1262 cherry-options.php:1707
+msgid "Regular HTML checkbox."
+msgstr ""
+
+#: cherry-options.php:1272 cherry-options.php:1555
+msgid "Switcher"
+msgstr ""
+
+#: cherry-options.php:1275 cherry-options.php:1558
+msgid "Analogue of the regular HTML radio buttons. "
+msgstr ""
+
+#: cherry-options.php:1280
+msgid "Switcher (alternative)"
+msgstr ""
+
+#: cherry-options.php:1283
+msgid "Alternative switcher with custom labels."
+msgstr ""
+
+#: cherry-options.php:1286 cherry-options.php:1561
+msgid "Enabled"
+msgstr "Umožněno"
+
+#: cherry-options.php:1287 cherry-options.php:1562
+msgid "Disabled"
+msgstr "Vypnuto"
+
+#: cherry-options.php:1294
+msgid "Stepper"
+msgstr ""
+
+#: cherry-options.php:1297
+msgid "Adds a number input used to define numeric values."
+msgstr ""
+
+#: cherry-options.php:1306
+msgid "Slider"
+msgstr "Prezentace"
+
+#: cherry-options.php:1309
+msgid "Draggable slider with stepper. Used to define some numeric value."
+msgstr ""
+
+#: cherry-options.php:1316
+msgid "Slider (ranged)"
+msgstr ""
+
+#: cherry-options.php:1321
+msgid "Draggable slider with range capability. Used to define numeric range."
+msgstr ""
+
+#: cherry-options.php:1332
+msgid "Radio buttons"
+msgstr ""
+
+#: cherry-options.php:1335
+msgid "Adds radio buttons group. Lets user select one option from the list."
+msgstr ""
+
+#: cherry-options.php:1352 cherry-options.php:1635
+msgid "Radio buttons (image)"
+msgstr ""
+
+#: cherry-options.php:1356 cherry-options.php:1358 cherry-options.php:1639
+#: cherry-options.php:1641
+msgid "Adds image based radio buttons group. Behaves as HTML radio buttons."
+msgstr ""
+
+#: cherry-options.php:1379
+msgid "Colorpicker"
+msgstr ""
+
+#: cherry-options.php:1384
+msgid "Adds a color picker."
+msgstr ""
+
+#: cherry-options.php:1390
+msgid "Media library element"
+msgstr ""
+
+#: cherry-options.php:1395
+msgid "Allows user to add content from Wordpress media library."
+msgstr ""
+
+#: cherry-options.php:1403
+msgid "Background image"
+msgstr ""
+
+#: cherry-options.php:1408
+msgid ""
+"Allows user to add background image from the media library and define its "
+"background settings like background repeat, position, attachment, origin."
+msgstr ""
+
+#: cherry-options.php:1432
+msgid ""
+"Provides typography configuration options such as Google Font family name, "
+"font size, line height, style, letter spacing, characters sets, text align "
+"and color. Below options you can see font preview."
+msgstr ""
+
+#: cherry-options.php:1450
+msgid "CSS Editor"
+msgstr ""
+
+#: cherry-options.php:1455
+msgid "Embedded CSS editor with syntax highlighting."
+msgstr ""
+
+#: cherry-options.php:1461
+msgid "title layout editor"
+msgstr ""
+
+#: cherry-options.php:1463
+msgid "description layout editor"
+msgstr ""
+
+#: cherry-options.php:1504
+msgid "Links repeater"
+msgstr ""
+
+#: cherry-options.php:1509
+msgid ""
+"This option allows you to create a custom links list. For each link you can "
+"define URL, class and label."
+msgstr ""
+
+#: cherry-options.php:1531
+msgid "Webfont"
+msgstr ""
+
+#: cherry-options.php:1538
+msgid "WYSIWYG editor"
+msgstr ""
+
+#: cherry-options.php:1543
+msgid ""
+"Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page "
+"editing area."
+msgstr ""
+
+#: cherry-options.php:1665 cherry-options.php:1724
+msgid "Text input 1"
+msgstr ""
+
+#: cherry-options.php:1677 cherry-options.php:1735
+msgid "Text input 2"
+msgstr ""
+
+#: cherry-options.php:1689 cherry-options.php:1747
+msgid "Text input 3"
+msgstr ""
+
+#: cherry-options.php:1764
+msgid "General"
+msgstr ""
+
+#: cherry-options.php:1770
+msgid "Grid"
+msgstr ""
+
+#: cherry-options.php:1776
+msgid "Layouts"
+msgstr ""
+
+#: cherry-options.php:1784
+msgid "Blog"
+msgstr ""
+
+#: cherry-options.php:1790
+msgid "Post"
+msgstr "Článek"
+
+#: cherry-options.php:1797
+msgid "Meta"
+msgstr ""
+
+#: cherry-options.php:1804
+msgid "Styling"
+msgstr ""
+
+#: cherry-options.php:1810
+msgid "Color scheme"
+msgstr ""
+
+#: cherry-options.php:1830
+msgid "Pagination"
+msgstr "Stránkování"
+
+#: cherry-options.php:1843 cherry-options.php:1862
+#: init/statics/header-logo.php:35
+msgid "Logo"
+msgstr ""
+
+#: cherry-options.php:1850
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:197
+msgid "Page"
+msgstr ""
+
+#: cherry-options.php:1856 lib/admin/class-cherry-grid-type.php:57
+msgid "Footer"
+msgstr ""
+
+#: cherry-options.php:1875
+msgid "Optimization"
+msgstr ""
+
+#: cherry-options.php:1881
+msgid "Cookie Banner"
+msgstr ""
+
+#: cherry-options.php:1887
+msgid "Interface elements (for UI developers)"
+msgstr ""
+
+#: init/config/menus.php:22
+msgid "Primary"
+msgstr ""
+
+#: init/config/menus.php:23
+msgid "Secondary"
+msgstr ""
+
+#: init/config/sidebars.php:25
+msgid "Main Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:26
+msgid ""
+"This is the main sidebar if you are using a two or three column site layout "
+"option."
+msgstr ""
+
+#: init/config/sidebars.php:33
+msgid "Secondary Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:34
+msgid ""
+"This is the secondary sidebar if you are using a three column site layout "
+"option."
+msgstr ""
+
+#: init/config/sidebars.php:41 init/statics/header-sidebar.php:32
+msgid "Header Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:42
+msgid "A sidebar located in the header of the site."
+msgstr ""
+
+#: init/config/sidebars.php:49
+msgid "Footer Sidebar 1"
+msgstr ""
+
+#: init/config/sidebars.php:50 init/config/sidebars.php:58
+#: init/config/sidebars.php:66 init/config/sidebars.php:74
+msgid "A sidebar located in the footer of the site."
+msgstr ""
+
+#: init/config/sidebars.php:57
+msgid "Footer Sidebar 2"
+msgstr ""
+
+#: init/config/sidebars.php:65
+msgid "Footer Sidebar 3"
+msgstr ""
+
+#: init/config/sidebars.php:73
+msgid "Footer Sidebar 4"
+msgstr ""
+
+#: init/config/static-areas.php:24
+msgid "Header Top"
+msgstr ""
+
+#: init/config/static-areas.php:30
+msgid "Header Bottom"
+msgstr ""
+
+#: init/config/static-areas.php:36
+msgid "Showcase Area"
+msgstr ""
+
+#: init/config/static-areas.php:42
+msgid "Footer Top"
+msgstr ""
+
+#: init/config/static-areas.php:48
+msgid "Footer Bottom"
+msgstr ""
+
+#: init/statics/example.php:29
+msgid "Example"
+msgstr ""
+
+#: init/statics/footer-info.php:71
+msgid "Footer Info"
+msgstr ""
+
+#: init/statics/footer-logo.php:32
+msgid "Footer Logo"
+msgstr ""
+
+#: init/statics/footer-menu.php:31
+msgid "Footer Menu"
+msgstr ""
+
+#: init/statics/footer-sidebars.php:64
+msgid "Footer Sidebars"
+msgstr ""
+
+#: init/statics/header-menu.php:33
+msgid "Header Menu"
+msgstr ""
+
+#: init/statics/moto-slider.php:46
+msgid "Select MotoSlider to appear in header"
+msgstr ""
+
+#: init/statics/moto-slider.php:47
+msgid "Select main theme slider"
+msgstr ""
+
+#: init/statics/moto-slider.php:67
+msgid "No Moto Sliders was found "
+msgstr ""
+
+#: init/statics/moto-slider.php:85
+msgid "MotoPress Slider"
+msgstr ""
+
+#: init/statics/search-form.php:32
+msgid "Search Form"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:57
+msgid "Please, select a file to import"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:58 lib/admin/class-cherry-admin.php:79
+msgid "Invalid file type"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:59
+msgid "Cherry Options imported. "
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:60
+msgid "section restored."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:61
+msgid "All options restored"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:62
+msgid "options loaded."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:65
+msgid "Neither option is not selected"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:66
+msgid "File download started..."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:78
+msgid "Please, select import file"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:80
+msgid "Statics settings imported. "
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:81
+msgid "Statics restored"
+msgstr ""
+
+#: lib/admin/class-cherry-grid-type.php:53
+msgid "Content"
+msgstr "Obsah"
+
+#: lib/admin/class-cherry-grid-type.php:92
+msgid "Grid Type"
+msgstr ""
+
+#: lib/admin/class-cherry-grid-type.php:239
+#: lib/admin/class-cherry-layouts.php:212
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:79
+msgid "Inherit"
+msgstr ""
+
+#: lib/admin/class-cherry-layouts.php:72
+msgid "Layout"
+msgstr ""
+
+#: lib/admin/class-cherry-post-style.php:69
+msgid "Style"
+msgstr "Styl"
+
+#: lib/admin/class-cherry-post-style.php:118
+msgid "Header background"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:62
+msgid "No repeat"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:63
+msgid "Repeat All"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:64
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:65
+msgid "Repeat Vertically"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:68
+msgid "Top Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:69
+msgid "Top Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:70
+msgid "Top Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:71
+msgid "Middle Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:72
+msgid "Middle Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:73
+msgid "Middle Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:74
+msgid "Bottom Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:75
+msgid "Bottom Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:76
+msgid "Bottom Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:79
+#: lib/admin/ui-elements/ui-background/ui-background.php:84
+#: lib/admin/ui-elements/ui-background/ui-background.php:90
+#: lib/admin/ui-elements/ui-background/ui-background.php:96
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:78
+msgid "Not defined"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:80
+msgid "Scroll Normally"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:81
+msgid "Fixed in Place"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:85
+#: lib/admin/ui-elements/ui-background/ui-background.php:97
+msgid "Padding box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:86
+#: lib/admin/ui-elements/ui-background/ui-background.php:98
+msgid "Border box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:87
+#: lib/admin/ui-elements/ui-background/ui-background.php:99
+msgid "Content box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:91
+msgid "Auto"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:92
+msgid "Cover"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:93
+msgid "Contain"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:126
+msgid "Background Settings"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:128
+msgid "Background Color"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:142
+#, php-format
+msgid "Background %s"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:89
+msgid "position"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:91
+msgid "margin"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:97
+msgid "border"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:103
+msgid "padding"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:109
+msgid "size"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:121
+msgid "solid"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:122
+msgid "dashed"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:123
+msgid "dotted"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:124
+msgid "double"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:125
+msgid "groove"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:126
+msgid "ridge"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:127
+msgid "inset"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:128
+msgid "outset"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:129
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:126
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:141
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:156
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:171
+msgid "none"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:132
+msgid "Border style"
+msgstr "Styl okraje"
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:147
+msgid "Border radius"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:159
+msgid "Border color"
+msgstr "Barva okraje"
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:73
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:91
+msgid "External link"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:76
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:94
+msgid "Font class"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:79
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:97
+msgid "Link label"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:127
+msgid "col-xs-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:128
+msgid "col-xs-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:129
+msgid "col-xs-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:130
+msgid "col-xs-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:131
+msgid "col-xs-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:132
+msgid "col-xs-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:133
+msgid "col-xs-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:134
+msgid "col-xs-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:135
+msgid "col-xs-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:136
+msgid "col-xs-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:137
+msgid "col-xs-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:138
+msgid "col-xs-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:142
+msgid "col-sm-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:143
+msgid "col-sm-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:144
+msgid "col-sm-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:145
+msgid "col-sm-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:146
+msgid "col-sm-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:147
+msgid "col-sm-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:148
+msgid "col-sm-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:149
+msgid "col-sm-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:150
+msgid "col-sm-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:151
+msgid "col-sm-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:152
+msgid "col-sm-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:153
+msgid "col-sm-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:157
+msgid "col-md-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:158
+msgid "col-md-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:159
+msgid "col-md-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:160
+msgid "col-md-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:161
+msgid "col-md-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:162
+msgid "col-md-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:163
+msgid "col-md-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:164
+msgid "col-md-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:165
+msgid "col-md-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:166
+msgid "col-md-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:167
+msgid "col-md-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:168
+msgid "col-md-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:172
+msgid "col-lg-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:173
+msgid "col-lg-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:174
+msgid "col-lg-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:175
+msgid "col-lg-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:176
+msgid "col-lg-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:177
+msgid "col-lg-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:178
+msgid "col-lg-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:179
+msgid "col-lg-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:180
+msgid "col-lg-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:181
+msgid "col-lg-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:182
+msgid "col-lg-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:183
+msgid "col-lg-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:186
+msgid "Show"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:187
+msgid "Hide"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:190
+msgid "-- Select --"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:191
+msgid "Category"
+msgstr "Kategorie"
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:192
+#: lib/classes/class-cherry-statics-page.php:242
+msgid "Logged in"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:194
+msgid "Role"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:195
+msgid "Tag"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:198
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:212
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:379
+msgid ".col-xs-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:225
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:392
+msgid ".col-sm-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:238
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:405
+msgid ".col-md-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:251
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:418
+msgid ".col-lg-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:264
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:431
+msgid "Custom class"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:278
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:445
+msgid "Conditions"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:289
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:456
+msgid "if"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:305
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:336
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:472
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:503
+msgid "is"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:356
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:523
+msgid "Add rule"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:371
+msgid "Available statics"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:544
+#: lib/classes/class-cherry-statics-page.php:232
+msgid "All category pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:554
+msgid "Logged In"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:555
+msgid "Logged Out"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:560
+#: lib/classes/class-cherry-statics-page.php:246
+msgid "All author pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:576
+#: lib/classes/class-cherry-statics-page.php:258
+msgid "All tag pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:586
+#: lib/classes/class-cherry-statics-page.php:268
+msgid "All date archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:587
+#: lib/classes/class-cherry-statics-page.php:269
+msgid "Daily archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:588
+#: lib/classes/class-cherry-statics-page.php:270
+msgid "Monthly archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:589
+#: lib/classes/class-cherry-statics-page.php:271
+msgid "Yearly archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:594
+#: lib/classes/class-cherry-statics-page.php:275
+msgid "Front page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:595
+#: lib/classes/class-cherry-statics-page.php:276
+msgid "Posts page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:596
+#: lib/classes/class-cherry-statics-page.php:277
+msgid "Archive page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:597
+#: lib/classes/class-cherry-statics-page.php:278
+msgid "404 error page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:598
+#: lib/classes/class-cherry-statics-page.php:279
+msgid "Search results"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:601
+#: lib/classes/class-cherry-statics-page.php:281
+msgid "Post type:"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:608
+#: lib/classes/class-cherry-statics-page.php:288
+msgid "Static page:"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:617
+#: lib/classes/class-cherry-statics-page.php:296
+msgid "All taxonomy pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:623
+#: lib/classes/class-cherry-statics-page.php:301
+msgid ":"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
+msgid "Step Up"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
+msgid "Step Down"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:83
+msgid "Justify"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:97
+msgid "Font Family"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:100
+msgid "Standard Webfonts"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:126
+msgid "Google Webfonts"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:180
+msgid "Size"
+msgstr "Velikost"
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:197
+msgid "Line-height"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:213
+msgid "Letter-spacing"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:229
+msgid "Font color"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:242
+msgid "Text align"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:311
+#: lib/admin/ui-elements/ui-webfont/ui-webfont.php:165
+msgid "Font Style"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:360
+#: lib/admin/ui-elements/ui-webfont/ui-webfont.php:212
+msgid "Character Sets"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:276
+msgid "Browse:"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:278
+msgid "404 Not Found"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:279
+msgid "Archives"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:281
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:283
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:285
+#, php-format
+msgid "Minute %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:287
+#, php-format
+msgid "Week %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:911
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:930
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:950
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:969
+#: lib/classes/class-cherry-breadcrumbs.php:1023
+#: lib/classes/class-cherry-breadcrumbs.php:1065
+#: lib/classes/class-cherry-breadcrumbs.php:1105
+#: lib/classes/class-cherry-breadcrumbs.php:1312
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:974
+#: lib/classes/class-cherry-breadcrumbs.php:1069
+#: lib/classes/class-cherry-breadcrumbs.php:1323
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:979
+#: lib/classes/class-cherry-breadcrumbs.php:1336
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:1027
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
+#: lib/classes/class-cherry-css-parser.php:188
+msgid "Variable not found"
+msgstr ""
+
+#: lib/classes/class-cherry-css-parser.php:231
+msgid "Function does not exist"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:132
+msgid "Choose Media"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:133
+msgid "Remove Media"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:144
+msgid "On"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:145
+msgid "Off"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:475
+msgid "Use for partial export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:125
+#: lib/classes/class-cherry-optionsframework-admin.php:157
+#, php-format
+msgid "Theme %s"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:126
+msgid "Cherry"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:136
+#: lib/classes/class-cherry-statics-page.php:101
+msgid "Documentation"
+msgstr "Dokumentace"
+
+#: lib/classes/class-cherry-optionsframework-admin.php:136
+#: lib/classes/class-cherry-statics-page.php:101
+msgid "Cherry Framework 4 documentation"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:150
+msgid "Feel free to view detailed "
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:158
+msgid "Options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:205
+#: lib/classes/class-cherry-optionsframework-admin.php:209
+#: lib/classes/class-cherry-optionsframework-admin.php:253
+#: lib/classes/class-cherry-optionsframework-admin.php:278
+#: lib/classes/class-cherry-statics-page.php:329
+#: lib/classes/class-cherry-statics-page.php:333
+msgid "Invalid request"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:205
+#: lib/classes/class-cherry-optionsframework-admin.php:209
+#: lib/classes/class-cherry-optionsframework-admin.php:253
+#: lib/classes/class-cherry-optionsframework-admin.php:278
+#: lib/classes/class-cherry-statics-page.php:329
+#: lib/classes/class-cherry-statics-page.php:333
+msgid "Error. Invalid request"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:438
+msgid "Options have been saved"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:494
+msgid "Default options backup has been created"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:499
+msgid "Default options backup has been overwrite"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:659
+msgid "Export/Import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:664
+msgid "Default options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:671
+msgid "Save options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:677
+msgid "Restore section"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:682
+msgid "Restore options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:689
+#: lib/classes/class-cherry-optionsframework-admin.php:690
+msgid "Export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:692
+msgid "Partial export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:700
+msgid "Attach statics settings"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:709
+msgid "Import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:713
+msgid "Select file"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:714
+msgid "Start import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:719
+#: lib/classes/class-cherry-optionsframework-admin.php:723
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:721
+msgid "Current options will be reset to the defaults, page will be refreshed."
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:725
+msgid "Active section will be reset to the defaults, page will be refreshed."
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:93
+#: lib/classes/class-cherry-statics-page.php:94
+msgid "Static Area Builder"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:100
+msgid "Feel free to view details "
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:104
+msgid ""
+"Use static area builder to arrange static blocks. You can drag-n-drop static "
+"blocks to arrange them or add new ones."
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:142
+msgid "Statics have been saved"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:186
+msgid "Default statics backup has been created"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:191
+msgid "Default statics backup has been overwritten"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:243
+msgid "Logged out"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:495
+msgid "Save statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:501
+msgid "Restore statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:506
+msgid "Export statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:511
+msgid "Default statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics.php:95
+#, php-format
+msgid "Static Area %d"
+msgstr ""
+
+#: lib/classes/class-cherry-statics.php:158
+#, php-format
+msgid "Static %d"
+msgstr ""
+
+#: lib/functions/core.php:156
+#, php-format
+msgid "File %s doesn't exist"
+msgstr ""
+
+#: lib/functions/core.php:157
+msgid "Doing it wrong"
+msgstr ""
+
+#: lib/functions/filters.php:491
+msgid "Menu"
+msgstr ""
+
+#: lib/functions/media.php:41
+msgid "Post Thumbnail"
+msgstr ""
+
+#: lib/functions/media.php:63
+msgid "File Size"
+msgstr ""
+
+#: lib/functions/media.php:64
+msgid "Mime Type"
+msgstr ""
+
+#: lib/functions/media.php:65
+msgid "Run Time"
+msgstr ""
+
+#: lib/functions/media.php:70
+msgid "Genre"
+msgstr ""
+
+#: lib/functions/media.php:71
+msgid "Year"
+msgstr ""
+
+#: lib/functions/structure.php:179
+#, php-format
+msgid "%s Info"
+msgstr ""
+
+#: lib/functions/template-comments.php:65
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: lib/functions/template-comments.php:66
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: lib/functions/template-comments.php:164
+msgid "Edit"
+msgstr ""
+
+#: lib/functions/template-general.php:105
+#: lib/functions/template-general.php:110
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: lib/functions/template-general.php:106
+#: lib/functions/template-general.php:111
+msgid "WordPress"
+msgstr ""
+
+#: lib/functions/template-general.php:142
+#, php-format
+msgid "%s WordPress Theme"
+msgstr ""
+
+#: lib/functions/template-media.php:110
+#, php-format
+msgid "%1$s &#215; %2$s"
+msgstr ""
+
+#: lib/functions/template-media.php:110 lib/functions/template-media.php:135
+msgid "Dimensions"
+msgstr ""
+
+#: lib/functions/template-media.php:134
+#, php-format
+msgid "%1$s &times; %2$s"
+msgstr ""
+
+#: lib/functions/template-media.php:146
+msgid "Camera"
+msgstr ""
+
+#: lib/functions/template-media.php:151
+msgid "Aperture"
+msgstr ""
+
+#: lib/functions/template-media.php:158
+#, php-format
+msgid "%s mm"
+msgstr ""
+
+#: lib/functions/template-media.php:158
+msgid "Focal Length"
+msgstr ""
+
+#: lib/functions/template-media.php:165
+msgid "International Organization for Standardization"
+msgstr ""
+
+#: lib/functions/template-media.php:165
+msgid "ISO"
+msgstr ""
+
+#: lib/functions/template-tags.php:376
+msgid "Related Posts"
+msgstr ""
+
+#: templates/comments.php:23
+#, php-format
+msgid "Comment"
+msgid_plural "Comments (%s)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: templates/comments.php:40
+msgid "Comments are closed."
+msgstr ""
+
+#: templates/none.php:5
+msgid "Nothing Found"
+msgstr ""
+
+#: templates/none.php:12
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: templates/none.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: templates/none.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#~ msgid "Title"
+#~ msgstr "Název"
+
+#~ msgid "Image"
+#~ msgstr "Obrázek"
+
+#~ msgid "Button"
+#~ msgstr "Tlačítko"
+
+#~ msgid "Permalink"
+#~ msgstr "Odkaz"
+
+#~ msgid "Template"
+#~ msgstr "Šablona"
+
+#~ msgid "Preview"
+#~ msgstr "Náhled"
+
+#~ msgid "Posts not found"
+#~ msgstr "Články nenalezeny"
+
+#~ msgid "Order"
+#~ msgstr "Pořadí"
+
+#~ msgid "Order by"
+#~ msgstr "Pořadí podle"
+
+#~ msgid "List"
+#~ msgstr "Seznam"
+
+#~ msgid "Posts per page"
+#~ msgstr "Článků na stránku"
+
+#~ msgid "Filter"
+#~ msgstr "Filtr"
+
+#~ msgid ""
+#~ "Specify number of posts that you want to show. Enter -1 to get all posts"
+#~ msgstr ""
+#~ "Určete počet článků, které se budou zobrazovat. Vložte - 1 pro "
+#~ "zobrazování všech článků"
+
+#~ msgid "Class"
+#~ msgstr "CSS třída"
+
+#~ msgid "Extra CSS class"
+#~ msgstr "Speciální CSS třída"
+
+#~ msgid "Saving"
+#~ msgstr "Ukládá se"
+
+#~ msgid "Settings"
+#~ msgstr "Nastavení"
+
+#~ msgid "Media"
+#~ msgstr "Média"
+
+#~ msgid "Saved"
+#~ msgstr "Uloženo"
+
+#~ msgid "Vertical"
+#~ msgstr "Vertikálně"
+
+#~ msgid "Width"
+#~ msgstr "Šířka"
+
+#~ msgid "Post type"
+#~ msgstr "Typ článku"
+
+#~ msgid "or"
+#~ msgstr "nebo"
+
+#~ msgid "Height"
+#~ msgstr "Výška"
+
+#~ msgid "Background color"
+#~ msgstr "Barva pozadí"
+
+#~ msgid "Label"
+#~ msgstr "Nálepka"
+
+#~ msgid "Icon"
+#~ msgstr "Ikonka"
+
+#~ msgid "All"
+#~ msgstr "Vše"
+
+#~ msgid "Descending"
+#~ msgstr "Sestupný"
+
+#~ msgid "Ascending"
+#~ msgstr "Vzestupný"
+
+#~ msgid "Posts order"
+#~ msgstr "Pořadí článků"
+
+#~ msgid "Post ID"
+#~ msgstr "ID článku"
+
+#~ msgid "Post author"
+#~ msgstr "Autor článku"
+
+#~ msgid "Post title"
+#~ msgstr "Název článku"
+
+#~ msgid "Post slug"
+#~ msgstr "Adresa článku"
+
+#~ msgid "Last modified date"
+#~ msgstr "Poslední změna"
+
+#~ msgid "Random"
+#~ msgstr "Náhodný"
+
+#~ msgid "Comments number"
+#~ msgstr "Počet komentářů"
+
+#~ msgid "Order posts by"
+#~ msgstr "Pořadí článků podle"
+
+#~ msgid "Choose file"
+#~ msgstr "Vybrat soubor"
+
+#~ msgid "Insert"
+#~ msgstr "Vložit"
+
+#~ msgid "Select images"
+#~ msgstr "Vybrat obrázky"
+
+#~ msgid "Add selected images"
+#~ msgstr "Přidat vybrané obrázky "
+
+#~ msgid "Please enter a name for new preset"
+#~ msgstr "Prosím vložte jméno pro nový vzor"
+
+#~ msgid "New preset"
+#~ msgstr "Nový vzor"
+
+#~ msgid "Last used settings"
+#~ msgstr "Naposledy použité nastavení"
+
+#~ msgid "Other"
+#~ msgstr "Jiné"
+
+#~ msgid "Solid"
+#~ msgstr "Plná"
+
+#~ msgid "Dotted"
+#~ msgstr "Tečkovaná"
+
+#~ msgid "Dashed"
+#~ msgstr "Čárkovaná"
+
+#~ msgid "Double"
+#~ msgstr "Dvojitá"
+
+#~ msgid "Groove"
+#~ msgstr "Rýha"
+
+#~ msgid "Ridge"
+#~ msgstr "Hřeben"
+
+#~ msgid "Row"
+#~ msgstr "Řádek"
+
+#~ msgid "Type"
+#~ msgstr "typ"
+
+#~ msgid "Anchor"
+#~ msgstr "Kotva"
+
+#~ msgid "Row for flexible columns"
+#~ msgstr "Řádek pro flexibilní sloupce"
+
+#~ msgid "Column"
+#~ msgstr "Sloupec"
+
+#~ msgid "Offset"
+#~ msgstr "Ofset"
+
+#~ msgid "Column content"
+#~ msgstr "Obsah sloupce"
+
+#~ msgid "Flexible and responsive columns"
+#~ msgstr "Flexibilní a responzivní sloupce"
+
+#~ msgid "Spacer"
+#~ msgstr "Místo"
+
+#~ msgid "You can upload custom icon for this button or pick a built-in icon"
+#~ msgstr ""
+#~ "Můžete nahrát vlastní ikonu pro toto tlačítko anebo použít jednu z "
+#~ "nabízených ikon "
+
+#~ msgid "Icon size"
+#~ msgstr "Velikost ikony"
+
+#~ msgid "Text color"
+#~ msgstr "Barva textu"
+
+#~ msgid "Title text color"
+#~ msgstr "Barva názvu boxu"
+
+#~ msgid "Dropcap"
+#~ msgstr "Iniciála"
+
+#~ msgid "Align"
+#~ msgstr "zarovnání"
+
+#~ msgid "Button text"
+#~ msgstr "Text tlačítka"
+
+#~ msgid "Link"
+#~ msgstr "Odkaz"
+
+#~ msgid "Button link"
+#~ msgstr "Odkaz tlačítka"
+
+#~ msgid "Default"
+#~ msgstr "Základní"
+
+#~ msgid "Success"
+#~ msgstr "Úspěch"
+
+#~ msgid "Warning"
+#~ msgstr "Varování"
+
+#~ msgid "Centered"
+#~ msgstr "Centrováno"
+
+#~ msgid "Is button centered on the page"
+#~ msgstr "Je tlačítko centrováno na stránce"
+
+#~ msgid "Fluid"
+#~ msgstr "Proměnlivý"
+
+#~ msgid "Top"
+#~ msgstr "Nahoře"
+
+#~ msgid "Bottom"
+#~ msgstr "Dole"
+
+#~ msgid "Description"
+#~ msgstr "Popis"
+
+#~ msgid "Button background color"
+#~ msgstr "Barva pozadí Tlačítka"
+
+#~ msgid "Button text color"
+#~ msgstr "Barva textu tlačítka"
+
+#~ msgid "Same tab"
+#~ msgstr "Stejná záložka"
+
+#~ msgid "New tab"
+#~ msgstr "Nová záložka"
+
+#~ msgid "Target"
+#~ msgstr "Otevřít v"
+
+#~ msgid "Button link target"
+#~ msgstr "Cíl odkazu tlačítka"
+
+#~ msgid "Styled button"
+#~ msgstr "Stylované tlačítko"
+
+#~ msgid "Post types"
+#~ msgstr "Typy článků"
+
+#~ msgid "Select post types. Hold Ctrl key to select multiple post types"
+#~ msgstr ""
+#~ "Vybrat typy článků. Podržet klávesu Ctrl pro výběr několika typů zároveň"
+
+#~ msgid "Select taxonomy to show posts from"
+#~ msgstr "Vyberte taxonomii, z níž budou články zobrazovány"
+
+#~ msgid "Terms"
+#~ msgstr "Činitelé"
+
+#~ msgid "Select terms to show posts from"
+#~ msgstr "Vyberte činitele, z nichž budou generovány články"
+
+#~ msgid "Taxonomy term operator"
+#~ msgstr "Operátor činitele taxonomie"
+
+#~ msgid "Authors"
+#~ msgstr "Autoři"
+
+#~ msgid "Specify offset to start posts loop not from first post"
+#~ msgstr "Specifikovat ofset, aby by smyčka článků nezačala u prvního"
+
+#~ msgid "Post parent"
+#~ msgstr "Nadřazená stránka"
+
+#~ msgid "Menu order"
+#~ msgstr "Pořadí v menu"
+
+#~ msgid "Published"
+#~ msgstr "Publikováno"
+
+#~ msgid "Pending"
+#~ msgstr "Čekající"
+
+#~ msgid "Draft"
+#~ msgstr "Náčrt"
+
+#~ msgid "Auto-draft"
+#~ msgstr "Auto-náčrt"
+
+#~ msgid "Future post"
+#~ msgstr "Budoucí článek"
+
+#~ msgid "Private post"
+#~ msgstr "Soukromý článek"
+
+#~ msgid "Trashed"
+#~ msgstr "vyhozený do koše"
+
+#~ msgid "Any"
+#~ msgstr "Každý"
+
+#~ msgid "Post status"
+#~ msgstr "Status článku"
+
+#~ msgid "Show only posts with selected status"
+#~ msgstr "Ukázat pouze články s vybraným statusem"
+
+#~ msgid "Ignore sticky"
+#~ msgstr "Ignorovat zvýrazněné"
+
+#~ msgid "Posts"
+#~ msgstr "Články"
+
+#~ msgid "Post ID's"
+#~ msgstr "ID článku"
+
+#~ msgid "Enter comma separated ID's of the posts that you want to show"
+#~ msgstr "Vložte seznam čárkou oddělených ID článků, které chcete zobrazit"
+
+#~ msgid "Custom posts query with customizable template"
+#~ msgstr "Vlastní výpis článků s upravitelnou šablonou"
+
+#~ msgid "Tabs"
+#~ msgstr "Záložky"
+
+#~ msgid "Simple"
+#~ msgstr "Jednoduché"
+
+#~ msgid "Active tab"
+#~ msgstr "Aktivní záložka"
+
+#~ msgid "Select which tab is open by default"
+#~ msgstr "vyberte, která záložka bude otevřena defaultně"
+
+#~ msgid "Show tabs vertically"
+#~ msgstr "Ukázat záložky vertikálně"
+
+#~ msgid ""
+#~ "[%prefix_tab title=\"Title 1\"]Content 1[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 2\"]Content 2[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 3\"]Content 3[/%prefix_tab]"
+#~ msgstr ""
+#~ "[%prefix_tab title=\"Nadpis 1\"]Obsah 1[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Nadpis 2\"]Obsah 2[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Nadpis 3\"]Obsah 3[/%prefix_tab]"
+
+#~ msgid "Tabs container"
+#~ msgstr "Tělo záložek"
+
+#~ msgid "Tab"
+#~ msgstr "Záložka"
+
+#~ msgid "Tab name"
+#~ msgstr "Název záložky"
+
+#~ msgid "Enter tab name"
+#~ msgstr "Vložte jméno záložky"
+
+#~ msgid "Is this tab disabled"
+#~ msgstr "Je tato záložka vypnuta"
+
+#~ msgid ""
+#~ "You can use unique anchor for this tab to access it with hash in page "
+#~ "url. For example: type here <b%value>Hello</b> and then use url like "
+#~ "http://example.com/page-url#Hello. This tab will be activated and "
+#~ "scrolled in"
+#~ msgstr ""
+#~ "V této záložce můžete použít unikátní kotvu, k níž bude odkázáno kódem v "
+#~ "URL. Např. sem napište <b%value>Ahoj</b> a potom použijte URL ve tvaru "
+#~ "http://example.com/page-url#Ahoj. Tato záložka bude aktivována a "
+#~ "skrolována na kotvu."
+
+#~ msgid "Tab content"
+#~ msgstr "Obsah záložky"
+
+#~ msgid "Single tab"
+#~ msgstr "Jednotlivá záložka"
+
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgid "Spoiler title"
+#~ msgstr "Název spoileru"
+
+#~ msgid "Text in spoiler title"
+#~ msgstr "Text v nadpisu spoileru"
+
+#~ msgid "Open"
+#~ msgstr "Otevřít"
+
+#~ msgid "Is spoiler content visible by default"
+#~ msgstr "Je obsah spoileru viditelný v základu"
+
+#~ msgid "Choose style for this spoiler"
+#~ msgstr "Vybrat styl pro tento spoiler"
+
+#~ msgid "Hidden content"
+#~ msgstr "Skrytý obsah"
+
+#~ msgid "Spoiler with hidden content"
+#~ msgstr "Spoiler se skrytým obsahem"
+
+#~ msgid "Accordion"
+#~ msgstr "Harmonika"
+
+#~ msgid "Accordion with spoilers"
+#~ msgstr "Harmonika se spoilery"
+
+#~ msgid "Map height"
+#~ msgstr "Výška mapy"
+
+#~ msgid "Poster"
+#~ msgstr "Poster"
+
+#~ msgid "Controls"
+#~ msgstr "Ovládací tlačítka"
+
+#~ msgid "Media manager"
+#~ msgstr "Správce médií"
+
+#~ msgid "Icon picker"
+#~ msgstr "Výběr ikony"
+
+#~ msgid "Filter icons"
+#~ msgstr "Filtrovat ikony"
+
+#~ msgid "Please wait"
+#~ msgstr "Prosím počkejte"
+
+#~ msgid "Untitled gallery"
+#~ msgstr "Galerie bez jména"
+
+#~ msgid "Galleries not found"
+#~ msgstr "galerie nenalezeny"
+
+#~ msgid "Manage galleries"
+#~ msgstr "Spravovat galerie"
+
+#~ msgid "Reload galleries"
+#~ msgstr "Znovu nahrát galerie"
+
+#~ msgid "Horizontal offset"
+#~ msgstr "Horizontální ofset"
+
+#~ msgid "Vertical offset"
+#~ msgstr "Vertikální ofset"
+
+#~ msgid "Blur"
+#~ msgstr "Rozmazat"
+
+#~ msgid "Color"
+#~ msgstr "Barva"
+
+#~ msgid "Border width"
+#~ msgstr "Šířka okraje"
+
+#~ msgid "Media library"
+#~ msgstr "Knihovna médií"
+
+#~ msgid "Recent posts"
+#~ msgstr "Nejnovější články"
+
+#~ msgid "Select images source"
+#~ msgstr "Vyberte zdroj obrázků"
+
+#~ msgid "Select taxonomy"
+#~ msgstr "Vyberte taxonomii"
+
+#~ msgid "Add images"
+#~ msgstr "přidat obrázky"
+
+#~ msgid ""
+#~ "Click the button above and select images.<br>You can select multimple "
+#~ "images with Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Klikněte na tlačítko nahoře a vyberte obrázky.<br>S použitím klávesy Ctrl "
+#~ "(Cmd) můžete vybrat více obrázků najednou"
+
+#~ msgid ""
+#~ "Select categories to retrieve posts from.<br>You can select multiple "
+#~ "categories with Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Vyberte kategorie, z nichž budou generovány články.<br>S použitím klávesy "
+#~ "Ctrl (Cmd) můžete vybrat více kategorií najednou"
+
+#~ msgid ""
+#~ "Select taxonomy and it's terms.<br>You can select multiple terms with "
+#~ "Ctrl (Cmd) key"
+#~ msgstr ""
+#~ "Vyberte taxonomii a její činitele.<br>S použitím klávesy Ctrl (Cmd) "
+#~ "můžete vybrat více činitelů najednou"
+
+#~ msgid "Insert shortcode"
+#~ msgstr "Vložit shortkód"
+
+#~ msgid "Search for shortcodes"
+#~ msgstr "Hledat v shortkódech"
+
+#~ msgid "Filter by type"
+#~ msgstr "Filtrovat podle typu"
+
+#~ msgid "Shortcode not specified"
+#~ msgstr "Nespecifikovaný shortcode"
+
+#~ msgid "Live preview"
+#~ msgstr "Náhled"
+
+#~ msgid "Click to return to the shortcodes list"
+#~ msgstr "Klikněte pro návrat na seznam shortkódů"
+
+#~ msgid "All shortcodes"
+#~ msgstr "Všechny shortkódy"
+
+#~ msgid "Examples of use"
+#~ msgstr "Příklady použití"
+
+#~ msgid "Click to set this value"
+#~ msgstr "Klikněte pro nastavení této hodnoty"
+
+#~ msgid "Access denied"
+#~ msgstr "Přístup odepřen"
+
+#~ msgid "Presets"
+#~ msgstr "Vzory"
+
+#~ msgid "Save current settings as preset"
+#~ msgstr "Uložit současné nastavení jako vzor"
+
+#~ msgid "Presets not found"
+#~ msgstr "Vzory nenalezeny"
+
+#~ msgid "Tab title"
+#~ msgstr "Název záložky"
+
+#~ msgid "Plugin Settings"
+#~ msgstr "Nastavení pluginu"
+
+#~ msgid "Use selected file"
+#~ msgstr "Použít vybraný soubor"
+
+#~ msgid "Save changes"
+#~ msgstr "Uložit změny"
+
+#~ msgid ""
+#~ "This action will delete all your settings. Are you sure? This action "
+#~ "cannot be undone!"
+#~ msgstr ""
+#~ "Tato akce smaže všechna vaše nastavení. Jste si jistý/á. Tato akce je "
+#~ "nevratná! "
+
+#~ msgid "Restore default settings"
+#~ msgstr "Obnovit základní nastavení pluginu."
+
+#~ msgid "Text field"
+#~ msgstr "Textový řádek"
+
+#~ msgid "Textarea field"
+#~ msgstr "Textové pole"
+
+#~ msgid "Color picker"
+#~ msgstr "Výběr barev"
+
+#~ msgid "Pick a color"
+#~ msgstr "Vybrat barvu"
+
+#~ msgid ""
+#~ "For full functionality of this page it is reccomended to enable "
+#~ "javascript."
+#~ msgstr ""
+#~ "Pro plnou funkčnost této stránky je doporučeno aktivovat javaskript."
+
+#~ msgid "Settings saved successfully"
+#~ msgstr "Nastavení úspěšně uloženo."
+
+#~ msgid "Settings reseted successfully"
+#~ msgstr "Nastavení úspěšně resetováno."
+
+#~ msgid "option type %s is not callable"
+#~ msgstr "možnost typu %s není dosažitelná"
+
+#~ msgid "Title:"
+#~ msgstr "Nadpis:"
+
+#~ msgid "Square"
+#~ msgstr "Hranatý"
+
+#~ msgid "Rounded corners"
+#~ msgstr "Zaoblené rohy"
+
+#~ msgid ""
+#~ "IN - posts that have any of selected categories terms<br/>NOT IN - posts "
+#~ "that is does not have any of selected terms<br/>AND - posts that have all "
+#~ "selected terms"
+#~ msgstr ""
+#~ "IN - články, které mají některý z vybraných činitelů<br/>NOT IN - články, "
+#~ "které nemají žádný z vybraných činitelů<br/>AND - články, které mají "
+#~ "všechny vybrané činitele"
+
+#~ msgid "Show childrens of entered post (enter post ID)"
+#~ msgstr "Ukázat podřazené stránky vloženého článku (vložte ID článku)"
+
+#~ msgid "Select Yes to ignore posts that is sticked"
+#~ msgstr "Vybrerte Ano a zvýrazněné články budou ignorovány "
+
+#~ msgid "Choose style for this tabs"
+#~ msgstr "Vybrat styl pro tyto záložky"
+
+#~ msgid ""
+#~ "You can use unique anchor for this spoiler to access it with hash in page "
+#~ "url. For example: type here <b%value>Hello</b> and then use url like "
+#~ "http://example.com/page-url#Hello. This spoiler will be open and scrolled "
+#~ "in"
+#~ msgstr ""
+#~ "V tomto spoileru můžete použít unikátní kotvu, k níž bude odkázáno kódem "
+#~ "v URL. Např. sem napište <b%value>Ahoj</b> a potom použijte URL ve tvaru "
+#~ "http://example.com/page-url#Ahoj. Tento spoiler bude aktivován a "
+#~ "skrolován na kotvu."
+
+#~ msgid ""
+#~ "Hello, my name is Vladimir Anokhin, and I am developer of plugin "
+#~ "<b>Shortcodes Ultimate</b>.<br>If you like this plugin, please write a "
+#~ "few words about it at the wordpress.org or twitter. It will help other "
+#~ "people find this useful plugin more quickly.<br><b>Thank you!</b>"
+#~ msgstr ""
+#~ "Ahoj, jmenuji se Vladimir Anokhin a jsem autorem pluginu <b>Shortcodes "
+#~ "Ultimate</b>.<br>Pokud se vám plugin líbí, prosím napište o něm pár slov "
+#~ "na wordpress.org nebo twitter. Pomůže to najít tento užitečný plugin "
+#~ "dalším lidem.<br><b>Děkuji!</b>"
+
+#~ msgid "Rate plugin"
+#~ msgstr "Ohodnotit plugin"
+
+#~ msgid "Shortcodes Ultimate - must have WordPress plugin #shortcodesultimate"
+#~ msgstr ""
+#~ "Shortcodes Ultimate - WordPress plugin, který musíte mít "
+#~ "#shortcodesultimate"
+
+#~ msgid "No, thanks"
+#~ msgstr "Ne, děkuji"
+
+#~ msgid "Remind me later"
+#~ msgstr "Připomenout později"
+
+#~ msgid "Gallery"
+#~ msgstr "Galerie"
+
+#~ msgid "Basic examples"
+#~ msgstr "Základní příklady"
+
+#~ msgid "Accordions, spoilers, different styles, anchors"
+#~ msgstr "Harmoniky, spoilery, různé styly, kotvy "
+
+#~ msgid "Tabs, vertical tabs, tab anchors"
+#~ msgstr "Záložky, vertiklní záložky, kotvy záložek"
+
+#~ msgid "Column layouts"
+#~ msgstr "Sloupcové layouty"
+
+#~ msgid ""
+#~ "Media elements, YouTube, Vimeo, Screenr and self-hosted videos, audio "
+#~ "player"
+#~ msgstr ""
+#~ "Různé mediální prvky, YouTube, Vimeo, Screenr, videa na vlastním serveru "
+#~ "i audiopřehrávač"
+
+#~ msgid "Unlimited buttons"
+#~ msgstr "Nekonečně mnoho tlačítek"
+
+#~ msgid "Animations"
+#~ msgstr "Animace"
+
+#~ msgid "Advanced examples"
+#~ msgstr "Pokročilé příklady"
+
+#~ msgid "Interacting with posts shortcode"
+#~ msgstr "Interakce s shortkódy pro články"
+
+#~ msgid "Nested shortcodes, shortcodes inside of attributes"
+#~ msgstr "Shortkódy uvnitř jiných shortkódů či atributů"
+
+#~ msgid "Heading"
+#~ msgstr "Nadpis"
+
+#~ msgid "Choose style for this heading"
+#~ msgstr "Vybrat styl pro nadpis"
+
+#~ msgid "Install additional styles"
+#~ msgstr "Instalovat doplňkové styly"
+
+#~ msgid "Select heading size (pixels)"
+#~ msgstr "Vybrat velikost nadpisu (v pixelech)"
+
+#~ msgid "Heading text alignment"
+#~ msgstr "zarovnání textu nadpisu"
+
+#~ msgid "Margin"
+#~ msgstr "Okraj"
+
+#~ msgid "Bottom margin (pixels)"
+#~ msgstr "Spodní okraj (v pixelech)"
+
+#~ msgid "Heading text"
+#~ msgstr "Text nadpisu"
+
+#~ msgid "Styled heading"
+#~ msgstr "Stylovaný nadpis"
+
+#~ msgid "Fancy"
+#~ msgstr "Elegantní"
+
+#~ msgid "Plus"
+#~ msgstr "Plus"
+
+#~ msgid "Plus circle"
+#~ msgstr "Plus oblé"
+
+#~ msgid "Plus square 1"
+#~ msgstr "Plus hranaté 1"
+
+#~ msgid "Plus square 2"
+#~ msgstr "Plus hranaté 2"
+
+#~ msgid "Arrow"
+#~ msgstr "Šipka"
+
+#~ msgid "Arrow circle 1"
+#~ msgstr "Šipka oblá 1"
+
+#~ msgid "Arrow circle 2"
+#~ msgstr "Šipka oblá 2"
+
+#~ msgid "Chevron"
+#~ msgstr "Šipka dolů"
+
+#~ msgid "Chevron circle"
+#~ msgstr "Šipka dolů oblá"
+
+#~ msgid "Caret"
+#~ msgstr "Trojúhelník"
+
+#~ msgid "Caret square"
+#~ msgstr "Trojúhelník hranatý"
+
+#~ msgid "Folder 1"
+#~ msgstr "Složka 1"
+
+#~ msgid "Folder 2"
+#~ msgstr "Složka 2"
+
+#~ msgid "Icons for spoiler"
+#~ msgstr "ikony pro spoiler"
+
+#~ msgid ""
+#~ "Did you know that you can wrap multiple spoilers with [accordion] "
+#~ "shortcode to create accordion effect?"
+#~ msgstr ""
+#~ "Věděli jste, že můžete uzavřít několik spoilerů do shortkódu [accordion], "
+#~ "abyste dosáhli efektu harmoniky?"
+
+#~ msgid ""
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]"
+#~ msgstr ""
+#~ "[%prefix_spoiler]Obsah[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Obsah[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Obsah[/%prefix_spoiler]"
+
+#~ msgid "Divider"
+#~ msgstr "Oddělovač"
+
+#~ msgid "Show TOP link"
+#~ msgstr "Ukázat odkaz \"JÍT NAHORU\""
+
+#~ msgid "Show link to top of the page or not"
+#~ msgstr "Ukázat odkaz na vršek stránek nebo ne"
+
+#~ msgid "Go to top"
+#~ msgstr "Jít nahoru"
+
+#~ msgid "Link text"
+#~ msgstr "Text odkazu"
+
+#~ msgid "Text for the GO TOP link"
+#~ msgstr "Text pro odkaz \"JÍT NAHORU\""
+
+#~ msgid "Content divider with optional TOP link"
+#~ msgstr "Oddělovač obsahu s potenciálním odkazem \"JÍT NAHORU\""
+
+#~ msgid "Height of the spacer in pixels"
+#~ msgstr "Výška v pixelech"
+
+#~ msgid "Empty space with adjustable height"
+#~ msgstr "prázdné místo s nastavitelnou výškou"
+
+#~ msgid "Highlight"
+#~ msgstr "Zvýraznění"
+
+#~ msgid "Highlighted text background color"
+#~ msgstr "Barva pozadí zvýrazněného textu"
+
+#~ msgid "Highlighted text color"
+#~ msgstr "Barva zvýraznéného textu"
+
+#~ msgid "Highlighted text"
+#~ msgstr "Zvýrazněný text"
+
+#~ msgid "Important"
+#~ msgstr "Důležité"
+
+#~ msgid "Black"
+#~ msgstr "Černý"
+
+#~ msgid "Style of the label"
+#~ msgstr "Styl nálepky"
+
+#~ msgid "Styled label"
+#~ msgstr "Stylovaná nálepka"
+
+#~ msgid "Quote"
+#~ msgstr "Citát"
+
+#~ msgid "Choose style for this quote"
+#~ msgstr "vybete styl pro tento citát"
+
+#~ msgid "Cite"
+#~ msgstr "Citovat"
+
+#~ msgid "Quote author name"
+#~ msgstr "Jméno autora citace"
+
+#~ msgid "Cite url"
+#~ msgstr "URL citace"
+
+#~ msgid "Url of the quote author. Leave empty to disable link"
+#~ msgstr "URL autora citace. Nechcete-li uvádět, nechte prázdné"
+
+#~ msgid "Blockquote alternative"
+#~ msgstr "Citační alternativy"
+
+#~ msgid "Pullquote"
+#~ msgstr "Zvýrazněná citace"
+
+#~ msgid "Pullquote alignment (float)"
+#~ msgstr "Zarovnání zvýrazněné citace (float)"
+
+#~ msgid "Flat"
+#~ msgstr "Plochý"
+
+#~ msgid "Light"
+#~ msgstr "Světlý"
+
+#~ msgid "Dropcap style preset"
+#~ msgstr "Styl iniciály"
+
+#~ msgid "Choose dropcap size"
+#~ msgstr "Vybrat velikost iniciály."
+
+#~ msgid "Frame"
+#~ msgstr "Obrázek"
+
+#~ msgid "Frame alignment"
+#~ msgstr "Zarovnání obrázku"
+
+#~ msgid "Styled image frame"
+#~ msgstr "Stylovaný obrázek"
+
+#~ msgid ""
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]"
+#~ msgstr ""
+#~ "[%prefix_column size=\"1/3\"]Obsah[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Obsah[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Obsah[/%prefix_column]"
+
+#~ msgid "Full width"
+#~ msgstr "Plná šířka"
+
+#~ msgid "One half"
+#~ msgstr "Jedna polovina"
+
+#~ msgid "One third"
+#~ msgstr "Jedna třetina"
+
+#~ msgid "Two third"
+#~ msgstr "Dvě třetiny"
+
+#~ msgid "One fourth"
+#~ msgstr "Jedna čtvrtina"
+
+#~ msgid "Three fourth"
+#~ msgstr "Tři čtvrtiny"
+
+#~ msgid "One fifth"
+#~ msgstr "Jedna pětina"
+
+#~ msgid "Two fifth"
+#~ msgstr "Dvě pětiny"
+
+#~ msgid "Three fifth"
+#~ msgstr "Tři pětiny"
+
+#~ msgid "Four fifth"
+#~ msgstr "Čtyři pětiny"
+
+#~ msgid "One sixth"
+#~ msgstr "jedna šestina"
+
+#~ msgid "Five sixth"
+#~ msgstr "Pět šestin"
+
+#~ msgid "Select column width. This width will be calculated depend page width"
+#~ msgstr ""
+#~ "Vyberte šířku sloupce. tato šířka bude počítána v závislosti na šířce "
+#~ "stránky"
+
+#~ msgid "Is this column centered on the page"
+#~ msgstr "Je tento sloupec centrovaný na stránce"
+
+#~ msgid "Did you know that you need to wrap columns with [row] shortcode?"
+#~ msgstr "Věděli jste, že musíte zabalit sloupce do [row] shortkódu?"
+
+#~ msgid "You can upload custom icon for this list or pick a built-in icon"
+#~ msgstr ""
+#~ "Můete nahrát vlastní ikonu pro tento seznam nebo vybrat některou z "
+#~ "nabízených ikon"
+
+#~ msgid "Icon color"
+#~ msgstr "Barva ikony"
+
+#~ msgid ""
+#~ "This color will be applied to the selected icon. Does not works with "
+#~ "uploaded icons"
+#~ msgstr ""
+#~ "tato barva bude aplikována na vybranou ikonu. nebude fungovat na vámi "
+#~ "uploadované ikony"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li>Položka seznamu</li>\n"
+#~ "<li>Položka seznamu</li>\n"
+#~ "<li>Položka seznamu</li>\n"
+#~ "</ul>"
+
+#~ msgid "Styled unordered list"
+#~ msgstr "Stylovaný nečíslovaný seznm"
+
+#~ msgid "Ghost"
+#~ msgstr "Duch"
+
+#~ msgid "Soft"
+#~ msgstr "Měkké"
+
+#~ msgid "Glass"
+#~ msgstr "Sklo"
+
+#~ msgid "Bubbles"
+#~ msgstr "Bubliny"
+
+#~ msgid "Noise"
+#~ msgstr "Hluk"
+
+#~ msgid "Stroked"
+#~ msgstr "Údery štětcem"
+
+#~ msgid "Button background style preset"
+#~ msgstr "Vzor stylu pozadí tlačítka"
+
+#~ msgid "Button size"
+#~ msgstr "Velikost tlačítka"
+
+#~ msgid "Fluid buttons has 100% width"
+#~ msgstr "Proměnlivá tlačítka ma jí 100% šířku"
+
+#~ msgid "Round"
+#~ msgstr "Zaoblený"
+
+#~ msgid "Radius"
+#~ msgstr "Úhel"
+
+#~ msgid ""
+#~ "Radius of button corners. Auto-radius calculation based on button size"
+#~ msgstr ""
+#~ "Úhel zaoblení rohů tlačítka. Automatické zaoblení odvisí od velikosti "
+#~ "tlačítka "
+
+#~ msgid "Text shadow"
+#~ msgstr "Stín textu"
+
+#~ msgid "Button text shadow"
+#~ msgstr "Stín textu tlačítka"
+
+#~ msgid ""
+#~ "Small description under button text. This option is incompatible with "
+#~ "icon."
+#~ msgstr ""
+#~ "Drobný popis pod textem tlačítka. Tato možnost není kompatibilní s ikonou."
+
+#~ msgid "Advanced JavaScript code for onClick action"
+#~ msgstr "Pokročilý javaskriptový kód pro onClick"
+
+#~ msgid "Service"
+#~ msgstr "Služba"
+
+#~ msgid "Service title"
+#~ msgstr "Název služby"
+
+#~ msgid "Service name"
+#~ msgstr "Název služby"
+
+#~ msgid "You can upload custom icon for this box"
+#~ msgstr "Můžete uploadovat vlastní ikonu pro tento box"
+
+#~ msgid "Size of the uploaded icon in pixels"
+#~ msgstr "Velikost uploadované ikony v pixelech"
+
+#~ msgid "Service description"
+#~ msgstr "Popis služby"
+
+#~ msgid "Service box with title"
+#~ msgstr "Box služeb s nadpisem"
+
+#~ msgid "Box title"
+#~ msgstr "Název boxu"
+
+#~ msgid "Text for the box title"
+#~ msgstr "Text pro název boxu"
+
+#~ msgid "Box style preset"
+#~ msgstr "Vzor stylu boxu"
+
+#~ msgid "Color for the box title and borders"
+#~ msgstr "Barva pro název boxu a okraje"
+
+#~ msgid "Color for the box title text"
+#~ msgstr "Barva textu názvu boxu"
+
+#~ msgid "Box corners radius"
+#~ msgstr "Zaoblení rohů boxu"
+
+#~ msgid "Box content"
+#~ msgstr "Obsah boxu"
+
+#~ msgid "Colored box with caption"
+#~ msgstr "Barevný box s nadpisem"
+
+#~ msgid "Note"
+#~ msgstr "Poznámka"
+
+#~ msgid "Note background color"
+#~ msgstr "Barva pozadí poznámky"
+
+#~ msgid "Note text color"
+#~ msgstr "Barva textu poznámky"
+
+#~ msgid "Note corners radius"
+#~ msgstr "Úhel zaoblení poznámky"
+
+#~ msgid "Note text"
+#~ msgstr "Text poznámky"
+
+#~ msgid "Colored box"
+#~ msgstr "Barevný box"
+
+#~ msgid "Inline (html content)"
+#~ msgstr "Inline (html obsah)"
+
+#~ msgid "Content type"
+#~ msgstr "Typ obsahu"
+
+#~ msgid "Select type of the lightbox window content"
+#~ msgstr "Vybrat typ obsahu lightboxového okna"
+
+#~ msgid "Content source"
+#~ msgstr "Zdroj obsahu"
+
+#~ msgid ""
+#~ "Insert here URL or CSS selector. Use URL for Iframe and Image content "
+#~ "types. Use CSS selector for Inline content type.<br />Example values:<br /"
+#~ "><b%value>http://www.youtube.com/watch?v=XXXXXXXXX</b> - YouTube video "
+#~ "(iframe)<br /><b%value>http://example.com/wp-content/uploads/image.jpg</"
+#~ "b> - uploaded image (image)<br /><b%value>http://example.com/</b> - any "
+#~ "web page (iframe)<br /><b%value>#contact-form</b> - any HTML content "
+#~ "(inline)"
+#~ msgstr ""
+#~ "Vložte sem URLnebo CSS selektor. použijte URL pro takové typy obsahu jako "
+#~ "Iframe nebo obrázek. Použijte CSS selektor pro Inline typy obsahu.<br /"
+#~ ">Příklady hodnot:<br /><b%value>http://www.youtube.com/watch?v=XXXXXXXXX</"
+#~ "b> - YouTube video (iframe)<br /><b%value>http://example.com/wp-content/"
+#~ "uploads/image.jpg</b> - Nahraný obrázek (obrázek)<br /><b%value>http://"
+#~ "example.com/</b> - any web page (iframe)<br /><b%value>#contact-form</b> "
+#~ "- jakýkoliv HTML obsah (inline)"
+
+#~ msgid "[%prefix_button] Click Here to Watch the Video [/%prefix_button]"
+#~ msgstr ""
+#~ "[%prefix_button] Pro prohlížení videa klikněte zde [/%prefix_button]"
+
+#~ msgid "Lightbox window with custom content"
+#~ msgstr "Okno lightboxu s vlastním obsahem"
+
+#~ msgid "Tooltip"
+#~ msgstr "Vyskakovací tip"
+
+#~ msgid "Basic: Light"
+#~ msgstr "Základní: světlý"
+
+#~ msgid "Basic: Dark"
+#~ msgstr "Základní: tmavý"
+
+#~ msgid "Basic: Yellow"
+#~ msgstr "Základní: žlutý"
+
+#~ msgid "Basic: Green"
+#~ msgstr "Základní: zelený"
+
+#~ msgid "Basic: Red"
+#~ msgstr "Základní: červený"
+
+#~ msgid "Basic: Blue"
+#~ msgstr "Základní: modrý"
+
+#~ msgid "Tooltip window style"
+#~ msgstr "Styl vyskakovacího okna"
+
+#~ msgid "Position"
+#~ msgstr "Umístění"
+
+#~ msgid "Tooltip position"
+#~ msgstr "Umístění tipu"
+
+#~ msgid "Shadow"
+#~ msgstr "Stín"
+
+#~ msgid ""
+#~ "Add shadow to tooltip. This option is only works with basic styes, e.g. "
+#~ "blue, green etc."
+#~ msgstr ""
+#~ "Přidat stín k vyskakovacímu tipu. tato možnost je dotupná pouze pro "
+#~ "základní styly, např. modrý, zelený apod."
+
+#~ msgid ""
+#~ "Use rounded for tooltip. This option is only works with basic styes, e.g. "
+#~ "blue, green etc."
+#~ msgstr ""
+#~ "Použít zaoblené vyskakovací okno. Tato možnost je funkční pouze pro "
+#~ "základní styly, např. modrý, zelený apod."
+
+#~ msgid "Font size"
+#~ msgstr "Velikost písma"
+
+#~ msgid "Tooltip font size"
+#~ msgstr "velikost písma vyskakovacího tipu"
+
+#~ msgid "Tooltip title"
+#~ msgstr "Název vyskakovacího tipu"
+
+#~ msgid ""
+#~ "Enter title for tooltip window. Leave this field empty to hide the title"
+#~ msgstr ""
+#~ "Vloži název pro vyskakovací okno s tipem. Nechte prázdné, pokud nechcete "
+#~ "zobrazit název"
+
+#~ msgid "Tooltip text"
+#~ msgstr "Text tipu"
+
+#~ msgid "Tooltip content"
+#~ msgstr "Obsah tipu"
+
+#~ msgid "Enter tooltip content here"
+#~ msgstr "Vložte obsah tipu zde"
+
+#~ msgid "Show and hide on mouse hover"
+#~ msgstr "Ukázat a schovat při přejetí myši"
+
+#~ msgid "Show and hide by mouse click"
+#~ msgstr "Ukázat a schovat při kliknutí myši"
+
+#~ msgid "Always visible"
+#~ msgstr "Vždy viditelné"
+
+#~ msgid "Behavior"
+#~ msgstr "Chování"
+
+#~ msgid "Select tooltip behavior"
+#~ msgstr "Vyber chování vyskakovacího tipu"
+
+#~ msgid "Close button"
+#~ msgstr "Zavřít tlačítko"
+
+#~ msgid "Show close button"
+#~ msgstr "Ukázat tlačítko \"Zavřít\""
+
+#~ msgid "[%prefix_button] Hover me to open tooltip [/%prefix_button]"
+#~ msgstr ""
+#~ "[%prefix_button] Přejeď mě myší, aby se ukázal tip [/%prefix_button]"
+
+#~ msgid "Tooltip window with custom content"
+#~ msgstr "Okno tipu s vlastním obsahem"
+
+#~ msgid "Private"
+#~ msgstr "Soukromý"
+
+#~ msgid "Private note text"
+#~ msgstr "Text soukromé poznámky"
+
+#~ msgid "Private note for post authors"
+#~ msgstr "Soukromá poznámka pro autory článku"
+
+#~ msgid ""
+#~ "Url of YouTube page with video. Ex: http://youtube.com/watch?v=XXXXXX"
+#~ msgstr ""
+#~ "URL YouTube stránky, z níž je video. Např: http://youtube.com/watch?"
+#~ "v=XXXXXX"
+
+#~ msgid "Player width"
+#~ msgstr "Šířka přehrávače"
+
+#~ msgid "Player height"
+#~ msgstr "Výška přehrávače"
+
+#~ msgid "Responsive"
+#~ msgstr "Responzivní"
+
+#~ msgid "Ignore width and height parameters and make player responsive"
+#~ msgstr "Nezadávat pevnou výšku a šířku - přehrávač bude responzivní "
+
+#~ msgid "Autoplay"
+#~ msgstr "Automaticky začít hrát"
+
+#~ msgid "Play video automatically when page is loaded"
+#~ msgstr "Video se přehraje automaticky po načtení stránky "
+
+#~ msgid "YouTube Advanced"
+#~ msgstr "YouTube pokročilé"
+
+#~ msgid ""
+#~ "Value is a comma-separated list of video IDs to play. If you specify a "
+#~ "value, the first video that plays will be the VIDEO_ID specified in the "
+#~ "URL path, and the videos specified in the playlist parameter will play "
+#~ "thereafter"
+#~ msgstr ""
+#~ "Hodnota je seznam ID videí oddělených čárkou. Pokud specifikujete "
+#~ "hodnotu, první video, které se přehraje, bude VIDEO_ID specifikováno URL "
+#~ "adresou, ostatní videa specifikovaná v playlistu budou přehrána potom"
+
+#~ msgid "0 - Hide controls"
+#~ msgstr "0 - Schovat ovládací tlačítka"
+
+#~ msgid "1 - Show controls"
+#~ msgstr "1 - Ukázat ovládací tlačítka"
+
+#~ msgid "2 - Show controls when playback is started"
+#~ msgstr "2 - Ukázat ovládací tlačítka na začátku přehrávání"
+
+#~ msgid ""
+#~ "This parameter indicates whether the video player controls will display"
+#~ msgstr ""
+#~ "Tento parametr určuje, zda se budou zobrazovat ovládací tlačítka "
+#~ "videopřehrávače"
+
+#~ msgid "0 - Do not hide controls"
+#~ msgstr "0 - neschovávat ovládací tlačítka"
+
+#~ msgid "1 - Hide all controls on mouse out"
+#~ msgstr "1 - Skrýt všechna tlačítka po přejetí myší"
+
+#~ msgid "2 - Hide progress bar on mouse out"
+#~ msgstr "2 - Skrýt ukazatel průběhu videa po přejetí myší"
+
+#~ msgid "Autohide"
+#~ msgstr "Automatické skrytí"
+
+#~ msgid ""
+#~ "This parameter indicates whether the video controls will automatically "
+#~ "hide after a video begins playing"
+#~ msgstr ""
+#~ "Tento parametr ukazuje, zda se budou ovládací tlačítka videopřehrávače "
+#~ "automaticky skrývat po startu videa"
+
+#~ msgid "Show title bar"
+#~ msgstr "Ukázat lištu s názvem"
+
+#~ msgid ""
+#~ "If you set the parameter value to NO, then the player will not display "
+#~ "information like the video title and uploader before the video starts "
+#~ "playing."
+#~ msgstr ""
+#~ "Pokud nastavíte hodnotu parametru na NE, potom videopřehrávač nebude "
+#~ "ukazovat informace jako název videa předtím, než se video spustí"
+
+#~ msgid "Loop"
+#~ msgstr "Smyčka"
+
+#~ msgid ""
+#~ "Setting of YES will cause the player to play the initial video again and "
+#~ "again"
+#~ msgstr ""
+#~ "Nastavení hodnoty ANO způsobí, že přehrávač bude bude hrát počáteční "
+#~ "video znovu a znovu"
+
+#~ msgid "Related videos"
+#~ msgstr "Související videa"
+
+#~ msgid ""
+#~ "This parameter indicates whether the player should show related videos "
+#~ "when playback of the initial video ends"
+#~ msgstr ""
+#~ "Tento parametr ukazuje, zda bude přehrávač ukazovat související videa po "
+#~ "skončení počátečního videa"
+
+#~ msgid "Show full-screen button"
+#~ msgstr "Ukázat tlačítko pro přehrávání videa na celou obrazovku"
+
+#~ msgid ""
+#~ "Setting this parameter to NO prevents the fullscreen button from "
+#~ "displaying"
+#~ msgstr ""
+#~ "Nastavení hodnoty NE způsobí, že se nebude zobrazovat tlačítko "
+#~ "\"Přehrávat na celou obrazovku\""
+
+#~ msgid ""
+#~ "This parameter lets you use a YouTube player that does not show a YouTube "
+#~ "logo. Set the parameter value to YES to prevent the YouTube logo from "
+#~ "displaying in the control bar. Note that a small YouTube text label will "
+#~ "still display in the upper-right corner of a paused video when the user's "
+#~ "mouse pointer hovers over the player"
+#~ msgstr ""
+#~ "Tento parametr dokáže přehrávat YouTube video bez YouTube loga. Nastavte "
+#~ "hodnotu ANO a zabráníte tak zobrazování loga YouTube na ovládací liště. "
+#~ "Malé YouTube textové logo se bude i přes to zobrazovat v pravém horním "
+#~ "rohu při pauze, když uživatel přejede myší přes přehrávač"
+
+#~ msgid "Dark theme"
+#~ msgstr "Tmavý vzhled"
+
+#~ msgid "Light theme"
+#~ msgstr "Světlý vzhled"
+
+#~ msgid "Theme"
+#~ msgstr "Vzhled"
+
+#~ msgid ""
+#~ "This parameter indicates whether the embedded player will display player "
+#~ "controls (like a play button or volume control) within a dark or light "
+#~ "control bar"
+#~ msgstr ""
+#~ "Tento parametr označuje, zda bude přehrávač zobrazovat ovládací tlačítka "
+#~ "(jako \"přehrát\" nebo ovládání hlasitosti) v tmavé nebo světlé ovládací "
+#~ "liště"
+
+#~ msgid "Force HTTPS"
+#~ msgstr "Vnutit HTTPS"
+
+#~ msgid "Use HTTPS in player iframe"
+#~ msgstr "Použít HTTPS v iframe přehrávače"
+
+#~ msgid "YouTube video player with advanced settings"
+#~ msgstr "YouTube přehrávač s pokročilým nastavením"
+
+#~ msgid "Url of Vimeo page with video"
+#~ msgstr "URL Vimeo stránky s videem"
+
+#~ msgid "Vimeo video"
+#~ msgstr "Video Vimeo"
+
+#~ msgid "Url of Screenr page with video"
+#~ msgstr "URL Screenr stránky s videem"
+
+#~ msgid "Screenr video"
+#~ msgstr "Video Screenr"
+
+#~ msgid "Url of Dailymotion page with video"
+#~ msgstr "URL Dailymotion stránky s videem"
+
+#~ msgid ""
+#~ "Start the playback of the video automatically after the player load. May "
+#~ "not work on some mobile OS versions"
+#~ msgstr ""
+#~ "Začít přehrávat video automaticky. Nemusí fungovat ve všech mobilních OS. "
+
+#~ msgid "HTML color of the background of controls elements"
+#~ msgstr "HTML barva pozadí ovládacích prvků"
+
+#~ msgid "Foreground color"
+#~ msgstr "Barva popředí"
+
+#~ msgid "HTML color of the foreground of controls elements"
+#~ msgstr "HTML barva popředí ovládacích prvků"
+
+#~ msgid "Highlight color"
+#~ msgstr "Barva zvýraznění"
+
+#~ msgid "HTML color of the controls elements' highlights"
+#~ msgstr "HTML barva zvýrazněných ovládacích prvků"
+
+#~ msgid "Show logo"
+#~ msgstr "Ukázat logo"
+
+#~ msgid "Allows to hide or show the Dailymotion logo"
+#~ msgstr "Umožňuje skrýt či ukázat logo Dailymotion"
+
+#~ msgid "Quality"
+#~ msgstr "Kvalita"
+
+#~ msgid "Determines the quality that must be played by default if available"
+#~ msgstr "Určuje kvalitu, která bude automaticky zvolena, pokud je dostupná."
+
+#~ msgid "Show related videos"
+#~ msgstr "Ukázat související videa"
+
+#~ msgid "Show related videos at the end of the video"
+#~ msgstr "ukázat související videa na konci videa"
+
+#~ msgid "Show video info"
+#~ msgstr "Ukázat info k videu"
+
+#~ msgid "Show videos info (title/author) on the start screen"
+#~ msgstr "Ukázat info k videu (název/autor) hned na počáteční obrazovce"
+
+#~ msgid "Dailymotion video"
+#~ msgstr "Video Dailymotion"
+
+#~ msgid "File"
+#~ msgstr "Soubor"
+
+#~ msgid "Audio file url. Supported formats: mp3, ogg"
+#~ msgstr "URL audio-souboru. Podporované formáty: mp3, ogg"
+
+#~ msgid ""
+#~ "Player width. You can specify width in percents and player will be "
+#~ "responsive. Example values: <b%value>200px</b>, <b%value>100&#37;</b>"
+#~ msgstr ""
+#~ "Šířka přehrávače. Můžete specifikovat v procentech a přehrávač bude "
+#~ "responzivní. Např.: <b%value>200px</b>, <b%value>100&#37;</b>"
+
+#~ msgid "Play file automatically when page is loaded"
+#~ msgstr "Hrát soubor automaticky poté, co je stránka načtena"
+
+#~ msgid "Repeat when playback is ended"
+#~ msgstr "Opakovat automaticky znovu"
+
+#~ msgid "Custom audio player"
+#~ msgstr "Vlastní audiopřehrávač"
+
+#~ msgid "Url to mp4/flv video-file"
+#~ msgstr "URL mp4/flv video-souboru"
+
+#~ msgid "Url to poster image, that will be shown before playback"
+#~ msgstr "URL obrázku posteru, který se zobrazí před přehráním videa"
+
+#~ msgid "Player title"
+#~ msgstr "Název přehrávače"
+
+#~ msgid "Show player controls (play/pause etc.) or not"
+#~ msgstr "Ukázat ovládací tlačítka přehrávače (hrát/pauza apod.) nebo ne"
+
+#~ msgid "Custom video player"
+#~ msgstr "Vlastní videopřehrávač"
+
+#~ msgid "Table"
+#~ msgstr "Tabulka"
+
+#~ msgid "CSV file"
+#~ msgstr "CSV soubor"
+
+#~ msgid "Upload CSV file if you want to create HTML-table from file"
+#~ msgstr "Nahrajte CSV soubor, abyste vytvořili HTML tabulku ze souboru"
+
+#~ msgid ""
+#~ "<table>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "</table>"
+#~ msgstr ""
+#~ "<table>\n"
+#~ "<tr>\n"
+#~ "\t<td>Tabulka</td>\n"
+#~ "\t<td>Tabulka</td>\n"
+#~ "</tr>\n"
+#~ "<tr>\n"
+#~ "\t<td>Tabulka</td>\n"
+#~ "\t<td>Tabulka</td>\n"
+#~ "</tr>\n"
+#~ "</table>"
+
+#~ msgid "Styled table from HTML or CSV file"
+#~ msgstr "Stylovaná tabulka z HTML nebo CSV souboru"
+
+#~ msgid "Post or page ID"
+#~ msgstr "ID článku či stránky"
+
+#~ msgid "Link target. blank - link will be opened in new window/tab"
+#~ msgstr "Cíl odkazu .blank - odkaz bude otevřen v novém okně"
+
+#~ msgid "Permalink to specified post/page"
+#~ msgstr "Odkaz na specifickou stránku/článek"
+
+#~ msgid "Members"
+#~ msgstr "Členové"
+
+#~ msgid "This content is for registered users only. Please %login%."
+#~ msgstr ""
+#~ "Tento obsah je určen pouze registrovaným uživatelům. Prosíme přihlašte "
+#~ "se: %login%."
+
+#~ msgid "Message for not logged users"
+#~ msgstr "Zpráva pro nepřihlášené návštěvníky"
+
+#~ msgid "Box color"
+#~ msgstr "Barva boxu"
+
+#~ msgid "This color will applied only to box for not logged users"
+#~ msgstr "Tato barva boxu se zobrazí pouze nepřihlášeným uživatelům"
+
+#~ msgid "login"
+#~ msgstr "přihlášení"
+
+#~ msgid "Login link text"
+#~ msgstr "Text odkazu přihlášení"
+
+#~ msgid "Text for the login link"
+#~ msgstr "Text odkazu pro přihlášení "
+
+#~ msgid "Login link url"
+#~ msgstr "URL přihlášení"
+
+#~ msgid "Content for logged members"
+#~ msgstr "Obsah pro přihlášené návštěvníky"
+
+#~ msgid "Content for logged in members only"
+#~ msgstr "Obsah jenom pro přihlášené návštěvníky"
+
+#~ msgid "Guests"
+#~ msgstr "Hosté"
+
+#~ msgid "Content for guests"
+#~ msgstr "Obsah pro hosty"
+
+#~ msgid "Content for guests only"
+#~ msgstr "Obsah jenom pro hosty"
+
+#~ msgid "RSS Feed"
+#~ msgstr "RSS kanál"
+
+#~ msgid "Url to RSS-feed"
+#~ msgstr "URL RSS kanálu"
+
+#~ msgid "Number of items to show"
+#~ msgstr "Počet položek, které se ukážou"
+
+#~ msgid "Menu name"
+#~ msgstr "Jméno menu"
+
+#~ msgid "Custom menu name. Ex: Main menu"
+#~ msgstr "Vlastní název menu. Např. Hlavní menu"
+
+#~ msgid "Custom menu by name"
+#~ msgstr "Vlastní menu pode jména"
+
+#~ msgid "Sub pages"
+#~ msgstr "Podstránky"
+
+#~ msgid "Depth"
+#~ msgstr "Hloubka"
+
+#~ msgid "Max depth level of children pages"
+#~ msgstr "Maximální hloubk úrovní podstránek"
+
+#~ msgid "Parent ID"
+#~ msgstr "ID nadřazené stránky"
+
+#~ msgid "ID of the parent page. Leave blank to use current page"
+#~ msgstr "ID nadřazené stránky. Pro zobrazení aktuální stránky nechte prázdné"
+
+#~ msgid "List of sub pages"
+#~ msgstr "Seznam podstránek"
+
+#~ msgid "Siblings"
+#~ msgstr "Stránky stejné úrovně"
+
+#~ msgid "Max depth level"
+#~ msgstr "Úroveň max. hloubky"
+
+#~ msgid "List of cureent page siblings"
+#~ msgstr "Seznam aktuálních stránek stejné úrovně"
+
+#~ msgid "Document"
+#~ msgstr "Dokument"
+
+#~ msgid "Url to uploaded document. Supported formats: doc, xls, pdf etc."
+#~ msgstr ""
+#~ "URL uploadovaného dokumentu. podporované formáty: doc, xls, pdf apod."
+
+#~ msgid "Viewer width"
+#~ msgstr "Šířka prohlížeče"
+
+#~ msgid "Viewer height"
+#~ msgstr "Výška prohlížeče"
+
+#~ msgid "Ignore width and height parameters and make viewer responsive"
+#~ msgstr "Ignorovat parametry výšky a šířky - prohlížeč bude responzivní"
+
+#~ msgid "Document viewer by Google"
+#~ msgstr "Prohlížeč dokumentů od Googlu"
+
+#~ msgid "Gmap"
+#~ msgstr "Gmapa"
+
+#~ msgid "Map width"
+#~ msgstr "Šířka mapy"
+
+#~ msgid "Ignore width and height parameters and make map responsive"
+#~ msgstr "Ignorovat  šířku a výšku mapy a učinit tak mapu responzivní"
+
+#~ msgid "Marker"
+#~ msgstr "Značka"
+
+#~ msgid "Address for the marker. You can type it in any language"
+#~ msgstr "Adresa značky (může být v kterémkoli jazyce)."
+
+#~ msgid "Maps by Google"
+#~ msgstr "Google mapy"
+
+#~ msgid "Source"
+#~ msgstr "Zdroj"
+
+#~ msgid ""
+#~ "Choose images source. You can use images from Media library or retrieve "
+#~ "it from posts (thumbnails) posted under specified blog category. You can "
+#~ "also pick any custom taxonomy"
+#~ msgstr ""
+#~ "Vyberte zdroj obrázků. Můžete použí obrázky ze Správce médií nebo je "
+#~ "získat z článků (náhledové obr.) publikovaných pod určitou kategorií. "
+#~ "Můžete také vybrat jakoukoli vlastní taxonomii"
+
+#~ msgid ""
+#~ "Maximum number of image source posts (for recent posts, category and "
+#~ "custom taxonomy)"
+#~ msgstr ""
+#~ "Maximální počet obrázků z článků (pro nejnovější články, kategorii a "
+#~ "vlastní taxonomii)"
+
+#~ msgid "Full-size image"
+#~ msgstr "Obrázek v plné velikosti"
+
+#~ msgid "Slide link (added in media editor)"
+#~ msgstr "Odkaz slidu (přidán ve správci médií)"
+
+#~ msgid "Attachment page"
+#~ msgstr "Stránka přílohy"
+
+#~ msgid "Post permalink"
+#~ msgstr "URL článku"
+
+#~ msgid "Links"
+#~ msgstr "Odkazy"
+
+#~ msgid "Select which links will be used for images in this gallery"
+#~ msgstr "Vyberte, jaké odkazy  budou použity pro obrázky v této galerii"
+
+#~ msgid "Same window"
+#~ msgstr "v tom samém okně"
+
+#~ msgid "New window"
+#~ msgstr "V novém okně"
+
+#~ msgid "Links target"
+#~ msgstr "Jak se mají odkazy otevírat"
+
+#~ msgid "Open links in"
+#~ msgstr "Otevřít odkazy v"
+
+#~ msgid "Slider width (in pixels)"
+#~ msgstr "Šířka slideru (v pixelech)"
+
+#~ msgid "Slider height (in pixels)"
+#~ msgstr "Výška slideru (v pixelech)"
+
+#~ msgid "Ignore width and height parameters and make slider responsive"
+#~ msgstr "Ignorovat parametry šířky a výšky a učinit tak slider responzivní"
+
+#~ msgid "Show titles"
+#~ msgstr "Ukázat nadpisy"
+
+#~ msgid "Display slide titles"
+#~ msgstr "Zobrazit postranní názvy"
+
+#~ msgid "Is slider centered on the page"
+#~ msgstr "Je slider na stránce centrován "
+
+#~ msgid "Arrows"
+#~ msgstr "Šipky"
+
+#~ msgid "Show left and right arrows"
+#~ msgstr "Ukázat levou a pravou šipku"
+
+#~ msgid "Show pagination"
+#~ msgstr "Ukázat stránkování"
+
+#~ msgid "Mouse wheel control"
+#~ msgstr "Ovládání kolečkem myši"
+
+#~ msgid "Allow to change slides with mouse wheel"
+#~ msgstr "Povolit posouvat snímky kolečkem myši"
+
+#~ msgid ""
+#~ "Choose interval between slide animations. Set to 0 to disable autoplay"
+#~ msgstr ""
+#~ "Vybrat interval mezi přechodovou animací jednotlivých snímků. Nastavte 0 "
+#~ "pro vypnutí autopřehrávání"
+
+#~ msgid "Speed"
+#~ msgstr "Rychlost"
+
+#~ msgid "Specify animation speed"
+#~ msgstr "Specifikujte rychlost animace"
+
+#~ msgid "Customizable image slider"
+#~ msgstr "Editovatelný slider obrázků"
+
+#~ msgid "Carousel"
+#~ msgstr "Karusel"
+
+#~ msgid "Carousel width (in pixels)"
+#~ msgstr "Šířka karuselu (v pixelech)"
+
+#~ msgid "Carousel height (in pixels)"
+#~ msgstr "Výška karuseu (v pixelech)"
+
+#~ msgid "Ignore width and height parameters and make carousel responsive"
+#~ msgstr "Ignorovat parametry šířky a výšky a učinit tak karusel responzivní"
+
+#~ msgid "Items to show"
+#~ msgstr "Položky"
+
+#~ msgid "How much carousel items is visible"
+#~ msgstr "Kolik položek karuselu bude viditelných"
+
+#~ msgid "Scroll number"
+#~ msgstr "Počet skrolovaných"
+
+#~ msgid "How much items are scrolled in one transition"
+#~ msgstr "kolik položek bude skrolováno v jednom přechodu"
+
+#~ msgid "Display titles for each item"
+#~ msgstr "Zobrazit název pro každou položku"
+
+#~ msgid "Is carousel centered on the page"
+#~ msgstr "je karusel centrován na stránce"
+
+#~ msgid "Allow to rotate carousel with mouse wheel"
+#~ msgstr "Povolit ovládat rotaci karuselu kolečkem myši"
+
+#~ msgid ""
+#~ "Choose interval between auto animations. Set to 0 to disable autoplay"
+#~ msgstr ""
+#~ "Vybrat interval mezi přechodovou animací jednotlivých snímků. Nastavte 0 "
+#~ "pro vypnutí autopřehrávání"
+
+#~ msgid "Customizable image carousel"
+#~ msgstr "Editovatelný karusel obrázků"
+
+#~ msgid "Single item width (in pixels)"
+#~ msgstr "Šířka jednotlivé položky (v pixelech)"
+
+#~ msgid "Single item height (in pixels)"
+#~ msgstr "Výška jednotlivé položky (v pixelech)"
+
+#~ msgid "Never"
+#~ msgstr "Nikdy"
+
+#~ msgid "On mouse over"
+#~ msgstr "Na přejetí myší"
+
+#~ msgid "Always"
+#~ msgstr "Vždy"
+
+#~ msgid "Title display mode"
+#~ msgstr "Způsob zobrazení nadpisu"
+
+#~ msgid "Customizable image gallery"
+#~ msgstr "Upravitelná galerie obrázků"
+
+#~ msgid ""
+#~ "<b>Do not change this field value if you do not understand description "
+#~ "below.</b><br/>Relative path to the template file. Default templates is "
+#~ "placed under the plugin directory (templates folder). You can copy it "
+#~ "under your theme directory and modify as you want. You can use following "
+#~ "default templates that already available in the plugin directory:<br/><b"
+#~ "%value>templates/default-loop.php</b> - posts loop<br/><b%value>templates/"
+#~ "teaser-loop.php</b> - posts loop with thumbnail and title<br/><b"
+#~ "%value>templates/single-post.php</b> - single post template<br/><b"
+#~ "%value>templates/list-loop.php</b> - unordered list with posts titles"
+#~ msgstr ""
+#~ "<b>Neměňte hodnotu tohoto pole, pokud nerozumíte popisu níže.</b><br/"
+#~ ">Relativní cesta k souboru šablony. Základní šablony jsou umístěny v "
+#~ "adresáři pluginu (složka templates). Můžete ji zkopírovat do adresáře své "
+#~ "šablony a jakkoliv ji změnit. Můžete použít následující šablony, které "
+#~ "jsou již dostupné v adresáři pluginu:<br/><b%value>templates/default-loop."
+#~ "php</b> - články<br/><b%value>templates/teaser-loop.php</b> - články s "
+#~ "náhled. obrázkem a nadpisem<br/><b%value>templates/single-post.php</b> - "
+#~ "šablon jednotlivého článku<br/><b%value>templates/list-loop.php</b> - "
+#~ "nečíslovaný seznam názvů článků"
+
+#~ msgid "Choose the authors whose posts you want to show"
+#~ msgstr "Vyberte autory, jejichž články chcete ukázat"
+
+#~ msgid "Meta key"
+#~ msgstr "Meta klíč"
+
+#~ msgid "Enter meta key name to show posts that have this key"
+#~ msgstr "Vložte meta klíč pro zobrazení článků s tímto klíčem"
+
+#~ msgid "Meta key values"
+#~ msgstr "Hodnoty meta klíče"
+
+#~ msgid "Dummy text"
+#~ msgstr "Ukázkový text"
+
+#~ msgid "Paragraphs"
+#~ msgstr "Paragrafy"
+
+#~ msgid "Words"
+#~ msgstr "Slova"
+
+#~ msgid "Bytes"
+#~ msgstr "Byty"
+
+#~ msgid "What"
+#~ msgstr "Co"
+
+#~ msgid "What to generate"
+#~ msgstr "Co generovat"
+
+#~ msgid "Amount"
+#~ msgstr "Množství"
+
+#~ msgid ""
+#~ "How many items (paragraphs or words) to generate. Minimum words amount is "
+#~ "5"
+#~ msgstr ""
+#~ "Kolik jednotek (odstavců či slov) generovat. Minimální počet slov je 5 "
+
+#~ msgid "Cache"
+#~ msgstr "Koš"
+
+#~ msgid ""
+#~ "Generated text will be cached. Be careful with this option. If you "
+#~ "disable it and insert many dummy_text shortcodes the page load time will "
+#~ "be highly increased"
+#~ msgstr ""
+#~ "Generovaný text bude cachován. Buďte opatrní s touto možností. Pokud ji "
+#~ "vypnete a vložíte mnoho shortkódů s ukázkovým textem, doba načítání "
+#~ "stránky se výrazně zvýší! "
+
+#~ msgid "Text placeholder"
+#~ msgstr "Textová výplň"
+
+#~ msgid "Dummy image"
+#~ msgstr "Ukázkový obrázek"
+
+#~ msgid "Image width"
+#~ msgstr "Šířka obrázku"
+
+#~ msgid "Image height"
+#~ msgstr "Výška obrázku"
+
+#~ msgid "Abstract"
+#~ msgstr "Abstraktní"
+
+#~ msgid "Animals"
+#~ msgstr "Zvířata"
+
+#~ msgid "Business"
+#~ msgstr "Obchod"
+
+#~ msgid "Cats"
+#~ msgstr "Kočky"
+
+#~ msgid "City"
+#~ msgstr "Město"
+
+#~ msgid "Food"
+#~ msgstr "Jídlo"
+
+#~ msgid "Night life"
+#~ msgstr "Noční život"
+
+#~ msgid "Fashion"
+#~ msgstr "Móda"
+
+#~ msgid "People"
+#~ msgstr "Lidé"
+
+#~ msgid "Nature"
+#~ msgstr "Příroda"
+
+#~ msgid "Sports"
+#~ msgstr "Sport"
+
+#~ msgid "Technics"
+#~ msgstr "Technika"
+
+#~ msgid "Transport"
+#~ msgstr "Transport"
+
+#~ msgid "Select the theme for this image"
+#~ msgstr "Vyberte vzhled pro tento obrázek"
+
+#~ msgid "Image placeholder with random image"
+#~ msgstr "Místo pro obrázek s náhodným obrázkem"
+
+#~ msgid "Animation"
+#~ msgstr "Animace"
+
+#~ msgid "Select animation type"
+#~ msgstr "Vybra typ animace"
+
+#~ msgid "Duration"
+#~ msgstr "Trvání"
+
+#~ msgid "Animation duration (seconds)"
+#~ msgstr "Trvání animace (v sekundách)"
+
+#~ msgid "Delay"
+#~ msgstr "Zpoždění"
+
+#~ msgid "Animation delay (seconds)"
+#~ msgstr "Zpoždění animace (v sekundách)"
+
+#~ msgid ""
+#~ "This parameter determines what HTML tag will be used for animation "
+#~ "wrapper. Turn this option to YES and animated element will be wrapped in "
+#~ "SPAN instead of DIV. Useful for inline animations, like buttons"
+#~ msgstr ""
+#~ "Tento parametr určuje, jaký HTML tag bude použit pro uzavření animace. "
+#~ "Nastavte ANO a animovaný element  bude uzavřen do tagu SPAN namísto DIVu. "
+#~ "Užitečné pro inline animace (např. tlačítka)"
+
+#~ msgid "Animated content"
+#~ msgstr "Animovaný obsah"
+
+#~ msgid "Wrapper for animation. Any nested element will be animated"
+#~ msgstr "Uzavření animace. "
+
+#~ msgid "Key"
+#~ msgstr "Klíč"
+
+#~ msgid "Meta key name"
+#~ msgstr "Jméno meta klíče"
+
+#~ msgid "This text will be shown if data is not found"
+#~ msgstr "Tento text se ukáže, pokud nebude možné načíst data"
+
+#~ msgid "Before"
+#~ msgstr "Před"
+
+#~ msgid "This content will be shown before the value"
+#~ msgstr "Tento obsah se zobrazí před hodnotou"
+
+#~ msgid "After"
+#~ msgstr "Po"
+
+#~ msgid "This content will be shown after the value"
+#~ msgstr "Tento obsah se ukáže po hodnotě"
+
+#~ msgid ""
+#~ "You can specify custom post ID. Leave this field empty to use an ID of "
+#~ "the current post. Current post ID may not work in Live Preview mode"
+#~ msgstr ""
+#~ "Můžet specifikovat vlastní ID článku. Nechte pole prázdné a bude použito "
+#~ "ID aktuálního článku. Upozornění: Pro ID aktuálního článku nemusí "
+#~ "fungovat náhled (nutno vyzkoušet naživo na webu)"
+
+#~ msgid ""
+#~ "You can apply custom filter to the retrieved value. Enter here function "
+#~ "name. Your function must accept one argument and return modified value. "
+#~ "Example function: "
+#~ msgstr ""
+#~ "Můžete uplatnit vlastní filtr. Vložte sem název funkce. Vaše funkce musí "
+#~ "akceptovat jeden argument a vracet modifikovanou hodnotu. Příklad funkce:"
+
+#~ msgid "Post meta"
+#~ msgstr "Meta informace o článku"
+
+#~ msgid "User"
+#~ msgstr "Uživatel"
+
+#~ msgid "Display name"
+#~ msgstr "Zobrazit jméno"
+
+#~ msgid "Nice name"
+#~ msgstr "Hezké jméno"
+
+#~ msgid "Registered"
+#~ msgstr "registrovaný"
+
+#~ msgid "Activation key"
+#~ msgstr "Aktivační klíč"
+
+#~ msgid "Field"
+#~ msgstr "Pole"
+
+#~ msgid "User data field name"
+#~ msgstr "Název pole pro data uživatele"
+
+#~ msgid "User ID"
+#~ msgstr "ID uživatele"
+
+#~ msgid ""
+#~ "You can specify custom user ID. Leave this field empty to use an ID of "
+#~ "the current user"
+#~ msgstr ""
+#~ "Můžete specifikovat ID uživatele. Nechte prázdné a bude použito ID "
+#~ "aktuálního uživatele"
+
+#~ msgid "User data"
+#~ msgstr "Dat uživatele"
+
+#~ msgid "Post date"
+#~ msgstr "Datum uveřejnění článku"
+
+#~ msgid "Post excerpt"
+#~ msgstr "Úryvek z článku"
+
+#~ msgid "Comment status"
+#~ msgstr "Stav komentářů"
+
+#~ msgid "Ping status"
+#~ msgstr "Stav pingů"
+
+#~ msgid "Post name"
+#~ msgstr "Název článku"
+
+#~ msgid "Filtered post content"
+#~ msgstr "Filtrovaný obsah článku"
+
+#~ msgid "Post mime type"
+#~ msgstr "Typ přílohy článku"
+
+#~ msgid "Comment count"
+#~ msgstr "Počet komentářů"
+
+#~ msgid "Post data field name"
+#~ msgstr "Název pole pro data článku"
+
+#~ msgid "Post data"
+#~ msgstr "Data článku"
+
+#~ msgid "Template name"
+#~ msgstr "Název šablony"
+
+#~ msgid ""
+#~ "Use template file name (with optional .php extension). If you need to use "
+#~ "templates from theme sub-folder, use relative path. Example values: %s, "
+#~ "%s, %s"
+#~ msgstr ""
+#~ "Použijte název souboru šablony (s možnou .php koncovkou). Pokud "
+#~ "potřebujete použít šablony z adresáře vašeho vzhledu webu (obvykle /wp-"
+#~ "content/themes/...), použijte relativní cestu. Např.: %s, %s, %s"
+
+#~ msgid "Theme template"
+#~ msgstr "Šablona vzhledu"
+
+#~ msgid "1 new add-on for Shortcodes Ultimate"
+#~ msgstr "1 nový doplněk pro Shortcodes Ultimate"
+
+#~ msgid "This is box title"
+#~ msgstr "Toto je název boxu"
+
+#~ msgid "please specify correct source"
+#~ msgstr "prosím upřesněte správný zdroj"
+
+#~ msgid "please specify correct url"
+#~ msgstr "prosím upřesněte správné URL"
+
+#~ msgid "This menu doesn't exists, or has no elements"
+#~ msgstr "Toto menu neexistuje nebo nemá žádné prvky"
+
+#~ msgid "images not found"
+#~ msgstr "obrázky nenalezeny"
+
+#~ msgid "template not found"
+#~ msgstr "šablona nenalezena"
+
+#~ msgid "post ID is incorrect"
+#~ msgstr "ID článku je nesprávné"
+
+#~ msgid "please specify meta key name"
+#~ msgstr "prosíme upřesněte název meta klíče"
+
+#~ msgid "password field is not allowed"
+#~ msgstr "pole heslo není povoleno"
+
+#~ msgid "user ID is incorrect"
+#~ msgstr "ID uživatele není správné"
+
+#~ msgid "please specify template name"
+#~ msgstr "prosím upřesněte jméno šablony"
+
+#~ msgid "Shortcodes"
+#~ msgstr "Shortkódy"
+
+#~ msgid "About"
+#~ msgstr "O projektu"
+
+#~ msgid "Custom formatting"
+#~ msgstr "Vlastní formátování"
+
+#~ msgid ""
+#~ "Disable this option if you have some problems with other plugins or "
+#~ "content formatting"
+#~ msgstr ""
+#~ "Zrušte tuto možnost, pokud máte problémy s jinými pluginy či formátováním "
+#~ "obsahu"
+
+#~ msgid "Documentation article"
+#~ msgstr "Dokumentace"
+
+#~ msgid "Skip default values"
+#~ msgstr "Přeskočit základní hodnoty"
+
+#~ msgid ""
+#~ "Enable this option and the generator will insert a shortcode without "
+#~ "default attribute values that you have not changed. As a result, the "
+#~ "generated code will be shorter."
+#~ msgstr ""
+#~ "Povolením této možnosti budou generovány shortkódy bez základních "
+#~ "atribučních hodnot, které jste nezměnili. Výsledkem bude kratší shortkód."
+
+#~ msgid "Shortcodes prefix"
+#~ msgstr "Předpona shortkódů"
+
+#~ msgid ""
+#~ "This prefix will be added to all shortcodes by this plugin. For example, "
+#~ "type here %s and you'll get shortcodes like %s and %s. Please keep in "
+#~ "mind: this option is not affects your already inserted shortcodes and if "
+#~ "you'll change this value your old shortcodes will be broken"
+#~ msgstr ""
+#~ "Tato předpona bude přidána ke všem shortkódům tohoto pluginu. Například "
+#~ "sem napište %s a shortkódy budou mít předponu %s a %s. Prosím mějte na "
+#~ "paměti, že tato volba neovlivní již předtím generované kódy a když "
+#~ "změníte tuto hodnotu, vaše shortkódy nebudou funkční."
+
+#~ msgid "Skin"
+#~ msgstr "Vzhled"
+
+#~ msgid "Choose global skin for shortcodes"
+#~ msgstr "Vyberte obecný skin pro shortkódy"
+
+#~ msgid "Custom CSS"
+#~ msgstr "Vlastní CSS"
+
+#~ msgid "Examples"
+#~ msgstr "Příklady"
+
+#~ msgid "Add-ons"
+#~ msgstr "Doplňky"
+
+#~ msgid "Supercharge your WordPress theme with mega pack of shortcodes"
+#~ msgstr "Nabije vaši Wordpress šablonu megabalíkem speciálních shortkódů."
+
+#~ msgid "Where to start?"
+#~ msgstr "Kde začít?"
+
+#~ msgid "Project homepage"
+#~ msgstr "Domovská stránka projketu"
+
+#~ msgid "Support forum"
+#~ msgstr "Fórum podpory"
+
+#~ msgid "Plugin settings"
+#~ msgstr "nastavení pluginu"
+
+#~ msgid "Plugin homepage"
+#~ msgstr "Domovská stránka pluginu"
+
+#~ msgid "Support forums"
+#~ msgstr "Forum podpory"
+
+#~ msgid "Close (Esc)"
+#~ msgstr "Zavřít (Esc)"
+
+#~ msgid "Loading..."
+#~ msgstr "Nahrávání"
+
+#~ msgid "Previous (Left arrow key)"
+#~ msgstr "Předchozí (klávesa - šipka vlevo)"
+
+#~ msgid "Next (Right arrow key)"
+#~ msgstr "Následující (klávesa - šipka vpravo)"
+
+#~ msgid "%s of %s"
+#~ msgstr "%s z %s"
+
+#~ msgid "Failed to load this link. %sOpen link%s."
+#~ msgstr "Nepodařilo se načíst tento odkaz. %sOtevřít odkaz%s."
+
+#~ msgid "Choose files"
+#~ msgstr "Vybrat soubory"
+
+#~ msgid "Add selected files"
+#~ msgstr "Přidat vybrané soubory"
+
+#~ msgid "This button is not clickable"
+#~ msgstr "Tototlačítko není klikací"
+
+#~ msgid ""
+#~ "This shortcode doesn't work in live preview. Please insert it into editor "
+#~ "and preview on the site."
+#~ msgstr ""
+#~ "Tento shortkód nefunguje v náhledu. prosm vložte ho do editoru a "
+#~ "vyzkoušejte naživo na webu."
+
+#~ msgid "Special Shortcodes Ultimate widget"
+#~ msgstr "Speciální widget Shortcodes Ultimate"
+
+#~ msgid "Welcome to Shortcodes Ultimate"
+#~ msgstr "Vítejte v Shortcodes Ultimate"
+
+#~ msgid "A real swiss army knife for WordPress"
+#~ msgstr "Nepostradatelný nástroj pro Wordpress"
+
+#~ msgid "Fork on GitHub"
+#~ msgstr "Forkněte na GitHub"
+
+#~ msgid "Plugin features"
+#~ msgstr "Charakteristiky pluginu"
+
+#~ msgid "40+ amazing shortcodes"
+#~ msgstr "40+ úžasných shortkódů"
+
+#~ msgid "Power of CSS3 transitions"
+#~ msgstr "Síla CSS3 animací"
+
+#~ msgid "Handy shortcodes generator"
+#~ msgstr "Užitečný generátor shortkódů"
+
+#~ msgid "International"
+#~ msgstr "Mezinárodní"
+
+#~ msgid "Documented API"
+#~ msgstr "Dokumentace API"
+
+#~ msgid "What is a shortcode?"
+#~ msgstr "Co je shortkód?"
+
+#~ msgid ""
+#~ "<strong>Shortcode</strong> is a WordPress-specific code that lets you do "
+#~ "nifty things with very little effort."
+#~ msgstr ""
+#~ "<strong>Shortkód</strong> je specifický Wordpress kód, která vám umožní "
+#~ "usnadnit spiustu věcí s minimem úsilí."
+
+#~ msgid ""
+#~ "Shortcodes can embed files or create objects that would normally require "
+#~ "lots of complicated, ugly code in just one line. Shortcode = shortcut."
+#~ msgstr ""
+#~ "Shortkódy mohou vkládat soubory nebo vytvářet objekty (které by normálně "
+#~ "vyžadovaly mnoho komplikovaného kódování) v pouhém jednom řádku. "
+#~ "Shortkódy = zkratky."
+
+#~ msgid "How does it works"
+#~ msgstr "Jak to funguje"
+
+#~ msgid "More videos"
+#~ msgstr "Více videí"
+
+#~ msgid "Shortcodes Ultimate Tutorial"
+#~ msgstr "Návod k Shortcodes Ultimate"
+
+#~ msgid "How to use special widget"
+#~ msgstr "Jak používat speciální widget"
+
+#~ msgid "How to create Carousel"
+#~ msgstr "Jak vytvořit karusel"
+
+#~ msgid "How to create image gallery"
+#~ msgstr "Jak vytvořit obrázkovou galerii"
+
+#~ msgid "You can overview the original styles to override it"
+#~ msgstr "Můžete zkontrolovat originální styly a pak je přepsat"
+
+#~ msgid "You can use next variables in your custom CSS"
+#~ msgstr "Můžete použít další hodnoty ve vašem vlastním CSS"
+
+#~ msgid "home url"
+#~ msgstr "domovská URL"
+
+#~ msgid "theme url"
+#~ msgstr "URL šablony"
+
+#~ msgid "plugin url"
+#~ msgstr "URL pluginu"
+
+#~ msgid "New Shortcodes"
+#~ msgstr "Nové shortkódy"
+
+#~ msgid ""
+#~ "Parallax sections, responsive content slider, pricing tables, vector "
+#~ "icons, testimonials, progress bars and even more"
+#~ msgstr ""
+#~ "Oddíly s použitím parallaxu, responzivní slider, ceníky, vektorové ikony, "
+#~ "recenze, lišty průběhu a další"
+
+#~ msgid "Maker"
+#~ msgstr "Vytvářeč"
+
+#~ msgid ""
+#~ "This add-on allows you to create custom shortcodes. You can easily create "
+#~ "any shortcode with different parameters or even override default "
+#~ "shortcodes"
+#~ msgstr ""
+#~ "Tento doplněk vám umožní vytvářet vlastní shortkódy. Můžete jednoduše "
+#~ "vytvořit kterýkoliv shortkód s různými parametry nebo dokonce přepsat "
+#~ "základní shortkódy"
+
+#~ msgid "Skins"
+#~ msgstr "Skiny"
+
+#~ msgid ""
+#~ "Set of additional skins for Shortcodes Ultimate. It includes skins for "
+#~ "accordeons/spoilers, tabs and some other shortcodes"
+#~ msgstr ""
+#~ "Sada doplňkových skinů pro Shortcodes Ultimate. Obsahuje skiny pro "
+#~ "harmoniky/spoilery, záložky a několik dalších shortkódů"
+
+#~ msgid "Shortcodes Ultimate Add-ons"
+#~ msgstr "Doplňky Shortcodes Ultimate"
+
+#~ msgid "Learn more"
+#~ msgstr "Dozvědět se více"
+
+#~ msgid "Other WordPress Plugins"
+#~ msgstr "Další Wordpress pluginy"
+
+#~ msgid ""
+#~ "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not "
+#~ "fully compatible with your PHP version (%s).<br />Reccomended PHP version "
+#~ "&ndash; %s (or higher).</p><a href=\"%s\">&larr; Return to the plugins "
+#~ "screen</a> <a href=\"%s\"%s>Continue and activate anyway &rarr;</a>"
+#~ msgstr ""
+#~ "<h1>Ouha! Plugin nebyl aktivován&hellip;</h1> <p>Shortcodes Ultimate není "
+#~ "plně kompatibilní s vaší verzí PHP (%s).<br />Doporučená verze PHP "
+#~ "&ndash; %s (nebo vyšší).</p><a href=\"%s\">&larr; Návrat na stránku "
+#~ "pluginů</a> <a href=\"%s\"%s>Pokračovat a přesto aktivovat &rarr;</a>"
+
+#~ msgid ""
+#~ "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not "
+#~ "fully compatible with your version of WordPress (%s).<br />Reccomended "
+#~ "WordPress version &ndash; %s (or higher).</p><a href=\"%s\">&larr; Return "
+#~ "to the plugins screen</a> <a href=\"%s\"%s>Continue and activate anyway "
+#~ "&rarr;</a>"
+#~ msgstr ""
+#~ "<h1>Ouha! Plugin nebyl aktivován&hellip;</h1> <p>Shortcodes Ultimate není "
+#~ "plně kompatibilní s vaší verzí WordPressu (%s).<br />Doporučená verze "
+#~ "Wordpressu &ndash; %s (nebo vyšší).</p><a href=\"%s\">&larr; Návrat na "
+#~ "stránku pluginů</a> <a href=\"%s\"%s>Pokračovat a přesto aktivovat &rarr;"
+#~ "</a>"
+
+#~ msgid "Example code does not found, please check it later"
+#~ msgstr "Ukázkový kód nenalezen, prosím zkontrolujte to později"
+
+#~ msgid "Get the code"
+#~ msgstr "Získat kód"
+
+#~ msgid "Slide link"
+#~ msgstr "Odkaz snímku"
+
+#~ msgid ""
+#~ "Use this field to add custom links to slides used with Slider, Carousel "
+#~ "and Custom Gallery shortcodes"
+#~ msgstr ""
+#~ "Použijte toto pole k přidání vlastních odkazů k snímkům v shortkódech "
+#~ "slideru, karuselu a vlastní galerii"
+
+#~ msgid "Posted"
+#~ msgstr "Publikováno"
+
+#~ msgid "0 comments"
+#~ msgstr "Žádný komentář"
+
+#~ msgid "1 comment"
+#~ msgstr "1 komentář"
+
+#~ msgid "%n comments"
+#~ msgstr "%n komentáře"
