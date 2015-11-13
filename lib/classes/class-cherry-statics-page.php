@@ -88,8 +88,8 @@ if ( !class_exists( 'Cherry_Statics_Page' ) ) {
 			// Add the options page and menu item.
 			global $cherry_page_builder;
 
-			$document_link = cherry_get_document_link();
-			
+			$document_link = cherry_get_documentation_link();
+
 			$cherry_page_builder->add_child_menu_item( array(
 				'parent_slug'    => 'cherry',
 				'page_title'     => __( 'Static Area Builder', 'cherry' ),

@@ -139,7 +139,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			 * @since 4.0.2
 			 * @var   string
 			 */
-			$document_link = cherry_get_document_link();
+			$document_link = cherry_get_documentation_link();
 
 			$before_content = '';
 

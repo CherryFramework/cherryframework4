@@ -201,15 +201,21 @@ function cherry_file_uri( $path ) {
 }
 
 /**
- * Add options to get localisation language
+ * Get current localiaztion
  *
  * @since  4.0.5
+ * @return string
  */
+function cherry_get_current_lang() {
 
-function cherry_get_document_language() {
-	$local_lang = get_locale();
+	$default_lang = 'en_US';
+	$current_lang = get_locale();
 
-	$languages = array(
+	if ( ! $current_lang ) {
+		$current_lang = $default_lang;
+	}
+
+	$allowed_lang = array(
 		'cs_CZ',
 		'de_DE',
 		'es_ES',
@@ -222,39 +228,70 @@ function cherry_get_document_language() {
 		'sk_SK',
 		'uk',
 		'vi',
-		'zh_CN'
+		'zh_CN',
 	);
 
-	/*if (!$local_lang || $local_lang ==='' || !in_array($local_lang, $languages)) {
-		$local_lang = 'en_US';
-	}*/ // temporary 
-	$local_lang = 'en_US';
-	return $local_lang;
+	/**
+	 * @todo remove comments from this code when translations will be done
+	 *
+	 * if ( in_array( $current_lang, $allowed_lang ) ) {
+	 *	return $current_lang;
+	 * }
+	 */
+
+	return $default_lang;
 }
 
-function cherry_get_document_link_url() {
-	$cherry_document_link_attr = array(
-				'lang'       =>  cherry_get_document_language(),  
-				'project'    =>  'wordpress',
-				'title'      =>  __( 'Documentation', 'cherry' ),
-				'target'     => '_blank',
-				'text_link'  => __( 'Cherry Framework 4 documentation', 'cherry' )
-			);
+/**
+ * Get array of documentation link attributes
+ *
+ * @since  4.0.5
+ * @return array
+ */
+function cherry_get_documentation_link_attr() {
 
-	$cherry_document_link_attr = apply_filters( 'cherry_document_link_attr', $cherry_document_link_attr );
+	$base_url = 'http://cherryframework.com/documentation/cf4/index.php';
 
-	$cherry_document_link_attr['url'] = 'http://cherryframework.com/documentation/cf4/index.php?project=' . $cherry_document_link_attr['project'] . '&lang=' . $cherry_document_link_attr['lang'];
-	
-	return $cherry_document_link_attr;
+	$attr = array(
+		'lang'      =>  cherry_get_current_lang(),
+		'project'   =>  'wordpress',
+		'title'     =>  __( 'Documentation', 'cherry' ),
+		'target'    => '_blank',
+		'text_link' => __( 'Cherry Framework 4 documentation', 'cherry' )
+	);
+
+	$attr = apply_filters( 'cherry_document_link_attr', $attr );
+
+	$attr['href'] = add_query_arg(
+		array(
+			'project' => $attr['project'],
+			'lang'    => $attr['lang'],
+		),
+		$base_url
+	);
+
+	return $attr;
 }
 
-function cherry_get_document_link() {
-		
-	$cherry_document_link_attr=cherry_get_document_link_url();
+/**
+ * Get documentation link HTML string
+ *
+ * @since  4.0.5
+ * @return string
+ */
+function cherry_get_documentation_link() {
 
-	$document_link = '<a href="' . $cherry_document_link_attr['url'] . '" title"' . $cherry_document_link_attr['title'] . '" target="' . $cherry_document_link_attr['target'] . '">'. $cherry_document_link_attr['text_link'] . '</a>';
-	
-	$document_link = apply_filters( 'cherry_documentation_link', $document_link );
+	$attr = cherry_get_documentation_link_attr();
 
-	return $document_link; 
+	$link = sprintf(
+		'<a href="%1$s" title="%2$s" target="%3$s">%4$s</a>',
+		esc_url( $attr['href'] ),
+		esc_attr( $attr['title'] ),
+		esc_attr( $attr['target'] ),
+		$attr['text_link']
+	);
+
+	$link = apply_filters( 'cherry_documentation_link', $link );
+
+	return $link;
 }
