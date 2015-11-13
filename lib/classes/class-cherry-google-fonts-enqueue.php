@@ -81,7 +81,7 @@ class cherry_enqueue_fonts {
 	/**
 	 * Return theme Google fonts URL to enqueue it
 	 *
-	 * @since  4.1.0
+	 * @since  4.0.5
 	 * @return string
 	 */
 	public function get_fonts_url() {

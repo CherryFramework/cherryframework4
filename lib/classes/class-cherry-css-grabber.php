@@ -19,13 +19,15 @@ if ( ! class_exists( 'Cherry_CSS_Grabber' ) ) {
 		/**
 		 * A reference to an instance of this class.
 		 *
-		 * @since 1.0.0
+		 * @since 4.0.5
 		 * @var   object
 		 */
 		private static $instance = null;
 
 		/**
 		 * Grabbed CSS holder
+		 *
+		 * @since 4.0.5
 		 * @var string
 		 */
 		private $css = null;
@@ -42,7 +44,7 @@ if ( ! class_exists( 'Cherry_CSS_Grabber' ) ) {
 		/**
 		 * Add CSS code to grabber
 		 *
-		 * @since  4.1.0
+		 * @since  4.0.5
 		 * @param  string $style cs to add into data
 		 * @return void
 		 */
@@ -59,7 +61,7 @@ if ( ! class_exists( 'Cherry_CSS_Grabber' ) ) {
 		/**
 		 * Print grabbed styles
 		 *
-		 * @since  4.1.0
+		 * @since  4.0.5
 		 * @return void
 		 */
 		public function print_css() {
@@ -75,7 +77,7 @@ if ( ! class_exists( 'Cherry_CSS_Grabber' ) ) {
 		/**
 		 * Returns the instance.
 		 *
-		 * @since  1.0.0
+		 * @since  4.0.5
 		 * @return object
 		 */
 		public static function get_instance() {
@@ -98,7 +100,7 @@ add_action( 'after_setup_theme', array( 'Cherry_CSS_Grabber', 'get_instance' ) )
 /**
  * Add styles to grabber
  *
- * @since  4.1.0
+ * @since  4.0.5
  * @param  string $style CSS-styles to add
  * @return void
  */
