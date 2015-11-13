@@ -12,7 +12,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -25,8 +25,8 @@ if ( !defined( 'WPINC' ) ) {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @param  array   $args
- * @return string  Sidebar ID.
+ * @param  array  $args Array of arguments for building a sidebar.
+ * @return string       Sidebar ID.
  */
 function cherry_register_sidebar( $args ) {
 
@@ -42,10 +42,10 @@ function cherry_register_sidebar( $args ) {
 	);
 
 	/**
-	 * Filteras the default sidebar arguments
+	 * Filter the default sidebar arguments
 	 *
 	 * @since 4.0.0
-	 * @param array $defaults
+	 * @param array $defaults Array of default arguments.
 	 */
 	$defaults = apply_filters( 'cherry_sidebar_defaults', $defaults );
 
@@ -53,10 +53,10 @@ function cherry_register_sidebar( $args ) {
 	$args = wp_parse_args( $args, $defaults );
 
 	/**
-	 * Filters the sidebar arguments.
+	 * Filter the sidebar arguments.
 	 *
 	 * @since 4.0.0
-	 * @param array $args
+	 * @param array $args Array of arguments for building a sidebar.
 	 */
 	$args = apply_filters( 'cherry_sidebar_args', $args );
 
@@ -64,7 +64,7 @@ function cherry_register_sidebar( $args ) {
 	 * Fires before execute WordPress `register_sidebar` function.
 	 *
 	 * @since 4.0.0
-	 * @param array $args
+	 * @param array $args Array of arguments for building a sidebar.
 	 */
 	do_action( 'cherry_register_sidebar', $args );
 

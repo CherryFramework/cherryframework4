@@ -1,0 +1,4723 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Cherry Framework\n"
+"POT-Creation-Date: 2015-11-09 18:27+0200\n"
+"PO-Revision-Date: 2015-11-09 18:27+0200\n"
+"Last-Translator: \n"
+"Language-Team: Cherry Team <support@cherryframework.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_n_noop:1,2;_x:1,2c;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:17
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:21
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or use search."
+msgstr ""
+
+#: cherry-options.php:6
+msgid "Select a page:"
+msgstr ""
+
+#: cherry-options.php:23 cherry-options.php:1837
+#: lib/admin/class-cherry-grid-type.php:49
+msgid "Header"
+msgstr ""
+
+#: cherry-options.php:24
+msgid "Main menu"
+msgstr ""
+
+#: cherry-options.php:25
+msgid "Header top static area"
+msgstr ""
+
+#: cherry-options.php:37
+msgid "Favicon image"
+msgstr ""
+
+#: cherry-options.php:38
+msgid ""
+"Icon image that is displayed in the browser address bar and browser tab "
+"heading."
+msgstr ""
+
+#: cherry-options.php:41
+msgid ""
+"Max icon size: 32x32 px <br>You can also upload favicon for retina displays. "
+"Max retina icon size: 152x152 px"
+msgstr ""
+
+#: cherry-options.php:52
+#, php-format
+msgid "Maintenance mode. <a href=\"%s\" target=\"_blank\">Preview</a>"
+msgstr ""
+
+#: cherry-options.php:55
+msgid "Enable/disable maintenance mode."
+msgstr ""
+
+#: cherry-options.php:58
+msgid ""
+"Logged in administrator gets full access to the site, while regular visitors "
+"will\\won't be redirected to the page chosen below."
+msgstr ""
+
+#: cherry-options.php:64
+msgid "Maintenance page"
+msgstr ""
+
+#: cherry-options.php:65
+msgid ""
+"Select page that regular visitors will see if maintenance mode is enabled."
+msgstr ""
+
+#: cherry-options.php:72
+msgid "Document smooth scroll"
+msgstr ""
+
+#: cherry-options.php:73
+msgid ""
+"Enable/disable smooth vertical mousewheel scrolling (Chrome browser only)."
+msgstr ""
+
+#: cherry-options.php:78
+msgid "User CSS"
+msgstr ""
+
+#: cherry-options.php:79
+msgid "Define custom CSS styling."
+msgstr ""
+
+#: cherry-options.php:91
+msgid "Responsive grid"
+msgstr ""
+
+#: cherry-options.php:92
+msgid "Enable/disable responsive grid. "
+msgstr ""
+
+#: cherry-options.php:95
+msgid ""
+"If for any reason you want to disable responsive layout for your site, you "
+"are able to turn it off here."
+msgstr ""
+
+#: cherry-options.php:101
+msgid "Container width"
+msgstr ""
+
+#: cherry-options.php:102
+msgid "Width of header/content/footer container in pixels."
+msgstr ""
+
+#: cherry-options.php:112
+msgid "Pages"
+msgstr ""
+
+#: cherry-options.php:115 cherry-options.php:151
+msgid ""
+"You can choose if you want to display sidebars and how you want to display "
+"them."
+msgstr ""
+
+#: cherry-options.php:121 cherry-options.php:157
+msgid "Left sidebar"
+msgstr ""
+
+#: cherry-options.php:125 cherry-options.php:161
+msgid "Right sidebar"
+msgstr ""
+
+#: cherry-options.php:129 cherry-options.php:165
+msgid "Left and right sidebar"
+msgstr ""
+
+#: cherry-options.php:133 cherry-options.php:169
+msgid "Two sidebars on the left"
+msgstr ""
+
+#: cherry-options.php:137 cherry-options.php:173
+msgid "Two sidebars on the right"
+msgstr ""
+
+#: cherry-options.php:141 cherry-options.php:177
+msgid "No sidebar"
+msgstr ""
+
+#: cherry-options.php:148
+msgid "Blog posts"
+msgstr ""
+
+#: cherry-options.php:190
+msgid "Featured Media"
+msgstr ""
+
+#: cherry-options.php:191
+msgid ""
+"Displays Featured Image, Gallery, Audio, Video in blog posts listing "
+"depending on post type."
+msgstr ""
+
+#: cherry-options.php:196
+msgid "Featured Image Size"
+msgstr ""
+
+#: cherry-options.php:199 cherry-options.php:202
+msgid "Set dimensions for post featured images."
+msgstr ""
+
+#: cherry-options.php:205 cherry-options.php:274
+msgid "Small"
+msgstr ""
+
+#: cherry-options.php:206 cherry-options.php:275
+msgid "Large"
+msgstr ""
+
+#: cherry-options.php:211
+msgid "Featured Image Alignment"
+msgstr ""
+
+#: cherry-options.php:212
+msgid "Set alignment for post featured images."
+msgstr ""
+
+#: cherry-options.php:216 cherry-options.php:233 cherry-options.php:285
+msgid "None"
+msgstr "无"
+
+#: cherry-options.php:217 cherry-options.php:286
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:80
+msgid "Left"
+msgstr "左"
+
+#: cherry-options.php:218 cherry-options.php:287
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:81
+msgid "Right"
+msgstr "右"
+
+#: cherry-options.php:219 cherry-options.php:288
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:82
+msgid "Center"
+msgstr "中"
+
+#: cherry-options.php:224
+msgid "Post content"
+msgstr "文章内容"
+
+#: cherry-options.php:225
+msgid "Select how you want to display post content in blog listing"
+msgstr ""
+
+#: cherry-options.php:228
+msgid ""
+"The following options are available:<br>`full` - display full post content, "
+"<br>`part` - display part of the post (you can specify content part length "
+"below), <br>`none` - hide post content."
+msgstr ""
+
+#: cherry-options.php:234
+msgid "Part"
+msgstr ""
+
+#: cherry-options.php:235
+msgid "Full"
+msgstr ""
+
+#: cherry-options.php:240
+msgid "Content Part length"
+msgstr ""
+
+#: cherry-options.php:241
+msgid ""
+"Specify number of words displayed in blog listing content part. Will not "
+"work if post has an excerpt."
+msgstr ""
+
+#: cherry-options.php:248
+msgid "More button"
+msgstr ""
+
+#: cherry-options.php:249
+msgid "Enable/Disable read more button in blog listing."
+msgstr ""
+
+#: cherry-options.php:254
+msgid "More button label"
+msgstr ""
+
+#: cherry-options.php:255
+msgid "Specify read more button label text. "
+msgstr ""
+
+#: cherry-options.php:256
+msgid "read more"
+msgstr ""
+
+#: cherry-options.php:263
+msgid "Featured Image"
+msgstr ""
+
+#: cherry-options.php:264
+msgid "Display featured image on the single post page."
+msgstr ""
+
+#: cherry-options.php:269
+msgid "Size of Featured Image"
+msgstr ""
+
+#: cherry-options.php:270
+msgid "Set dimensions for single post featured images."
+msgstr ""
+
+#: cherry-options.php:280
+msgid "Alignment of Featured Image"
+msgstr ""
+
+#: cherry-options.php:281
+msgid "Set alignment for single post featured images."
+msgstr ""
+
+#: cherry-options.php:293 cherry-options.php:1817
+msgid "Navigation"
+msgstr ""
+
+#: cherry-options.php:294
+msgid "Enable/disable post navigation block."
+msgstr ""
+
+#: cherry-options.php:299
+msgid "Author bio"
+msgstr ""
+
+#: cherry-options.php:300
+msgid ""
+"Enable/disable author bio block. Author bio block is displayed on the post "
+"page."
+msgstr ""
+
+#: cherry-options.php:305
+msgid "Related posts"
+msgstr ""
+
+#: cherry-options.php:306
+msgid ""
+"Enable/disable related posts block. Related posts block is displayed on the "
+"post page."
+msgstr ""
+
+#: cherry-options.php:311
+msgid "Allow comments"
+msgstr ""
+
+#: cherry-options.php:312
+msgid "Enable/disable comments for blog posts."
+msgstr ""
+
+#: cherry-options.php:315
+msgid ""
+"Make sure comments are enabled in Wordpress 'settings->discussion'. For "
+"posts that have already been published you need to enable comments "
+"individually in post settings."
+msgstr ""
+
+#: cherry-options.php:321
+msgid "Gallery slider"
+msgstr ""
+
+#: cherry-options.php:322
+msgid ""
+"Replace default Wordpress gallery shortcode with enhanced jQuery carousel."
+msgstr ""
+
+#: cherry-options.php:327
+msgid "Lightbox for images in a content"
+msgstr ""
+
+#: cherry-options.php:328
+msgid "Automatically adds lightbox for images in a post content."
+msgstr ""
+
+#: cherry-options.php:336
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:196
+#: lib/functions/template-media.php:141
+msgid "Date"
+msgstr "日期"
+
+#: cherry-options.php:337
+msgid "Show/Hide post publication date."
+msgstr ""
+
+#: cherry-options.php:342
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:193
+msgid "Author"
+msgstr ""
+
+#: cherry-options.php:343
+msgid "Show/Hide post author."
+msgstr ""
+
+#: cherry-options.php:348
+msgid "Comments"
+msgstr ""
+
+#: cherry-options.php:349
+msgid "Show/Hide number of comments."
+msgstr ""
+
+#: cherry-options.php:354
+msgid "Categories"
+msgstr ""
+
+#: cherry-options.php:355
+msgid "Show/Hide post categories."
+msgstr ""
+
+#: cherry-options.php:360
+msgid "Tags"
+msgstr ""
+
+#: cherry-options.php:361
+msgid "Show/Hide post tags."
+msgstr ""
+
+#: cherry-options.php:372
+msgid "Body background"
+msgstr ""
+
+#: cherry-options.php:373
+msgid "Set background for body container. "
+msgstr ""
+
+#: cherry-options.php:376
+msgid ""
+"You can specify background image or color, set background repeat, position "
+"and attachment. "
+msgstr ""
+
+#: cherry-options.php:397
+msgid "Primary color"
+msgstr ""
+
+#: cherry-options.php:402
+msgid "Secondary color"
+msgstr ""
+
+#: cherry-options.php:407
+msgid "Success color"
+msgstr ""
+
+#: cherry-options.php:412
+msgid "Info color"
+msgstr ""
+
+#: cherry-options.php:417
+msgid "Warning color"
+msgstr ""
+
+#: cherry-options.php:422
+msgid "Danger color"
+msgstr ""
+
+#: cherry-options.php:427
+msgid "Primary gray color"
+msgstr ""
+
+#: cherry-options.php:447
+msgid "Header Menu Typography"
+msgstr ""
+
+#: cherry-options.php:448
+msgid "Main header navigation typography settings."
+msgstr ""
+
+#: cherry-options.php:463
+msgid "Footer Menu Typography"
+msgstr ""
+
+#: cherry-options.php:464
+msgid "Main footer navigation typography settings."
+msgstr ""
+
+#: cherry-options.php:479
+msgid "Arrows markup"
+msgstr ""
+
+#: cherry-options.php:480
+msgid "Do you want to generate arrow mark-up?"
+msgstr ""
+
+#: cherry-options.php:491 cherry-options.php:1823
+msgid "Breadcrumbs"
+msgstr ""
+
+#: cherry-options.php:492
+msgid "Enable/disable breadcrumbs navigation."
+msgstr ""
+
+#: cherry-options.php:498
+msgid "Page title"
+msgstr ""
+
+#: cherry-options.php:499
+msgid "Show / hide current page title in breadcrumb navigation."
+msgstr ""
+
+#: cherry-options.php:504
+msgid "Breadcrumbs mobile"
+msgstr ""
+
+#: cherry-options.php:505
+msgid "Enable/disable breadcrumbs on mobile devices."
+msgstr ""
+
+#: cherry-options.php:509
+msgid ""
+"Mobile &mdash; Extra small devices, phones (&lt;768px) <br>Tablet &mdash; "
+"Small devices, tablets (&lt;991px)"
+msgstr ""
+
+#: cherry-options.php:512
+msgid "Mobile"
+msgstr ""
+
+#: cherry-options.php:513
+msgid "Tablet"
+msgstr ""
+
+#: cherry-options.php:518
+msgid "Home page breadcrumbs"
+msgstr ""
+
+#: cherry-options.php:519
+msgid ""
+"If option defined in page setting, this global option will not be counted."
+msgstr ""
+
+#: cherry-options.php:524
+msgid "Customize a Home page title?"
+msgstr ""
+
+#: cherry-options.php:527 cherry-options.php:1107 cherry-options.php:1132
+#: lib/admin/class-cherry-admin.php:63
+#: lib/classes/class-cherry-interface-builder.php:470
+msgid "Yes"
+msgstr "是"
+
+#: cherry-options.php:528 cherry-options.php:1108 cherry-options.php:1133
+#: lib/admin/class-cherry-admin.php:64
+#: lib/classes/class-cherry-interface-builder.php:471
+msgid "No"
+msgstr "否"
+
+#: cherry-options.php:535
+msgid "Home page title"
+msgstr ""
+
+#: cherry-options.php:536
+msgid "This is a customized title for a Home page."
+msgstr ""
+
+#: cherry-options.php:537 lib/classes/class-cherry-breadcrumbs.php:270
+msgid "Home"
+msgstr ""
+
+#: cherry-options.php:543
+msgid "Item separator"
+msgstr ""
+
+#: cherry-options.php:544
+msgid "Breadcrumbs separator symbol."
+msgstr ""
+
+#: cherry-options.php:551
+msgid "Breadcrumbs prefix"
+msgstr ""
+
+#: cherry-options.php:552
+msgid "Text displayed before breadcrumbs navigation."
+msgstr ""
+
+#: cherry-options.php:553
+msgid "You are here:"
+msgstr ""
+
+#: cherry-options.php:562
+msgid "Pagination position"
+msgstr ""
+
+#: cherry-options.php:563
+msgid "Select your pagination position."
+msgstr ""
+
+#: cherry-options.php:566
+msgid "After posts loop"
+msgstr ""
+
+#: cherry-options.php:567
+msgid "Before posts loop"
+msgstr ""
+
+#: cherry-options.php:568
+msgid "Both"
+msgstr ""
+
+#: cherry-options.php:573
+msgid "Prev/next buttons"
+msgstr ""
+
+#: cherry-options.php:574
+msgid "Show/hide previous and next buttons in pagination."
+msgstr ""
+
+#: cherry-options.php:579
+msgid "Pagination label"
+msgstr ""
+
+#: cherry-options.php:580
+msgid ""
+"Pagination label. Displayed before pagination buttons. Text or HTML can be "
+"used."
+msgstr ""
+
+#: cherry-options.php:581 lib/functions/template-post.php:279
+msgid "Pages:"
+msgstr ""
+
+#: cherry-options.php:585
+msgid "Prev button label"
+msgstr ""
+
+#: cherry-options.php:586
+msgid "Previous button label text. Text or HTML can be used."
+msgstr ""
+
+#: cherry-options.php:591
+msgid "Next button label"
+msgstr ""
+
+#: cherry-options.php:592
+msgid "Next button label text. Text or HTML can be used."
+msgstr ""
+
+#: cherry-options.php:597
+msgid "Show all the pages"
+msgstr ""
+
+#: cherry-options.php:598
+msgid ""
+"If set to On, then it will show all of the pages instead of a short list of "
+"the pages near the current page."
+msgstr ""
+
+#: cherry-options.php:603
+msgid "End size"
+msgstr ""
+
+#: cherry-options.php:604
+msgid "How many pages to display either at the top or at the end of the list."
+msgstr ""
+
+#: cherry-options.php:612
+msgid "Mid size"
+msgstr ""
+
+#: cherry-options.php:613
+msgid ""
+"How many numbers to display to either side of current page, but not "
+"including current page."
+msgstr ""
+
+#: cherry-options.php:626 cherry-options.php:745 cherry-options.php:808
+msgid "Background"
+msgstr "背景"
+
+#: cherry-options.php:629 cherry-options.php:633
+msgid ""
+"Header background settings. You can select background color, upload header "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:649 cherry-options.php:766 cherry-options.php:841
+msgid "Grid type"
+msgstr ""
+
+#: cherry-options.php:650
+msgid ""
+"Select layout pattern for header website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: cherry-options.php:655 cherry-options.php:772 cherry-options.php:847
+msgid "Wide"
+msgstr ""
+
+#: cherry-options.php:659 cherry-options.php:776 cherry-options.php:851
+msgid "Boxed"
+msgstr ""
+
+#: cherry-options.php:666 cherry-options.php:783 cherry-options.php:858
+msgid "Boxed width"
+msgstr ""
+
+#: cherry-options.php:667
+msgid ""
+"Header width for `boxed` layout. Should not be more than `Grid -> Container "
+"width` value."
+msgstr ""
+
+#: cherry-options.php:674
+msgid "Sticky header"
+msgstr ""
+
+#: cherry-options.php:675
+msgid "Enable\\disable fixed header that sticks to the top."
+msgstr ""
+
+#: cherry-options.php:680
+msgid "Sticky selector"
+msgstr ""
+
+#: cherry-options.php:681
+msgid ""
+"Select the block selector that will be used to build sticky panel. You can "
+"use tag name, class name, or id."
+msgstr ""
+
+#: cherry-options.php:690 cherry-options.php:876
+msgid "Logo type"
+msgstr ""
+
+#: cherry-options.php:691
+msgid "Select whether you want your main logo to be an image or text. "
+msgstr ""
+
+#: cherry-options.php:694
+msgid ""
+"If you select \"image\", you can choose logo image from the media library in "
+"the next option, and if you select \"text\", your WordPress Site Title will "
+"be shown instead."
+msgstr ""
+
+#: cherry-options.php:715 cherry-options.php:897
+msgid "Logo image"
+msgstr ""
+
+#: cherry-options.php:716 cherry-options.php:898
+msgid ""
+"Click Choose Media button to select logo image from the media library or "
+"upload your image."
+msgstr ""
+
+#: cherry-options.php:723 cherry-options.php:905
+msgid "Logo typography"
+msgstr ""
+
+#: cherry-options.php:724 cherry-options.php:906
+msgid ""
+"Configuration settings for text logo. Here you can select logo font family, "
+"size, color, etc."
+msgstr ""
+
+#: cherry-options.php:748 cherry-options.php:750
+msgid ""
+"Page background settings. You can select background color, upload footer "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:767
+msgid ""
+"Select layout pattern for main website container. Wide layout will fit "
+"window width. Boxed layout will have fixed width and left/right indents. "
+msgstr ""
+
+#: cherry-options.php:784
+msgid ""
+"Main content width for `boxed` layout. Should not be more than `Grid -> "
+"Container width` value."
+msgstr ""
+
+#: cherry-options.php:791
+msgid "Featured Images"
+msgstr ""
+
+#: cherry-options.php:792
+msgid "Enable/disable featured images for pages."
+msgstr ""
+
+#: cherry-options.php:797
+msgid "Page comments"
+msgstr ""
+
+#: cherry-options.php:798
+msgid ""
+"Enable/disable comments for pages by default. For pages that have already "
+"been published you need to enable comments individually in page settings."
+msgstr ""
+
+#: cherry-options.php:809
+msgid ""
+"Footer background settings. You can select background color, upload footer "
+"background image, set its background position, attachment and repeat."
+msgstr ""
+
+#: cherry-options.php:825 cherry-options.php:1426 cherry-options.php:1869
+msgid "Typography"
+msgstr ""
+
+#: cherry-options.php:826
+msgid "Typography settings for footer text."
+msgstr ""
+
+#: cherry-options.php:842
+msgid ""
+"Select layout pattern for footer website. Wide layout will fit window width. "
+"Boxed layout will have fixed width."
+msgstr ""
+
+#: cherry-options.php:859
+msgid ""
+"Footer width for `boxed` layout. Should not be more than `Grid -> Container "
+"width` value."
+msgstr ""
+
+#: cherry-options.php:866
+msgid "Footer Info text"
+msgstr ""
+
+#: cherry-options.php:867
+msgid "Set custom text for Footer static info."
+msgstr ""
+
+#: cherry-options.php:877
+msgid "Select whether you want your footer logo to be an image or text."
+msgstr ""
+
+#: cherry-options.php:928
+msgid "Body text"
+msgstr ""
+
+#: cherry-options.php:929
+msgid "Main website text typography options."
+msgstr ""
+
+#: cherry-options.php:944
+msgid "Link color"
+msgstr ""
+
+#: cherry-options.php:945
+msgid "Color of links."
+msgstr ""
+
+#: cherry-options.php:950
+msgid "Link hover color"
+msgstr ""
+
+#: cherry-options.php:951
+msgid "Color of links on hover."
+msgstr ""
+
+#: cherry-options.php:956
+msgid "Input text"
+msgstr ""
+
+#: cherry-options.php:957
+msgid "Styling text in forms."
+msgstr ""
+
+#: cherry-options.php:972
+msgid "Breadcrumbs typography"
+msgstr ""
+
+#: cherry-options.php:973
+msgid "Styling text in breadcrumbs."
+msgstr ""
+
+#: cherry-options.php:988
+msgid "Heading 1"
+msgstr ""
+
+#: cherry-options.php:990
+msgid "H1 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1005
+msgid "Heading 2"
+msgstr ""
+
+#: cherry-options.php:1007
+msgid "H2 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1022
+msgid "Heading 3"
+msgstr ""
+
+#: cherry-options.php:1024
+msgid "H3 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1039
+msgid "Heading 4"
+msgstr ""
+
+#: cherry-options.php:1041
+msgid "H4 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1056
+msgid "Heading 5"
+msgstr ""
+
+#: cherry-options.php:1058
+msgid "H5 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1073
+msgid "Heading 6"
+msgstr ""
+
+#: cherry-options.php:1075
+msgid "H6 heading font settings."
+msgstr ""
+
+#: cherry-options.php:1090
+msgid "Webfonts"
+msgstr ""
+
+#: cherry-options.php:1092
+msgid "Define custom Font style and Character Sets for selected web font."
+msgstr ""
+
+#: cherry-options.php:1103
+msgid "Concatenate/minify CSS"
+msgstr ""
+
+#: cherry-options.php:1104
+msgid ""
+"Select if you want to merge\\minify CSS files for performance optimization."
+msgstr ""
+
+#: cherry-options.php:1114
+msgid "Output dynamic CSS into separate file or into style tag."
+msgstr ""
+
+#: cherry-options.php:1129
+msgid "Display Cookie Banner?"
+msgstr ""
+
+#: cherry-options.php:1138
+msgid "Message"
+msgstr "信息"
+
+#: cherry-options.php:1139
+msgid "Enter the cookie banner message."
+msgstr ""
+
+#: cherry-options.php:1140
+msgid "We use cookies to ensure you get the best experience on our website."
+msgstr ""
+
+#: cherry-options.php:1150 cherry-options.php:1570
+msgid "Text input"
+msgstr ""
+
+#: cherry-options.php:1155 cherry-options.php:1575 cherry-options.php:1670
+#: cherry-options.php:1682 cherry-options.php:1694 cherry-options.php:1729
+#: cherry-options.php:1740 cherry-options.php:1752
+msgid "Regular single line text input field."
+msgstr ""
+
+#: cherry-options.php:1161 cherry-options.php:1582
+msgid "Textarea input"
+msgstr ""
+
+#: cherry-options.php:1166 cherry-options.php:1587
+msgid "Multiline text input field ( 16 rows x 20 cols )."
+msgstr ""
+
+#: cherry-options.php:1172 cherry-options.php:1594
+msgid "Select box"
+msgstr ""
+
+#: cherry-options.php:1177 cherry-options.php:1599
+msgid "Select box with single option."
+msgstr ""
+
+#: cherry-options.php:1189 cherry-options.php:1612
+msgid "Filtered select"
+msgstr ""
+
+#: cherry-options.php:1194 cherry-options.php:1617
+msgid "Select box with filter option."
+msgstr ""
+
+#: cherry-options.php:1211 cherry-options.php:1234
+msgid "Multi-select box"
+msgstr ""
+
+#: cherry-options.php:1216 cherry-options.php:1239
+msgid "Select box with multiple select capability."
+msgstr ""
+
+#: cherry-options.php:1257 cherry-options.php:1702
+msgid "Checkbox"
+msgstr "复选框"
+
+#: cherry-options.php:1258 cherry-options.php:1703
+msgid "Checkbox label"
+msgstr ""
+
+#: cherry-options.php:1262 cherry-options.php:1707
+msgid "Regular HTML checkbox."
+msgstr ""
+
+#: cherry-options.php:1272 cherry-options.php:1555
+msgid "Switcher"
+msgstr ""
+
+#: cherry-options.php:1275 cherry-options.php:1558
+msgid "Analogue of the regular HTML radio buttons. "
+msgstr ""
+
+#: cherry-options.php:1280
+msgid "Switcher (alternative)"
+msgstr ""
+
+#: cherry-options.php:1283
+msgid "Alternative switcher with custom labels."
+msgstr ""
+
+#: cherry-options.php:1286 cherry-options.php:1561
+msgid "Enabled"
+msgstr "开启"
+
+#: cherry-options.php:1287 cherry-options.php:1562
+msgid "Disabled"
+msgstr "禁用"
+
+#: cherry-options.php:1294
+msgid "Stepper"
+msgstr ""
+
+#: cherry-options.php:1297
+msgid "Adds a number input used to define numeric values."
+msgstr ""
+
+#: cherry-options.php:1306
+msgid "Slider"
+msgstr "幻灯"
+
+#: cherry-options.php:1309
+msgid "Draggable slider with stepper. Used to define some numeric value."
+msgstr ""
+
+#: cherry-options.php:1316
+msgid "Slider (ranged)"
+msgstr ""
+
+#: cherry-options.php:1321
+msgid "Draggable slider with range capability. Used to define numeric range."
+msgstr ""
+
+#: cherry-options.php:1332
+msgid "Radio buttons"
+msgstr ""
+
+#: cherry-options.php:1335
+msgid "Adds radio buttons group. Lets user select one option from the list."
+msgstr ""
+
+#: cherry-options.php:1352 cherry-options.php:1635
+msgid "Radio buttons (image)"
+msgstr ""
+
+#: cherry-options.php:1356 cherry-options.php:1358 cherry-options.php:1639
+#: cherry-options.php:1641
+msgid "Adds image based radio buttons group. Behaves as HTML radio buttons."
+msgstr ""
+
+#: cherry-options.php:1379
+msgid "Colorpicker"
+msgstr ""
+
+#: cherry-options.php:1384
+msgid "Adds a color picker."
+msgstr ""
+
+#: cherry-options.php:1390
+msgid "Media library element"
+msgstr ""
+
+#: cherry-options.php:1395
+msgid "Allows user to add content from Wordpress media library."
+msgstr ""
+
+#: cherry-options.php:1403
+msgid "Background image"
+msgstr ""
+
+#: cherry-options.php:1408
+msgid ""
+"Allows user to add background image from the media library and define its "
+"background settings like background repeat, position, attachment, origin."
+msgstr ""
+
+#: cherry-options.php:1432
+msgid ""
+"Provides typography configuration options such as Google Font family name, "
+"font size, line height, style, letter spacing, characters sets, text align "
+"and color. Below options you can see font preview."
+msgstr ""
+
+#: cherry-options.php:1450
+msgid "CSS Editor"
+msgstr ""
+
+#: cherry-options.php:1455
+msgid "Embedded CSS editor with syntax highlighting."
+msgstr ""
+
+#: cherry-options.php:1461
+msgid "title layout editor"
+msgstr ""
+
+#: cherry-options.php:1463
+msgid "description layout editor"
+msgstr ""
+
+#: cherry-options.php:1504
+msgid "Links repeater"
+msgstr ""
+
+#: cherry-options.php:1509
+msgid ""
+"This option allows you to create a custom links list. For each link you can "
+"define URL, class and label."
+msgstr ""
+
+#: cherry-options.php:1531
+msgid "Webfont"
+msgstr ""
+
+#: cherry-options.php:1538
+msgid "WYSIWYG editor"
+msgstr ""
+
+#: cherry-options.php:1543
+msgid ""
+"Adds an input section with WYSIWYG editor. Behaves as Wordpress post or page "
+"editing area."
+msgstr ""
+
+#: cherry-options.php:1665 cherry-options.php:1724
+msgid "Text input 1"
+msgstr ""
+
+#: cherry-options.php:1677 cherry-options.php:1735
+msgid "Text input 2"
+msgstr ""
+
+#: cherry-options.php:1689 cherry-options.php:1747
+msgid "Text input 3"
+msgstr ""
+
+#: cherry-options.php:1764
+msgid "General"
+msgstr ""
+
+#: cherry-options.php:1770
+msgid "Grid"
+msgstr ""
+
+#: cherry-options.php:1776
+msgid "Layouts"
+msgstr ""
+
+#: cherry-options.php:1784
+msgid "Blog"
+msgstr ""
+
+#: cherry-options.php:1790
+msgid "Post"
+msgstr "文章"
+
+#: cherry-options.php:1797
+msgid "Meta"
+msgstr "Meta"
+
+#: cherry-options.php:1804
+msgid "Styling"
+msgstr ""
+
+#: cherry-options.php:1810
+msgid "Color scheme"
+msgstr ""
+
+#: cherry-options.php:1830
+msgid "Pagination"
+msgstr "分页"
+
+#: cherry-options.php:1843 cherry-options.php:1862
+#: init/statics/header-logo.php:35
+msgid "Logo"
+msgstr ""
+
+#: cherry-options.php:1850
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:197
+msgid "Page"
+msgstr ""
+
+#: cherry-options.php:1856 lib/admin/class-cherry-grid-type.php:57
+msgid "Footer"
+msgstr ""
+
+#: cherry-options.php:1875
+msgid "Optimization"
+msgstr ""
+
+#: cherry-options.php:1881
+msgid "Cookie Banner"
+msgstr ""
+
+#: cherry-options.php:1887
+msgid "Interface elements (for UI developers)"
+msgstr ""
+
+#: init/config/menus.php:22
+msgid "Primary"
+msgstr ""
+
+#: init/config/menus.php:23
+msgid "Secondary"
+msgstr ""
+
+#: init/config/sidebars.php:25
+msgid "Main Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:26
+msgid ""
+"This is the main sidebar if you are using a two or three column site layout "
+"option."
+msgstr ""
+
+#: init/config/sidebars.php:33
+msgid "Secondary Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:34
+msgid ""
+"This is the secondary sidebar if you are using a three column site layout "
+"option."
+msgstr ""
+
+#: init/config/sidebars.php:41 init/statics/header-sidebar.php:32
+msgid "Header Sidebar"
+msgstr ""
+
+#: init/config/sidebars.php:42
+msgid "A sidebar located in the header of the site."
+msgstr ""
+
+#: init/config/sidebars.php:49
+msgid "Footer Sidebar 1"
+msgstr ""
+
+#: init/config/sidebars.php:50 init/config/sidebars.php:58
+#: init/config/sidebars.php:66 init/config/sidebars.php:74
+msgid "A sidebar located in the footer of the site."
+msgstr ""
+
+#: init/config/sidebars.php:57
+msgid "Footer Sidebar 2"
+msgstr ""
+
+#: init/config/sidebars.php:65
+msgid "Footer Sidebar 3"
+msgstr ""
+
+#: init/config/sidebars.php:73
+msgid "Footer Sidebar 4"
+msgstr ""
+
+#: init/config/static-areas.php:24
+msgid "Header Top"
+msgstr ""
+
+#: init/config/static-areas.php:30
+msgid "Header Bottom"
+msgstr ""
+
+#: init/config/static-areas.php:36
+msgid "Showcase Area"
+msgstr ""
+
+#: init/config/static-areas.php:42
+msgid "Footer Top"
+msgstr ""
+
+#: init/config/static-areas.php:48
+msgid "Footer Bottom"
+msgstr ""
+
+#: init/statics/example.php:29
+msgid "Example"
+msgstr ""
+
+#: init/statics/footer-info.php:71
+msgid "Footer Info"
+msgstr ""
+
+#: init/statics/footer-logo.php:32
+msgid "Footer Logo"
+msgstr ""
+
+#: init/statics/footer-menu.php:31
+msgid "Footer Menu"
+msgstr ""
+
+#: init/statics/footer-sidebars.php:64
+msgid "Footer Sidebars"
+msgstr ""
+
+#: init/statics/header-menu.php:33
+msgid "Header Menu"
+msgstr ""
+
+#: init/statics/moto-slider.php:46
+msgid "Select MotoSlider to appear in header"
+msgstr ""
+
+#: init/statics/moto-slider.php:47
+msgid "Select main theme slider"
+msgstr ""
+
+#: init/statics/moto-slider.php:67
+msgid "No Moto Sliders was found "
+msgstr ""
+
+#: init/statics/moto-slider.php:85
+msgid "MotoPress Slider"
+msgstr ""
+
+#: init/statics/search-form.php:32
+msgid "Search Form"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:57
+msgid "Please, select a file to import"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:58 lib/admin/class-cherry-admin.php:79
+msgid "Invalid file type"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:59
+msgid "Cherry Options imported. "
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:60
+msgid "section restored."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:61
+msgid "All options restored"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:62
+msgid "options loaded."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:65
+msgid "Neither option is not selected"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:66
+msgid "File download started..."
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:78
+msgid "Please, select import file"
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:80
+msgid "Statics settings imported. "
+msgstr ""
+
+#: lib/admin/class-cherry-admin.php:81
+msgid "Statics restored"
+msgstr ""
+
+#: lib/admin/class-cherry-grid-type.php:53
+msgid "Content"
+msgstr "内容"
+
+#: lib/admin/class-cherry-grid-type.php:92
+msgid "Grid Type"
+msgstr ""
+
+#: lib/admin/class-cherry-grid-type.php:239
+#: lib/admin/class-cherry-layouts.php:212
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:79
+msgid "Inherit"
+msgstr "继承"
+
+#: lib/admin/class-cherry-layouts.php:72
+msgid "Layout"
+msgstr ""
+
+#: lib/admin/class-cherry-post-style.php:69
+msgid "Style"
+msgstr "风格"
+
+#: lib/admin/class-cherry-post-style.php:118
+msgid "Header background"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:62
+msgid "No repeat"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:63
+msgid "Repeat All"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:64
+msgid "Repeat Horizontally"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:65
+msgid "Repeat Vertically"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:68
+msgid "Top Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:69
+msgid "Top Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:70
+msgid "Top Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:71
+msgid "Middle Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:72
+msgid "Middle Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:73
+msgid "Middle Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:74
+msgid "Bottom Left"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:75
+msgid "Bottom Center"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:76
+msgid "Bottom Right"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:79
+#: lib/admin/ui-elements/ui-background/ui-background.php:84
+#: lib/admin/ui-elements/ui-background/ui-background.php:90
+#: lib/admin/ui-elements/ui-background/ui-background.php:96
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:78
+msgid "Not defined"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:80
+msgid "Scroll Normally"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:81
+msgid "Fixed in Place"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:85
+#: lib/admin/ui-elements/ui-background/ui-background.php:97
+msgid "Padding box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:86
+#: lib/admin/ui-elements/ui-background/ui-background.php:98
+msgid "Border box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:87
+#: lib/admin/ui-elements/ui-background/ui-background.php:99
+msgid "Content box"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:91
+msgid "Auto"
+msgstr "自动"
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:92
+msgid "Cover"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:93
+msgid "Contain"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:126
+msgid "Background Settings"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:128
+msgid "Background Color"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-background/ui-background.php:142
+#, php-format
+msgid "Background %s"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:89
+msgid "position"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:91
+msgid "margin"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:97
+msgid "border"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:103
+msgid "padding"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:109
+msgid "size"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:121
+msgid "solid"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:122
+msgid "dashed"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:123
+msgid "dotted"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:124
+msgid "double"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:125
+msgid "groove"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:126
+msgid "ridge"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:127
+msgid "inset"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:128
+msgid "outset"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:129
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:126
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:141
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:156
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:171
+msgid "none"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:132
+msgid "Border style"
+msgstr "边框样式"
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:147
+msgid "Border radius"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-layout-editor/ui-layout-editor.php:159
+msgid "Border color"
+msgstr "边框颜色"
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:73
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:91
+msgid "External link"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:76
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:94
+msgid "Font class"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:79
+#: lib/admin/ui-elements/ui-repeater/ui-repeater.php:97
+msgid "Link label"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:127
+msgid "col-xs-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:128
+msgid "col-xs-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:129
+msgid "col-xs-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:130
+msgid "col-xs-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:131
+msgid "col-xs-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:132
+msgid "col-xs-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:133
+msgid "col-xs-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:134
+msgid "col-xs-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:135
+msgid "col-xs-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:136
+msgid "col-xs-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:137
+msgid "col-xs-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:138
+msgid "col-xs-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:142
+msgid "col-sm-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:143
+msgid "col-sm-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:144
+msgid "col-sm-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:145
+msgid "col-sm-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:146
+msgid "col-sm-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:147
+msgid "col-sm-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:148
+msgid "col-sm-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:149
+msgid "col-sm-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:150
+msgid "col-sm-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:151
+msgid "col-sm-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:152
+msgid "col-sm-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:153
+msgid "col-sm-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:157
+msgid "col-md-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:158
+msgid "col-md-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:159
+msgid "col-md-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:160
+msgid "col-md-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:161
+msgid "col-md-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:162
+msgid "col-md-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:163
+msgid "col-md-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:164
+msgid "col-md-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:165
+msgid "col-md-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:166
+msgid "col-md-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:167
+msgid "col-md-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:168
+msgid "col-md-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:172
+msgid "col-lg-1"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:173
+msgid "col-lg-2"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:174
+msgid "col-lg-3"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:175
+msgid "col-lg-4"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:176
+msgid "col-lg-5"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:177
+msgid "col-lg-6"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:178
+msgid "col-lg-7"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:179
+msgid "col-lg-8"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:180
+msgid "col-lg-9"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:181
+msgid "col-lg-10"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:182
+msgid "col-lg-11"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:183
+msgid "col-lg-12"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:186
+msgid "Show"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:187
+msgid "Hide"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:190
+msgid "-- Select --"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:191
+msgid "Category"
+msgstr "分类目录"
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:192
+#: lib/classes/class-cherry-statics-page.php:242
+msgid "Logged in"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:194
+msgid "Role"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:195
+msgid "Tag"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:198
+msgid "Taxonomy"
+msgstr "分类"
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:212
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:379
+msgid ".col-xs-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:225
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:392
+msgid ".col-sm-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:238
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:405
+msgid ".col-md-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:251
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:418
+msgid ".col-lg-*"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:264
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:431
+msgid "Custom class"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:278
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:445
+msgid "Conditions"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:289
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:456
+msgid "if"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:305
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:336
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:472
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:503
+msgid "is"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:356
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:523
+msgid "Add rule"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:371
+msgid "Available statics"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:544
+#: lib/classes/class-cherry-statics-page.php:232
+msgid "All category pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:554
+msgid "Logged In"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:555
+msgid "Logged Out"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:560
+#: lib/classes/class-cherry-statics-page.php:246
+msgid "All author pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:576
+#: lib/classes/class-cherry-statics-page.php:258
+msgid "All tag pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:586
+#: lib/classes/class-cherry-statics-page.php:268
+msgid "All date archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:587
+#: lib/classes/class-cherry-statics-page.php:269
+msgid "Daily archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:588
+#: lib/classes/class-cherry-statics-page.php:270
+msgid "Monthly archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:589
+#: lib/classes/class-cherry-statics-page.php:271
+msgid "Yearly archives"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:594
+#: lib/classes/class-cherry-statics-page.php:275
+msgid "Front page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:595
+#: lib/classes/class-cherry-statics-page.php:276
+msgid "Posts page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:596
+#: lib/classes/class-cherry-statics-page.php:277
+msgid "Archive page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:597
+#: lib/classes/class-cherry-statics-page.php:278
+msgid "404 error page"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:598
+#: lib/classes/class-cherry-statics-page.php:279
+msgid "Search results"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:601
+#: lib/classes/class-cherry-statics-page.php:281
+msgid "Post type:"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:608
+#: lib/classes/class-cherry-statics-page.php:288
+msgid "Static page:"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:617
+#: lib/classes/class-cherry-statics-page.php:296
+msgid "All taxonomy pages"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-static-area-editor/ui-static-area-editor.php:623
+#: lib/classes/class-cherry-statics-page.php:301
+msgid ":"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
+msgid "Step Up"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-stepper/ui-stepper.php:55
+msgid "Step Down"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:83
+msgid "Justify"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:97
+msgid "Font Family"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:100
+msgid "Standard Webfonts"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:126
+msgid "Google Webfonts"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:180
+msgid "Size"
+msgstr "尺寸"
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:197
+msgid "Line-height"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:213
+msgid "Letter-spacing"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:229
+msgid "Font color"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:242
+msgid "Text align"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:311
+#: lib/admin/ui-elements/ui-webfont/ui-webfont.php:165
+msgid "Font Style"
+msgstr ""
+
+#: lib/admin/ui-elements/ui-typography/ui-typography.php:360
+#: lib/admin/ui-elements/ui-webfont/ui-webfont.php:212
+msgid "Character Sets"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:276
+msgid "Browse:"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:278
+msgid "404 Not Found"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:279
+msgid "Archives"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:281
+#, php-format
+msgid "Search results for &#8220;%s&#8221;"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:283
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:285
+#, php-format
+msgid "Minute %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:287
+#, php-format
+msgid "Week %s"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:911
+msgctxt "minute and hour archives time format"
+msgid "g:i a"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:930
+msgctxt "minute archives time format"
+msgid "i"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:950
+msgctxt "hour archives time format"
+msgid "g a"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:969
+#: lib/classes/class-cherry-breadcrumbs.php:1023
+#: lib/classes/class-cherry-breadcrumbs.php:1065
+#: lib/classes/class-cherry-breadcrumbs.php:1105
+#: lib/classes/class-cherry-breadcrumbs.php:1312
+msgctxt "yearly archives date format"
+msgid "Y"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:974
+#: lib/classes/class-cherry-breadcrumbs.php:1069
+#: lib/classes/class-cherry-breadcrumbs.php:1323
+msgctxt "monthly archives date format"
+msgid "F"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:979
+#: lib/classes/class-cherry-breadcrumbs.php:1336
+msgctxt "daily archives date format"
+msgid "j"
+msgstr ""
+
+#: lib/classes/class-cherry-breadcrumbs.php:1027
+msgctxt "weekly archives date format"
+msgid "W"
+msgstr ""
+
+#: lib/classes/class-cherry-css-parser.php:188
+msgid "Variable not found"
+msgstr ""
+
+#: lib/classes/class-cherry-css-parser.php:231
+msgid "Function does not exist"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:132
+msgid "Choose Media"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:133
+msgid "Remove Media"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:144
+msgid "On"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:145
+msgid "Off"
+msgstr ""
+
+#: lib/classes/class-cherry-interface-builder.php:475
+msgid "Use for partial export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:125
+#: lib/classes/class-cherry-optionsframework-admin.php:157
+#, php-format
+msgid "Theme %s"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:126
+msgid "Cherry"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:136
+#: lib/classes/class-cherry-statics-page.php:101
+msgid "Documentation"
+msgstr "说明文档"
+
+#: lib/classes/class-cherry-optionsframework-admin.php:136
+#: lib/classes/class-cherry-statics-page.php:101
+msgid "Cherry Framework 4 documentation"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:150
+msgid "Feel free to view detailed "
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:158
+msgid "Options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:205
+#: lib/classes/class-cherry-optionsframework-admin.php:209
+#: lib/classes/class-cherry-optionsframework-admin.php:253
+#: lib/classes/class-cherry-optionsframework-admin.php:278
+#: lib/classes/class-cherry-statics-page.php:329
+#: lib/classes/class-cherry-statics-page.php:333
+msgid "Invalid request"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:205
+#: lib/classes/class-cherry-optionsframework-admin.php:209
+#: lib/classes/class-cherry-optionsframework-admin.php:253
+#: lib/classes/class-cherry-optionsframework-admin.php:278
+#: lib/classes/class-cherry-statics-page.php:329
+#: lib/classes/class-cherry-statics-page.php:333
+msgid "Error. Invalid request"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:438
+msgid "Options have been saved"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:494
+msgid "Default options backup has been created"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:499
+msgid "Default options backup has been overwrite"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:659
+msgid "Export/Import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:664
+msgid "Default options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:671
+msgid "Save options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:677
+msgid "Restore section"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:682
+msgid "Restore options"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:689
+#: lib/classes/class-cherry-optionsframework-admin.php:690
+msgid "Export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:692
+msgid "Partial export"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:700
+msgid "Attach statics settings"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:709
+msgid "Import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:713
+msgid "Select file"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:714
+msgid "Start import"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:719
+#: lib/classes/class-cherry-optionsframework-admin.php:723
+msgid "Are you sure?"
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:721
+msgid "Current options will be reset to the defaults, page will be refreshed."
+msgstr ""
+
+#: lib/classes/class-cherry-optionsframework-admin.php:725
+msgid "Active section will be reset to the defaults, page will be refreshed."
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:93
+#: lib/classes/class-cherry-statics-page.php:94
+msgid "Static Area Builder"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:100
+msgid "Feel free to view details "
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:104
+msgid ""
+"Use static area builder to arrange static blocks. You can drag-n-drop static "
+"blocks to arrange them or add new ones."
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:142
+msgid "Statics have been saved"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:186
+msgid "Default statics backup has been created"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:191
+msgid "Default statics backup has been overwritten"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:243
+msgid "Logged out"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:495
+msgid "Save statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:501
+msgid "Restore statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:506
+msgid "Export statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics-page.php:511
+msgid "Default statics"
+msgstr ""
+
+#: lib/classes/class-cherry-statics.php:95
+#, php-format
+msgid "Static Area %d"
+msgstr ""
+
+#: lib/classes/class-cherry-statics.php:158
+#, php-format
+msgid "Static %d"
+msgstr ""
+
+#: lib/functions/core.php:156
+#, php-format
+msgid "File %s doesn't exist"
+msgstr ""
+
+#: lib/functions/core.php:157
+msgid "Doing it wrong"
+msgstr ""
+
+#: lib/functions/filters.php:491
+msgid "Menu"
+msgstr "菜单"
+
+#: lib/functions/media.php:41
+msgid "Post Thumbnail"
+msgstr ""
+
+#: lib/functions/media.php:63
+msgid "File Size"
+msgstr ""
+
+#: lib/functions/media.php:64
+msgid "Mime Type"
+msgstr ""
+
+#: lib/functions/media.php:65
+msgid "Run Time"
+msgstr ""
+
+#: lib/functions/media.php:70
+msgid "Genre"
+msgstr ""
+
+#: lib/functions/media.php:71
+msgid "Year"
+msgstr ""
+
+#: lib/functions/structure.php:179
+#, php-format
+msgid "%s Info"
+msgstr ""
+
+#: lib/functions/template-comments.php:65
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: lib/functions/template-comments.php:66
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: lib/functions/template-comments.php:164
+msgid "Edit"
+msgstr ""
+
+#: lib/functions/template-general.php:105
+#: lib/functions/template-general.php:110
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: lib/functions/template-general.php:106
+#: lib/functions/template-general.php:111
+msgid "WordPress"
+msgstr ""
+
+#: lib/functions/template-general.php:142
+#, php-format
+msgid "%s WordPress Theme"
+msgstr ""
+
+#: lib/functions/template-media.php:110
+#, php-format
+msgid "%1$s &#215; %2$s"
+msgstr ""
+
+#: lib/functions/template-media.php:110 lib/functions/template-media.php:135
+msgid "Dimensions"
+msgstr ""
+
+#: lib/functions/template-media.php:134
+#, php-format
+msgid "%1$s &times; %2$s"
+msgstr ""
+
+#: lib/functions/template-media.php:146
+msgid "Camera"
+msgstr ""
+
+#: lib/functions/template-media.php:151
+msgid "Aperture"
+msgstr ""
+
+#: lib/functions/template-media.php:158
+#, php-format
+msgid "%s mm"
+msgstr ""
+
+#: lib/functions/template-media.php:158
+msgid "Focal Length"
+msgstr ""
+
+#: lib/functions/template-media.php:165
+msgid "International Organization for Standardization"
+msgstr ""
+
+#: lib/functions/template-media.php:165
+msgid "ISO"
+msgstr ""
+
+#: lib/functions/template-tags.php:376
+msgid "Related Posts"
+msgstr ""
+
+#: templates/comments.php:23
+#, php-format
+msgid "Comment"
+msgid_plural "Comments (%s)"
+msgstr[0] ""
+
+#: templates/comments.php:40
+msgid "Comments are closed."
+msgstr ""
+
+#: templates/none.php:5
+msgid "Nothing Found"
+msgstr ""
+
+#: templates/none.php:12
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: templates/none.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: templates/none.php:21
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#~ msgid "Title"
+#~ msgstr "标题"
+
+#~ msgid "Image"
+#~ msgstr "Image"
+
+#~ msgid "Button"
+#~ msgstr "按钮"
+
+#~ msgid "Permalink"
+#~ msgstr "固定链接"
+
+#~ msgid "Template"
+#~ msgstr "模板"
+
+#~ msgid "Preview"
+#~ msgstr "预览"
+
+#~ msgid "Posts not found"
+#~ msgstr "没有发现文章"
+
+#~ msgid "Order"
+#~ msgstr "排序"
+
+#~ msgid "Order by"
+#~ msgstr "排序依据"
+
+#~ msgid "List"
+#~ msgstr "列表"
+
+#~ msgid "Posts per page"
+#~ msgstr "每页文章"
+
+#~ msgid "Filter"
+#~ msgstr "筛选"
+
+#~ msgid ""
+#~ "Specify number of posts that you want to show. Enter -1 to get all posts"
+#~ msgstr "指定要显示的文章数。输入-1显示所有文章"
+
+#~ msgid "Class"
+#~ msgstr "样式"
+
+#~ msgid "Extra CSS class"
+#~ msgstr "额外的CSS"
+
+#~ msgid "Saving"
+#~ msgstr "保存中"
+
+#~ msgid "Settings"
+#~ msgstr "设置"
+
+#~ msgid "Media"
+#~ msgstr "媒体"
+
+#~ msgid "Saved"
+#~ msgstr "已保存"
+
+#~ msgid "Vertical"
+#~ msgstr "垂直"
+
+#~ msgid "Width"
+#~ msgstr "宽度"
+
+#~ msgid "Post type"
+#~ msgstr "文章类型"
+
+#~ msgid "or"
+#~ msgstr "或"
+
+#~ msgid "Height"
+#~ msgstr "高度"
+
+#~ msgid "Label"
+#~ msgstr "标记"
+
+#~ msgid "Icon"
+#~ msgstr "图标"
+
+#~ msgid "All"
+#~ msgstr "全部"
+
+#~ msgid "Limit"
+#~ msgstr "限量"
+
+#~ msgid "Descending"
+#~ msgstr "降序"
+
+#~ msgid "Ascending"
+#~ msgstr "升序"
+
+#~ msgid "Posts order"
+#~ msgstr "文章排序方式"
+
+#~ msgid "Post ID"
+#~ msgstr "文章ID"
+
+#~ msgid "Post author"
+#~ msgstr "文章作者"
+
+#~ msgid "Post title"
+#~ msgstr "文章标题"
+
+#~ msgid "Post slug"
+#~ msgstr "文章别名"
+
+#~ msgid "Last modified date"
+#~ msgstr "最后更新日期"
+
+#~ msgid "Random"
+#~ msgstr "随机"
+
+#~ msgid "Comments number"
+#~ msgstr "评论数"
+
+#~ msgid "Order posts by"
+#~ msgstr "文章排序依据"
+
+#~ msgid "Choose file"
+#~ msgstr "选择文件"
+
+#~ msgid "Insert"
+#~ msgstr "插入"
+
+#~ msgid "Select images"
+#~ msgstr "选择图像"
+
+#~ msgid "Add selected images"
+#~ msgstr "添加所选的图像"
+
+#~ msgid "Please enter a name for new preset"
+#~ msgstr "请为新的预设输入名称"
+
+#~ msgid "New preset"
+#~ msgstr "新的预设"
+
+#~ msgid "Other"
+#~ msgstr "其它"
+
+#~ msgid "Solid"
+#~ msgstr "立体"
+
+#~ msgid "Dotted"
+#~ msgstr "虚线"
+
+#~ msgid "Dashed"
+#~ msgstr "虚线（破折号）"
+
+#~ msgid "Double"
+#~ msgstr "双虚线"
+
+#~ msgid "Groove"
+#~ msgstr "凹槽"
+
+#~ msgid "Ridge"
+#~ msgstr "棱"
+
+#~ msgid "Row"
+#~ msgstr "行"
+
+#~ msgid "Type"
+#~ msgstr "类型颜色"
+
+#~ msgid "Anchor"
+#~ msgstr "锚点"
+
+#~ msgid "Row for flexible columns"
+#~ msgstr "灵活的一行栏目"
+
+#~ msgid "Column"
+#~ msgstr "列"
+
+#~ msgid "Offset"
+#~ msgstr "抵消"
+
+#~ msgid "Column content"
+#~ msgstr "列内容"
+
+#~ msgid "Flexible and responsive columns"
+#~ msgstr "灵活性和响应式列"
+
+#~ msgid "Spacer"
+#~ msgstr "间隔符"
+
+#~ msgid "You can upload custom icon for this button or pick a built-in icon"
+#~ msgstr "您可以上传按钮自定义图标或选择一个内置的图标。"
+
+#~ msgid "Icon size"
+#~ msgstr "图标尺寸"
+
+#~ msgid "Box"
+#~ msgstr "框符"
+
+#~ msgid "Text color"
+#~ msgstr "文字颜色"
+
+#~ msgid "Title text color"
+#~ msgstr "标题文字颜色"
+
+#~ msgid "Dropcap"
+#~ msgstr "下沉"
+
+#~ msgid "Align"
+#~ msgstr "对齐方式"
+
+#~ msgid "Button text"
+#~ msgstr "按钮文字"
+
+#~ msgid "Link"
+#~ msgstr "链接"
+
+#~ msgid "Button link"
+#~ msgstr "按钮链接"
+
+#~ msgid "Default"
+#~ msgstr "默认"
+
+#~ msgid "Success"
+#~ msgstr "成功"
+
+#~ msgid "Info"
+#~ msgstr "信息"
+
+#~ msgid "Warning"
+#~ msgstr "警告"
+
+#~ msgid "Inline"
+#~ msgstr "内链"
+
+#~ msgid "Centered"
+#~ msgstr "居中"
+
+#~ msgid "Is button centered on the page"
+#~ msgstr "按钮在页面上居中"
+
+#~ msgid "Fluid"
+#~ msgstr "流体"
+
+#~ msgid "Top"
+#~ msgstr "顶部"
+
+#~ msgid "Bottom"
+#~ msgstr "底部"
+
+#~ msgid "Description"
+#~ msgstr "描述"
+
+#~ msgid "Button background color"
+#~ msgstr "按钮背景颜色"
+
+#~ msgid "Button text color"
+#~ msgstr "按钮文字颜色"
+
+#~ msgid "Same tab"
+#~ msgstr "当前标签"
+
+#~ msgid "New tab"
+#~ msgstr "新建标签"
+
+#~ msgid "Target"
+#~ msgstr "打开方式"
+
+#~ msgid "Button link target"
+#~ msgstr "按钮链接的打开方式"
+
+#~ msgid "Styled button"
+#~ msgstr "风格按钮"
+
+#~ msgid "Post types"
+#~ msgstr "文章类型"
+
+#~ msgid "Select post types. Hold Ctrl key to select multiple post types"
+#~ msgstr "选择文章类型。按住Ctrl键选择多个类型"
+
+#~ msgid "Select taxonomy to show posts from"
+#~ msgstr "选择文章的分类"
+
+#~ msgid "Terms"
+#~ msgstr "条件"
+
+#~ msgid "Select terms to show posts from"
+#~ msgstr "选择文章来自的条件"
+
+#~ msgid "Taxonomy term operator"
+#~ msgstr "分类条件操作"
+
+#~ msgid "Authors"
+#~ msgstr "作者"
+
+#~ msgid "Specify offset to start posts loop not from first post"
+#~ msgstr "指定抵消的文章，不是从第一篇文章开始"
+
+#~ msgid "Post parent"
+#~ msgstr "文章父级"
+
+#~ msgid "Menu order"
+#~ msgstr "菜单顺序"
+
+#~ msgid "Published"
+#~ msgstr "发表"
+
+#~ msgid "Pending"
+#~ msgstr "未发表"
+
+#~ msgid "Draft"
+#~ msgstr "草稿"
+
+#~ msgid "Auto-draft"
+#~ msgstr "自动草稿"
+
+#~ msgid "Future post"
+#~ msgstr "未来文章"
+
+#~ msgid "Private post"
+#~ msgstr "私密文章"
+
+#~ msgid "Trashed"
+#~ msgstr "丢弃"
+
+#~ msgid "Any"
+#~ msgstr "任何"
+
+#~ msgid "Post status"
+#~ msgstr "文章状态"
+
+#~ msgid "Show only posts with selected status"
+#~ msgstr "只显示与选定状态文章"
+
+#~ msgid "Ignore sticky"
+#~ msgstr "忽略粘性"
+
+#~ msgid "Posts"
+#~ msgstr "文章"
+
+#~ msgid "Post ID's"
+#~ msgstr "文章ID's"
+
+#~ msgid "Enter comma separated ID's of the posts that you want to show"
+#~ msgstr "输入ID逗号分隔，你要显示的文章。"
+
+#~ msgid "Custom posts query with customizable template"
+#~ msgstr "自定义文章"
+
+#~ msgid "Tabs"
+#~ msgstr "标签选项卡"
+
+#~ msgid "Simple"
+#~ msgstr "简单"
+
+#~ msgid "Active tab"
+#~ msgstr "活动标签"
+
+#~ msgid "Select which tab is open by default"
+#~ msgstr "选择哪个标签是默认打开的"
+
+#~ msgid "Show tabs vertically"
+#~ msgstr "选择是否垂直"
+
+#~ msgid ""
+#~ "[%prefix_tab title=\"Title 1\"]Content 1[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 2\"]Content 2[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"Title 3\"]Content 3[/%prefix_tab]"
+#~ msgstr ""
+#~ "[%prefix_tab title=\"标题 1\"]内容 1[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"标题 2\"]内容 2[/%prefix_tab]\n"
+#~ "[%prefix_tab title=\"标题 3\"]内容 3[/%prefix_tab]"
+
+#~ msgid "Tabs container"
+#~ msgstr "选项卡"
+
+#~ msgid "Tab"
+#~ msgstr "单一选项卡"
+
+#~ msgid "Tab name"
+#~ msgstr "选项卡名称"
+
+#~ msgid "Enter tab name"
+#~ msgstr "输入选项卡名称"
+
+#~ msgid "Is this tab disabled"
+#~ msgstr "这个选项卡禁用"
+
+#~ msgid ""
+#~ "You can use unique anchor for this tab to access it with hash in page "
+#~ "url. For example: type here <b%value>Hello</b> and then use url like "
+#~ "http://example.com/page-url#Hello. This tab will be activated and "
+#~ "scrolled in"
+#~ msgstr ""
+#~ "您可以使用此选项卡独特的锚点可与散列在页面URL访问它。例如：在这里输入<b"
+#~ "%value>Hello</b> 和再使用 http://example.com/page-url#Hello. 该选项卡将被"
+#~ "激活并滚动"
+
+#~ msgid "URL"
+#~ msgstr "网址"
+
+#~ msgid "Tab content"
+#~ msgstr "标签内容"
+
+#~ msgid "Single tab"
+#~ msgstr "单一选项卡"
+
+#~ msgid "Spoiler"
+#~ msgstr "Spoiler"
+
+#~ msgid "Spoiler title"
+#~ msgstr "Spoiler 标题"
+
+#~ msgid "Text in spoiler title"
+#~ msgstr "文本中的Spoiler 标题"
+
+#~ msgid "Open"
+#~ msgstr "展开"
+
+#~ msgid "Is spoiler content visible by default"
+#~ msgstr "隐藏的内容是否默认展开"
+
+#~ msgid "Choose style for this spoiler"
+#~ msgstr "为spoiler选择风格"
+
+#~ msgid "Hidden content"
+#~ msgstr "隐藏内容"
+
+#~ msgid "Spoiler with hidden content"
+#~ msgstr "Spoiler 的隐藏内容"
+
+#~ msgid "Accordion"
+#~ msgstr "折叠式"
+
+#~ msgid "Accordion with spoilers"
+#~ msgstr "折叠式为spoilers"
+
+#~ msgid "Map height"
+#~ msgstr "地图高度"
+
+#~ msgid "Poster"
+#~ msgstr "海报"
+
+#~ msgid "Controls"
+#~ msgstr "控件"
+
+#~ msgid "Media manager"
+#~ msgstr "媒体管理器"
+
+#~ msgid "Icon picker"
+#~ msgstr "图标选择器"
+
+#~ msgid "Filter icons"
+#~ msgstr "筛选图标"
+
+#~ msgid "Please wait"
+#~ msgstr "请稍候"
+
+#~ msgid "Untitled gallery"
+#~ msgstr "未命名画廊"
+
+#~ msgid "Galleries not found"
+#~ msgstr "没有找到画廊"
+
+#~ msgid "Manage galleries"
+#~ msgstr "管理画廊"
+
+#~ msgid "Reload galleries"
+#~ msgstr "重新加载画廊"
+
+#~ msgid "Horizontal offset"
+#~ msgstr "水平偏移"
+
+#~ msgid "Vertical offset"
+#~ msgstr "垂直偏移"
+
+#~ msgid "Blur"
+#~ msgstr "模糊"
+
+#~ msgid "Color"
+#~ msgstr "颜色"
+
+#~ msgid "Border width"
+#~ msgstr "边框宽度"
+
+#~ msgid "Media library"
+#~ msgstr "媒体库"
+
+#~ msgid "Recent posts"
+#~ msgstr "最近文章"
+
+#~ msgid "Select images source"
+#~ msgstr "选择图像来源"
+
+#~ msgid "Select taxonomy"
+#~ msgstr "选择分类"
+
+#~ msgid "Add images"
+#~ msgstr "添加图片"
+
+#~ msgid ""
+#~ "Click the button above and select images.<br>You can select multimple "
+#~ "images with Ctrl (Cmd) key"
+#~ msgstr "点击上面的按钮，并选择图像。您可以选择多个图像，按Ctrl（CMD）键"
+
+#~ msgid ""
+#~ "Select categories to retrieve posts from.<br>You can select multiple "
+#~ "categories with Ctrl (Cmd) key"
+#~ msgstr "选择要从中检索文章的分类。搜寻您可以选择多个分类，按Ctrl（CMD）键。"
+
+#~ msgid ""
+#~ "Select taxonomy and it's terms.<br>You can select multiple terms with "
+#~ "Ctrl (Cmd) key"
+#~ msgstr "选择分类和它的条件。您可以选择多个条件用Ctrl（CMD）键"
+
+#~ msgid "Insert shortcode"
+#~ msgstr "插入简码"
+
+#~ msgid "Search for shortcodes"
+#~ msgstr "搜索简码"
+
+#~ msgid "Filter by type"
+#~ msgstr "类型筛选"
+
+#~ msgid "Shortcode not specified"
+#~ msgstr "未指定简码"
+
+#~ msgid "Live preview"
+#~ msgstr "预览效果"
+
+#~ msgid "Click to return to the shortcodes list"
+#~ msgstr "点击返回到简码列表"
+
+#~ msgid "All shortcodes"
+#~ msgstr "全部简码"
+
+#~ msgid "Click to set this value"
+#~ msgstr "点击设置此值"
+
+#~ msgid "Access denied"
+#~ msgstr "访问被拒绝"
+
+#~ msgid "Presets"
+#~ msgstr "预设"
+
+#~ msgid "Save current settings as preset"
+#~ msgstr "保存当前设置为预设"
+
+#~ msgid "Presets not found"
+#~ msgstr "没有可用预设"
+
+#~ msgid "Tab title"
+#~ msgstr "选项卡标题"
+
+#~ msgid "Plugin Settings"
+#~ msgstr "插件设置"
+
+#~ msgid "Use selected file"
+#~ msgstr "使用所选的文件"
+
+#~ msgid "Save changes"
+#~ msgstr "保存更改"
+
+#~ msgid ""
+#~ "This action will delete all your settings. Are you sure? This action "
+#~ "cannot be undone!"
+#~ msgstr "此操作将删除所有的设置。你确定吗？此操作无法撤消！"
+
+#~ msgid "Restore default settings"
+#~ msgstr "恢复到默认设置"
+
+#~ msgid "Text field"
+#~ msgstr "文本字段"
+
+#~ msgid "Textarea field"
+#~ msgstr "Textarea field"
+
+#~ msgid "Color picker"
+#~ msgstr "颜色选择器"
+
+#~ msgid "Pick a color"
+#~ msgstr "选择颜色"
+
+#~ msgid ""
+#~ "For full functionality of this page it is reccomended to enable "
+#~ "javascript."
+#~ msgstr "对于此页面的全部功能，它是reccomended启用javascript。"
+
+#~ msgid "Settings saved successfully"
+#~ msgstr "设置成功保存"
+
+#~ msgid "Settings reseted successfully"
+#~ msgstr "设置成功重置"
+
+#~ msgid "option type %s is not callable"
+#~ msgstr "选项类型 %s不可调用"
+
+#~ msgid "Title:"
+#~ msgstr "标题："
+
+#~ msgid "Square"
+#~ msgstr "方"
+
+#~ msgid "Rounded corners"
+#~ msgstr "圆角"
+
+#~ msgid ""
+#~ "IN - posts that have any of selected categories terms<br/>NOT IN - posts "
+#~ "that is does not have any of selected terms<br/>AND - posts that have all "
+#~ "selected terms"
+#~ msgstr ""
+#~ "IN - 符合分类选择条件的文章<br/>NOT IN - 不符合分类选择条件的文章<br/>AND "
+#~ "- 符合所有条件的文章"
+
+#~ msgid "Show childrens of entered post (enter post ID)"
+#~ msgstr "显示进入后的子文章（输入文章ID）"
+
+#~ msgid "Select Yes to ignore posts that is sticked"
+#~ msgstr "选择是忽略被粘贴的文章"
+
+#~ msgid "Choose style for this tabs"
+#~ msgstr "选择选项卡的风格"
+
+#~ msgid ""
+#~ "You can use unique anchor for this spoiler to access it with hash in page "
+#~ "url. For example: type here <b%value>Hello</b> and then use url like "
+#~ "http://example.com/page-url#Hello. This spoiler will be open and scrolled "
+#~ "in"
+#~ msgstr ""
+#~ "您可以使用独特的锚点这个spoiler，在页面的URL访问它。例如：在这里输入<b"
+#~ "%value>你好</ b>和使用的URL如http://example.com/page-url#你好。这spoiler会"
+#~ "打开、滚动。"
+
+#~ msgid "Welcome to Shortcodes Ultimate"
+#~ msgstr "欢迎使用终极简码"
+
+#~ msgid "A real swiss army knife for WordPress"
+#~ msgstr "本汉化来自：祥磊部落"
+
+#~ msgid "Project homepage"
+#~ msgstr "官方网站"
+
+#~ msgid "Support forum"
+#~ msgstr "技术论坛"
+
+#~ msgid "Changelog"
+#~ msgstr "更新日志"
+
+#~ msgid "Fork on GitHub"
+#~ msgstr "Fork on GitHub"
+
+#~ msgid "Plugin features"
+#~ msgstr "插件功能"
+
+#~ msgid "40+ amazing shortcodes"
+#~ msgstr "40个以上的简码"
+
+#~ msgid "Power of CSS3 transitions"
+#~ msgstr "支持CSS3"
+
+#~ msgid "Handy shortcodes generator"
+#~ msgstr "方便的简码生成器"
+
+#~ msgid "International"
+#~ msgstr "国际化"
+
+#~ msgid "Documented API"
+#~ msgstr "API文档"
+
+#~ msgid "What is a shortcode?"
+#~ msgstr "什么是简码?"
+
+#~ msgid ""
+#~ "<strong>Shortcode</strong> is a WordPress-specific code that lets you do "
+#~ "nifty things with very little effort."
+#~ msgstr ""
+#~ "<strong>简码</strong>是WordPress特定的代码，让你用很少的努力做出漂亮的东"
+#~ "西。"
+
+#~ msgid ""
+#~ "Shortcodes can embed files or create objects that would normally require "
+#~ "lots of complicated, ugly code in just one line. Shortcode = shortcut."
+#~ msgstr ""
+#~ "简码可以嵌入的文件，或创建通常会需要大量的复杂、 丑陋的代码只需一个行中的"
+#~ "对象的即可完成。简码 = 快捷方式。"
+
+#~ msgid "How does it works"
+#~ msgstr "它是如何工作的?"
+
+#~ msgid "More videos"
+#~ msgstr "其它视频"
+
+#~ msgid "Shortcodes Ultimate Tutorial"
+#~ msgstr "终极简码教程"
+
+#~ msgid "How to use special widget"
+#~ msgstr "如何使用小工具部件"
+
+#~ msgid "How to create Carousel"
+#~ msgstr "如何创建轮播"
+
+#~ msgid "How to create image gallery"
+#~ msgstr "如何创建图片画廊"
+
+#~ msgid "You can overview the original styles to override it"
+#~ msgstr "你可以概述原来的样式并覆盖它"
+
+#~ msgid "You can use next variables in your custom CSS"
+#~ msgstr "你可以使用以下变量来自定义你的CSS"
+
+#~ msgid "home url"
+#~ msgstr "主页链接"
+
+#~ msgid "theme url"
+#~ msgstr "主题链接"
+
+#~ msgid "plugin url"
+#~ msgstr "插件链接"
+
+#~ msgid "Maker"
+#~ msgstr "制作者"
+
+#~ msgid ""
+#~ "This add-on allows you to create custom shortcodes. You can easily create "
+#~ "any shortcode with different parameters or even override default "
+#~ "shortcodes"
+#~ msgstr ""
+#~ "这个附加组件允许您创建自定义的简码。您可以轻松地创建具有不同参数的任何简"
+#~ "码，并且覆盖默认的简码。"
+
+#~ msgid "Skins"
+#~ msgstr "皮肤"
+
+#~ msgid ""
+#~ "Set of additional skins for Shrtcodes Ultimate. It includes skins for "
+#~ "accordeons/spoilers, tabs and some other shortcodes"
+#~ msgstr ""
+#~ "设置额外的皮肤为简码极限。它包括皮肤的accordeons/spoilers,tabs及一些其他的"
+#~ "简码的皮肤。"
+
+#~ msgid "Shortcodes Ultimate Add-ons"
+#~ msgstr "终极简码附加组件"
+
+#~ msgid "Learn more"
+#~ msgstr "了解更多"
+
+#~ msgid "Other WordPress Plugins"
+#~ msgstr "其它WordPress插件"
+
+#~ msgid "Choose files"
+#~ msgstr "选择文件"
+
+#~ msgid "Add selected files"
+#~ msgstr "添加所选的文件"
+
+#~ msgid "This button is not clickable"
+#~ msgstr "此按钮无法点击"
+
+#~ msgid ""
+#~ "This shortcode doesn't work in live preview. Please insert it into editor "
+#~ "and preview on the site."
+#~ msgstr "简码不能在实时预览。请把它插入到编辑器然后再网站上预览。"
+
+#~ msgid "Gallery"
+#~ msgstr "相册"
+
+#~ msgid "Data"
+#~ msgstr "数据"
+
+#~ msgid "Basic examples"
+#~ msgstr "基本示例"
+
+#~ msgid "Accordions, spoilers, different styles, anchors"
+#~ msgstr "不同样式的Accordions,spoilers,效果"
+
+#~ msgid "Tabs, vertical tabs, tab anchors"
+#~ msgstr "选项卡、垂直选项卡"
+
+#~ msgid "Column layouts"
+#~ msgstr "栏式布局"
+
+#~ msgid ""
+#~ "Media elements, YouTube, Vimeo, Screenr and self-hosted videos, audio "
+#~ "player"
+#~ msgstr "媒体元素,YouTube,Vimeo,Screenr and self-hosted videos,audio player"
+
+#~ msgid "Unlimited buttons"
+#~ msgstr "无限按钮"
+
+#~ msgid "Animations"
+#~ msgstr "动画效果"
+
+#~ msgid "Advanced examples"
+#~ msgstr "高级示例"
+
+#~ msgid "Interacting with posts shortcode"
+#~ msgstr "互动文章简码"
+
+#~ msgid "Nested shortcodes, shortcodes inside of attributes"
+#~ msgstr "嵌套简码"
+
+#~ msgid "Heading"
+#~ msgstr "打头标题"
+
+#~ msgid "Choose style for this heading"
+#~ msgstr "为打头标题选择风格"
+
+#~ msgid "Install additional styles"
+#~ msgstr "安装额外的风格"
+
+#~ msgid "Select heading size (pixels)"
+#~ msgstr "设置标题的尺寸（pixels）"
+
+#~ msgid "Heading text alignment"
+#~ msgstr "打头文本的对齐方式"
+
+#~ msgid "Margin"
+#~ msgstr "边距"
+
+#~ msgid "Bottom margin (pixels)"
+#~ msgstr "下边距(pixels)"
+
+#~ msgid "Heading text"
+#~ msgstr "标题文字"
+
+#~ msgid "Styled heading"
+#~ msgstr "标题风格"
+
+#~ msgid "Fancy"
+#~ msgstr "花式的"
+
+#~ msgid "Plus"
+#~ msgstr "加号"
+
+#~ msgid "Plus circle"
+#~ msgstr "加号圈"
+
+#~ msgid "Plus square 1"
+#~ msgstr "更多方形 1"
+
+#~ msgid "Plus square 2"
+#~ msgstr "更多方形 2"
+
+#~ msgid "Arrow"
+#~ msgstr "箭头"
+
+#~ msgid "Arrow circle 1"
+#~ msgstr "箭头圆形 1"
+
+#~ msgid "Arrow circle 2"
+#~ msgstr "箭头圆形 2"
+
+#~ msgid "Chevron"
+#~ msgstr "大于号"
+
+#~ msgid "Chevron circle"
+#~ msgstr "大于号圈"
+
+#~ msgid "Caret"
+#~ msgstr "尖号"
+
+#~ msgid "Caret square"
+#~ msgstr "尖号方形"
+
+#~ msgid "Folder 1"
+#~ msgstr "文件夹 1"
+
+#~ msgid "Folder 2"
+#~ msgstr "文件夹 2"
+
+#~ msgid "Icons for spoiler"
+#~ msgstr "spoiler 图标"
+
+#~ msgid ""
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]Content[/%prefix_spoiler]"
+#~ msgstr ""
+#~ "[%prefix_spoiler]内容[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]内容[/%prefix_spoiler]\n"
+#~ "[%prefix_spoiler]内容[/%prefix_spoiler]"
+
+#~ msgid "Divider"
+#~ msgstr "分隔符"
+
+#~ msgid "Show TOP link"
+#~ msgstr "显示 TOP 链接"
+
+#~ msgid "Show link to top of the page or not"
+#~ msgstr "是否显示返回顶部链接"
+
+#~ msgid "Go to top"
+#~ msgstr "到顶部"
+
+#~ msgid "Link text"
+#~ msgstr "链接文字"
+
+#~ msgid "Text for the GO TOP link"
+#~ msgstr "这个文字是用于到顶部链接"
+
+#~ msgid "Content divider with optional TOP link"
+#~ msgstr "内容分隔符并选配到顶部的链接"
+
+#~ msgid "Height of the spacer in pixels"
+#~ msgstr "间隔符的高度"
+
+#~ msgid "Empty space with adjustable height"
+#~ msgstr "高度可调间隔符"
+
+#~ msgid "Highlight"
+#~ msgstr "高亮"
+
+#~ msgid "Highlighted text background color"
+#~ msgstr "高亮文本的背景颜色"
+
+#~ msgid "Highlighted text color"
+#~ msgstr "高亮文字颜色"
+
+#~ msgid "Highlighted text"
+#~ msgstr "高亮文本"
+
+#~ msgid "Important"
+#~ msgstr "重要"
+
+#~ msgid "Black"
+#~ msgstr "黑色"
+
+#~ msgid "Style of the label"
+#~ msgstr "标记的风格"
+
+#~ msgid "Styled label"
+#~ msgstr "多风格标记"
+
+#~ msgid "Quote"
+#~ msgstr "引用"
+
+#~ msgid "Choose style for this quote"
+#~ msgstr "选项引用的风格"
+
+#~ msgid "Cite"
+#~ msgstr "引用"
+
+#~ msgid "Quote author name"
+#~ msgstr "引用作者姓名"
+
+#~ msgid "Cite url"
+#~ msgstr "引用链接"
+
+#~ msgid "Url of the quote author. Leave empty to disable link"
+#~ msgstr "引用作者的链接，留空为禁用。"
+
+#~ msgid "Blockquote alternative"
+#~ msgstr "片段引用"
+
+#~ msgid "Pullquote"
+#~ msgstr "重要引述"
+
+#~ msgid "Pullquote alignment (float)"
+#~ msgstr "引述的对齐方式（浮动）"
+
+#~ msgid "Flat"
+#~ msgstr "方块"
+
+#~ msgid "Light"
+#~ msgstr "发光"
+
+#~ msgid "Dropcap style preset"
+#~ msgstr "首字下沉风格"
+
+#~ msgid "Choose dropcap size"
+#~ msgstr "选择下沉的尺寸"
+
+#~ msgid "D"
+#~ msgstr "D"
+
+#~ msgid "Frame"
+#~ msgstr "边框"
+
+#~ msgid "Frame alignment"
+#~ msgstr "边框对齐"
+
+#~ msgid "Styled image frame"
+#~ msgstr "图片边框"
+
+#~ msgid ""
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]Content[/%prefix_column]"
+#~ msgstr ""
+#~ "[%prefix_column size=\"1/3\"]内容[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]内容[/%prefix_column]\n"
+#~ "[%prefix_column size=\"1/3\"]内容[/%prefix_column]"
+
+#~ msgid "Full width"
+#~ msgstr "全宽"
+
+#~ msgid "One half"
+#~ msgstr "二分之一"
+
+#~ msgid "One third"
+#~ msgstr "三分之一"
+
+#~ msgid "Two third"
+#~ msgstr "三分之二"
+
+#~ msgid "One fourth"
+#~ msgstr "四分之一"
+
+#~ msgid "Three fourth"
+#~ msgstr "四分之三"
+
+#~ msgid "One fifth"
+#~ msgstr "五分之一"
+
+#~ msgid "Two fifth"
+#~ msgstr "五分之二"
+
+#~ msgid "Three fifth"
+#~ msgstr "五分之三"
+
+#~ msgid "Four fifth"
+#~ msgstr "五分之四"
+
+#~ msgid "One sixth"
+#~ msgstr "六分之一"
+
+#~ msgid "Five sixth"
+#~ msgstr "六分之五"
+
+#~ msgid "Select column width. This width will be calculated depend page width"
+#~ msgstr "选择列的宽度。这个宽度的计算方法取决于页面宽度。"
+
+#~ msgid "Is this column centered on the page"
+#~ msgstr "这个列在页面上居中"
+
+#~ msgid "You can upload custom icon for this list or pick a built-in icon"
+#~ msgstr "您可以为这个列表上传自定义图标或选择一个内置的图标"
+
+#~ msgid "Icon color"
+#~ msgstr "图标颜色"
+
+#~ msgid ""
+#~ "This color will be applied to the selected icon. Does not works with "
+#~ "uploaded icons"
+#~ msgstr "这种颜色将被应用到内置的图标。对自行上传的图标无效"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "<li>List item</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li>内容</li>\n"
+#~ "<li>内容</li>\n"
+#~ "<li>内容</li>\n"
+#~ "</ul>"
+
+#~ msgid "Styled unordered list"
+#~ msgstr "无序列表"
+
+#~ msgid "Soft"
+#~ msgstr "柔和"
+
+#~ msgid "Glass"
+#~ msgstr "玻璃"
+
+#~ msgid "Bubbles"
+#~ msgstr "气泡"
+
+#~ msgid "Noise"
+#~ msgstr "杂色"
+
+#~ msgid "Stroked"
+#~ msgstr "虚线"
+
+#~ msgid "3D"
+#~ msgstr "3D"
+
+#~ msgid "Button background style preset"
+#~ msgstr "按钮的背景风格预设"
+
+#~ msgid "Button size"
+#~ msgstr "按钮尺寸"
+
+#~ msgid "Fluid buttons has 100% width"
+#~ msgstr "流体按钮有100％的宽度"
+
+#~ msgid "Round"
+#~ msgstr "圆"
+
+#~ msgid "Radius"
+#~ msgstr "半径"
+
+#~ msgid ""
+#~ "Radius of button corners. Auto-radius calculation based on button size"
+#~ msgstr "按钮半径角度。自动半径计算根据按钮大小。"
+
+#~ msgid "Text shadow"
+#~ msgstr "文字阴影"
+
+#~ msgid "Button text shadow"
+#~ msgstr "按钮文字阴影"
+
+#~ msgid ""
+#~ "Small description under button text. This option is incompatible with "
+#~ "icon."
+#~ msgstr "鼠标指在按钮上简短的文字描述。此选项与图标不兼容。"
+
+#~ msgid "onClick"
+#~ msgstr "点击"
+
+#~ msgid "Advanced JavaScript code for onClick action"
+#~ msgstr "点击动作的高级JavaScript代码"
+
+#~ msgid "Service"
+#~ msgstr "服务"
+
+#~ msgid "Service title"
+#~ msgstr "服务标题"
+
+#~ msgid "Service name"
+#~ msgstr "服务名字"
+
+#~ msgid "You can upload custom icon for this box"
+#~ msgstr "你可以上传一个自定义图标或选择一个内置图标"
+
+#~ msgid "Size of the uploaded icon in pixels"
+#~ msgstr "上传的图标尺寸"
+
+#~ msgid "Service description"
+#~ msgstr "服务说明"
+
+#~ msgid "Service box with title"
+#~ msgstr "服务框"
+
+#~ msgid "Box title"
+#~ msgstr "框标题"
+
+#~ msgid "Text for the box title"
+#~ msgstr "框标题的文字"
+
+#~ msgid "Box style preset"
+#~ msgstr "框预设风格"
+
+#~ msgid "Color for the box title and borders"
+#~ msgstr "框的标题和边的颜色"
+
+#~ msgid "Color for the box title text"
+#~ msgstr "框的标题颜色"
+
+#~ msgid "Box corners radius"
+#~ msgstr "框角半径"
+
+#~ msgid "Box content"
+#~ msgstr "框内容"
+
+#~ msgid "Colored box with caption"
+#~ msgstr "颜色框"
+
+#~ msgid "Note"
+#~ msgstr "注释背景颜色"
+
+#~ msgid "Note background color"
+#~ msgstr "注释背景颜色"
+
+#~ msgid "Note text color"
+#~ msgstr "注释文字颜色"
+
+#~ msgid "Note corners radius"
+#~ msgstr "注释边角半径"
+
+#~ msgid "Note text"
+#~ msgstr "注释文字"
+
+#~ msgid "Colored box"
+#~ msgstr "彩色框"
+
+#~ msgid "Lightbox"
+#~ msgstr "灯箱"
+
+#~ msgid "Iframe"
+#~ msgstr "Iframe"
+
+#~ msgid "Inline (html content)"
+#~ msgstr "Inline (html content)"
+
+#~ msgid "Content type"
+#~ msgstr "内容类型"
+
+#~ msgid "Select type of the lightbox window content"
+#~ msgstr "选择灯箱窗口内容的类型"
+
+#~ msgid "Content source"
+#~ msgstr "内容来源"
+
+#~ msgid ""
+#~ "Insert here URL or CSS selector. Use URL for Iframe and Image content "
+#~ "types. Use CSS selector for Inline content type.<br />Example values:<br /"
+#~ "><b%value>http://www.youtube.com/watch?v=XXXXXXXXX</b> - YouTube video "
+#~ "(iframe)<br /><b%value>http://example.com/wp-content/uploads/image.jpg</"
+#~ "b> - uploaded image (image)<br /><b%value>http://example.com/</b> - any "
+#~ "web page (iframe)<br /><b%value>#contact-form</b> - any HTML content "
+#~ "(inline)"
+#~ msgstr ""
+#~ "在此处插入URL或CSS选择器。使用URL从I视频和图片的内容类型。使用CSS选择器，"
+#~ "内嵌的内容类型。<br />例如输入:<br /><b%value>http://www.youtube.com/"
+#~ "watch?v=XXXXXXXXX</b> - YouTube 视频 (iframe)<br /><b%value>http://"
+#~ "example.com/wp-content/uploads/image.jpg</b> - 上传的图片 (image)<br /><b"
+#~ "%value>http://example.com/</b> - 任何网页 (iframe)<br /><b%value>#contact-"
+#~ "form</b> -任何HTML内容 (inline)"
+
+#~ msgid "[%prefix_button] Click Here to Watch the Video [/%prefix_button]"
+#~ msgstr "[%prefix_button] 点击这里观看视频 [/%prefix_button]"
+
+#~ msgid "Lightbox window with custom content"
+#~ msgstr "自定义内容灯箱"
+
+#~ msgid "Tooltip"
+#~ msgstr "提示工具"
+
+#~ msgid "Basic: Light"
+#~ msgstr "基本：亮"
+
+#~ msgid "Basic: Dark"
+#~ msgstr "基本：暗"
+
+#~ msgid "Basic: Yellow"
+#~ msgstr "基本：黄"
+
+#~ msgid "Basic: Green"
+#~ msgstr "基本：绿"
+
+#~ msgid "Basic: Red"
+#~ msgstr "基本：红"
+
+#~ msgid "Basic: Blue"
+#~ msgstr "基本：蓝"
+
+#~ msgid "Youtube"
+#~ msgstr "Youtube"
+
+#~ msgid "Tipsy"
+#~ msgstr "黑"
+
+#~ msgid "Bootstrap"
+#~ msgstr "自举"
+
+#~ msgid "jTools"
+#~ msgstr "阴影"
+
+#~ msgid "Tipped"
+#~ msgstr "尖"
+
+#~ msgid "Cluetip"
+#~ msgstr "灰"
+
+#~ msgid "Tooltip window style"
+#~ msgstr "提示窗口样式"
+
+#~ msgid "Position"
+#~ msgstr "位置"
+
+#~ msgid "Tooltip position"
+#~ msgstr "提示工具位置"
+
+#~ msgid "Shadow"
+#~ msgstr "阴影"
+
+#~ msgid ""
+#~ "Add shadow to tooltip. This option is only works with basic styes, e.g. "
+#~ "blue, green etc."
+#~ msgstr "给提示工具添加阴影，只能用于基本风格，例如 基本：蓝、基本：绿等。"
+
+#~ msgid ""
+#~ "Use rounded for tooltip. This option is only works with basic styes, e.g. "
+#~ "blue, green etc."
+#~ msgstr "使用圆形的提示工具，只能用于基本风格，例如 基本：蓝、基本：绿等。"
+
+#~ msgid "Font size"
+#~ msgstr "字体大小"
+
+#~ msgid "Tooltip font size"
+#~ msgstr "提示工具字体大小"
+
+#~ msgid "Tooltip title"
+#~ msgstr "提示工具标题"
+
+#~ msgid ""
+#~ "Enter title for tooltip window. Leave this field empty to hide the title"
+#~ msgstr "为提示工具窗口中输入标题。将此字段留空，以隐藏标题。"
+
+#~ msgid "Tooltip text"
+#~ msgstr "提示工具文字"
+
+#~ msgid "Tooltip content"
+#~ msgstr "提示工具内容"
+
+#~ msgid "Enter tooltip content here"
+#~ msgstr "这里输入提示工具内容"
+
+#~ msgid "Show and hide on mouse hover"
+#~ msgstr "鼠标悬停显示和隐藏"
+
+#~ msgid "Show and hide by mouse click"
+#~ msgstr "鼠标点击显示和隐藏"
+
+#~ msgid "Always visible"
+#~ msgstr "始终可见"
+
+#~ msgid "Behavior"
+#~ msgstr "显示方式"
+
+#~ msgid "Select tooltip behavior"
+#~ msgstr "选择提示工具的显示方式"
+
+#~ msgid "Close button"
+#~ msgstr "关闭按钮"
+
+#~ msgid "Show close button"
+#~ msgstr "显示时关闭按钮"
+
+#~ msgid "[%prefix_button] Hover me to open tooltip [/%prefix_button]"
+#~ msgstr "[%prefix_button] 将鼠标悬停打开工具的提示 [/%prefix_button]"
+
+#~ msgid "Tooltip window with custom content"
+#~ msgstr "自定义内容提示工具"
+
+#~ msgid "Private"
+#~ msgstr "私人"
+
+#~ msgid "Private note text"
+#~ msgstr "私人注释文本"
+
+#~ msgid "Private note for post authors"
+#~ msgstr "私人注释"
+
+#~ msgid "YouTube"
+#~ msgstr "YouTube"
+
+#~ msgid "Url"
+#~ msgstr "链接"
+
+#~ msgid ""
+#~ "Url of YouTube page with video. Ex: http://youtube.com/watch?v=XXXXXX"
+#~ msgstr "YouTube视频的页面链接 例：http://youtube.com/watch?v=XXXXXX"
+
+#~ msgid "Player width"
+#~ msgstr "播放器宽度"
+
+#~ msgid "Player height"
+#~ msgstr "播放器高度"
+
+#~ msgid "Responsive"
+#~ msgstr "响应式"
+
+#~ msgid "Ignore width and height parameters and make player responsive"
+#~ msgstr "忽略宽度和高度参数，使播放器响应式。"
+
+#~ msgid "Autoplay"
+#~ msgstr "自动播放"
+
+#~ msgid "Play video automatically when page is loaded"
+#~ msgstr "页面加载视频时自动播放"
+
+#~ msgid "YouTube video"
+#~ msgstr "YouTube视频"
+
+#~ msgid "YouTube Advanced"
+#~ msgstr "高级YouTube"
+
+#~ msgid "Playlist"
+#~ msgstr "播放列表"
+
+#~ msgid ""
+#~ "Value is a comma-separated list of video IDs to play. If you specify a "
+#~ "value, the first video that plays will be the VIDEO_ID specified in the "
+#~ "URL path, and the videos specified in the playlist parameter will play "
+#~ "thereafter"
+#~ msgstr "该值是一个以逗号分隔的视频ID播放列表。"
+
+#~ msgid "0 - Hide controls"
+#~ msgstr "0 - 隐藏控件"
+
+#~ msgid "1 - Show controls"
+#~ msgstr "1 - 显示控制"
+
+#~ msgid "2 - Show controls when playback is started"
+#~ msgstr "2 - 开始播放时显示控件"
+
+#~ msgid ""
+#~ "This parameter indicates whether the video player controls will display"
+#~ msgstr "该参数表示的视频播放控件是否显示"
+
+#~ msgid "0 - Do not hide controls"
+#~ msgstr "0 - 不隐藏控件"
+
+#~ msgid "1 - Hide all controls on mouse out"
+#~ msgstr "1 - 在鼠标移出隐藏所有控件"
+
+#~ msgid "2 - Hide progress bar on mouse out"
+#~ msgstr "2 - 在鼠标移出来隐藏进度条"
+
+#~ msgid "Autohide"
+#~ msgstr "自动隐藏"
+
+#~ msgid ""
+#~ "This parameter indicates whether the video controls will automatically "
+#~ "hide after a video begins playing"
+#~ msgstr "该参数表示是否在视频开始播放后，视频控件会自动隐藏"
+
+#~ msgid "Show title bar"
+#~ msgstr "显示标题栏"
+
+#~ msgid ""
+#~ "If you set the parameter value to NO, then the player will not display "
+#~ "information like the video title and uploader before the video starts "
+#~ "playing."
+#~ msgstr ""
+#~ "如视频标题和上传视频开始播放之前。如果您将参数值设置为NO，那么播放器将不显"
+#~ "示信息。"
+
+#~ msgid "Loop"
+#~ msgstr "循环"
+
+#~ msgid ""
+#~ "Setting of YES will cause the player to play the initial video again and "
+#~ "again"
+#~ msgstr "设定是会造成播放器一次又一次的播放视频"
+
+#~ msgid "Related videos"
+#~ msgstr "相关视频"
+
+#~ msgid ""
+#~ "This parameter indicates whether the player should show related videos "
+#~ "when playback of the initial video ends"
+#~ msgstr "此参数指示播放器播放视频结束时是否应显示相关视频"
+
+#~ msgid "Show full-screen button"
+#~ msgstr "显示全屏按钮"
+
+#~ msgid ""
+#~ "Setting this parameter to NO prevents the fullscreen button from "
+#~ "displaying"
+#~ msgstr "如果将该参数设置为NO，无法显示全屏按钮"
+
+#~ msgid ""
+#~ "This parameter lets you use a YouTube player that does not show a YouTube "
+#~ "logo. Set the parameter value to YES to prevent the YouTube logo from "
+#~ "displaying in the control bar. Note that a small YouTube text label will "
+#~ "still display in the upper-right corner of a paused video when the user's "
+#~ "mouse pointer hovers over the player"
+#~ msgstr ""
+#~ "该参数可让您使用YouTube播放器并不显示一个YouTube LOGO。将参数值设置为YES以"
+#~ "防止YouTube标志显示在控制栏。需要注意的是暂停视频时用户的鼠标指针悬停在播"
+#~ "放器上YouTube文本标签将仍处于的右上角显示。"
+
+#~ msgid "Dark theme"
+#~ msgstr "暗的主题"
+
+#~ msgid "Light theme"
+#~ msgstr "亮的主题"
+
+#~ msgid "Theme"
+#~ msgstr "主题"
+
+#~ msgid ""
+#~ "This parameter indicates whether the embedded player will display player "
+#~ "controls (like a play button or volume control) within a dark or light "
+#~ "control bar"
+#~ msgstr ""
+#~ "该参数表示的嵌入式播放器是否会显示暗或亮的播放控件（如播放键或音量控制）"
+
+#~ msgid "YouTube video player with advanced settings"
+#~ msgstr "YouTube视频播放器的高级设置"
+
+#~ msgid "Vimeo"
+#~ msgstr "Vimeo"
+
+#~ msgid "Url of Vimeo page with video"
+#~ msgstr "Vimeo视频页面链接"
+
+#~ msgid "Vimeo video"
+#~ msgstr "Vimeo视频"
+
+#~ msgid "Screenr"
+#~ msgstr "Screenr"
+
+#~ msgid "Url of Screenr page with video"
+#~ msgstr "Screenr 视频页面链接"
+
+#~ msgid "Screenr video"
+#~ msgstr "Screenr视频"
+
+#~ msgid "Audio"
+#~ msgstr "音频"
+
+#~ msgid "File"
+#~ msgstr "文件"
+
+#~ msgid "Audio file url. Supported formats: mp3, ogg"
+#~ msgstr "音频文件链接。支持格式：mp3,ogg"
+
+#~ msgid ""
+#~ "Player width. You can specify width in percents and player will be "
+#~ "responsive. Example values: <b%value>200px</b>, <b%value>100&#37;</b>"
+#~ msgstr ""
+#~ "播放器宽度。你可以使用百分比或指定宽度。例如：<b%value>200px</b>, <b"
+#~ "%value>100&#37;</b>"
+
+#~ msgid "Play file automatically when page is loaded"
+#~ msgstr "页面加载时自动播放文件。"
+
+#~ msgid "Repeat when playback is ended"
+#~ msgstr "当播放结束重复播放。"
+
+#~ msgid "Custom audio player"
+#~ msgstr "自定义音频播放器"
+
+#~ msgid "Video"
+#~ msgstr "视频"
+
+#~ msgid "Url to mp4/flv video-file"
+#~ msgstr "mp4或flv格式的视频文件链接"
+
+#~ msgid "Url to poster image, that will be shown before playback"
+#~ msgstr "海报图像的链接，将在播放前显示在视频窗口上。"
+
+#~ msgid "Player title"
+#~ msgstr "播放器标题"
+
+#~ msgid "Show player controls (play/pause etc.) or not"
+#~ msgstr "显示播放控制（播放/暂停等）或不"
+
+#~ msgid "Custom video player"
+#~ msgstr "自定义视频播放器"
+
+#~ msgid "Table"
+#~ msgstr "表格"
+
+#~ msgid "CSV file"
+#~ msgstr "CSV文件"
+
+#~ msgid "Upload CSV file if you want to create HTML-table from file"
+#~ msgstr "上传CSV文件"
+
+#~ msgid ""
+#~ "<table>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "<tr>\n"
+#~ "\t<td>Table</td>\n"
+#~ "\t<td>Table</td>\n"
+#~ "</tr>\n"
+#~ "</table>"
+#~ msgstr ""
+#~ "<table>\n"
+#~ "<tr>\n"
+#~ "\t<td>内容</td>\n"
+#~ "\t<td>内容</td>\n"
+#~ "</tr>\n"
+#~ "<tr>\n"
+#~ "\t<td>内容</td>\n"
+#~ "\t<td>T内容</td>\n"
+#~ "</tr>\n"
+#~ "</table>"
+
+#~ msgid "Styled table from HTML or CSV file"
+#~ msgstr "HTML表格或CSV"
+
+#~ msgid "ID"
+#~ msgstr "ID"
+
+#~ msgid "Post or page ID"
+#~ msgstr "文章或页面的ID"
+
+#~ msgid "Link target. blank - link will be opened in new window/tab"
+#~ msgstr "链接的打开方式"
+
+#~ msgid "Permalink to specified post/page"
+#~ msgstr "文章或页面链接"
+
+#~ msgid "Members"
+#~ msgstr "会员"
+
+#~ msgid "This content is for registered users only. Please %login%."
+#~ msgstr "此内容仅供注册用户。请 %登录%."
+
+#~ msgid "Message for not logged users"
+#~ msgstr "没有注册登录用户的提示信息"
+
+#~ msgid "Box color"
+#~ msgstr "框的颜色"
+
+#~ msgid "This color will applied only to box for not logged users"
+#~ msgstr "这种颜色将仅适用于尚未登录用户"
+
+#~ msgid "login"
+#~ msgstr "登录"
+
+#~ msgid "Login link text"
+#~ msgstr "登录链接文字"
+
+#~ msgid "Text for the login link"
+#~ msgstr "文字用于登录链接"
+
+#~ msgid "Login link url"
+#~ msgstr "登录链接地址"
+
+#~ msgid "Content for logged members"
+#~ msgstr "登录用户的内容"
+
+#~ msgid "Content for logged in members only"
+#~ msgstr "只对已经登录的用户显示"
+
+#~ msgid "Guests"
+#~ msgstr "宾客的内容"
+
+#~ msgid "Content for guests"
+#~ msgstr "对游客显示的内容"
+
+#~ msgid "Content for guests only"
+#~ msgstr "只对游客显示的内容"
+
+#~ msgid "RSS Feed"
+#~ msgstr "RSS订阅"
+
+#~ msgid "Url to RSS-feed"
+#~ msgstr "RSS订阅地址"
+
+#~ msgid "Number of items to show"
+#~ msgstr "显示项目数量"
+
+#~ msgid "Feed grabber"
+#~ msgstr "订阅采集"
+
+#~ msgid "Menu name"
+#~ msgstr "菜单名字"
+
+#~ msgid "Custom menu name. Ex: Main menu"
+#~ msgstr "自定义菜单的名字：例：主菜单"
+
+#~ msgid "Custom menu by name"
+#~ msgstr "自定义菜单"
+
+#~ msgid "Sub pages"
+#~ msgstr "子页面"
+
+#~ msgid "Depth"
+#~ msgstr "层数"
+
+#~ msgid "Max depth level of children pages"
+#~ msgstr "子页面的最大层数级别"
+
+#~ msgid "Parent ID"
+#~ msgstr "父级ID"
+
+#~ msgid "ID of the parent page. Leave blank to use current page"
+#~ msgstr "父级页面的ID。留空将使用当前页。"
+
+#~ msgid "List of sub pages"
+#~ msgstr "子页面的列表"
+
+#~ msgid "Siblings"
+#~ msgstr "相关页面"
+
+#~ msgid "Max depth level"
+#~ msgstr "最大层数级别"
+
+#~ msgid "List of cureent page siblings"
+#~ msgstr "当前页面的相关页面列表"
+
+#~ msgid "Document"
+#~ msgstr "文档"
+
+#~ msgid "Url to uploaded document. Supported formats: doc, xls, pdf etc."
+#~ msgstr "上传文件的地址。支持的格式： doc, xls, pdf etc."
+
+#~ msgid "Viewer width"
+#~ msgstr "浏览器宽度"
+
+#~ msgid "Viewer height"
+#~ msgstr "浏览器高度"
+
+#~ msgid "Ignore width and height parameters and make viewer responsive"
+#~ msgstr "忽略宽度和高度参数，使用网站响应。"
+
+#~ msgid "Document viewer by Google"
+#~ msgstr "谷歌文档浏览器"
+
+#~ msgid "Gmap"
+#~ msgstr "谷歌地图"
+
+#~ msgid "Map width"
+#~ msgstr "地图宽度"
+
+#~ msgid "Ignore width and height parameters and make map responsive"
+#~ msgstr "忽略宽度和高度参数，并做出响应的地图。"
+
+#~ msgid "Marker"
+#~ msgstr "标识"
+
+#~ msgid "Address for the marker. You can type it in any language"
+#~ msgstr "地址标识。你可以键入任何语言"
+
+#~ msgid "Maps by Google"
+#~ msgstr "谷歌地图"
+
+#~ msgid "Source"
+#~ msgstr "来源"
+
+#~ msgid ""
+#~ "Choose images source. You can use images from Media library or retrieve "
+#~ "it from posts (thumbnails) posted under specified blog category. You can "
+#~ "also pick any custom taxonomy"
+#~ msgstr ""
+#~ "选择图像源。您可以从媒体库中使用的图像或张贴在指定类别的博客文章（缩略图）"
+#~ "进行检索。您也可以选择任何自定义分类。"
+
+#~ msgid "Full-size image"
+#~ msgstr "全尺寸图片"
+
+#~ msgid "Attachment page"
+#~ msgstr "附件页面"
+
+#~ msgid "Post permalink"
+#~ msgstr "文章固定链接"
+
+#~ msgid "Links"
+#~ msgstr "链接"
+
+#~ msgid "Select which links will be used for images in this gallery"
+#~ msgstr "选择哪个链接的于图像将用在这个画廊"
+
+#~ msgid "Same window"
+#~ msgstr "当前窗口"
+
+#~ msgid "New window"
+#~ msgstr "新窗口"
+
+#~ msgid "Links target"
+#~ msgstr "链接目标"
+
+#~ msgid "Open links in"
+#~ msgstr "链接打开方式"
+
+#~ msgid "Slider width (in pixels)"
+#~ msgstr "幻灯宽度(in pixels)"
+
+#~ msgid "Slider height (in pixels)"
+#~ msgstr "幻灯高度(in pixels)"
+
+#~ msgid "Ignore width and height parameters and make slider responsive"
+#~ msgstr "忽略宽度和高度参数，使幻灯响应"
+
+#~ msgid "Show titles"
+#~ msgstr "显示标题"
+
+#~ msgid "Display slide titles"
+#~ msgstr "开启幻灯标题"
+
+#~ msgid "Is slider centered on the page"
+#~ msgstr "幻灯在页面上居中"
+
+#~ msgid "Arrows"
+#~ msgstr "箭头"
+
+#~ msgid "Show left and right arrows"
+#~ msgstr "显示左右箭头"
+
+#~ msgid "Show pagination"
+#~ msgstr "显示分页"
+
+#~ msgid "Mouse wheel control"
+#~ msgstr "鼠标滚轮控制"
+
+#~ msgid "Allow to change slides with mouse wheel"
+#~ msgstr "允许鼠标滚轮切换幻灯片。"
+
+#~ msgid ""
+#~ "Choose interval between slide animations. Set to 0 to disable autoplay"
+#~ msgstr "选择幻灯片动画之间的间隔时间。设置为0以禁用自动播放。"
+
+#~ msgid "Speed"
+#~ msgstr "速度"
+
+#~ msgid "Specify animation speed"
+#~ msgstr "指定动画速度"
+
+#~ msgid "Customizable image slider"
+#~ msgstr "图像幻灯"
+
+#~ msgid "Carousel"
+#~ msgstr "轮播"
+
+#~ msgid "Original image"
+#~ msgstr "原始图像"
+
+#~ msgid "Carousel width (in pixels)"
+#~ msgstr "轮播宽度（in pixels）"
+
+#~ msgid "Carousel height (in pixels)"
+#~ msgstr "轮播高度（in pixels）"
+
+#~ msgid "Ignore width and height parameters and make carousel responsive"
+#~ msgstr "忽略宽度和高度参数，使轮播响应"
+
+#~ msgid "Items to show"
+#~ msgstr "显示项目数"
+
+#~ msgid "How much carousel items is visible"
+#~ msgstr "多少轮播项目"
+
+#~ msgid "Scroll number"
+#~ msgstr "滚动数"
+
+#~ msgid "How much items are scrolled in one transition"
+#~ msgstr "有多少项目，一个滚动过渡"
+
+#~ msgid "Display titles for each item"
+#~ msgstr "为每个项目显示标题"
+
+#~ msgid "Is carousel centered on the page"
+#~ msgstr "轮播在页面上居中"
+
+#~ msgid "Allow to rotate carousel with mouse wheel"
+#~ msgstr "允许用鼠标滚轮转动"
+
+#~ msgid ""
+#~ "Choose interval between auto animations. Set to 0 to disable autoplay"
+#~ msgstr "选择自动动画之间的间隔时间。设置为0以禁用自动播放。"
+
+#~ msgid "Customizable image carousel"
+#~ msgstr "自定义图片轮播"
+
+#~ msgid "Single item width (in pixels)"
+#~ msgstr "单个项目宽度(in pixels)"
+
+#~ msgid "Single item height (in pixels)"
+#~ msgstr "单个项目高度(in pixels)"
+
+#~ msgid "Never"
+#~ msgstr "从不"
+
+#~ msgid "On mouse over"
+#~ msgstr "鼠标悬停"
+
+#~ msgid "Always"
+#~ msgstr "一直"
+
+#~ msgid "Title display mode"
+#~ msgstr "标题显示模式"
+
+#~ msgid "Customizable image gallery"
+#~ msgstr "自定义图片画廊"
+
+#~ msgid ""
+#~ "<b>Do not change this field value if you do not understand description "
+#~ "below.</b><br/>Relative path to the template file. Default templates is "
+#~ "placed under the plugin directory (templates folder). You can copy it "
+#~ "under your theme directory and modify as you want. You can use following "
+#~ "default templates that already available in the plugin directory:<br/><b"
+#~ "%value>templates/default-loop.php</b> - posts loop<br/><b%value>templates/"
+#~ "teaser-loop.php</b> - posts loop with thumbnail and title<br/><b"
+#~ "%value>templates/single-post.php</b> - single post template<br/><b"
+#~ "%value>templates/list-loop.php</b> - unordered list with posts titles"
+#~ msgstr ""
+#~ "<b>请不要更改此字段的值，如果你不明白下面的说明。</b><br/>相对路径的模板文"
+#~ "件。默认模板放置在插件目录（templates folder）下。您可以将它复制你的主题目"
+#~ "录下，并修改为你想要的。您可以使用以下默认模板它们已经可以在插件目录：<br/"
+#~ "><b%value>templates/default-loop.php</b> - 文章<br/><b%value>templates/"
+#~ "teaser-loop.php</b> -文章、标题和缩略图<br/><b%value>templates/single-"
+#~ "post.php</b> - 单个文章模版<br/><b%value>templates/list-loop.php</b> - 无"
+#~ "序列表与文章标题"
+
+#~ msgid "Choose the authors whose posts you want to show"
+#~ msgstr "选择您想要显示文章的作者"
+
+#~ msgid "Meta key"
+#~ msgstr "Meta键"
+
+#~ msgid "Enter meta key name to show posts that have this key"
+#~ msgstr "输入meta键名以表明有此要职"
+
+#~ msgid "Meta key values"
+#~ msgstr "Meta键的值"
+
+#~ msgid "Dummy text"
+#~ msgstr "虚拟文本"
+
+#~ msgid "Paragraphs"
+#~ msgstr "段落"
+
+#~ msgid "Words"
+#~ msgstr "字符"
+
+#~ msgid "Bytes"
+#~ msgstr "字节"
+
+#~ msgid "What"
+#~ msgstr "什么"
+
+#~ msgid "What to generate"
+#~ msgstr "什么来生成"
+
+#~ msgid "Amount"
+#~ msgstr "数量"
+
+#~ msgid ""
+#~ "How many items (paragraphs or words) to generate. Minimum words amount is "
+#~ "5"
+#~ msgstr "用多少项（段或字）来生成。最小字量为5"
+
+#~ msgid "Cache"
+#~ msgstr "缓存"
+
+#~ msgid ""
+#~ "Generated text will be cached. Be careful with this option. If you "
+#~ "disable it and insert many dummy_text shortcodes the page load time will "
+#~ "be highly increased"
+#~ msgstr ""
+#~ "生成的文本将被缓存。请小心使用此选项。如果您禁用它，并插入许多dummy_text简"
+#~ "码页面加载时间将大大提高"
+
+#~ msgid "Text placeholder"
+#~ msgstr "文本占位符"
+
+#~ msgid "Dummy image"
+#~ msgstr "虚拟图像"
+
+#~ msgid "Image width"
+#~ msgstr "图像宽度"
+
+#~ msgid "Image height"
+#~ msgstr "图像高度"
+
+#~ msgid "Abstract"
+#~ msgstr "抽象"
+
+#~ msgid "Animals"
+#~ msgstr "动物"
+
+#~ msgid "Business"
+#~ msgstr "商业"
+
+#~ msgid "Cats"
+#~ msgstr "猫"
+
+#~ msgid "City"
+#~ msgstr "城市"
+
+#~ msgid "Food"
+#~ msgstr "食物"
+
+#~ msgid "Night life"
+#~ msgstr "夜生活"
+
+#~ msgid "Fashion"
+#~ msgstr "时尚"
+
+#~ msgid "People"
+#~ msgstr "人物"
+
+#~ msgid "Nature"
+#~ msgstr "自然"
+
+#~ msgid "Sports"
+#~ msgstr "体育"
+
+#~ msgid "Technics"
+#~ msgstr "工艺"
+
+#~ msgid "Transport"
+#~ msgstr "交通"
+
+#~ msgid "Select the theme for this image"
+#~ msgstr "选择图片主题"
+
+#~ msgid "Image placeholder with random image"
+#~ msgstr "随机图像占位符"
+
+#~ msgid "Animation"
+#~ msgstr "动画"
+
+#~ msgid "Select animation type"
+#~ msgstr "选择动画类型"
+
+#~ msgid "Duration"
+#~ msgstr "持续时间"
+
+#~ msgid "Animation duration (seconds)"
+#~ msgstr "动画持续时间（秒）"
+
+#~ msgid "Delay"
+#~ msgstr "延迟"
+
+#~ msgid "Animation delay (seconds)"
+#~ msgstr "动画延迟（秒）"
+
+#~ msgid ""
+#~ "This parameter determines what HTML tag will be used for animation "
+#~ "wrapper. Turn this option to YES and animated element will be wrapped in "
+#~ "SPAN instead of DIV. Useful for inline animations, like buttons"
+#~ msgstr ""
+#~ "这个参数决定了HTML标记将用于动画包装。开启此选项设置为YES和动画元素将被包"
+#~ "装，而不是DIV在SPAN。有用的在线动画，如此按钮。"
+
+#~ msgid "Animated content"
+#~ msgstr "动画内容"
+
+#~ msgid "Wrapper for animation. Any nested element will be animated"
+#~ msgstr "任何嵌套元素将被动画"
+
+#~ msgid "Key"
+#~ msgstr "键"
+
+#~ msgid "Meta key name"
+#~ msgstr "Meta键名字"
+
+#~ msgid "This text will be shown if data is not found"
+#~ msgstr "如果没有找到该数据文本将被显示"
+
+#~ msgid "Before"
+#~ msgstr "之前"
+
+#~ msgid "This content will be shown before the value"
+#~ msgstr "这个内容将被显示之前值"
+
+#~ msgid "After"
+#~ msgstr "之后"
+
+#~ msgid "This content will be shown after the value"
+#~ msgstr "这个内容将被显示之后值"
+
+#~ msgid ""
+#~ "You can specify custom post ID. Leave this field empty to use an ID of "
+#~ "the current post. Current post ID may not work in Live Preview mode"
+#~ msgstr ""
+#~ "您可以指定自定义文章的ID。将此字段留空以使用当前文章的ID。当前文章ID可能无"
+#~ "法在即时预览模式下工作"
+
+#~ msgid ""
+#~ "You can apply custom filter to the retrieved value. Enter here function "
+#~ "name. Your function must accept one argument and return modified value. "
+#~ "Example function: "
+#~ msgstr ""
+#~ "You can apply custom filter to the retrieved value. Enter here function "
+#~ "name. Your function must accept one argument and return modified value. "
+#~ "Example function: "
+
+#~ msgid "Post meta"
+#~ msgstr "文章META"
+
+#~ msgid "User"
+#~ msgstr "用户"
+
+#~ msgid "Display name"
+#~ msgstr "显示名称"
+
+#~ msgid "Login"
+#~ msgstr "登录"
+
+#~ msgid "Nice name"
+#~ msgstr "昵称"
+
+#~ msgid "Email"
+#~ msgstr "Email"
+
+#~ msgid "Registered"
+#~ msgstr "注册"
+
+#~ msgid "Activation key"
+#~ msgstr "激活码"
+
+#~ msgid "Status"
+#~ msgstr "状态"
+
+#~ msgid "Field"
+#~ msgstr "领域"
+
+#~ msgid "User data field name"
+#~ msgstr "用户数据字段名"
+
+#~ msgid "User ID"
+#~ msgstr "用户ID"
+
+#~ msgid ""
+#~ "You can specify custom user ID. Leave this field empty to use an ID of "
+#~ "the current user"
+#~ msgstr "您可以指定自定义的用户ID。将此字段留空以使用当前用户的ID"
+
+#~ msgid "User data"
+#~ msgstr "用户数据"
+
+#~ msgid "Post date"
+#~ msgstr "文章日期"
+
+#~ msgid "Post excerpt"
+#~ msgstr "文章摘录"
+
+#~ msgid "Comment status"
+#~ msgstr "评论状态"
+
+#~ msgid "Ping status"
+#~ msgstr "ping状态"
+
+#~ msgid "Post name"
+#~ msgstr "文章名称"
+
+#~ msgid "Post modified"
+#~ msgstr "修改的文章"
+
+#~ msgid "Filtered post content"
+#~ msgstr "筛选过文章内容"
+
+#~ msgid "GUID"
+#~ msgstr "GUID"
+
+#~ msgid "Post mime type"
+#~ msgstr "文章mime类型"
+
+#~ msgid "Comment count"
+#~ msgstr "评论计数"
+
+#~ msgid "Post data field name"
+#~ msgstr "文章数据的字段名"
+
+#~ msgid "Post data"
+#~ msgstr "文章数据"
+
+#~ msgid "Plugin settings"
+#~ msgstr "插件设置"
+
+#~ msgid "Plugin homepage"
+#~ msgstr "官方网站"
+
+#~ msgid "Support forums"
+#~ msgstr "技术论坛"
+
+#~ msgid "Shortcodes Ultimate"
+#~ msgstr "终极简码"
+
+#~ msgid "Shortcodes"
+#~ msgstr "简码"
+
+#~ msgid "About"
+#~ msgstr "关于"
+
+#~ msgid "Custom formatting"
+#~ msgstr "自定义格式"
+
+#~ msgid ""
+#~ "Disable this option if you have some problems with other plugins or "
+#~ "content formatting"
+#~ msgstr "如果你发现与其他插件或内容格式出现一些问题请禁用此选项"
+
+#~ msgid "Documentation article"
+#~ msgstr "说明文章"
+
+#~ msgid "Skip default values"
+#~ msgstr "跳过默认值"
+
+#~ msgid ""
+#~ "Enable this option and the generator will insert a shortcode without "
+#~ "default attribute values that you have not changed. As a result, the "
+#~ "generated code will be shorter."
+#~ msgstr ""
+#~ "启用此选项，生成器将插入一个你没有做任何修改的默认属性的简码。其结果是，所"
+#~ "生成的简码会更短。"
+
+#~ msgid "Shortcodes prefix"
+#~ msgstr "简码前缀"
+
+#~ msgid ""
+#~ "This prefix will be added to all shortcodes by this plugin. For example, "
+#~ "type here %s and you'll get shortcodes like %s and %s. Please keep in "
+#~ "mind: this option is not affects your already inserted shortcodes and if "
+#~ "you'll change this value your old shortcodes will be broken"
+#~ msgstr ""
+#~ "此前缀将被添加到这个插件的所有简码。例如，在此处键入 %s 你会得到这样的 %s "
+#~ "and %s简码。请记住：这个选项不影响你已经插入简码，如果你改变这个值原来简码"
+#~ "将被打破。"
+
+#~ msgid "Skin"
+#~ msgstr "皮肤"
+
+#~ msgid "Choose global skin for shortcodes"
+#~ msgstr "为简码选择皮肤"
+
+#~ msgid "Custom CSS"
+#~ msgstr "自定义CSS"
+
+#~ msgid "Examples"
+#~ msgstr "示例"
+
+#~ msgid "Add-ons"
+#~ msgstr "附加组件"
+
+#~ msgid "Vladimir Anokhin"
+#~ msgstr "Vladimir Anokhin"
+
+#~ msgid "Supercharge your WordPress theme with mega pack of shortcodes"
+#~ msgstr "增强您的WordPress主题与简码。"
+
+#~ msgid "Where to start?"
+#~ msgstr "从哪里开始？"
+
+#~ msgid ""
+#~ "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not "
+#~ "fully compatible with your PHP version (%s).<br />Reccomended PHP version "
+#~ "&ndash; %s (or higher).</p><a href=\"%s\">&larr; Return to the plugins "
+#~ "screen</a> <a href=\"%s\"%s>Continue and activate anyway &rarr;</a>"
+#~ msgstr ""
+#~ "<h1>糟糕！插件没有被完全激活;</h1> <p>终极简码可能与你的PHP版本不兼容 "
+#~ "(%s).<br />Reccomended PHP version &ndash; %s (or higher).</p><a href=\"%s"
+#~ "\">&larr;返回到插件页面</a> <a href=\"%s\"%s>继续激活不管当前错误 &rarr;</"
+#~ "a>"
+
+#~ msgid ""
+#~ "<h1>Oops! Plugin not activated&hellip;</h1> <p>Shortcodes Ultimate is not "
+#~ "fully compatible with your version of WordPress (%s).<br />Reccomended "
+#~ "WordPress version &ndash; %s (or higher).</p><a href=\"%s\">&larr; Return "
+#~ "to the plugins screen</a> <a href=\"%s\"%s>Continue and activate anyway "
+#~ "&rarr;</a>"
+#~ msgstr ""
+#~ "<h1>糟糕！插件没有被完全激活;</h1> <p>终极简码可能与你的wordpress版本不兼"
+#~ "容(%s).<br />Reccomended WordPress version &ndash; %s (or higher).</p><a "
+#~ "href=\"%s\">&larr; 返回插件页面</a> <a href=\"%s\"%s>继续激活不管当前错误 "
+#~ "&rarr;</a>"
+
+#~ msgid "This is box title"
+#~ msgstr "这是框的标题"
+
+#~ msgid "please specify correct source"
+#~ msgstr "请注明正确的源"
+
+#~ msgid "please specify correct url"
+#~ msgstr "请注明正确的网址"
+
+#~ msgid "This menu doesn't exists, or has no elements"
+#~ msgstr "此菜单不存在，或没有任何元素"
+
+#~ msgid "images not found"
+#~ msgstr "图片未找到"
+
+#~ msgid "template not found"
+#~ msgstr "模板未找到"
+
+#~ msgid "post ID is incorrect"
+#~ msgstr "文章ID不正确"
+
+#~ msgid "please specify meta key name"
+#~ msgstr "请注明meta键名"
+
+#~ msgid "password field is not allowed"
+#~ msgstr "密码字段中有不允许字符"
+
+#~ msgid "user ID is incorrect"
+#~ msgstr "用户ID不正确"
+
+#~ msgid "Example code does not found, please check it later"
+#~ msgstr "示例代码没有找到，请稍后查看"
+
+#~ msgid "Get the code"
+#~ msgstr "获取代码"
+
+#~ msgid ""
+#~ "Hello, my name is Vladimir Anokhin, and I am developer of plugin "
+#~ "<b>Shortcodes Ultimate</b>.<br>If you like this plugin, please write a "
+#~ "few words about it at the wordpress.org or twitter. It will help other "
+#~ "people find this useful plugin more quickly.<br><b>Thank you!</b>"
+#~ msgstr ""
+#~ "你好，我的名字是Vladimir Anokhin，我是插件<b>简码终极</b>开发者的。<br>如"
+#~ "果你喜欢这个插件，请写关于它的几句话在wordpress.org或Twitter。这将帮助其他"
+#~ "人更快地找到这个有用的插件。<br><b>谢谢!</b><br>本插件汉化有<b>祥磊部落</"
+#~ "b>提供<br>"
+
+#~ msgid "Rate plugin"
+#~ msgstr "利率插件"
+
+#~ msgid "Shortcodes Ultimate - must have WordPress plugin #shortcodesultimate"
+#~ msgstr "终极简码 - WordPress必须有的插件#shortcodesultimate"
+
+#~ msgid "Tweet"
+#~ msgstr "Twitter"
+
+#~ msgid "No, thanks"
+#~ msgstr "不，谢谢。"
+
+#~ msgid "Remind me later"
+#~ msgstr "稍后提醒我"
+
+#~ msgid "Special Shortcodes Ultimate widget"
+#~ msgstr "特殊终极简码小工具"
+
+#~ msgid "Posted"
+#~ msgstr "发表于"
+
+#~ msgid "0 comments"
+#~ msgstr "0 条评论"
+
+#~ msgid "1 comment"
+#~ msgstr "1 条评论"

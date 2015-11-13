@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -69,7 +69,7 @@ function cherry_register_styles() {
 /**
  * Tells WordPress to load the styles needed for the framework using the wp_enqueue_style() function.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_enqueue_styles() {
 	// Get framework styles.
@@ -82,115 +82,7 @@ function cherry_enqueue_styles() {
 }
 
 /**
- * Returns an array of the core framework's available styles for use in themes.
- *
- * @since  4.0.0
- * @return array $styles All the available framework styles.
- */
-function cherry_get_styles() {
-	// Get the theme prefix.
-	$prefix = cherry_get_prefix();
-
-	// Get the active theme stylesheet version.
-	$version = wp_get_theme()->get( 'Version' );
-
-	// Prepare set of stylesheets.
-	$styles = array();
-
-	// Get the theme-supported stylesheets.
-	$supports = get_theme_support( 'cherry-styles' );
-
-	// If the theme support for any styles.
-	if ( ! empty( $supports[0] ) && is_array( $supports[0] ) ) :
-
-		$drop_downs = array(
-			'handle'  => get_template() . '-drop-downs',
-			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
-			'version' => '1.0.0',
-		);
-
-		// Is responsive site?
-		$responsive = cherry_get_option( 'grid-responsive' );
-
-		$grid_responsive = ( 'true' == $responsive ) ?
-			array(
-				'handle'  => $prefix . 'grid-responsive',
-				'src'     => cherry_file_uri( 'assets/css/grid-responsive.css' ),
-				'version' => $version,
-			) : false;
-
-		$main_responsive = ( 'true' == $responsive ) ?
-			array(
-				'handle'  => $prefix . 'main-responsive',
-				'src'     => cherry_file_uri( 'assets/css/main-responsive.css' ),
-				'version' => $version,
-			) : false;
-
-		// Default styles.
-		$defaults = apply_filters( 'cherry_get_styles_defaults', array(
-			'grid-base' => array(
-				'handle'  => $prefix . 'grid-base',
-				'src'     => cherry_file_uri( 'assets/css/grid-base.css' ),
-				'version' => $version,
-			),
-			'grid-responsive' => $grid_responsive,
-			'drop-downs'      => $drop_downs,
-			'magnific-popup'  => array(
-				'handle'  => 'magnific-popup',
-				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/magnific-popup.css',
-				'version' => '1.0.0',
-			),
-			'slick' => array(
-				'handle'  => 'slick',
-				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/slick.css',
-				'version' => '1.5.0',
-			),
-			'main' => array(
-				'handle'  => $prefix . 'main',
-				'src'     => cherry_file_uri( 'assets/css/main.css' ),
-				'version' => $version,
-			),
-			'main-responsive' => $main_responsive,
-			'add-ons' => array(
-				'handle'  => get_template() . '-add-ons',
-				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
-				'version' => CHERRY_VERSION,
-			),
-		) );
-
-		foreach ( $supports[0] as $s ) {
-
-			if ( empty( $defaults[ $s ] ) ) {
-				continue;
-			}
-
-			if ( ! is_array( $defaults[ $s ] ) ) {
-				continue;
-			}
-
-			$styles[ $s ] = $defaults[ $s ];
-		}
-
-	endif;
-
-	// Add the main stylesheet (this must be included).
-	$styles['style'] = array(
-		'handle'  => $prefix . 'style',
-		'src'     => get_stylesheet_uri(),
-		'version' => $version,
-	);
-
-	/**
-	 * Filters the array of styles.
-	 *
-	 * @since 4.0.0
-	 * @param array $styles
-	 */
-	return apply_filters( 'cherry_get_styles', $styles );
-}
-
-/**
- * Get post specific CSS styles and paste it to head
+ * Get post specific CSS styles and paste it to head.
  *
  * @since 4.0.0
  */
@@ -213,19 +105,21 @@ function cherry_post_inline_styles() {
 		return;
 	}
 
-	$object_id = apply_filters( 'cherry_current_object_id', $post_id );
-	$styles    = get_post_meta( $object_id, 'cherry_style', true );
+	$header_bg = cherry_current_page()->get_property( 'background', 'header' );
 
-	if ( ! $styles ) {
+	if ( ! $header_bg ) {
 		return;
 	}
 
-	$custom_bg = '';
+	$custom_bg = cherry_get_background_css( '.site-header', $header_bg );
 
-	if ( isset( $styles['header-background'] ) ) {
-		$custom_bg .= cherry_get_background_css( '.site-header', $styles['header-background'] );
-	}
-
+	/**
+	 * Filter a custom background style.
+	 *
+	 * @since 4.0.0
+	 * @param string $custom_bg Background style.
+	 * @param int    $post_id   The post ID.
+	 */
 	$custom_bg = apply_filters( 'cherry_post_inline_styles', $custom_bg, $post_id );
 
 	if ( ! $custom_bg ) {

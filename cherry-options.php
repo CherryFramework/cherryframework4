@@ -444,35 +444,35 @@ function cherry_defaults_settings() {
 	$navigation_options = array();
 	$navigation_options['typography-header-menu'] = array(
 		'type'        => 'typography',
-		'title'       => __('Header Menu Typography', 'cherry' ),
+		'title'       => __( 'Header Menu Typography', 'cherry' ),
 		'description' => __( 'Main header navigation typography settings.', 'cherry' ),
 		'value'       => array(
 			'fonttype'      => 'web',
 			'size'          => '14',
-			'lineheight'    => '14',
+			'lineheight'    => '17',
 			'color'         => '#474747',
-			'family'        => 'Abril Fatface',
+			'family'        => 'Open Sans',
 			'character'     => 'latin-ext',
-			'style'         => '',
+			'style'         => '600',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
-		)
+		),
 	);
 	$navigation_options['typography-footer-menu'] = array(
 		'type'        => 'typography',
-		'title'       => __('Footer Menu Typography', 'cherry' ),
-		'description' => __('Main footer navigation typography settings.', 'cherry' ),
+		'title'       => __( 'Footer Menu Typography', 'cherry' ),
+		'description' => __( 'Main footer navigation typography settings.', 'cherry' ),
 		'value'       => array(
 			'fonttype'      => 'web',
 			'size'          => '14',
-			'lineheight'    => '14',
+			'lineheight'    => '17',
 			'color'         => '#474747',
-			'family'        => 'Abril Fatface',
+			'family'        => 'Open Sans',
 			'character'     => 'latin-ext',
 			'style'         => '',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
-		)
+		),
 	);
 	$navigation_options['navigation-arrow'] = array(
 		'type'          => 'switcher',
@@ -489,7 +489,7 @@ function cherry_defaults_settings() {
 	$breadcrumbs_options['breadcrumbs'] = array(
 		'type'          => 'switcher',
 		'title'         => __( 'Breadcrumbs', 'cherry' ),
-		'description'   => __('Enable/disable breadcrumbs navigation.', 'cherry' ),
+		'description'   => __( 'Enable/disable breadcrumbs navigation.', 'cherry' ),
 		'value'         => 'true',
 		'default_value' => 'true',
 	);
@@ -517,7 +517,7 @@ function cherry_defaults_settings() {
 		'type'        => 'switcher',
 		'title'       => __( 'Home page breadcrumbs', 'cherry' ),
 		'description' => __( 'If option defined in page setting, this global option will not be counted.', 'cherry' ),
-		'value'       => 'false'
+		'value'       => 'false',
 	);
 	$breadcrumbs_options['breadcrumbs-home-title'] = array(
 		'type'        => 'switcher',
@@ -531,12 +531,12 @@ function cherry_defaults_settings() {
 		),
 	);
 	$breadcrumbs_options['breadcrumbs-custom-home-title'] = array(
-		'type'          => 'text',
-		'title'         => __( 'Home page title', 'cherry' ),
-		'description'   => __( 'This is a customized title for a Home page.', 'cherry' ),
-		'value'         => __( 'Home', 'cherry' ),
-		'class'         => 'width-full',
-		'master'        => 'breadcrumbs-home-title-true-slave',
+		'type'        => 'text',
+		'title'       => __( 'Home page title', 'cherry' ),
+		'description' => __( 'This is a customized title for a Home page.', 'cherry' ),
+		'value'       => __( 'Home', 'cherry' ),
+		'class'       => 'width-full',
+		'master'      => 'breadcrumbs-home-title-true-slave',
 	);
 	$breadcrumbs_options['breadcrumbs-separator'] = array(
 		'type'          => 'text',
@@ -544,7 +544,7 @@ function cherry_defaults_settings() {
 		'description'   => __( 'Breadcrumbs separator symbol.', 'cherry' ),
 		'value'         => '&#47;',
 		'default_value' => '&#47;',
-		'class'         => 'width-full'
+		'class'         => 'width-full',
 	);
 	$breadcrumbs_options['breadcrumbs-prefix-path'] = array(
 		'type'        => 'text',
@@ -558,63 +558,63 @@ function cherry_defaults_settings() {
 	$pagination_option = array();
 
 	$pagination_option['pagination-position'] = array(
-		'type'			=> 'select',
-		'title' 		=> __( 'Pagination position', 'cherry' ),
-		'description'	=> __( 'Select your pagination position.', 'cherry' ),
-		'value'			=> 'after',
-		'options'		=> array(
-			'after'		=> __( 'After posts loop', 'cherry' ),
-			'before'	=> __( 'Before posts loop', 'cherry' ),
-			'both'		=> __( 'Both', 'cherry' )
-		)
+		'type'        => 'select',
+		'title'       => __( 'Pagination position', 'cherry' ),
+		'description' => __( 'Select your pagination position.', 'cherry' ),
+		'value'       => 'after',
+		'options'     => array(
+			'after'  => __( 'After posts loop', 'cherry' ),
+			'before' => __( 'Before posts loop', 'cherry' ),
+			'both'   => __( 'Both', 'cherry' ),
+		),
 	);
 	$pagination_option['pagination-next-previous'] = array(
-		'type'			=> 'switcher',
-		'title' 		=> __( 'Prev/next buttons', 'cherry' ),
-		'description'	=> __( 'Show/hide previous and next buttons in pagination.', 'cherry' ),
-		'value'			=> 'true'
+		'type'        => 'switcher',
+		'title'       => __( 'Prev/next buttons', 'cherry' ),
+		'description' => __( 'Show/hide previous and next buttons in pagination.', 'cherry' ),
+		'value'       => 'true',
 	);
 	$pagination_option['pagination-label'] = array(
-		'type'			=> 'text',
-		'title'			=> __( 'Pagination label', 'cherry' ),
-		'description'	=> __( 'Pagination label. Displayed before pagination buttons. Text or HTML can be used.', 'cherry' ),
-		'value'			=> __( 'Pages:', 'cherry' ),
+		'type'        => 'text',
+		'title'       => __( 'Pagination label', 'cherry' ),
+		'description' => __( 'Pagination label. Displayed before pagination buttons. Text or HTML can be used.', 'cherry' ),
+		'value'       => __( 'Pages:', 'cherry' ),
 	);
 	$pagination_option['pagination-previous-page'] = array(
-		'type'			=> 'text',
-		'title'			=> __( 'Prev button label', 'cherry' ),
-		'description'	=> __( 'Previous button label text. Text or HTML can be used.', 'cherry' ),
-		'value'			=> '&laquo;',
+		'type'        => 'text',
+		'title'       => __( 'Prev button label', 'cherry' ),
+		'description' => __( 'Previous button label text. Text or HTML can be used.', 'cherry' ),
+		'value'       => '&laquo;',
 	);
 	$pagination_option['pagination-next-page'] = array(
-		'type'			=> 'text',
-		'title'			=> __( 'Next button label', 'cherry' ),
-		'description'	=> __( 'Next button label text. Text or HTML can be used.', 'cherry' ),
-		'value'			=> '&raquo;',
+		'type'        => 'text',
+		'title'       => __( 'Next button label', 'cherry' ),
+		'description' => __( 'Next button label text. Text or HTML can be used.', 'cherry' ),
+		'value'       => '&raquo;',
 	);
 	$pagination_option['pagination-show-all'] = array(
-		'type'			=> 'switcher',
-		'title' 		=> __( 'Show all the pages', 'cherry' ),
-		'description'	=> __( 'If set to On, then it will show all of the pages instead of a short list of the pages near the current page.', 'cherry' ),
-		'value'			=> 'false'
+		'type'        => 'switcher',
+		'title'       => __( 'Show all the pages', 'cherry' ),
+		'description' => __( 'If set to On, then it will show all of the pages instead of a short list of the pages near the current page.', 'cherry' ),
+		'value'       => 'false',
 	);
 	$pagination_option['pagination-end-size'] = array(
-		'type'			=> 'stepper',
-		'title'			=> __( 'End size', 'cherry' ),
-		'description'	=> __( 'How many pages to display either at the top or at the end of the list.', 'cherry' ),
-		'value'			=> '1',
-		'value-step'	=> '1',
-		'max-value'		=> '99',
-		'min-value'		=> '1'
+		'type'        => 'stepper',
+		'title'       => __( 'End size', 'cherry' ),
+		'description' => __( 'How many pages to display either at the top or at the end of the list.', 'cherry' ),
+		'value'       => '1',
+		'value-step'  => '1',
+		'max-value'   => '99',
+		'min-value'   => '1',
 	);
 	$pagination_option['pagination-mid-size'] = array(
-		'type'			=> 'stepper',
-		'title'			=> __( 'Mid size', 'cherry' ),
-		'description'	=> __( 'How many numbers to display to either side of current page, but not including current page.', 'cherry' ),
-		'value'			=> '2',
-		'value-step'	=> '1',
-		'max-value'		=> '9999',
-		'min-value'		=> '1'
+		'type'        => 'stepper',
+		'title'       => __( 'Mid size', 'cherry' ),
+		'description' => __( 'How many numbers to display to either side of current page, but not including current page.', 'cherry' ),
+		'value'       => '2',
+		'value-step'  => '1',
+		'max-value'   => '9999',
+		'min-value'   => '1',
 	);
 //////////////////////////////////////////////////////////////////////
 // Header options
@@ -622,32 +622,32 @@ function cherry_defaults_settings() {
 	$header_options = array();
 
 	$header_options['header-background'] = array(
-		'type'	=> 'background',
-		'title'	=> __('Background', 'cherry' ),
-		'hint'	=> array(
-				'type'		=> 'text',
-				'content'	=> __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' )
+		'type'  => 'background',
+		'title' => __('Background', 'cherry' ),
+		'hint'  => array(
+				'type'    => 'text',
+				'content' => __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' ),
 		),
-		'return_data_type'	=> 'id',
-		'library_type'		=> 'image',
-		'description'		=> __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' ),
-		'return_data_type'	=> 'id',
-		'library_type'		=> 'image',
-		'value'				=> array(
-			'image'			=> '',
-			'color'			=> '',
-			'repeat'		=> 'repeat',
-			'position'		=> 'left',
-			'attachment'	=> 'fixed',
-			'clip'			=> 'padding-box',
-			'size'			=> 'cover',
-			'origin'		=> 'padding-box',
-		)
+		'return_data_type' => 'id',
+		'library_type'     => 'image',
+		'description'      => __( 'Header background settings. You can select background color, upload header background image, set its background position, attachment and repeat.', 'cherry' ),
+		'return_data_type' => 'id',
+		'library_type'     => 'image',
+		'value'            => array(
+			'image'      => '',
+			'color'      => '',
+			'repeat'     => 'repeat',
+			'position'   => 'left',
+			'attachment' => 'fixed',
+			'clip'       => 'padding-box',
+			'size'       => 'cover',
+			'origin'     => 'padding-box',
+		),
 	);
 	$header_options['header-grid-type'] = array(
-		'type' => 'radio',
-		'title' => __( 'Grid type', 'cherry' ),
-		'description' => __( 'Select layout pattern for header website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
+		'type'          => 'radio',
+		'title'         => __( 'Grid type', 'cherry' ),
+		'description'   => __( 'Select layout pattern for header website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
 		'value'         => 'wide',
 		'display_input' => false,
 		'options'       => array(
@@ -662,34 +662,34 @@ function cherry_defaults_settings() {
 		),
 	);
 	$header_options['header-boxed-width'] = array(
-		'type'  => 'slider',
-		'title' => __( 'Boxed width', 'cherry' ),
+		'type'        => 'slider',
+		'title'       => __( 'Boxed width', 'cherry' ),
 		'description' => __( 'Header width for `boxed` layout. Should not be more than `Grid -> Container width` value.', 'cherry' ),
-		'max_value' => 1920,
-		'min_value' => 970,
-		'value'     => 1310,
+		'max_value'   => 1920,
+		'min_value'   => 970,
+		'value'       => 1310,
 	);
 	$header_options['header-sticky'] = array(
-		'type'  => 'switcher',
-		'title' => __( 'Sticky header', 'cherry' ),
+		'type'        => 'switcher',
+		'title'       => __( 'Sticky header', 'cherry' ),
 		'description' => __( 'Enable\disable fixed header that sticks to the top.', 'cherry' ),
-		'value' => 'false',
+		'value'       => 'false',
 	);
 	$header_options['header-sticky-selector'] = array(
-		'type'  => 'select',
-		'title' => __( 'Sticky selector', 'cherry' ),
+		'type'        => 'select',
+		'title'       => __( 'Sticky selector', 'cherry' ),
 		'description' => __( 'Select the block selector that will be used to build sticky panel. You can use tag name, class name, or id.', 'cherry' ),
-		'value'   => $default_selector,
-		'options' => $sticky_selectors,
+		'value'       => $default_selector,
+		'options'     => $sticky_selectors,
 	);
 	// Header Logo options
 	//////////////////////////////////////////////////////////////////////
 	$logo_options = array();
 	$logo_options['logo-type'] = array(
-		'type'  => 'radio',
-		'title' => __( 'Logo type', 'cherry' ),
+		'type'        => 'radio',
+		'title'       => __( 'Logo type', 'cherry' ),
 		'description' => __( 'Select whether you want your main logo to be an image or text. ', 'cherry' ),
-		'hint'  => array(
+		'hint'        => array(
 			'type'    => 'text',
 			'content' => __( 'If you select "image", you can choose logo image from the media library in the next option, and if you select "text", your WordPress Site Title will be shown instead.', 'cherry' ),
 		),
@@ -699,41 +699,41 @@ function cherry_defaults_settings() {
 		'display_input' => true,
 		'options'       => array(
 			'image' => array(
-				'label'		=> 'Image logo',
-				'img_src'	=> '',
-				'slave'		=> 'logo-type-image'
+				'label'   => 'Image logo',
+				'img_src' => '',
+				'slave'   => 'logo-type-image',
 			),
 			'text' => array(
 				'label'   => 'Text logo',
 				'img_src' => '',
-				'slave'		=> 'logo-type-text'
-			)
-		)
+				'slave'   => 'logo-type-text',
+			),
+		),
 	);
 	$logo_options['logo-image-path'] = array(
-		'type'  => 'media',
-		'title' => __( 'Logo image', 'cherry' ),
-		'description' => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
+		'type'         => 'media',
+		'title'        => __( 'Logo image', 'cherry' ),
+		'description'  => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
 		'value'        => '',
 		'multi-upload' => true,
-		'master'		=> 'logo-type-image'
+		'master'       => 'logo-type-image',
 	);
 	$logo_options['typography-header-logo'] = array(
-		'type'  => 'typography',
-		'title' => __( 'Logo typography', 'cherry' ),
+		'type'        => 'typography',
+		'title'       => __( 'Logo typography', 'cherry' ),
 		'description' => __( 'Configuration settings for text logo. Here you can select logo font family, size, color, etc.', 'cherry' ),
-		'value' => array(
+		'master'      => 'logo-type-text',
+		'value'       => array(
 			'fonttype'      => 'web',
-			'size'          => '60',
-			'lineheight'    => '80',
-			'color'         => '#777777',
-			'family'        => 'Lobster',
+			'size'          => '30',
+			'lineheight'    => '36',
+			'color'         => '#444444',
+			'family'        => 'Open Sans',
 			'character'     => 'latin-ext',
-			'style'         => '',
+			'style'         => '700',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
 		),
-		'master'		=> 'logo-type-text'
 	);
 
 //////////////////////////////////////////////////////////////////////
@@ -804,42 +804,42 @@ function cherry_defaults_settings() {
 //////////////////////////////////////////////////////////////////////
 	$footer_options = array();
 	$footer_options['footer-background'] = array(
-		'type'				=> 'background',
-		'title'				=> __( 'Background', 'cherry' ),
-		'description'		=> __( 'Footer background settings. You can select background color, upload footer background image, set its background position, attachment and repeat.', 'cherry' ),
-		'return_data_type'	=> 'id',
-		'library_type'		=> 'image',
-		'value'				=> array(
-			'image'			=> '',
-			'color'			=> '#ddd',
-			'repeat'		=> 'repeat',
-			'position'		=> 'left',
-			'attachment'	=> 'fixed',
-			'clip'			=> 'padding-box',
-			'size'			=> 'cover',
-			'origin'		=> 'padding-box',
-		)
+		'type'             => 'background',
+		'title'            => __( 'Background', 'cherry' ),
+		'description'      => __( 'Footer background settings. You can select background color, upload footer background image, set its background position, attachment and repeat.', 'cherry' ),
+		'return_data_type' => 'id',
+		'library_type'     => 'image',
+		'value'            => array(
+			'image'      => '',
+			'color'      => '#ddd',
+			'repeat'     => 'repeat',
+			'position'   => 'left',
+			'attachment' => 'fixed',
+			'clip'       => 'padding-box',
+			'size'       => 'cover',
+			'origin'     => 'padding-box',
+		),
 	);
 	$footer_options['typography-footer'] = array(
-		'type'			=> 'typography',
-		'title'			=> __( 'Typography', 'cherry' ),
-		'description'	=> __( 'Typography settings for footer text.', 'cherry' ),
-		'value' => array(
-			'fonttype'		=> 'web',
-			'size'			=> '14',
-			'lineheight'	=> '30',
-			'color'			=> '#333333',
-			'family'		=> 'Roboto',
-			'character'		=> 'latin-ext',
-			'style'			=> '',
-			'letterspacing'	=> '',
-			'align'			=> 'notdefined',
-		)
+		'type'        => 'typography',
+		'title'       => __( 'Typography', 'cherry' ),
+		'description' => __( 'Typography settings for footer text.', 'cherry' ),
+		'value'       => array(
+			'fonttype'      => 'web',
+			'size'          => '14',
+			'lineheight'    => '30',
+			'color'         => '#333333',
+			'family'        => 'Roboto',
+			'character'     => 'latin-ext',
+			'style'         => '',
+			'letterspacing' => '',
+			'align'         => 'notdefined',
+		),
 	);
 	$footer_options['footer-grid-type'] = array(
-		'type'  => 'radio',
-		'title' => __( 'Grid type', 'cherry' ),
-		'description' => __( 'Select layout pattern for footer website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
+		'type'          => 'radio',
+		'title'         => __( 'Grid type', 'cherry' ),
+		'description'   => __( 'Select layout pattern for footer website. Wide layout will fit window width. Boxed layout will have fixed width.', 'cherry' ),
 		'value'         => 'wide',
 		'display_input' => false,
 		'options'       => array(
@@ -854,27 +854,27 @@ function cherry_defaults_settings() {
 		),
 	);
 	$footer_options['footer-boxed-width'] = array(
-		'type'  => 'slider',
-		'title' => __( 'Boxed width', 'cherry' ),
+		'type'        => 'slider',
+		'title'       => __( 'Boxed width', 'cherry' ),
 		'description' => __( 'Footer width for `boxed` layout. Should not be more than `Grid -> Container width` value.', 'cherry' ),
-		'max_value' => 1920,
-		'min_value' => 970,
-		'value'     => 1310,
+		'max_value'   => 1920,
+		'min_value'   => 970,
+		'value'       => 1310,
 	);
 	$footer_options['footer-text'] = array(
-		'type'				=> 'textarea',
-		'title'				=> __( 'Footer Info text', 'cherry' ),
-		'description'		=> __( 'Set custom text for Footer static info.', 'cherry' ),
-		'value'				=> '',
-		'multi-upload'		=> true,
+		'type'         => 'textarea',
+		'title'        => __( 'Footer Info text', 'cherry' ),
+		'description'  => __( 'Set custom text for Footer static info.', 'cherry' ),
+		'value'        => '',
+		'multi-upload' => true,
 	);
 	// Footer Logo options
 	//////////////////////////////////////////////////////////////////////
 	$footer_logo_options = array();
 	$footer_logo_options['footer-logo-type'] = array(
-		'type'  => 'radio',
-		'title' => __( 'Logo type', 'cherry' ),
-		'description' => __( 'Select whether you want your footer logo to be an image or text.', 'cherry' ),
+		'type'          => 'radio',
+		'title'         => __( 'Logo type', 'cherry' ),
+		'description'   => __( 'Select whether you want your footer logo to be an image or text.', 'cherry' ),
 		'value'         => 'text',
 		'default_value' => 'text',
 		'class'         => '',
@@ -883,39 +883,39 @@ function cherry_defaults_settings() {
 			'image' => array(
 				'label'   => 'Image logo',
 				'img_src' => '',
-				'slave'		=> 'footer-logo-type-image'
+				'slave'   => 'footer-logo-type-image',
 			),
 			'text' => array(
 				'label'   => 'Text logo',
 				'img_src' => '',
-				'slave'		=> 'footer-logo-type-text'
+				'slave'   => 'footer-logo-type-text',
 			)
 		)
 	);
 	$footer_logo_options['footer-logo-image-path'] = array(
-		'type'  => 'media',
-		'title' => __( 'Logo image', 'cherry' ),
-		'description' => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
+		'type'         => 'media',
+		'title'        => __( 'Logo image', 'cherry' ),
+		'description'  => __( 'Click Choose Media button to select logo image from the media library or upload your image.', 'cherry' ),
 		'value'        => '',
 		'multi-upload' => true,
-		'master'	=> 'footer-logo-type-image'
+		'master'       => 'footer-logo-type-image',
 	);
 	$footer_logo_options['typography-footer-logo'] = array(
-		'type'  => 'typography',
-		'title' => __( 'Logo typography', 'cherry' ),
+		'type'        => 'typography',
+		'title'       => __( 'Logo typography', 'cherry' ),
 		'description' => __( 'Configuration settings for text logo. Here you can select logo font family, size, color, etc.', 'cherry' ),
-		'value' => array(
+		'master'      => 'footer-logo-type-text',
+		'value'       => array(
 			'fonttype'      => 'web',
-			'size'          => '30',
-			'lineheight'    => '36',
-			'color'         => '#777777',
-			'family'        => 'Lobster',
+			'size'          => '20',
+			'lineheight'    => '25',
+			'color'         => '#444444',
+			'family'        => 'Open Sans',
 			'character'     => 'latin-ext',
-			'style'         => '',
+			'style'         => '700',
 			'letterspacing' => '',
 			'align'         => 'notdefined',
 		),
-		'master'	=> 'footer-logo-type-text'
 	);
 //////////////////////////////////////////////////////////////////////
 // Typography options
@@ -1089,7 +1089,7 @@ function cherry_defaults_settings() {
 		'type'			=> 'webfont',
 		'title'			=> __('Webfonts', 'cherry'),
 		'label'			=> '',
-		'description'	=> '',
+		'description'	=> __( 'Define custom Font style and Character Sets for selected web font.', 'cherry' ),
 		'value'			=> array()
 	);
 //////////////////////////////////////////////////////////////////////
@@ -1886,7 +1886,7 @@ function cherry_defaults_settings() {
 	$sections_array['demo-section'] = array(
 		'name'         => __( 'Interface elements (for UI developers)', 'cherry' ),
 		'icon'         => 'dashicons dashicons-editor-help',
-		'priority'     => 130,
+		'priority'     => 999,
 		'options-list' => apply_filters( 'cherry_demo_options_list', $demo_options ),
 	);
 

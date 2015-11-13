@@ -15,6 +15,33 @@ You can learn more about Cherry Framework 4 features from the [official document
 
 ##Change log##
 
+#### v4.0.5 ####
+
+* ADD: class `Cherry_Current_Page` to store and quick access to page specific data
+* ADD: `header background` to current page data
+* ADD: PHP-class `Cherry_CSS_Grabber`
+* ADD: `cherry_option_` . $name filter
+* UPD: Refactoring for getting container classes functions
+* UPD: Improved `cherry_video_atts` function-callback
+* UPD: admin/public files require
+* UPD: Moved a `cherry_get_styles` function from `styles.php` to `utils.php` file
+* UPD: Partical export
+* UPD: Statics import
+* UPD: Compressed backend stylesheets
+* UPD: Using a native WordPress function `the_post_navigation`
+* UPD: Localized files
+* UPD: Default options value
+* FIX: https://github.com/CherryFramework/cherryframework4/issues/26
+* FIX: https://github.com/CherryFramework/cherryframework4/issues/46
+* FIX: https://github.com/CherryFramework/cherryframework4/issues/48
+* FIX: Modification of the list of image sizes that are available in the WP Media Library
+* FIX: `ui-typography` element
+* FIX: Deregister a `WooCommerce` backend style
+* FIX: `aria-controls` attribute in toggle menu button
+* FIX: iframe css
+* DEL: `wp_audio_shortcode` filter
+* DEL: `ui-notice` element
+
 #### v4.0.4 ####
 
 * NEW: Option for `Home` page title in breadcrumbs

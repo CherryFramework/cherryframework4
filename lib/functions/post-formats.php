@@ -2,8 +2,8 @@
 /**
  * Functions and filters for handling the output of post formats.
  *
- * This file is only loaded if themes declare support for 'post-formats'. If a theme declares support for
- * 'post-formats', the content filters will not run for the individual formats that the theme
+ * This file is only loaded if themes declare support for `post-formats`. If a theme declares support for
+ * `post-formats`, the content filters will not run for the individual formats that the theme
  * supports.
  *
  * @package    Cherry_Framework
@@ -15,7 +15,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -31,6 +31,7 @@ add_action( 'wp_loaded', 'cherry_structured_post_formats', 1 );
  * @since  4.0.0
  */
 function cherry_structured_post_formats() {
+
 	// Add infinity symbol to aside posts.
 	if ( current_theme_supports( 'post-formats', 'aside' ) ) {
 		add_filter( 'cherry_the_post_content_defaults', 'cherry_aside_infinity', 9, 3 );
@@ -100,10 +101,9 @@ function cherry_aside_infinity( $args, $post_id, $post_type ) {
  * This function filters the post title when viewing a post with the `link` post format.
  *
  * @since  4.0.0
- *
  * @param  string $title   The post title.
- * @param  int    $post_id
- * @return array
+ * @param  int    $post_id The post ID.
+ * @return string          The post-format `link` title.
  */
 function cherry_get_the_link_title( $title, $post_id ) {
 
@@ -122,9 +122,9 @@ function cherry_get_the_link_title( $title, $post_id ) {
  * This function filters the post link when viewing a post with the `link` post format.
  *
  * @since  4.0.0
- * @param  array  $args The defaults arguments used to display a post title.
- * @param  int    $post_id
- * @param  string $post_type
+ * @param  array  $args      The defaults arguments used to display a post title.
+ * @param  int    $post_id   The post ID.
+ * @param  string $post_type The post type.
  * @return array
  */
 function cherry_get_the_link_url( $args, $post_id, $post_type ) {
@@ -137,6 +137,12 @@ function cherry_get_the_link_url( $args, $post_id, $post_type ) {
 		return $args;
 	}
 
+	/**
+	 * Filter a URL for post-format `link` title.
+	 *
+	 * @since 4.0.0
+	 * @param string $url URL for post-format `link` title.
+	 */
 	$args['url'] = apply_filters( 'cherry_link_title_url', cherry_get_post_format_url() );
 
 	return $args;
@@ -149,6 +155,7 @@ function cherry_get_the_link_url( $args, $post_id, $post_type ) {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
+ * @global object $post
  * @param  string $content The post content.
  * @return string $content
  */
@@ -171,7 +178,7 @@ function cherry_quote_content( $content ) {
 		return $content;
 	}
 
-	if ( !preg_match( '/<blockquote.*?>/', $content, $matches ) ) {
+	if ( ! preg_match( '/<blockquote.*?>/', $content, $matches ) ) {
 		$content = "<blockquote>{$content}</blockquote>";
 	}
 
@@ -188,43 +195,46 @@ function cherry_quote_content( $content ) {
  */
 function cherry_attachment_content( $p ) {
 
-	if ( is_attachment() ) :
+	if ( ! is_attachment() ) {
+		return $p;
+	}
 
-		$attr    = array( 'align' => 'aligncenter', 'width' => '', 'caption' => '' );
-		$post_id = get_the_ID();
+	$post_id = get_the_ID();
 
-		if ( wp_attachment_is_image( $post_id ) ) {
+	$attr = array(
+		'align'   => 'aligncenter',
+		'width'   => '',
+		'caption' => '',
+	);
 
-			$src = wp_get_attachment_image_src( get_the_ID(), 'full' );
+	if ( wp_attachment_is_image( $post_id ) ) {
 
-			if ( is_array( $src ) && !empty( $src ) ) :
+		$src = wp_get_attachment_image_src( $post_id, 'full' );
 
-				$attr['width'] = esc_attr( $src[1] );
-				$content       = wp_get_attachment_image( get_the_ID(), 'full', false, array( 'class' => 'aligncenter' ) );
+		if ( is_array( $src ) && ! empty( $src ) ) :
 
-			endif;
+			$attr['width'] = esc_attr( $src[1] );
+			$content       = wp_get_attachment_image( $post_id, 'full', false, array( 'class' => 'aligncenter' ) );
 
-		} elseif ( cherry_attachment_is_audio( $post_id  ) || cherry_attachment_is_video( $post_id  ) ) {
+		endif;
 
-			$attr['width'] = cherry_get_content_width();
-			$content       = $p;
+	} elseif ( cherry_attachment_is_audio( $post_id ) || cherry_attachment_is_video( $post_id ) ) {
 
-		} else {
-			return $p;
-		}
+		$attr['width'] = cherry_get_content_width();
+		$content       = $p;
 
-		if ( !has_excerpt() ) {
-			return $content;
-		}
+	} else {
+		return $p;
+	}
 
-		$attr['caption'] = get_the_excerpt();
-		$output          = img_caption_shortcode( $attr, $content );
+	if ( ! has_excerpt() ) {
+		return $content;
+	}
 
-		return $output;
+	$attr['caption'] = get_the_excerpt();
+	$output          = img_caption_shortcode( $attr, $content );
 
-	endif;
-
-	return $p;
+	return $output;
 }
 
 /**
@@ -237,12 +247,10 @@ function cherry_attachment_content( $p ) {
  * @link http://www.turtlepod.org
  * @author Justin Tadlock
  * @link http://justintadlock.com
+ * @author Cherry Team <support@cherryframework.com>
  * @copyright Copyright (c) 2012
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- * @link http://justintadlock.com/archives/2012/08/21/post-formats-chat
- *
- * @since  4.0.2
- *
+ * @since 4.0.2
  * @global array  $cherry_post_format_chat_ids An array of IDs for the chat rows based on the author.
  * @param  string $content     The content of the post.
  * @return string $chat_output The formatted content of the post.
@@ -262,80 +270,79 @@ function cherry_format_chat_content( $content ) {
 		return $content;
 	}
 
-	/* If this is not a 'chat' post, return the content. */
-	if ( !has_post_format( 'chat' ) )
+	// If this is not a 'chat' post, return the content.
+	if ( ! has_post_format( 'chat' ) ) {
 		return $content;
+	}
 
-	/* Set the global variable of speaker IDs to a new, empty array for this chat. */
+	// Set the global variable of speaker IDs to a new, empty array for this chat.
 	$cherry_post_format_chat_ids = array();
 
-	/* Allow the separator (separator for speaker/text) to be filtered. */
+	// Allow the separator (separator for speaker/text) to be filtered.
 	$separator = apply_filters( 'cherry_post_format_chat_separator', ':' );
 
-	/* Open the chat transcript div and give it a unique ID based on the post ID. */
+	// Open the chat transcript div and give it a unique ID based on the post ID.
 	$chat_output = "\n\t\t\t" . '<div id="chat-transcript-' . esc_attr( $post->ID ) . '" class="chat-transcript">';
 
-	/* Split the content to get individual chat rows. */
+	// Split the content to get individual chat rows.
 	$chat_rows = preg_split( "/(\r?\n)+|(<br\s*\/?>\s*)+/", $content );
 
-	/* Loop through each row and format the output. */
+	// Loop through each row and format the output.
 	foreach ( $chat_rows as $chat_row ) {
 
-		/* If a speaker is found, create a new chat row with speaker and text. */
+		// If a speaker is found, create a new chat row with speaker and text.
 		if ( strpos( $chat_row, $separator ) ) {
 
-			/* Split the chat row into author/text. */
+			// Split the chat row into author/text.
 			$chat_row_split = explode( $separator, trim( $chat_row ), 2 );
 
-			/* Get the chat author and strip tags. */
+			// Get the chat author and strip tags.
 			$chat_author = strip_tags( trim( $chat_row_split[0] ) );
 
-			/* Get the chat text. */
+			// Get the chat text.
 			$chat_text = trim( $chat_row_split[1] );
 
-			/* Get the chat row ID (based on chat author) to give a specific class to each row for styling. */
+			// Get the chat row ID (based on chat author) to give a specific class to each row for styling.
 			$speaker_id = cherry_format_chat_row_id( $chat_author );
 
-			/* Open the chat row. */
+			// Open the chat row.
 			$chat_output .= "\n\t\t\t\t" . '<div class="chat-row ' . sanitize_html_class( "chat-speaker-{$speaker_id}" ) . '">';
 
-			/* Add the chat row author. */
+			// Add the chat row author.
 			$chat_output .= "\n\t\t\t\t\t" . '<div class="chat-author ' . sanitize_html_class( strtolower( "chat-author-{$chat_author}" ) ) . ' vcard"><cite class="fn">' . apply_filters( 'cherry_post_format_chat_author', $chat_author, $speaker_id ) . '</cite>' . $separator . '</div>';
 
-			/* Add the chat row text. */
+			// Add the chat row text.
 			$chat_output .= "\n\t\t\t\t\t" . '<div class="chat-text">' . str_replace( array( "\r", "\n", "\t" ), '', apply_filters( 'cherry_post_format_chat_text', $chat_text, $chat_author, $speaker_id ) ) . '</div>';
 
-			/* Close the chat row. */
+			// Close the chat row.
 			$chat_output .= "\n\t\t\t\t" . '</div><!-- .chat-row -->';
-		}
 
-		/**
-		 * If no author is found, assume this is a separate paragraph of text that belongs to the
-		 * previous speaker and label it as such, but let's still create a new row.
-		 */
-		else {
+		} else {
 
-			/* Make sure we have text. */
-			if ( !empty( $chat_row ) ) {
+			/**
+			 * If no author is found, assume this is a separate paragraph of text that belongs to the
+			 * previous speaker and label it as such, but let's still create a new row.
+			 */
+			if ( ! empty( $chat_row ) ) {
 
-				/* Open the chat row. */
+				// Open the chat row.
 				$chat_output .= "\n\t\t\t\t" . '<div class="chat-row ' . sanitize_html_class( "chat-speaker-{$speaker_id}" ) . '">';
 
 				/* Don't add a chat row author.  The label for the previous row should suffice. */
 
-				/* Add the chat row text. */
+				// Add the chat row text.
 				$chat_output .= "\n\t\t\t\t\t" . '<div class="chat-text">' . str_replace( array( "\r", "\n", "\t" ), '', apply_filters( 'cherry_post_format_chat_text', $chat_row, $chat_author, $speaker_id ) ) . '</div>';
 
-				/* Close the chat row. */
+				// Close the chat row.
 				$chat_output .= "\n\t\t\t</div><!-- .chat-row -->";
 			}
 		}
 	}
 
-	/* Close the chat transcript div. */
+	// Close the chat transcript div.
 	$chat_output .= "\n\t\t\t</div><!-- .chat-transcript -->\n";
 
-	/* Return the chat content and apply filters for developers. */
+	// Return the chat content and apply filters for developers.
 	return apply_filters( 'cherry_post_format_chat_content', $chat_output );
 }
 
@@ -350,12 +357,10 @@ function cherry_format_chat_content( $content ) {
  * @link http://www.turtlepod.org
  * @author Justin Tadlock
  * @link http://justintadlock.com
+ * @author Cherry Team <support@cherryframework.com>
  * @copyright Copyright (c) 2012
  * @license http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
- * @link http://justintadlock.com/archives/2012/08/21/post-formats-chat
- *
- * @since  4.0.2
- *
+ * @since 4.0.2
  * @global array  $cherry_post_format_chat_ids An array of IDs for the chat rows based on the author.
  * @param  string $chat_author Author of the current chat row.
  * @return int                 The ID for the chat row based on the author.
@@ -363,15 +368,15 @@ function cherry_format_chat_content( $content ) {
 function cherry_format_chat_row_id( $chat_author ) {
 	global $cherry_post_format_chat_ids;
 
-	/* Let's sanitize the chat author to avoid craziness and differences like "John" and "john". */
+	// Let's sanitize the chat author to avoid craziness and differences like "John" and "john".
 	$chat_author = strtolower( strip_tags( $chat_author ) );
 
-	/* Add the chat author to the array. */
+	// Add the chat author to the array.
 	$cherry_post_format_chat_ids[] = $chat_author;
 
-	/* Make sure the array only holds unique values. */
+	// Make sure the array only holds unique values.
 	$cherry_post_format_chat_ids = array_unique( $cherry_post_format_chat_ids );
 
-	/* Return the array key for the chat author and add "1" to avoid an ID of "0". */
+	// Return the array key for the chat author and add "1" to avoid an ID of "0".
 	return absint( array_search( $chat_author, $cherry_post_format_chat_ids ) ) + 1;
 }

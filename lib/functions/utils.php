@@ -1,6 +1,7 @@
 <?php
 /**
  * Utils functions.
+ *
  * Enqueue util scripts, CSS util functions.
  *
  * @package    Cherry_Framework
@@ -12,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -21,7 +22,7 @@ add_action( 'wp_enqueue_scripts', 'cherry_enqueue_utility_scripts' );
 
 /**
  * Enqueue utility scripts.
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_enqueue_utility_scripts() {
 	global $is_chrome;
@@ -64,7 +65,7 @@ function cherry_enqueue_utility_scripts() {
 		) {
 		wp_enqueue_script(
 			'cherry-cookie-banner',
-			esc_url( $cherry_uri . 'assets/js/jquery.cherry.cookie.banner.js' ),
+			esc_url( $cherry_uri . 'assets/js/jquery.cherry.cookie.banner.min.js' ),
 			array( 'jquery' ),
 			'1.0.0',
 			true
@@ -80,17 +81,128 @@ function cherry_enqueue_utility_scripts() {
 			)
 		);
 	}
-
 }
 
 /**
- * Make passed color darken
+ * Returns an array of the core framework's available styles for use in themes.
  *
  * @since  4.0.0
+ * @return array $styles All the available framework styles.
+ */
+function cherry_get_styles() {
+	// Get the theme prefix.
+	$prefix = cherry_get_prefix();
+
+	// Get the active theme stylesheet version.
+	$version = wp_get_theme()->get( 'Version' );
+
+	// Prepare set of stylesheets.
+	$styles = array();
+
+	// Get the theme-supported stylesheets.
+	$supports = get_theme_support( 'cherry-styles' );
+
+	// If the theme support for any styles.
+	if ( ! empty( $supports[0] ) && is_array( $supports[0] ) ) :
+
+		$drop_downs = array(
+			'handle'  => get_template() . '-drop-downs',
+			'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/drop-downs.css',
+			'version' => '1.0.0',
+		);
+
+		// Is responsive site?
+		$responsive = cherry_get_option( 'grid-responsive' );
+
+		$grid_responsive = ( 'true' == $responsive ) ?
+			array(
+				'handle'  => $prefix . 'grid-responsive',
+				'src'     => cherry_file_uri( 'assets/css/grid-responsive.css' ),
+				'version' => $version,
+			) : false;
+
+		$main_responsive = ( 'true' == $responsive ) ?
+			array(
+				'handle'  => $prefix . 'main-responsive',
+				'src'     => cherry_file_uri( 'assets/css/main-responsive.css' ),
+				'version' => $version,
+			) : false;
+
+		/**
+		 * Filter a set of default framework styles.
+		 *
+		 * @since 4.0.0
+		 * @param array $defaults Default styles.
+		 */
+		$defaults = apply_filters( 'cherry_get_styles_defaults', array(
+			'grid-base' => array(
+				'handle'  => $prefix . 'grid-base',
+				'src'     => cherry_file_uri( 'assets/css/grid-base.css' ),
+				'version' => $version,
+			),
+			'grid-responsive' => $grid_responsive,
+			'drop-downs'      => $drop_downs,
+			'magnific-popup'  => array(
+				'handle'  => 'magnific-popup',
+				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/magnific-popup.css',
+				'version' => '1.0.0',
+			),
+			'slick' => array(
+				'handle'  => 'slick',
+				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/slick.css',
+				'version' => '1.5.0',
+			),
+			'main' => array(
+				'handle'  => $prefix . 'main',
+				'src'     => cherry_file_uri( 'assets/css/main.css' ),
+				'version' => $version,
+			),
+			'main-responsive' => $main_responsive,
+			'add-ons' => array(
+				'handle'  => get_template() . '-add-ons',
+				'src'     => trailingslashit( CHERRY_URI ) . 'assets/css/add-ons.css',
+				'version' => CHERRY_VERSION,
+			),
+		) );
+
+		foreach ( $supports[0] as $s ) {
+
+			if ( empty( $defaults[ $s ] ) ) {
+				continue;
+			}
+
+			if ( ! is_array( $defaults[ $s ] ) ) {
+				continue;
+			}
+
+			$styles[ $s ] = $defaults[ $s ];
+		}
+
+	endif;
+
+	// Add the main stylesheet (this must be included).
+	$styles['style'] = array(
+		'handle'  => $prefix . 'style',
+		'src'     => get_stylesheet_uri(),
+		'version' => $version,
+	);
+
+	/**
+	 * Filters the array of styles.
+	 *
+	 * @since 4.0.0
+	 * @param array $styles Array of styles.
+	 */
+	return apply_filters( 'cherry_get_styles', $styles );
+}
+
+/**
+ * Make passed color darken.
  *
- * @param  string  $color  HEX or RGB(A) color value
- * @param  float   $darken darken percent (0-100)
- * @return string          processed color
+ * @since  4.0.0
+ * @param  string  $color  HEX or RGB(A) color value.
+ * @param  float   $darken Darken percent (0-100).
+ * @return string          Processed color.
  */
 function cherry_colors_darken( $color, $darken = 0 ) {
 
@@ -110,7 +222,7 @@ function cherry_colors_darken( $color, $darken = 0 ) {
 	$a       = $prepared_data['a'];
 	$percent = $prepared_data['percent'];
 
-	// Calc darken vals
+	// Calc darken vals.
 	$r = round( $r - 255*$percent, 0 );
 	$g = round( $g - 255*$percent, 0 );
 	$b = round( $b - 255*$percent, 0 );
@@ -124,17 +236,15 @@ function cherry_colors_darken( $color, $darken = 0 ) {
 	} else {
 		return sprintf( 'rgb(%s,%s,%s)', $r, $g, $b );
 	}
-
 }
 
 /**
- * Make passed color lighten
+ * Make passed color lighten.
  *
  * @since  4.0.0
- *
- * @param  string  $color   HEX or RGB(A) color value
- * @param  float   $lighten lighten percent (0-100)
- * @return string           processed color
+ * @param  string  $color   HEX or RGB(A) color value.
+ * @param  float   $lighten Lighten percent (0-100).
+ * @return string           Processed color.
  */
 function cherry_colors_lighten( $color, $lighten = 0 ) {
 
@@ -168,20 +278,19 @@ function cherry_colors_lighten( $color, $lighten = 0 ) {
 	} else {
 		return sprintf( 'rgb(%s,%s,%s)', $r, $g, $b );
 	}
-
 }
 
 /**
- * Select contast color for passed from 2 proposed.
+ * Select contrast color for passed from 2 proposed.
+ *
  * 1st proposed color must be light - it will selected if passed color is dark,
- * 2nd selected if passed is light, so it must be darken
+ * 2nd selected if passed is light, so it must be darken.
  *
  * @since  4.0.0
- *
- * @param  string $color     color to get contrast for
- * @param  string $if_dark   return this if we had dark color
- * @param  string $if_light  return this if we had light color
- * @return string
+ * @param  string $color     Color to get contrast for.
+ * @param  string $if_dark   Return this if we had dark color.
+ * @param  string $if_light  Return this if we had light color.
+ * @return string            Color.
  */
 function cherry_contrast_color( $color, $if_dark = '#ffffff', $if_light = '#000000' ) {
 
@@ -210,18 +319,17 @@ function cherry_contrast_color( $color, $if_dark = '#ffffff', $if_light = '#0000
 
 /**
  * Prepare color to modify.
+ *
  * Bring passed color and change percent to array
  * with R, G, B color values, opacity (if provided)
- * and change percentage
+ * and change percentage.
  *
  * @since  4.0.0
- *
- * @param  string  $color   HEX or RGB(A) color value
- * @param  float   $percent modify percent (0-100)
- * @return array            prepared color and modify percent
+ * @param  string $color   HEX or RGB(A) color value.
+ * @param  float  $percent Modify percent (0-100).
+ * @return array           Prepared color and modify percent.
  */
 function cherry_prepare_color_mod( $color, $percent = 0 ) {
-
 	$is_rgba = ( false !== strpos( $color, 'rgba' ) ) ? true : false;
 	$is_rgb  = ( false !== strpos( $color, 'rgb' ) && false === $is_rgba ) ? true : false;
 	$is_hex  = ( false === $is_rgba && false === $is_rgb ) ? true : false;
@@ -232,7 +340,7 @@ function cherry_prepare_color_mod( $color, $percent = 0 ) {
 		$color = substr( $color, 1 );
 	}
 
-	// prepare hex color
+	// Prepare hex color.
 	if ( $is_hex && strlen( $color ) == 6 ) {
 		list( $r, $g, $b ) = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
 	} elseif ( $is_hex && strlen( $color ) == 3 ) {
@@ -249,7 +357,7 @@ function cherry_prepare_color_mod( $color, $percent = 0 ) {
 
 	$color = str_replace( ' ', '', $color );
 
-	// prepare RGBA
+	// Prepare RGBA.
 	if ( $is_rgba ) {
 		preg_match( '/rgba\((.*)\)/', $color, $matches );
 		if ( ! is_array( $matches ) || empty( $matches[1] ) ) {
@@ -258,7 +366,7 @@ function cherry_prepare_color_mod( $color, $percent = 0 ) {
 		list( $r, $g, $b, $a ) = explode( ',', $matches[1] );
 	}
 
-	// prepare RGB
+	// Prepare RGB.
 	if ( $is_rgb ) {
 		preg_match( '/rgb\((.*)\)/', $color, $matches );
 		if ( ! is_array( $matches ) || empty( $matches[1] ) ) {
@@ -279,13 +387,12 @@ function cherry_prepare_color_mod( $color, $percent = 0 ) {
 }
 
 /**
- * Get background CSS by bg data from options and selector
- * If passed multiplie images - returns retina ready CSS
+ * Get background CSS by bg data from options and selector.
+ * If passed multiplie images - returns retina ready CSS.
  *
  * @since  4.0.0
- *
- * @param  string $selector CSS selector to apply bg for
- * @param  array  $data     data-array from options
+ * @param  string $selector CSS selector to apply bg for.
+ * @param  array  $data     data-array from options.
  * @return string
  */
 function cherry_get_background_css( $selector, $data ) {
@@ -358,20 +465,18 @@ function cherry_get_background_css( $selector, $data ) {
 	$result = $bg1 . ' @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {' . $bg2 . '}';
 
 	return $result;
-
 }
 
 /**
- * Sanitizes a hex color. Always adds hash to color
- * use sanitize_hex_color if exist
+ * Sanitizes a hex color.
+ *
+ * Always adds hash to color use `sanitize_hex_color` if exist.
  *
  * @since  4.0.0
- *
- * @param  string  $color  maybe HEX color
- * @return string|null     sanitized color
+ * @param  string  $color  Maybe HEX color.
+ * @return string|null     Sanitized color.
  */
 function cherry_sanitize_hex_color( $color ) {
-
 	$color = ltrim( $color, '#' );
 	$color = '#' . $color;
 
@@ -392,14 +497,14 @@ function cherry_sanitize_hex_color( $color ) {
 }
 
 /**
- * Implode background properties array into CSS string
+ * Implode background properties array into CSS string.
  *
  * @since  4.0.0
- *
- * @param  array  $data  BG data array
- * @return string
+ * @param  array  $data Background data-array.
+ * @return string       Set of background rules.
  */
 function cherry_prepare_background( $data ) {
+
 	if ( ! is_array( $data ) ) {
 		return;
 	}
@@ -432,13 +537,12 @@ function cherry_prepare_background( $data ) {
 }
 
 /**
- * Implode typography data array from options into CSS string
+ * Implode typography data array from options into CSS string.
  *
  * @since  4.0.0
- *
- * @param  array  $data  typography parameters array from options
- * @param  array  $mod   optional parameter - pass function name and arg to modify values inside typography array
- * @return string        font, letter-spacing, text-align, color CSS properties string
+ * @param  array  $data Typography parameters array from options.
+ * @param  array  $mod  Optional parameter - pass function name and arg to modify values inside typography array.
+ * @return string       Font, letter-spacing, text-align, color CSS properties string.
  */
 function cherry_get_typography_css( $data, $mod = array() ) {
 
@@ -453,7 +557,7 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 		'size'          => '',
 		'lineheight'    => '',
 		'letterspacing' => '',
-		'align'         => ''
+		'align'         => '',
 	);
 
 	$data = wp_parse_args( $data, $defaults );
@@ -479,13 +583,20 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 		$result[] = 'color:' . $color;
 	}
 
-	$ext_families = ! empty( $data['category'] ) ? ', ' . $data['category'] : ', sans-serif';
+	$family   = stripcslashes( $data['family'] );
+	$family   = explode( ',', $family );
+
+	array_walk( $family, 'cherry_typography_prepare_family' );
+
+	$family[] = ! empty( $data['category'] ) ? $data['category'] : 'sans-serif';
+	$family   = array_unique( $family );
 
 	$font_style  = false;
 	$font_weight = false;
 	$font_size   = $data['size'] . 'px';
 	$line_height = $data['lineheight'] . 'px';
-	$font_family = "'" . $data['family'] . "'" . $ext_families;
+
+	$font_family = implode( ', ', $family );
 
 	preg_match( '/^(\d*)(\w*)/i', $data['style'], $matches );
 
@@ -498,12 +609,12 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 		$font_style,
 		$font_weight,
 		$font_size . '/' . $line_height,
-		$font_family
+		$font_family,
 	);
 
 	$font = implode( ' ', array_filter( $font ) );
 
-	$result[] = 'font:' . ltrim($font);
+	$result[] = 'font:' . ltrim( $font );
 
 	$result = implode( ';', $result ) . ';';
 
@@ -511,13 +622,28 @@ function cherry_get_typography_css( $data, $mod = array() ) {
 }
 
 /**
- * Get box model CSS from layout editor option
+ * Prepare font family for passing into typography function.
+ *
+ * @since  4.0.5
+ * @param  string &$item Array item.
+ * @param  int    $index Array item index.
+ * @return void
+ */
+function cherry_typography_prepare_family( &$item, $index ) {
+	$item = trim( $item );
+
+	if ( strpos( $item, ' ' ) ) {
+		$item = '"' . $item . '"';
+	}
+}
+
+/**
+ * Get box model CSS from layout editor option.
  *
  * @since  4.0.0
- *
- * @param  array  $data  layout parameters array from options
- * @param  array  $mod   optional parameter - pass function name and arg to modify values inside layout array
- * @return string        indents, border etc.
+ * @param  array  $data Layout parameters array from options.
+ * @param  array  $mod  Optional parameter - pass function name and arg to modify values inside layout array.
+ * @return string       Indents, border etc.
  */
 function cherry_get_box_model_css( $data, $mod = array() ) {
 
@@ -530,14 +656,14 @@ function cherry_get_box_model_css( $data, $mod = array() ) {
 		'margin'    => array(),
 		'border'    => array(),
 		'padding'   => array(),
-		'container' => array()
+		'container' => array(),
 	);
 
 	$box_defaults = array(
 		'top'    => '',
 		'right'  => '',
 		'bottom' => '',
-		'left'   => ''
+		'left'   => '',
 	);
 
 	$data = wp_parse_args( $data, $defaults );
@@ -558,10 +684,9 @@ function cherry_get_box_model_css( $data, $mod = array() ) {
 		array_walk( $data['position'], 'cherry_prepare_box_item', $parser_data );
 
 		$result .= implode( ';', array_filter( $data['position'] ) ) . ';';
-
 	}
 
-	// Prepare indents
+	// Prepare indents.
 	$result .= cherry_prepare_css_indents( $data['margin'], 'margin' );
 	$result .= cherry_prepare_css_indents( $data['padding'], 'padding' );
 
@@ -592,15 +717,14 @@ function cherry_get_box_model_css( $data, $mod = array() ) {
 				$border_format,
 				$property, $value, $border_style, $border_color
 			);
-
 		}
-
 	}
 
-	// Prepare dimensions
+	// Prepare dimensions.
 	if ( ! empty( $data['container']['width'] ) ) {
 		$result .= 'width:' . $data['container']['width'] . ';';
 	}
+
 	if ( ! empty( $data['container']['height'] ) ) {
 		$result .= 'height:' . $data['container']['height'] . ';';
 	}
@@ -609,12 +733,11 @@ function cherry_get_box_model_css( $data, $mod = array() ) {
 }
 
 /**
- * Service function to grab CSS indents from data array into string
+ * Service function to grab CSS indents from data array into string.
  *
  * @since  4.0.0
- *
- * @param  array        $data      data array
- * @param  CSS property $property  CSS property
+ * @param  array  $data     data-array.
+ * @param  string $property CSS property.
  * @return string
  */
 function cherry_prepare_css_indents( $data, $property ) {
@@ -627,7 +750,7 @@ function cherry_prepare_css_indents( $data, $property ) {
 		'top'    => '',
 		'right'  => '',
 		'bottom' => '',
-		'left'   => ''
+		'left'   => '',
 	);
 
 	$data = array_intersect_key( $data, $box_defaults );
@@ -640,7 +763,7 @@ function cherry_prepare_css_indents( $data, $property ) {
 
 	$parser_data = array(
 		'prefix'  => $property,
-		'allowed' => $box_defaults
+		'allowed' => $box_defaults,
 	);
 
 	array_walk( $data, 'cherry_prepare_box_item', $parser_data );
@@ -651,14 +774,13 @@ function cherry_prepare_css_indents( $data, $property ) {
 }
 
 /**
- * Service callback function for
+ * Service callback function for.
  *
  * @since  4.0.0
- *
- * @param  string  $item  position value
- * @param  string  $key   position key
- * @param  array   $data  array of allowed positions and property prefix
- * @return bool
+ * @param  string $item Position value.
+ * @param  string $key  Position key.
+ * @param  array  $data Array of allowed positions and property prefix.
+ * @return void
  */
 function cherry_prepare_box_item( &$item, $key, $data ) {
 
@@ -679,19 +801,19 @@ function cherry_prepare_box_item( &$item, $key, $data ) {
 	}
 
 	$item = $prefix . $key . ':' . $item;
-
 }
 
 /**
- * Make float size
+ * Make float size.
  *
  * @since  4.0.0
- *
- * @param
- * @param
- * @return
+ * @param  double $size
+ * @param  string $operation Arithmetic operator (multiple, addition).
+ * @param  string $func      Function name (floor, ceil, round, abs).
+ * @param  double $percent
+ * @return double            Size.
  */
-function cherry_typography_size( $size, $operation = ' ', $func = 'round', $percent) {
+function cherry_typography_size( $size, $operation = ' ', $func = 'round', $percent ) {
 
 	if ( ! $size ) {
 		return false;
@@ -708,25 +830,33 @@ function cherry_typography_size( $size, $operation = ' ', $func = 'round', $perc
 
 	switch( $func ) {
 		case 'floor':
-			$size = floor($size);
+			$size = floor( $size );
 			break;
 		case 'ceil':
-			$size = ceil($size);
+			$size = ceil( $size );
 			break;
 		case 'round':
-			$size = round($size);
+			$size = round( $size );
 			break;
 		case 'abs':
-			$size = abs($size);
+			$size = abs( $size );
 			break;
 	}
 
 	return $size;
 }
 
-function cherry_empty_value( $value, $rule) {
+/**
+ * Build a CSS-rule.
+ *
+ * @since  4.0.0
+ * @param  string|int $value CSS-proterty value.
+ * @param  string     $rule  CSS-proterty name.
+ * @return string            CSS-rule.
+ */
+function cherry_empty_value( $value, $rule ) {
 
-	if ('' == $value or 'notdefined' == $value) {
+	if ( '' == $value || 'notdefined' == $value ) {
 		return;
 	}
 
@@ -737,20 +867,17 @@ function cherry_empty_value( $value, $rule) {
 	} else {
 		echo"; ";
 	}
-
 }
 
 /**
- * Set element emphasis
+ * Set element emphasis.
  *
- * @since  4.0.0
- *
- * @param  string $parent   parent selector
- * @param  string $color    color
- * @param  string $property to define
+ * @since 4.0.0
+ * @param string $parent   Parent selector.
+ * @param string $color    Color.
+ * @param string $property To define.
  */
 function cherry_element_emphasis( $parent, $color, $property ) {
-
 	$result  = $parent . ' {' . $property . ':' . $color . ';}';
 	$result .= $parent . ':hover {' . $property . ':' . cherry_colors_darken( $color, 10 ) . ';}';
 
@@ -761,22 +888,20 @@ function cherry_element_emphasis( $parent, $color, $property ) {
  * Return width value for container.
  *
  * @since  4.0.0
- *
- * @param  int $container_width A container width value.
- * @param  int $element_width   Some-block (parent-block for container) width value.
- * @return int
+ * @param  int   $container_width A container width value.
+ * @param  int   $element_width   Some-block (parent-block for container) width value.
+ * @return int                    Width value.
  */
 function cherry_container_width_compare( $container_width, $element_width ) {
 	return ( $container_width > $element_width ) ? $element_width : $container_width;
 }
 
 /**
- * Retirieve CSS-rule only when site non-responsive.
+ * Retrieve CSS-rule only when site non-responsive.
  *
  * @since  4.0.0
- *
  * @param  string $style CSS-rule.
- * @return string
+ * @return string        Responsive CSS-rule.
  */
 function cherry_non_responsive_style( $style ) {
 	return ( 'false' == cherry_get_option( 'grid-responsive' ) ) ? $style : '';
@@ -786,9 +911,8 @@ function cherry_non_responsive_style( $style ) {
  * Open `@media` rule.
  *
  * @since  4.0.0
- *
- * @param  string $function Media function
- * @return string
+ * @param  string $function Media function.
+ * @return string           Opened `@media` rule (if it needed).
  */
 function cherry_media_queries_open( $function ) {
 	return ( 'true' == cherry_get_option( 'grid-responsive' ) ) ? '@media ( ' . $function . ' ) {' : '';
@@ -798,8 +922,7 @@ function cherry_media_queries_open( $function ) {
  * Close `@media` rule.
  *
  * @since  4.0.0
- *
- * @return string
+ * @return string Closed `@media` rule (if it needed).
  */
 function cherry_media_queries_close() {
 	return ( 'true' == cherry_get_option( 'grid-responsive' ) ) ? '}' : '';
@@ -809,35 +932,38 @@ function cherry_media_queries_close() {
  * Sum of $a and $b.
  *
  * @since  4.0.0
- *
- * @param  int $a
- * @param  int $b
- * @return int
+ * @param  int $a Operand 1.
+ * @param  int $b Operand 2.
+ * @return int    Addition.
  */
 function cherry_simple_sum( $a, $b ) {
-	return intval($a) + intval($b);
+	return intval( $a ) + intval( $b );
 }
 
 /**
  * Difference of $a and $b.
  *
  * @since  4.0.0
- *
- * @param  int $a
- * @param  int $b
- * @return int
+ * @param  int $a Operand 1.
+ * @param  int $b Operand 2.
+ * @return int    Subtraction.
  */
 function cherry_simple_diff( $a, $b ) {
-	return intval($a) - intval($b);
+	return intval( $a ) - intval( $b );
 }
 
 /**
- * Get width to swith on mobile menu from
+ * Retrieve a width to swith on mobile menu from.
  *
  * @since  4.0.0
- *
- * @return int
+ * @return int Width value.
  */
 function cherry_menu_toogle_endpoint() {
+	/**
+	 * Filters a value when mobile menu switched.
+	 *
+	 * @since 4.0.0
+	 * @param int $value Width value.
+	 */
 	return apply_filters( 'cherry_menu_toogle_endpoint', 600 );
 }

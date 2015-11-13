@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -25,20 +25,20 @@ if ( !defined( 'WPINC' ) ) {
  * @return bool          Whether post has an image attached.
  */
 function cherry_has_post_thumbnail( $post_id = null ) {
-	$post_id   = ( null === $post_id ) ? get_the_ID() : $post_id;
-	$post_type = get_post_type( $post_id );
 
-	if ( !current_theme_supports( 'post-thumbnails' ) ) {
+	if ( ! current_theme_supports( 'post-thumbnails' ) ) {
 		return false;
 	}
 
+	$post_id           = ( null === $post_id ) ? get_the_ID() : $post_id;
+	$post_type         = get_post_type( $post_id );
 	$thumbnail_support = post_type_supports( $post_type, 'thumbnail' );
 
 	if ( 'attachment' === $post_type ) {
 
 		$mime_type = get_post_mime_type();
 
-		if ( !$thumbnail_support && $mime_type ) {
+		if ( ! $thumbnail_support && $mime_type ) {
 
 			if ( 0 === strpos( $mime_type, 'audio/' ) ) {
 
@@ -65,6 +65,7 @@ function cherry_has_post_thumbnail( $post_id = null ) {
  * Display the post thumbnail.
  *
  * @since 4.0.0
+ * @param array $args Set of arguments.
  */
 function cherry_the_post_thumbnail( $args ) {
 	echo cherry_get_the_post_thumbnail( $args );
@@ -74,14 +75,14 @@ function cherry_the_post_thumbnail( $args ) {
  * Retrieve the post thumbnail.
  *
  * @since  4.0.0
- * @param  array  $args
- * @return string $output The post thumbnail HTML
+ * @param  array  $args   Set of arguments.
+ * @return string         The post thumbnail HTML.
  */
 function cherry_get_the_post_thumbnail( $args ) {
 	$post_id   = get_the_ID();
 	$post_type = get_post_type( $post_id );
 
-	if ( !cherry_has_post_thumbnail( $post_id ) ) {
+	if ( ! cherry_has_post_thumbnail( $post_id ) ) {
 		return;
 	}
 
@@ -131,7 +132,7 @@ function cherry_get_the_post_thumbnail( $args ) {
 	 *
 	 * @since 4.0.0
 	 * @param array $classes An array of classes.
-	 * @param array $args
+	 * @param array $args    Arguments.
 	 */
 	$classes = apply_filters( 'cherry_the_post_thumbnail_classes', $classes, $args );
 	$classes = array_unique( $classes );
@@ -151,6 +152,8 @@ function cherry_get_the_post_thumbnail( $args ) {
 	 * Filter the retrieved post thumbnail.
 	 *
 	 * @since 4.0.0
+	 * @param array $output HTML-formatted post thumbnail.
+	 * @param array $args   Arguments.
 	 */
 	return apply_filters( 'cherry_the_post_thumbnail', $output, $args );
 }
@@ -159,6 +162,7 @@ function cherry_get_the_post_thumbnail( $args ) {
  * Display the post title.
  *
  * @since 4.0.0
+ * @param array $args Set of arguments.
  */
 function cherry_the_post_title( $args ) {
 	echo cherry_get_the_post_title( $args );
@@ -167,7 +171,9 @@ function cherry_the_post_title( $args ) {
 /**
  * Retrieve the post title.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @param  array  $args   Set of arguments.
+ * @return string         The post title.
  */
 function cherry_get_the_post_title( $args ) {
 	$post_id   = get_the_ID();
@@ -229,6 +235,8 @@ function cherry_get_the_post_title( $args ) {
 	 * Filter the displayed post title.
 	 *
 	 * @since 4.0.0
+	 * @param array $output HTML-formatted post thumbnail.
+	 * @param array $args   Arguments.
 	 */
 	return apply_filters( 'cherry_get_the_post_title', $output, $args );
 }
@@ -237,7 +245,7 @@ function cherry_get_the_post_title( $args ) {
  * Display the post content.
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Set of arguments.
  */
 function cherry_the_post_content( $args ) {
 	global $post;
@@ -301,8 +309,9 @@ function cherry_the_post_content( $args ) {
 /**
  * Retrieve the post content.
  *
- * @since 4.0.0
- * @param array $args
+ * @since  4.0.0
+ * @param  array  $args Set of arguments.
+ * @return string       The post content.
  */
 function cherry_get_the_post_content( $args ) {
 	ob_start();
@@ -310,14 +319,22 @@ function cherry_get_the_post_content( $args ) {
 	$output = ob_get_contents();
 	ob_end_clean();
 
-	return apply_filters( 'cherry_get_the_post_content', $output );
+	/**
+	 * Filters the post content.
+	 *
+	 * @since 4.0.0
+	 * @since 4.0.5 Added new parametr - $args.
+	 * @param string $output The post content.
+	 * @param array  $args   Arguments.
+	 */
+	return apply_filters( 'cherry_get_the_post_content', $output, $args );
 }
 
 /**
  * Display the post excerpt.
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Set of arguments.
  */
 function cherry_the_post_excerpt( $args ) {
 	global $post;
@@ -325,11 +342,11 @@ function cherry_the_post_excerpt( $args ) {
 	$post_id   = $post->ID;
 	$post_type = $post->post_type;
 
-	if ( !post_type_supports( $post_type, 'excerpt' ) ) {
+	if ( ! post_type_supports( $post_type, 'excerpt' ) ) {
 		return;
 	}
 
-	if ( !has_excerpt( $post_id ) ) {
+	if ( ! has_excerpt( $post_id ) ) {
 		return;
 	}
 
@@ -357,8 +374,9 @@ function cherry_the_post_excerpt( $args ) {
 /**
  * Retrieve the post excerpt.
  *
- * @since 4.0.0
- * @param array $args
+ * @since  4.0.0
+ * @param  array $args Set of arguments.
+ * @return string      The post excerpt.
  */
 function cherry_get_the_post_excerpt( $args ) {
 	ob_start();
@@ -366,14 +384,22 @@ function cherry_get_the_post_excerpt( $args ) {
 	$excerpt = ob_get_contents();
 	ob_end_clean();
 
-	return apply_filters( 'cherry_get_the_post_excerpt', $excerpt );
+	/**
+	 * Filters the post excerpt.
+	 *
+	 * @since 4.0.0
+	 * @since 4.0.5 Added new parametr - $args.
+	 * @param string $excerpt The post excerpt.
+	 * @param array  $args    Arguments.
+	 */
+	return apply_filters( 'cherry_get_the_post_excerpt', $excerpt, $args );
 }
 
 /**
  * Display the post button.
  *
  * @since 4.0.0
- * @param array $args
+ * @param array $args Set of arguments.
  */
 function cherry_the_post_button( $args ) {
 	echo cherry_get_the_post_button( $args );
@@ -382,8 +408,9 @@ function cherry_the_post_button( $args ) {
 /**
  * Retrieve the post button.
  *
- * @since 4.0.0
- * @param array $args
+ * @since  4.0.0
+ * @param  array  $args Set of arguments.
+ * @return string       The post button.
  */
 function cherry_get_the_post_button( $args ) {
 	$post_id   = get_the_ID();
@@ -420,11 +447,18 @@ function cherry_get_the_post_button( $args ) {
 
 	$output = $args['before'] . $output . $args['after'];
 
+	/**
+	 * Filters the post button.
+	 *
+	 * @since 4.0.0
+	 * @param string $output The post button.
+	 * @param array  $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_button', $output, $args );
 }
 
 /**
- * Display featured image.
+ * Display a featured image.
  *
  * @since 4.0.0
  * @param array $args
@@ -434,17 +468,21 @@ function cherry_the_post_image( $args ) {
 }
 
 /**
- * Get featured image.
+ * Retrieve a featured image.
+ *
  * If has post thumbnail - will get post thumbnail, else - get first image from content.
  *
  * @since  4.0.0
- * @param  array  $args
- * @return string
+ * @param  array  $args Set of arguments.
+ * @return string       Featured image.
  */
 function cherry_get_the_post_image( $args ) {
 	/**
 	 * Filter post format image output to rewrite image from child theme or plugins.
-	 * @since  4.0.0
+	 *
+	 * @since 4.0.0
+	 * @param bool|mixed $result Value to return instead of the featured image.
+	 *                           Default false to skip it.
 	 */
 	$result = apply_filters( 'cherry_pre_get_post_image', false );
 
@@ -480,14 +518,14 @@ function cherry_get_the_post_image( $args ) {
 	wp_enqueue_script( 'magnific-popup' );
 
 	$default_init = array(
-		'type' => 'image'
+		'type' => 'image',
 	);
 
 	/**
 	 * Filter the arguments used to init image zoom popup.
 	 *
 	 * @since 4.0.0
-	 * @param array $args Array of arguments.
+	 * @param array $default_init Array of default arguments.
 	 */
 	$init = apply_filters( 'cherry_get_the_post_image_zoom_init', $default_init );
 	$init = wp_parse_args( $init, $default_init );
@@ -496,7 +534,7 @@ function cherry_get_the_post_image( $args ) {
 
 	if ( cherry_has_post_thumbnail( $post_id ) ) {
 
-		$thumb = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['container_class'] . '-img' ) );
+		$thumb = get_the_post_thumbnail( $post_id, $args['size'], array( 'class' => $args['container_class'] . '-img', ) );
 		$thumb = $args['before'] . $thumb . $args['after'];
 		$url   = wp_get_attachment_url( get_post_thumbnail_id( $post_id ) );
 
@@ -509,7 +547,7 @@ function cherry_get_the_post_image( $args ) {
 
 		} elseif ( is_int( $img[0] ) ) {
 
-			$thumb = wp_get_attachment_image( $img[0], $args['size'], '', array( 'class' => $args['container_class'] . '-img' ) );
+			$thumb = wp_get_attachment_image( $img[0], $args['size'], '', array( 'class' => $args['container_class'] . '-img', ) );
 			$thumb = $args['before'] . $thumb . $args['after'];
 			$url   = wp_get_attachment_url( $img[0] );
 
@@ -521,10 +559,20 @@ function cherry_get_the_post_image( $args ) {
 				return false;
 			}
 
-			$thumb = '<img src="' . esc_url( $img[0] ) . '" class="' . $args['container_class'] . '-img" width="' . $_wp_additional_image_sizes[ $args['size'] ]['width'] . '">';
+			if ( has_excerpt( $post_id ) ) {
+				$alt = trim( strip_tags( get_the_excerpt() ) );
+			} else {
+				$alt = trim( strip_tags( get_the_title( $post_id ) ) );
+			}
+
+			$thumb = sprintf( '<img src="%s" class="%s" width="%d" alt="%s">',
+				esc_url( $img[0] ),
+				$args['container_class'] . '-img',
+				$_wp_additional_image_sizes[ $args['size'] ]['width'],
+				esc_attr( $alt )
+			);
 			$thumb = $args['before'] . $thumb . $args['after'];
 			$url   = $img[0];
-
 		}
 	}
 
@@ -538,15 +586,17 @@ function cherry_get_the_post_image( $args ) {
 	);
 
 	/**
-	 * Filter featured image.
+	 * Filter a featured image.
 	 *
 	 * @since 4.0.0
+	 * @param string $result Featured image.
+	 * @param array  $args   Array of arguments.
 	 */
 	return apply_filters( 'cherry_get_the_post_image', $result, $args );
 }
 
 /**
- * Display featured gallery.
+ * Display a featured gallery.
  *
  * @since 4.0.0
  */
@@ -555,16 +605,20 @@ function cherry_the_post_gallery() {
 }
 
 /**
- * Get featured gallery.
+ * Retrieve a featured gallery.
+ *
  * If has post thumbnail - will get post thumbnail, else - get first image from content.
  *
  * @since  4.0.0
- * @return string
+ * @return string $output Featured gallery.
  */
 function cherry_get_the_post_gallery() {
 	/**
-	 * Filter post format gallery output to rewrite gallery from child theme or plugins
-	 * @since  4.0.0
+	 * Filter post format gallery output to rewrite gallery from child theme or plugins.
+	 *
+	 * @since 4.0.0
+	 * @param bool|mixed $result Value to return instead of the featured gallery.
+	 *                           Default false to skip it.
 	 */
 	$result = apply_filters( 'cherry_pre_get_post_gallery', false );
 
@@ -574,12 +628,12 @@ function cherry_get_the_post_gallery() {
 
 	$post_id = get_the_ID();
 
-	// first - try to get images from galleries in post
+	// First - try to get images from galleries in post.
 	$shortcode_replaced = cherry_get_option( 'blog-gallery-shortcode', 'true' );
 	$is_html            = ( 'true' == $shortcode_replaced ) ? true : false;
 	$post_gallery       = get_post_gallery( $post_id, $is_html );
 
-	// if stanadrd gallery shortcode replaced with cherry - return HTML
+	// If stanadrd gallery shortcode replaced with cherry - return HTML.
 	if ( is_string( $post_gallery ) && ! empty( $post_gallery ) ) {
 		return $post_gallery;
 	}
@@ -592,12 +646,12 @@ function cherry_get_the_post_gallery() {
 		$post_gallery = false;
 	}
 
-	// if can't try to catch images inserted into post
+	// If can't try to catch images inserted into post.
 	if ( ! $post_gallery ) {
 		$post_gallery = cherry_get_post_images( $post_id, 15 );
 	}
 
-	// and if not find any images - try to get images attached to post
+	// And if not find any images - try to get images attached to post.
 	if ( ! $post_gallery || empty( $post_gallery ) ) {
 
 		$attachments = get_children( array(
@@ -623,21 +677,19 @@ function cherry_get_the_post_gallery() {
 	 * Filter a post gallery.
 	 *
 	 * @since 4.0.0
+	 * @param string $output Post gallery.
 	 */
-	$output = apply_filters( 'cherry_get_the_post_gallery', $output );
-
-	return $output;
+	return apply_filters( 'cherry_get_the_post_gallery', $output );
 }
 
 /**
  * Custom output for gallery shortcode.
  *
  * @since  4.0.0
- * @param  array  $atts Shortcode atts
- * @return string       Gallery HTML
+ * @param  array  $atts Shortcode atts.
+ * @return string       Gallery HTML.
  */
 function cherry_gallery_shortcode( $result, $attr ) {
-
 	$replace_allowed = cherry_get_option( 'blog-gallery-shortcode', 'true' );
 
 	if ( 'true' != $replace_allowed ) {
@@ -645,9 +697,11 @@ function cherry_gallery_shortcode( $result, $attr ) {
 	}
 
 	/**
-	 * Filter gallery output.
+	 * Filter a gallery output.
 	 *
-	 * @since  4.0.0
+	 * @since 4.0.0
+	 * @param bool|mixed $result Value to return instead of the gallery shortcode.
+	 *                           Default false to skip it.
 	 */
 	$result = apply_filters( 'cherry_pre_get_gallery_shortcode', false, $attr );
 
@@ -716,14 +770,14 @@ function cherry_gallery_shortcode( $result, $attr ) {
  * Build default gallery HTML from images array.
  *
  * @since  4.0.0
- * @param  array  $images Images array can contain image IDs or URLs
- * @param  array  $atts   Shortcode attributes array
- * @return string         Gallery HTML markup
+ * @param  array  $images Images array can contain image IDs or URLs.
+ * @param  array  $atts   Shortcode attributes array.
+ * @return string         Gallery HTML markup.
  */
 function cherry_get_gallery_html( $images, $atts = array() ) {
 
 	$atts = wp_parse_args( $atts, array(
-		'link' => ''
+		'link' => '',
 	) );
 
 	$defaults = array(
@@ -732,13 +786,14 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 		'size'             => 'cherry-thumb-l',
 		'container_format' => '<div class="%2$s popup-gallery" data-init=\'%3$s\' data-popup-init=\'%4$s\'>%1$s</div>',
 		'item_format'      => '<figure class="%3$s"><a href="%2$s" class="%3$s_link popup-gallery-item" >%1$s</a>%4$s</figure>',
-		'item_format_alt'  => '<figure class="%3$s">%1$s%4$s</figure>'
+		'item_format_alt'  => '<figure class="%3$s">%1$s%4$s</figure>',
 	);
 
 	/**
 	 * Filter default gallery arguments.
 	 *
-	 * @since  4.0.0
+	 * @since 4.0.0
+	 * @param array $defaults Set of default arguments.
 	 */
 	$args = apply_filters( 'cherry_get_the_post_gallery_args', $defaults );
 	$args = wp_parse_args( $args, $defaults );
@@ -758,13 +813,14 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 		'dotsClass'      => 'post-gallery_paging',
 		'dotsFormat'     => '<span class="post-gallery_paging_item"></span>',
 		'prevArrow'      => '<span class="post-gallery_prev"></span>',
-		'nextArrow'      => '<span class="post-gallery_next"></span>'
+		'nextArrow'      => '<span class="post-gallery_next"></span>',
 	);
 
 	/**
 	 * Filter default gallery slider inits.
 	 *
-	 * @since  4.0.0
+	 * @since 4.0.0
+	 * @param array $default_slider_init Set of default arguments.
 	 */
 	$init = apply_filters( 'cherry_get_the_post_gallery_slider_args', $default_slider_init );
 	$init = wp_parse_args( $init, $default_slider_init );
@@ -774,14 +830,15 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 		'delegate' => '.popup-gallery-item',
 		'type'     => 'image',
 		'gallery'  => array(
-			'enabled' => true
-		)
+			'enabled' => true,
+		),
 	);
 
 	/**
 	 * Filter default gallery popup inits.
 	 *
-	 * @since  4.0.0
+	 * @since 4.0.0
+	 * @param array $default_gall_init Set of default arguments.
 	 */
 	$gall_init = apply_filters( 'cherry_get_the_post_gallery_popup_args', $default_gall_init );
 	$gall_init = wp_parse_args( $gall_init, $default_gall_init );
@@ -802,7 +859,7 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 		}
 
 		if ( 0 < intval( $img ) ) {
-			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $module_prefix . '_item_img' ) );
+			$image = wp_get_attachment_image( $img, $args['size'], '', array( 'class' => $module_prefix . '_item_img', ) );
 			$url   = wp_get_attachment_url( $img );
 
 			$attachment = get_post( $img );
@@ -850,25 +907,24 @@ function cherry_get_gallery_html( $images, $atts = array() ) {
 }
 
 /**
- * Get images from post content.
+ * Retrieve images from post content.
+ *
  * Returns image ID's if can find this image in database,
  * returns image URL or bollen false in other case.
  *
  * @since  4.0.0
- *
- * @param  int $post_id post ID to search image in
- * @param  int $limit   max images count to search
- * @return bool|string|int
+ * @param  int   $post_id Post ID to search image in.
+ * @param  int   $limit   Max images count to search.
+ * @return mixed          Images.
  */
 function cherry_get_post_images( $post_id = null, $limit = 1 ) {
-
 	$post_id = ( null === $post_id ) ? get_the_ID() : $post_id;
 	$content = get_the_content();
 
 	// Gets first image from content.
 	preg_match_all( '/< *img[^>]*src *= *["\']?([^"\']*)/i', $content, $matches );
 
-	if ( !isset( $matches[1] ) ) {
+	if ( ! isset( $matches[1] ) ) {
 		return false;
 	}
 
@@ -901,7 +957,7 @@ function cherry_get_post_images( $post_id = null, $limit = 1 ) {
 }
 
 /**
- * Show featured video.
+ * Dispaly a featured video.
  *
  * @since 4.0.0
  */
@@ -910,7 +966,8 @@ function cherry_the_post_video() {
 }
 
 /**
- * Get featured video.
+ * Retrieve a featured video.
+ *
  * Returns first finded video, iframe, object or embed tag in content.
  *
  * @since 4.0.0
@@ -919,7 +976,9 @@ function cherry_get_the_post_video() {
 	/**
 	 * Filter post format video output to rewrite video from child theme or plugins.
 	 *
-	 * @since  4.0.0
+	 * @since 4.0.0
+	 * @param bool|mixed $result Value to return instead of the featured video.
+	 *                           Default false to skip it.
 	 */
 	$result = apply_filters( 'cherry_pre_get_post_video', false );
 
@@ -927,6 +986,7 @@ function cherry_get_the_post_video() {
 		return $result;
 	}
 
+	/** This filter is documented in wp-includes/post-template.php */
 	$content = apply_filters( 'the_content', get_the_content() );
 	$types   = array( 'video', 'object', 'embed', 'iframe' );
 	$embeds  = get_media_embedded_in_content( $content, $types );
@@ -949,15 +1009,16 @@ function cherry_get_the_post_video() {
 	$result = sprintf( '<div class="entry-video embed-responsive embed-responsive-16by9">%s</div>', $result );
 
 	/**
-	 * Filter featured video.
+	 * Filter a featured video.
 	 *
 	 * @since 4.0.0
+	 * @param string $result Featured video.
 	 */
 	return apply_filters( 'cherry_get_the_post_video', $result );
 }
 
 /**
- * Show featured audio.
+ * Display a featured audio.
  *
  * @since 4.0.0
  */
@@ -966,7 +1027,8 @@ function cherry_the_post_audio() {
 }
 
 /**
- * Get featured audio.
+ * Retrieve a featured audio.
+ *
  * Returns first finded audio tag in page content.
  *
  * @since 4.0.0
@@ -975,7 +1037,9 @@ function cherry_get_the_post_audio() {
 	/**
 	 * Filter post format audio output to rewrite audio from child theme or plugins.
 	 *
-	 * @since  4.0.0
+	 * @since 4.0.0
+	 * @param bool|mixed $result Value to return instead of the featured audio.
+	 *                           Default false to skip it.
 	 */
 	$result = apply_filters( 'cherry_pre_get_post_audio', false );
 
@@ -995,9 +1059,10 @@ function cherry_get_the_post_audio() {
 	}
 
 	/**
-	 * Filter featured audio.
+	 * Filter a featured audio.
 	 *
 	 * @since 4.0.0
+	 * @param string $output Featured audio.
 	 */
 	return apply_filters( 'cherry_get_the_post_audio', $matches[0] );
 }
@@ -1005,8 +1070,8 @@ function cherry_get_the_post_audio() {
 /**
  * Display the post author avatar.
  *
- * @since  4.0.0
- * @param  array $args
+ * @since 4.0.0
+ * @param array $args Set of agruments.
  */
 function cherry_the_post_avatar( $args ) {
 	echo cherry_get_the_post_avatar( $args );
@@ -1017,13 +1082,13 @@ function cherry_the_post_avatar( $args ) {
  * Retrieve the post author avatar.
  *
  * @since  4.0.0
- * @param  array  $args
- * @return string $output
+ * @param  array  $args   Set of agruments.
+ * @return string $output The post author avatar.
  */
 function cherry_get_the_post_avatar( $args ) {
 
 	// If avatars are enabled.
-	if ( !get_option( 'show_avatars' ) ) {
+	if ( ! get_option( 'show_avatars' ) ) {
 		return false;
 	}
 
@@ -1068,15 +1133,15 @@ function cherry_get_the_post_avatar( $args ) {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @param  string $content
- * @return string
+ * @param  string $content Post content.
+ * @return string          URL.
  */
 function cherry_get_content_url( $content ) {
 
 	// Catch links that are not wrapped in an '<a>' tag.
 	preg_match( '/<a\s[^>]*?href=[\'"](.+?)[\'"]/is', make_clickable( $content ), $matches );
 
-	return !empty( $matches[1] ) ? esc_url_raw( $matches[1] ) : '';
+	return ! empty( $matches[1] ) ? esc_url_raw( $matches[1] ) : '';
 }
 
 /**
@@ -1085,8 +1150,8 @@ function cherry_get_content_url( $content ) {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @param  object $post
- * @return string
+ * @param  object $post Post object.
+ * @return string       URL.
  */
 function cherry_get_post_format_url( $post = null ) {
 	$post        = is_null( $post ) ? get_post() : $post;

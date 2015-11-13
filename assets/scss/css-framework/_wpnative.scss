@@ -55,12 +55,12 @@ img {
 		overflow: hidden;
 	}
 
-	& .nav-previous {
+	.nav-previous {
 		float: left;
 		width: 50%;
 	}
 
-	& .nav-next {
+	.nav-next {
 		float: right;
 		text-align: right;
 		width: 50%;
@@ -93,8 +93,6 @@ img {
 	width: 1px;
 	overflow: hidden;
 
-	&:hover,
-	&:active,
 	&:focus {
 		background-color: #f1f1f1;
 		border-radius: 3px;
@@ -362,6 +360,10 @@ embed,
 iframe,
 object {
 	max-width: 100%;
+}
+
+iframe {
+	border: none;
 }
 
 /*--------------------------------------------------------------

@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -21,7 +21,7 @@ add_action( 'cherry_comments_list', 'cherry_comments_default_list' );
 add_action( 'cherry_comments_nav',  'cherry_comments_nav' );
 
 /**
- * Output the list of comments.
+ * Dispaly the list of comments.
  *
  * @since 4.0.0
  */
@@ -35,10 +35,10 @@ function cherry_comments_default_list() {
 	);
 
 	/**
-	 * Filters the defaults list arguments of comments.
+	 * Filter the defaults list arguments of comments.
 	 *
 	 * @since 4.0.0
-	 * @param array $defaults
+	 * @param array $defaults Defaults arguments.
 	 */
 	$args = apply_filters( 'cherry_comment_list_args', $defaults );
 
@@ -52,14 +52,14 @@ function cherry_comments_default_list() {
 }
 
 /**
- * Output the navigation for comments.
+ * Display the navigation for comments.
  *
- * @since  4.0.0
- * @param  string $position Navigation position - above or below?
+ * @since 4.0.0
+ * @param string $position Navigation position - above or below?
  */
 function cherry_comments_nav( $position ='' ) {
 
-	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) :
+	if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) {
 
 		printf( '<nav id="comment-nav-%3$s" class="comment-navigation" role="navigation"><div class="nav-previous">%1$s</div><div class="nav-next">%2$s</div></nav>',
 			get_previous_comments_link( __( '&larr; Older Comments', 'cherry' ) ),
@@ -67,13 +67,13 @@ function cherry_comments_nav( $position ='' ) {
 			$position
 		);
 
-	endif;
+	}
 }
 
 /**
  * A custom function to use to open and display each comment.
  *
- * @since  4.0.4
+ * @since 4.0.4
  * @param object $_comment Comment to display.
  * @param array  $args     An array of arguments.
  * @param int    $depth    Depth of comment.
@@ -103,11 +103,11 @@ function cherry_rewrite_comment_item( $_comment, $args, $depth ) {
 <?php }
 
 /**
- * Retrieve the post's comment author avatar.
+ * Retrieve the avatar of the author of the current comment.
  *
  * @since  4.0.4
- * @param  array  $args
- * @return string $output
+ * @param  array  $args   Arguments.
+ * @return string $output Avatar of the author of the comment.
  */
 function cherry_get_the_post_comment_author_avatar( $args ) {
 	global $comment;
@@ -120,26 +120,40 @@ function cherry_get_the_post_comment_author_avatar( $args ) {
 		$size = intval( $args['size'] );
 	}
 
+	/**
+	 * Filter the avatar of the author of the current comment.
+	 *
+	 * @since 4.0.4
+	 * @param array $output Avatar.
+	 * @param array $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_comment_author_avatar', get_avatar( $comment, $size ), $args );
 }
 
 /**
- * Retrieve the post's comment author link.
+ * Retrieve the html link to the url of the author of the current comment.
  *
  * @since  4.0.4
- * @param  array  $args
- * @return string $output
+ * @param  array  $args   Arguments.
+ * @return string $output URL of the author of the comment.
  */
 function cherry_get_the_post_comment_author_link( $args ) {
+	/**
+	 * Filter a URL of the author of the current comment.
+	 *
+	 * @since 4.0.4
+	 * @param array $output URL of the author of the comment.
+	 * @param array $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_comment_author_link', sprintf( '<b class="fn">%s</b>', get_comment_author_link() ), $args );
 }
 
 /**
- * Retrieve the post's comment date.
+ * Retrieve the html-formatted comment date of the current comment.
  *
  * @since  4.0.4
- * @param  array  $args
- * @return string $output
+ * @param  array  $args   Arguments.
+ * @return string $output The comment date of the current comment.
  */
 function cherry_get_the_post_comment_date( $args ) {
 	$format = get_option( 'date_format' ) . ' ' . get_option( 'time_format' );
@@ -148,6 +162,13 @@ function cherry_get_the_post_comment_date( $args ) {
 		$format = esc_attr( $args['format'] );
 	}
 
+	/**
+	 * Filter a html-formatted comment date of the current comment.
+	 *
+	 * @since 4.0.4
+	 * @param string $output The comment date.
+	 * @param array  $args   Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_comment_date', sprintf( '<time datetime="%1$s">%2$s</time>', get_comment_time( 'c' ), get_comment_date( $format ) ), $args );
 }
 
@@ -155,13 +176,13 @@ function cherry_get_the_post_comment_date( $args ) {
  * Retrieve a link to edit the current comment, if the user is logged in and allowed to edit the comment.
  *
  * @since  4.0.4
- * @param  array  $args
- * @return string $output
+ * @param  array  $args   Arguments.
+ * @return string $output HTML-link to edit the current comment.
  */
 function cherry_get_the_post_comment_link_edit( $args ) {
 	global $comment;
 
-	$text = __( 'Edit' );
+	$text = __( 'Edit', 'cherry' );
 
 	if ( ! empty( $args['text'] ) ) {
 		$text = esc_attr( $args['text'] );
@@ -187,14 +208,12 @@ function cherry_get_the_post_comment_link_edit( $args ) {
 }
 
 /**
- * Retrieve the text of the post comment.
+ * Retrieve the text of a comment.
  *
  * @since  4.0.4
- *
  * @global int    $comment_depth
- *
- * @param  array  $args
- * @return string $output
+ * @param  array  $args   Arguments.
+ * @return string $output Comment's text.
  */
 function cherry_get_the_post_comment_text( $args ) {
 	global $comment_depth;
@@ -210,18 +229,23 @@ function cherry_get_the_post_comment_text( $args ) {
 	$comment_text = ob_get_contents();
 	ob_end_clean();
 
+	/**
+	 * Filter the text of a comment.
+	 *
+	 * @since 4.0.4
+	 * @param string $comment_text Comment's text.
+	 * @param array  $args         Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_comment_text', $comment_text, $args );
 }
 
 /**
- * Returns a string that can be echoed to create a "reply" link for comments.
+ * Returns a string that can be echoed to create a `reply` link for comments.
  *
  * @since  4.0.4
- *
  * @global int    $comment_depth
- *
- * @param  array  $args
- * @return string $output
+ * @param  array  $args   Arguments.
+ * @return string $output `Reply` link.
  */
 function cherry_get_the_post_comment_reply_link( $args ) {
 	global $comment_depth;
@@ -234,5 +258,12 @@ function cherry_get_the_post_comment_reply_link( $args ) {
 			'after'     => '',
 		) ) );
 
+	/**
+	 * Filter a `reply` link for comments.
+	 *
+	 * @since 4.0.4
+	 * @param string $reply `reply` link.
+	 * @param array  $args  Arguments.
+	 */
 	return apply_filters( 'cherry_get_the_post_comment_reply_link', $reply, $args );
 }

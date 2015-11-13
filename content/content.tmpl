@@ -4,8 +4,8 @@
 %%TITLE where="loop"%%
 
 <div class="entry-meta entry-meta-top">
-	%%DATE   before="<?php _e( 'Posted on ', 'cherry' ); ?>"%%
-	%%AUTHOR before="<?php _e( 'by ', 'cherry' ); ?>"%%
+	<?php printf( __( 'Posted on %s', 'cherry' ), '%%DATE%%' ); ?>
+	<?php printf( __( 'by %s', 'cherry' ), '%%AUTHOR%%' ); ?>
 	%%COMMENTS%%
 </div>
 
@@ -13,6 +13,6 @@
 %%BUTTON%%
 
 <div class="entry-meta entry-meta-bottom">
-	%%TAXONOMY before="<?php _e( 'Posted in ', 'cherry' ); ?>" name="category"%%
+	<?php printf( __( 'Posted in %s', 'cherry' ), '%%TAXONOMY name="category"%%' ); ?>
 	%%TAXONOMY name="post_tag"%%
 </div>

@@ -1,6 +1,6 @@
 <?php
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -30,13 +30,14 @@ add_filter( 'post_gallery', 'cherry_gallery_shortcode', 10, 3 );
 add_action( 'cherry_entry_after', 'cherry_get_attachment_metadata', 9 );
 
 /**
- * Output Header Wrap.
+ * Display a site header wrapper.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @return string HTML-markup for `<header>`.
  */
 function cherry_header_wrap() {
 
-	if ( !did_action( 'cherry_header' ) ) {
+	if ( ! did_action( 'cherry_header' ) ) {
 		printf( '<header %s>', cherry_get_attr( 'header' ) );
 	} else {
 		echo '</header>';
@@ -44,31 +45,43 @@ function cherry_header_wrap() {
 }
 
 /**
- * Output Footer Wrap.
+ * Display a site footer wrapper.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @return string HTML-markup for `<footer>`.
  */
 function cherry_footer_wrap() {
 
-	if ( !did_action( 'cherry_footer' ) ) {
+	if ( ! did_action( 'cherry_footer' ) ) {
 		printf( '<footer %s>', cherry_get_attr( 'footer' ) );
 	} else {
 		echo '</footer>';
 	}
 }
 
+/**
+ * Load a `wrapper-header` template.
+ *
+ * @since 4.0.0
+ */
 function cherry_header_load_template() {
 	get_template_part( 'templates/wrapper-header', cherry_template_base() );
 }
 
+/**
+ * Load a `wrapper-footer` template.
+ *
+ * @since 4.0.0
+ */
 function cherry_footer_load_template() {
 	get_template_part( 'templates/wrapper-footer', cherry_template_base() );
 }
 
 /**
- * Output Primary Content Wrap.
+ * Display a site content wrapper.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @return string HTML-markup for content.
  */
 function cherry_content_wrap() {
 
@@ -77,20 +90,16 @@ function cherry_content_wrap() {
 		$wrapper = '';
 
 		if ( false !== cherry_display_sidebar( apply_filters( 'cherry_get_main_sidebar', 'sidebar-main' ) ) ) {
-			$object_id = apply_filters( 'cherry_current_object_id', get_queried_object_id() );
-			$layout    = apply_filters( 'cherry_get_page_layout', get_post_meta( $object_id, 'cherry_layout', true ) );
 
-			if ( empty( $layout ) || ( 'default-layout' == $layout ) ) {
+			$layout = cherry_current_page()->get_property( 'layout' );
+			$class  = sanitize_html_class( $layout . '-wrapper' );
 
-				if ( is_single() ) {
-					$layout = apply_filters( 'cherry_get_single_post_layout', cherry_get_option( 'single-post-layout' ), $object_id );
-				} else {
-					$layout = apply_filters( 'cherry_get_archive_page_layout', cherry_get_option( 'page-layout' ), $object_id );
-				}
-
-			}
-
-			$class         = sanitize_html_class( $layout . '-wrapper' );
+			/**
+			 * Filter a CSS-class for site content wrapper.
+			 *
+			 * @since 4.0.0
+			 * @param $class CSS-class for content wrapper.
+			 */
 			$wrapper_class = apply_filters( 'cherry_content_sidebar_wrapper_class', $class );
 			$wrapper       = sprintf( '<div class="%s">', $wrapper_class );
 		}
@@ -103,7 +112,7 @@ function cherry_content_wrap() {
 }
 
 /**
- * Closed a `.content-sidebar-wrapper`
+ * Closed a content `.*-wrapper`.
  *
  * @since  4.0.0
  * @param  string $sidebar Sidebar ID.
@@ -123,14 +132,21 @@ function cherry_content_sidebar_wrap_close( $sidebar ) {
 }
 
 /**
- * Output Entry Wrap.
+ * Open a post (entry) wrapper.
  *
- * @since 4.0.0
+ * @since  4.0.0
+ * @return string `<article>`.
  */
 function cherry_entry_wrap_open() {
 	printf( '<article %s>', cherry_get_attr( 'post' ) );
 }
 
+/**
+ * Close a post (entry) wrapper.
+ *
+ * @since  4.0.0
+ * @return string `</article>`.
+ */
 function cherry_entry_wrap_close() {
 	echo '</article>';
 }
@@ -139,12 +155,11 @@ function cherry_entry_wrap_close() {
  * Display or retrieve the attachment meta.
  *
  * @since  4.0.0
- * @param  int           $post_id Attachment ID.
- * @param  bool          $echo    Display the attachment meta?
- * @return void | array
+ * @param  int  $post_id Attachment ID.
+ * @param  bool $echo    Display the attachment meta?
+ * @return void|array
  */
 function cherry_get_attachment_metadata( $post_id = 0, $echo = true ) {
-
 	$post_id = ( $post_id ) ? $post_id : get_the_ID();
 
 	if ( wp_attachment_is_image( $post_id ) ) {
@@ -158,46 +173,39 @@ function cherry_get_attachment_metadata( $post_id = 0, $echo = true ) {
 	// Get the attachment metadata.
 	$metadata = wp_get_attachment_metadata( $post_id );
 
-	if ( !$metadata ) {
+	if ( ! $metadata ) {
 		return;
 	}
 
-	if ( is_array( $metadata ) ) :
-
-		if ( function_exists( "cherry_{$type}_meta" ) ) :
-
-			$items = call_user_func( "cherry_{$type}_meta", $post_id, $metadata );
-
-			if ( true !== $echo ) {
-				return $items;
-			}
-
-		endif;
-
-	endif;
-
-	if ( isset( $items ) && !empty( $items ) ) {
-		$display = '';
-
-		foreach ( $items as $item ) {
-
-			$display .= sprintf( '<li><span class="prep">%1$s</span> <span class="data">%2$s</span></li>',
-				$item[1],
-				$item[0]
-			);
-
-		}
-
-		$display = '<ul class="media-meta">' . $display . '</ul>';
+	if ( ! function_exists( "cherry_{$type}_meta" ) ) {
+		return;
 	}
 
-	if ( isset( $display ) ) {
-		$title = sprintf( __( '%s Info', 'cherry' ), $type );
+	$items = call_user_func( "cherry_{$type}_meta", $post_id, $metadata );
 
-		printf( '<div class="attachment-meta"><div class="media-info"><h3 class="media-title">%1$s</h3>%2$s</div></div>',
-			$title,
-			$display
+	if ( empty( $items ) ) {
+		return;
+	}
+
+	if ( true !== $echo ) {
+		return $items;
+	}
+
+	$display = '';
+
+	foreach ( (array) $items as $item ) {
+
+		$display .= sprintf( '<li><strong class="prep">%1$s</strong>:&nbsp;<span class="data">%2$s</span></li>',
+			esc_html( $item[1] ),
+			$item[0]
 		);
 	}
 
+	$display = '<ul class="media-meta">' . $display . '</ul>';
+	$title   = sprintf( __( '%s Info', 'cherry' ), $type );
+
+	printf( '<div class="attachment-meta"><div class="media-info"><h3 class="media-title">%1$s</h3>%2$s</div></div>',
+		$title,
+		$display
+	);
 }

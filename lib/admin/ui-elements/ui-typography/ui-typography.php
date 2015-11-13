@@ -43,6 +43,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 				'letterspacing' => 0,
 				'align'			=> 'center',
 				'color'			=> '#222222',
+				'category'		=> 'sans-serif'
 			),
 			'class'			=> '',
 		);
@@ -88,7 +89,6 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 			$character_array = array();
 			$style_array = array();
 			$fonttype = '';
-
 			$html .= '<div class="cherry-ui-typography-wrap" data-id="' . $this->settings['id'] . '" data-name="' . $this->settings['name'] . '">';
 			//Font Family
 				$html .= '<div class="cherry-column-section">';
@@ -268,7 +268,9 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 				);
 				$html .= $ui_preview_textarea->render();
 
-				$html .= '<input class="cherry-font-category" name="' . $this->settings['name'] . '[category]" value=""  type="hidden" />';
+				$category = isset( $this->settings['value']['category'] ) ? $this->settings['value']['category'] : 'sans-serif' ;
+
+				$html .= '<input class="cherry-font-category" name="' . $this->settings['name'] . '[category]" value="' . $category . '"  type="hidden" />';
 				$html .= '<input class="font-type" name="' . $this->settings['name'] . '[fonttype]" type="hidden" value="' . esc_html( $fonttype ) . '">';
 			$html .= '</div>';
 			return $html;
@@ -432,7 +434,6 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 				// Get cache.
 
 				$fonts = get_transient( 'cherry_standart_fonts' );
-
 				if ( false === $fonts ) {
 
 					if ( !function_exists( 'WP_Filesystem' ) ) {
@@ -454,7 +455,6 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 
 					$content = json_decode( $json, true );
 					$fonts   = $content['items'];
-
 					// Set cache.
 					set_transient( 'cherry_standart_fonts', $fonts, WEEK_IN_SECONDS );
 				}
@@ -497,7 +497,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 					$fonts   = $content['items'];
 
 					// Set cache.
-					set_transient( 'cherry_google_fonts', $fonts, 1 );
+					set_transient( 'cherry_google_fonts', $fonts, WEEK_IN_SECONDS );
 				}
 
 				$this->google_font = $fonts;

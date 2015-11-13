@@ -12,7 +12,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -30,11 +30,10 @@ add_action( 'cherry_loop_empty', 'cherry_noposts' );
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
- * @since 4.0.0
- * @param string $name The name of the specialised header.
+ * @since  4.0.0
+ * @param  string $name The name of the specialised header.
  */
 function cherry_get_header( $name = null ) {
-
 	do_action( 'get_header', $name ); // Core WordPress hook.
 
 	$templates = array();
@@ -58,10 +57,9 @@ function cherry_get_header( $name = null ) {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @param  string $name
+ * @param  string $name The name of the specialised footer.
  */
 function cherry_get_footer( $name = null ) {
-
 	do_action( 'get_footer', $name ); // Core WordPress hook.
 
 	$templates = array();
@@ -85,9 +83,33 @@ function cherry_get_footer( $name = null ) {
  * @since 4.0.0
  */
 function cherry_get_content() {
+	/**
+	 * Fires before content `.*-wrapper` are opened.
+	 *
+	 * @since 4.0.0
+	 */
 	do_action( 'cherry_content_before' );
+
+	/**
+	 * Main template file.
+	 *
+	 * @see lib/class/class-cherry-wrapping.php
+	 * @since 4.0.0
+	 */
 	include apply_filters( 'cherry_get_content', cherry_template_path() );
+
+	/**
+	 * Fires when entry `<article>` are closed.
+	 *
+	 * @since 4.0.0
+	 */
 	do_action( 'cherry_content' );
+
+	/**
+	 * Fires when primary `.content-area` are closed.
+	 *
+	 * @since 4.0.0
+	 */
 	do_action( 'cherry_content_after' );
 }
 
@@ -97,7 +119,7 @@ function cherry_get_content() {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @return string
+ * @return string Post/page content.
  */
 function cherry_get_content_template() {
 
@@ -134,9 +156,8 @@ function cherry_get_content_template() {
  * Parse *.tmpl file - replace macros on the real content.
  *
  * @since  4.0.0
- *
- * @param  array $template_names
- * @return string
+ * @param  array  $template_names Set of templates.
+ * @return string                 The post/page content.
  */
 function cherry_parse_tmpl( $template_names ) {
 	ob_start();
@@ -149,6 +170,14 @@ function cherry_parse_tmpl( $template_names ) {
 	// Perform a regular expression.
 	$output = preg_replace_callback( "/%%.+?%%/", 'cherry_do_content', $template );
 
+	/**
+	 * Filter a post/page content.
+	 *
+	 * @since 4.0.0
+	 * @param string $output         The post/page content.
+	 * @param string $template       Not passed template content (content with macroses).
+	 * @param array  $template_names Set of templates.
+	 */
 	return apply_filters( 'cherry_parse_tmpl', $output, $template, $template_names );
 }
 
@@ -156,12 +185,12 @@ function cherry_parse_tmpl( $template_names ) {
  * Callback-function for regular expression.
  *
  * @since  4.0.0
- *
  * @param  array  $matches Array of matched elements.
  * @return string
  */
 function cherry_do_content( $matches ) {
-	if ( !is_array( $matches ) ) {
+
+	if ( ! is_array( $matches ) ) {
 		return '';
 	}
 
@@ -179,6 +208,7 @@ function cherry_do_content( $matches ) {
 		&& function_exists( $macros )
 		&& is_callable( $macros )
 		) {
+
 		// Call a WordPress function.
 		return call_user_func( $macros, $attr );
 	}
@@ -189,6 +219,9 @@ function cherry_do_content( $matches ) {
 	 * Filter callback function's name for outputing post element.
 	 *
 	 * @since 4.0.0
+	 * @param bool|mixed $pre  Value to return instead of the callback-function.
+	 *                         Default false to skip it.
+	 * @param array      $attr Set of macros attributes.
 	 */
 	$pre = apply_filters( "cherry_pre_get_the_post_{$macros}", false, $attr );
 
@@ -196,16 +229,16 @@ function cherry_do_content( $matches ) {
 		return $pre;
 	}
 
-	if ( !function_exists( $function_name ) || !is_callable( $function_name ) ) {
+	if ( ! function_exists( $function_name ) || ! is_callable( $function_name ) ) {
 		return '';
 	}
 
-	if ( !isset( $attr['where'] ) ) {
+	if ( ! isset( $attr['where'] ) ) {
 		return call_user_func( $function_name, $attr );
 	}
 
 	if ( ( ( 'loop' === $attr['where'] ) && is_singular() )
-		|| ( ( 'single' === $attr['where'] ) && !is_singular() )
+		|| ( ( 'single' === $attr['where'] ) && ! is_singular() )
 		) {
 		return '';
 	}
@@ -218,11 +251,10 @@ function cherry_do_content( $matches ) {
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
- * @since  4.0.0
- * @param  string $name
+ * @since 4.0.0
+ * @param string $name The name of the specialised sidebar.
  */
 function cherry_get_sidebar( $name = null ) {
-
 	do_action( 'get_sidebar', $name ); // Core WordPress hook.
 
 	$name = (string) $name;
@@ -248,7 +280,12 @@ function cherry_get_sidebar( $name = null ) {
 		return;
 	}
 
-	// Backward compat (when template not found).
+	/**
+	 * Fires before sidebar wrapper are opened.
+	 *
+	 * @since 4.0.0
+	 * @param string $name The name of the specialised sidebar.
+	 */
 	do_action( 'cherry_sidebar_before', $name );
 
 	printf( '<div %s>', cherry_get_attr( 'sidebar', $name ) );
@@ -256,11 +293,24 @@ function cherry_get_sidebar( $name = null ) {
 	if ( is_active_sidebar( "{$name}" ) ) {
 		dynamic_sidebar( "{$name}" );
 	} else {
+
+		/**
+		 * Fires if sidebar are empty.
+		 *
+		 * @since 4.0.0
+		 * @param string $name The name of the specialised sidebar.
+		 */
 		do_action( 'cherry_sidebar_empty', $name );
 	}
 
 	echo '</div>';
 
+	/**
+	 * Fires after sidebar wrapper are closed.
+	 *
+	 * @since 4.0.0
+	 * @param string $name The name of the specialised sidebar.
+	 */
 	do_action( 'cherry_sidebar_after', $name );
 }
 
@@ -269,11 +319,10 @@ function cherry_get_sidebar( $name = null ) {
  *
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
- * @since  4.0.0
- * @param  string  $name
+ * @since 4.0.0
+ * @param string $name The name of the specialised menu.
  */
 function cherry_get_menu_template( $name = '' ) {
-
 	$templates = array();
 
 	if ( '' !== $name ) {
@@ -290,16 +339,16 @@ function cherry_get_menu_template( $name = '' ) {
 /**
  * Loads template for comments.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_get_comments_template() {
 	$post_type = get_post_type();
 
-	if ( !post_type_supports( $post_type, 'comments' ) ) {
+	if ( ! post_type_supports( $post_type, 'comments' ) ) {
 		return;
 	}
 
-	if ( !is_singular( $post_type ) ) {
+	if ( ! is_singular( $post_type ) ) {
 		return;
 	}
 
@@ -326,7 +375,7 @@ function cherry_get_comments_template() {
 /**
  * Loads template if no posts were found.
  *
- * @since  4.0.0
+ * @since 4.0.0
  */
 function cherry_noposts() {
 	get_template_part( 'templates/none' );

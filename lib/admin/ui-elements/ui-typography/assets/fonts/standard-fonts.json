@@ -15,7 +15,7 @@
   },
   {
    "kind": "standartfonts#standartfonts",
-   "family": "'Arial Black', Gadget, sans-serif",
+   "family": "Arial Black, Gadget",
    "category": "sans-serif",
    "variants": [
     "regular",
@@ -27,7 +27,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'Bookman Old Style', serif",
+   "family": "Bookman Old Style",
    "category": "serif",
    "variants": [
     "regular",
@@ -39,7 +39,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'Comic Sans MS', cursive",
+   "family": "Comic Sans MS",
    "category": "cursive",
    "variants": [
     "regular",
@@ -51,7 +51,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "Courier, monospace",
+   "family": "Courier",
    "category": "monospace",
    "variants": [
     "regular",
@@ -63,7 +63,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "Garamond, serif",
+   "family": "Garamond",
    "category": "serif",
    "variants": [
     "regular",
@@ -75,7 +75,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "Georgia, serif",
+   "family": "Georgia",
    "category": "serif",
    "variants": [
     "regular",
@@ -87,7 +87,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "Impact, Charcoal, sans-serif",
+   "family": "Impact, Charcoal",
    "category": "sans-serif",
    "variants": [
     "regular",
@@ -99,7 +99,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'Lucida Console', Monaco, monospace",
+   "family": "Lucida Console, Monaco",
    "category": "monospace",
    "variants": [
     "regular",
@@ -111,7 +111,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'Lucida Sans Unicode', 'Lucida Grande', sans-serif",
+   "family": "Lucida Sans Unicode, Lucida Grande",
    "category": "sans-serif",
    "variants": [
     "regular",
@@ -123,7 +123,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'MS Sans Serif', Geneva, sans-serif",
+   "family": "MS Sans Serif, Geneva",
    "category": "sans-serif",
    "variants": [
     "regular",
@@ -135,7 +135,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'MS Serif', 'New York', sans-serif",
+   "family": "MS Serif, New York",
    "category": "sans-serif",
    "variants": [
     "regular",
@@ -147,7 +147,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'Palatino Linotype', 'Book Antiqua', Palatino, serif",
+   "family": "Palatino Linotype, Book Antiqua, Palatino",
    "category": "serif",
    "variants": [
     "regular",
@@ -159,7 +159,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "Tahoma, Geneva, sans-serif",
+   "family": "Tahoma, Geneva",
    "category": "sans-serif",
    "variants": [
     "regular",
@@ -171,7 +171,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'Times New Roman', Times, serif",
+   "family": "Times New Roman, Times",
    "category": "serif",
    "variants": [
     "regular",
@@ -183,7 +183,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "'Trebuchet MS', Helvetica, sans-serif",
+   "family": "Trebuchet MS, Helvetica",
    "category": "sans-serif",
    "variants": [
     "regular",
@@ -195,7 +195,7 @@
   },
   {
    "kind": "standartfonts#standartfont",
-   "family": "Verdana, Geneva, sans-serif",
+   "family": "Verdana, Geneva",
    "category": "sans-serif",
    "variants": [
     "regular",

@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -32,7 +32,8 @@ class Cherry_Sidebar {
 	 * Stores the conditional tags.
 	 *
 	 * @since 4.0.0
-	 * @var   array
+	 * @access private
+	 * @var array $conditionals Conditional tags.
 	 */
 	private $conditionals;
 
@@ -40,7 +41,8 @@ class Cherry_Sidebar {
 	 * Stores the templates filename with ext.
 	 *
 	 * @since 4.0.0
-	 * @var   array
+	 * @access private
+	 * @var array $templates Templates.
 	 */
 	private $templates;
 
@@ -48,7 +50,8 @@ class Cherry_Sidebar {
 	 * Display or not the sidebar?
 	 *
 	 * @since 4.0.0
-	 * @var   boolean
+	 * @access public
+	 * @var bool $display Sibebar visibility.
 	 */
 	public $display = true;
 
@@ -56,8 +59,9 @@ class Cherry_Sidebar {
 	 * Initialize new Cherry_Sidebar's instance.
 	 *
 	 * @since 4.0.0
-	 * @param array $conditionals List of conditional tags (http://codex.wordpress.org/Conditional_Tags)
-	 * @param array $templates    List of page templates. These will be checked via is_page_template()
+	 * @link http://codex.wordpress.org/Conditional_Tags
+	 * @param array $conditionals List of conditional tags.
+	 * @param array $templates    List of page templates. These will be checked via is_page_template().
 	 */
 	public function __construct( $conditionals = array(), $templates = array() ) {
 		$this->conditionals = $conditionals;
@@ -72,17 +76,17 @@ class Cherry_Sidebar {
 	}
 
 	/**
-	 * This function to execute conditional tag(s).
+	 * Call the conditional tag(s).
 	 *
 	 * @since  4.0.0
-	 * @param  string|array $conditional_tag
-	 * @return boolean
+	 * @param  string|array $conditional_tag Conditional tags.
+	 * @return bool
 	 */
 	private function check_conditional_tag( $conditional_tag ) {
 		$conditional_arg = is_array( $conditional_tag ) ? $conditional_tag[1] : false;
 		$conditional_tag = $conditional_arg ? $conditional_tag[0] : $conditional_tag;
 
-		if ( !function_exists( $conditional_tag ) ) {
+		if ( ! function_exists( $conditional_tag ) ) {
 			return false;
 		}
 
@@ -90,11 +94,11 @@ class Cherry_Sidebar {
 	}
 
 	/**
-	 * This function allows to determine if you are in any page template.
+	 * Whether currently in a page template.
 	 *
 	 * @since  4.0.0
-	 * @param  string $page_template Full template filename with ext
-	 * @return boolean
+	 * @param  string $page_template Full template filename with ext.
+	 * @return bool                  True on success, false on failure.
 	 */
 	private function check_page_template( $page_template ) {
 		return is_page_template( $page_template );

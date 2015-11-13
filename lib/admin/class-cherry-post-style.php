@@ -1,6 +1,6 @@
 <?php
 /**
- * `Style` metabox.
+ * Adds the style box to the edit post screen.
  *
  * @package    Cherry_Framework
  * @subpackage Admin
@@ -10,13 +10,20 @@
  * @link       http://www.cherryframework.com/
  * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
  */
+
+/**
+ * Class for creating `Style` metabox.
+ *
+ * @since 4.0.0
+ */
 class Cherry_Post_Style {
 
 	/**
 	 * Holds the instances of this class.
 	 *
 	 * @since 4.0.0
-	 * @var   object
+	 * @access private
+	 * @var object
 	 */
 	private static $instance = null;
 
@@ -27,11 +34,11 @@ class Cherry_Post_Style {
 	 */
 	public function __construct() {
 
-		if ( !class_exists( 'Cherry_Interface_Builder' ) ) {
+		if ( ! class_exists( 'Cherry_Interface_Builder' ) ) {
 			return;
 		}
 
-		if ( !class_exists( 'Cherry_Options_Framework' ) ) {
+		if ( ! class_exists( 'Cherry_Options_Framework' ) ) {
 			return;
 		}
 
@@ -39,7 +46,7 @@ class Cherry_Post_Style {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ), 10, 2 );
 
 		// Saves the post format on the post editing page.
-		add_action( 'save_post',      array( $this, 'save_post'      ), 10, 2 );
+		add_action( 'save_post', array( $this, 'save_post' ), 10, 2 );
 	}
 
 	/**
@@ -63,6 +70,7 @@ class Cherry_Post_Style {
 			 * Filter the array of 'add_meta_box' parametrs.
 			 *
 			 * @since 4.0.0
+			 * @param array $metabox Parameters for creating new metabox.
 			 */
 			$metabox = apply_filters( 'cherry_post_style_metabox_params', array(
 				'id'            => 'cherry-post-style-metabox',
@@ -100,16 +108,15 @@ class Cherry_Post_Style {
 	 * @return void
 	 */
 	public function callback_metabox( $post, $metabox ) {
-
 		$bg_defaults = array(
-			'image'		=> '',
-			'color'		=> '',
-			'repeat'	=> '',
-			'position'	=> '',
-			'attachment'=> ''
+			'image'      => '',
+			'color'      => '',
+			'repeat'     => '',
+			'position'   => '',
+			'attachment' => '',
 		);
 
-		// Get the current post header bg
+		// Get the current post header bg.
 		$header_bg = $this->get_post_style( $post->ID, 'header-background', $bg_defaults );
 
 		$fields = array(
@@ -117,10 +124,16 @@ class Cherry_Post_Style {
 				'id'    => 'header-background',
 				'title' => __( 'Header background', 'cherry' ),
 				'type'  => 'background',
-				'value' => $header_bg
-			)
+				'value' => $header_bg,
+			),
 		);
 
+		/**
+		 * Filter a metabox fields.
+		 *
+		 * @since 4.0.0
+		 * @param array $fields Metabox fields.
+		 */
 		$fields = apply_filters( 'cherry_post_style_metabox_fields', $fields );
 
 		wp_nonce_field( basename( __FILE__ ), 'cherry-style-nonce' );
@@ -146,8 +159,8 @@ class Cherry_Post_Style {
 		 * Fires after `Style` fields of metabox.
 		 *
 		 * @since 4.0.0
-		 * @param object $post
-		 * @param array  $metabox
+		 * @param object $post    The post object
+		 * @param array  $metabox Metabox information.
 		 */
 		do_action( 'cherry_style_metabox_after', $post, $metabox );
 	}
@@ -162,13 +175,13 @@ class Cherry_Post_Style {
 	 */
 	public function save_post( $post_id, $post = '' ) {
 
-		if ( !is_object( $post ) ) {
+		if ( ! is_object( $post ) ) {
 			$post = get_post();
 		}
 
 		// Verify the nonce for the post formats meta box.
-		if ( !isset( $_POST['cherry-style-nonce'] )
-			|| !wp_verify_nonce( $_POST['cherry-style-nonce'], basename( __FILE__ ) )
+		if ( ! isset( $_POST['cherry-style-nonce'] )
+			|| ! wp_verify_nonce( $_POST['cherry-style-nonce'], basename( __FILE__ ) )
 			) {
 			return $post_id;
 		}
@@ -186,10 +199,10 @@ class Cherry_Post_Style {
 	 * Get the specific post style based on the given post ID.
 	 *
 	 * @since  4.0.0
-	 * @param  int     $post_id  The ID of the post to get the styles for.
-	 * @param  string  $param    style param to get from options
-	 * @param  mixed   $default  default value
-	 * @return Style from database
+	 * @param  int    $post_id The ID of the post to get the styles for.
+	 * @param  string $param   Style param to get from options.
+	 * @param  mixed  $default Default value.
+	 * @return string          Style from database.
 	 */
 	public function get_post_style( $post_id, $param = false, $default = false ) {
 
@@ -201,7 +214,7 @@ class Cherry_Post_Style {
 		}
 
 		if ( ! empty( $style[$param] ) ) {
-			return $style[$param];
+			return $style[ $param ];
 		} else {
 			return $default;
 		}
@@ -216,8 +229,8 @@ class Cherry_Post_Style {
 	 * @return bool            True on successful update, false on failure.
 	 */
 	public function set_post_style( $post_id, $style ) {
-
 		array_walk_recursive( $style, array( $this, 'sanitize_meta' ) );
+
 		return update_post_meta( $post_id, 'cherry_style', $style );
 	}
 
@@ -226,9 +239,9 @@ class Cherry_Post_Style {
 	 *
 	 * @todo  personally sanitize item values by their keys
 	 *
-	 * @since  4.0.0
-	 * @param  mixed  &$item item value to sanitize
-	 * @param  string $key   sanitized item key
+	 * @since 4.0.0
+	 * @param mixed  &$item Item value to sanitize.
+	 * @param string $key   Sanitized item key.
 	 */
 	public function sanitize_meta( &$item, $key ) {
 		$item = esc_attr( $item );

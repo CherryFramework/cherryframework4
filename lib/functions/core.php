@@ -13,7 +13,7 @@
  */
 
 // If this file is called directly, abort.
-if ( !defined( 'WPINC' ) ) {
+if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
@@ -67,8 +67,8 @@ function cherry_get_prefix() {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @global int    $content_width The width for the theme's content area.
- * @param  int    $width         Numeric value of the width to set.
+ * @global int $content_width The width for the theme's content area.
+ * @param  int $width         Numeric value of the width to set.
  */
 function cherry_set_content_width( $width = '' ) {
 	global $content_width;
@@ -82,8 +82,8 @@ function cherry_set_content_width( $width = '' ) {
  * @author Justin Tadlock <justin@justintadlock.com>
  * @author Cherry Team <support@cherryframework.com>
  * @since  4.0.0
- * @global int   $content_width The width for the theme's content area.
- * @return int   $content_width
+ * @global int $content_width The width for the theme's content area.
+ * @return int $content_width
  */
 function cherry_get_content_width() {
 	global $content_width;
@@ -92,13 +92,13 @@ function cherry_get_content_width() {
 }
 
 /**
- * Safely get value from arry by key
+ * Safely get value from array by key.
  *
  * @since  4.0.0
- * @param  array  $array    Array to search value in
- * @param  string $key      Key
- * @param  mixed  $default  Default value to return if key not found in array
- * @return mixed            Value from array ar default if nothing found
+ * @param  array  $array   Array to search value in.
+ * @param  string $key     Key.
+ * @param  mixed  $default Default value to return if key not found in array.
+ * @return mixed           Value from array ar default if nothing found.
  */
 function cherry_esc_value( $array, $key, $default = false ) {
 
@@ -106,9 +106,8 @@ function cherry_esc_value( $array, $key, $default = false ) {
 		return $default;
 	}
 
-	if ( isset( $array[$key] ) ) {
-
-		return $array[$key];
+	if ( isset( $array[ $key ] ) ) {
+		return $array[ $key ];
 	}
 
 	return $default;
@@ -120,7 +119,7 @@ function cherry_esc_value( $array, $key, $default = false ) {
  * so you can easly overload needed file in your child theme
  *
  * @since 4.0.0
- * @param string $path File path, relative to theme directory
+ * @param string $path File path, relative to theme directory.
  */
 function cherry_require( $path ) {
 
@@ -132,13 +131,13 @@ function cherry_require( $path ) {
 
 	$abspath = preg_replace( '#/+#', '/', trailingslashit( $child_dir ) . $path );
 
-	// if file found in child theme - include it and break function
+	// If file found in child theme - include it and break function.
 	if ( file_exists( $abspath ) ) {
 		require_once $abspath;
 		return;
 	}
 
-	// if file was not found in child theme - search it in parent
+	// If file was not found in child theme - search it in parent.
 	if ( defined( 'PARENT_DIR' ) ) {
 		$parent_dir = PARENT_DIR;
 	} else {
@@ -152,26 +151,26 @@ function cherry_require( $path ) {
 		return;
 	}
 
-	// if file was not found at all - die with message
-	$message = sprintf( __( 'File %s doesn\'t exist', 'cherry' ), $abspath );
+	// If file was not found at all - die with message.
+	$message = sprintf( __( "File %s doesn't exist", 'cherry' ), $abspath );
 	$title   = __( 'Doing it wrong', 'cherry' );
 	wp_die( $message, $title );
 }
 
 /**
- * Compare child theme Cherry version and current Cherry version.
- * Returns 0, if child theme version equal framework version
- * Returns -1, if child theme version greater than frammework
- * Returns 1, if framework version greater than child theme
+ * Compare `Cherry Version` file header in child theme and current `CherryFramework` version.
+ *
+ * Returns 0, if child theme version equal framework version.
+ * Returns -1, if child theme version greater than frammework.
+ * Returns 1, if framework version greater than child theme.
  *
  * @since  4.0.0
- * @return int
+ * @return int Compare result.
  */
 function cherry_version_compare() {
-
 	$child_data = get_file_data(
 		trailingslashit( CHILD_DIR ) . 'style.css',
-		array( 'CherryVersion' => 'Cherry Version' )
+		array( 'CherryVersion' => 'Cherry Version', )
 	);
 
 	$cherry_child_version = ( ! empty( $child_data['CherryVersion'] ) ) ? $child_data['CherryVersion'] : 0;
@@ -183,9 +182,8 @@ function cherry_version_compare() {
  * Retrieve a file URI (in the parent theme or in the child theme if file exists).
  *
  * @since  4.0.0
- *
- * @param  string $path
- * @return string
+ * @param  string $path File path.
+ * @return string       File URI.
  */
 function cherry_file_uri( $path ) {
 	$path = wp_normalize_path( $path );
@@ -200,4 +198,100 @@ function cherry_file_uri( $path ) {
 	}
 
 	return trailingslashit( PARENT_URI ) . $path;
+}
+
+/**
+ * Get current localiaztion
+ *
+ * @since  4.0.5
+ * @return string
+ */
+function cherry_get_current_lang() {
+
+	$default_lang = 'en_US';
+	$current_lang = get_locale();
+
+	if ( ! $current_lang ) {
+		$current_lang = $default_lang;
+	}
+
+	$allowed_lang = array(
+		'cs_CZ',
+		'de_DE',
+		'es_ES',
+		'fr_FR',
+		'it_IT',
+		'ja',
+		'nl_NL',
+		'pl_PL',
+		'ru_RU',
+		'sk_SK',
+		'uk',
+		'vi',
+		'zh_CN',
+	);
+
+	/**
+	 * @todo remove comments from this code when translations will be done
+	 *
+	 * if ( in_array( $current_lang, $allowed_lang ) ) {
+	 *	return $current_lang;
+	 * }
+	 */
+
+	return $default_lang;
+}
+
+/**
+ * Get array of documentation link attributes
+ *
+ * @since  4.0.5
+ * @return array
+ */
+function cherry_get_documentation_link_attr() {
+
+	$base_url = 'http://cherryframework.com/documentation/cf4/index.php';
+
+	$attr = array(
+		'lang'      =>  cherry_get_current_lang(),
+		'project'   =>  'wordpress',
+		'title'     =>  __( 'Documentation', 'cherry' ),
+		'target'    => '_blank',
+		'text_link' => __( 'Cherry Framework 4 documentation', 'cherry' )
+	);
+
+	$attr = apply_filters( 'cherry_document_link_attr', $attr );
+
+	$attr['href'] = add_query_arg(
+		array(
+			'project' => $attr['project'],
+			'lang'    => $attr['lang'],
+		),
+		$base_url
+	);
+
+	return $attr;
+}
+
+/**
+ * Get documentation link HTML string
+ *
+ * @since  4.0.5
+ * @return string
+ */
+function cherry_get_documentation_link() {
+
+	$attr = cherry_get_documentation_link_attr();
+
+	$link = sprintf(
+		'<a href="%1$s" title="%2$s" target="%3$s">%4$s</a>',
+		esc_url( $attr['href'] ),
+		esc_attr( $attr['title'] ),
+		esc_attr( $attr['target'] ),
+		$attr['text_link']
+	);
+
+	$link = apply_filters( 'cherry_documentation_link', $link );
+
+	return $link;
 }

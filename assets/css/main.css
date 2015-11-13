@@ -1149,7 +1149,7 @@ img {
   width: 1px;
   overflow: hidden;
 }
-.screen-reader-text:hover, .screen-reader-text:active, .screen-reader-text:focus {
+.screen-reader-text:focus {
   background-color: #f1f1f1;
   border-radius: 3px;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
@@ -1410,6 +1410,10 @@ embed,
 iframe,
 object {
   max-width: 100%;
+}
+
+iframe {
+  border: none;
 }
 
 /*--------------------------------------------------------------
