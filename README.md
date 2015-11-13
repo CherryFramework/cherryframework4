@@ -1,17 +1,63 @@
 Cherry Framework 4
 ==================================
 
-Cherry Framework 4 is a theme configuration framework for Wordpress CMS. Framework itself contain a starter parent theme, theme configuration options, post formats templates etc. Cherry Framework parent theme is based on underscores.me started theme for WordPress with enhanced functionality and extended possibilities.
+Cherry Framework 4 - is a theme configuration framework for WordPress CMS.
+
+Framework itself contain a starter parent theme, theme configuration options, post formats templates etc. Cherry Framework 4 parent theme is based on [_s](https://github.com/automattic/_s).
 
 From the box Cherry Framework 4 offers:
 * __Theme configuration options__ (layout options, blog settings, styling options, navigation options, typography settings etc.).
-* __Post format templates__. Each Wordpress post type has it's own template with unique markup.
+* __Post format templates__. Each WordPress post type has it's own template with unique markup.
 * __Post layouts__. You can confugure page layout for each post individually.
-* __Static editor__. With easy to use drag-n-drop interface you can configure blocks in static areas (header, footer, showcase etc.)
+* __Static Area Builder__. With easy to use drag-n-drop interface you can configure blocks in static areas (header, footer, showcase etc.)
 
-You can learn more about Cherry Framework 4 features from the [official documentation](http://www.cherryframework.com/documentation/cf4/index_en.html)
+You can learn more about Cherry Framework 4 features from the [official documentation](http://www.cherryframework.com/documentation/cf4/).
 
 ##Change log##
+
+#### v4.0.5 ####
+
+* ADD: class `Cherry_Current_Page` to store and quick access to page specific data
+* ADD: `header background` to current page data
+* ADD: PHP-class `Cherry_CSS_Grabber`
+* ADD: `cherry_option_` . $name filter
+* UPD: Refactoring for getting container classes functions
+* UPD: Improved `cherry_video_atts` function-callback
+* UPD: admin/public files require
+* UPD: Moved a `cherry_get_styles` function from `styles.php` to `utils.php` file
+* UPD: Partical export
+* UPD: Statics import
+* UPD: Compressed backend stylesheets
+* UPD: Using a native WordPress function `the_post_navigation`
+* UPD: Localized files
+* UPD: Default options value
+* FIX: https://github.com/CherryFramework/cherryframework4/issues/26
+* FIX: https://github.com/CherryFramework/cherryframework4/issues/46
+* FIX: https://github.com/CherryFramework/cherryframework4/issues/48
+* FIX: Modification of the list of image sizes that are available in the WP Media Library
+* FIX: `ui-typography` element
+* FIX: Deregister a `WooCommerce` backend style
+* FIX: `aria-controls` attribute in toggle menu button
+* FIX: iframe css
+* DEL: `wp_audio_shortcode` filter
+* DEL: `ui-notice` element
+
+#### v4.0.4 ####
+
+* NEW: Option for `Home` page title in breadcrumbs
+* NEW: Macros-logic for comment item
+* ADD: Filter `cherry_dynamic_styles_before` to add custom dynamic style before main
+* ADD: Filter to archive `page-layout` option
+* ADD: `Breadcrumbs mobile` option hint
+* ADD: Allow to use font icons for breadcrumbs labels
+* UPD: Compressed utils-scripts
+* UPD: Moved style for `Secodary Menu` to the `_wpnative.scss` file
+* FIX: PHP-errors if `MotoPress Slider` not activated
+* FIX: PHP-notices in `Cherry_Layouts` and `Cherry_Grid_Type` metaboxes
+* FIX: Interface elements
+* FIX: `WooCommerce` compatibility
+* FIX: Style for a `calendar` widget
+* FIX: Style for `gallery` item with long caption
 
 #### v4.0.3 ####
 
