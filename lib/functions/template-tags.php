@@ -153,7 +153,9 @@ function cherry_paging_nav() {
  * Display navigation to next/previous post when applicable.
  *
  * @since 4.0.0
- * @since 4.0.5 Using a native WordPress function `the_post_navigation`.
+ * @since 4.0.5   Using a native WordPress function `the_post_navigation`.
+ * @since 4.0.5.1 Stop using a native function `the_post_navigation` - absence a important
+ *                CSS-class `.paging-navigation`
  */
 function cherry_post_nav() {
 	$post_type         = get_post_type();
@@ -163,11 +165,6 @@ function cherry_post_nav() {
 		|| ! is_singular( $post_type )
 		|| is_attachment()
 		|| ( 'false' === $navigation_status ) ) {
-		return;
-	}
-
-	if ( function_exists( 'the_post_navigation' ) ) {
-		the_post_navigation();
 		return;
 	}
 
