@@ -15,6 +15,10 @@ You can learn more about Cherry Framework 4 features from the [official document
 
 ##Change log##
 
+#### v4.0.5.1 ####
+
+* FIX: Stop using a native function `the_post_navigation` - absence a important CSS-class `.paging-navigation`
+
 #### v4.0.5 ####
 
 * ADD: class `Cherry_Current_Page` to store and quick access to page specific data
