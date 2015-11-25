@@ -65,7 +65,6 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 		 */
 		public function render() {
 			$html = '';
-
 			$html .= '<div class="cherry-repeater-wrap" data-name="' . $this->settings['name'] . '">';
 				$html .= '<div class="cherry-repeater-item-list">';
 					$html .= '<div class="cherry-repeater-dublicate-item">';
@@ -83,8 +82,9 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 						$html .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
 					$html .= '</div>';
 
-					if( is_array( $this->settings['value'] ) ){
+					if ( is_array( $this->settings['value'] ) ) {
 						$count = 0;
+
 						foreach ( $this->settings['value']  as $handle => $handleArray ) {
 							$html .= '<div class="cherry-repeater-item">';
 								$html .= '<div class="col">';
@@ -98,7 +98,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 								$html .= '</div>';
 
 								$value = ! empty( $handleArray['network-id'] ) ? $handleArray['network-id'] : 'network-' . $count;
-								$html .= '<input name="' . $this->settings['name'] . '[' . $count . '][network-id]" type="hidden" value="' . $value . '">';
+								$html .= '<input class="network-id" name="' . $this->settings['name'] . '[' . $count . '][network-id]" type="hidden" value="' . $value . '">';
 
 								$html .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
 							$html .= '</div>';
@@ -139,6 +139,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 
 			return $assets_url;
 		}
+
 		/**
 		 * Enqueue javascript and stylesheet UI_Repeater
 		 *
