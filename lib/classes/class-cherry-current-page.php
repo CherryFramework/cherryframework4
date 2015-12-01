@@ -50,6 +50,15 @@ if ( ! class_exists( 'Cherry_Current_Page' ) ) {
 		public $page_object;
 
 		/**
+		 * Context for current page.
+		 *
+		 * @since 4.0.6
+		 * @access public
+		 * @var string
+		 */
+		public $context;
+
+		/**
 		 * Constructor for the class
 		 */
 		function __construct() {
@@ -127,6 +136,7 @@ if ( ! class_exists( 'Cherry_Current_Page' ) ) {
 		 * Get current page layout type
 		 *
 		 * @since  4.0.5
+		 * @since  4.0.6 Using `$this->get_id()` method instead of `$this->page_object` property.
 		 * @return string
 		 */
 		public function get_layout() {
@@ -137,7 +147,7 @@ if ( ! class_exists( 'Cherry_Current_Page' ) ) {
 
 			$layout = apply_filters(
 				'cherry_get_page_layout',
-				get_post_meta( $this->page_object, 'cherry_layout', true )
+				$this->get_meta( 'cherry_layout', true )
 			);
 
 			if ( $layout && ( 'default-layout' !== $layout ) ) {
@@ -147,12 +157,12 @@ if ( ! class_exists( 'Cherry_Current_Page' ) ) {
 			if ( is_single() ) {
 				$layout = apply_filters(
 					'cherry_get_single_post_layout',
-					cherry_get_option( 'single-post-layout' ), $this->page_object
+					cherry_get_option( 'single-post-layout' ), $this->get_id()
 				);
 			} else {
 				$layout = apply_filters(
 					'cherry_get_archive_page_layout',
-					cherry_get_option( 'page-layout' ), $this->page_object
+					cherry_get_option( 'page-layout' ), $this->get_id()
 				);
 			}
 
@@ -201,7 +211,7 @@ if ( ! class_exists( 'Cherry_Current_Page' ) ) {
 				return $this->current_page->background_header;
 			}
 
-			$styles = get_post_meta( $this->page_object, 'cherry_style', true );
+			$styles = $this->get_meta( 'cherry_style', true );
 
 			if ( ! $styles ) {
 				return false;
@@ -239,7 +249,7 @@ if ( ! class_exists( 'Cherry_Current_Page' ) ) {
 			// Gets a single value.
 			$grid_type = apply_filters(
 				'cherry_get_page_grid_type',
-				get_post_meta( $this->page_object, 'cherry_grid_type', true )
+				$this->get_meta( 'cherry_grid_type', true )
 			);
 
 			if ( ! empty( $grid_type[ $location ] ) && ( 'default-grid-type' !== $grid_type[ $location ] ) ) {
@@ -249,7 +259,87 @@ if ( ! class_exists( 'Cherry_Current_Page' ) ) {
 			$type = cherry_get_option( $location . '-grid-type' );
 
 			return $type;
+		}
 
+		/**
+		 * Retrieve meta field for a object.
+		 *
+		 * @since  4.0.6
+		 * @param  string $key    The meta key to retrieve.
+		 * @param  bool   $single Whether to return a single value.
+		 * @return mixed          Meta field.
+		 */
+		public function get_meta( $key, $single ) {
+			$id       = $this->get_id();
+			$context  = $this->get_context();
+			$callback = "get_{$context}_meta";
+
+			if ( ! function_exists( $callback ) ) {
+
+				/**
+				 * Filter a returned boolean variable when a callback-function not exists.
+				 *
+				 * @since 4.0.6
+				 * @param bool|mixed $meta    Value to return when object meta are empty.
+				 * @param string     $context Object context.
+				 * @param int        $id      Object ID.
+				 * @param string     $key     The meta key to retrieve.
+				 */
+				return apply_filters( 'cherry_current_object_has_meta', false, $context, $id, $key );
+			}
+
+			$meta = call_user_func( $callback, $id, $key, $single );
+
+			/**
+			 * Filter a retrieve object meta.
+			 *
+			 * @since 4.0.6
+			 * @param string $meta    Object meta.
+			 * @param string $context Object context.
+			 * @param int    $id      Object ID.
+			 * @param string $key     The meta key to retrieve.
+			 */
+			return apply_filters( 'cherry_current_object_meta', $meta, $context, $id, $key );
+		}
+
+		/**
+		 * Retrieve ID of the current queried object.
+		 *
+		 * @since  4.0.6
+		 * @return int Object ID.
+		 */
+		public function get_id() {
+			return $this->page_object;
+		}
+
+		/**
+		 * Retrieve context of the current queried object.
+		 *
+		 * @since  4.0.6
+		 * @return string
+		 */
+		public function get_context() {
+
+			if ( isset( $this->context ) ) {
+				return $this->context;
+			}
+
+			$this->context = 'post';
+
+			if ( is_category() || is_tag() || is_tax() ) {
+				$this->context = 'term';
+			}
+
+			/**
+			 * Filter a current object context.
+			 *
+			 * @since 4.0.6
+			 * @param string $context Object context.
+			 * @param int    $id      Object ID.
+			 */
+			$this->context = apply_filters( 'cherry_current_object_context', $this->context, $this->get_id() );
+
+			return $this->context;
 		}
 
 		/**
