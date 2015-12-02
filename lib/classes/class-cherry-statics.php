@@ -522,13 +522,19 @@ class Cherry_Statics {
 	 * Whether a static area is in use (not empty).
 	 *
 	 * @since  4.0.0
+	 * @global array $cherry_registered_static_areas Registered static areas.
 	 * @param  mixed $index         Static area id.
 	 * @param  mixed $saved_statics Saved static options.
 	 * @return bool                 True if the static area is in use, false otherwise.
 	 */
 	public static function is_active_static_area( $index, $saved_statics ) {
+		global $cherry_registered_statics;
 
 		foreach ( $saved_statics as $id => $static ) :
+
+			if ( empty( $cherry_registered_statics[ $id ] ) ) {
+				continue;
+			}
 
 			if ( ! isset( $static['options']['area'] ) ) {
 				continue;
@@ -538,9 +544,11 @@ class Cherry_Statics {
 				continue;
 			}
 
-			if ( true === self::is_visible_static( $static ) ) {
-				self::$visible_statics[ $static['options']['area'] ][] = $static['id'];
+			if ( true !== self::is_visible_static( $static ) ) {
+				continue;
 			}
+
+			self::$visible_statics[ $static['options']['area'] ][] = $static['id'];
 
 		endforeach;
 

@@ -59,13 +59,22 @@ class cherry_footer_sidebars_static extends cherry_register_static {
 /**
  * Registration for Footer Sidebars static.
  */
-new cherry_footer_sidebars_static(
-	array(
+$is_active = false;
+
+for ( $i = 1; $i <= 4; $i++ ) {
+	if ( is_active_sidebar( "sidebar-footer-{$i}" ) ) {
+		$is_active = true;
+		break;
+	}
+}
+
+if ( $is_active ) {
+	new cherry_footer_sidebars_static( array(
 		'name'    => __( 'Footer Sidebars', 'cherry' ),
 		'id'      => 'footer_sidebars',
 		'options' => array(
 			'position' => 1,
 			'area'     => 'footer-top',
-		)
-	)
-);
+		),
+	) );
+}
