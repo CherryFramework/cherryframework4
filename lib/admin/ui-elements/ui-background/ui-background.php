@@ -34,6 +34,7 @@ if ( ! class_exists( 'UI_Background' ) ) {
 				'size'			=> 'auto',
 				'origin'		=> 'padding-box',
 			),
+			'label'			=> '',
 			'class'			=> '',
 		);
 
@@ -117,6 +118,9 @@ if ( ! class_exists( 'UI_Background' ) ) {
 				)
 			);
 
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="cherry-ui-background-wrap">';
 				$html .= '<div class="cherry-ui-background-media">';
 					$html .= $ui_media->render();

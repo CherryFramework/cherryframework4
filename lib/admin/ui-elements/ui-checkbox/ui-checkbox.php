@@ -28,6 +28,7 @@ if ( ! class_exists( 'UI_Checkbox' ) ) {
 				'checkbox-2'	=> 'checkbox 2',
 				'checkbox-3'	=> 'checkbox 3'
 			),
+			'label'			=> '',
 			'class'			=> '',
 		);
 
@@ -80,6 +81,9 @@ if ( ! class_exists( 'UI_Checkbox' ) ) {
 			if( $this->settings['options'] && !empty( $this->settings['options'] ) && is_array( $this->settings['options'] ) ){
 				if ( !is_array( $this->settings['value'] ) ) {
 					$this->settings['value'] = array( $this->settings['value'] );
+				}
+				if( '' !== $this->settings['label'] ){
+					$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
 				}
 				foreach ( $this->settings['options'] as $option => $option_value ) {
 

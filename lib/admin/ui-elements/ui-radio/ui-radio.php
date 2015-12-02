@@ -41,6 +41,7 @@ if ( ! class_exists( 'UI_Radio' ) ) {
 				),
 			),
 			'slave'				=> array(),
+			'label'				=> '',
 			'class'				=> '',
 		);
 
@@ -68,6 +69,9 @@ if ( ! class_exists( 'UI_Radio' ) ) {
 			$html = '';
 
 			if ( $this->settings['options'] && !empty( $this->settings['options'] ) && is_array( $this->settings['options']) ) {
+				if( '' !== $this->settings['label'] ){
+					$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+				}
 				$html .= '<div class="cherry-radio-group">';
 					foreach ( $this->settings['options'] as $option => $option_value ) {
 						$checked = $option == $this->settings['value'] ? ' checked' : '';

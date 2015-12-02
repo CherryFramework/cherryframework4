@@ -29,6 +29,7 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 				'right_value'	=> 50,
 			),
 			'step_value'	=> 1,
+			'label'			=> '',
 			'class'			=> '',
 		);
 
@@ -75,6 +76,9 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 				)
 			);
 
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="cherry-range-slider-wrap">';
 				$html .= '<div class="cherry-range-slider-left-input">';
 					$html .= $ui_left_stepper->render();

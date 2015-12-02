@@ -30,6 +30,7 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 				'false_slave'	=> ''
 			),
 			'style'				=> 'normal', //large, normal, small
+			'label'				=> '',
 			'class'				=> '',
 		);
 		/**
@@ -42,6 +43,8 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 			$this->settings = wp_parse_args( $args, $this->defaults_settings );
 
 			add_action( 'admin_enqueue_scripts', array( __CLASS__, 'enqueue_assets' ) );
+
+			self::enqueue_assets();
 		}
 
 		/**
@@ -54,6 +57,10 @@ if ( ! class_exists( 'UI_Switcher' ) ) {
 			$data_attr_line .= ( !empty( $this->settings['toggle']['false_slave'] ) ) ? ' data-false-slave="' . $this->settings['toggle']['false_slave'] . '"' : '';
 
 			$html = '';
+
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="cherry-switcher-wrap size-' . $this->settings['style'] . ' ' . $this->settings['class'] . '">';
 				$html .= '<label class="sw-enable"><span>' . $this->settings['toggle']['true_toggle'] . '</span></label>';
 				$html .= '<label class="sw-disable"><span>' . $this->settings['toggle']['false_toggle']  . '</span></label>';
