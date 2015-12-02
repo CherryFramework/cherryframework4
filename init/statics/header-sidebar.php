@@ -26,16 +26,16 @@ class cherry_header_sidebar_static extends cherry_register_static {
 /**
  * Registration for Header Sidebar static.
  */
-new cherry_header_sidebar_static(
-	array(
+if ( is_active_sidebar( 'sidebar-header' ) ) {
+	new cherry_header_sidebar_static( array(
 		'id'      => 'header_sidebar',
 		'name'    => __( 'Header Sidebar', 'cherry' ),
 		'options' => array(
-			'col-lg'   => 'col-lg-12',
-			'col-md'   => 'col-md-12',
-			'col-sm'   => 'col-sm-12',
-			'col-xs'   => 'col-xs-12',
-			'area'     => 'available-statics',
-		)
-	)
-);
+			'col-lg' => 'col-lg-12',
+			'col-md' => 'col-md-12',
+			'col-sm' => 'col-sm-12',
+			'col-xs' => 'col-xs-12',
+			'area'   => 'available-statics',
+		),
+	) );
+}
