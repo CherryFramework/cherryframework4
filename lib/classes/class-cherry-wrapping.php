@@ -143,4 +143,3 @@ function cherry_wrap_base_cpts( $templates ) {
 	// Return modified array with base-$cpt.php at the front of the queue.
 	return $templates;
 }
-
