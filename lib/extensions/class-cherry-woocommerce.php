@@ -39,6 +39,7 @@ if ( ! class_exists( 'Cherry_Woocommerce' ) ) {
 			add_filter( 'cherry_breadcrumbs_custom_trail', array( $this, 'get_woo_breadcrumbs' ), 10, 2 );
 
 			add_filter( 'cherry_current_object_id', array( $this, 'fix_shop_page_object' ) );
+			add_filter( 'cherry_current_object_context', array( $this, 'fix_shop_page_context' ) );
 
 			add_action( 'after_setup_theme', array( $this, 'define_support' ) );
 		}
@@ -108,12 +109,13 @@ if ( ! class_exists( 'Cherry_Woocommerce' ) ) {
 		}
 
 		/**
-		 * Correctly get container classes for shop page
+		 * Change default object ID for shop page and shop categories.
 		 *
-		 * @since  4.0.0
-		 * @param  array $classes current container classes
+		 * @since  4.0.5
+		 * @param  string $object_id current page object ID.
+		 * @return string
 		 */
-		function fix_shop_page_object( $object_id ) {
+		public function fix_shop_page_object( $object_id ) {
 
 			if ( ! function_exists( 'is_shop' ) || ! function_exists( 'wc_get_page_id' ) ) {
 				return $object_id;
@@ -126,6 +128,27 @@ if ( ! class_exists( 'Cherry_Woocommerce' ) ) {
 			$page_id = wc_get_page_id( 'shop' );
 
 			return $page_id;
+
+		}
+
+		/**
+		 * set default context for shop page and category tp 'post'
+		 *
+		 * @since  4.0.6
+		 * @param  string $context current context.
+		 * @return string
+		 */
+		public function fix_shop_page_context( $context ) {
+
+			if ( ! function_exists( 'is_shop' ) || ! function_exists( 'wc_get_page_id' ) ) {
+				return $context;
+			}
+
+			if ( ! is_shop() && ! is_tax( 'product_cat' ) && ! is_tax( 'product_tag' ) ) {
+				return $context;
+			}
+
+			return 'post';
 
 		}
 
