@@ -68,7 +68,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 			$html = '';
 
 			if( '' !== $this->settings['label'] ){
-				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
 			}
 			$html .= '<div class="cherry-repeater-wrap" data-name="' . $this->settings['name'] . '">';
 				$html .= '<div class="cherry-repeater-item-list">';

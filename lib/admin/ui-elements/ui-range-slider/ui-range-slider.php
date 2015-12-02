@@ -77,7 +77,7 @@ if ( ! class_exists( 'UI_Range_Slider' ) ) {
 			);
 
 			if( '' !== $this->settings['label'] ){
-				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
 			}
 			$html .= '<div class="cherry-range-slider-wrap">';
 				$html .= '<div class="cherry-range-slider-left-input">';

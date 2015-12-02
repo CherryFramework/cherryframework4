@@ -64,7 +64,7 @@ if ( ! class_exists( 'UI_Slider' ) ) {
 			$ui_stepper_html = $ui_stepper->render();
 
 			if( '' !== $this->settings['label'] ){
-				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
 			}
 			$html .= '<div class="cherry-slider-wrap">';
 				$html .= '<div class="cherry-slider-input">';

@@ -53,7 +53,7 @@ if ( ! class_exists( 'UI_Stepper' ) ) {
 			$html = '';
 
 			if( '' !== $this->settings['label'] ){
-				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
 			}
 			$html .= '<div class="cherry-ui-stepper ' . $this->settings['class'] . '">';
 				$html .= '<input type="text" id="' . $this->settings['id'] . '" class="cherry-ui-stepper-input" name="' . $this->settings['name'] . '" value="' . esc_html( $this->settings['value'] ) . '" data-max-value="' . esc_html( $this->settings['max_value'] ) . '" placeholder="inherit" data-min-value="' . esc_html( $this->settings['min_value'] ) . '" data-step-value="' . esc_html( $this->settings['step_value'] ) . '">';
