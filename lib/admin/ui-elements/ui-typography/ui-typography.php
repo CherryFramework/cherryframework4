@@ -45,6 +45,7 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 				'color'			=> '#222222',
 				'category'		=> 'sans-serif'
 			),
+			'label'			=> '',
 			'class'			=> '',
 		);
 
@@ -89,6 +90,10 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 			$character_array = array();
 			$style_array = array();
 			$fonttype = '';
+
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="cherry-ui-typography-wrap" data-id="' . $this->settings['id'] . '" data-name="' . $this->settings['name'] . '">';
 			//Font Family
 				$html .= '<div class="cherry-column-section">';

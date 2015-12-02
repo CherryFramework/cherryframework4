@@ -26,6 +26,7 @@ if ( ! class_exists( 'UI_Textarea' ) ) {
 			'placeholder'	=> '',
 			'rows'			=> '10',
 			'cols'			=> '20',
+			'label'			=> '',
 			'class'			=> '',
 		);
 
@@ -49,6 +50,9 @@ if ( ! class_exists( 'UI_Textarea' ) ) {
 		 */
 		public function render() {
 			$html = '';
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<textarea id="' . $this->settings['id']  . '" class="cherry-ui-textarea ' . $this->settings['class'] . '" name="' . $this->settings['name'] . '" rows="' . $this->settings['rows'] . '" cols="' . $this->settings['cols'] . '" placeholder="' . $this->settings['placeholder'] . '">' . esc_html( $this->settings['value'] ) . '</textarea>';
 			return $html;
 		}

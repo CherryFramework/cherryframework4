@@ -181,6 +181,7 @@ class Cherry_Interface_Builder {
 						'value'			=> $value,
 						'placeholder'	=> $placeholder,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_text->render();
@@ -194,6 +195,7 @@ class Cherry_Interface_Builder {
 						'value'			=> $value,
 						'placeholder'	=> $placeholder,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_textarea->render();
@@ -208,6 +210,7 @@ class Cherry_Interface_Builder {
 						'value'			=> $value,
 						'options'		=> $options,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_select->render();
@@ -221,6 +224,7 @@ class Cherry_Interface_Builder {
 						'value'			=> $value,
 						'options'		=> $options,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_checkbox->render();
@@ -234,6 +238,7 @@ class Cherry_Interface_Builder {
 						'value'		=> $value,
 						'options'	=> $options,
 						'class'		=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_radio->render();
@@ -247,6 +252,7 @@ class Cherry_Interface_Builder {
 						'value'		=> $value,
 						'toggle'	=> $toggle,
 						'class'		=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_switcher->render();
@@ -263,6 +269,7 @@ class Cherry_Interface_Builder {
 						'min_value'		=> $min_value,
 						'step_value'	=> $step_value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_stepper->render();
@@ -278,6 +285,7 @@ class Cherry_Interface_Builder {
 						'min_value'		=> $min_value,
 						'step_value'	=> $step_value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_slider->render();
@@ -293,6 +301,7 @@ class Cherry_Interface_Builder {
 						'min_value'		=> $min_value,
 						'step_value'	=> $step_value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_range_slider->render();
@@ -305,6 +314,7 @@ class Cherry_Interface_Builder {
 						'name'			=> $name,
 						'value'			=> $value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_colorpicker->render();
@@ -319,6 +329,7 @@ class Cherry_Interface_Builder {
 						'multi_upload'	=> $multi_upload,
 						'library_type'	=> $library_type,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_media->render();
@@ -333,6 +344,7 @@ class Cherry_Interface_Builder {
 						'multi_upload'	=> $multi_upload,
 						'library_type'	=> $library_type,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_background->render();
@@ -345,6 +357,7 @@ class Cherry_Interface_Builder {
 						'name'			=> $name,
 						'value'			=> $value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_typography->render();
@@ -357,6 +370,7 @@ class Cherry_Interface_Builder {
 						'name'			=> $name,
 						'value'			=> $value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_ace_editor->render();
@@ -369,6 +383,7 @@ class Cherry_Interface_Builder {
 						'name'			=> $name,
 						'value'			=> $value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_repeater->render();
@@ -394,6 +409,7 @@ class Cherry_Interface_Builder {
 						'name'			=> $name,
 						'value'			=> $value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_layout_editor->render();
@@ -406,6 +422,7 @@ class Cherry_Interface_Builder {
 						'name'			=> $name,
 						'value'			=> $value,
 						'class'			=> $class,
+						'label'			=> 'Test label'
 					)
 				);
 				$output .= $ui_webfont->render();

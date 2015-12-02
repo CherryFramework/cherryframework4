@@ -44,6 +44,7 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 					'character'	=> 'latin'
 				),
 			),
+			'label'			=> '',
 			'class'			=> '',
 		);
 
@@ -76,6 +77,10 @@ if ( ! class_exists( 'UI_Webfont' ) ) {
 
 			$google_fonts_array = $this->get_google_font();
 			$all_fonts_array = array();
+
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="cherry-ui-webfont-wrap" data-id="' . $this->settings['id'] . '" data-name="' . $this->settings['name'] . '">';
 				$html .= '<div class="add-font-wrap">';
 					$html .= '<div class="font-family">';

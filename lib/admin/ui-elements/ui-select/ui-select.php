@@ -49,6 +49,7 @@ if ( ! class_exists( 'UI_Select' ) ) {
 					)
 				)
 			),
+			'label'			=> '',
 			'class'			=> '',
 		);
 
@@ -79,6 +80,9 @@ if ( ! class_exists( 'UI_Select' ) ) {
 			( $this->settings['multiple'] ) ? $multi_state = 'multiple="multiple"' : $multi_state = '' ;
 			( $this->settings['multiple'] ) ? $name = $this->settings['name'] . '[]' : $name = $this->settings['name'] ;
 
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<select id="' . $this->settings['id']  . '" class="cherry-ui-select ' . $this->settings['class'] . '" name="' . $name . '" size="' . $this->settings['size'] . '" ' . $multi_state. ' style="width: 100%">';
 			if( $this->settings['options'] && !empty( $this->settings['options'] ) && is_array( $this->settings['options'] ) ){
 				if( ( $this->settings['multiple'] ) ){

@@ -23,6 +23,7 @@ if ( ! class_exists( 'UI_Colorpicker' ) ) {
 			'id'				=> 'cherry-ui-colorpicker-id',
 			'name'				=> 'cherry-ui-colorpicker-name',
 			'value'				=> '',
+			'label'				=> '',
 			'class'				=> '',
 		);
 
@@ -48,6 +49,10 @@ if ( ! class_exists( 'UI_Colorpicker' ) ) {
 		 */
 		public function render() {
 			$html = '';
+
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="cherry-ui-colorpicker-wrapper">';
 				$html .= '<input type="text" id="' . $this->settings['id'] . '" class="cherry-ui-colorpicker '. $this->settings['class'] . '" name="' . $this->settings['name'] . '" value="' . esc_html( $this->settings['value'] ) . '"/>';
 			$html .= '</div>';

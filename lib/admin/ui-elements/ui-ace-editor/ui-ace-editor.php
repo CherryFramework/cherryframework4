@@ -23,7 +23,8 @@ if ( ! class_exists( 'UI_Ace_Editor' ) ) {
 			'id'				=> 'cherry-ui-ace-editor-id',
 			'name'				=> 'cherry-ui-ace-editor-name',
 			'value'				=> '',
-			'class'			=> '',
+			'label'				=> '',
+			'class'				=> '',
 		);
 
 		/**
@@ -47,6 +48,9 @@ if ( ! class_exists( 'UI_Ace_Editor' ) ) {
 		public function render() {
 			$html = '';
 
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="ace-editor-wrapper ' . $this->settings['class'] . '">';
 				$html .= '<textarea id="' . $this->settings['id'] . '-textarea" class="ace-editor" name="' . $this->settings['name'] . '" data-editor="' . $this->settings['id'] . '-editor" data-editor-mode="css" data-editor-theme="monokai">';
 					$html .= $this->settings['value'];

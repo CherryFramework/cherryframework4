@@ -40,6 +40,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 						'link-label'	=> 'custom text',
 					),
 				),
+			'label'		=> '',
 			'class'		=> '',
 		);
 
@@ -65,6 +66,10 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 		 */
 		public function render() {
 			$html = '';
+
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="cherry-repeater-wrap" data-name="' . $this->settings['name'] . '">';
 				$html .= '<div class="cherry-repeater-item-list">';
 					$html .= '<div class="cherry-repeater-dublicate-item">';

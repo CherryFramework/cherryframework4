@@ -1,3 +1,8 @@
+label.cherry-label {
+  margin: 0 0 5px 0;
+  display: block;
+}
+
 .wp-picker-container {
   display: block;
   background-color: #ffffff;
