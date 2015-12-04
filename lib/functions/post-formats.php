@@ -79,6 +79,10 @@ function cherry_structured_post_formats() {
 function cherry_aside_infinity( $args, $post_id, $post_type ) {
 	global $post;
 
+	if ( is_singular( $post_type ) ) {
+		return $args;
+	}
+
 	if ( ! post_type_supports( $post->post_type, 'post-formats' ) ) {
 		return $args;
 	}
