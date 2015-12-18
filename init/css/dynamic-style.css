@@ -32,6 +32,18 @@ h5, .h5 {
 h6, .h6 {
 	@typography( $typography-h6 )
 }
+code {
+	color: $color-primary;
+	background-color: @lighten( $color-primary, 78 );
+}
+pre {
+	color: $color-gray-variations;
+	background-color: @lighten( $color-gray-variations, 63 );
+	border-color: @lighten( $color-gray-variations, 45 );
+}
+kbd {
+	background-color: @darken( $color-gray-variations, 15 );
+}
 
 .site-link {
 	@typography( $typography-header-logo )
@@ -248,6 +260,18 @@ hr {
 }
 .lead {
 	font-size: @font_size( $typography-body[size], multiple, round, 1.15)px;
+}
+.entry-content table {
+	border: 1px solid @lighten( $typography-body[color], 50 );
+}
+.entry-content table > thead > tr > th,
+.entry-content table > thead > tr > td,
+.entry-content table > tbody > tr > th,
+.entry-content table > tbody > tr > td,
+.entry-content table > tfoot > tr > th,
+.entry-content table > tfoot > tr > td {
+	border: 1px solid @lighten( $typography-body[color], 50 );
+	line-height: $typography-body[lineheight]px;
 }
 .table .table {
 	background-color: $typography-body[color];
