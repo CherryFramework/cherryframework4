@@ -273,7 +273,7 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 		}
 
 		if ( empty( $tax_query ) ) {
-			break;
+			return;		//Changed 'break' to 'return' for PHP7
 		}
 
 		if ( 1 < count( $tax_query ) ) {
@@ -307,7 +307,7 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 		preg_match( '/^(\w+)\W+(\w+)/i', get_the_title( $post_id ), $matches );
 
 		if ( ! is_array( $matches ) ) {
-			break;
+			return;		//Changed 'break' to 'return' for PHP7
 		}
 
 		$search_request = '';
