@@ -44,7 +44,7 @@ function cherry_theme_config() {
 /**
  * Add statics autoloader on init.
  */
-add_action( 'init', 'cherry_static_autoload' );
+add_action( 'init', 'cherry_static_autoload', 11 );
 
 /**
  * Autoload existing statics.
