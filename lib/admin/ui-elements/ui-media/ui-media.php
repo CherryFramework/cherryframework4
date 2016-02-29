@@ -26,6 +26,7 @@ if ( ! class_exists( 'UI_Media' ) ) {
 			'multi_upload'			=> true,
 			'library_type'			=> '', // image, video
 			'upload_button_text'	=> 'Choose Media',
+			'label'					=> '',
 			'class'					=> '',
 		);
 
@@ -61,6 +62,10 @@ if ( ! class_exists( 'UI_Media' ) ) {
 			}
 
 			$img_style = ! $this->settings['value'] ? 'style="display:none;"' : '' ;
+
+				if( '' !== $this->settings['label'] ){
+					$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+				}
 				$html .= '<div class="cherry-ui-media-wrap">';
 					$html .= '<div  class="cherry-upload-preview" >';
 					$html .= '<div class="cherry-all-images-wrap">';

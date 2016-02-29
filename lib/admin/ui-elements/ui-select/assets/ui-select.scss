@@ -6,7 +6,10 @@ $min-desktop-width: 992px;
 	@content;
 	}
 }
-
+label.cherry-label{
+	margin: 0 0 5px 0;
+	display: block;
+}
 select.cherry-ui-select{
 	width: 100%;
 	height: 42px;

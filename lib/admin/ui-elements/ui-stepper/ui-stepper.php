@@ -26,6 +26,7 @@ if ( ! class_exists( 'UI_Stepper' ) ) {
 			'max_value'		=> '100',
 			'min_value'		=> '0',
 			'step_value'	=> '1',
+			'label'			=> '',
 			'class'			=> '',
 		);
 		/**
@@ -50,6 +51,10 @@ if ( ! class_exists( 'UI_Stepper' ) ) {
 		 */
 		public function render() {
 			$html = '';
+
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div class="cherry-ui-stepper ' . $this->settings['class'] . '">';
 				$html .= '<input type="text" id="' . $this->settings['id'] . '" class="cherry-ui-stepper-input" name="' . $this->settings['name'] . '" value="' . esc_html( $this->settings['value'] ) . '" data-max-value="' . esc_html( $this->settings['max_value'] ) . '" placeholder="inherit" data-min-value="' . esc_html( $this->settings['min_value'] ) . '" data-step-value="' . esc_html( $this->settings['step_value'] ) . '">';
 				$html .= '<span class="cherry-stepper-controls"><em class="step-up" title="' . __( 'Step Up', 'cherry' ) . '">+</em><em class="step-down" title="' . __( 'Step Down', 'cherry' ) . '">-</em></span>';

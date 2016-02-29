@@ -258,6 +258,8 @@ if ( ! class_exists( 'cherry_breadcrumbs' ) ) {
 		 * @since  4.0.0
 		 */
 		public function default_labels() {
+			$default                = __( 'Home', 'cherry' );
+			$page_on_front_title    = $default;
 			$page_on_front_id       = get_option( 'page_on_front' );
 			$use_custom_front_title = cherry_get_option( 'breadcrumbs-home-title', 'true' );
 			$use_custom_front_title = ( 'true' == $use_custom_front_title ) ? true : false;

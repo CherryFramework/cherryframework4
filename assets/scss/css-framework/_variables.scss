@@ -4,6 +4,8 @@
 
 
 //== Colors
+//
+//##
 
 $brand-primary:         darken(#428bca, 6.5%) !default;
 
@@ -13,6 +15,8 @@ $link-hover-decoration: underline !default;
 
 
 //== Typography
+//
+//##
 
 $font-size-base:          14px !default;//bootstrap-default
 $font-size-large:         ceil(($font-size-base * 1.25)) !default; //bootstrap-default
@@ -24,6 +28,8 @@ $line-height-base:        1.428571429 !default; // 20/14
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 $line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
 
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
 
 
 //== Components
@@ -218,9 +224,25 @@ $container-lg:                 $container-large-desktop !default;
 
 
 //== Blog
+//
+//##
 
 $primary-area-width:            75%;
 $sidebar-main-width:            23%;
 $sidebar-secondary-width:       18%;
 // When set a two sidebars.
 $content-sidebar-wrapper-width: 80%;
+
+
+//== Code
+//
+//##
+
+$code-color:                  #c7254e !default;
+$code-bg:                     #f9f2f4 !default;
+
+$kbd-color:                   #fff !default;
+$kbd-bg:                      #333 !default;
+
+$pre-bg:                      #f5f5f5 !default;
+$pre-border-color:            #ccc !default;

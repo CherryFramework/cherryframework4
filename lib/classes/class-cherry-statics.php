@@ -181,7 +181,7 @@ class Cherry_Statics {
 	 * @param  array $args                      Static Options.
 	 */
 	public static function register_static( $args = array() ) {
-		global $cherry_registered_statics;
+		global $cherry_registered_static_areas, $cherry_registered_statics;
 
 		$i = count( $cherry_registered_statics ) + 1;
 
@@ -202,6 +202,7 @@ class Cherry_Statics {
 				'col-md'   => '',
 				'col-lg'   => '',
 				'class'    => '',
+				'area'     => '',
 				'collapse' => false,
 			),
 			'conditions' => array(
@@ -215,7 +216,7 @@ class Cherry_Statics {
 		$static['options'] = $options;
 		$id                = strtolower( $static['id'] );
 
-		if ( ! isset( $static['options']['position'] )) {
+		if ( ! isset( $static['options']['position'] ) ) {
 			$static['options'] = wp_parse_args( $static['options'], array( 'position' => $i ) );
 		}
 
@@ -228,6 +229,10 @@ class Cherry_Statics {
 		}
 
 		$static['callback'] = $callback;
+
+		if ( ! self::is_registered_area( $static['options']['area'] ) ) {
+			$static['options']['area'] = 'available-statics';
+		}
 
 		if ( ! isset( $cherry_registered_statics[ $id ] ) ) {
 
@@ -522,13 +527,19 @@ class Cherry_Statics {
 	 * Whether a static area is in use (not empty).
 	 *
 	 * @since  4.0.0
+	 * @global array $cherry_registered_static_areas Registered static areas.
 	 * @param  mixed $index         Static area id.
 	 * @param  mixed $saved_statics Saved static options.
 	 * @return bool                 True if the static area is in use, false otherwise.
 	 */
 	public static function is_active_static_area( $index, $saved_statics ) {
+		global $cherry_registered_statics;
 
 		foreach ( $saved_statics as $id => $static ) :
+
+			if ( empty( $cherry_registered_statics[ $id ] ) ) {
+				continue;
+			}
 
 			if ( ! isset( $static['options']['area'] ) ) {
 				continue;
@@ -538,9 +549,11 @@ class Cherry_Statics {
 				continue;
 			}
 
-			if ( true === self::is_visible_static( $static ) ) {
-				self::$visible_statics[ $static['options']['area'] ][] = $static['id'];
+			if ( true !== self::is_visible_static( $static ) ) {
+				continue;
 			}
+
+			self::$visible_statics[ $static['options']['area'] ][] = $static['id'];
 
 		endforeach;
 
@@ -745,6 +758,20 @@ class Cherry_Statics {
 		 * @param array $static Static options.
 		 */
 		return apply_filters( 'cherry_is_visible_static', $result, $static );
+	}
+
+	/**
+	 * Check if static area are registered.
+	 *
+	 * @since  4.0.6
+	 * @global array   $cherry_registered_statics Registered statics.
+	 * @param  string  $id                        Area ID.
+	 * @return boolean
+	 */
+	public static function is_registered_area( $id ) {
+		global $cherry_registered_static_areas;
+
+		return isset( $cherry_registered_static_areas[ $id ] ) ? true : false;
 	}
 
 	/**

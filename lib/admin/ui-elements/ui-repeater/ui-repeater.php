@@ -98,7 +98,7 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 								$html .= '</div>';
 
 								$value = ! empty( $handleArray['network-id'] ) ? $handleArray['network-id'] : 'network-' . $count;
-								$html .= '<input name="' . $this->settings['name'] . '[' . $count . '][network-id]" type="hidden" value="' . $value . '">';
+								$html .= '<input class="network-id" name="' . $this->settings['name'] . '[' . $count . '][network-id]" type="hidden" value="' . $value . '">';
 
 								$html .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
 							$html .= '</div>';

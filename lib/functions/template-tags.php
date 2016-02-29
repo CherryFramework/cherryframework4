@@ -272,10 +272,6 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 			);
 		}
 
-		if ( empty( $tax_query ) ) {
-			break;
-		}
-
 		if ( 1 < count( $tax_query ) ) {
 			$tax_query = array_merge( array( 'relation' => $args['relation'] ), $tax_query );
 		}
@@ -306,18 +302,17 @@ function cherry_get_related_post_list( $args = array(), $post_id = null ) {
 
 		preg_match( '/^(\w+)\W+(\w+)/i', get_the_title( $post_id ), $matches );
 
-		if ( ! is_array( $matches ) ) {
-			break;
-		}
-
 		$search_request = '';
 
-		if ( isset( $matches[1] ) ) {
-			$search_request .= $matches[1];
-		}
+		if ( is_array( $matches ) ) {
 
-		if ( isset( $matches[2] ) ) {
-			$search_request .= ' ' . $matches[2];
+			if ( isset( $matches[1] ) ) {
+				$search_request .= $matches[1];
+			}
+
+			if ( isset( $matches[2] ) ) {
+				$search_request .= ' ' . $matches[2];
+			}
 		}
 
 		$search_args = array_merge(

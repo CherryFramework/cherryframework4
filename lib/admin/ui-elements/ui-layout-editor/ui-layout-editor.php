@@ -55,6 +55,7 @@ if ( ! class_exists( 'UI_Layout_Editor' ) ) {
 					'height'	=> '',
 				),
 			),
+			'label'			=> '',
 			'class'			=> '',
 		);
 
@@ -79,6 +80,9 @@ if ( ! class_exists( 'UI_Layout_Editor' ) ) {
 		public function render() {
 			$html = '';
 
+			if( '' !== $this->settings['label'] ){
+				$html .= '<label class="cherry-label" for="' . $this->settings['id'] . '">' . $this->settings['label'] . '</label> ';
+			}
 			$html .= '<div id="' . $this->settings['id'] . '" class="cherry-layout-editor-wrap ' . $this->settings['class'] . '">';
 				$html .= '<div class="cherry-layout-editor-inner">';
 					$html .= '<input class="ui-layout-editor-input input-top" name="' . $this->settings['name'] . '[position][top]" type="text" placeholder="-" value="' . esc_html( $this->settings['value']['position']['top'] ) . '">';
