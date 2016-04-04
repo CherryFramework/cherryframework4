@@ -32,18 +32,25 @@ if ( ! class_exists( 'Cherry_Theme_Update' ) ) {
 		 * @param  array $attr Input attributes array.
 		 * @return void
 		 */
-		public function init( $attr = array() ){
-			if ( @constant ( 'CHERRY_UPDATE' ) !== false ) {
-				$this->base_init( $attr );
+		public function init( $attr = array() ) {
 
-				/**
-				 * Need for test update - set_site_transient( 'update_plugins', null );
-				 */
-
-				add_action( 'pre_set_site_transient_update_themes', array( $this, 'update' ), 99, 1 );
-				add_filter( 'upgrader_source_selection', array( $this, 'rename_github_folder' ), 11, 3 );
-				add_filter( 'wp_prepare_themes_for_js', array( $this, 'change_details_url' ) );
+			if ( ! defined( 'CHERRY_UPDATE' ) ) {
+				return;
 			}
+
+			if ( false === CHERRY_UPDATE ) {
+				return;
+			}
+
+			$this->base_init( $attr );
+
+			/**
+			 * Need for test update - set_site_transient( 'update_plugins', null );
+			 */
+
+			add_action( 'pre_set_site_transient_update_themes', array( $this, 'update' ), 99, 1 );
+			add_filter( 'upgrader_source_selection', array( $this, 'rename_github_folder' ), 11, 3 );
+			add_filter( 'wp_prepare_themes_for_js', array( $this, 'change_details_url' ) );
 		}
 
 		/**
