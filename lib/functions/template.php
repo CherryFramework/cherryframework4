@@ -263,20 +263,23 @@ function cherry_get_sidebar( $name = null ) {
 		return;
 	}
 
-	$_name = $name . '-' . cherry_template_base();
-
 	$templates   = array();
-	$templates[] = "{$_name}.php";
-	$templates[] = "sidebar/{$_name}.php";
-	$templates[] = "{$name}.php";
-	$templates[] = "sidebar/{$name}.php";
-	$templates[] = 'sidebar.php';
-	$templates[] = 'sidebar/sidebar.php';
 
-	$template_path = locate_template( $templates );
+	if ( $name ) {
+		$_name       = $name . '-' . cherry_template_base();
+		$templates[] = "{$_name}.php";
+		$templates[] = "sidebar/{$_name}.php";
+		$templates[] = "{$name}.php";
+		$templates[] = "sidebar/{$name}.php";
+	}
+
+	$templates[] = 'sidebar/sidebar.php';
+	$templates[] = 'sidebar.php';
+
+	$template_path = locate_template( $templates, false, false );
 
 	if ( '' !== $template_path ) {
-		load_template( $template_path );
+		require( $template_path );
 		return;
 	}
 
