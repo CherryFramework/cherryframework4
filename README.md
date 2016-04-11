@@ -17,7 +17,9 @@ You can learn more about Cherry Framework 4 features from the [official document
 
 #### v4.0.5.2 ####
 
+* ADD: sidebar templates (WordPress 4.5 compatibility)
 * ADD: hooks in `comments.php` template
+* FIX: php-notice that showing after `query-monitor` plugin update
 * FIX: UI-repeater element
 * FIX: PHP7 compatibility
 * FIX: static registration if area in params are not exists
