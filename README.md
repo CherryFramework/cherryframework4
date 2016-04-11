@@ -15,6 +15,27 @@ You can learn more about Cherry Framework 4 features from the [official document
 
 ##Change log##
 
+#### v4.0.5.2 ####
+
+* ADD: sidebar templates (WordPress 4.5 compatibility)
+* ADD: hooks in `comments.php` template
+* FIX: php-notice that showing after `query-monitor` plugin update
+* FIX: UI-repeater element
+* FIX: PHP7 compatibility
+* FIX: static registration if area in params are not exists
+* FIX: breadcrumbs on front page with latest post
+* FIX: marker for aside post format
+* FIX: set `post` context for WooCommerce shop archive and taxonomies
+* FIX: inherit `Grid Type`, `Layout` etc. options for category pages
+* FIX: init option to select main motoslider in static
+* UPD: improved basic styles
+* UPD: languages files
+* UPD: `Header Sidebar` and `Footer Sidebars` statics behavior
+
+#### v4.0.5.1 ####
+
+* FIX: Stop using a native function `the_post_navigation` - absence a important CSS-class `.paging-navigation`
+
 #### v4.0.5 ####
 
 * ADD: class `Cherry_Current_Page` to store and quick access to page specific data
