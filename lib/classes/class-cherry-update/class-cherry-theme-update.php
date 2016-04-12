@@ -34,11 +34,7 @@ if ( ! class_exists( 'Cherry_Theme_Update' ) ) {
 		 */
 		public function init( $attr = array() ) {
 
-			if ( ! defined( 'CHERRY_UPDATE' ) ) {
-				return;
-			}
-
-			if ( false === CHERRY_UPDATE ) {
+			if ( defined( 'CHERRY_UPDATE' ) && false === CHERRY_UPDATE ) {
 				return;
 			}
 
