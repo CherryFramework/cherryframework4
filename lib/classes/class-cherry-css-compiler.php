@@ -463,7 +463,7 @@ if ( ! class_exists( 'cherry_css_compiler' ) ) {
 
 			$data = ob_get_clean();
 
-			$user_css = cherry_get_option( 'general-user-css' );
+			$user_css = apply_filters( 'cherry_dynamic_user_css', html_entity_decode( wp_unslash( (string) cherry_get_option( 'general-user-css' ) ) ) );
 
 			if ( $user_css ) {
 				$data .= $user_css;
