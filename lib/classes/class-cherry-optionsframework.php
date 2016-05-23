@@ -227,13 +227,6 @@ if ( !class_exists( 'Cherry_Options_Framework' ) ) {
 										$options[$section_name]['options-list'][$key] = $check_value;
 									}
 									break;
-								case 'repeater':
-									if ( isset( $post_array[ $key ] ) ) {
-										$options[$section_name]['options-list'][$key] = $post_array[$key];
-									}else{
-										$options[$section_name]['options-list'][$key] = array();
-									}
-								break;
 								default:
 									if (isset($post_array[$key])) {
 										$options[$section_name]['options-list'][$key] = $post_array[$key];
