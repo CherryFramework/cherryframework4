@@ -57,6 +57,10 @@ add_filter( 'media_send_to_editor', 'cherry_add_popup_classes_to_media', 10, 3 )
 // Add mobile menu trigger to `Primary` nav menu.
 add_filter( 'wp_nav_menu', 'cherry_add_mobile_menu_trigger', 10, 2 );
 
+// Removed a live chats.
+remove_filter( 'after_setup_theme', array( 'Cherry_Live_Chat_Class',    'get_instance' ), 11 );
+remove_filter( 'after_setup_theme', array( 'Monstroid_Live_Chat_Class', 'get_instance' ), 11 );
+
 
 function cherry_add_body_control_classes( $classes, $class ) {
 
