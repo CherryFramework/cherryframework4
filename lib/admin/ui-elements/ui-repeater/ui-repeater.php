@@ -70,15 +70,15 @@ if ( ! class_exists( 'UI_Repeater' ) ) {
 				$html .= '<div class="cherry-repeater-item-list">';
 					$html .= '<div class="cherry-repeater-dublicate-item">';
 						$html .= '<div class="col">';
-							$html .= '<input class="' . $this->settings['class'] . 'external-link" name="" type="text" placeholder="' . __( 'External link', 'cherry' ) . '" value="">';
+							$html .= '<input class="' . $this->settings['class'] . 'external-link" name="' . $this->settings['name'] . '" type="text" placeholder="' . __( 'External link', 'cherry' ) . '" value="">';
 						$html .= '</div>';
 						$html .= '<div class="col">';
-							$html .= '<input class="' . $this->settings['class'] . 'font-class" name="" type="text" placeholder="' . __( 'Font class', 'cherry' ) . '" value="">';
+							$html .= '<input class="' . $this->settings['class'] . 'font-class" name="' . $this->settings['name'] . '" type="text" placeholder="' . __( 'Font class', 'cherry' ) . '" value="">';
 						$html .= '</div>';
 						$html .= '<div class="col">';
-							$html .= '<input class="' . $this->settings['class'] . 'link-label" name="" type="text" placeholder="' . __( 'Link label', 'cherry' ) . '" value="">';
+							$html .= '<input class="' . $this->settings['class'] . 'link-label" name="' . $this->settings['name'] . '" type="text" placeholder="' . __( 'Link label', 'cherry' ) . '" value="">';
 						$html .= '</div>';
-						$html .= '<input class="' . $this->settings['class'] . 'network-id" name="" type="hidden" value="">';
+						$html .= '<input class="' . $this->settings['class'] . 'network-id" name="' . $this->settings['name'] . '" type="hidden" value="">';
 
 						$html .= '<div class="repeater-delete-button-holder"><a class="repeater-delete-button" href="javascript:void(0);"><i class="dashicons dashicons-trash"></i></a></div>';
 					$html .= '</div>';

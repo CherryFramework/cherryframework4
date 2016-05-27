@@ -53,10 +53,10 @@ if ( ! class_exists( 'UI_Ace_Editor' ) ) {
 			}
 			$html .= '<div class="ace-editor-wrapper ' . $this->settings['class'] . '">';
 				$html .= '<textarea id="' . $this->settings['id'] . '-textarea" class="ace-editor" name="' . $this->settings['name'] . '" data-editor="' . $this->settings['id'] . '-editor" data-editor-mode="css" data-editor-theme="monokai">';
-					$html .= $this->settings['value'];
+					$html .= stripslashes( $this->settings['value'] );
 				$html .= '</textarea>';
 				$html .= '<pre id="' . $this->settings['id'] . '-editor" class="ace-editor-area">';
-					$html .= htmlspecialchars( $this->settings['value'] );
+					$html .= stripslashes( $this->settings['value'] );
 				$html .= '</pre>';
 			$html .= '</div>';
 
