@@ -610,6 +610,8 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			if( 'cherry_page_options' === $hook_suffix ){
 				wp_dequeue_style('yit-plugin-style');
 				wp_dequeue_style('woocommerce_admin_styles');
+				wp_dequeue_script( 'wc-enhanced-select' );
+				wp_deregister_script( 'select2' );
 			}
 		}
 
