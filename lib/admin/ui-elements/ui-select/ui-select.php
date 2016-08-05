@@ -131,8 +131,8 @@ if ( ! class_exists( 'UI_Select' ) ) {
 		 */
 		public static function get_current_file_url() {
 			$assets_url = dirname( __FILE__ );
-			$site_url = site_url();
-			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
+			$site_url = site_url() . WP_CONTENT_URL;
+			$assets_url = str_replace( untrailingslashit( WP_CONTENT_DIR ), $site_url, $assets_url );
 			$assets_url = str_replace( '\\', '/', $assets_url );
 
 			return $assets_url;
