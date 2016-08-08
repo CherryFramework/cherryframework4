@@ -48,6 +48,10 @@ add_filter( 'cherry_pre_get_the_post_audio',     'cherry_option_post_audio',    
 add_filter( 'cherry_pre_get_the_post_video',     'cherry_option_post_video',     10, 2 );
 add_filter( 'cherry_pre_get_the_post_avatar',    'cherry_option_post_avatar',    10, 2 );
 
+// Removed a live chats.
+remove_filter( 'after_setup_theme', array( 'Cherry_Live_Chat_Class',    'get_instance' ), 11 );
+remove_filter( 'after_setup_theme', array( 'Monstroid_Live_Chat_Class', 'get_instance' ), 11 );
+
 // Add favicon tags to page
 add_action( 'wp_head', 'cherry_favicon_tags' );
 
