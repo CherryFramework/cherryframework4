@@ -686,11 +686,9 @@ class Cherry_Statics {
 						break;
 					case 'role':
 						if( is_user_logged_in() ) {
-							global $current_user;
 
-							get_currentuserinfo();
-
-							$user_roles = $current_user->roles;
+							$current_user = wp_get_current_user();
+							$user_roles   = isset( $current_user->roles ) ? $current_user->roles : array();
 
 							if( in_array( $rule['minor'], $user_roles ) ) {
 								$condition_result = true;
