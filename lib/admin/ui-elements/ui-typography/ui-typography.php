@@ -286,7 +286,8 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		 * @since  4.0.0
 		 */
 		public function get_font_variants( $id, $name, $value, $font ){
-			$variants = array();
+			$variants       = array();
+			$variants_array = array();
 
 			$value = isset( $value ) ? $value : 'regular';
 
@@ -427,94 +428,165 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		 * Retrieve a list of available Standart fonts.
 		 *
 		 * @since  4.0.0
+		 * @since  4.0.5.6 Changed reading entire file into a string.
 		 * @return array
 		 */
 		private function get_standart_font() {
 
-			if ( empty( $this->standart_font ) ) {
-				// Get cache.
-
-				$fonts = get_transient( 'cherry_standart_fonts' );
-				if ( false === $fonts ) {
-
-					if ( !function_exists( 'WP_Filesystem' ) ) {
-						include_once( ABSPATH . '/wp-admin/includes/file.php' );
-					}
-
-					WP_Filesystem();
-					global $wp_filesystem;
-
-					if ( !$wp_filesystem->exists( self::get_font_path(). '/assets/fonts/standard-fonts.json' ) ) { // Check for existence.
-						return false;
-					}
-
-					// Read the file.
-					$json = $wp_filesystem->get_contents( self::get_font_path(). '/assets/fonts/standard-fonts.json' );
-					if ( !$json ) {
-						return new WP_Error( 'reading_error', 'Error when reading file' ); // Return error object.
-					}
-
-					$content = json_decode( $json, true );
-					$fonts   = $content['items'];
-					// Set cache.
-					set_transient( 'cherry_standart_fonts', $fonts, WEEK_IN_SECONDS );
-				}
-				$this->standart_font = $fonts;
+			if ( ! empty( $this->standart_font ) ) {
+				return $this->standart_font;
 			}
+
+			// Get cache.
+			$fonts = get_transient( 'cherry_standart_fonts' );
+
+			if ( false === $fonts ) {
+
+				$file = self::get_font_path(). '/assets/fonts/standard-fonts.json';
+
+				if ( ! $this->file_exists( $file ) ) {
+					return false;
+				}
+
+				// Read the file.
+				$json = $this->get_file( $file );
+
+				if ( ! $json ) {
+					return new WP_Error( 'reading_error', 'Error when reading file' );
+				}
+
+				$content = json_decode( $json, true );
+				$fonts   = $content['items'];
+
+				// Set cache.
+				set_transient( 'cherry_standart_fonts', $fonts, WEEK_IN_SECONDS );
+			}
+
+			$this->standart_font = $fonts;
 
 			return $this->standart_font;
 		}
+
 		/**
 		 * Retrieve a list of available Google web fonts.
 		 *
 		 * @since  4.0.0
+		 * @since  4.0.5.6 Changed reading entire file into a string.
 		 * @return array
 		 */
 		private function get_google_font() {
-			if ( empty( $this->google_font ) ) {
-				// Get cache.
-				$fonts = get_transient( 'cherry_google_fonts' );
 
-				if ( false === $fonts ) {
-					if ( !function_exists( 'WP_Filesystem' ) ) {
-						include_once( ABSPATH . '/wp-admin/includes/file.php' );
-					}
+			if ( ! empty( $this->google_font ) ) {
+				return $this->google_font;
+			}
 
-					WP_Filesystem();
-					global $wp_filesystem;
+			// Get cache.
+			$fonts = get_transient( 'cherry_google_fonts' );
 
-					if ( !$wp_filesystem->exists( self::get_font_path(). '/assets/fonts/google-fonts.json' ) ) { // Check for existence.
-						return false;
-					}
+			if ( false === $fonts ) {
 
-					// Read the file.
-					$json = $wp_filesystem->get_contents( self::get_font_path(). '/assets/fonts/google-fonts.json' );
+				$file = self::get_font_path(). '/assets/fonts/google-fonts.json';
 
-					if ( !$json ) {
-						return new WP_Error( 'reading_error', 'Error when reading file' ); // Return error object.
-					}
-
-					$content = json_decode( $json, true );
-					$fonts   = $content['items'];
-
-					// Set cache.
-					set_transient( 'cherry_google_fonts', $fonts, WEEK_IN_SECONDS );
+				if ( ! $this->file_exists( $file ) ) {
+					return false;
 				}
 
-				$this->google_font = $fonts;
+				// Read the file.
+				$json = $this->get_file( $file );
+
+				if ( ! $json ) {
+					return new WP_Error( 'reading_error', 'Error when reading file' );
+				}
+
+				$content = json_decode( $json, true );
+				$fonts   = $content['items'];
+
+				// Set cache.
+				set_transient( 'cherry_google_fonts', $fonts, WEEK_IN_SECONDS );
 			}
+
+			$this->google_font = $fonts;
 
 			return $this->google_font;
 		}
 
 		/**
+		 * Safely checks exists file or not.
+		 *
+		 * @since  4.0.5.6
+		 * @global object $wp_filesystem
+		 * @param  string $file File path.
+		 * @return bool
+		 */
+		public function file_exists( $file ) {
+
+			if ( ! function_exists( 'WP_Filesystem' ) ) {
+				include_once( ABSPATH . '/wp-admin/includes/file.php' );
+			}
+
+			WP_Filesystem();
+			global $wp_filesystem;
+
+			if ( $wp_filesystem->abspath() ) {
+				return $wp_filesystem->exists( $file );
+			} else {
+				return file_exists( $file );
+			}
+		}
+
+		/**
+		 * Safely get file content.
+		 *
+		 * @global object $wp_filesystem
+		 * @param  string $file File path.
+		 * @return bool
+		 */
+		public function get_file( $file ) {
+
+			if ( ! function_exists( 'WP_Filesystem' ) ) {
+				include_once( ABSPATH . '/wp-admin/includes/file.php' );
+			}
+
+			WP_Filesystem();
+			global $wp_filesystem;
+
+			$result = '';
+
+			if ( $wp_filesystem->abspath() ) {
+				$result = $wp_filesystem->get_contents( $file );
+			} else {
+				$result = self::get_contents( $file );
+			}
+
+			return $result;
+		}
+
+		/**
+		 * Safely get file content by path
+		 *
+		 * @since  4.0.5.6
+		 * @param  string $filepath Path to file.
+		 * @return mixed
+		 */
+		public static function get_contents( $filepath ) {
+
+			if ( ! file_exists( $filepath ) ) {
+				return false;
+			}
+
+			ob_start();
+			include $filepath;
+			return ob_get_clean();
+		}
+
+		/**
 		 * Get current file URL
 		 *
-		 * @since  4.0.0
+		 * @since 4.0.0
 		 */
 		public static function get_current_file_url() {
 			$assets_url = dirname( __FILE__ );
-			$site_url = site_url();
+			$site_url   = site_url();
 			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
 			$assets_url = str_replace( '\\', '/', $assets_url );
 
@@ -524,21 +596,16 @@ if ( ! class_exists( 'UI_Typography' ) ) {
 		/**
 		 * Get current file URL
 		 *
-		 * @since  4.0.0
+		 * @since 4.0.0
 		 */
 		public static function get_font_path() {
-			$assets_url = dirname( __FILE__ );
-			/*$site_url = site_url();
-			$assets_url = str_replace( untrailingslashit( ABSPATH ), $site_url, $assets_url );
-			$assets_url = str_replace( '\\', '/', $assets_url );*/
-
 			return dirname( __FILE__ );
 		}
 
 		/**
 		 * Enqueue javascript and stylesheet UI_Typography
 		 *
-		 * @since  4.0.0
+		 * @since 4.0.0
 		 */
 		public static function enqueue_assets(){
 			wp_enqueue_script(
