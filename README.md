@@ -13,7 +13,7 @@ From the box Cherry Framework 4 offers:
 
 You can learn more about Cherry Framework 4 features from the [official documentation](http://www.cherryframework.com/documentation/cf4/).
 
-##Change log##
+## Change log ##
 
 #### v4.0.5.2 ####
 
