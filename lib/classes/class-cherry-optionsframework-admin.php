@@ -238,25 +238,32 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 		 *
 		 * @since 4.0.0
 		 */
-		function cherry_partial_export_url(){
-			if ( !empty( $_POST ) && array_key_exists( 'export_array', $_POST ) && array_key_exists( '_wpnonce', $_POST ) && array_key_exists( 'use_statics', $_POST ) ) {
-				$export_array = $_POST['export_array'];
+		function cherry_partial_export_url() {
+
+			if ( ! empty( $_POST ) && array_key_exists( '_wpnonce', $_POST ) ) {
+
 				$_wpnonce = $_POST['_wpnonce'];
-				$use_statics = $_POST['use_statics'];
-
-				$result_array = array();
-
 				$validate = check_ajax_referer( 'cherry_partial_export', $_wpnonce, false );
+
 				if ( ! $validate ) {
 					wp_die( __( 'Invalid request', 'cherry' ), __( 'Error. Invalid request', 'cherry' ) );
 				}
 
-				$result_array['options'] = $export_array;
+				$result_array = array();
 
-				$cherry_options_settings = get_option('cherry-options');
-				$current_statics = get_option( $cherry_options_settings['id'] . '_statics' );
-				if( isset( $current_statics ) && !empty( $current_statics ) && 'true' == $use_statics ){
-					$result_array['statics'] = $current_statics;
+				if ( ! empty( $_POST['export_array'] ) ) {
+					$result_array['options'] = $_POST['export_array'];
+				}
+
+				if ( ! empty( $_POST['use_statics'] ) ) {
+					$use_statics = $_POST['use_statics'];
+
+					$cherry_options_settings = get_option( 'cherry-options' );
+					$current_statics         = get_option( $cherry_options_settings['id'] . '_statics' );
+
+					if ( isset( $current_statics ) && ! empty( $current_statics ) && 'true' == $use_statics ) {
+						$result_array['statics'] = $current_statics;
+					}
 				}
 
 				set_transient( 'cherry_partial_export_array', $result_array, HOUR_IN_SECONDS );
@@ -369,7 +376,7 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 
 			$result = array();
 
-			$import_options = isset( $import_options['options'] ) ? $import_options['options'] : $import_options ;
+			$import_options = isset( $import_options['options'] ) ? $import_options['options'] : $import_options;
 
 			foreach ( $current_options as $section => $data ) {
 				foreach ( $data['options-list'] as $opt => $val ) {
@@ -386,6 +393,10 @@ if ( !class_exists( 'Cherry_Options_Framework_Admin' ) ) {
 			}
 
 			update_option( $settings['id'], $result );
+
+			if ( ! empty( $import_options['statics'] ) ) {
+				update_option( $settings['id'] . '_statics', $import_options['statics'] );
+			}
 
 			wp_send_json( array( 'type' => 'success' ) );
 		}
