@@ -65,7 +65,7 @@ function cherry_get_footer( $name = null ) {
 	$templates = array();
 	$name      = (string) $name;
 
-	if ( '' !== $name ) {
+	if ( '' === $name ) {
 		$name = cherry_template_base();
 	}
 
