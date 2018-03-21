@@ -128,20 +128,20 @@ class cherry_enqueue_fonts {
 
 		foreach ( $this->fonts_data as $family => $data ) {
 			$styles = implode( ',', array_unique( $data['style'] ) );
-			$font_families[] = $family . ':' . $styles;
-			$subsets = array_merge( $subsets, $data['character'] );
+			$font_families[] = urlencode($family) . ':' . $styles;
+                        $subsets = array_merge( $subsets, array_filter($data['character']));
+                        
 		}
 
-		$subsets = array_unique( $subsets );
-
+		$subsets = array_unique( $subsets );                
 		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( implode( ',', $subsets ) ),
+			'family' => implode( '|', $font_families ),
+			'subset' => implode( ',', $subsets ),
 		);
 
-		$fonts_url = add_query_arg( $query_args, $this->fonts_host );
-
-		return $fonts_url;
+                $fonts_url = add_query_arg( $query_args, $this->fonts_host );
+                return trim($fonts_url);
+  
 	}
 
 	/**
